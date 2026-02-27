@@ -2,135 +2,106 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Media Center — Spirit Media" description="Press resources, media kit, testimonials, and news coverage featuring Spirit Media Publishing.">
-  <main id="main-content">
+<Layout
+	title="Media Center — Spirit Media"
+	description="The latest news, updates, and happenings from Spirit Media Publishing."
+>
+	<main id="main-content">
 
-    <!-- HERO -->
-    <section class="bg-red-600 text-white py-24 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-4">Media Center</p>
-        <h1 class="text-4xl md:text-5xl font-bold font-serif mb-6">Press Resources & Media Kit</h1>
-        <p class="text-lg md:text-xl text-red-100 leading-relaxed mb-8 max-w-2xl mx-auto">
-          Everything journalists, podcasters, event hosts, and media partners need to cover Spirit Media Publishing.
-        </p>
-        <a href="/contact" class="inline-block bg-white text-red-600 font-semibold px-6 py-3 rounded-md hover:bg-red-50 transition-colors">
-          Contact Our Press Team
-        </a>
-      </div>
-    </section>
+		<!-- HERO -->
+		<section class="bg-red-600 text-white py-24 px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-4">Media Center</p>
+				<h1 class="font-serif text-4xl sm:text-5xl font-bold leading-tight mb-6">
+					The Latest News, Updates, and Happenings
+				</h1>
+				<p class="text-xl text-red-100 max-w-2xl mx-auto leading-relaxed">
+					Stay current with what Spirit Media and our authors are doing in the world.
+				</p>
+			</div>
+		</section>
 
-    <!-- ABOUT SPIRIT MEDIA (FOR PRESS) -->
-    <section class="bg-white py-20 px-4">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif text-gray-900 mb-6">About Spirit Media Publishing</h2>
-        <p class="text-gray-700 leading-relaxed">
-          Spirit Media Publishing is a faith-driven publishing and marketing company headquartered in Cary, North Carolina. Founded by Kevin and Shelly White, Spirit Media exists to equip Kingdom Messengers with the tools, strategy, and community they need to publish and multiply their God-given message. Spirit Media serves authors in all 50 states and has distributed books globally across 195+ countries.
-        </p>
-      </div>
-    </section>
+		<!-- WATCH ON YOUTUBE -->
+		<section class="bg-white py-20 px-4">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-12">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3">Watch</p>
+					<h2 class="font-serif text-3xl font-bold text-gray-900">
+						Spirit Media on YouTube
+					</h2>
+				</div>
+				<div class="bg-gray-900 rounded-2xl overflow-hidden shadow-xl">
+					<div class="aspect-video flex items-center justify-center">
+						<a
+							href="https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group flex flex-col items-center gap-4"
+							aria-label="Watch Spirit Media on YouTube"
+						>
+							<span class="flex h-20 w-20 items-center justify-center rounded-full bg-red-600 shadow-lg transition-transform group-hover:scale-110">
+								<svg class="h-8 w-8 translate-x-0.5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M8 5v14l11-7z"/>
+								</svg>
+							</span>
+							<span class="text-sm font-medium text-gray-400">Watch on YouTube</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- KEY FACTS -->
-    <section class="bg-gray-50 py-20 px-4">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif text-gray-900 mb-12 text-center">Key Facts</h2>
+		<!-- PRESS & MEDIA -->
+		<section class="bg-gray-50 py-20 px-4">
+			<div class="max-w-7xl mx-auto">
+				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-12 text-center">
+					Media Resources
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="bg-white rounded-xl p-6 text-center">
+						<div class="text-4xl mb-4">📰</div>
+						<h3 class="font-semibold text-gray-900 mb-2">Press Releases</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Distributed domestically and internationally through PR Newswire.
+						</p>
+					</div>
+					<div class="bg-white rounded-xl p-6 text-center">
+						<div class="text-4xl mb-4">🎙️</div>
+						<h3 class="font-semibold text-gray-900 mb-2">Podcast</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Weekly episodes celebrating Kingdom authors and their books.
+						</p>
+					</div>
+					<div class="bg-white rounded-xl p-6 text-center">
+						<div class="text-4xl mb-4">📸</div>
+						<h3 class="font-semibold text-gray-900 mb-2">Media Kit</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							For press inquiries, contact us at
+							<a href="mailto:hello@spiritmedia.us" class="text-red-600 hover:underline">hello@spiritmedia.us</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-            <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-2">Founded</p>
-            <p class="text-4xl font-bold text-red-600">2015</p>
-          </div>
-          <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-            <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-2">Headquarters</p>
-            <p class="text-4xl font-bold text-red-600">Cary, NC</p>
-          </div>
-          <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-            <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-2">Authors Served</p>
-            <p class="text-4xl font-bold text-red-600">500+</p>
-          </div>
-        </div>
+		<!-- CTA -->
+		<section class="bg-navy-950 text-white py-20 px-4">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="font-serif text-3xl font-bold mb-4">Want to Be Featured?</h2>
+				<p class="text-gray-300 text-lg leading-relaxed mb-8">
+					Publish your book with Spirit Media and get featured in our media catalog, podcast,
+					and email marketing.
+				</p>
+				<a
+					href="https://spiritmedia.us/request-a-call/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-red-700 transition-colors"
+				>
+					Request a Call
+				</a>
+			</div>
+		</section>
 
-        <div class="max-w-3xl mx-auto bg-white rounded-xl p-8 shadow-sm">
-          <ul class="space-y-3 text-gray-700 leading-relaxed">
-            <li class="flex items-start gap-3">
-              <span class="text-red-600 font-bold mt-0.5">—</span>
-              <span>Full-service publishing and marketing company</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-600 font-bold mt-0.5">—</span>
-              <span>Specializes in Kingdom and Christian authors</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-600 font-bold mt-0.5">—</span>
-              <span>eBook distribution to 40+ major retailers worldwide</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-600 font-bold mt-0.5">—</span>
-              <span>Sister programs: Father's Heart Bible, Kingdom Messenger Collective, Work On Yourself</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-600 font-bold mt-0.5">—</span>
-              <span>Contact: hello@spiritmedia.us / 1-888-800-3744</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESOURCES FOR MEDIA -->
-    <section class="bg-white py-20 px-4">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif text-gray-900 mb-12 text-center">Media Resources</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-          <div class="bg-gray-50 rounded-xl p-6 shadow-sm flex flex-col">
-            <div class="text-red-600 text-2xl mb-3">🖼️</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Company Logo & Brand Assets</h3>
-            <p class="text-gray-700 leading-relaxed text-sm mb-6 flex-1">
-              High-resolution logos and brand guidelines for media use.
-            </p>
-            <a href="/contact" class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-center">
-              Request Assets
-            </a>
-          </div>
-
-          <div class="bg-gray-50 rounded-xl p-6 shadow-sm flex flex-col">
-            <div class="text-red-600 text-2xl mb-3">👤</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Leadership Bios</h3>
-            <p class="text-gray-700 leading-relaxed text-sm mb-6 flex-1">
-              Full bios and headshots of Kevin and Shelly White for media profiles.
-            </p>
-            <a href="/contact" class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-center">
-              Request Bios
-            </a>
-          </div>
-
-          <div class="bg-gray-50 rounded-xl p-6 shadow-sm flex flex-col">
-            <div class="text-red-600 text-2xl mb-3">📰</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Press Inquiries</h3>
-            <p class="text-gray-700 leading-relaxed text-sm mb-6 flex-1">
-              For interview requests, speaking engagements, and media partnerships.
-            </p>
-            <a href="/contact" class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-center">
-              Contact Press Team
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- BOOKING KEVIN WHITE -->
-    <section class="bg-navy-950 text-white py-20 px-4 text-center">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif mb-6">Book Kevin White to Speak</h2>
-        <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-          Kevin White is available for podcasts, conferences, church services, and leadership events. To inquire about booking, please contact our team.
-        </p>
-        <a href="/contact" class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors">
-          Inquire About Speaking
-        </a>
-      </div>
-    </section>
-
-  </main>
+	</main>
 </Layout>

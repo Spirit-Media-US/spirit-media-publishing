@@ -3,562 +3,417 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Spirit Media Publishing — Bringing Life to People who Feel Dead"
-  description="Empowering Believers to Publish Testimonies of God's Power to the Nations. eBook Publishing starting at $99."
+	title="Spirit Media Publishing — Heart. Message. Movement."
+	description="We develop Kingdom Messengers through soul care, publishing, and marketing — spreading Father's heart to all 195 nations."
 >
-  <main id="main-content">
+	<main id="main-content">
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         HERO
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-white px-6 py-20 sm:py-28 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+		<!-- ═══ HERO ═══ -->
+		<section class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+			<div class="mx-auto max-w-4xl text-center">
+				<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-4">
+					Welcome to Spirit Media!
+				</p>
+				<h1 class="font-serif text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+					Born from holy conviction.<br />
+					<span class="text-red-600">Built for global impact.</span>
+				</h1>
+				<p class="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-600">
+					We refuse small vision. We reveal the Father's heart for His beloved children, for
+					generations, and until the Good News bears fruit in every nation.
+				</p>
+				<p class="mt-4 max-w-2xl mx-auto text-base leading-7 text-gray-500">
+					We develop Kingdom Messengers by empowering them from
+					<strong class="text-gray-700">heart → message → movement.</strong>
+				</p>
+				<div class="mt-10 flex flex-wrap gap-4 justify-center">
+					<a
+						href="/about"
+						class="rounded-md border-2 border-red-600 bg-white px-6 py-3 text-sm font-semibold text-red-600 shadow-sm transition-colors hover:bg-red-50"
+					>
+						We Are Spirit Media
+					</a>
+					<a
+						href="https://spiritmedia.us/request-a-call/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="rounded-md bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700"
+					>
+						Request a Call
+					</a>
+				</div>
+			</div>
+		</section>
 
-          <!-- Left: copy -->
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">
-              Spirit Media Publishing
-            </p>
-            <h1 class="mt-4 font-serif text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-              Bringing Life to<br />
-              <span class="text-red-600">People who Feel Dead</span>
-            </h1>
-            <p class="mt-6 max-w-xl text-lg leading-8 text-gray-600">
-              Empowering Believers to Publish Testimonies of God's Power to the Nations.
-            </p>
-            <div class="mt-10 flex flex-wrap gap-4">
-              <a
-                href="/about"
-                class="rounded-md border-2 border-red-600 bg-white px-6 py-3 text-sm font-semibold text-red-600 shadow-sm transition-colors hover:bg-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-              >
-                We Are Spirit Media
-              </a>
-              <a
-                href="/contact"
-                class="rounded-md bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-              >
-                Request a Call
-              </a>
-            </div>
-          </div>
+		<!-- ═══ SCRIPTURE SECTION ═══ -->
+		<section class="bg-navy-950 px-6 py-16 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<blockquote>
+					<p class="font-serif text-xl sm:text-2xl font-medium italic leading-relaxed text-white">
+						"Publish Our Father's glorious deeds among the nations. Tell everyone about the amazing
+						things He does."
+					</p>
+					<cite class="mt-4 block text-sm font-semibold tracking-widest text-red-400 not-italic">
+						— Psalm 96:3 (FHB)
+					</cite>
+				</blockquote>
+			</div>
+		</section>
 
-          <!-- Right: book stack visual -->
-          <div class="flex justify-center lg:justify-end">
-            <div class="grid grid-cols-3 gap-3 sm:gap-4">
-              {
-                Array.from({ length: 9 }).map((_, i) => (
-                  <div
-                    class:list={[
-                      'aspect-[2/3] w-20 sm:w-24 rounded shadow-lg ring-1 ring-gray-200',
-                      [
-                        'bg-red-700', 'bg-gray-800', 'bg-red-600',
-                        'bg-gray-700', 'bg-red-800', 'bg-gray-900',
-                        'bg-red-500', 'bg-gray-600', 'bg-red-700',
-                      ][i],
-                    ]}
-                  />
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+		<!-- ═══ MISSION STATEMENT ═══ -->
+		<section class="bg-gray-50 px-6 py-16 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-4">Our Mission</p>
+				<p class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 leading-snug">
+					Spirit Media is a Christian publishing and marketing family with a mission to reveal our
+					Father's heart to all
+					<span class="text-red-600">195 nations</span>
+					worldwide.
+				</p>
+			</div>
+		</section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         EBOOK PUBLISHING STARTING AT $99
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="border-y border-gray-100 bg-gray-50 px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+		<!-- ═══ EXCLUSIVE HOME OF (BRAND CARDS) ═══ -->
+		<section class="bg-white px-6 py-20 lg:px-8">
+			<div class="mx-auto max-w-7xl">
+				<div class="text-center mb-12">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3">
+						Exclusive Home of
+					</p>
+					<h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl">
+						Our Brands &amp; Programs
+					</h2>
+				</div>
 
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-widest text-red-600">Publishing</p>
-            <h2 class="mt-2 font-serif text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              eBook Publishing<br />
-              <span class="text-red-600">Starting at $99</span>
-            </h2>
-            <p class="mt-4 text-base leading-7 text-gray-600">
-              With over 1 Billion users worldwide, eBooks are the fastest growing format in the
-              publishing industry. Print books are a viable option for serious authors. Spirit Media
-              offers publishing accessible for ALL authors.
-            </p>
-            <a
-              href="/publishing"
-              class="mt-6 inline-flex items-center gap-2 rounded-md bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700"
-            >
-              Learn More <span aria-hidden="true">→</span>
-            </a>
-          </div>
+				<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-          <!-- Distribution platform logos -->
-          <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
-            <p class="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-gray-400">
-              Distributed on all major platforms
-            </p>
-            <div class="grid grid-cols-3 gap-4 sm:grid-cols-6 lg:grid-cols-3 xl:grid-cols-6">
-              {
-                ['Amazon', 'Kindle', 'Apple Books', 'Kobo', 'Barnes & Noble', 'Google Play'].map(
-                  (platform) => (
-                    <div class="flex items-center justify-center rounded-lg bg-gray-50 px-3 py-4 ring-1 ring-gray-100">
-                      <span class="text-center text-[10px] font-semibold leading-tight text-gray-500">
-                        {platform}
-                      </span>
-                    </div>
-                  ),
-                )
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+					<!-- FHB -->
+					<div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+						<div class="text-3xl mb-3">📖</div>
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-2">
+							Father's Heart Bible™ (FHB)
+						</p>
+						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">
+							An intimate translation revealing our Father's heart to a fatherless generation.
+						</h3>
+						<p class="text-sm text-gray-600 leading-relaxed mb-5">
+							One message for every reader: "Come home. You belong to Me. You are My beloved
+							child." Each gift of $100 places three Father's Heart Bibles into the hands of
+							readers worldwide.
+						</p>
+						<a
+							href="https://fathersheartbible.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-block bg-red-600 text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-red-700 transition-colors"
+						>
+							Visit FathersHeartBible.com →
+						</a>
+					</div>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         BUILDING FAITH
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-white px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="mb-12 text-center">
-          <h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl">
-            Building <span class="text-red-600">Faith</span>
-          </h2>
-        </div>
+					<!-- KMC -->
+					<div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+						<div class="text-3xl mb-3">🌍</div>
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-2">
+							The Kingdom Messenger Collective
+						</p>
+						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">
+							From God-given message to sustainable movement.
+						</h3>
+						<p class="text-sm text-gray-600 leading-relaxed mb-5">
+							Our flagship development program that walks with Kingdom Messengers through a 3+
+							year partnership — turning restoration into proclamation and message into movement.
+						</p>
+						<a
+							href="/kingdom-messenger-collective"
+							class="inline-block bg-red-600 text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-red-700 transition-colors"
+						>
+							Learn More →
+						</a>
+					</div>
 
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+					<!-- WOY -->
+					<div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+						<div class="text-3xl mb-3">🌿</div>
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-2">
+							Work On Yourself
+						</p>
+						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">
+							A soul care intensive for leaders whose outer success has outpaced their inner life.
+						</h3>
+						<p class="text-sm text-gray-600 leading-relaxed mb-5">
+							A twelve-month protected season where leaders are accompanied rather than optimized,
+							stewarded rather than evaluated. Because the inner life deserves the same
+							intentionality as the outer one.
+						</p>
+						<a
+							href="https://workonyourself.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-block bg-red-600 text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-red-700 transition-colors"
+						>
+							Visit WorkOnYourself.com →
+						</a>
+					</div>
 
-          <!-- Card 1: 1 Million Christian Writers -->
-          <div class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
-            <div class="aspect-video bg-gray-900 flex items-center justify-center">
-              <div class="text-center px-8">
-                <p class="text-xs font-semibold uppercase tracking-widest text-red-400">Training</p>
-                <p class="mt-2 font-serif text-xl font-bold text-white leading-snug">
-                  Certified Christian<br />Writers Training
-                </p>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-serif text-xl font-bold text-gray-900">1 Million Christian Writers!</h3>
-              <p class="mt-2 text-sm leading-6 text-gray-600">
-                We're on a mission to equip 1 Million Christian writers worldwide. Writers are needed
-                in all 7 of the cultural mountains. Sign up now to be notified of our CERTIFIED
-                CHRISTIAN WRITERS TRAINING event.
-              </p>
-              <span class="mt-4 inline-block rounded-md bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-500">
-                Coming Soon
-              </span>
-            </div>
-          </div>
+					<!-- Express Books -->
+					<div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+						<div class="text-3xl mb-3">⚡</div>
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-2">
+							EXPRESS BOOKS™
+						</p>
+						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">
+							Fast reads. Lasting impact.
+						</h3>
+						<p class="text-sm text-gray-600 leading-relaxed mb-5">
+							Our signature publishing format — intentionally compact books designed to be read in
+							under an hour. No filler. No fluff. Affordably priced for easy sharing.
+							Transformation that lasts a lifetime.
+						</p>
+						<a
+							href="/express-books"
+							class="inline-block bg-red-600 text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-red-700 transition-colors"
+						>
+							Learn More →
+						</a>
+					</div>
 
-          <!-- Card 2: Celebrating Authors & Books -->
-          <div class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
-            <div class="aspect-video bg-red-600 flex items-center justify-center">
-              <div class="text-center px-8">
-                <p class="text-xs font-semibold uppercase tracking-widest text-red-100">Live Event</p>
-                <p class="mt-2 font-serif text-xl font-bold text-white leading-snug">
-                  Amplify Your Impact
-                </p>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-serif text-xl font-bold text-gray-900">Celebrating Authors &amp; Books!</h3>
-              <p class="mt-2 text-sm leading-6 text-gray-600">
-                Check out to view our LIVE podcast streamed every Tuesday at Spirit.US! Each week we
-                celebrate today's Christian authors and books. We make you and the community with never-
-                before-told stories!
-              </p>
-              <a
-                href="/media-center"
-                class="mt-4 inline-flex items-center gap-2 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700"
-              >
-                Learn More <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+					<!-- Believer's Library -->
+					<div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+						<div class="text-3xl mb-3">📱</div>
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-2">
+							The Believer's Library
+						</p>
+						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">
+							The world's largest cloud-based Christian library.
+						</h3>
+						<p class="text-sm text-gray-600 leading-relaxed mb-5">
+							Our exclusive mobile app delivering PDF downloads of Christian books to 3.3 billion
+							souls worldwide with limited access to Jesus. Coming soon.
+						</p>
+						<span class="inline-block bg-gray-100 text-gray-500 text-sm font-semibold px-5 py-2.5 rounded-md">
+							Coming Soon
+						</span>
+					</div>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         VIDEO — PUBLISHING GOD-SIZED STORIES
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-gray-900 px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-4xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-red-400">Watch</p>
-        <h2 class="mt-2 font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Publishing God-sized Stories To The Nations
-        </h2>
-        <p class="mt-4 text-base text-gray-400">
-          See how Spirit Media Publishing is helping authors carry their God-given message further
-          than they ever imagined.
-        </p>
+				</div>
+			</div>
+		</section>
 
-        <div class="mt-10 overflow-hidden rounded-2xl shadow-2xl">
-          <div class="relative aspect-video bg-gray-800 flex items-center justify-center">
-            <a
-              href="https://www.youtube.com/@spiritmediaus"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex flex-col items-center gap-4"
-              aria-label="Watch on YouTube"
-            >
-              <span class="flex h-20 w-20 items-center justify-center rounded-full bg-red-600 shadow-lg transition-transform group-hover:scale-110">
-                <svg class="h-8 w-8 translate-x-0.5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </span>
-              <span class="text-sm font-medium text-gray-400">Watch on YouTube</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+		<!-- ═══ FREE MANUSCRIPT REVIEW ═══ -->
+		<section class="bg-red-600 px-6 py-20 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<div class="text-center mb-10">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-3">Free Offer</p>
+					<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4">
+						Free Manuscript Review
+					</h2>
+					<p class="text-red-100 text-lg leading-relaxed max-w-2xl mx-auto">
+						Share your manuscript with us and our team of seasoned editors will provide a
+						<strong class="text-white">FREE customized 20-point review ($250 value).</strong>
+					</p>
+				</div>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         IN THE NEWS
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-white px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+				<div class="bg-red-700/50 rounded-2xl p-6 mb-8">
+					<p class="text-red-100 text-sm leading-relaxed text-center">
+						Manuscript Overview · Biblical Accuracy · Target Audience Analysis · Genre &amp; Market
+						Fit · Content Organization · Thematic Depth · Emotional Impact · Writing Style &amp;
+						Voice · Grammar &amp; Mechanics · Clarity &amp; Readability · Research &amp; Credibility
+						· Reader Engagement &amp; Pacing · Unique Selling Points · Final Editing Assessment ·
+						Market Potential · Strengths · Areas for Improvement · Top Amazon Categories · Optimized
+						KDP Keywords · Summary &amp; Recommendations
+					</p>
+				</div>
 
-          <div class="overflow-hidden rounded-2xl bg-gray-900 shadow-lg">
-            <div class="relative aspect-video flex items-center justify-center">
-              <div class="text-center p-8">
-                <p class="text-sm text-red-400 uppercase tracking-widest">Featured</p>
-                <p class="mt-3 font-serif text-2xl font-bold text-white leading-snug">
-                  The Pyramid Principle
-                </p>
-                <span class="mt-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-red-600">
-                  <svg class="h-6 w-6 translate-x-0.5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </span>
-              </div>
-            </div>
-          </div>
+				<p class="text-center text-red-100 italic mb-8">
+					This will affirm God's good work in and through you.
+				</p>
 
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-widest text-red-600">Media</p>
-            <h2 class="mt-2 font-serif text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              In the News
-            </h2>
-            <p class="mt-4 text-base leading-7 text-gray-600">
-              ASCTA's Corin Clar's Corin Approach: The Pyramid Principle, by John Mallia. Stay
-              current with what Spirit Media and our authors are doing in the world.
-            </p>
-            <a
-              href="/media-center"
-              class="mt-6 inline-flex items-center gap-2 rounded-md bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700"
-            >
-              Visit Our Media Center <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+				<div class="text-center">
+					<a
+						href="mailto:publisher@spiritmedia.us"
+						class="inline-block bg-white text-red-600 font-semibold px-8 py-3.5 rounded-md hover:bg-red-50 transition-colors text-sm"
+					>
+						Email your Manuscript →
+					</a>
+				</div>
+			</div>
+		</section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         ENLARGE YOUR IMPACT
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-gray-50 px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+		<!-- ═══ SERVICES OVERVIEW ═══ -->
+		<section class="bg-white px-6 py-20 lg:px-8">
+			<div class="mx-auto max-w-7xl">
+				<div class="text-center mb-12">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3">
+						What We Do
+					</p>
+					<h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl">
+						Publishing &amp; Marketing<br />
+						<span class="text-red-600">for Kingdom Messengers</span>
+					</h2>
+				</div>
 
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-widest text-red-600">Our Mission</p>
-            <h2 class="mt-2 font-serif text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Let Spirit Media Help<br />
-              <span class="text-red-600">Enlarge Your Impact</span>
-            </h2>
-            <p class="mt-4 text-base leading-7 text-gray-600">
-              God created you for Impact. We've engineered everything to give you Publishing and
-              Marketing success — so your story, your testimony, your message reaches the people who
-              need it most.
-            </p>
-            <a
-              href="/about"
-              class="mt-6 inline-flex items-center gap-2 rounded-md bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700"
-            >
-              Learn More <span aria-hidden="true">→</span>
-            </a>
-          </div>
+				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{
+						[
+							{
+								icon: '✍️',
+								title: 'Write My Book',
+								body: 'Meet with your writer one hour per week via Zoom. Your book is complete in as few as 90 days. Your story. Your words. Our hands.',
+								href: '/publishing',
+							},
+							{
+								icon: '📚',
+								title: 'Publish My Book',
+								body: 'Paperback, hardback, digital, and audiobook — with global distribution through Amazon, IngramSpark, libraries, and eBook stores worldwide.',
+								href: '/publishing',
+							},
+							{
+								icon: '🌐',
+								title: 'Market My Book',
+								body: 'Every book we publish receives our full base marketing. Because publishing without marketing is just printing.',
+								href: '/marketing',
+							},
+							{
+								icon: '🌍',
+								title: 'Translate My Book',
+								body: 'We translate into the top 20 spoken languages — reaching over 75% of the human race.',
+								href: '/publishing',
+							},
+							{
+								icon: '⚡',
+								title: 'Express Book',
+								body: 'Need a book in 30 days? Our signature compact format — intentionally designed for impact. No filler. No fluff.',
+								href: '/express-books',
+							},
+							{
+								icon: '🎨',
+								title: "Publish My Children's Book",
+								body: 'Fully illustrated children\'s books connecting your story with young readers everywhere.',
+								href: '/publishing',
+							},
+						].map(({ icon, title, body, href }) => (
+							<a
+								href={href}
+								class="group flex gap-4 rounded-xl border border-gray-100 bg-gray-50 p-6 transition-shadow hover:shadow-md"
+							>
+								<div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-50 text-xl">
+									{icon}
+								</div>
+								<div>
+									<h3 class="font-semibold text-gray-900 transition-colors group-hover:text-red-600">
+										{title}
+									</h3>
+									<p class="mt-1 text-sm leading-6 text-gray-500">{body}</p>
+								</div>
+							</a>
+						))
+					}
+				</div>
 
-          <div class="flex justify-center">
-            <div class="flex h-56 w-56 items-center justify-center rounded-full bg-gray-900 shadow-2xl ring-4 ring-red-600/30">
-              <div class="text-center">
-                <svg class="mx-auto h-20 w-20 text-red-500" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-                  <path d="M50 15c-8 0-20 8-24 18-3 7-2 15 2 20 1 2 3 4 5 5l-8 20h5l6-14c3 2 7 3 11 3 4 0 8-1 11-3l6 14h5l-8-20c2-1 4-3 5-5 4-5 5-13 2-20C64 23 58 15 50 15zm0 6c6 0 14 6 17 14 2 5 1 10-1 14l-4-3c-1-4-5-7-12-7s-11 3-12 7l-4 3c-2-4-3-9-1-14C36 27 44 21 50 21z"/>
-                </svg>
-                <p class="mt-2 font-serif text-sm font-bold text-white">SpiritMedia</p>
-                <p class="text-xs text-red-400">Publishing</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+				<div class="mt-10 flex gap-4 justify-center">
+					<a
+						href="/publishing"
+						class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-sm"
+					>
+						View Publishing Services →
+					</a>
+					<a
+						href="/marketing"
+						class="inline-block border-2 border-red-600 text-red-600 font-semibold px-6 py-3 rounded-md hover:bg-red-50 transition-colors text-sm"
+					>
+						View Marketing Services →
+					</a>
+				</div>
+			</div>
+		</section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         SOLUTIONS / SERVICES
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-white px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-start">
+		<!-- ═══ TESTIMONIALS ═══ -->
+		<section class="bg-gray-50 px-6 py-20 lg:px-8">
+			<div class="mx-auto max-w-7xl">
+				<div class="text-center mb-12">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3">
+						Testimonials
+					</p>
+					<h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl">
+						What Kingdom Messengers Are Saying
+					</h2>
+				</div>
 
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-widest text-red-600">Our Portfolio</p>
-            <h2 class="mt-2 font-serif text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Providing Solutions<br />
-              <span class="text-red-600">You Need Right Now</span>
-            </h2>
-            <p class="mt-4 mb-8 text-base leading-7 text-gray-600">
-              At Spirit Media, our passion is to amplify your message and increase your impact. Our
-              comprehensive Publishing and Marketing services are here to serve you.
-            </p>
-            <a
-              href="/publishing"
-              class="inline-flex items-center gap-2 rounded-md bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700"
-            >
-              Learn More <span aria-hidden="true">→</span>
-            </a>
+				<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 
-            <div class="mt-10 grid grid-cols-3 gap-3">
-              {
-                Array.from({ length: 9 }).map((_, i) => (
-                  <div
-                    class:list={[
-                      'aspect-[2/3] rounded shadow-md ring-1 ring-gray-200',
-                      [
-                        'bg-gradient-to-br from-gray-700 to-gray-900',
-                        'bg-gradient-to-br from-red-500 to-red-700',
-                        'bg-gradient-to-br from-gray-600 to-gray-800',
-                        'bg-gradient-to-br from-red-600 to-red-800',
-                        'bg-gradient-to-br from-gray-800 to-gray-950',
-                        'bg-gradient-to-br from-red-400 to-red-600',
-                        'bg-gradient-to-br from-gray-500 to-gray-700',
-                        'bg-gradient-to-br from-red-700 to-red-900',
-                        'bg-gradient-to-br from-gray-400 to-gray-600',
-                      ][i],
-                    ]}
-                  />
-                ))
-              }
-            </div>
-          </div>
+					<figure class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+						<blockquote class="text-base leading-7 text-gray-700 italic">
+							<p>"Through Kevin's weekly soul care, I've grown as a leader and become more
+							intentional in being a messenger of the Gospel."</p>
+						</blockquote>
+						<figcaption class="mt-6 flex items-center gap-3">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100 font-serif text-base font-bold text-red-600">
+								J
+							</div>
+							<div>
+								<p class="font-semibold text-gray-900">Jim Matuga</p>
+								<p class="text-sm text-gray-500">Humble Influence — Morgantown, West Virginia</p>
+							</div>
+						</figcaption>
+					</figure>
 
-          <!-- 6 service icons -->
-          <div>
-            <p class="mb-8 text-sm font-semibold uppercase tracking-widest text-red-600">Services</p>
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {
-                [
-                  {
-                    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />',
-                    title: 'Write My Book',
-                    body: 'Not sure where to start? We help you craft your message from idea to final manuscript.',
-                    href: '/publishing',
-                  },
-                  {
-                    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />',
-                    title: 'Publish My Book',
-                    body: 'Full eBook and print publishing with distribution across all major platforms worldwide.',
-                    href: '/publishing',
-                  },
-                  {
-                    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />',
-                    title: "Publish My Children's Book",
-                    body: "Bring your children's story to life with professional illustration and full-color printing.",
-                    href: '/publishing',
-                  },
-                  {
-                    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />',
-                    title: 'Grow My Business',
-                    body: 'Marketing strategy, brand development, and audience growth to scale your platform and revenue.',
-                    href: '/marketing',
-                  },
-                  {
-                    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />',
-                    title: 'Grow My Church or NPO',
-                    body: 'Specialized publishing and marketing solutions for churches, ministries, and non-profits.',
-                    href: '/marketing',
-                  },
-                  {
-                    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />',
-                    title: 'Publish My Broadcast',
-                    body: 'Launch your podcast, YouTube channel, or video series with full production support.',
-                    href: '/media-center',
-                  },
-                ].map(({ icon, title, body, href }) => (
-                  <a
-                    href={href}
-                    class="group flex gap-4 rounded-xl border border-gray-100 bg-gray-50 p-5 transition-shadow hover:shadow-md"
-                  >
-                    <div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-50">
-                      <svg
-                        class="h-5 w-5 text-red-600"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                        set:html={icon}
-                      />
-                    </div>
-                    <div>
-                      <h3 class="font-semibold text-gray-900 transition-colors group-hover:text-red-600">
-                        {title}
-                      </h3>
-                      <p class="mt-1 text-sm leading-5 text-gray-500">{body}</p>
-                    </div>
-                  </a>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+					<figure class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+						<blockquote class="text-base leading-7 text-gray-700 italic">
+							<p>"Kevin and Shelly's pastoral care is what I needed to grow as a leader. They
+							have been my guide on this journey of transformation."</p>
+						</blockquote>
+						<figcaption class="mt-6 flex items-center gap-3">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100 font-serif text-base font-bold text-red-600">
+								S
+							</div>
+							<div>
+								<p class="font-semibold text-gray-900">Sheila Hoffman</p>
+								<p class="text-sm text-gray-500">Succeed and Lead — Birmingham, Alabama</p>
+							</div>
+						</figcaption>
+					</figure>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         SPIRIT MEDIA CELEBRATES (TESTIMONIALS)
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-gray-50 px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="mb-12 text-center">
-          <h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl">
-            Spirit Media <span class="text-red-600">Celebrates</span>
-          </h2>
-          <p class="mt-3 text-gray-500">Real authors. Real results. Real testimonies.</p>
-        </div>
+					<figure class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
+						<blockquote class="text-base leading-7 text-gray-700 italic">
+							<p>"Kevin has accelerated my spiritual transformation journey more than anyone else
+							on earth. Because of him I'm comfortable telling my story."</p>
+						</blockquote>
+						<figcaption class="mt-6 flex items-center gap-3">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100 font-serif text-base font-bold text-red-600">
+								A
+							</div>
+							<div>
+								<p class="font-semibold text-gray-900">Adam Gross</p>
+								<p class="text-sm text-gray-500">Come Alive — Raleigh, North Carolina</p>
+							</div>
+						</figcaption>
+					</figure>
 
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {
-            [
-              {
-                quote:
-                  'Jesse Earl at Little Lamby Group focused a CELEBRATED Amazon bestseller to charity at 4 years. The story doesn\'t just captivate — it demonstrates young minds all the truth about who we\'re talking about during choosing.',
-                name: 'Jesse Earl',
-                role: "Children's Book Author",
-              },
-              {
-                quote:
-                  'Years ago, while attending a REMARKABLE AGENT, John Fallen was in the darkest season of his life. His family believed him into returning back to loving life. "Work on Yourself" was born. It\'s now selling internationally.',
-                name: 'John Fallen',
-                role: 'Author, Work on Yourself',
-              },
-              {
-                quote:
-                  '2 YEARS OF EXPLORING AND REACHING IMPACT. Desleyne published her book while in Haiti. We\'ve NEVER SEEN AN EVER MORE TREMENDOUS APPLAUSE. It\'s changing lives in three places.',
-                name: 'Desleyne',
-                role: 'International Author',
-              },
-            ].map(({ quote, name, role }) => (
-              <figure class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
-                <blockquote class="text-sm leading-7 text-gray-700">
-                  <p>"{quote}"</p>
-                </blockquote>
-                <figcaption class="mt-6 flex items-center gap-3">
-                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 font-serif text-base font-bold text-red-600">
-                    {name[0]}
-                  </div>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900">{name}</p>
-                    <p class="text-xs text-gray-500">{role}</p>
-                  </div>
-                </figcaption>
-              </figure>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+				</div>
+			</div>
+		</section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         PARTNERING IN YOUR SUCCESS
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-white px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <div class="mb-12 text-center">
-          <h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl">
-            Partnering in <span class="text-red-600">Your Success</span>
-          </h2>
-          <p class="mt-3 text-gray-600">Choose the path that's right for you.</p>
-        </div>
+		<!-- ═══ FINAL CTA ═══ -->
+		<section class="bg-navy-950 px-6 py-20 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4">
+					Ready to publish your message to the nations?
+				</h2>
+				<p class="text-gray-300 text-lg leading-relaxed mb-8">
+					Let's talk about your vision. Our team will walk you through every option and help you
+					find the right path forward.
+				</p>
+				<a
+					href="https://spiritmedia.us/request-a-call/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-red-600 text-white font-semibold px-8 py-3.5 rounded-md hover:bg-red-700 transition-colors"
+				>
+					Request a Free Consultation
+				</a>
+			</div>
+		</section>
 
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {
-            [
-              {
-                href: '/publishing',
-                title: 'Help Me Write My Book',
-                body: 'Not sure where to start? We walk you from blank page to published author with hands-on coaching and ghostwriting support.',
-                cta: 'Get Writing Help',
-                bg: 'bg-gray-900',
-                textColor: 'text-white',
-                bodyColor: 'text-gray-400',
-                ctaClass: 'bg-red-600 text-white hover:bg-red-700',
-              },
-              {
-                href: '/publishing',
-                title: 'Publish My Book',
-                body: 'Ready to publish? Get your book formatted, designed, and distributed to readers worldwide starting at just $99.',
-                cta: 'Start Publishing',
-                bg: 'bg-red-600',
-                textColor: 'text-white',
-                bodyColor: 'text-red-100',
-                ctaClass: 'bg-white text-red-700 hover:bg-red-50',
-              },
-              {
-                href: '/marketing',
-                title: 'Market My Message',
-                body: "Your book is written — now let's get it in front of the people who need it. Full marketing strategy and execution.",
-                cta: 'Amplify My Impact',
-                bg: 'bg-gray-900',
-                textColor: 'text-white',
-                bodyColor: 'text-gray-400',
-                ctaClass: 'bg-red-600 text-white hover:bg-red-700',
-              },
-            ].map(({ href, title, body, cta, bg, textColor, bodyColor, ctaClass }) => (
-              <div class:list={['rounded-2xl p-8', bg]}>
-                <h3 class:list={['font-serif text-xl font-bold leading-snug', textColor]}>{title}</h3>
-                <p class:list={['mt-3 text-sm leading-6', bodyColor]}>{body}</p>
-                <a
-                  href={href}
-                  class:list={[
-                    'mt-6 inline-block rounded-md px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors',
-                    ctaClass,
-                  ]}
-                >
-                  {cta}
-                </a>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════════
-         FINAL CTA BANNER
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section class="bg-red-600 px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <h2 class="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Ready to publish your message to the nations?
-        </h2>
-        <p class="mt-4 text-base leading-7 text-red-100">
-          Let's talk about your vision. Our team will walk you through every option and help you
-          find the right path forward — no pressure, no obligation.
-        </p>
-        <a
-          href="/contact"
-          class="mt-8 inline-block rounded-md bg-white px-8 py-3.5 text-sm font-semibold text-red-700 shadow-sm transition-colors hover:bg-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          Request a Free Consultation
-        </a>
-      </div>
-    </section>
-
-  </main>
+	</main>
 </Layout>

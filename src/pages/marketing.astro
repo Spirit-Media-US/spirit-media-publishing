@@ -3,154 +3,257 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-	title="Marketing Services — Spirit Media Publishing"
-	description="Kingdom-focused marketing strategy to amplify your book and message. Social media, email, PR, Amazon optimization, and more."
+	title="Marketing Services — Spirit Media"
+	description="Systematic marketing strategies that multiply your exposure, engagement, and Kingdom impact."
 >
 	<main id="main-content">
 
 		<!-- HERO -->
 		<section class="bg-red-600 text-white py-24 px-4">
 			<div class="max-w-4xl mx-auto text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-4">Marketing Services</p>
+				<p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-4">
+					Marketing Services
+				</p>
 				<h1 class="font-serif text-4xl sm:text-5xl font-bold leading-tight mb-6">
-					Marketing That Multiplies Kingdom Impact
+					Marketing with Spirit Media
 				</h1>
 				<p class="text-xl text-red-100 max-w-2xl mx-auto leading-relaxed mb-8">
-					Publishing your book is step one. Getting it into the right hands requires a
-					Kingdom-focused marketing strategy. We help you build momentum, grow your audience,
-					and create lasting impact.
+					Your message deserves to be heard. We don't just get you to market — we build
+					systematic, long-term strategies that multiply your exposure, engagement, and
+					Kingdom impact.
 				</p>
-				<a href="/contact" class="inline-block bg-white text-red-600 font-semibold px-8 py-3 rounded-md hover:bg-red-50 transition-colors">
+				<a
+					href="https://spiritmedia.us/request-a-call/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-white text-red-600 font-semibold px-8 py-3 rounded-md hover:bg-red-50 transition-colors"
+				>
 					Request a Strategy Call
 				</a>
 			</div>
 		</section>
 
-		<!-- THE CHALLENGE -->
+		<!-- MARKETING STRATEGY -->
 		<section class="bg-white py-20 px-4">
-			<div class="max-w-3xl mx-auto">
-				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-6">Most Authors Publish. Few Are Heard.</h2>
-				<p class="text-lg text-gray-700 leading-relaxed">
-					The biggest challenge facing Kingdom authors today isn't writing the book — it's being
-					discovered. With millions of books published every year, visibility is the battleground.
-					Spirit Media's marketing team exists to help your message cut through the noise and reach
-					the people God intended.
+			<div class="max-w-4xl mx-auto">
+				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">Our Marketing Strategy</h2>
+				<p class="text-gray-600 leading-relaxed mb-8">
+					We build from the ground up. Each layer amplifies the last:
 				</p>
+				<ol class="space-y-4">
+					{
+						[
+							'Optimized Amazon listing — the world\'s #1 bookseller',
+							'Website with SEO — your 24/7 employee working for you',
+							'YouTube Channel — the world\'s #2 search engine',
+							'Social media — steady, systematic presence',
+							'Press releases — domestic and international reach through PR Newswire',
+							'SMS marketing — direct access, high engagement',
+							'Email marketing — consistent communication with your audience',
+						].map((item, i) => (
+							<li class="flex items-start gap-4">
+								<span class="flex-shrink-0 w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center text-sm font-bold">
+									{i + 1}
+								</span>
+								<span class="text-gray-700 pt-1">{item}</span>
+							</li>
+						))
+					}
+				</ol>
+				<div class="mt-8 bg-red-50 border-l-4 border-red-600 p-4 rounded-r-xl">
+					<p class="text-sm text-gray-700">
+						<strong>Note:</strong> Steps 5–7 multiply results only when 1–4 are in place. We build
+						the foundation first.
+					</p>
+				</div>
 			</div>
 		</section>
 
-		<!-- OUR MARKETING STRATEGY -->
+		<!-- SERVICES -->
 		<section class="bg-gray-50 py-20 px-4">
 			<div class="max-w-7xl mx-auto">
-				<div class="text-center max-w-2xl mx-auto mb-12">
-					<h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">A Three-Layer Marketing Approach</h2>
-				</div>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-12 text-center">Services</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-					<div class="bg-white rounded-2xl p-8">
-						<div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold text-sm mb-6">1</div>
-						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Build Your Platform</h3>
-						<p class="text-gray-600 text-sm leading-relaxed mb-4">Your platform is the foundation of every marketing effort.</p>
-						<ul class="space-y-2 text-sm text-gray-700">
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Author website</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Social media presence</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Email list building</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Brand identity</li>
-						</ul>
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
+							Book Marketing: Amazon Reviews
+						</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Six-month partnership focused on increasing Amazon reviews. Includes custom instruction
+							sheet, systematic implementation, with a goal of 25 reviews per month.
+						</p>
 					</div>
 
-					<div class="bg-white rounded-2xl p-8">
-						<div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold text-sm mb-6">2</div>
-						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Amplify Your Message</h3>
-						<p class="text-gray-600 text-sm leading-relaxed mb-4">Get your book in front of readers who are ready to receive it.</p>
-						<ul class="space-y-2 text-sm text-gray-700">
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Amazon optimization</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Podcast guest placements</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Speaking opportunities</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Media &amp; PR pitching</li>
-						</ul>
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
+							Book Marketing: Advance Reader Copies
+						</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							We send advance copies to your personal contacts and USA bookstores. Per-copy cost
+							covers mailing list, up to $5 toward printing, fulfillment, and postage.
+						</p>
 					</div>
 
-					<div class="bg-white rounded-2xl p-8">
-						<div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold text-sm mb-6">3</div>
-						<h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Sustain Momentum</h3>
-						<p class="text-gray-600 text-sm leading-relaxed mb-4">Marketing is not a one-time event. We create ongoing momentum.</p>
-						<ul class="space-y-2 text-sm text-gray-700">
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Email marketing campaigns</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Content strategy</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Paid advertising</li>
-							<li class="flex items-center gap-2"><span class="text-red-600">•</span> Affiliate &amp; partner outreach</li>
-						</ul>
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
+							Book Marketing: Paid Digital Ads
+						</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Twelve-month partnership with setup and monthly optimization of paid ads on one
+							platform: Amazon, Google, YouTube, Facebook, Instagram, or TikTok. Partner pays
+							all ad spend separately.
+						</p>
 					</div>
 
-				</div>
-			</div>
-		</section>
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Websites with SEO</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							We design, launch, and optimize responsive websites (up to 10 pages) with SSL, SEO,
+							lead generation forms, and user access. Your website is your only employee working
+							24/7/365.
+						</p>
+					</div>
 
-		<!-- FULL SERVICES LIST -->
-		<section class="bg-white py-20 px-4">
-			<div class="max-w-7xl mx-auto">
-				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-12 text-center">Our Marketing Services</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-					<ul class="space-y-3">
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Landing Pages</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Single-page sites optimized for conversions — perfect for book launches, events,
+							or lead generation.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">CRM Platform</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Setup and monthly optimization of your contact management system with conversations,
+							calendar scheduling, business phone, voicemail, SMS, invoicing, payment processing,
+							sales pipeline, forms, funnels, workflows, and automations.{' '}
+							<a
+								href="https://www.youtube.com/watch?v=_sm5iO8PdoA"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-red-600 hover:underline"
+							>
+								Meet Spirit Media One →
+							</a>
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Community Platform</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Setup and monthly optimization of a branded online community including structure,
+							content strategy, and member development.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Video Production</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Eight hours of professional filming (2 cameras, audio, director, and assistant)
+							edited into short-form feature videos and reels. We handle story development,
+							scripting, and post-production.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Podcast Production</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Setup of a podcast tour with pitch sheet and scheduling management — or launch your
+							own show with intro/outro videos and full weekly production across YouTube, Facebook,
+							LinkedIn, Instagram, and all major podcast platforms.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
+							YouTube Channel Optimization
+						</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Twelve-month partnership in strategy, publishing, and channel optimization for one
+							YouTube channel.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
 							Social Media Management
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Email Marketing Setup &amp; Campaigns
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Amazon Author Page Optimization
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Book Launch Strategy
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Content Creation (blogs, reels, graphics)
-						</li>
-					</ul>
-					<ul class="space-y-3">
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Podcast Booking &amp; Placement
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Speaking Opportunity Development
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							PR &amp; Media Outreach
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Paid Advertising Management
-						</li>
-						<li class="flex items-center gap-3 text-gray-700">
-							<span class="w-2 h-2 rounded-full bg-red-600 flex-shrink-0"></span>
-							Influencer &amp; Partner Outreach
-						</li>
-					</ul>
+						</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Twelve-month partnership managing up to three platforms. Includes content creation,
+							scheduling up to 20 posts per month, and weekly community engagement.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Email Marketing</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Twelve-month partnership in email design and management — up to 4 emails per month
+							to your contact list.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">SMS Marketing</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Twelve-month partnership in SMS marketing — up to 4 messages per month to your
+							contact list.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Public Relations</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Press releases, media kits, promotional videos, flyers, pitch decks, and slide decks
+							for book releases, podcast tours, and business development. North America distribution
+							through PR Newswire.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
+							Google Ads for Nonprofits
+						</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Google offers every 501(c)(3) up to $10,000 in ad grants annually. We manage the
+							complexity so you get the results without the full-time effort.
+						</p>
+					</div>
+
+					<div class="bg-white rounded-xl p-6">
+						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
+							Analytics &amp; Reporting
+						</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">
+							Monthly tracking of book sales, website traffic, YouTube, podcasts, and social media
+							performance.
+						</p>
+					</div>
+
 				</div>
 			</div>
 		</section>
 
-		<!-- FOR PUBLISHERS -->
-		<section class="bg-gray-50 py-20 px-4">
+		<!-- FREE COPY -->
+		<section class="bg-white py-20 px-4">
 			<div class="max-w-3xl mx-auto text-center">
-				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-6">Marketing + Publishing = Maximum Impact</h2>
-				<p class="text-lg text-gray-700 leading-relaxed mb-8">
-					When you publish and market with Spirit Media, you get a fully integrated approach.
-					Your book's cover, your author brand, your social media, and your distribution strategy
-					are all aligned — designed to carry your message further.
+				<div class="text-5xl mb-4">📕</div>
+				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">
+					Free Copy for Every Author
+				</h2>
+				<p class="text-gray-600 leading-relaxed mb-8">
+					Our CEO Kevin White poured everything he knows about book marketing into
+					<em>The Ultimate Book Marketing Guide</em> — a collection of proven tactics to increase
+					book sales. Every Spirit Media author receives a free copy.
 				</p>
-				<a href="/publishing" class="inline-block border-2 border-red-600 text-red-600 font-semibold px-8 py-3 rounded-md hover:bg-red-50 transition-colors">
-					View Publishing Services
+				<a
+					href="https://spiritmedia.us/free-ultimate-book-marketing-guide/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-red-700 transition-colors"
+				>
+					Get the Free Guide →
 				</a>
 			</div>
 		</section>
@@ -160,9 +263,15 @@ import Layout from '../layouts/Layout.astro';
 			<div class="max-w-3xl mx-auto text-center">
 				<h2 class="font-serif text-3xl font-bold mb-4">Let's Build Your Marketing Strategy</h2>
 				<p class="text-gray-300 text-lg leading-relaxed mb-8">
-					Book a free strategy call with our team and discover how we can amplify your message.
+					Book a free strategy call with our team and discover how we can amplify your message
+					to the nations.
 				</p>
-				<a href="/contact" class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-red-700 transition-colors">
+				<a
+					href="https://spiritmedia.us/request-a-call/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-red-700 transition-colors"
+				>
 					Request a Free Strategy Call
 				</a>
 			</div>
