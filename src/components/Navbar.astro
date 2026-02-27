@@ -27,12 +27,12 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
 <!-- Skip to main content for keyboard / screen-reader users -->
 <a
   href="#main-content"
-  class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-navy-700 focus:shadow"
+  class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-red-600 focus:shadow"
 >
   Skip to main content
 </a>
 
-<header class="sticky top-0 z-40 border-b border-navy-100 bg-white shadow-sm">
+<header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-18 items-center justify-between gap-4">
 
@@ -49,7 +49,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
         <!-- Fallback: shown only if logo.png is missing -->
         <span class="hidden items-center gap-2" aria-hidden="true">
           <span class="flex h-8 w-8 items-center justify-center rounded bg-red-600 font-bold text-white text-sm">S</span>
-          <span class="font-bold text-lg text-navy-900 leading-tight">Spirit Media<br /><span class="text-gold-500 text-sm font-semibold">Publishing</span></span>
+          <span class="font-bold text-lg text-gray-900 leading-tight">Spirit Media<br /><span class="text-red-600 text-sm font-semibold">Publishing</span></span>
         </span>
       </a>
 
@@ -65,8 +65,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
                   class:list={[
                     'rounded px-3 py-2 text-sm font-medium transition-colors',
                     isActive(href)
-                      ? 'bg-navy-50 text-navy-900'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-navy-800',
+                      ? 'bg-red-50 text-red-700'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                   ]}
                 >
                   {label}
@@ -76,7 +76,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
           }
 
           <!-- Resources dropdown -->
-          <li class="relative" x-data="{ open: false }">
+          <li class="relative">
             <button
               type="button"
               aria-haspopup="true"
@@ -85,8 +85,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
               class:list={[
                 'flex items-center gap-1 rounded px-3 py-2 text-sm font-medium transition-colors',
                 isResourcesActive
-                  ? 'bg-navy-50 text-navy-900'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-navy-800',
+                  ? 'bg-red-50 text-red-700'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
               ]}
             >
               Resources
@@ -122,8 +122,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
                       class:list={[
                         'block px-4 py-2 text-sm transition-colors',
                         pathname.startsWith(href)
-                          ? 'bg-navy-50 text-navy-900 font-medium'
-                          : 'text-gray-700 hover:bg-gray-50 hover:text-navy-800',
+                          ? 'bg-red-50 text-red-700 font-medium'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
                       ]}
                     >
                       {label}
@@ -140,7 +140,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
       <div class="flex items-center gap-3">
         <a
           href="/contact"
-          class="hidden rounded-md bg-gold-500 px-4 py-2 text-sm font-semibold text-navy-950 shadow-sm transition-colors hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 sm:inline-flex"
+          class="hidden rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:inline-flex"
         >
           Request a Call
         </a>
@@ -151,7 +151,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
           id="mobile-menu-btn"
           aria-controls="mobile-menu"
           aria-expanded="false"
-          class="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-navy-900 lg:hidden"
+          class="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 lg:hidden"
           aria-label="Open main menu"
         >
           <svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -180,8 +180,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
             class:list={[
               'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
               isActive(href)
-                ? 'bg-navy-50 text-navy-900'
-                : 'text-gray-700 hover:bg-gray-50 hover:text-navy-800',
+                ? 'bg-red-50 text-red-700'
+                : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
             ]}
           >
             {label}
@@ -199,8 +199,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
               class:list={[
                 'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
                 pathname.startsWith(href)
-                  ? 'bg-navy-50 text-navy-900'
-                  : 'text-gray-700 hover:bg-gray-50 hover:text-navy-800',
+                  ? 'bg-red-50 text-red-700'
+                  : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
               ]}
             >
               {label}
@@ -212,7 +212,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
       <div class="border-t border-gray-100 pt-3">
         <a
           href="/contact"
-          class="block w-full rounded-md bg-gold-500 px-4 py-2.5 text-center text-sm font-semibold text-navy-950 hover:bg-gold-400"
+          class="block w-full rounded-md bg-red-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-red-700"
         >
           Request a Call
         </a>
