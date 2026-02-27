@@ -56,21 +56,20 @@ const socialLinks = [
 
       <!-- Brand column -->
       <div class="lg:col-span-1">
-        <a href="/" class="inline-flex items-center gap-3" aria-label="Spirit Media Publishing — home">
+        <a href="/" class="inline-flex items-center" aria-label="Spirit Media Publishing — home">
+          <!-- brightness(0) invert(1) turns black logo → white on dark bg -->
           <img
             src="/logo.png"
             alt="Spirit Media Publishing"
-            width="44"
+            width="220"
             height="44"
-            class="h-11 w-auto"
+            class="h-9 w-auto max-w-[200px] brightness-0 invert"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />
-          <span
-            class="hidden items-center justify-center rounded bg-navy-800 px-2 py-1 text-xs font-bold text-gold-400"
-            aria-hidden="true"
-          >SMP</span>
-          <span class="font-serif text-lg font-semibold leading-tight">
-            Spirit Media<br /><span class="text-gold-400">Publishing</span>
+          <!-- Fallback: shown only if logo.png is missing -->
+          <span class="hidden items-center gap-2" aria-hidden="true">
+            <span class="flex h-8 w-8 items-center justify-center rounded bg-red-600 font-bold text-white text-sm">S</span>
+            <span class="font-serif text-lg font-semibold leading-tight">Spirit Media<br /><span class="text-gold-400">Publishing</span></span>
           </span>
         </a>
 
