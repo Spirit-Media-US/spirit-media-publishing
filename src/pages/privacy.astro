@@ -1,0 +1,132 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = 'February 28, 2026';
+---
+
+<Layout
+  title="Privacy Policy — Spirit Media Publishing"
+  description="Spirit Media Publishing's privacy policy — how we collect, use, and protect your personal information."
+>
+  <Header />
+
+  <main class="bg-white px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <!-- Header -->
+      <div class="mb-12 border-b border-gray-100 pb-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-indigo-600">Legal</p>
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Privacy Policy
+        </h1>
+        <p class="mt-3 text-sm text-gray-500">Last updated: {lastUpdated}</p>
+      </div>
+
+      <!-- Body -->
+      <div class="prose-custom space-y-10 text-base leading-7 text-gray-600">
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">1. Introduction</h2>
+          <p class="mt-3">
+            Spirit Media Publishing ("we", "our", or "us") is committed to protecting your personal
+            information. This policy explains what data we collect when you visit our website, how
+            we use it, and the choices you have over that data.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">2. Information we collect</h2>
+          <p class="mt-3">We may collect the following categories of information:</p>
+          <ul class="mt-3 list-inside list-disc space-y-2 pl-4">
+            <li>
+              <strong class="text-gray-800">Usage data</strong> — pages visited, time spent on site,
+              referring URLs, browser type, and device information, collected via analytics tools.
+            </li>
+            <li>
+              <strong class="text-gray-800">Contact data</strong> — name and email address when you
+              contact us directly by email.
+            </li>
+            <li>
+              <strong class="text-gray-800">Cookies</strong> — small files stored in your browser to
+              improve site performance and analytics. See Section 5 for details.
+            </li>
+          </ul>
+          <p class="mt-3">
+            We do not collect payment information. Any purchases are processed by third-party
+            providers subject to their own privacy policies.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">3. How we use your information</h2>
+          <p class="mt-3">We use the data we collect to:</p>
+          <ul class="mt-3 list-inside list-disc space-y-2 pl-4">
+            <li>Operate and improve our website and services.</li>
+            <li>Respond to enquiries you send us.</li>
+            <li>Understand how visitors use our site so we can produce better content.</li>
+            <li>Comply with our legal obligations.</li>
+          </ul>
+          <p class="mt-3">We do not sell your personal data to third parties.</p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">4. Third-party services</h2>
+          <p class="mt-3">
+            We may use third-party services such as Google Analytics to collect anonymous usage
+            statistics. These services have their own privacy policies and may set cookies on your
+            device. We encourage you to review their policies directly.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">5. Cookies</h2>
+          <p class="mt-3">
+            Our site uses cookies to support analytics and site functionality. You can disable
+            cookies in your browser settings at any time. Note that disabling cookies may affect
+            some features of the site.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">6. Data retention</h2>
+          <p class="mt-3">
+            We retain personal data only as long as necessary for the purposes described in this
+            policy, or as required by law. Analytics data is typically retained for up to 26 months.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">7. Your rights</h2>
+          <p class="mt-3">
+            Depending on your location, you may have rights to access, correct, delete, or restrict
+            the processing of your personal data. To exercise any of these rights, please contact
+            us at{' '}
+            <a href="mailto:info@spiritmedia.us" class="text-indigo-600 hover:underline">
+              info@spiritmedia.us
+            </a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">8. Changes to this policy</h2>
+          <p class="mt-3">
+            We may update this policy from time to time. When we do, we will revise the "Last
+            updated" date at the top. We encourage you to review this page periodically.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">9. Contact</h2>
+          <p class="mt-3">
+            If you have questions or concerns about this privacy policy, please email us at{' '}
+            <a href="mailto:info@spiritmedia.us" class="text-indigo-600 hover:underline">
+              info@spiritmedia.us
+            </a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

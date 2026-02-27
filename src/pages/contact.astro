@@ -1,0 +1,107 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact — Spirit Media Publishing"
+  description="Get in touch with Spirit Media Publishing. We'd love to hear from authors, partners, readers, and media inquiries."
+>
+  <Header />
+
+  <main>
+    <!-- Page header -->
+    <section class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-base font-semibold leading-7 text-indigo-600">Reach out</p>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          Contact us
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Have a question, a manuscript, or a partnership idea? We read every message and will get
+          back to you as soon as we can.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact cards -->
+    <section class="border-t border-gray-100 bg-gray-50 px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <dl class="grid gap-8 sm:grid-cols-2">
+          <div class="rounded-lg border border-gray-200 bg-white p-6">
+            <dt class="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+              General enquiries
+            </dt>
+            <dd class="mt-2 text-gray-900">
+              <a
+                href="mailto:info@spiritmedia.us"
+                class="font-medium hover:text-indigo-600 hover:underline"
+              >
+                info@spiritmedia.us
+              </a>
+            </dd>
+            <dd class="mt-1 text-sm text-gray-500">For all general questions and information.</dd>
+          </div>
+
+          <div class="rounded-lg border border-gray-200 bg-white p-6">
+            <dt class="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+              Submissions
+            </dt>
+            <dd class="mt-2 text-gray-900">
+              <a
+                href="mailto:submissions@spiritmedia.us"
+                class="font-medium hover:text-indigo-600 hover:underline"
+              >
+                submissions@spiritmedia.us
+              </a>
+            </dd>
+            <dd class="mt-1 text-sm text-gray-500">
+              Authors and agents — send manuscript proposals here.
+            </dd>
+          </div>
+
+          <div class="rounded-lg border border-gray-200 bg-white p-6">
+            <dt class="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+              Media & press
+            </dt>
+            <dd class="mt-2 text-gray-900">
+              <a
+                href="mailto:press@spiritmedia.us"
+                class="font-medium hover:text-indigo-600 hover:underline"
+              >
+                press@spiritmedia.us
+              </a>
+            </dd>
+            <dd class="mt-1 text-sm text-gray-500">
+              Interview requests, review copies, and press kits.
+            </dd>
+          </div>
+
+          <div class="rounded-lg border border-gray-200 bg-white p-6">
+            <dt class="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+              Partnerships
+            </dt>
+            <dd class="mt-2 text-gray-900">
+              <a
+                href="mailto:partners@spiritmedia.us"
+                class="font-medium hover:text-indigo-600 hover:underline"
+              >
+                partners@spiritmedia.us
+              </a>
+            </dd>
+            <dd class="mt-1 text-sm text-gray-500">
+              Churches, ministries, and organisations interested in bulk orders or collaboration.
+            </dd>
+          </div>
+        </dl>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+          We aim to respond within 2–3 business days.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

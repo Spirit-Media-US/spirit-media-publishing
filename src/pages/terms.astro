@@ -1,0 +1,133 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = 'February 28, 2026';
+---
+
+<Layout
+  title="Terms of Service — Spirit Media Publishing"
+  description="Spirit Media Publishing's terms of service — the rules and guidelines that govern use of our website and services."
+>
+  <Header />
+
+  <main class="bg-white px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <!-- Header -->
+      <div class="mb-12 border-b border-gray-100 pb-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-indigo-600">Legal</p>
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Terms of Service
+        </h1>
+        <p class="mt-3 text-sm text-gray-500">Last updated: {lastUpdated}</p>
+      </div>
+
+      <!-- Body -->
+      <div class="space-y-10 text-base leading-7 text-gray-600">
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">1. Acceptance of terms</h2>
+          <p class="mt-3">
+            By accessing or using the Spirit Media Publishing website (the "Site"), you agree to be
+            bound by these Terms of Service. If you do not agree to these terms, please do not use
+            the Site.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">2. Use of the site</h2>
+          <p class="mt-3">You agree to use the Site only for lawful purposes. You must not:</p>
+          <ul class="mt-3 list-inside list-disc space-y-2 pl-4">
+            <li>Use the Site in any way that violates applicable local, national, or international law.</li>
+            <li>
+              Transmit any unsolicited or unauthorised advertising or promotional material (spam).
+            </li>
+            <li>
+              Attempt to gain unauthorised access to any part of the Site or its related systems.
+            </li>
+            <li>
+              Reproduce, duplicate, or exploit any part of the Site for commercial purposes without
+              our express written permission.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">3. Intellectual property</h2>
+          <p class="mt-3">
+            All content on this Site — including text, images, logos, and design — is the property
+            of Spirit Media Publishing or its content suppliers and is protected by copyright and
+            intellectual property laws. You may not reproduce or redistribute content without prior
+            written consent.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">4. Third-party links</h2>
+          <p class="mt-3">
+            The Site may contain links to third-party websites. These links are provided for
+            convenience only. We have no control over the content of those sites and accept no
+            responsibility for them or for any loss or damage that may arise from your use of them.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">5. Disclaimer of warranties</h2>
+          <p class="mt-3">
+            The Site is provided on an "as is" and "as available" basis. To the fullest extent
+            permitted by law, Spirit Media Publishing makes no warranties, express or implied,
+            regarding the Site's operation, availability, or the accuracy of its content.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">6. Limitation of liability</h2>
+          <p class="mt-3">
+            To the fullest extent permitted by law, Spirit Media Publishing shall not be liable for
+            any indirect, incidental, special, or consequential damages arising from your use of, or
+            inability to use, the Site or its content.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">7. Privacy</h2>
+          <p class="mt-3">
+            Your use of the Site is also governed by our{' '}
+            <a href="/privacy" class="text-indigo-600 hover:underline">Privacy Policy</a>, which is
+            incorporated into these Terms by reference.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">8. Changes to these terms</h2>
+          <p class="mt-3">
+            We reserve the right to modify these Terms at any time. Changes will be posted on this
+            page with a revised "Last updated" date. Continued use of the Site after any changes
+            constitutes your acceptance of the new Terms.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">9. Governing law</h2>
+          <p class="mt-3">
+            These Terms are governed by and construed in accordance with applicable law. Any
+            disputes arising from these Terms or your use of the Site shall be subject to the
+            exclusive jurisdiction of the relevant courts.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-gray-900">10. Contact</h2>
+          <p class="mt-3">
+            Questions about these Terms should be directed to{' '}
+            <a href="mailto:info@spiritmedia.us" class="text-indigo-600 hover:underline">
+              info@spiritmedia.us
+            </a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

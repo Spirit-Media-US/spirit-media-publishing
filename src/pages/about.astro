@@ -1,0 +1,103 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About — Spirit Media Publishing"
+  description="Learn about Spirit Media Publishing — our mission, our story, and the team behind the books and resources we create."
+>
+  <Header />
+
+  <main>
+    <!-- Page header -->
+    <section class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-base font-semibold leading-7 text-indigo-600">Our story</p>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          About Spirit Media Publishing
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          We exist to publish faith-driven content that encourages, equips, and empowers readers to
+          live lives of purpose and impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="border-t border-gray-100 bg-gray-50 px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Our mission</h2>
+        <p class="mt-4 text-base leading-7 text-gray-600">
+          Spirit Media Publishing was founded with a clear purpose: to bring stories, teachings, and
+          resources to readers who are seeking something deeper. We believe that words have the power
+          to transform lives, and we take that responsibility seriously in every title we publish.
+        </p>
+        <p class="mt-4 text-base leading-7 text-gray-600">
+          From devotionals and theological texts to testimonies and practical guides, our catalogue
+          spans a wide range of voices united by a common thread — faith lived out in the everyday.
+        </p>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="bg-white px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">What we stand for</h2>
+        <dl class="mt-8 grid gap-8 sm:grid-cols-2">
+          {
+            [
+              {
+                term: 'Authenticity',
+                detail:
+                  'We publish voices that are honest about the human experience and the journey of faith.',
+              },
+              {
+                term: 'Excellence',
+                detail:
+                  'Every title is crafted with care — from the first draft to the finished cover.',
+              },
+              {
+                term: 'Impact',
+                detail:
+                  'We measure success not just in sales, but in lives changed by what we put into the world.',
+              },
+              {
+                term: 'Community',
+                detail:
+                  'Our authors and readers are part of a larger story, and we cultivate that connection intentionally.',
+              },
+            ].map(({ term, detail }) => (
+              <div class="border-l-2 border-indigo-200 pl-4">
+                <dt class="font-semibold text-gray-900">{term}</dt>
+                <dd class="mt-1 text-sm leading-6 text-gray-600">{detail}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t border-gray-100 bg-gray-50 px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Want to work with us?</h2>
+        <p class="mt-4 text-base leading-7 text-gray-600">
+          Whether you have a manuscript, a speaking ministry, or a media project, we'd love to hear
+          from you.
+        </p>
+        <div class="mt-8 flex items-center justify-center gap-x-6">
+          <a
+            href="/contact"
+            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
