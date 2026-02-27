@@ -1,0 +1,10 @@
+pre-commit:
+  commands:
+    biome:
+      glob: "*.{js,ts,jsx,tsx,json,css,astro}"
+      run: bunx biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+# NOTE: `astro check` (TypeScript diagnostics) takes 30s+ and is intentionally
+# excluded from the pre-commit hook. Run it manually before deploying:
+#   bun run astro check
