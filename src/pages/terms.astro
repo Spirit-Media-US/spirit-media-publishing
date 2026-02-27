@@ -1,6 +1,4 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 
 const lastUpdated = 'February 28, 2026';
@@ -10,9 +8,7 @@ const lastUpdated = 'February 28, 2026';
   title="Terms of Service — Spirit Media Publishing"
   description="Spirit Media Publishing's terms of service — the rules and guidelines that govern use of our website and services."
 >
-  <Header />
-
-  <main class="bg-white px-6 py-16 lg:px-8">
+  <main id="main-content" class="bg-white px-6 py-16 lg:px-8">
     <div class="mx-auto max-w-3xl">
       <!-- Header -->
       <div class="mb-12 border-b border-gray-100 pb-8">
@@ -128,6 +124,4 @@ const lastUpdated = 'February 28, 2026';
       </div>
     </div>
   </main>
-
-  <Footer />
 </Layout>

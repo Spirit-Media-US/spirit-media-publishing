@@ -1,6 +1,4 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -8,9 +6,7 @@ import Layout from '../layouts/Layout.astro';
   title="Spirit Media Publishing"
   description="Spirit Media Publishing — sharing faith, culture, and compelling stories."
 >
-  <Header />
-
-  <main>
+  <main id="main-content">
     <!-- Hero -->
     <section class="bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
@@ -29,7 +25,7 @@ import Layout from '../layouts/Layout.astro';
           >
             Browse titles
           </a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">
             Our mission <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -47,6 +43,4 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
   </main>
-
-  <Footer />
 </Layout>

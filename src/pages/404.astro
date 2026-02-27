@@ -1,13 +1,15 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Page Not Found — Spirit Media Publishing" description="The page you were looking for doesn't exist.">
-  <Header />
-
-  <main class="grid min-h-[calc(100vh-8rem)] place-items-center px-6 py-24 sm:py-32 lg:px-8">
+<Layout
+  title="Page Not Found — Spirit Media Publishing"
+  description="The page you were looking for doesn't exist."
+>
+  <main
+    id="main-content"
+    class="grid min-h-[calc(100vh-8rem)] place-items-center px-6 py-24 sm:py-32 lg:px-8"
+  >
     <div class="text-center">
       <p class="text-base font-semibold text-indigo-600">404</p>
       <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -29,6 +31,4 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </main>
-
-  <Footer />
 </Layout>

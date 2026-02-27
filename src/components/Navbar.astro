@@ -1,0 +1,58 @@
+---
+// Site-wide navigation bar with active-link highlighting
+
+const pathname = new URL(Astro.request.url).pathname;
+
+const links = [
+	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' },
+	{ href: '/contact', label: 'Contact' },
+] as const;
+
+function isActive(href: string): boolean {
+	return href === '/' ? pathname === '/' : pathname.startsWith(href);
+}
+---
+
+<!-- Skip to main content for keyboard / screen-reader users -->
+<a
+  href="#main-content"
+  class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-indigo-600 focus:shadow"
+>
+  Skip to main content
+</a>
+
+<header class="border-b border-gray-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="text-xl font-bold text-gray-900 hover:text-indigo-600 transition-colors">
+        Spirit Media
+      </a>
+
+      <!-- Nav links -->
+      <nav aria-label="Main navigation">
+        <ul class="flex items-center gap-1">
+          {
+            links.map(({ href, label }) => (
+              <li>
+                <a
+                  href={href}
+                  aria-current={isActive(href) ? 'page' : undefined}
+                  class:list={[
+                    'rounded px-3 py-2 text-sm font-medium transition-colors',
+                    isActive(href)
+                      ? 'bg-indigo-50 text-indigo-600'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+                  ]}
+                >
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
