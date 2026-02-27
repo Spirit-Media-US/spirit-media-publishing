@@ -1,40 +1,68 @@
 ---
-// Site-wide navigation bar with active-link highlighting
+// Site-wide navigation bar with active-link highlighting and Resources dropdown
 
 const pathname = new URL(Astro.request.url).pathname;
 
-const links = [
+const mainLinks = [
 	{ href: '/', label: 'Home' },
-	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' },
+	{ href: '/about', label: 'About Us' },
+	{ href: '/publishing', label: 'Publishing' },
+	{ href: '/marketing', label: 'Marketing' },
+] as const;
+
+const resourcesLinks = [
+	{ href: '/bookstore', label: 'Bookstore' },
+	{ href: '/blog', label: 'Blog' },
+	{ href: '/media-center', label: 'Media Center' },
+	{ href: '/portfolio', label: 'Portfolio' },
 ] as const;
 
 function isActive(href: string): boolean {
 	return href === '/' ? pathname === '/' : pathname.startsWith(href);
 }
+
+const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(href));
 ---
 
 <!-- Skip to main content for keyboard / screen-reader users -->
 <a
   href="#main-content"
-  class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-indigo-600 focus:shadow"
+  class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-navy-700 focus:shadow"
 >
   Skip to main content
 </a>
 
-<header class="border-b border-gray-200 bg-white">
+<header class="sticky top-0 z-40 border-b border-navy-100 bg-white shadow-sm">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
+    <div class="flex h-18 items-center justify-between gap-4">
+
       <!-- Logo -->
-      <a href="/" class="text-xl font-bold text-gray-900 hover:text-indigo-600 transition-colors">
-        Spirit Media
+      <a href="/" class="flex shrink-0 items-center gap-3" aria-label="Spirit Media Publishing — home">
+        <img
+          src="/logo.png"
+          alt="Spirit Media Publishing"
+          width="40"
+          height="40"
+          class="h-10 w-auto"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        />
+        <!-- Fallback text logo shown if image missing -->
+        <span
+          class="hidden items-center justify-center rounded bg-navy-900 px-2 py-1 text-xs font-bold text-gold-400"
+          aria-hidden="true"
+        >
+          SMP
+        </span>
+        <span class="font-serif text-lg font-semibold leading-tight text-navy-900 sm:text-xl">
+          Spirit Media<br class="hidden sm:block" /><span class="text-gold-500"> Publishing</span>
+        </span>
       </a>
 
-      <!-- Nav links -->
-      <nav aria-label="Main navigation">
+      <!-- Desktop nav -->
+      <nav aria-label="Main navigation" class="hidden lg:block">
         <ul class="flex items-center gap-1">
           {
-            links.map(({ href, label }) => (
+            mainLinks.map(({ href, label }) => (
               <li>
                 <a
                   href={href}
@@ -42,8 +70,8 @@ function isActive(href: string): boolean {
                   class:list={[
                     'rounded px-3 py-2 text-sm font-medium transition-colors',
                     isActive(href)
-                      ? 'bg-indigo-50 text-indigo-600'
-                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+                      ? 'bg-navy-50 text-navy-900'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-navy-800',
                   ]}
                 >
                   {label}
@@ -51,8 +79,189 @@ function isActive(href: string): boolean {
               </li>
             ))
           }
+
+          <!-- Resources dropdown -->
+          <li class="relative" x-data="{ open: false }">
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              id="resources-menu-btn"
+              class:list={[
+                'flex items-center gap-1 rounded px-3 py-2 text-sm font-medium transition-colors',
+                isResourcesActive
+                  ? 'bg-navy-50 text-navy-900'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-navy-800',
+              ]}
+            >
+              Resources
+              <svg
+                class="h-4 w-4 transition-transform duration-200"
+                id="resources-chevron"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+
+            <!-- Dropdown panel -->
+            <ul
+              id="resources-menu"
+              role="menu"
+              aria-labelledby="resources-menu-btn"
+              class="absolute left-0 top-full z-50 mt-1 hidden w-44 rounded-md border border-gray-100 bg-white py-1 shadow-lg"
+            >
+              {
+                resourcesLinks.map(({ href, label }) => (
+                  <li role="none">
+                    <a
+                      href={href}
+                      role="menuitem"
+                      class:list={[
+                        'block px-4 py-2 text-sm transition-colors',
+                        pathname.startsWith(href)
+                          ? 'bg-navy-50 text-navy-900 font-medium'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-navy-800',
+                      ]}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </li>
         </ul>
       </nav>
+
+      <!-- CTA + mobile menu button -->
+      <div class="flex items-center gap-3">
+        <a
+          href="/contact"
+          class="hidden rounded-md bg-gold-500 px-4 py-2 text-sm font-semibold text-navy-950 shadow-sm transition-colors hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 sm:inline-flex"
+        >
+          Request a Call
+        </a>
+
+        <!-- Hamburger — mobile only -->
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-navy-900 lg:hidden"
+          aria-label="Open main menu"
+        >
+          <svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-gray-100 bg-white lg:hidden"
+    aria-label="Mobile navigation"
+  >
+    <nav class="mx-auto max-w-7xl space-y-1 px-4 py-3 sm:px-6">
+      {
+        mainLinks.map(({ href, label }) => (
+          <a
+            href={href}
+            aria-current={isActive(href) ? 'page' : undefined}
+            class:list={[
+              'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              isActive(href)
+                ? 'bg-navy-50 text-navy-900'
+                : 'text-gray-700 hover:bg-gray-50 hover:text-navy-800',
+            ]}
+          >
+            {label}
+          </a>
+        ))
+      }
+
+      <!-- Resources section in mobile -->
+      <div class="pt-1">
+        <p class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gray-400">Resources</p>
+        {
+          resourcesLinks.map(({ href, label }) => (
+            <a
+              href={href}
+              class:list={[
+                'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                pathname.startsWith(href)
+                  ? 'bg-navy-50 text-navy-900'
+                  : 'text-gray-700 hover:bg-gray-50 hover:text-navy-800',
+              ]}
+            >
+              {label}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="border-t border-gray-100 pt-3">
+        <a
+          href="/contact"
+          class="block w-full rounded-md bg-gold-500 px-4 py-2.5 text-center text-sm font-semibold text-navy-950 hover:bg-gold-400"
+        >
+          Request a Call
+        </a>
+      </div>
+    </nav>
+  </div>
 </header>
+
+<script>
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  mobileBtn?.addEventListener('click', () => {
+    if (!mobileMenu || !mobileBtn || !hamburger || !closeIcon) return;
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+    hamburger.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+
+  // Resources dropdown toggle
+  const resourcesBtn = document.getElementById('resources-menu-btn');
+  const resourcesMenu = document.getElementById('resources-menu');
+  const chevron = document.getElementById('resources-chevron');
+
+  resourcesBtn?.addEventListener('click', () => {
+    if (!resourcesMenu || !resourcesBtn || !chevron) return;
+    const isOpen = !resourcesMenu.classList.contains('hidden');
+    resourcesMenu.classList.toggle('hidden');
+    resourcesBtn.setAttribute('aria-expanded', String(!isOpen));
+    (chevron as HTMLElement).style.transform = isOpen ? '' : 'rotate(180deg)';
+  });
+
+  // Close resources dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!resourcesMenu || !resourcesBtn || !chevron) return;
+    if (!resourcesBtn.contains(e.target as Node) && !resourcesMenu.contains(e.target as Node)) {
+      resourcesMenu.classList.add('hidden');
+      resourcesBtn.setAttribute('aria-expanded', 'false');
+      (chevron as HTMLElement).style.transform = '';
+    }
+  });
+</script>

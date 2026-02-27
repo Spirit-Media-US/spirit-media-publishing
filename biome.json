@@ -59,6 +59,11 @@
 		}
 	},
 	"css": {
+		"parser": {
+			"cssModules": false,
+			"allowWrongLineComments": false,
+			"tailwindDirectives": true
+		},
 		"linter": {
 			"enabled": true
 		},
