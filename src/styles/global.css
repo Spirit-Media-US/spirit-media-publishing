@@ -1,1 +1,49 @@
+/*
+ * Tailwind CSS v4 — @import replaces the v3 directives:
+ *   @tailwind base;
+ *   @tailwind components;
+ *   @tailwind utilities;
+ */
 @import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Base resets (supplements Tailwind's Preflight)
+   --------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
