@@ -71,9 +71,25 @@ async function deploy(): Promise<void> {
 		});
 		console.log('   Connected.\n');
 
-		// Ensure the remote root exists
+		// Ensure the remote root exists (ignore error if it already exists)
 		console.log(`📁  Ensuring remote path exists: ${env.SFTP_REMOTE_PATH}`);
-		await sftp.mkdir(env.SFTP_REMOTE_PATH, true);
+		try {
+			await sftp.mkdir(env.SFTP_REMOTE_PATH, true);
+		} catch {
+			// Directory likely already exists — safe to continue
+		}
+
+		// Remove Cloudways default PHP files that would override index.html
+		const phpDefaults = ['index.php', 'wp-config.php', 'wp-login.php'];
+		for (const file of phpDefaults) {
+			const remotePath = `${env.SFTP_REMOTE_PATH}${file}`;
+			try {
+				await sftp.delete(remotePath);
+				console.log(`🗑️   Removed default file: ${file}`);
+			} catch {
+				// File doesn't exist — skip
+			}
+		}
 
 		// Upload
 		console.log('📤  Uploading files…\n');
