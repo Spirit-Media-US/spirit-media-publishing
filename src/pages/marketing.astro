@@ -9,271 +9,132 @@ import Layout from '../layouts/Layout.astro';
 	<main id="main-content">
 
 		<!-- HERO -->
-		<section class="bg-red-600 text-white py-24 px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-4">
-					Marketing Services
-				</p>
-				<h1 class="font-serif text-4xl sm:text-5xl font-bold leading-tight mb-6">
-					Marketing with Spirit Media
-				</h1>
-				<p class="text-xl text-red-100 max-w-2xl mx-auto leading-relaxed mb-8">
-					Your message deserves to be heard. We don't just get you to market — we build
-					systematic, long-term strategies that multiply your exposure, engagement, and
-					Kingdom impact.
-				</p>
-				<a
-					href="https://spiritmedia.us/request-a-call/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-block bg-white text-red-600 font-semibold px-8 py-3 rounded-md hover:bg-red-50 transition-colors"
-				>
-					Request a Strategy Call
-				</a>
+		<section class="bg-white px-6 py-20 lg:py-28 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-7xl">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div class="hero-stagger">
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-4">Marketing</p>
+						<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900">
+							Marketing with
+							<br />
+							<span class="text-red-600">Spirit Media</span>
+						</h1>
+						<p class="mt-6 text-lg leading-8 text-gray-600 max-w-xl">
+							Your message deserves to be heard. We don't just get you to market — we build
+							systematic, long-term strategies that multiply your exposure, engagement, and
+							Kingdom impact.
+						</p>
+						<div class="mt-8">
+							<a href="/contact" class="rounded-md bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700">Request a Call →</a>
+						</div>
+					</div>
+					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-red-800 aspect-square"></div>
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-900 aspect-square"></div>
+						<div class="rounded-2xl bg-red-700 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-800 aspect-square"></div>
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-900 aspect-square"></div>
+						<div class="rounded-2xl bg-red-800 aspect-square"></div>
+					</div>
+				</div>
 			</div>
 		</section>
 
-		<!-- MARKETING STRATEGY -->
-		<section class="bg-white py-20 px-4">
+		<!-- STRATEGY -->
+		<section class="bg-gray-50 py-20 px-6 lg:px-8">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">Our Marketing Strategy</h2>
-				<p class="text-gray-600 leading-relaxed mb-8">
-					We build from the ground up. Each layer amplifies the last:
-				</p>
-				<ol class="space-y-4">
-					{
-						[
-							'Optimized Amazon listing — the world\'s #1 bookseller',
-							'Website with SEO — your 24/7 employee working for you',
-							'YouTube Channel — the world\'s #2 search engine',
-							'Social media — steady, systematic presence',
-							'Press releases — domestic and international reach through PR Newswire',
-							'SMS marketing — direct access, high engagement',
-							'Email marketing — consistent communication with your audience',
-						].map((item, i) => (
-							<li class="flex items-start gap-4">
-								<span class="flex-shrink-0 w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center text-sm font-bold">
-									{i + 1}
-								</span>
-								<span class="text-gray-700 pt-1">{item}</span>
-							</li>
-						))
-					}
-				</ol>
-				<div class="mt-8 bg-red-50 border-l-4 border-red-600 p-4 rounded-r-xl">
-					<p class="text-sm text-gray-700">
-						<strong>Note:</strong> Steps 5–7 multiply results only when 1–4 are in place. We build
-						the foundation first.
-					</p>
+				<div class="text-center mb-12">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3" data-animate="fade-up">Strategy</p>
+					<h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl" data-animate="fade-up" data-delay="1">Our Marketing Strategy</h2>
+					<p class="mt-4 text-gray-600 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">We build from the ground up. Each layer amplifies the last:</p>
 				</div>
+				<div class="space-y-4">
+					{[
+						{ step: '1', title: 'Optimized Amazon listing', desc: "the world's #1 bookseller" },
+						{ step: '2', title: 'Website with SEO', desc: 'your 24/7 employee working for you' },
+						{ step: '3', title: 'YouTube Channel', desc: "the world's #2 search engine" },
+						{ step: '4', title: 'Social media', desc: 'steady, systematic presence' },
+						{ step: '5', title: 'Press releases', desc: 'domestic and international reach through PR Newswire' },
+						{ step: '6', title: 'SMS marketing', desc: 'direct access, high engagement' },
+						{ step: '7', title: 'Email marketing', desc: 'consistent communication with your audience' },
+					].map(({ step, title, desc }, i) => (
+						<div class="flex items-start gap-4 bg-white rounded-xl p-5 border border-gray-100" data-animate="fade-up" data-delay={String((i % 4) + 1)}>
+							<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-600 text-white font-bold text-sm">{step}</span>
+							<div>
+								<h3 class="font-semibold text-gray-900">{title}</h3>
+								<p class="text-sm text-gray-500 mt-0.5">— {desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<p class="mt-6 text-sm text-gray-500 text-center italic" data-animate="fade-in">Steps 5–7 multiply results only when 1–4 are in place. We build the foundation first.</p>
 			</div>
 		</section>
 
 		<!-- SERVICES -->
-		<section class="bg-gray-50 py-20 px-4">
+		<section class="bg-white py-20 px-6 lg:px-8">
 			<div class="max-w-7xl mx-auto">
-				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-12 text-center">Services</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
-							Book Marketing: Amazon Reviews
-						</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Six-month partnership focused on increasing Amazon reviews. Includes custom instruction
-							sheet, systematic implementation, with a goal of 25 reviews per month.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
-							Book Marketing: Advance Reader Copies
-						</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							We send advance copies to your personal contacts and USA bookstores. Per-copy cost
-							covers mailing list, up to $5 toward printing, fulfillment, and postage.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
-							Book Marketing: Paid Digital Ads
-						</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Twelve-month partnership with setup and monthly optimization of paid ads on one
-							platform: Amazon, Google, YouTube, Facebook, Instagram, or TikTok. Partner pays
-							all ad spend separately.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Websites with SEO</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							We design, launch, and optimize responsive websites (up to 10 pages) with SSL, SEO,
-							lead generation forms, and user access. Your website is your only employee working
-							24/7/365.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Landing Pages</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Single-page sites optimized for conversions — perfect for book launches, events,
-							or lead generation.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">CRM Platform</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Setup and monthly optimization of your contact management system with conversations,
-							calendar scheduling, business phone, voicemail, SMS, invoicing, payment processing,
-							sales pipeline, forms, funnels, workflows, and automations.{' '}
-							<a
-								href="https://www.youtube.com/watch?v=_sm5iO8PdoA"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="text-red-600 hover:underline"
-							>
-								Meet Spirit Media One →
-							</a>
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Community Platform</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Setup and monthly optimization of a branded online community including structure,
-							content strategy, and member development.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Video Production</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Eight hours of professional filming (2 cameras, audio, director, and assistant)
-							edited into short-form feature videos and reels. We handle story development,
-							scripting, and post-production.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Podcast Production</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Setup of a podcast tour with pitch sheet and scheduling management — or launch your
-							own show with intro/outro videos and full weekly production across YouTube, Facebook,
-							LinkedIn, Instagram, and all major podcast platforms.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
-							YouTube Channel Optimization
-						</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Twelve-month partnership in strategy, publishing, and channel optimization for one
-							YouTube channel.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
-							Social Media Management
-						</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Twelve-month partnership managing up to three platforms. Includes content creation,
-							scheduling up to 20 posts per month, and weekly community engagement.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Email Marketing</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Twelve-month partnership in email design and management — up to 4 emails per month
-							to your contact list.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">SMS Marketing</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Twelve-month partnership in SMS marketing — up to 4 messages per month to your
-							contact list.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">Public Relations</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Press releases, media kits, promotional videos, flyers, pitch decks, and slide decks
-							for book releases, podcast tours, and business development. North America distribution
-							through PR Newswire.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
-							Google Ads for Nonprofits
-						</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Google offers every 501(c)(3) up to $10,000 in ad grants annually. We manage the
-							complexity so you get the results without the full-time effort.
-						</p>
-					</div>
-
-					<div class="bg-white rounded-xl p-6">
-						<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">
-							Analytics &amp; Reporting
-						</h3>
-						<p class="text-gray-600 text-sm leading-relaxed">
-							Monthly tracking of book sales, website traffic, YouTube, podcasts, and social media
-							performance.
-						</p>
-					</div>
-
+				<div class="text-center mb-12">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3" data-animate="fade-up">Services</p>
+					<h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl" data-animate="fade-up" data-delay="1">Marketing Services</h2>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{[
+						{ title: 'Book Marketing: Amazon Reviews', body: 'Six-month partnership focused on increasing Amazon reviews. Includes custom instruction sheet, systematic implementation, with a goal of 25 reviews per month.' },
+						{ title: 'Book Marketing: Advance Reader Copies', body: 'We send advance copies to your personal contacts and USA bookstores. Per-copy cost covers mailing list, up to $5 toward printing, fulfillment, and postage.' },
+						{ title: 'Book Marketing: Paid Digital Ads', body: 'Twelve-month partnership with setup and monthly optimization of paid ads on one platform: Amazon, Google, YouTube, Facebook, Instagram, or TikTok.' },
+						{ title: 'Websites with SEO', body: 'We design, launch, and optimize responsive websites (up to 10 pages) with SSL, SEO, lead generation forms, and user access.' },
+						{ title: 'Landing Pages', body: 'Single-page sites optimized for conversions — perfect for book launches, events, or lead generation.' },
+						{ title: 'CRM Platform', body: 'Setup and monthly optimization of your contact management system with conversations, calendar scheduling, business phone, voicemail, SMS, invoicing, payment processing, sales pipeline, forms, funnels, workflows, and automations.' },
+						{ title: 'Community Platform', body: 'Setup and monthly optimization of a branded online community including structure, content strategy, and member development.' },
+						{ title: 'Video Production', body: 'Eight hours of professional filming edited into short-form feature videos and reels. We handle story development, scripting, and post-production.' },
+						{ title: 'Podcast Production', body: 'Setup of a podcast tour with pitch sheet and scheduling management — or launch your own show with full weekly production across all major platforms.' },
+						{ title: 'YouTube Channel Optimization', body: 'Twelve-month partnership in strategy, publishing, and channel optimization for one YouTube channel.' },
+						{ title: 'Social Media Management', body: 'Twelve-month partnership managing up to three platforms. Includes content creation, scheduling up to 20 posts per month, and weekly community engagement.' },
+						{ title: 'Email Marketing', body: 'Twelve-month partnership in email design and management — up to 4 emails per month to your contact list.' },
+						{ title: 'SMS Marketing', body: 'Twelve-month partnership in SMS marketing — up to 4 messages per month to your contact list.' },
+						{ title: 'Public Relations', body: 'Press releases, media kits, promotional videos, flyers, and pitch decks. North America distribution through PR Newswire.' },
+						{ title: 'Google Ads for Nonprofits', body: 'Google offers every 501(c)(3) up to $10,000 in ad grants annually. We manage the complexity so you get the results.' },
+						{ title: 'Analytics & Reporting', body: 'Monthly tracking of book sales, website traffic, YouTube, podcasts, and social media performance.' },
+					].map(({ title, body }, i) => (
+						<div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String((i % 3) + 1)}>
+							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-red-50 text-red-600 mb-4">
+								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>
+							</div>
+							<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">{title}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{body}</p>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
 
-		<!-- FREE COPY -->
-		<section class="bg-white py-20 px-4">
-			<div class="max-w-3xl mx-auto text-center">
-				<div class="text-5xl mb-4">📕</div>
-				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">
-					Free Copy for Every Author
-				</h2>
-				<p class="text-gray-600 leading-relaxed mb-8">
-					Our CEO Kevin White poured everything he knows about book marketing into
-					<em>The Ultimate Book Marketing Guide</em> — a collection of proven tactics to increase
-					book sales. Every Spirit Media author receives a free copy.
-				</p>
-				<a
-					href="https://spiritmedia.us/free-ultimate-book-marketing-guide/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-red-700 transition-colors"
-				>
-					Get the Free Guide →
-				</a>
+		<!-- FREE GUIDE -->
+		<section class="bg-gray-50 py-20 px-6 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div class="bg-gray-200 rounded-2xl aspect-[8.6/11] flex items-center justify-center" data-animate="slide-left">
+						<p class="text-gray-400 text-sm">Book Cover Image</p>
+					</div>
+					<div data-animate="slide-right">
+						<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3">Free for Every Author</p>
+						<h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">The Ultimate Book Marketing Guide</h2>
+						<p class="text-gray-600 leading-relaxed mb-6">Our CEO Kevin White poured everything he knows about book marketing into The Ultimate Book Marketing Guide — a collection of proven tactics to increase book sales. Every Spirit Media author receives a free copy.</p>
+						<a href="https://spiritmedia.us/free-ultimate-book-marketing-guide/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-sm">Get Your Free Copy →</a>
+					</div>
+				</div>
 			</div>
 		</section>
 
-		<!-- CTA BANNER -->
-		<section class="bg-navy-950 text-white py-20 px-4">
-			<div class="max-w-3xl mx-auto text-center">
-				<h2 class="font-serif text-3xl font-bold mb-4">Let's Build Your Marketing Strategy</h2>
-				<p class="text-gray-300 text-lg leading-relaxed mb-8">
-					Book a free strategy call with our team and discover how we can amplify your message
-					to the nations.
-				</p>
-				<a
-					href="https://spiritmedia.us/request-a-call/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-red-700 transition-colors"
-				>
-					Request a Free Strategy Call
-				</a>
+		<!-- FINAL CTA -->
+		<section class="bg-red-600 px-6 py-20 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Ready to amplify your message?</h2>
+				<p class="text-red-100 text-lg leading-relaxed mb-8" data-animate="fade-up" data-delay="1">Let's build a marketing strategy that multiplies your exposure, engagement, and Kingdom impact.</p>
+				<a href="/contact" class="inline-block bg-white text-red-600 font-semibold px-8 py-3.5 rounded-md hover:bg-red-50 transition-colors" data-animate="fade-up" data-delay="2">Request a Free Consultation</a>
 			</div>
 		</section>
 

@@ -3,74 +3,46 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-	title="Blog — Spirit Media Publishing"
-	description="Kingdom insights for authors, leaders, and messengers. Publishing tips, marketing strategy, and faith-driven leadership from the Spirit Media team."
+	title="Blog — Spirit Media"
+	description="Insights, encouragement, and resources for Kingdom Messengers from the Spirit Media team."
 >
 	<main id="main-content">
 
 		<!-- HERO -->
-		<section class="bg-red-600 text-white py-24 px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-4">Blog</p>
-				<h1 class="font-serif text-4xl sm:text-5xl font-bold leading-tight mb-6">
-					Welcome to Spirit Media's Blog
-				</h1>
-				<p class="text-xl text-red-100 max-w-2xl mx-auto leading-relaxed">
-					Kingdom insights for authors, leaders, and messengers — publishing, marketing, and
-					faith from the Spirit Media family.
-				</p>
+		<section class="bg-white px-6 py-20 lg:py-28 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-7xl">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div class="hero-stagger">
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-4">Blog</p>
+						<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900">Welcome to<br /><span class="text-red-600">Spirit Media's Blog</span></h1>
+						<p class="mt-6 text-lg leading-8 text-gray-600 max-w-xl">Insights, encouragement, and resources for Kingdom Messengers building their message and expanding their reach.</p>
+					</div>
+					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-red-800 aspect-square"></div>
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-900 aspect-square"></div>
+						<div class="rounded-2xl bg-red-700 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-800 aspect-square"></div>
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-900 aspect-square"></div>
+						<div class="rounded-2xl bg-red-800 aspect-square"></div>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<!-- COMING SOON -->
-		<section class="bg-white py-20 px-4">
+		<section class="bg-gray-50 py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto text-center">
-				<div class="inline-block bg-red-50 text-red-600 text-sm font-semibold px-4 py-1 rounded-full mb-6">
-					Coming Soon
+				<div class="bg-white rounded-2xl border border-gray-200 p-12" data-animate="fade-up">
+					<div class="flex h-16 w-16 mx-auto items-center justify-center rounded-full bg-red-100 text-red-600 mb-6">
+						<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" /></svg>
+					</div>
+					<h2 class="font-serif text-2xl font-bold text-gray-900 mb-4">Blog Coming Soon</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">We're preparing articles, devotionals, and practical guides for Kingdom Messengers. Subscribe to be notified when we launch.</p>
+					<a href="/join" class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-sm">Join Our Network →</a>
 				</div>
-				<h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">
-					Articles Are on the Way
-				</h2>
-				<p class="text-gray-600 text-lg leading-relaxed mb-8">
-					We're working on content to help you write, publish, and market your message. Check
-					back soon — or follow us on social media to stay updated.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a
-						href="https://www.facebook.com/spiritmedia.us"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors"
-					>
-						Follow on Facebook
-					</a>
-					<a
-						href="https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-block border-2 border-red-600 text-red-600 font-semibold px-6 py-3 rounded-md hover:bg-red-50 transition-colors"
-					>
-						Watch on YouTube
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- CTA -->
-		<section class="bg-navy-950 text-white py-20 px-4">
-			<div class="max-w-3xl mx-auto text-center">
-				<h2 class="font-serif text-3xl font-bold mb-4">Ready to Publish Your Message?</h2>
-				<p class="text-gray-300 text-lg leading-relaxed mb-8">
-					Don't wait for the perfect moment. Your message is needed now.
-				</p>
-				<a
-					href="https://spiritmedia.us/request-a-call/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-red-700 transition-colors"
-				>
-					Request a Free Consultation
-				</a>
 			</div>
 		</section>
 

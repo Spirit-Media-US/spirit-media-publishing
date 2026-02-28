@@ -2,142 +2,68 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Join the Spirit Media Network — Spirit Media" description="Join the Spirit Media Network — a community of Kingdom Messengers, authors, and leaders on a mission to carry God's message to the nations.">
-  <main id="main-content">
+<Layout
+	title="Join the Spirit Media Network — Spirit Media"
+	description="Join the Spirit Media Network — a community of Kingdom Messengers, authors, and leaders on a mission to carry God's message to the nations."
+>
+	<main id="main-content">
 
-    <!-- HERO -->
-    <section class="bg-red-600 text-white py-24 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-red-200 mb-4">Community</p>
-        <h1 class="text-4xl md:text-5xl font-bold font-serif mb-6">Join the Spirit Media Network</h1>
-        <p class="text-lg md:text-xl text-red-100 leading-relaxed mb-8 max-w-2xl mx-auto">
-          A global community of Kingdom Messengers, authors, leaders, and world-changers. This is where your journey finds its tribe.
-        </p>
-        <a
-          href="https://spiritmedianetwork.mn.co"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block bg-white text-red-600 font-semibold px-6 py-3 rounded-md hover:bg-red-50 transition-colors"
-        >
-          Join the Community
-        </a>
-      </div>
-    </section>
+		<!-- HERO -->
+		<section class="bg-white px-6 py-20 lg:py-28 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-7xl">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div class="hero-stagger">
+						<p class="text-xs font-semibold uppercase tracking-widest text-red-600 mb-4">Community</p>
+						<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900">Join the Spirit Media<br /><span class="text-red-600">Network</span></h1>
+						<p class="mt-6 text-lg leading-8 text-gray-600 max-w-xl">Spirit Media Network is a global community for Kingdom Messengers — a single ecosystem where formation, publishing, and mission come together.</p>
+						<p class="mt-3 text-base text-gray-500 max-w-xl">Whether you're writing your first book, interceding for the nations, or discerning your next step, you'll find your lane.</p>
+					</div>
+					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-red-800 aspect-square"></div>
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-900 aspect-square"></div>
+						<div class="rounded-2xl bg-red-700 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-800 aspect-square"></div>
+						<div class="rounded-2xl bg-red-600 aspect-square"></div>
+						<div class="rounded-2xl bg-gray-900 aspect-square"></div>
+						<div class="rounded-2xl bg-red-800 aspect-square"></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- WHAT IS THE NETWORK -->
-    <section class="bg-white py-20 px-4">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif text-gray-900 mb-6">What Is the Spirit Media Network?</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          The Spirit Media Network is our online community built on Mighty Networks — a private, ad-free space where Kingdom authors, leaders, and voices gather to connect, grow, and encourage one another on the journey.
-        </p>
-        <p class="text-gray-700 leading-relaxed">
-          This is not another Facebook group. This is a purposeful community with shared values, curated conversations, and regular content from the Spirit Media team.
-        </p>
-      </div>
-    </section>
+		<!-- LANES -->
+		<section class="bg-gray-50 py-20 px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<div class="text-center mb-12">
+					<p class="text-sm font-semibold uppercase tracking-widest text-red-600 mb-3" data-animate="fade-up">Choose Your Lane</p>
+					<h2 class="font-serif text-3xl font-bold text-gray-900 sm:text-4xl" data-animate="fade-up" data-delay="1">Find Your Place in the Network</h2>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+					{[
+						{ title: "Writers' Room", body: 'Writing support, structure, editing feedback, and beta readers from fellow authors.' },
+						{ title: 'Publishing & Marketing Lab', body: 'Launch strategy, Amazon optimization, podcast tours, and audience growth.' },
+						{ title: "Father's Heart Movement", body: "Join a global movement publishing and distributing the Father's Heart Bible to the nations." },
+						{ title: 'Resource Library', body: 'Free eBooks, starter kits, and downloadable guides to sharpen your message.' },
+					].map(({ title, body }, i) => (
+						<div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm" data-animate="fade-up" data-delay={String(i + 1)}>
+							<h3 class="font-serif text-lg font-bold text-gray-900 mb-2">{title}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
 
-    <!-- WHAT YOU GET -->
-    <section class="bg-gray-50 py-20 px-4">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif text-gray-900 mb-12 text-center">What's Inside the Community</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<!-- CTA -->
+		<section class="bg-red-600 px-6 py-20 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Membership is free.</h2>
+				<p class="text-red-100 text-lg leading-relaxed mb-8" data-animate="fade-up" data-delay="1">Join the network, introduce yourself, and choose your lane.</p>
+				<a href="https://spiritmedianetwork.mn.co" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-red-600 font-semibold px-8 py-3.5 rounded-md hover:bg-red-50 transition-colors" data-animate="fade-up" data-delay="2">Join the Network (Free) →</a>
+			</div>
+		</section>
 
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="text-red-600 text-2xl mb-3">🎙️</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Live Sessions</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">Monthly live calls with Kevin White and special guests</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="text-red-600 text-2xl mb-3">📚</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Resource Library</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">Exclusive access to courses, workshops, and publishing guides</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="text-red-600 text-2xl mb-3">✍️</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Author Community</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">Connect with other Kingdom authors at every stage of their journey</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="text-red-600 text-2xl mb-3">🙏</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Prayer & Support</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">A community that prays together and carries one another's burdens</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="text-red-600 text-2xl mb-3">⚡</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Early Access</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">First access to new Spirit Media programs, events, and resources</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="text-red-600 text-2xl mb-3">🎯</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Accountability</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">Find your accountability partner and stay on mission together</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW TO JOIN -->
-    <section class="bg-white py-20 px-4">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif text-gray-900 mb-12 text-center">How to Join</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-
-          <div class="text-center">
-            <div class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Click the Join Button</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">Click the button below to visit our Mighty Networks community</p>
-          </div>
-
-          <div class="text-center">
-            <div class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Create Your Profile</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">Set up your account and introduce yourself to the community</p>
-          </div>
-
-          <div class="text-center">
-            <div class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Dive In</h3>
-            <p class="text-gray-700 leading-relaxed text-sm">Start connecting, contributing, and growing with your new tribe</p>
-          </div>
-
-        </div>
-        <div class="text-center">
-          <a
-            href="https://spiritmedianetwork.mn.co"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors"
-          >
-            Join the Spirit Media Network &rarr;
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA BANNER -->
-    <section class="bg-navy-950 text-white py-20 px-4 text-center">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold font-serif mb-6">You Were Never Meant to Run Alone</h2>
-        <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-          The Spirit Media Network exists to give Kingdom voices the community, encouragement, and resources they need to finish strong.
-        </p>
-        <a
-          href="https://spiritmedianetwork.mn.co"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block bg-red-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors"
-        >
-          Join Us Today
-        </a>
-      </div>
-    </section>
-
-  </main>
+	</main>
 </Layout>

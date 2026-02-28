@@ -34,7 +34,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
 
 <header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-18 items-center justify-between gap-4">
+    <div class="flex h-20 lg:h-24 items-center justify-between gap-4">
 
       <!-- Logo -->
       <a href="/" class="flex shrink-0 items-center" aria-label="Spirit Media Publishing — home">
@@ -42,8 +42,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
           src="/logo.png"
           alt="Spirit Media Publishing"
           width="220"
-          height="44"
-          class="h-9 w-auto max-w-[180px] sm:max-w-[220px]"
+          height="22"
+          class="h-auto w-auto max-w-[220px] sm:max-w-[260px]"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
         />
         <!-- Fallback: shown only if logo.png is missing -->
@@ -139,9 +139,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
       <!-- CTA + mobile menu button -->
       <div class="flex items-center gap-3">
         <a
-          href="https://spiritmedia.us/request-a-call/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/contact"
           class="hidden rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:inline-flex"
         >
           Request a Call
@@ -213,9 +211,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
 
       <div class="border-t border-gray-100 pt-3">
         <a
-          href="https://spiritmedia.us/request-a-call/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/contact"
           class="block w-full rounded-md bg-red-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-red-700"
         >
           Request a Call
