@@ -32,7 +32,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
   Skip to main content
 </a>
 
-<header class="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
+<header class="sticky top-0 z-40 border-b border-stone-200 bg-surface shadow-sm">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-20 lg:h-24 items-center justify-between gap-4">
 
@@ -65,8 +65,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
                   class:list={[
                     'rounded px-3 py-2 text-sm font-medium transition-colors',
                     isActive(href)
-                      ? 'bg-red-50 text-red-700'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                      ? 'bg-red-600 text-white'
+                      : 'text-stone-600 hover:bg-stone-50 hover:text-ink',
                   ]}
                 >
                   {label}
@@ -85,8 +85,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
               class:list={[
                 'flex items-center gap-1 rounded px-3 py-2 text-sm font-medium transition-colors',
                 isResourcesActive
-                  ? 'bg-red-50 text-red-700'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                  ? 'bg-red-600 text-white'
+                  : 'text-stone-600 hover:bg-stone-50 hover:text-ink',
               ]}
             >
               Resources
@@ -111,7 +111,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
               id="resources-menu"
               role="menu"
               aria-labelledby="resources-menu-btn"
-              class="absolute left-0 top-full z-50 mt-1 hidden w-44 rounded-md border border-gray-100 bg-white py-1 shadow-lg"
+              class="absolute left-0 top-full z-50 mt-1 hidden w-44 rounded-md border border-stone-200 bg-surface py-1 shadow-lg"
             >
               {
                 resourcesLinks.map(({ href, label }) => (
@@ -122,8 +122,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
                       class:list={[
                         'block px-4 py-2 text-sm transition-colors',
                         pathname.startsWith(href)
-                          ? 'bg-red-50 text-red-700 font-medium'
-                          : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
+                          ? 'bg-red-600 text-white font-medium'
+                          : 'text-stone-700 hover:bg-stone-50 hover:text-ink',
                       ]}
                     >
                       {label}
@@ -140,7 +140,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
       <div class="flex items-center gap-3">
         <a
           href="/contact"
-          class="hidden rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:inline-flex"
+          class="hidden rounded-md bg-red px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep sm:inline-flex"
         >
           Request a Call
         </a>
@@ -151,7 +151,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
           id="mobile-menu-btn"
           aria-controls="mobile-menu"
           aria-expanded="false"
-          class="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 lg:hidden"
+          class="inline-flex items-center justify-center rounded-md p-2 text-stone-600 hover:bg-stone-100 hover:text-ink lg:hidden"
           aria-label="Open main menu"
         >
           <svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -168,7 +168,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="hidden border-t border-gray-100 bg-white lg:hidden"
+    class="hidden border-t border-stone-100 bg-surface lg:hidden"
     aria-label="Mobile navigation"
   >
     <nav class="mx-auto max-w-7xl space-y-1 px-4 py-3 sm:px-6">
@@ -180,8 +180,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
             class:list={[
               'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
               isActive(href)
-                ? 'bg-red-50 text-red-700'
-                : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
+                ? 'bg-red-600 text-white'
+                : 'text-stone-700 hover:bg-stone-50 hover:text-ink',
             ]}
           >
             {label}
@@ -191,7 +191,7 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
 
       <!-- Resources section in mobile -->
       <div class="pt-1">
-        <p class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gray-400">Resources</p>
+        <p class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-stone-400">Resources</p>
         {
           resourcesLinks.map(({ href, label }) => (
             <a
@@ -199,8 +199,8 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
               class:list={[
                 'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
                 pathname.startsWith(href)
-                  ? 'bg-red-50 text-red-700'
-                  : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
+                  ? 'bg-red-600 text-white'
+                  : 'text-stone-700 hover:bg-stone-50 hover:text-ink',
               ]}
             >
               {label}
@@ -209,10 +209,10 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
         }
       </div>
 
-      <div class="border-t border-gray-100 pt-3">
+      <div class="border-t border-stone-100 pt-3">
         <a
           href="/contact"
-          class="block w-full rounded-md bg-red-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-red-700"
+          class="block w-full rounded-md bg-red px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-red-deep transition-colors"
         >
           Request a Call
         </a>
