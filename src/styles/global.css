@@ -1,41 +1,80 @@
-/*
- * Tailwind CSS v4 — @import replaces the v3 directives:
- *   @tailwind base;
- *   @tailwind components;
- *   @tailwind utilities;
- */
+/* =============================================================================
+   SPIRIT MEDIA PUBLISHING — Design System
+   global.css | Tailwind v4
+   ============================================================================= */
+
 @import "tailwindcss";
 
-/* ---------------------------------------------------------------------------
-   Design tokens — Spirit Media Publishing brand
-   Red: Brand primary (flame logo), energy, passion, Spirit fire
-   Navy: Authority, depth, used for dark sections / footer
-   --------------------------------------------------------------------------- */
+/* =============================================================================
+   BRAND COLOR TOKENS
+   ============================================================================= */
 
 @theme {
-	/* Font families */
-	--font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-	--font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+	/* — Neutral Foundation (Warm Stone / Greige) — */
+	--color-stone-50: #faf8f5; /* page background — warmest white */
+	--color-stone-100: #f5f1ec; /* section alternates, card surfaces */
+	--color-stone-200: #ede7df; /* subtle dividers, input backgrounds */
+	--color-stone-300: #d9d0c4; /* borders, separator lines */
+	--color-stone-400: #bfb4a4; /* muted text, placeholders */
+	--color-stone-500: #9e9285; /* secondary text */
+	--color-stone-600: #7a6e63; /* captions, metadata */
+	--color-stone-700: #574e45; /* body text on light backgrounds */
 
-	/* Navy — used for dark sections, footer, text */
+	/* — Ink (Replaces pure black — warmer, editorial feel) — */
+	--color-ink: #1a1714; /* primary body text, logo black */
+	--color-ink-soft: #2e2a26; /* headings, nav links */
+	--color-ink-muted: #4a4540; /* secondary headings */
+
+	/* — Brand Red (Logo pop color — use selectively) — */
+	--color-red: #c0392b; /* primary accent — CTAs, key highlights */
+	--color-red-deep: #9b2d20; /* hover states, pressed buttons */
+	--color-red-soft: #d4544a; /* lighter use — icons, underlines */
+	--color-red-wash: #f9eeec; /* very subtle red tint for feature sections */
+
+	/* — Surface White — */
+	--color-surface: #ffffff;
+	--color-surface-warm: #fdfaf7;
+
+	/* — Utility — */
+	--color-border: #ddd7cf;
+	--color-border-strong: #c4bab0;
+	--color-shadow: rgba(26, 23, 20, 0.08);
+	--color-shadow-md: rgba(26, 23, 20, 0.15);
+
+	/* — Navy (footer / dark sections) — */
 	--color-navy-950: #050d1e;
 	--color-navy-900: #0a1630;
 	--color-navy-800: #0f1f45;
 	--color-navy-700: #152a5c;
-	--color-navy-600: #1b3470;
-	--color-navy-500: #214087;
-	--color-navy-400: #3b5aa3;
-	--color-navy-300: #607ab8;
-	--color-navy-200: #8fa2ce;
-	--color-navy-100: #c4cfe7;
-	--color-navy-50: #e8edf6;
+
+	/* — Typography — */
+	--font-display: "Cormorant Garamond", Georgia, serif;
+	--font-body: "Source Sans 3", system-ui, sans-serif;
+	--font-sans: "Source Sans 3", system-ui, sans-serif;
+	--font-serif: "Cormorant Garamond", Georgia, serif;
+	--font-mono: "Courier New", Courier, monospace;
+
+	/* — Radius — */
+	--radius-sm: 0.25rem;
+	--radius: 0.375rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 0.75rem;
+	--radius-xl: 1rem;
+	--radius-2xl: 1.5rem;
+
+	/* — Transitions — */
+	--ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+	--ease-enter: cubic-bezier(0, 0, 0.2, 1);
+	--ease-exit: cubic-bezier(0.4, 0, 1, 1);
+	--duration-fast: 150ms;
+	--duration-base: 250ms;
+	--duration-slow: 400ms;
 }
 
-/* ---------------------------------------------------------------------------
-   Base resets (supplements Tailwind's Preflight)
-   Wrapped in @layer base so Tailwind utilities (e.g. max-w-[180px]) can
-   override these rules — unlayered CSS beats all @layer styles in CSS cascade.
-   --------------------------------------------------------------------------- */
+/* =============================================================================
+   BASE RESETS
+   Wrapped in @layer base so Tailwind utilities can override.
+   ============================================================================= */
 
 @layer base {
 	*,
@@ -46,8 +85,17 @@
 
 	html {
 		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 		-webkit-text-size-adjust: 100%;
 		text-size-adjust: 100%;
+	}
+
+	body {
+		background-color: var(--color-stone-50);
+		color: var(--color-ink);
+		font-family: var(--font-body);
+		line-height: 1.7;
 	}
 
 	img,
@@ -66,23 +114,184 @@
 		font: inherit;
 	}
 
-	p,
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
+		font-family: var(--font-display);
+		color: var(--color-ink-soft);
+		line-height: 1.2;
+		font-weight: 600;
 		overflow-wrap: break-word;
+	}
+
+	p {
+		overflow-wrap: break-word;
+	}
+
+	a {
+		color: var(--color-red);
+		text-decoration: none;
+		transition: color var(--duration-fast) var(--ease-standard);
+	}
+
+	a:hover {
+		color: var(--color-red-deep);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-red);
+		outline-offset: 3px;
+		border-radius: var(--radius-sm);
 	}
 }
 
-/* ---------------------------------------------------------------------------
-   Scroll-triggered animations
-   Add [data-animate] to any element to opt in.
-   Variants: data-animate="fade-up" (default) | "fade-in" | "slide-left" | "slide-right"
-   Delay:    data-delay="1"–"6"  (100ms steps)
-   --------------------------------------------------------------------------- */
+/* =============================================================================
+   UTILITY COMPONENT CLASSES
+   ============================================================================= */
+
+.label-red {
+	display: inline-block;
+	font-family: var(--font-body);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: var(--color-red);
+	border-bottom: 2px solid var(--color-red);
+	padding-bottom: 2px;
+}
+
+.eyebrow {
+	display: block;
+	font-family: var(--font-body);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-stone-500);
+	margin-bottom: 0.75rem;
+}
+
+.eyebrow-red {
+	color: var(--color-red);
+}
+
+.pull-quote {
+	font-family: var(--font-display);
+	font-size: 1.875rem;
+	font-style: italic;
+	color: var(--color-ink-soft);
+	border-left: 3px solid var(--color-red);
+	padding-left: 1.5rem;
+	margin: 2rem 0;
+}
+
+.divider-red {
+	width: 3rem;
+	height: 3px;
+	background-color: var(--color-red);
+	border: none;
+	margin: 1.5rem 0;
+}
+
+.card {
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	box-shadow: 0 2px 8px var(--color-shadow);
+	transition:
+		box-shadow var(--duration-base) var(--ease-standard),
+		transform var(--duration-base) var(--ease-standard);
+}
+
+.card:hover {
+	box-shadow: 0 8px 24px var(--color-shadow-md);
+	transform: translateY(-2px);
+}
+
+/* =============================================================================
+   BUTTON SYSTEM
+   ============================================================================= */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: var(--font-body);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 0.75rem 1.75rem;
+	border-radius: var(--radius);
+	cursor: pointer;
+	border: 2px solid transparent;
+	transition: all var(--duration-fast) var(--ease-standard);
+	text-decoration: none;
+}
+
+.btn-primary {
+	background-color: var(--color-red);
+	color: var(--color-surface);
+	border-color: var(--color-red);
+}
+.btn-primary:hover {
+	background-color: var(--color-red-deep);
+	border-color: var(--color-red-deep);
+	color: var(--color-surface);
+}
+
+.btn-secondary {
+	background-color: transparent;
+	color: var(--color-ink);
+	border-color: var(--color-ink);
+}
+.btn-secondary:hover {
+	background-color: var(--color-ink);
+	color: var(--color-surface);
+}
+
+.btn-ghost {
+	background-color: transparent;
+	color: var(--color-red);
+	border-color: var(--color-red);
+}
+.btn-ghost:hover {
+	background-color: var(--color-red);
+	color: var(--color-surface);
+}
+
+/* =============================================================================
+   SECTION BACKGROUNDS
+   ============================================================================= */
+
+.bg-section {
+	background-color: var(--color-stone-50);
+}
+.bg-section-alt {
+	background-color: var(--color-stone-100);
+}
+.bg-section-red-wash {
+	background-color: var(--color-red-wash);
+}
+
+.bg-section-dark {
+	background-color: var(--color-ink-soft);
+	color: var(--color-stone-200);
+}
+.bg-section-dark h1,
+.bg-section-dark h2,
+.bg-section-dark h3,
+.bg-section-dark h4 {
+	color: var(--color-stone-100);
+}
+
+/* =============================================================================
+   SCROLL-TRIGGERED ANIMATIONS
+   ============================================================================= */
 
 [data-animate] {
 	opacity: 0;
@@ -95,15 +304,12 @@
 [data-animate="fade-in"] {
 	transform: none;
 }
-
 [data-animate="slide-left"] {
 	transform: translateX(-32px);
 }
-
 [data-animate="slide-right"] {
 	transform: translateX(32px);
 }
-
 [data-animate="zoom-in"] {
 	transform: scale(0.92);
 }
@@ -132,7 +338,6 @@
 	transition-delay: 0.48s;
 }
 
-/* Hero text stagger helper — applied inside hero sections */
 .hero-stagger > * {
 	opacity: 0;
 }
@@ -172,7 +377,20 @@
 	}
 }
 
-/* Gradient shimmer for stat numbers */
+.stat-number {
+	background: linear-gradient(
+		90deg,
+		var(--color-red) 30%,
+		var(--color-red-soft) 50%,
+		var(--color-red) 70%
+	);
+	background-size: 200% auto;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	animation: shimmer 3s linear infinite;
+}
+
 @keyframes shimmer {
 	0% {
 		background-position: -200% center;
@@ -180,13 +398,4 @@
 	100% {
 		background-position: 200% center;
 	}
-}
-
-.stat-number {
-	background: linear-gradient(90deg, #dc2626 30%, #fca5a5 50%, #dc2626 70%);
-	background-size: 200% auto;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	animation: shimmer 3s linear infinite;
 }
