@@ -22,14 +22,10 @@ jobs:
       - name: Build site
         run: bun run build
 
-      - name: Deploy dist/ to Cloudways via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Push built files to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: ${{ secrets.SFTP_PORT }}
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: ${{ secrets.SFTP_REMOTE_PATH }}
-          dangerous-clean-slate: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: ./dist
+          force_orphan: true
