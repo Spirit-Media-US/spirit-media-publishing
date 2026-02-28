@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
@@ -53,6 +54,8 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <ClientRouter />
   </head>
   <body class="flex min-h-screen flex-col bg-white text-gray-900 antialiased">
     <Navbar />
@@ -60,26 +63,30 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <Footer />
 
     <script>
-      // Scroll-triggered animations — triggers [data-animate] elements via IntersectionObserver
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
+      function initAnimations() {
+        // Scroll-triggered animations — triggers [data-animate] elements via IntersectionObserver
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
             }
-          }
-        },
-        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
-      );
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+        );
 
-      document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+        document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
 
-      // Hero stagger — add .loaded shortly after page load
-      const heroStagger = document.querySelector('.hero-stagger');
-      if (heroStagger) {
-        setTimeout(() => heroStagger.classList.add('loaded'), 60);
+        // Hero stagger — add .loaded shortly after page load
+        const heroStagger = document.querySelector('.hero-stagger');
+        if (heroStagger) {
+          setTimeout(() => heroStagger.classList.add('loaded'), 60);
+        }
       }
+
+      document.addEventListener('astro:page-load', initAnimations);
     </script>
   </body>
 </html>

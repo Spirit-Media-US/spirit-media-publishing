@@ -222,41 +222,51 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
 </header>
 
 <script>
-  // Mobile menu toggle
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamburger = document.getElementById('hamburger-icon');
-  const closeIcon = document.getElementById('close-icon');
+  let navbarController: AbortController | null = null;
 
-  mobileBtn?.addEventListener('click', () => {
-    if (!mobileMenu || !mobileBtn || !hamburger || !closeIcon) return;
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    mobileBtn.setAttribute('aria-expanded', String(!isOpen));
-    hamburger.classList.toggle('hidden');
-    closeIcon.classList.toggle('hidden');
-  });
+  function initNavbar() {
+    navbarController?.abort();
+    navbarController = new AbortController();
+    const { signal } = navbarController;
 
-  // Resources dropdown toggle
-  const resourcesBtn = document.getElementById('resources-menu-btn');
-  const resourcesMenu = document.getElementById('resources-menu');
-  const chevron = document.getElementById('resources-chevron');
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
 
-  resourcesBtn?.addEventListener('click', () => {
-    if (!resourcesMenu || !resourcesBtn || !chevron) return;
-    const isOpen = !resourcesMenu.classList.contains('hidden');
-    resourcesMenu.classList.toggle('hidden');
-    resourcesBtn.setAttribute('aria-expanded', String(!isOpen));
-    (chevron as HTMLElement).style.transform = isOpen ? '' : 'rotate(180deg)';
-  });
+    mobileBtn?.addEventListener('click', () => {
+      if (!mobileMenu || !mobileBtn || !hamburger || !closeIcon) return;
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+      hamburger.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    }, { signal });
 
-  // Close resources dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!resourcesMenu || !resourcesBtn || !chevron) return;
-    if (!resourcesBtn.contains(e.target as Node) && !resourcesMenu.contains(e.target as Node)) {
-      resourcesMenu.classList.add('hidden');
-      resourcesBtn.setAttribute('aria-expanded', 'false');
-      (chevron as HTMLElement).style.transform = '';
-    }
-  });
+    // Resources dropdown toggle
+    const resourcesBtn = document.getElementById('resources-menu-btn');
+    const resourcesMenu = document.getElementById('resources-menu');
+    const chevron = document.getElementById('resources-chevron');
+
+    resourcesBtn?.addEventListener('click', () => {
+      if (!resourcesMenu || !resourcesBtn || !chevron) return;
+      const isOpen = !resourcesMenu.classList.contains('hidden');
+      resourcesMenu.classList.toggle('hidden');
+      resourcesBtn.setAttribute('aria-expanded', String(!isOpen));
+      (chevron as HTMLElement).style.transform = isOpen ? '' : 'rotate(180deg)';
+    }, { signal });
+
+    // Close resources dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!resourcesMenu || !resourcesBtn || !chevron) return;
+      if (!resourcesBtn.contains(e.target as Node) && !resourcesMenu.contains(e.target as Node)) {
+        resourcesMenu.classList.add('hidden');
+        resourcesBtn.setAttribute('aria-expanded', 'false');
+        (chevron as HTMLElement).style.transform = '';
+      }
+    }, { signal });
+  }
+
+  document.addEventListener('astro:page-load', initNavbar);
 </script>
