@@ -42,10 +42,10 @@
 	--color-shadow-md: rgba(26, 23, 20, 0.15);
 
 	/* — Typography — */
-	--font-display: "Cormorant Garamond", Georgia, serif;
+	--font-display: "Playfair Display", Georgia, serif;
 	--font-body: "Source Sans 3", system-ui, sans-serif;
 	--font-sans: "Source Sans 3", system-ui, sans-serif;
-	--font-serif: "Cormorant Garamond", Georgia, serif;
+	--font-serif: "Playfair Display", Georgia, serif;
 	--font-mono: "Courier New", Courier, monospace;
 
 	/* — Radius — */
@@ -154,80 +154,84 @@
 /* Hero H1 — page-level headline only */
 .type-hero {
 	font-family: var(--font-display);
-	font-size: clamp(2.75rem, 6vw, 4.5rem); /* ~5xl→7xl */
-	font-weight: 700;
+	font-size: clamp(2.75rem, 6vw, 4.5rem);
+	font-weight: 800;
 	line-height: 1.05;
 	letter-spacing: -0.02em;
-	color: var(--color-ink-soft);
 }
 
 /* Section H2 — every section heading */
 .type-section-heading {
 	font-family: var(--font-display);
-	font-size: clamp(1.75rem, 3vw, 2.25rem); /* ~3xl→4xl */
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
 	font-weight: 700;
 	line-height: 1.15;
-	color: var(--color-ink-soft);
 }
 
 /* Card H3 — feature cards, named programs */
 .type-card-heading {
 	font-family: var(--font-display);
-	font-size: 1.25rem; /* xl */
+	font-size: 1.25rem;
 	font-weight: 700;
 	line-height: 1.25;
-	color: var(--color-ink-soft);
 }
 
 /* Card H4 — small card headings, service list titles */
 .type-card-subheading {
 	font-family: var(--font-display);
-	font-size: 1.0625rem; /* between base and lg */
+	font-size: 1.0625rem;
 	font-weight: 700;
 	line-height: 1.3;
-	color: var(--color-ink-soft);
 }
 
 /* Body large — hero intro, section intros */
 .type-body-lg {
 	font-family: var(--font-body);
-	font-size: 1.125rem; /* lg */
+	font-size: 1.125rem;
 	line-height: 1.75;
-	color: var(--color-stone-600);
 }
 
 /* Body — standard paragraphs */
 .type-body {
 	font-family: var(--font-body);
-	font-size: 1rem; /* base */
+	font-size: 1rem;
 	line-height: 1.7;
-	color: var(--color-stone-700);
 }
 
 /* Body small — card descriptions, secondary content */
 .type-body-sm {
 	font-family: var(--font-body);
-	font-size: 0.9375rem; /* between sm and base */
+	font-size: 0.9375rem;
 	line-height: 1.65;
-	color: var(--color-stone-600);
 }
 
 /* Caption — metadata, location, dates */
 .type-caption {
 	font-family: var(--font-body);
-	font-size: 0.8125rem; /* between xs and sm */
+	font-size: 0.8125rem;
 	line-height: 1.5;
-	color: var(--color-stone-500);
 }
 
-/* Scripture / pull quote — special display */
+/* Scripture / pull quote */
 .type-scripture {
 	font-family: var(--font-display);
-	font-size: clamp(1.375rem, 2.5vw, 2rem); /* ~2xl→3xl */
+	font-size: clamp(1.375rem, 2.5vw, 2rem);
 	font-weight: 700;
 	line-height: 1.5;
-	color: var(--color-stone-100);
 }
+
+/*
+  COLOR RULE — Light sections vs Dark sections
+  ─────────────────────────────────────────────
+  Type scale classes carry NO color by default.
+  Color is always set explicitly by context:
+
+  Light sections  → text-ink-soft / text-stone-600 / text-stone-500
+  Dark sections   → text-stone-100 / text-stone-400 / text-stone-500
+  Red sections    → text-white / text-red-100
+
+  This prevents invisible text on dark backgrounds.
+*/
 
 .label-red {
 	display: inline-block;
