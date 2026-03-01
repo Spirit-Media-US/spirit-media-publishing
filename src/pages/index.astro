@@ -29,21 +29,14 @@ import Layout from '../layouts/Layout.astro';
 							<a href="/contact" class="btn btn-primary">Request a Call</a>
 						</div>
 					</div>
-
 					<!-- Book collage image -->
-					<div class="hidden lg:block" data-animate="zoom-in">
-						<div class="relative">
-							<img
-								src="/book-collage.png"
-								alt="Published books by Spirit Media authors"
-								class="rounded-3xl w-full object-cover shadow-2xl"
-							/>
-							<div class="absolute -bottom-5 -right-5 w-28 h-28 rounded-2xl bg-stone-300 -z-10"></div>
-							<div class="absolute -top-5 -left-5 w-20 h-20 rounded-xl bg-stone-100 border border-stone-300 -z-10"></div>
-						</div>
+					<div class="hidden lg:flex items-center justify-center" data-animate="zoom-in">
+						<img
+							src="/book-collage.png"
+							alt="Published books by Spirit Media authors"
+							class="w-full max-h-[600px] object-contain"
+						/>
 					</div>
-				</div>
-			</div>
 		</section>
 
 		<!-- ═══ SCRIPTURE SECTION ═══ -->
