@@ -13,9 +13,9 @@ import Layout from '../layouts/Layout.astro';
 			<div class="mx-auto max-w-7xl">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div class="hero-stagger">
-						<p class="text-xs font-semibold uppercase tracking-widest text-red mb-4">Kingdom Messenger Collective</p>
-						<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-ink-soft">From Message to<br /><span class="text-red">Movement</span></h1>
-						<p class="mt-6 text-lg leading-8 text-stone-600 max-w-xl italic">"The Holy Spirit empowers you to be my messenger, telling people about me everywhere — to those close to you, those different from you, and to the remotest places on earth!"</p>
+						<p class="eyebrow eyebrow-red mb-4">Kingdom Messenger Collective</p>
+						<h1 class="type-hero">From Message to<br /><span class="text-red">Movement</span></h1>
+						<p class="mt-6 type-body-lg max-w-xl italic">"The Holy Spirit empowers you to be my messenger, telling people about me everywhere — to those close to you, those different from you, and to the remotest places on earth!"</p>
 						<p class="mt-2 text-sm font-semibold text-red">— Acts 1:8 (FHB)</p>
 					</div>
 					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
@@ -36,7 +36,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- ARE YOU A KINGDOM MESSENGER -->
 		<section class="bg-stone-100 py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto">
-				<h2 class="font-serif text-3xl font-bold text-ink-soft mb-6" data-animate="fade-up">Are You a Kingdom Messenger?</h2>
+				<h2 class="type-section-heading mb-6" data-animate="fade-up">Are You a Kingdom Messenger?</h2>
 				<p class="text-lg text-stone-700 leading-relaxed mb-6" data-animate="fade-up" data-delay="1">You carry a message from God that has been refined through years of prayer, crushing, and surrender. You've seen enough fruit to know it has power to transform lives. But you don't just see a message — you see a movement.</p>
 				<p class="text-lg text-stone-700 leading-relaxed font-semibold" data-animate="fade-up" data-delay="2">The question is: how do you move from message to movement?</p>
 			</div>
@@ -46,7 +46,7 @@ import Layout from '../layouts/Layout.astro';
 		<section class="bg-stone-50 py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto">
 				<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">The Program</p>
-				<h2 class="font-serif text-3xl font-bold text-ink-soft mb-6" data-animate="fade-up" data-delay="1">From Message to Movement</h2>
+				<h2 class="type-section-heading mb-6" data-animate="fade-up" data-delay="1">From Message to Movement</h2>
 				<p class="text-lg text-stone-700 leading-relaxed mb-6" data-animate="fade-up" data-delay="2">When Jesus said "Come, follow me," He wasn't inviting people to hear a talk — He was inviting them into a movement. The Kingdom Messenger Collective is our flagship partnership program, designed to walk with you through a 3+ year journey from restoration to proclamation, and from message to sustainable global movement.</p>
 				<p class="text-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="3">This isn't coaching. It's a covenant relationship. You bring the message. Spirit Media provides the platform, the strategy, and the team.</p>
 			</div>
@@ -59,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
 					<div class="bg-stone-200 rounded-2xl aspect-square flex items-center justify-center" data-animate="slide-left"><p class="text-stone-400 text-sm">Kevin White Photo</p></div>
 					<div data-animate="slide-right">
 						<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3">Your Mentor</p>
-						<h2 class="font-serif text-3xl font-bold text-ink-soft mb-6">Kevin White</h2>
+						<h2 class="type-section-heading mb-6">Kevin White</h2>
 						<p class="text-stone-700 leading-relaxed mb-4">Kevin White is an international bestselling author of seven books in five years. His first title, Audacious Generosity, was a bestseller in India before reaching the USA. His second book has over 2 million downloads in Nepal.</p>
 						<p class="text-stone-700 leading-relaxed mb-4">Through weekly video podcasts over 7+ years, Kevin has reached audiences in 163 countries. As founder and CEO of Spirit Media, he has helped publish over 300 books for authors across the globe.</p>
 						<p class="text-stone-700 leading-relaxed">For over 40 years, God has used Kevin to raise up and commission Kingdom Messengers. Now, he invites you to walk the same path.</p>
@@ -73,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-12">
 					<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">Soul Care</p>
-					<h2 class="font-serif text-3xl font-bold text-ink-soft sm:text-4xl" data-animate="fade-up" data-delay="1">Messenger Soul Care</h2>
+					<h2 class="type-section-heading" data-animate="fade-up" data-delay="1">Messenger Soul Care</h2>
 					<p class="mt-4 text-stone-600 max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">Every Kingdom Messenger receives personalized pastoral accompaniment:</p>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -84,8 +84,8 @@ import Layout from '../layouts/Layout.astro';
 						{ title: 'Quarterly Reviews', body: 'Dedicated time to assess goals, celebrate progress, and chart next steps for your movement.' },
 					].map(({ title, body }, i) => (
 						<div class="bg-stone-100 rounded-2xl p-6 border border-stone-200" data-animate="fade-up" data-delay={String(i + 1)}>
-							<h3 class="font-serif text-lg font-bold text-ink-soft mb-2">{title}</h3>
-							<p class="text-sm text-stone-600 leading-relaxed">{body}</p>
+							<h3 class="type-card-subheading mb-2">{title}</h3>
+							<p class="type-body-sm">{body}</p>
 						</div>
 					))}
 				</div>
@@ -124,7 +124,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-12">
 					<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">Journey</p>
-					<h2 class="font-serif text-3xl font-bold text-ink-soft sm:text-4xl" data-animate="fade-up" data-delay="1">The 3-Year Journey</h2>
+					<h2 class="type-section-heading" data-animate="fade-up" data-delay="1">The 3-Year Journey</h2>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 					{[
@@ -134,9 +134,9 @@ import Layout from '../layouts/Layout.astro';
 						{ year: 'Beyond', title: 'Multiplication', body: 'Generational impact. Global Kingdom influence.' },
 					].map(({ year, title, body }, i) => (
 						<div class="bg-stone-100 rounded-2xl p-6 border border-stone-200 text-center" data-animate="fade-up" data-delay={String(i + 1)}>
-							<p class="text-xs font-semibold uppercase tracking-widest text-red mb-1">{year}</p>
-							<h3 class="font-serif text-xl font-bold text-ink-soft mb-3">{title}</h3>
-							<p class="text-sm text-stone-600 leading-relaxed">{body}</p>
+							<p class="eyebrow eyebrow-red mb-1">{year}</p>
+							<h3 class="type-card-heading mb-3">{title}</h3>
+							<p class="type-body-sm">{body}</p>
 						</div>
 					))}
 				</div>
@@ -147,8 +147,8 @@ import Layout from '../layouts/Layout.astro';
 		<section class="bg-stone-100 py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto text-center">
 				<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">Infrastructure</p>
-				<h2 class="font-serif text-3xl font-bold text-ink-soft mb-6" data-animate="fade-up" data-delay="1">Movement-Building Services</h2>
-				<p class="text-stone-600 text-lg leading-relaxed" data-animate="fade-up" data-delay="2">Spirit Media provides the full infrastructure for your movement — publishing, video production, digital presence, community platform, podcast, social media, and marketing. All done for you. You focus on your message. We build everything around it.</p>
+				<h2 class="type-section-heading mb-6" data-animate="fade-up" data-delay="1">Movement-Building Services</h2>
+				<p class="text-stone-600 type-body-lg" data-animate="fade-up" data-delay="2">Spirit Media provides the full infrastructure for your movement — publishing, video production, digital presence, community platform, podcast, social media, and marketing. All done for you. You focus on your message. We build everything around it.</p>
 			</div>
 		</section>
 
@@ -156,7 +156,7 @@ import Layout from '../layouts/Layout.astro';
 		<section class="bg-red px-6 py-20 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Are You One of the 10?</h2>
-				<p class="text-stone-200 text-lg leading-relaxed mb-6" data-animate="fade-up" data-delay="1">This opportunity is by invitation only, limited to 10 Kingdom Messengers per mastermind group. You may be a fit if you have:</p>
+				<p class="text-stone-200 type-body-lg mb-6" data-animate="fade-up" data-delay="1">This opportunity is by invitation only, limited to 10 Kingdom Messengers per mastermind group. You may be a fit if you have:</p>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-lg mx-auto mb-8" data-animate="fade-up" data-delay="2">
 					{["A passion for God's presence and glory.", 'A clear calling to global Kingdom influence.', 'A message that demands a movement.', 'Commitment to a multi-year journey.', 'A heart for reaching the nations.'].map((item) => (
 						<div class="flex items-start gap-2">
