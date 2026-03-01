@@ -41,12 +41,6 @@
 	--color-shadow: rgba(26, 23, 20, 0.08);
 	--color-shadow-md: rgba(26, 23, 20, 0.15);
 
-	/* — Navy (footer / dark sections) — */
-	--color-navy-950: #050d1e;
-	--color-navy-900: #0a1630;
-	--color-navy-800: #0f1f45;
-	--color-navy-700: #152a5c;
-
 	/* — Typography — */
 	--font-display: "Cormorant Garamond", Georgia, serif;
 	--font-body: "Source Sans 3", system-ui, sans-serif;
