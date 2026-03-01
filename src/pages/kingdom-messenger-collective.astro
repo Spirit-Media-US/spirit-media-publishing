@@ -84,7 +84,7 @@ import Layout from '../layouts/Layout.astro';
 						{ title: 'Quarterly Reviews', body: 'Dedicated time to assess goals, celebrate progress, and chart next steps for your movement.' },
 					].map(({ title, body }, i) => (
 						<div class="bg-stone-100 rounded-2xl p-6 border border-stone-200" data-animate="fade-up" data-delay={String(i + 1)}>
-							<h3 class="type-card-subheading mb-2">{title}</h3>
+							<h3 class="type-card-subheading mb-3">{title}</h3>
 							<p class="type-body-sm">{body}</p>
 						</div>
 					))}
