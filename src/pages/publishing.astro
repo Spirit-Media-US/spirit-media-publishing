@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
 	<main id="main-content">
 
 		<!-- HERO -->
-		<section class="bg-stone-50 px-6 py-20 lg:py-28 lg:px-8 overflow-hidden">
+		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8 overflow-hidden">
 			<div class="mx-auto max-w-7xl">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div class="hero-stagger">
@@ -73,11 +73,11 @@ import Layout from '../layouts/Layout.astro';
 				<div class="overflow-x-auto" data-animate="fade-up" data-delay="2">
 					<table class="w-full text-left type-body-sm">
 						<thead><tr class="border-b-2 border-red-600"><th class="py-4 pr-4 font-semibold text-ink-soft">Package</th><th class="py-4 px-4 font-semibold text-ink-soft">What's Included</th></tr></thead>
-						<tbody class="divide-y divide-gray-100">
-							<tr><td class="py-4 pr-4 font-semibold text-ink-soft">eBook — Express Books™</td><td class="py-4 px-4 text-stone-600">eBook + PDF (up to 20K words), professional editing, global distribution</td></tr>
-							<tr><td class="py-4 pr-4 font-semibold text-ink-soft">eBook — Full Size</td><td class="py-4 px-4 text-stone-600">eBook + PDF (up to 50K words), professional editing, global distribution</td></tr>
-							<tr><td class="py-4 pr-4 font-semibold text-ink-soft">Print — Express Books™ / Children's</td><td class="py-4 px-4 text-stone-600">Paperback + eBook + PDF (up to 20K words), professional editing, global distribution</td></tr>
-							<tr><td class="py-4 pr-4 font-semibold text-ink-soft">Print — Full Size</td><td class="py-4 px-4 text-stone-600">Paperback + eBook + PDF (up to 50K words), professional editing, global distribution</td></tr>
+						<tbody class="divide-y divide-stone-200">
+							<tr class="bg-stone-50"><td class="py-4 pr-4 font-semibold text-ink-soft">eBook — Express Books™</td><td class="py-4 px-4 text-stone-600">eBook + PDF (up to 20K words), professional editing, global distribution</td></tr>
+							<tr class="bg-stone-100"><td class="py-4 pr-4 font-semibold text-ink-soft">eBook — Full Size</td><td class="py-4 px-4 text-stone-600">eBook + PDF (up to 50K words), professional editing, global distribution</td></tr>
+							<tr class="bg-stone-50"><td class="py-4 pr-4 font-semibold text-ink-soft">Print — Express Books™ / Children's</td><td class="py-4 px-4 text-stone-600">Paperback + eBook + PDF (up to 20K words), professional editing, global distribution</td></tr>
+							<tr class="bg-stone-100"><td class="py-4 pr-4 font-semibold text-ink-soft">Print — Full Size</td><td class="py-4 px-4 text-stone-600">Paperback + eBook + PDF (up to 50K words), professional editing, global distribution</td></tr>
 						</tbody>
 					</table>
 				</div>
@@ -184,11 +184,26 @@ import Layout from '../layouts/Layout.astro';
 
 		<!-- BEYOND BOOKS -->
 		<section class="bg-stone-50 py-20 px-6 lg:px-8">
-			<div class="max-w-3xl mx-auto text-center">
+			<div class="max-w-4xl mx-auto text-center">
 				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Beyond Books</p>
 				<h2 class="type-section-heading text-ink-soft mb-6" data-animate="fade-up" data-delay="1">Publishing Is Anything with a "Publish" Button</h2>
-				<p class="text-stone-600 type-body-lg mb-8" data-animate="fade-up" data-delay="2">That's why Spirit Media also publishes websites, articles, social media, video, live broadcasts, podcasts, and more.</p>
-				<a href="/marketing" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm" data-animate="fade-up" data-delay="3">See Our Full Marketing Services →</a>
+				<p class="text-stone-600 type-body-lg mb-10" data-animate="fade-up" data-delay="2">That's why Spirit Media also helps authors build their full platform — not just their book.</p>
+				<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10" data-animate="fade-in" data-delay="3">
+					{[
+						{ label: 'Websites', icon: '🌐' },
+						{ label: 'Articles', icon: '📝' },
+						{ label: 'Social Media', icon: '📱' },
+						{ label: 'Video', icon: '🎬' },
+						{ label: 'Podcasts', icon: '🎙️' },
+						{ label: 'Live Broadcasts', icon: '📡' },
+					].map(({ label, icon }) => (
+						<div class="bg-stone-100 rounded-xl p-4 flex flex-col items-center gap-2 border border-stone-200">
+							<span class="text-2xl">{icon}</span>
+							<span class="text-sm font-semibold text-ink-soft">{label}</span>
+						</div>
+					))}
+				</div>
+				<a href="/marketing" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm" data-animate="fade-up" data-delay="4">See Our Full Marketing Services →</a>
 			</div>
 		</section>
 
