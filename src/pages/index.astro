@@ -39,7 +39,7 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<!-- ═══ SCRIPTURE SECTION ═══ -->
-		<section class="bg-ink-soft px-6 py-24 lg:px-8 relative overflow-hidden">
+		<section class="bg-ink-soft px-6 py-12 lg:px-8 relative overflow-hidden">
 			<div class="mx-auto max-w-3xl text-center relative z-10">
 				<blockquote data-animate="fade-in">
 					<div class="font-serif text-red mb-4" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">&ldquo;</div>
@@ -66,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- ═══ EXCLUSIVE HOME OF (BRAND CARDS) ═══ -->
 		<section class="bg-surface px-6 py-20 lg:px-8">
 			<div class="mx-auto max-w-7xl">
-				<div class="text-center mb-12">
+				<div class="text-center mb-6">
 					<span class="eyebrow eyebrow-red" data-animate="fade-in">Exclusive Home of</span>
 					<h2 class="type-section-heading text-ink-soft mb-6" data-animate="fade-in" data-delay="1">
 						Our Brands &amp; Programs
@@ -81,25 +81,24 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 
 				<!-- FHB — Featured hero card -->
-				<div class="bg-ink-soft rounded-3xl p-8 lg:p-10 mb-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" data-animate="fade-in">
-					<div>
-						<span class="eyebrow" style="color: var(--color-stone-400);">Father's Heart Bible™ (FHB)</span>
-						<h3 class="type-card-heading mb-4 leading-snug text-stone-100">
-							An intimate translation revealing our Father's heart to a fatherless generation.
-						</h3>
-						<p class="type-body-lg text-stone-400 mb-6">
-							One message for every reader: "Come home. You belong to Me. You are My beloved child." Each gift of $100 places three Father's Heart Bibles into the hands of readers worldwide.
-						</p>
-						<a href="https://fathersheartbible.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-							Visit FathersHeartBible.com →
-						</a>
-					</div>
-					<div class="hidden lg:flex items-center justify-center">
+				<div class="bg-ink-soft rounded-3xl p-8 lg:p-10 mb-6 mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" data-animate="fade-in">
+					<div class="flex items-center justify-center order-first lg:order-last mt-6 lg:mt-0">
 						<img
 							src="/fhb-city.png"
 							alt="Father's Heart Bible — An Intimate Translation"
 							class="w-72 object-contain rounded-2xl shadow-2xl"
 						/>
+					</div>
+					<div class="order-last lg:order-first">						<span class="eyebrow" style="color: var(--color-stone-400);">Father's Heart Bible™ (FHB)</span>
+						<h3 class="type-card-heading mb-4 leading-snug text-stone-100">
+							An intimate translation revealing our Father's heart to a fatherless generation.
+						</h3>
+						<p class="type-body-lg text-stone-300 mb-6">
+							One message for every reader: "Come home. You belong to Me. You are My beloved child." Each gift of $100 places three Father's Heart Bibles into the hands of readers worldwide.
+						</p>
+						<a href="https://fathersheartbible.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+							Visit FathersHeartBible.com →
+						</a>
 					</div>
 				</div>
 
@@ -218,9 +217,9 @@ import Layout from '../layouts/Layout.astro';
 								{ title: 'Write My Book', body: 'Meet with your writer one hour per week. Book complete in as few as 90 days.', href: '/publishing' },
 								{ title: 'Publish My Book', body: 'Paperback, hardback, digital, and audiobook — global distribution worldwide.', href: '/publishing' },
 								{ title: "Publish My Children's Book", body: 'Fully illustrated children\'s books connecting your story with young readers.', href: '/publishing' },
-								{ title: 'Grow My E-commerce', body: 'Website design, SEO, and digital strategy to grow your online presence.', href: '/marketing' },
-								{ title: 'Give My Church an MTO', body: 'Marketing tune-up to help your church reach more people in your community.', href: '/marketing' },
-								{ title: 'Publish My Broadcast', body: 'Podcast production, YouTube optimization, and video content strategy.', href: '/marketing' },
+								{ title: 'Build My Website', body: 'Website design, SEO, and digital strategy to grow your online presence.', href: '/marketing' },
+								{ title: 'Increase My Sales', body: 'Audit your listings, increase reviews, market to bookstores and increase your sales.', href: '/marketing' },
+								{ title: 'Produce My Podcast Show', body: 'Podcast production, YouTube optimization, and video content strategy.', href: '/marketing' },
 							].map(({ title, body, href }) => (
 								<a href={href} class="group flex gap-3 rounded-xl border border-stone-200 bg-surface p-5 transition-shadow hover:shadow-md">
 									<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-wash text-red mt-0.5">

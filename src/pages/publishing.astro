@@ -26,16 +26,8 @@ import Layout from '../layouts/Layout.astro';
 							<a href="/marketing" class="rounded-md border-2 border-red-600 bg-stone-50 px-6 py-3 text-sm font-semibold text-red transition-colors hover:bg-red-wash">View Marketing Services</a>
 						</div>
 					</div>
-					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
-						<div class="rounded-2xl bg-red aspect-square"></div>
-						<div class="rounded-2xl bg-red-deep aspect-square"></div>
-						<div class="rounded-2xl bg-red aspect-square"></div>
-						<div class="rounded-2xl bg-ink aspect-square"></div>
-						<div class="rounded-2xl bg-red-deep aspect-square"></div>
-						<div class="rounded-2xl bg-ink-muted aspect-square"></div>
-						<div class="rounded-2xl bg-red aspect-square"></div>
-						<div class="rounded-2xl bg-ink aspect-square"></div>
-						<div class="rounded-2xl bg-red-deep aspect-square"></div>
+					<div class="hidden lg:flex items-center justify-center" data-animate="zoom-in">
+						<img src="/book-collage2.png" alt="Books published by Spirit Media" class="w-full rounded-2xl" />
 					</div>
 				</div>
 			</div>
@@ -45,7 +37,7 @@ import Layout from '../layouts/Layout.astro';
 		<section class="bg-stone-100 py-20 px-6 lg:px-8">
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-12">
-					<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">Our Services</p>
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Our Services</p>
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Everything You Need to <span class="text-red">Publish</span></h2>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -75,7 +67,7 @@ import Layout from '../layouts/Layout.astro';
 		<section class="bg-stone-50 py-20 px-6 lg:px-8">
 			<div class="max-w-5xl mx-auto">
 				<div class="text-center mb-12">
-					<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">Packages</p>
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Packages</p>
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Publishing Packages</h2>
 				</div>
 				<div class="overflow-x-auto" data-animate="fade-up" data-delay="2">
@@ -96,7 +88,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- BASE MARKETING -->
 		<section class="bg-red py-20 px-6 lg:px-8">
 			<div class="max-w-4xl mx-auto text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-stone-300 mb-3" data-animate="fade-up">Included</p>
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Included</p>
 				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-6" data-animate="fade-up" data-delay="1">Every Book Gets Our Base Marketing</h2>
 				<p class="text-stone-200 type-body-lg mb-8 max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">We don't just publish — we promote. Every title receives:</p>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left" data-animate="fade-up" data-delay="3">
@@ -116,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div class="bg-stone-200 rounded-2xl aspect-[8.6/11] flex items-center justify-center" data-animate="slide-left"><p class="text-stone-400 text-sm">Book Cover Image</p></div>
 					<div data-animate="slide-right">
-						<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3">Free for Every Author</p>
+						<p class="eyebrow eyebrow-red mb-3">Free for Every Author</p>
 						<h2 class="type-section-heading text-ink-soft mb-4">The Ultimate Book Marketing Guide</h2>
 						<p class="text-stone-600 leading-relaxed mb-6">Our CEO Kevin White poured everything he knows about book marketing into The Ultimate Book Marketing Guide — a collection of proven tactics to increase book sales. Every Spirit Media author receives a free copy.</p>
 						<a href="https://spiritmedia.us/free-ultimate-book-marketing-guide/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm">Get Your Free Copy →</a>
@@ -130,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="max-w-4xl mx-auto">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 					<div data-animate="slide-left">
-						<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3">Smart Start</p>
+						<p class="eyebrow eyebrow-red mb-3">Smart Start</p>
 						<h2 class="type-section-heading text-ink-soft mb-4">Why Start with an eBook?</h2>
 						<p class="type-body-lg text-stone-700">If you can publish print now, do it. Otherwise, consider starting digital:</p>
 					</div>
@@ -146,10 +138,18 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
+		<!-- CHILDREN'S BOOKS BANNER -->
+		<section class="bg-stone-50 px-6 pb-12 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<p class="eyebrow eyebrow-red mb-4" data-animate="fade-up">Children's Books</p>
+				<img src="/childrens-books-banner.png" alt="Spirit Media Children's Book Collection" class="w-full rounded-2xl shadow-md" data-animate="fade-in" />
+			</div>
+		</section>
+
 		<!-- CROWDFUNDING -->
 		<section class="bg-stone-100 py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">Funding</p>
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Funding</p>
 				<h2 class="type-section-heading text-ink-soft mb-6" data-animate="fade-up" data-delay="1">Need Help Funding Your Book?</h2>
 				<p class="text-stone-600 type-body-lg mb-6" data-animate="fade-up" data-delay="2">Spirit Media was born from crowdfunding. Our CEO Kevin White raised $25,000 on Kickstarter for his first book — over 100 supporters are listed in the back of Audacious Generosity.</p>
 				<p class="text-stone-600 leading-relaxed mb-8" data-animate="fade-up" data-delay="3">That story launched Spirit Media Charities, an IRS-recognized 501(c)(3) nonprofit. Authors use our crowdfunding platform at smgives.org to invite family and friends to bring their book to life. 100% of donations go toward the author's project. All gifts are tax-deductible.</p>
@@ -160,7 +160,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- TRANSLATION -->
 		<section class="bg-ink-soft text-white py-20 px-6 lg:px-8">
 			<div class="max-w-4xl mx-auto text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-red-soft mb-3" data-animate="fade-up">Translation</p>
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Translation</p>
 				<h2 class="font-serif text-3xl font-bold mb-6" data-animate="fade-up" data-delay="1">20 Languages. 75% of Humanity.</h2>
 				<p class="text-stone-300 leading-relaxed mb-8" data-animate="fade-up" data-delay="2">We translate books into the world's most spoken languages:</p>
 				<div class="flex flex-wrap justify-center gap-3" data-animate="fade-in" data-delay="3">
@@ -174,7 +174,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- BEYOND BOOKS -->
 		<section class="bg-stone-50 py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-red mb-3" data-animate="fade-up">Beyond Books</p>
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Beyond Books</p>
 				<h2 class="type-section-heading text-ink-soft mb-6" data-animate="fade-up" data-delay="1">Publishing Is Anything with a "Publish" Button</h2>
 				<p class="text-stone-600 type-body-lg mb-8" data-animate="fade-up" data-delay="2">That's why Spirit Media also publishes websites, articles, social media, video, live broadcasts, podcasts, and more.</p>
 				<a href="/marketing" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm" data-animate="fade-up" data-delay="3">See Our Full Marketing Services →</a>
