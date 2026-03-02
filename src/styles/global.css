@@ -56,6 +56,12 @@
 	--radius-xl: 1rem;
 	--radius-2xl: 1.5rem;
 
+	/* — Font size overrides — all body-level text renders at same size, no fine print anywhere — */
+	--text-xs: 1rem;
+	--text-sm: 1rem;
+	--text-base: 1rem;
+	--text-lg: 1rem;
+
 	/* — Transitions — */
 	--ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
 	--ease-enter: cubic-bezier(0, 0, 0.2, 1);
@@ -78,6 +84,7 @@
 	}
 
 	html {
+		font-size: 18px;
 		scroll-behavior: smooth;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -187,7 +194,7 @@
 /* Body large — hero intro, section intros */
 .type-body-lg {
 	font-family: var(--font-body);
-	font-size: 1.125rem;
+	font-size: 1rem;
 	line-height: 1.75;
 }
 
@@ -201,14 +208,14 @@
 /* Body small — card descriptions, secondary content */
 .type-body-sm {
 	font-family: var(--font-body);
-	font-size: 0.9375rem;
+	font-size: 1rem;
 	line-height: 1.65;
 }
 
 /* Caption — metadata, location, dates */
 .type-caption {
 	font-family: var(--font-body);
-	font-size: 0.8125rem;
+	font-size: 1rem;
 	line-height: 1.5;
 }
 
