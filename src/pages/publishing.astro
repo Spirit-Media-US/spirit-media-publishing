@@ -139,10 +139,20 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<!-- CHILDREN'S BOOKS BANNER -->
-		<section class="bg-stone-50 px-6 pb-12 lg:px-8">
-			<div class="max-w-7xl mx-auto">
-				<p class="eyebrow eyebrow-red mb-4" data-animate="fade-up">Children's Books</p>
-				<img src="/childrens-books-banner.png" alt="Spirit Media Children's Book Collection" class="w-full rounded-2xl shadow-md" data-animate="fade-in" />
+		<section class="bg-red-wash py-16 px-6 lg:px-8">
+			<div class="max-w-5xl mx-auto text-center">
+				<p class="eyebrow eyebrow-red mb-6" data-animate="fade-up">Children's Books</p>
+				<img src="/childrens-books-banner.png" alt="Spirit Media Children's Book Collection" class="w-full" data-animate="fade-in" />
+				<p class="type-body-lg text-stone-700 mt-8 max-w-3xl mx-auto" data-animate="fade-up">
+					Our children's book publishing package includes professional editing (10,000 words or less) and ALL illustrations — published in paperback, eBook, and PDF with global distribution (Amazon, IngramSpark, libraries, eBook stores).
+				</p>
+				<p class="mt-4 text-stone-500 tracking-widest uppercase font-semibold" data-animate="fade-up" data-delay="1">
+					picture books &nbsp;·&nbsp; early readers &nbsp;·&nbsp; chapter books
+				</p>
+				<div class="mt-8 flex flex-wrap justify-center gap-4" data-animate="fade-up" data-delay="2">
+					<a href="/contact" class="rounded-md bg-red px-6 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Request a Call →</a>
+					<a href="/marketing" class="rounded-md border-2 border-red bg-stone-50 px-6 py-3 font-semibold text-red transition-colors hover:bg-red-wash">View Marketing Services</a>
+				</div>
 			</div>
 		</section>
 
@@ -161,13 +171,14 @@ import Layout from '../layouts/Layout.astro';
 		<section class="bg-ink-soft text-white py-20 px-6 lg:px-8">
 			<div class="max-w-4xl mx-auto text-center">
 				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Translation</p>
-				<h2 class="font-serif text-3xl font-bold mb-6" data-animate="fade-up" data-delay="1">20 Languages. 75% of Humanity.</h2>
+				<h2 class="font-serif text-3xl font-bold mb-6 text-white" data-animate="fade-up">20 Languages. 75% of Humanity.</h2>
 				<p class="text-stone-300 leading-relaxed mb-8" data-animate="fade-up" data-delay="2">We translate books into the world's most spoken languages:</p>
 				<div class="flex flex-wrap justify-center gap-3" data-animate="fade-in" data-delay="3">
 					{['English (1.5B)', 'Mandarin (1.1B)', 'Hindi (600M)', 'Spanish (550M)', 'French (280M)', 'Arabic (274M)', 'Bengali (272M)', 'Russian (258M)', 'Portuguese (257M)', 'Urdu (231M)', 'Indonesian (199M)', 'German (135M)', 'Japanese (125M)', 'Nigerian Pidgin (121M)', 'Marathi (99M)', 'Telugu (96M)', 'Turkish (88M)', 'Tamil (86M)', 'Yue Chinese (86M)', 'Vietnamese (85M)'].map((lang) => (
 						<span class="bg-stone-50/10 text-sm px-3 py-1.5 rounded-full">{lang}</span>
 					))}
 				</div>
+				<img src="/translations-v2.png" alt="Spirit Media book translations across languages" class="w-full mt-10 rounded-xl" data-animate="fade-in" data-delay="4" />
 			</div>
 		</section>
 
