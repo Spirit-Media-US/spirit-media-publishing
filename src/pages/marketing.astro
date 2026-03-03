@@ -24,12 +24,33 @@ import Layout from '../layouts/Layout.astro';
 							systematic, long-term strategies that multiply your exposure, engagement, and
 							Kingdom impact.
 						</p>
-						<div class="mt-8">
+						<div class="mt-8 flex flex-wrap gap-4">
 							<a href="/contact" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Request a Call →</a>
+							<a href="#services" class="rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-ink-soft transition-colors hover:bg-stone-100">See Our Services ↓</a>
 						</div>
 					</div>
-					<div class="hidden lg:flex items-center justify-center" data-animate="zoom-in">
-						<img src="/book-collage4.png" alt="Books marketed by Spirit Media" class="w-full rounded-2xl" />
+					<!-- Mobile image -->
+					<div class="lg:hidden rounded-2xl overflow-hidden" data-animate="fade-in">
+						<img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=400&fit=crop&q=80" alt="Marketing Services" class="w-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95); max-height: 220px;" />
+					</div>
+					<div class="hidden lg:flex flex-col gap-4" data-animate="zoom-in">
+						<div class="grid grid-cols-2 gap-4">
+							<div class="relative rounded-2xl overflow-hidden aspect-square">
+								<img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=400&fit=crop&q=80" alt="Podcasting" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
+								<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.35));"></div>
+								<span class="absolute bottom-3 left-3 text-white text-xs font-bold tracking-widest uppercase">Podcasting</span>
+							</div>
+							<div class="relative rounded-2xl overflow-hidden aspect-square">
+								<img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=400&fit=crop&q=80" alt="Websites" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
+								<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.35));"></div>
+								<span class="absolute bottom-3 left-3 text-white text-xs font-bold tracking-widest uppercase">Websites</span>
+							</div>
+						</div>
+						<div class="relative rounded-2xl overflow-hidden" style="height: 180px;">
+							<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=360&fit=crop&q=80" alt="Video Production" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
+							<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.35));"></div>
+							<span class="absolute bottom-3 left-3 text-white text-xs font-bold tracking-widest uppercase">Videos</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -45,13 +66,13 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<div class="space-y-4">
 					{[
-						{ step: '1', title: 'Optimized Amazon listing', desc: "the world's #1 bookseller" },
-						{ step: '2', title: 'Website with SEO', desc: 'your 24/7 employee working for you' },
-						{ step: '3', title: 'YouTube Channel', desc: "the world's #2 search engine" },
-						{ step: '4', title: 'Social media', desc: 'steady, systematic presence' },
-						{ step: '5', title: 'Press releases', desc: 'domestic and international reach through PR Newswire' },
-						{ step: '6', title: 'SMS marketing', desc: 'direct access, high engagement' },
-						{ step: '7', title: 'Email marketing', desc: 'consistent communication with your audience' },
+						{ step: '1', title: 'Increasing Amazon Reviews', desc: "the world's #1 bookseller" },
+						{ step: '2', title: 'Sharing Advance Reader Copies with Bookstores', desc: 'putting your book directly in readers\u2019 hands' },
+						{ step: '3', title: 'Landing Page or Website', desc: 'Google is the #1 search engine in the world' },
+						{ step: '4', title: 'YouTube Channel', desc: 'YouTube is the #2 search engine in the world' },
+						{ step: '5', title: 'Podcast Show Tour', desc: 'reach established audiences on existing shows' },
+						{ step: '6', title: 'Launch Your Own Podcast Show', desc: 'build a loyal audience around your message' },
+						{ step: '7', title: 'Paid Digital Ads', desc: 'amplify what\u2019s already working' },
 					].map(({ step, title, desc }, i) => (
 						<div class="flex items-start gap-4 bg-stone-50 rounded-xl p-5 border border-stone-200" data-animate="fade-up" data-delay={String((i % 4) + 1)}>
 							<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red text-white font-bold text-sm">{step}</span>
@@ -62,12 +83,12 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					))}
 				</div>
-				<p class="mt-6 text-sm text-stone-500 text-center italic" data-animate="fade-in">Steps 5–7 multiply results only when 1–4 are in place. We build the foundation first.</p>
+				<p class="mt-6 text-sm text-stone-500 text-center italic" data-animate="fade-in">Each step builds on the last. We establish your foundation before amplifying your reach.</p>
 			</div>
 		</section>
 
 		<!-- SERVICES -->
-		<section class="bg-stone-50 py-20 px-6 lg:px-8">
+		<section id="services" class="bg-stone-50 py-20 px-6 lg:px-8">
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Services</p>
@@ -75,31 +96,61 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{[
-						{ title: 'Book Marketing: Amazon Reviews', body: 'Six-month partnership focused on increasing Amazon reviews. Includes custom instruction sheet, systematic implementation, with a goal of 25 reviews per month.' },
-						{ title: 'Book Marketing: Advance Reader Copies', body: 'We send advance copies to your personal contacts and USA bookstores. Per-copy cost covers mailing list, up to $5 toward printing, fulfillment, and postage.' },
-						{ title: 'Book Marketing: Paid Digital Ads', body: 'Twelve-month partnership with setup and monthly optimization of paid ads on one platform: Amazon, Google, YouTube, Facebook, Instagram, or TikTok.' },
-						{ title: 'Websites with SEO', body: 'We design, launch, and optimize responsive websites (up to 10 pages) with SSL, SEO, lead generation forms, and user access.' },
-						{ title: 'Landing Pages', body: 'Single-page sites optimized for conversions — perfect for book launches, events, or lead generation.' },
-						{ title: 'CRM Platform', body: 'Setup and monthly optimization of your contact management system with conversations, calendar scheduling, business phone, voicemail, SMS, invoicing, payment processing, sales pipeline, forms, funnels, workflows, and automations.' },
-						{ title: 'Community Platform', body: 'Setup and monthly optimization of a branded online community including structure, content strategy, and member development.' },
-						{ title: 'Video Production', body: 'Eight hours of professional filming edited into short-form feature videos and reels. We handle story development, scripting, and post-production.' },
-						{ title: 'Podcast Production', body: 'Setup of a podcast tour with pitch sheet and scheduling management — or launch your own show with full weekly production across all major platforms.' },
-						{ title: 'YouTube Channel Optimization', body: 'Twelve-month partnership in strategy, publishing, and channel optimization for one YouTube channel.' },
-						{ title: 'Social Media Management', body: 'Twelve-month partnership managing up to three platforms. Includes content creation, scheduling up to 20 posts per month, and weekly community engagement.' },
-						{ title: 'Email Marketing', body: 'Twelve-month partnership in email design and management — up to 4 emails per month to your contact list.' },
-						{ title: 'SMS Marketing', body: 'Twelve-month partnership in SMS marketing — up to 4 messages per month to your contact list.' },
-						{ title: 'Public Relations', body: 'Press releases, media kits, promotional videos, flyers, and pitch decks. North America distribution through PR Newswire.' },
-						{ title: 'Google Ads for Nonprofits', body: 'Google offers every 501(c)(3) up to $10,000 in ad grants annually. We manage the complexity so you get the results.' },
-						{ title: 'Analytics & Reporting', body: 'Monthly tracking of book sales, website traffic, YouTube, podcasts, and social media performance.' },
-					].map(({ title, body }, i) => (
-						<div class="bg-stone-100 rounded-2xl p-6 border border-stone-200 hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String((i % 3) + 1)}>
-							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-red-wash text-red mb-4">
-								<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>
+						{ title: 'Book Marketing: Amazon Reviews', body: 'Six-month partnership focused on increasing Amazon reviews. Includes custom instruction sheet, systematic implementation, with a goal of 25 reviews per month.', photo: 'photo-1481627834876-b7833e8f5570' },
+						{ title: 'Book Marketing: Advance Reader Copies', body: 'We send advance copies to your personal contacts and USA bookstores. Per-copy cost covers mailing list, up to $5 toward printing, fulfillment, and postage.', photo: 'photo-1507842217343-583bb7270b66' },
+						{ title: 'Book Marketing: Paid Digital Ads', body: 'Twelve-month partnership with setup and monthly optimization of paid ads on one platform: Amazon, Google, YouTube, Facebook, Instagram, or TikTok.', photo: 'photo-1460925895917-afdab827c52f' },
+						{ title: 'Websites with SEO', body: 'High-performance, responsive website built on the Astro + Tailwind + Claude stack — SSL, SEO, structured data, accessibility, lead gen forms, analytics, and AI-assisted updates in plain English. No technical skills needed.', photo: 'photo-1467232004584-a241de8bcf5d' },
+						{ title: 'Landing Pages', body: 'High-converting, responsive landing page built on the Astro + Tailwind + Claude stack — optimized headline, lead capture form, CTA, SSL, SEO, and AI-assisted updates in plain English. No technical skills needed.', photo: 'photo-1559028012-481c04fa702d' },
+						{ title: 'CRM Platform', body: 'Setup and monthly optimization of GoHighLevel (Spirit Media ONE) — conversations, calendar scheduling, business phone, voicemail, SMS, invoicing, payment processing, sales pipeline, forms, funnels, workflows, and automations.', photo: 'photo-1552664730-d307ca884978' },
+						{ title: 'Community Platform', body: 'Setup and monthly optimization of a branded online community including structure, content strategy, and member development.', photo: 'photo-1529156069898-49953e39b3ac' },
+						{ title: 'Video Production', body: 'Eight hours of professional filming — story development, scripting, and full post-production — delivered as short-form feature videos and up to 20 reels per month for 12 months.', photo: 'photo-1492691527719-9d1e07e534b4' },
+						{ title: 'Podcast Production', body: 'Setup of a podcast tour with pitch sheet and scheduling management — or launch your own show with full weekly production across all major platforms.', photo: 'photo-1511671782779-c97d3d27a1d4' },
+						{ title: 'YouTube Channel Optimization', body: 'Twelve-month partnership in strategy, publishing, and channel optimization for one YouTube channel.', photo: 'photo-1598550476439-6847785fcea6' },
+						{ title: 'Social Media Management', body: 'Twelve-month partnership managing up to three platforms. Includes content creation, scheduling up to 20 posts per month, and weekly community engagement.', photo: 'photo-1432888498266-38ffec3eaf0a' },
+						{ title: 'Email Marketing', body: 'Twelve-month partnership in email design and management — up to 4 emails per month to your contact list.', photo: 'photo-1563986768609-322da13575f3' },
+						{ title: 'SMS Marketing', body: 'Twelve-month partnership in SMS marketing — up to 4 messages per month to your contact list.', photo: 'photo-1512428559087-560fa5ceab42' },
+						{ title: 'Public Relations', body: 'Press releases, media kits, promotional videos, flyers, and pitch decks. North America distribution through PR Newswire.', photo: 'photo-1504711434969-e33886168f5c' },
+						{ title: 'Google Ads for Nonprofits', body: 'Google offers every 501(c)(3) up to $10,000 in ad grants annually. We manage the complexity so you get the results.', photo: 'photo-1532629345422-7515f3d16bb6' },
+						{ title: 'Analytics & Reporting', body: 'Monthly tracking of book sales, website traffic, YouTube, podcasts, and social media performance.', photo: 'photo-1551288049-bebda4e38f71' },
+					].map(({ title, body, photo }, i) => (
+						<div class="bg-stone-100 rounded-2xl overflow-hidden border border-stone-200 hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String((i % 3) + 1)}>
+							<div class="relative h-40 overflow-hidden">
+								<img src={`https://images.unsplash.com/${photo}?w=600&h=220&fit=crop&q=80`} alt={title} class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" loading="lazy" />
+								<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.25));"></div>
 							</div>
-							<h3 class="type-card-subheading mb-3">{title}</h3>
-							<p class="type-body-sm text-stone-700">{body}</p>
+							<div class="p-6">
+								<h3 class="type-card-subheading mb-3">{title}</h3>
+								<p class="type-body-sm text-stone-700">{body}</p>
+							</div>
 						</div>
 					))}
+				</div>
+				<div class="mt-12 text-center">
+					<a href="/contact" class="inline-block bg-red text-white font-semibold px-8 py-3.5 rounded-md hover:bg-red-deep transition-colors text-sm">Request a Free Consultation →</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- SPIRIT MEDIA ONE VIDEO -->
+		<section class="bg-stone-50 pt-10 pb-20 px-6 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-10">
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">CRM Platform</p>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">See Spirit Media ONE in Action</h2>
+					<p class="mt-4 text-stone-600 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">Spirit Media ONE is our configured version of GoHighLevel — everything you need to manage contacts, automate follow-up, and grow your Kingdom mission in one place. We handle the setup, training, and ongoing optimization so you can focus on your message.</p>
+				</div>
+				<div class="rounded-2xl overflow-hidden shadow-xl aspect-video" data-animate="fade-up" data-delay="3">
+					<iframe
+						src="https://www.youtube.com/embed/_sm5iO8PdoA"
+						title="Spirit Media ONE CRM Platform Demo"
+						class="w-full h-full"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					></iframe>
+				</div>
+				<div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-animate="fade-up" data-delay="4">
+					<a href="/contact" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm text-center">Request a Call →</a>
+					<a href="/publishing" class="inline-block border border-stone-400 text-ink-soft font-semibold px-6 py-3 rounded-md hover:bg-stone-100 transition-colors text-sm text-center">Explore Publishing Services →</a>
 				</div>
 			</div>
 		</section>
