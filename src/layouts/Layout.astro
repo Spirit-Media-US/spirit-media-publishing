@@ -56,6 +56,15 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <!-- Per-page head slot (keywords, schema, etc.) -->
     <slot name="head" />
 
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3R21TNHTX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W3R21TNHTX');
+    </script>
+
     <!-- Google Fonts: Cormorant Garamond (display) + Source Sans 3 (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
