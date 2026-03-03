@@ -31,23 +31,23 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<!-- Mobile image -->
 					<div class="lg:hidden rounded-2xl overflow-hidden" data-animate="fade-in">
-						<img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=400&fit=crop&q=80" alt="Marketing Services" class="w-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95); max-height: 220px;" />
+						<img src="/marketing-podcast-wide.jpg" alt="Marketing Services" class="w-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95); max-height: 220px;" />
 					</div>
 					<div class="flex flex-col gap-4 order-first lg:order-last" data-animate="zoom-in">
 						<div class="grid grid-cols-2 gap-4">
 							<div class="relative rounded-2xl overflow-hidden aspect-square">
-								<img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=400&fit=crop&q=80" alt="Podcasting" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
+								<img src="/marketing-podcast-sq.jpg" alt="Podcasting" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
 								<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.35));"></div>
 								<span class="absolute bottom-3 left-3 text-white text-xs font-bold tracking-widest uppercase">Podcasting</span>
 							</div>
 							<div class="relative rounded-2xl overflow-hidden aspect-square">
-								<img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=400&fit=crop&q=80" alt="Websites" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
+								<img src="/marketing-websites.jpg" alt="Websites" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
 								<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.35));"></div>
 								<span class="absolute bottom-3 left-3 text-white text-xs font-bold tracking-widest uppercase">Websites</span>
 							</div>
 						</div>
 						<div class="relative rounded-2xl overflow-hidden" style="height: 180px;">
-							<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=360&fit=crop&q=80" alt="Video Production" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
+							<img src="/marketing-video.jpg" alt="Video Production" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" />
 							<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.35));"></div>
 							<span class="absolute bottom-3 left-3 text-white text-xs font-bold tracking-widest uppercase">Videos</span>
 						</div>
@@ -115,7 +115,7 @@ import Layout from '../layouts/Layout.astro';
 					].map(({ title, body, photo }, i) => (
 						<div class="bg-stone-100 rounded-2xl overflow-hidden border border-stone-200 hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String((i % 3) + 1)}>
 							<div class="relative h-40 overflow-hidden">
-								<img src={`https://images.unsplash.com/${photo}?w=600&h=220&fit=crop&q=80`} alt={title} class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" loading="lazy" />
+								<img src={`/mkt-${photo}.jpg`} alt={title} class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" loading="lazy" />
 								<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.25));"></div>
 							</div>
 							<div class="p-6">

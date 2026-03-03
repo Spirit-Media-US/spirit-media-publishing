@@ -44,6 +44,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
+    <!-- Per-page head slot (keywords, schema, etc.) -->
+    <slot name="head" />
+
     <!-- Google Fonts: Cormorant Garamond (display) + Source Sans 3 (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

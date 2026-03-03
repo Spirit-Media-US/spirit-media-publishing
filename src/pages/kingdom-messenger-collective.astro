@@ -3,13 +3,41 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-	title="Kingdom Messenger Collective — Long-Term Christian Author Coaching & Publishing Program"
-	description="The Kingdom Messenger Collective is Spirit Media's flagship 3+ year coaching and publishing partnership — walking Christian leaders from message development to global movement."
+	title="Kingdom Messenger Collective | Christian Author Coaching & Publishing Program"
+	description="Join Kevin White's flagship 3+ year Christian author coaching & publishing program. Walk from heart to message to movement — publishing, platform, and global impact included."
+	ogImage="/kingdommessengers.jpg"
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="Christian author coaching, Christian publishing program, Kingdom Messenger, Spirit Media, Kevin White, Christian book publishing, ministry publishing, Christian leadership coaching, book publishing coaching, faith-based publishing" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:site_name" content="Spirit Media Publishing" />
+		<meta property="og:locale" content="en_US" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Course",
+			"name": "Kingdom Messenger Collective",
+			"description": "A 3+ year flagship Christian author coaching and publishing program walking leaders from heart to message to movement.",
+			"provider": {
+				"@type": "Organization",
+				"name": "Spirit Media Publishing",
+				"url": "https://spiritmediapublishing.com"
+			},
+			"instructor": {
+				"@type": "Person",
+				"name": "Kevin White",
+				"jobTitle": "Founder & CEO",
+				"worksFor": { "@type": "Organization", "name": "Spirit Media Publishing" }
+			},
+			"url": "https://spiritmediapublishing.com/kingdom-messenger-collective",
+			"image": "https://spiritmediapublishing.com/kingdommessengers.jpg",
+			"educationalLevel": "Advanced",
+			"teaches": "Christian authorship, book publishing, ministry platform building, global movement leadership"
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- HERO -->
-		<section class="bg-stone-50 px-6 py-20 lg:py-28 lg:px-8 overflow-hidden">
+		<section class="bg-stone-50 px-6 py-12 lg:py-16 lg:px-8 overflow-hidden">
 			<div class="mx-auto max-w-7xl">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div class="hero-stagger">
@@ -19,28 +47,46 @@ import Layout from '../layouts/Layout.astro';
 						<p class="mt-2 text-sm font-semibold text-red">— Acts 1:8 (FHB)</p>
 					</div>
 					<div class="hidden lg:flex items-center justify-center" data-animate="zoom-in">
-						<img src="/childrens-books-grid.png" alt="Books published by Kingdom Messengers" class="w-full rounded-2xl" />
+						<img src="/kingdommessengers.jpg" alt="Books published by Kingdom Messengers" class="w-full rounded-2xl" />
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- ARE YOU A KINGDOM MESSENGER -->
-		<section class="bg-stone-100 py-20 px-6 lg:px-8">
-			<div class="max-w-3xl mx-auto">
-				<h2 class="type-section-heading mb-6" data-animate="fade-up">Are You a Kingdom Messenger?</h2>
-				<p class="type-body-lg text-stone-700 leading-relaxed mb-6" data-animate="fade-up" data-delay="1">You carry a message from God that has been refined through years of prayer, crushing, and surrender. You've seen enough fruit to know it has power to transform lives. But you don't just see a message — you see a movement.</p>
-				<p class="type-body-lg text-stone-700 leading-relaxed font-semibold" data-animate="fade-up" data-delay="2">The question is: how do you move from message to movement?</p>
+		<!-- HEART → MESSAGE → MOVEMENT -->
+		<section class="bg-red px-6 py-12 lg:px-8">
+			<div class="mx-auto max-w-7xl text-center" data-animate="fade-up">
+				<p class="font-serif text-4xl sm:text-5xl font-bold text-white">heart → message → movement</p>
 			</div>
 		</section>
 
-		<!-- FROM MESSAGE TO MOVEMENT -->
-		<section class="bg-stone-50 py-20 px-6 lg:px-8">
-			<div class="max-w-3xl mx-auto">
-				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Program</p>
-				<h2 class="type-section-heading mb-6" data-animate="fade-up" data-delay="1">From Message to Movement</h2>
-				<p class="type-body-lg text-stone-700 leading-relaxed mb-6" data-animate="fade-up" data-delay="2">When Jesus said "Come, follow me," He wasn't inviting people to hear a talk — He was inviting them into a movement. The Kingdom Messenger Collective is our flagship partnership program, designed to walk with you through a 3+ year journey from restoration to proclamation, and from message to sustainable global movement.</p>
-				<p class="type-body-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="3">This isn't coaching. It's a covenant relationship. You bring the message. Spirit Media provides the platform, the strategy, and the team.</p>
+		<!-- ARE YOU A KINGDOM MESSENGER + FROM MESSAGE TO MOVEMENT -->
+		<section class="bg-stone-100 px-6 lg:px-8">
+			<div class="max-w-5xl mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+					<!-- LEFT: Photo spanning both text blocks -->
+					<div class="hidden lg:flex justify-end items-stretch" data-animate="slide-left">
+						<img
+							src="/kmc-messengers.jpg"
+							alt="Kingdom Messenger"
+							class="w-1/2 h-full object-cover rounded-2xl mt-8 ml-auto"
+						/>
+					</div>
+					<!-- RIGHT: Both text sections stacked -->
+					<div class="flex flex-col justify-center">
+						<div class="py-16 border-b border-stone-300">
+							<h2 class="type-section-heading mb-6" data-animate="fade-up">Are You a Kingdom Messenger?</h2>
+							<p class="type-body-lg text-stone-700 leading-relaxed mb-6" data-animate="fade-up" data-delay="1">You carry a message from God that has been refined through years of prayer, crushing, and surrender. You've seen enough fruit to know it has power to transform lives. But you don't just see a message — you see a movement.</p>
+							<p class="type-body-lg text-stone-700 leading-relaxed font-semibold" data-animate="fade-up" data-delay="2">The question is: how do you move from message to movement?</p>
+						</div>
+						<div class="py-16">
+							<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Program</p>
+							<h2 class="type-section-heading mb-6" data-animate="fade-up" data-delay="1">From Message to Movement</h2>
+							<p class="type-body-lg text-stone-700 leading-relaxed mb-6" data-animate="fade-up" data-delay="2">When Jesus said "Come, follow me," He wasn't inviting people to hear a talk — He was inviting them into a movement. The Kingdom Messenger Collective is our flagship partnership program, designed to walk with you through a 3+ year journey from restoration to proclamation, and from message to sustainable global movement.</p>
+							<p class="type-body-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="3">This isn't coaching. It's a covenant relationship. You bring the message. Spirit Media provides the platform, the strategy, and the team.</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -48,14 +94,14 @@ import Layout from '../layouts/Layout.astro';
 		<section class="bg-stone-100 py-20 px-6 lg:px-8">
 			<div class="max-w-4xl mx-auto">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-					<div class="bg-stone-200 rounded-2xl aspect-square flex items-center justify-center" data-animate="slide-left"><p class="text-stone-400 text-sm">Kevin White Photo</p></div>
-					<div data-animate="slide-right">
+					<div data-animate="slide-left">
 						<p class="eyebrow eyebrow-red mb-3">Your Mentor</p>
 						<h2 class="type-section-heading mb-6">Kevin White</h2>
 						<p class="text-stone-700 leading-relaxed mb-4">Kevin White is an international bestselling author of seven books in five years. His first title, Audacious Generosity, was a bestseller in India before reaching the USA. His second book has over 2 million downloads in Nepal.</p>
 						<p class="text-stone-700 leading-relaxed mb-4">Through weekly video podcasts over 7+ years, Kevin has reached audiences in 163 countries. As founder and CEO of Spirit Media, he has helped publish over 300 books for authors across the globe.</p>
 						<p class="text-stone-700 leading-relaxed">For over 40 years, God has used Kevin to raise up and commission Kingdom Messengers. Now, he invites you to walk the same path.</p>
 					</div>
+					<img src="/kevinwhitephoto.jpg" alt="Kevin White" class="w-3/4 h-full object-cover object-top rounded-2xl" data-animate="slide-right" />
 				</div>
 			</div>
 		</section>
@@ -87,11 +133,12 @@ import Layout from '../layouts/Layout.astro';
 		<!-- FORMATION PATHWAY -->
 		<section class="bg-ink-soft text-white py-20 px-6 lg:px-8">
 			<div class="max-w-4xl mx-auto">
-				<div class="text-center mb-12">
-					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Pathway</p>
+				<div class="text-center mb-0">
+					<p class="eyebrow eyebrow-red mb-1" data-animate="fade-up">Pathway</p>
 					<h2 class="font-serif text-3xl font-bold sm:text-4xl" data-animate="fade-up" data-delay="1">The Formation Pathway</h2>
 				</div>
-				<div class="space-y-8">
+				<img src="/kmc-pathway.jpg" alt="Formation Pathway" class="w-3/4 mx-auto rounded-2xl -mt-2 mb-8" data-animate="fade-up" />
+				<div class="space-y-4">
 					<div class="bg-stone-50/10 rounded-2xl p-8" data-animate="fade-up" data-delay="1">
 						<h3 class="font-serif text-xl font-bold text-red-soft mb-2">Phase 1 — Heart</h3>
 						<p class="text-sm font-semibold text-white mb-3">Restoring the Father/Child Relationship</p>
@@ -146,19 +193,29 @@ import Layout from '../layouts/Layout.astro';
 
 		<!-- CTA -->
 		<section class="bg-red px-6 py-20 lg:px-8">
-			<div class="mx-auto max-w-3xl text-center">
-				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Are You One of the 10?</h2>
-				<p class="text-stone-200 type-body-lg mb-6" data-animate="fade-up" data-delay="1">This opportunity is by invitation only, limited to 10 Kingdom Messengers per mastermind group. You may be a fit if you have:</p>
-				<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-lg mx-auto mb-8" data-animate="fade-up" data-delay="2">
-					{["A passion for God's presence and glory.", 'A clear calling to global Kingdom influence.', 'A message that demands a movement.', 'Commitment to a multi-year journey.', 'A heart for reaching the nations.'].map((item) => (
-						<div class="flex items-start gap-2">
-							<svg class="h-5 w-5 shrink-0 text-white mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-							<span class="text-stone-200 text-sm">{item}</span>
+			<div class="mx-auto max-w-5xl">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<img
+						src="/kmc-tenof10.jpg"
+						alt="Are You One of the 10?"
+						class="w-full rounded-2xl"
+						data-animate="slide-left"
+					/>
+					<div class="text-center lg:text-left">
+						<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Are You One of the 10?</h2>
+						<p class="text-stone-200 type-body-lg mb-6" data-animate="fade-up" data-delay="1">This opportunity is by invitation only, limited to 10 Kingdom Messengers per mastermind group. You may be a fit if you have:</p>
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-lg mx-auto lg:mx-0 mb-8" data-animate="fade-up" data-delay="2">
+							{["A passion for God's presence and glory.", 'A clear calling to global Kingdom influence.', 'A message that demands a movement.', 'Commitment to a multi-year journey.', 'A heart for reaching the nations.'].map((item) => (
+								<div class="flex items-start gap-2">
+									<svg class="h-5 w-5 shrink-0 text-white mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+									<span class="text-stone-200 text-sm">{item}</span>
+								</div>
+							))}
 						</div>
-					))}
+						<p class="text-white font-semibold mb-4" data-animate="fade-up" data-delay="3">Apply for a discovery interview:</p>
+						<a href="mailto:kevin@spiritmediapublishing.com" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="4">Email Kevin →</a>
+					</div>
 				</div>
-				<p class="text-white font-semibold mb-4" data-animate="fade-up" data-delay="3">Apply for a discovery interview:</p>
-				<a href="mailto:kevin@spiritmedia.us" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="4">Email kevin@spiritmedia.us →</a>
 			</div>
 		</section>
 
