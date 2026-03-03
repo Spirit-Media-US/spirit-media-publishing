@@ -17,17 +17,124 @@ import Layout from '../layouts/Layout.astro';
 						<h1 class="type-hero text-ink-soft">The Latest<br /><span class="text-red">News &amp; Updates</span></h1>
 						<p class="mt-6 type-body-lg text-stone-600 max-w-xl">The latest news, updates, and happenings from Spirit Media.</p>
 					</div>
-					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
-						<div class="rounded-2xl bg-red aspect-square"></div>
-						<div class="rounded-2xl bg-red-deep aspect-square"></div>
-						<div class="rounded-2xl bg-red aspect-square"></div>
-						<div class="rounded-2xl bg-ink-soft aspect-square"></div>
-						<div class="rounded-2xl bg-red-deep aspect-square"></div>
-						<div class="rounded-2xl bg-ink-muted aspect-square"></div>
-						<div class="rounded-2xl bg-red aspect-square"></div>
-						<div class="rounded-2xl bg-ink-soft aspect-square"></div>
-						<div class="rounded-2xl bg-red-deep aspect-square"></div>
+					<div class="hidden lg:grid grid-cols-3 gap-3" data-animate="zoom-in">
+						<!-- Fox News -->
+						<a href="https://foxnews.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#003366;">
+							<img src="/news-foxnews.jpg" alt="Fox News" class="w-24 h-24 object-contain" />
+						</a>
+						<!-- CNN -->
+						<a href="https://cnn.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#cc0000;">
+							<img src="/news-cnn.jpg" alt="CNN" class="w-24 h-24 object-contain" />
+						</a>
+						<!-- NBC News -->
+						<a href="https://nbcnews.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#1a1a1a;">
+							<img src="/news-nbc.jpg" alt="NBC News" class="w-24 h-24 object-contain" />
+						</a>
+						<!-- ABC News -->
+						<a href="https://abcnews.go.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#00477b;">
+							<img src="/news-abc.jpg" alt="ABC News" class="w-24 h-24 object-contain" />
+						</a>
+						<!-- AP News -->
+						<a href="https://apnews.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#cc0000;">
+							<img src="/news-apnews.jpg" alt="AP News" class="w-24 h-24 object-contain bg-white rounded-full p-2" />
+						</a>
+						<!-- CBS News -->
+						<a href="https://cbsnews.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#183e7e;">
+							<img src="/news-cbsnews.jpg" alt="CBS News" class="w-24 h-24 object-contain" />
+						</a>
+						<!-- WSJ -->
+						<a href="https://wsj.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#1a1a1a;">
+							<img src="/news-wsj.jpg" alt="Wall Street Journal" class="w-24 h-24 object-contain" />
+						</a>
+						<!-- USA Today -->
+						<a href="https://usatoday.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#009bff;">
+							<img src="/news-usatoday.jpg" alt="USA Today" class="w-24 h-24 object-contain" />
+						</a>
+						<!-- NY Post -->
+						<a href="https://nypost.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#cc0000;">
+							<img src="/news-nypost.jpg" alt="NY Post" class="w-24 h-24 object-contain" />
+						</a>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PRESS RELEASES -->
+		<section class="bg-white py-20 px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<div class="mb-12">
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Press Releases</p>
+					<h2 class="font-serif text-3xl font-bold text-ink-soft sm:text-4xl" data-animate="fade-up" data-delay="1">In the News</h2>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up">
+						<div class="h-48 overflow-hidden">
+							<img src="/pr-cancer-campaign.jpg" alt="Generosity Campaign" class="w-full h-full object-cover" />
+						</div>
+						<div class="p-7 flex flex-col flex-1">
+						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Dec. 2, 2024 · PRNewswire</p>
+						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Generosity Campaign Launched To Share a Gift of Courage with 400,000 Families Fighting Cancer</h3>
+						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US joins with authors John Vallely and Paul Weissenstein, Pediatric Cancer Research Foundation, GiveButter, and strategic partners to launch a nationwide generosity campaign to share gifts of courage with 400,000 families fighting cancer in the USA.</p>
+						<a href="https://www.prnewswire.com/news-releases/generosity-campaign-launched-to-share-a-gift-of-courage-with-400-000-families-fighting-cancer-302319839.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+						</div>
+					</article>
+
+					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="1">
+						<div class="h-48 overflow-hidden">
+							<img src="/pr-coach-close.jpg" alt="Coach Cori Close" class="w-full h-full object-cover" />
+						</div>
+						<div class="p-7 flex flex-col flex-1">
+						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Nov. 13, 2024 · PRNewswire</p>
+						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">UCLA's Coach Cori Close Applauds <em>The Pyramid Principle</em> by John Vallely</h3>
+						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US celebrates the release of <em>The Pyramid Principle</em> by John Vallely with Paul Weissenstein — a heart-gripping story of hope for anyone fighting cancer and facing hard places in life.</p>
+						<a href="https://www.prnewswire.com/news-releases/coach-cori-close-applauds-the-pyramid-principle-by-john-vallely-302304309.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+						</div>
+					</article>
+
+					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="2">
+						<div class="h-48 overflow-hidden">
+							<img src="/pr-pyramid-principle.jpg" alt="The Pyramid Principle" class="w-full h-full object-cover" />
+						</div>
+						<div class="p-7 flex flex-col flex-1">
+						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Aug. 15, 2024 · PRNewswire</p>
+						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">SpiritMedia.US to Publish <em>The Pyramid Principle</em> by UCLA Superstar and NBA Pro John Vallely</h3>
+						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US has secured exclusive rights to publish and distribute <em>The Pyramid Principle</em> by UCLA basketball Hall of Famer and former NBA player John Vallely with Paul Weissenstein — anticipated to be a New York Times Bestseller.</p>
+						<a href="https://www.prnewswire.com/news-releases/spiritmediaus-to-publish-the-pyramid-principle-by-ucla-superstar-and-nba-pro-john-vallely-302223398.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+						</div>
+					</article>
+
+					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="3">
+						<div class="h-48 overflow-hidden">
+							<img src="/pr-expedited-process.jpg" alt="Expedited Publishing Process" class="w-full h-full object-cover" />
+						</div>
+						<div class="p-7 flex flex-col flex-1">
+						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">June 18, 2024 · PRNewswire</p>
+						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Shakes up the Publishing Industry with Unique, Expedited Process</h3>
+						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media has reinvented the industry as a forerunner in self-publishing — completing publishing in every format within five months, with paperback editions finalizing in as little as 14 days, while typical publishing can take years.</p>
+						<a href="https://www.prnewswire.com/news-releases/spirit-media-shakes-up-the-publishing-industry-with-unique-expedited-process-302175618.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+						</div>
+					</article>
+
+					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="4">
+						<div class="h-48 overflow-hidden">
+							<img src="/pr-rapid-growth.jpg" alt="Rapid Growth" class="w-full h-full object-cover" />
+						</div>
+						<div class="p-7 flex flex-col flex-1">
+						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Feb. 1, 2024 · PRNewswire</p>
+						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Poised for Rapid Growth, Robust Profitability in 2024</h3>
+						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media is poised for rapid growth in 2024 and beyond thanks to international business dealings and new funding secured through the U.S. Small Business Administration.</p>
+						<a href="https://www.prnewswire.com/news-releases/spirit-media-poised-for-rapid-growth-robust-profitability-in-2024-302050871.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+						</div>
+					</article>
+
+					<article class="bg-stone-50 rounded-2xl border border-stone-200 p-7 flex flex-col" data-animate="fade-up" data-delay="5">
+						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Media Contact</p>
+						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Press & Media Inquiries</h3>
+						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">For press releases, interviews, or media partnerships, contact our team — we'd love to connect.</p>
+						<a href="/contact" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm text-center mt-auto">Request a Free Consult →</a>
+					</article>
+
 				</div>
 			</div>
 		</section>
@@ -39,19 +146,42 @@ import Layout from '../layouts/Layout.astro';
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Watch</p>
 					<h2 class="font-serif text-3xl font-bold text-ink-soft sm:text-4xl" data-animate="fade-up" data-delay="1">Spirit Media on YouTube</h2>
 				</div>
-				<div class="max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
-					<div class="aspect-video rounded-2xl overflow-hidden bg-ink-soft">
-						<iframe
-							class="w-full h-full"
-							src="https://www.youtube.com/embed/?listType=user_uploads&list=UCQh2m97udW1osliFysbWsOA"
-							title="Spirit Media YouTube Channel"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-						></iframe>
-					</div>
-					<div class="text-center mt-6" data-animate="fade-up" data-delay="3">
-						<a href="https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA" target="_blank" rel="noopener noreferrer" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm">Visit Our YouTube Channel →</a>
-					</div>
+
+				<!-- Video grid -->
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" data-animate="fade-up" data-delay="2">
+					{[
+						{ id: "e7od2t3u2wI", q: "maxresdefault", title: "Turn Your God-Given Vision into Global Impact" },
+						{ id: "tCrq_CJu1oQ", q: "maxresdefault", title: "How Spirit Media Fast-Tracks Publishing with Purpose" },
+						{ id: "RRpWqlfQ7zQ", q: "maxresdefault", title: "Spirit Media Thanks YOU: Building Success Through Stories" },
+						{ id: "DOSzIf-Ih90", q: "maxresdefault", title: "Struggling to Launch Your Book? Spirit Media Does It All" },
+						{ id: "h2ph9i4Dv2M", q: "maxresdefault", title: "How Spirit Media Helps Authors Dominate 195 Nations" },
+						{ id: "rabRf0qWZxE", q: "maxresdefault", title: "Is Your Story God-Sized? Let's Share It with the World" },
+						{ id: "dvu1MKeFUc4", q: "sddefault",     title: "The Pyramid Principle — Coming Soon" },
+						{ id: "W92hLbOnl8k", q: "maxresdefault", title: "Spirit Media's Purpose for Global Impact" },
+						{ id: "3v77UY5Xnzk", q: "maxresdefault", title: "Why Spirit Media — Kevin White, CEO" },
+					].map(({ id, q, title }) => (
+						<a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer" class="group block rounded-2xl overflow-hidden bg-ink-soft shadow-sm hover:shadow-md transition-shadow">
+							<div class="relative aspect-video">
+								<img
+									src={`https://i.ytimg.com/vi/${id}/${q}.jpg`}
+									alt={title}
+									class="w-full h-full object-cover"
+								/>
+								<div class="absolute inset-0 flex items-center justify-center bg-ink-soft/30 group-hover:bg-ink-soft/10 transition-colors">
+									<div class="w-14 h-14 rounded-full bg-red flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+										<svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+									</div>
+								</div>
+							</div>
+							<div class="p-4">
+								<p class="text-sm font-semibold text-white leading-snug line-clamp-2">{title}</p>
+							</div>
+						</a>
+					))}
+				</div>
+
+				<div class="text-center" data-animate="fade-up" data-delay="3">
+					<a href="https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA" target="_blank" rel="noopener noreferrer" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm">Visit Our YouTube Channel →</a>
 				</div>
 			</div>
 		</section>
