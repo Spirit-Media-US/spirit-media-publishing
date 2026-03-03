@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout
-	title="Spirit Media Publishing — Heart. Message. Movement."
-	description="We develop Kingdom Messengers through soul care, publishing, and marketing — spreading Father's heart to all 195 nations."
+	title="Spirit Media Publishing - Your Publishing and Marketing Family."
+	description="Our mission is to reveal our Father's heart to all 195 nations worldwide."
 >
 	<main id="main-content">
 
@@ -28,12 +28,12 @@ import Layout from '../layouts/Layout.astro';
 							<a href="/contact" class="btn btn-primary">Request a Call</a>
 						</div>
 					</div>
-					<!-- Book collage image -->
-					<div class="hidden lg:flex items-center justify-center" data-animate="zoom-in">
+					<!-- Book collage image — visible on all screens, above text on mobile via order -->
+					<div class="flex items-center justify-center order-first lg:order-last" data-animate="zoom-in">
 						<img
 							src="/book-collage.png"
 							alt="Published books by Spirit Media authors"
-							class="w-full max-h-[600px] object-contain"
+							class="w-full max-h-[360px] lg:max-h-[600px] object-contain"
 						/>
 					</div>
 		</section>
