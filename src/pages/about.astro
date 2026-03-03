@@ -6,6 +6,18 @@ import Layout from '../layouts/Layout.astro';
 	title="About Spirit Media Publishing — Christian Publishing & Marketing Company"
 	description="Spirit Media Publishing is a global Christian publishing and marketing company empowering Kingdom Messengers to share their message in all 195 nations. Meet our team."
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="Spirit Media Publishing, about Spirit Media, Christian publishing company, Kevin White publisher, Kingdom Messenger publishing, Christian book publisher, faith-based publishing company, global Christian publisher" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "AboutPage",
+			"name": "About Spirit Media Publishing",
+			"url": "https://spiritmediapublishing.com/about",
+			"description": "Spirit Media Publishing is a global Christian publishing and marketing company empowering Kingdom Messengers to share their message in all 195 nations.",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- HERO -->

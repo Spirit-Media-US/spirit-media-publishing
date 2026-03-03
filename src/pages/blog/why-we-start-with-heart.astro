@@ -5,7 +5,26 @@ import Layout from '../../layouts/Layout.astro';
 <Layout
 	title="Why We Start with Heart | Spirit Media Publishing Blog"
 	description="High-capacity leaders are achieving results while losing their souls. Discover why true leadership development must begin with spiritual soul care and how the Father Heart Bible changes everything."
+	ogImage="/blog-heart.jpg"
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="why start with heart, spiritual soul care, Christian leadership, Father's Heart Bible, Kingdom Messenger, inner healing leaders, spiritual formation, Spirit Media Publishing blog" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:type" content="article" />
+		<meta property="article:author" content="Kevin White" />
+		<meta property="article:published_time" content="2024-11-01" />
+		<meta property="article:section" content="Leadership" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "Why We Start with Heart",
+			"description": "High-capacity leaders are achieving results while losing their souls. Discover why true leadership development must begin with spiritual soul care.",
+			"author": { "@type": "Person", "name": "Kevin White" },
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"url": "https://spiritmediapublishing.com/blog/why-we-start-with-heart",
+			"datePublished": "2024-11-01"
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- HERO IMAGE -->

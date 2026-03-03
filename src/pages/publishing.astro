@@ -6,6 +6,20 @@ import Layout from '../layouts/Layout.astro';
 	title="Christian Book Publishing Services — Paperback, Hardback, eBook & Audiobook"
 	description="Spirit Media Publishing offers full-service Christian book publishing — ghostwriting, editing, cover design, ISBN, global distribution, and audiobook production. Get published today."
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="Christian book publishing services, publish a Christian book, Christian ghostwriting, book editing services, book cover design, ISBN registration, global book distribution, audiobook production, self publish Christian book, faith-based book publisher, Spirit Media Publishing" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "Christian Book Publishing Services",
+			"provider": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"serviceType": "Book Publishing",
+			"description": "Full-service Christian book publishing including ghostwriting, editing, cover design, ISBN, global distribution, and audiobook production.",
+			"url": "https://spiritmediapublishing.com/publishing",
+			"areaServed": "Worldwide"
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- HERO -->

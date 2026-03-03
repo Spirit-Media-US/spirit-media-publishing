@@ -6,6 +6,19 @@ import Layout from '../layouts/Layout.astro';
 	title="Father's Heart Bible™ — A New Christian Bible Translation Revealing God's Love"
 	description="The Father's Heart Bible™ is an intimate new Bible translation revealing our Heavenly Father's heart to a fatherless generation. Published by Spirit Media Publishing."
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="Father's Heart Bible, Christian Bible translation, new Bible translation, Heavenly Father's love, fatherless generation, Spirit Media Publishing, Kevin White Bible, intimate Bible translation, Christian scripture, God's love Bible" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Book",
+			"name": "Father's Heart Bible™",
+			"description": "An intimate new Bible translation revealing our Heavenly Father's heart to a fatherless generation.",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"url": "https://spiritmediapublishing.com/fathers-heart-bible",
+			"genre": "Religious Text"
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- HERO -->

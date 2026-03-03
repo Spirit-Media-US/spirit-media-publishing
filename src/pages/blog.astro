@@ -6,6 +6,18 @@ import Layout from '../layouts/Layout.astro';
 	title="Christian Publishing & Marketing Blog — Spirit Media Publishing"
 	description="Insights, tips, and encouragement for Christian authors and Kingdom Messengers. Learn how to write, publish, market your book, and grow your platform."
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="Christian publishing blog, Christian author tips, how to publish a Christian book, Kingdom Messenger blog, book marketing tips, Christian writing advice, Spirit Media blog, Christian author resources" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Blog",
+			"name": "Spirit Media Publishing Blog",
+			"url": "https://spiritmediapublishing.com/blog",
+			"description": "Insights, tips, and encouragement for Christian authors and Kingdom Messengers.",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- HERO -->

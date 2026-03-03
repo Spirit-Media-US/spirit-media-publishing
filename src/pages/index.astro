@@ -2,9 +2,42 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout
-	title="Spirit Media Publishing - Your Publishing and Marketing Family."
-	description="Our mission is to reveal our Father's heart to all 195 nations worldwide."
+	title="Spirit Media Publishing — Christian Book Publishing & Marketing for Kingdom Authors"
+	description="Spirit Media Publishing helps Christian authors publish, market, and distribute their books across 195 nations. Ghostwriting, editing, cover design, audiobooks, and full marketing services."
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Spirit Media Publishing",
+			"url": "https://spiritmediapublishing.com",
+			"logo": "https://spiritmediapublishing.com/spirit-media-logo.png",
+			"sameAs": [
+				"https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA",
+				"https://www.facebook.com/spiritmediaus",
+				"https://www.instagram.com/spiritmediaus"
+			],
+			"description": "Spirit Media Publishing helps Christian authors publish, market, and distribute their books across 195 nations.",
+			"founder": { "@type": "Person", "name": "Kevin White" },
+			"foundingDate": "2020",
+			"areaServed": "Worldwide",
+			"serviceType": ["Book Publishing", "Book Marketing", "Ghostwriting", "Cover Design", "Audiobook Production"]
+		})}</script>
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"url": "https://spiritmediapublishing.com",
+			"name": "Spirit Media Publishing",
+			"description": "Christian book publishing and marketing for Kingdom authors",
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": "https://spiritmediapublishing.com/bookstore?q={search_term_string}",
+				"query-input": "required name=search_term_string"
+			}
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- ═══ HERO ═══ -->
