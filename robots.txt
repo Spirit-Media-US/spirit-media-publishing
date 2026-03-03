@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spiritmediapublishing.com/sitemap-index.xml
