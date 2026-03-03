@@ -5,7 +5,32 @@ import Layout from '../layouts/Layout.astro';
 <Layout
 	title="Christian Bookstore — Browse 300+ Spirit Media Published Titles"
 	description="Shop the Spirit Media Christian bookstore — over 300 titles by Kingdom Messengers covering faith, leadership, healing, and discipleship. New books added weekly."
+	ogImage="/og-portfolio.jpg"
 >
+	<Fragment slot="head">
+		<meta name="keywords" content="Christian bookstore, buy Christian books, Kingdom Messenger books, Spirit Media books, Christian authors, faith books, Christian leadership books, discipleship books, healing books, Christian publishing" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ItemList",
+			"name": "Spirit Media Christian Bookstore",
+			"description": "300+ Christian books by Kingdom Messengers published by Spirit Media Publishing",
+			"url": "https://spiritmediapublishing.com/bookstore",
+			"numberOfItems": 300,
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Father's Heart - Beloved Identity", "author": "Kevin White", "url": "https://www.amazon.com/dp/B0GQ3L2LQT" },
+				{ "@type": "ListItem", "position": 2, "name": "Humble Influence", "author": "Jim Matuga", "url": "https://www.amazon.com/Humble-Influence-Strength-True-Followership/dp/B0F9WJFTSJ" },
+				{ "@type": "ListItem", "position": 3, "name": "Only God Works", "author": "Kevin White", "url": "https://www.amazon.com/dp/195830476X" },
+				{ "@type": "ListItem", "position": 4, "name": "Audacious Generosity", "author": "Kevin White", "url": "https://www.amazon.com/Audacious-Generosity-Experience-Receive-Possible/dp/1544516142" },
+				{ "@type": "ListItem", "position": 5, "name": "The End-Times Warrior", "author": "Patricia Daniel", "url": "https://www.amazon.com/End-Times-Warrior-40-Day-Devotional/dp/B0FD9RN45N" },
+				{ "@type": "ListItem", "position": 6, "name": "Daughters of the King", "author": "Freddie Prado", "url": "https://www.amazon.com/Daughters-King-Devotional-Dads/dp/B0FBLFC6N5" },
+				{ "@type": "ListItem", "position": 7, "name": "Ascension", "author": "Bryan Elliott", "url": "https://www.amazon.com/Ascension-Living-Beyond-Bryan-Elliott/dp/B0FVFS457S" },
+				{ "@type": "ListItem", "position": 8, "name": "A Journey Through Grief", "author": "Annie Brown", "url": "https://www.amazon.com/Journey-Through-Grief-Annie-Brown/dp/B0FC2SCNMT/" },
+				{ "@type": "ListItem", "position": 9, "name": "What's Your Word", "author": "Kevin White", "url": "https://www.amazon.com/dp/1958304123" },
+				{ "@type": "ListItem", "position": 10, "name": "Spirit Media's Ultimate Book Marketing Guide", "author": "Kevin White", "url": "https://www.amazon.com/dp/1958304514" }
+			]
+		})}</script>
+	</Fragment>
 	<main id="main-content">
 
 		<!-- HERO -->
