@@ -3,21 +3,23 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-	title="Media Center — Spirit Media Publishing News, Videos & Resources"
-	description="Stay up to date with Spirit Media Publishing — latest news, YouTube videos, press releases, and resources for Christian authors and Kingdom Messengers."
+	title="Media Center — Spirit Media Publishing in the News"
+	description="Spirit Media Publishing press releases, YouTube videos, and media coverage. See how we're helping Christian authors publish, market, and reach the nations."
 >
 	<main id="main-content">
 
 		<!-- HERO -->
-		<section class="bg-stone-50 px-6 py-20 lg:py-28 lg:px-8 overflow-hidden">
+		<section class="bg-stone-50 px-6 py-10 lg:py-14 lg:px-8 overflow-hidden">
 			<div class="mx-auto max-w-7xl">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div class="hero-stagger">
 						<p class="eyebrow eyebrow-red mb-4">Media Center</p>
-						<h1 class="type-hero text-ink-soft">The Latest<br /><span class="text-red">News &amp; Updates</span></h1>
-						<p class="mt-6 type-body-lg text-stone-600 max-w-xl">The latest news, updates, and happenings from Spirit Media.</p>
+						<h1 class="type-hero text-ink-soft">Spirit Media<br /><span class="text-red">In the News</span></h1>
+						<p class="mt-6 type-body-lg text-stone-600 max-w-xl">Press releases, media coverage, and video resources from Spirit Media Publishing — a leading voice in Christian publishing and Kingdom impact.</p>
 					</div>
-					<div class="hidden lg:grid grid-cols-3 gap-3" data-animate="zoom-in">
+					<div class="hidden lg:flex flex-col gap-3 items-end" data-animate="zoom-in" aria-hidden="true">
+						<p class="text-xs font-bold text-stone-400 uppercase tracking-widest text-right mb-1">As seen on</p>
+						<div class="grid grid-cols-3 gap-3 w-full">
 						<!-- Fox News -->
 						<a href="https://foxnews.com" target="_blank" rel="noopener noreferrer" class="rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 hover:opacity-90 transition-opacity" style="background:#003366;">
 							<img src="/news-foxnews.jpg" alt="Fox News" class="w-24 h-24 object-contain" />
@@ -56,6 +58,7 @@ import Layout from '../layouts/Layout.astro';
 						</a>
 					</div>
 				</div>
+				</div>
 			</div>
 		</section>
 
@@ -70,84 +73,86 @@ import Layout from '../layouts/Layout.astro';
 
 					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up">
 						<div class="h-48 overflow-hidden">
-							<img src="/pr-cancer-campaign.jpg" alt="Generosity Campaign" class="w-full h-full object-cover" />
+							<img src="/pr-cancer-campaign.jpg" alt="Generosity Campaign" loading="lazy" class="w-full h-full object-cover" />
 						</div>
 						<div class="p-7 flex flex-col flex-1">
-						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Dec. 2, 2024 · PRNewswire</p>
-						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Generosity Campaign Launched To Share a Gift of Courage with 400,000 Families Fighting Cancer</h3>
-						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US joins with authors John Vallely and Paul Weissenstein, Pediatric Cancer Research Foundation, GiveButter, and strategic partners to launch a nationwide generosity campaign to share gifts of courage with 400,000 families fighting cancer in the USA.</p>
-						<a href="https://www.prnewswire.com/news-releases/generosity-campaign-launched-to-share-a-gift-of-courage-with-400-000-families-fighting-cancer-302319839.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Dec. 2, 2024 · PRNewswire</p>
+							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Generosity Campaign Launched To Share a Gift of Courage with 400,000 Families Fighting Cancer</h3>
+							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US joins with John Vallely, Paul Weissenstein, Pediatric Cancer Research Foundation, and strategic partners to launch a nationwide generosity campaign for 400,000 families fighting cancer.</p>
+							<a href="https://www.prnewswire.com/news-releases/generosity-campaign-launched-to-share-a-gift-of-courage-with-400-000-families-fighting-cancer-302319839.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
 						</div>
 					</article>
 
 					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="1">
 						<div class="h-48 overflow-hidden">
-							<img src="/pr-coach-close.jpg" alt="Coach Cori Close" class="w-full h-full object-cover" />
+							<img src="/pr-coach-close.jpg" alt="Coach Cori Close" loading="lazy" class="w-full h-full object-cover" />
 						</div>
 						<div class="p-7 flex flex-col flex-1">
-						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Nov. 13, 2024 · PRNewswire</p>
-						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">UCLA's Coach Cori Close Applauds <em>The Pyramid Principle</em> by John Vallely</h3>
-						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US celebrates the release of <em>The Pyramid Principle</em> by John Vallely with Paul Weissenstein — a heart-gripping story of hope for anyone fighting cancer and facing hard places in life.</p>
-						<a href="https://www.prnewswire.com/news-releases/coach-cori-close-applauds-the-pyramid-principle-by-john-vallely-302304309.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Nov. 13, 2024 · PRNewswire</p>
+							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">UCLA's Coach Cori Close Applauds <em>The Pyramid Principle</em> by John Vallely</h3>
+							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US celebrates the release of <em>The Pyramid Principle</em> — a heart-gripping story of hope for anyone fighting cancer and facing hard places in life.</p>
+							<a href="https://www.prnewswire.com/news-releases/coach-cori-close-applauds-the-pyramid-principle-by-john-vallely-302304309.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
 						</div>
 					</article>
 
 					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="2">
 						<div class="h-48 overflow-hidden">
-							<img src="/pr-pyramid-principle.jpg" alt="The Pyramid Principle" class="w-full h-full object-cover" />
+							<img src="/pr-pyramid-principle.jpg" alt="The Pyramid Principle" loading="lazy" class="w-full h-full object-cover" />
 						</div>
 						<div class="p-7 flex flex-col flex-1">
-						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Aug. 15, 2024 · PRNewswire</p>
-						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">SpiritMedia.US to Publish <em>The Pyramid Principle</em> by UCLA Superstar and NBA Pro John Vallely</h3>
-						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US has secured exclusive rights to publish and distribute <em>The Pyramid Principle</em> by UCLA basketball Hall of Famer and former NBA player John Vallely with Paul Weissenstein — anticipated to be a New York Times Bestseller.</p>
-						<a href="https://www.prnewswire.com/news-releases/spiritmediaus-to-publish-the-pyramid-principle-by-ucla-superstar-and-nba-pro-john-vallely-302223398.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Aug. 15, 2024 · PRNewswire</p>
+							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">SpiritMedia.US to Publish <em>The Pyramid Principle</em> by UCLA Superstar and NBA Pro John Vallely</h3>
+							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US secures exclusive rights to publish <em>The Pyramid Principle</em> by Hall of Famer John Vallely — anticipated to be a New York Times Bestseller.</p>
+							<a href="https://www.prnewswire.com/news-releases/spiritmediaus-to-publish-the-pyramid-principle-by-ucla-superstar-and-nba-pro-john-vallely-302223398.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
 						</div>
 					</article>
 
 					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="3">
 						<div class="h-48 overflow-hidden">
-							<img src="/pr-expedited-process.jpg" alt="Expedited Publishing Process" class="w-full h-full object-cover" />
+							<img src="/pr-expedited-process.jpg" alt="Expedited Publishing Process" loading="lazy" class="w-full h-full object-cover" />
 						</div>
 						<div class="p-7 flex flex-col flex-1">
-						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">June 18, 2024 · PRNewswire</p>
-						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Shakes up the Publishing Industry with Unique, Expedited Process</h3>
-						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media has reinvented the industry as a forerunner in self-publishing — completing publishing in every format within five months, with paperback editions finalizing in as little as 14 days, while typical publishing can take years.</p>
-						<a href="https://www.prnewswire.com/news-releases/spirit-media-shakes-up-the-publishing-industry-with-unique-expedited-process-302175618.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">June 18, 2024 · PRNewswire</p>
+							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Shakes up the Publishing Industry with Unique, Expedited Process</h3>
+							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media completes publishing in every format within five months, with paperback editions finalizing in as little as 14 days — while traditional publishing takes years.</p>
+							<a href="https://www.prnewswire.com/news-releases/spirit-media-shakes-up-the-publishing-industry-with-unique-expedited-process-302175618.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
 						</div>
 					</article>
 
 					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="4">
 						<div class="h-48 overflow-hidden">
-							<img src="/pr-rapid-growth.jpg" alt="Rapid Growth" class="w-full h-full object-cover" />
+							<img src="/pr-rapid-growth.jpg" alt="Rapid Growth" loading="lazy" class="w-full h-full object-cover" />
 						</div>
 						<div class="p-7 flex flex-col flex-1">
-						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Feb. 1, 2024 · PRNewswire</p>
-						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Poised for Rapid Growth, Robust Profitability in 2024</h3>
-						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media is poised for rapid growth in 2024 and beyond thanks to international business dealings and new funding secured through the U.S. Small Business Administration.</p>
-						<a href="https://www.prnewswire.com/news-releases/spirit-media-poised-for-rapid-growth-robust-profitability-in-2024-302050871.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Feb. 1, 2024 · PRNewswire</p>
+							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Poised for Rapid Growth, Robust Profitability in 2024</h3>
+							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media is poised for rapid growth thanks to international business dealings and new funding secured through the U.S. Small Business Administration.</p>
+							<a href="https://www.prnewswire.com/news-releases/spirit-media-poised-for-rapid-growth-robust-profitability-in-2024-302050871.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
 						</div>
-					</article>
-
-					<article class="bg-stone-50 rounded-2xl border border-stone-200 p-7 flex flex-col" data-animate="fade-up" data-delay="5">
-						<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Media Contact</p>
-						<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Press & Media Inquiries</h3>
-						<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">For press releases, interviews, or media partnerships, contact our team — we'd love to connect.</p>
-						<a href="/contact" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm text-center mt-auto">Request a Free Consult →</a>
 					</article>
 
 				</div>
 			</div>
 		</section>
 
+		<!-- MEDIA INQUIRY STRIP -->
+		<section class="bg-stone-100 px-6 py-12 lg:px-8 border-t border-stone-200">
+			<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+				<div>
+					<p class="font-serif text-xl font-bold text-ink-soft mb-1">Have a press or media inquiry?</p>
+					<p class="type-body-sm text-stone-600">For interviews, partnerships, or press releases — we'd love to connect.</p>
+				</div>
+				<a href="/contact" class="inline-block bg-red text-white font-semibold px-8 py-3.5 rounded-md hover:bg-red-deep transition-colors text-sm whitespace-nowrap">Request a Free Consult →</a>
+			</div>
+		</section>
+
 		<!-- MEDIA -->
-		<section class="bg-stone-100 py-20 px-6 lg:px-8">
+		<section class="bg-stone-600 py-20 px-6 lg:px-8">
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Watch</p>
-					<h2 class="font-serif text-3xl font-bold text-ink-soft sm:text-4xl" data-animate="fade-up" data-delay="1">Spirit Media on YouTube</h2>
+					<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl" data-animate="fade-up" data-delay="1">Spirit Media on YouTube</h2>
 				</div>
-
-				<!-- Video grid -->
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" data-animate="fade-up" data-delay="2">
 					{[
 						{ id: "e7od2t3u2wI", q: "maxresdefault", title: "Turn Your God-Given Vision into Global Impact" },
@@ -160,14 +165,15 @@ import Layout from '../layouts/Layout.astro';
 						{ id: "W92hLbOnl8k", q: "maxresdefault", title: "Spirit Media's Purpose for Global Impact" },
 						{ id: "3v77UY5Xnzk", q: "maxresdefault", title: "Why Spirit Media — Kevin White, CEO" },
 					].map(({ id, q, title }) => (
-						<a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer" class="group block rounded-2xl overflow-hidden bg-ink-soft shadow-sm hover:shadow-md transition-shadow">
+						<a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer" class="group block rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
 							<div class="relative aspect-video">
 								<img
 									src={`https://i.ytimg.com/vi/${id}/${q}.jpg`}
 									alt={title}
-									class="w-full h-full object-cover"
+									loading="lazy"
+									class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
 								/>
-								<div class="absolute inset-0 flex items-center justify-center bg-ink-soft/30 group-hover:bg-ink-soft/10 transition-colors">
+								<div class="absolute inset-0 flex items-center justify-center">
 									<div class="w-14 h-14 rounded-full bg-red flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
 										<svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
 									</div>
@@ -179,7 +185,6 @@ import Layout from '../layouts/Layout.astro';
 						</a>
 					))}
 				</div>
-
 				<div class="text-center" data-animate="fade-up" data-delay="3">
 					<a href="https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA" target="_blank" rel="noopener noreferrer" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm">Visit Our YouTube Channel →</a>
 				</div>
@@ -189,9 +194,9 @@ import Layout from '../layouts/Layout.astro';
 		<!-- CTA -->
 		<section class="bg-red px-6 py-20 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
-				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Have a media inquiry?</h2>
-				<p class="text-stone-200 text-lg leading-relaxed mb-8" data-animate="fade-up" data-delay="1">We'd love to hear from you. Reach out to discuss press releases, interviews, or media partnerships.</p>
-				<a href="/contact" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="2">Contact Us</a>
+				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Ready to Get Your Message to the Nations?</h2>
+				<p class="text-stone-200 text-lg leading-relaxed mb-8" data-animate="fade-up" data-delay="1">Spirit Media Publishing helps Kingdom Messengers publish, market, and reach readers across 195 nations. Let's talk about your book.</p>
+				<a href="/contact" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="2">Request a Call →</a>
 			</div>
 		</section>
 
