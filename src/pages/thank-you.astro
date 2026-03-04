@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Thank You — Spirit Media Publishing"
+	description="Thank you for reaching out to Spirit Media Publishing. We'll be in touch shortly."
+	ogImage="/og-home.jpg"
+>
+	<Fragment slot="head">
+		<meta name="robots" content="noindex, nofollow" />
+	</Fragment>
+	<main id="main-content">
+
+		<section class="bg-stone-50 min-h-[70vh] flex items-center px-6 py-12 lg:py-20 lg:px-8">
+			<div class="max-w-2xl mx-auto text-center">
+
+				<div class="flex justify-center mb-8">
+					<div class="flex h-20 w-20 items-center justify-center rounded-full bg-red-wash">
+						<img src="/spirit-media-icon.svg" alt="" class="h-10 w-10" aria-hidden="true" />
+					</div>
+				</div>
+
+				<p class="eyebrow eyebrow-red mb-4">Request Received</p>
+				<h1 class="font-serif text-4xl sm:text-5xl font-bold text-ink-soft mb-6">
+					Thank You --<br />
+					<span class="text-red">We will Be in Touch</span>
+				</h1>
+				<p class="type-body-lg text-stone-600 mb-4 max-w-lg mx-auto">
+					Your request has been received. A member of the Spirit Media team will reach out within one business day to schedule your call.
+				</p>
+				<p class="text-stone-500 text-sm mb-10">
+					In the meantime, feel free to explore our resources below.
+				</p>
+
+				<div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+					<a href="/" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm">
+						Return Home
+					</a>
+					<a href="/bookstore" class="inline-block border border-stone-300 text-ink-soft font-semibold px-6 py-3 rounded-md hover:bg-stone-100 transition-colors text-sm">
+						Browse the Bookstore
+					</a>
+				</div>
+
+				<div class="border-t border-stone-200 pt-10">
+					<p class="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-6">While You Wait</p>
+					<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+						<a href="/publishing" class="group flex flex-col items-center gap-2 text-stone-600 hover:text-red transition-colors">
+							<span class="text-2xl">📖</span>
+							<span class="font-semibold group-hover:text-red transition-colors">Publishing Services</span>
+							<span class="text-stone-400 text-xs">See how we publish your book</span>
+						</a>
+						<a href="/marketing" class="group flex flex-col items-center gap-2 text-stone-600 hover:text-red transition-colors">
+							<span class="text-2xl">📣</span>
+							<span class="font-semibold group-hover:text-red transition-colors">Marketing Services</span>
+							<span class="text-stone-400 text-xs">Discover our marketing strategy</span>
+						</a>
+						<a href="/kingdom-messenger-collective" class="group flex flex-col items-center gap-2 text-stone-600 hover:text-red transition-colors">
+							<span class="text-2xl">🌍</span>
+							<span class="font-semibold group-hover:text-red transition-colors">Kingdom Messenger Collective</span>
+							<span class="text-stone-400 text-xs">Our flagship partnership program</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+</Layout>
