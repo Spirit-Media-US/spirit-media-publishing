@@ -99,8 +99,8 @@ import Layout from '../layouts/Layout.astro';
 								<a href="/contact" class="inline-block bg-red text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-red-deep transition-colors">Partner with Us →</a>
 							</div>
 						</div>
-						<!-- Right: photo -->
-						<div class="overflow-hidden min-h-80 lg:min-h-0" data-animate="slide-right">
+						<!-- Right: photo (stacks first on mobile) -->
+						<div class="overflow-hidden min-h-80 lg:min-h-0 order-first lg:order-last" data-animate="slide-right">
 							<img src="/kev & shel.png" alt="Kevin and Shelly White" class="w-full h-full object-cover" style="object-position: center 30%;" />
 						</div>
 					</div>
