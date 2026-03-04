@@ -130,14 +130,12 @@ import Layout from '../layouts/Layout.astro';
 								your true identity as His beloved child. Come home. You belong to Him.
 							</p>
 							<div>
-								<iframe
-									src="https://mail.spiritmediaone.com/widget/survey/UYe8vyLv7DZ5BuMRhEfv"
-									style="border:none;width:100%;"
-									scrolling="no"
-									id="UYe8vyLv7DZ5BuMRhEfv"
-									title="Get Your Free Copy of Father's Heart → Beloved Identity"
-								></iframe>
-								<script is:inline src="https://mail.spiritmediaone.com/js/form_embed.js"></script>
+								<button
+									onclick="document.getElementById('fhb-modal').classList.remove('hidden')"
+									class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm cursor-pointer"
+								>
+									Get Your Free Book →
+								</button>
 							</div>
 						</div>
 					</div>
@@ -383,4 +381,40 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 	</main>
+
+	<!-- FREE BOOK MODAL -->
+	<div
+		id="fhb-modal"
+		class="hidden fixed inset-0 z-50 flex items-center justify-center p-4"
+		onclick="if(event.target===this)this.classList.add('hidden')"
+	>
+		<!-- Backdrop -->
+		<div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+		<!-- Panel -->
+		<div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg z-10 overflow-hidden">
+			<!-- Header -->
+			<div class="bg-stone-700 px-6 py-5 flex items-start justify-between">
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-widest text-red-soft mb-1">FREE BOOK from Spirit Media</p>
+					<h3 class="font-serif text-xl font-bold text-white">Father's Heart → Beloved Identity</h3>
+				</div>
+				<button
+					onclick="document.getElementById('fhb-modal').classList.add('hidden')"
+					class="text-stone-400 hover:text-white transition-colors ml-4 mt-0.5 text-xl leading-none cursor-pointer bg-transparent border-0"
+					aria-label="Close"
+				>✕</button>
+			</div>
+			<!-- Form -->
+			<div class="p-6">
+				<iframe
+					src="https://mail.spiritmediaone.com/widget/survey/UYe8vyLv7DZ5BuMRhEfv"
+					style="border:none;width:100%;min-height:320px;"
+					scrolling="no"
+					id="UYe8vyLv7DZ5BuMRhEfv"
+					title="Get Your Free Copy of Father's Heart → Beloved Identity"
+				></iframe>
+				<script is:inline src="https://mail.spiritmediaone.com/js/form_embed.js"></script>
+			</div>
+		</div>
+	</div>
 </Layout>
