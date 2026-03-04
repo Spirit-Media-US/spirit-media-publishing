@@ -44,10 +44,7 @@ import Layout from '../layouts/Layout.astro';
 							<a href="#services" class="rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-ink-soft transition-colors hover:bg-stone-100">See Our Services ↓</a>
 						</div>
 					</div>
-					<!-- Mobile image -->
-					<div class="lg:hidden rounded-2xl overflow-hidden" data-animate="fade-in">
-						<img src="/marketing-podcast-wide.jpg" alt="Marketing Services" class="w-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95); max-height: 220px;" />
-					</div>
+					<!-- Mobile image removed: desktop image grid already renders on mobile -->
 					<div class="flex flex-col gap-4 order-first lg:order-last" data-animate="zoom-in">
 						<div class="grid grid-cols-2 gap-4">
 							<div class="relative rounded-2xl overflow-hidden aspect-square">
@@ -81,10 +78,10 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<div class="space-y-4">
 					{[
-						{ step: '1', title: 'Increasing Amazon Reviews', desc: "the world's #1 bookseller" },
+						{ step: '1', title: 'Increasing Amazon Reviews', desc: <span>the world's #1 bookseller — <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-stone-400 hover:decoration-stone-600 transition-colors">amazon.com</a></span> },
 						{ step: '2', title: 'Sharing Advance Reader Copies with Bookstores', desc: 'putting your book directly in readers\u2019 hands' },
-						{ step: '3', title: 'Landing Page or Website', desc: 'Google is the #1 search engine in the world' },
-						{ step: '4', title: 'YouTube Channel', desc: 'YouTube is the #2 search engine in the world' },
+						{ step: '3', title: 'Landing Page or Website', desc: <span>Google is the <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-stone-400 hover:decoration-stone-600 transition-colors">#1 search engine</a> in the world</span> },
+						{ step: '4', title: 'YouTube Channel', desc: <span>YouTube is the <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-stone-400 hover:decoration-stone-600 transition-colors">#2 search engine</a> in the world</span> },
 						{ step: '5', title: 'Podcast Show Tour', desc: 'reach established audiences on existing shows' },
 						{ step: '6', title: 'Launch Your Own Podcast Show', desc: 'build a loyal audience around your message' },
 						{ step: '7', title: 'Paid Digital Ads', desc: 'amplify what\u2019s already working' },
