@@ -57,7 +57,7 @@ import Layout from '../../layouts/Layout.astro';
 				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">The difference is not incremental.</p>
 				<p class="type-body-lg font-semibold text-ink-soft leading-relaxed mb-8">It's an entirely new way to build and manage the web.</p>
 
-				<h2 class="font-serif text-2xl font-bold text-ink-soft mt-12 mb-4">The Old Model: Website Platforms from the <span class="normal-case">2010s</span></h2>
+				<h2 class="font-serif text-2xl font-bold text-ink-soft mt-12 mb-4">The Old Model: Website Platforms from the <span style="font-variant: none; font-feature-settings: 'smcp' 0, 'c2sc' 0;">2010s</span></h2>
 				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">Platforms like WordPress, Wix, Squarespace, and Webflow were designed for a different era of the internet. Their core philosophy is simple: you log into a dashboard and manually edit pages using a visual interface.</p>
 				<p class="type-body-lg text-stone-700 leading-relaxed mb-6">While convenient at first, these systems come with serious limitations.</p>
 
@@ -131,6 +131,32 @@ import Layout from '../../layouts/Layout.astro';
 					))}
 				</div>
 				<p class="type-body-lg text-stone-700 leading-relaxed mb-8">AI implements the changes instantly. Our team reviews them locally, then deploys globally in under a minute.</p>
+
+				<h2 class="font-serif text-2xl font-bold text-ink-soft mt-12 mb-4">The SEO Advantage Nobody Talks About</h2>
+				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">Here's the truth that most web developers won't tell you: the most beautiful, responsive website in the world is worthless if no one can find it.</p>
+				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">For years, WordPress dominated the web in part because of its SEO ecosystem. Plugins like Yoast became industry standards. Entire businesses were built on the assumption that WordPress was the only credible path to ranking on Google.</p>
+				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">That assumption is now obsolete.</p>
+				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">Modern static architecture doesn't just match WordPress for SEO — it surpasses it in nearly every measurable dimension.</p>
+
+				<div class="bg-stone-100 rounded-xl p-6 my-8 space-y-5">
+					{[
+						{ title: 'Page Speed', body: 'Google uses Core Web Vitals as a direct ranking signal. Our pre-built static pages load in milliseconds from global edge servers — consistently achieving scores that WordPress sites rarely reach.' },
+						{ title: 'Structured Data', body: 'Every page is built with Schema.org JSON-LD markup baked in — telling search engines exactly what each page is, who wrote it, and what it\'s about. No plugin required.' },
+						{ title: 'Clean HTML', body: 'No bloated page builder markup, no dynamically generated clutter. Search engine crawlers read our pages cleanly and completely.' },
+						{ title: 'Sitemap & Crawlability', body: 'An auto-generated sitemap.xml updates on every deploy. Every page is immediately discoverable.' },
+						{ title: 'Meta & OG Tags', body: 'Every page carries custom title, description, canonical, Open Graph, and article tags — controlling exactly how content appears in search results and social shares.' },
+						{ title: 'SSL & Security Signals', body: 'HTTPS is enforced globally via Cloudflare. Google penalizes insecure sites. Ours are secure by default.' },
+						{ title: 'Zero Plugin Drift', body: 'WordPress SEO depends on plugins staying updated, compatible, and properly configured. One update can silently break metadata across hundreds of pages. Our SEO is in the codebase — it never drifts.' },
+					].map(({ title, body }) => (
+						<div class="flex gap-3 items-start">
+							<span class="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-red"></span>
+							<p class="text-stone-700 text-sm leading-relaxed"><strong class="text-ink-soft">{title}</strong> — {body}</p>
+						</div>
+					))}
+				</div>
+
+				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">WordPress built its SEO reputation on plugins doing the work that the platform couldn't do natively. Our infrastructure does it natively — reliably, automatically, and without the fragility of a plugin stack that can break on any given Tuesday.</p>
+				<p class="type-body-lg font-semibold text-ink-soft leading-relaxed mb-8">We didn't just match WordPress for SEO. We left it in the history books.</p>
 
 				<h2 class="font-serif text-2xl font-bold text-ink-soft mt-12 mb-4">Why Businesses Are Leaving WordPress</h2>
 				<p class="type-body-lg text-stone-700 leading-relaxed mb-4">More and more organizations are moving away from legacy platforms for one simple reason: they were built for yesterday's internet. Modern websites demand speed, security, global delivery, media support, AI-driven editing, and scalable infrastructure. Old platforms simply cannot compete.</p>
