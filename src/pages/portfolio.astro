@@ -10,6 +10,14 @@ import Layout from '../layouts/Layout.astro';
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book portfolio, Spirit Media portfolio, Christian book covers, Christian author success stories, book marketing examples, Christian publishing results, Kingdom Messenger books, Spirit Media client work" />
 		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			"name": "Portfolio — 300+ Christian Books Published by Spirit Media",
+			"url": "https://spiritmediapublishing.com/portfolio",
+			"description": "Spirit Media Publishing has helped 300+ Christian authors publish, brand, and market their books across 195 nations.",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}</script>
 	</Fragment>
 	<main id="main-content">
 

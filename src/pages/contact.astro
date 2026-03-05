@@ -10,6 +10,14 @@ import Layout from '../layouts/Layout.astro';
 	<Fragment slot="head">
 		<meta name="keywords" content="contact Spirit Media Publishing, free publishing consultation, schedule a call Spirit Media, Christian book publishing consultation, publish my book, Spirit Media contact" />
 		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ContactPage",
+			"name": "Schedule a Free Consultation — Spirit Media Publishing",
+			"url": "https://spiritmediapublishing.com/contact",
+			"description": "Request a free publishing and marketing consultation with Spirit Media Publishing.",
+			"provider": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com", "telephone": "", "email": "info@spiritmediapublishing.com" }
+		})}</script>
 	</Fragment>
 	<main id="main-content">
 

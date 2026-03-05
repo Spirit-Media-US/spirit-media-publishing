@@ -95,7 +95,7 @@ import Layout from '../../layouts/Layout.astro';
 						{ name: 'Netlify', desc: 'Automatically deploys the site globally after updates.' },
 						{ name: 'AI Development Assistants', desc: 'Allow our team to edit the site conversationally.' },
 						{ name: 'Cloudflare', desc: 'Provides security, caching, and performance worldwide.' },
-						{ name: 'Cloudflare R2', desc: 'Hosts audio, video, and large assets without slowing builds.' },
+						{ name: 'Cloudflare R2', desc: 'Hosts audio, video, and large assets at assets.spiritmediapublishing.com — keeping media fast and separate from site builds.' },
 					].map(({ name, desc }) => (
 						<div class="flex gap-3 items-start">
 							<span class="mt-1 flex h-2 w-2 shrink-0 rounded-full bg-red"></span>
@@ -145,7 +145,7 @@ import Layout from '../../layouts/Layout.astro';
 						{ title: 'Clean HTML', body: 'No bloated page builder markup, no dynamically generated clutter. Search engine crawlers read our pages cleanly and completely.' },
 						{ title: 'Sitemap & Crawlability', body: 'An auto-generated sitemap.xml updates on every deploy. Every page is immediately discoverable.' },
 						{ title: 'Meta & OG Tags', body: 'Every page carries custom title, description, canonical, Open Graph, and article tags — controlling exactly how content appears in search results and social shares.' },
-						{ title: 'SSL & Security Signals', body: 'HTTPS is enforced globally via Cloudflare. Google penalizes insecure sites. Ours are secure by default.' },
+						{ title: 'SSL & Security Signals', body: 'HTTPS is enforced globally via Cloudflare. Google penalizes insecure sites. Ours are secure by default, with Cloudflare\'s firewall and DDoS protection sitting in front of every request.' },
 						{ title: 'Zero Plugin Drift', body: 'WordPress SEO depends on plugins staying updated, compatible, and properly configured. One update can silently break metadata across hundreds of pages. Our SEO is in the codebase — it never drifts.' },
 					].map(({ title, body }) => (
 						<div class="flex gap-3 items-start">

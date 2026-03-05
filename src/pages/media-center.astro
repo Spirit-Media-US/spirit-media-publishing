@@ -10,6 +10,14 @@ import Layout from '../layouts/Layout.astro';
 	<Fragment slot="head">
 		<meta name="keywords" content="Spirit Media Publishing news, Christian publishing press releases, Spirit Media YouTube, Christian publishing media coverage, Spirit Media in the news, PRNewswire Christian publishing, Kingdom Messenger news" />
 		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			"name": "Media Center — Spirit Media Publishing",
+			"url": "https://spiritmediapublishing.com/media-center",
+			"description": "Spirit Media Publishing press releases, YouTube videos, and media coverage.",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}</script>
 	</Fragment>
 	<main id="main-content">
 
