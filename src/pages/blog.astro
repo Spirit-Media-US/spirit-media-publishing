@@ -22,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
 	<main id="main-content">
 
 		<!-- HERO -->
-		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:py-28 lg:px-8 overflow-hidden">
+		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8 overflow-hidden">
 			<div class="mx-auto max-w-7xl">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div class="hero-stagger">
@@ -31,7 +31,6 @@ import Layout from '../layouts/Layout.astro';
 						<p class="mt-6 type-body-lg text-stone-600 max-w-xl">Insights, encouragement, and resources for Kingdom Messengers building their message and expanding their reach.</p>
 					</div>
 					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
-						<!-- Row 1 -->
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
 							<img src="/blog-hero.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(80%) brightness(0.85) contrast(0.95);" />
 						</div>
@@ -41,7 +40,6 @@ import Layout from '../layouts/Layout.astro';
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
 							<img src="/TBLblog.png" alt="" class="w-full h-full object-cover object-center" style="filter: grayscale(100%) sepia(60%) brightness(0.85) contrast(0.95);" />
 						</div>
-						<!-- Row 2 -->
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
 							<img src="/fhb-city.png" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(50%) brightness(0.8) contrast(1.05);" />
 						</div>
@@ -51,7 +49,6 @@ import Layout from '../layouts/Layout.astro';
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
 							<img src="/workonyourself-hands.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(30%) brightness(0.9) hue-rotate(200deg) contrast(0.95);" />
 						</div>
-						<!-- Row 3 -->
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
 							<img src="/kevinwhitephoto.jpg" alt="" class="w-full h-full object-cover object-top" style="filter: grayscale(100%) sepia(60%) brightness(0.85) contrast(0.95);" />
 						</div>
@@ -66,104 +63,258 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
-		<!-- POSTS -->
+
+		<!-- SEARCH + FILTER -->
+		<section class="bg-white border-b border-stone-200 px-6 py-4 lg:px-8 sticky top-0 z-10 shadow-sm">
+			<div class="mx-auto max-w-7xl flex flex-col gap-3">
+				<!-- Search row -->
+				<div class="flex items-center gap-3">
+					<div class="relative flex-1">
+						<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+						</svg>
+						<input
+							id="blog-search"
+							type="search"
+							placeholder="Search by keyword, topic, or tag…"
+							class="w-full pl-9 pr-4 py-2 rounded-lg border border-stone-300 bg-stone-50 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent"
+						/>
+					</div>
+					<p id="results-count" class="text-sm text-stone-500 whitespace-nowrap shrink-0"></p>
+				</div>
+				<!-- Filter chips -->
+				<div class="flex items-center gap-2 flex-wrap">
+					<span class="text-xs font-semibold text-stone-400 uppercase tracking-wider shrink-0">Filter:</span>
+					<button data-tag="all" class="tag-chip active px-3 py-1 rounded-full text-xs font-semibold border transition-colors bg-red text-white border-red">All</button>
+					<button data-tag="Publishing" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">Publishing</button>
+					<button data-tag="Marketing" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">Marketing</button>
+					<button data-tag="YouTube" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">YouTube</button>
+					<button data-tag="Leadership" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">Leadership</button>
+					<button data-tag="Soul Care" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">Soul Care</button>
+					<button data-tag="Technology & AI" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">Technology & AI</button>
+					<button data-tag="Kingdom Messenger" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">Kingdom Messenger</button>
+					<button data-tag="Global Mission" class="tag-chip px-3 py-1 rounded-full text-xs font-semibold border border-stone-300 text-stone-600 hover:border-red hover:text-red transition-colors">Global Mission</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- POSTS GRID -->
 		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
 			<div class="max-w-7xl mx-auto">
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 
-					<!-- Post: Master YouTube Without It Mastering You -->
-					<a href="/blog/master-youtube-without-it-mastering-you" class="group bg-stone-50 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-up">
-						<div class="h-48 overflow-hidden">
-							<img src="/blog-youtube-howto-feature.png" alt="How to Master YouTube Without It Mastering You" class="w-full h-full object-cover" style="object-position: center 50%;" />
-						</div>
-						<div class="p-6">
-							<h3 class="font-serif text-xl font-bold text-red mb-2">How to Master YouTube Without It Mastering You</h3>
-							<p class="type-body-sm text-stone-600 mb-4">A practical guide for authors, creators, and Kingdom communicators who want to build lasting reach — without burning out.</p>
-							<div class="flex items-center justify-between text-sm text-stone-400">
-								<span>Kevin White · March 5, 2026</span>
-								<span class="text-red font-semibold group-hover:underline">Read →</span>
-							</div>
-						</div>
-					</a>
-
-					<!-- Post: Revive YouTube Channel -->
-					<a href="/blog/revive-youtube-channel" class="group bg-stone-50 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-up">
-						<div class="h-48 overflow-hidden">
-							<img src="/blog-youtube-revival.png" alt="How to Revive a Dead YouTube Channel" class="w-full h-full object-cover" style="object-position: center 30%;" />
-						</div>
-						<div class="p-6">
-							<h3 class="font-serif text-xl font-bold text-red mb-2">How to Revive a "Dead" YouTube Channel</h3>
-							<p class="type-body-sm text-stone-600 mb-4">Why old channels still have value — and a simple strategy to grow to 10,000 subscribers for authors, ministries, and Kingdom communicators.</p>
-							<div class="flex items-center justify-between text-sm text-stone-400">
-								<span>Kevin White · March 5, 2026</span>
-								<span class="text-red font-semibold group-hover:underline">Read →</span>
-							</div>
-						</div>
-					</a>
-
-					<!-- Post: End of Traditional Website Platforms -->
-					<a href="/blog/end-of-traditional-website-platforms" class="group bg-stone-50 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-up">
-						<div class="h-48 overflow-hidden">
-							<img src="/blogwebsite.png" alt="The End of Traditional Website Platforms" class="w-full h-full object-cover" style="object-position: center 20%;" />
-						</div>
-						<div class="p-6">
-							<h3 class="font-serif text-xl font-bold text-red mb-2">The End of "Traditional" Website Platforms</h3>
-							<p class="type-body-sm text-stone-600 mb-4">Why AI-empowered development is replacing WordPress, Wix, and drag-and-drop builders — and what it means for your ministry or business.</p>
-							<div class="flex items-center justify-between text-sm text-stone-400">
-								<span>Kevin White · March 4, 2026</span>
-								<span class="text-red font-semibold group-hover:underline">Read →</span>
-							</div>
-						</div>
-					</a>
-
-					<!-- Post: Why We Start with Heart -->
-					<a href="/blog/why-we-start-with-heart" class="group bg-stone-50 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-up">
-						<div class="h-48 overflow-hidden">
-							<img src="/blog-hero.jpg" alt="Why We Start with Heart" class="w-full h-full object-cover" />
-						</div>
-						<div class="p-6">
-							<h3 class="font-serif text-xl font-bold text-red mb-2">Why We Start with Heart</h3>
-							<p class="type-body-sm text-stone-600 mb-4">High-capacity leaders are achieving results while losing their souls. Discover why true leadership development must begin with spiritual soul care.</p>
-							<div class="flex items-center justify-between text-sm text-stone-400">
-								<span>Kevin White · March 3, 2026</span>
-								<span class="text-red font-semibold group-hover:underline">Read →</span>
-							</div>
-						</div>
-					</a>
-
-					<!-- Post: Work On Yourself -->
-					<a href="/blog/work-on-yourself" class="group bg-stone-50 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-up" data-delay="1">
-						<div class="h-48 overflow-hidden">
-							<img src="/WOY.png" alt="Work On Yourself" class="w-full h-full object-cover" />
-						</div>
-						<div class="p-6">
-							<h3 class="font-serif text-xl font-bold text-red mb-2">The Most Courageous Thing a Leader Can Do</h3>
-							<p class="type-body-sm text-stone-600 mb-4">Many leaders are achieving more than ever while quietly feeling less than ever. Discover why working on yourself is the most strategic thing you can do.</p>
-							<div class="flex items-center justify-between text-sm text-stone-400">
-								<span>Kevin White · March 3, 2026</span>
-								<span class="text-red font-semibold group-hover:underline">Read →</span>
-							</div>
-						</div>
-					</a>
-
-					<!-- Post: Believer's Library -->
-					<a href="/blog/believers-library" class="group bg-stone-50 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-up" data-delay="2">
-						<div class="h-48 overflow-hidden">
-							<img src="/TBLblog.png" alt="The Believer's Library" class="w-full h-full object-cover object-top" />
-						</div>
-						<div class="p-6">
-							<h3 class="font-serif text-xl font-bold text-red mb-2">A Global Library for Every Nation, Tribe, and Tongue</h3>
-							<p class="type-body-sm text-stone-600 mb-4">3.3 billion people have limited access to Jesus and to print books — but nearly everyone has a phone. The Believer's Library changes everything.</p>
-							<div class="flex items-center justify-between text-sm text-stone-400">
-								<span>Kevin White · March 3, 2026</span>
-								<span class="text-red font-semibold group-hover:underline">Read →</span>
-							</div>
-						</div>
-					</a>
-
+				<!-- Empty state -->
+				<div id="no-results" class="hidden text-center py-20">
+					<p class="font-serif text-2xl text-ink-soft mb-2">No posts found</p>
+					<p class="text-stone-500 text-sm">Try a different keyword or <button onclick="clearSearch()" class="text-red font-semibold hover:underline">clear the search</button>.</p>
 				</div>
+
+				<!-- PAGINATION -->
+				<div id="pagination" class="mt-12 flex items-center justify-center gap-2"></div>
 			</div>
 		</section>
 
 	</main>
 </Layout>
+
+<script>
+const POSTS_PER_PAGE = 6;
+
+const POSTS = [
+	{
+		slug: '/blog/ai-powered-ministry-infrastructure',
+		title: 'The Rise of AI-Powered Ministry Infrastructure',
+		excerpt: 'Why the next generation of global gospel impact requires more than websites — and how AI is transforming how Kingdom messages reach the world.',
+		image: '/blog-aiempoweredministry.png',
+		imagePosition: 'center 40%',
+		author: 'Kevin White',
+		date: 'March 6, 2026',
+		tags: ['Technology & AI', 'Kingdom Messenger', 'Global Mission', 'Publishing']
+	},
+	{
+		slug: '/blog/master-youtube-without-it-mastering-you',
+		title: 'How to Master YouTube Without It Mastering You',
+		excerpt: 'A practical guide for authors, creators, and Kingdom communicators who want to build lasting reach — without burning out.',
+		image: '/blog-youtube-howto-feature.png',
+		imagePosition: 'center 50%',
+		author: 'Kevin White',
+		date: 'March 5, 2026',
+		tags: ['YouTube', 'Marketing', 'Kingdom Messenger']
+	},
+	{
+		slug: '/blog/revive-youtube-channel',
+		title: 'How to Revive a "Dead" YouTube Channel',
+		excerpt: 'Why old channels still have value — and a simple strategy to grow to 10,000 subscribers for authors, ministries, and Kingdom communicators.',
+		image: '/blog-youtube-revival.png',
+		imagePosition: 'center 30%',
+		author: 'Kevin White',
+		date: 'March 5, 2026',
+		tags: ['YouTube', 'Marketing', 'Kingdom Messenger']
+	},
+	{
+		slug: '/blog/end-of-traditional-website-platforms',
+		title: 'The End of "Traditional" Website Platforms',
+		excerpt: 'Why AI-empowered development is replacing WordPress, Wix, and drag-and-drop builders — and what it means for your ministry or business.',
+		image: '/blogwebsite.png',
+		imagePosition: 'center 20%',
+		author: 'Kevin White',
+		date: 'March 4, 2026',
+		tags: ['Technology & AI', 'Publishing', 'Marketing']
+	},
+	{
+		slug: '/blog/why-we-start-with-heart',
+		title: 'Why We Start with Heart',
+		excerpt: 'High-capacity leaders are achieving results while losing their souls. Discover why true leadership development must begin with spiritual soul care.',
+		image: '/blog-hero.jpg',
+		imagePosition: 'center center',
+		author: 'Kevin White',
+		date: 'March 3, 2026',
+		tags: ['Soul Care', 'Leadership', 'Kingdom Messenger', 'Publishing']
+	},
+	{
+		slug: '/blog/work-on-yourself',
+		title: 'The Most Courageous Thing a Leader Can Do',
+		excerpt: 'Many leaders are achieving more than ever while quietly feeling less than ever. Discover why working on yourself is the most strategic thing you can do.',
+		image: '/WOY.png',
+		imagePosition: 'center center',
+		author: 'Kevin White',
+		date: 'March 3, 2026',
+		tags: ['Leadership', 'Soul Care', 'Kingdom Messenger']
+	},
+	{
+		slug: '/blog/believers-library',
+		title: 'A Global Library for Every Nation, Tribe, and Tongue',
+		excerpt: '3.3 billion people have limited access to Jesus and to print books — but nearly everyone has a phone. The Believer\'s Library changes everything.',
+		image: '/TBLblog.png',
+		imagePosition: 'center top',
+		author: 'Kevin White',
+		date: 'March 3, 2026',
+		tags: ['Global Mission', 'Technology & AI', 'Kingdom Messenger', 'Publishing']
+	}
+];
+
+let currentPage = 1;
+let filteredPosts = [...POSTS];
+let activeTag = 'all';
+let activeSearch = '';
+
+function applyFilters() {
+	filteredPosts = POSTS.filter(p => {
+		const matchesTag = activeTag === 'all' || p.tags.includes(activeTag);
+		const q = activeSearch.toLowerCase();
+		const matchesSearch = !q || p.title.toLowerCase().includes(q) ||
+			p.excerpt.toLowerCase().includes(q) ||
+			p.tags.some(t => t.toLowerCase().includes(q)) ||
+			p.author.toLowerCase().includes(q);
+		return matchesTag && matchesSearch;
+	});
+	currentPage = 1;
+	renderPosts();
+}
+
+function renderPosts() {
+	const grid = document.getElementById('posts-grid');
+	const noResults = document.getElementById('no-results');
+	const count = document.getElementById('results-count');
+	const start = (currentPage - 1) * POSTS_PER_PAGE;
+	const pagePosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
+
+	if (filteredPosts.length === 0) {
+		grid.innerHTML = '';
+		noResults.classList.remove('hidden');
+		count.textContent = '0 posts';
+	} else {
+		noResults.classList.add('hidden');
+		count.textContent = filteredPosts.length === POSTS.length
+			? `${POSTS.length} posts`
+			: `${filteredPosts.length} of ${POSTS.length} posts`;
+		grid.innerHTML = pagePosts.map(post => `
+			<a href="${post.slug}" class="group bg-stone-50 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+				<div class="h-48 overflow-hidden">
+					<img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" style="object-position: ${post.imagePosition};" />
+				</div>
+				<div class="p-6">
+					<div class="flex flex-wrap gap-1.5 mb-3">
+						${post.tags.slice(0, 2).map(t => `<span class="text-xs font-semibold text-stone-500 bg-stone-200 rounded-full px-2.5 py-0.5">${t}</span>`).join('')}
+					</div>
+					<h3 class="font-serif text-xl font-bold text-red mb-2 leading-snug">${post.title}</h3>
+					<p class="text-sm text-stone-600 mb-4 leading-relaxed">${post.excerpt}</p>
+					<div class="flex items-center justify-between text-sm text-stone-400">
+						<span>${post.author} · ${post.date}</span>
+						<span class="text-red font-semibold group-hover:underline">Read →</span>
+					</div>
+				</div>
+			</a>
+		`).join('');
+	}
+
+	renderPagination();
+}
+
+function renderPagination() {
+	const pagination = document.getElementById('pagination');
+	const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+
+	if (totalPages <= 1) {
+		pagination.innerHTML = '';
+		return;
+	}
+
+	let html = '';
+	// Prev
+	html += `<button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="px-4 py-2 rounded-lg border text-sm font-semibold transition-colors ${currentPage === 1 ? 'border-stone-200 text-stone-300 cursor-not-allowed' : 'border-stone-300 text-stone-600 hover:bg-stone-200'}">← Prev</button>`;
+	// Page numbers
+	for (let i = 1; i <= totalPages; i++) {
+		html += `<button onclick="goToPage(${i})" class="w-9 h-9 rounded-lg text-sm font-semibold transition-colors ${i === currentPage ? 'bg-red text-white' : 'border border-stone-300 text-stone-600 hover:bg-stone-200'}">${i}</button>`;
+	}
+	// Next
+	html += `<button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="px-4 py-2 rounded-lg border text-sm font-semibold transition-colors ${currentPage === totalPages ? 'border-stone-200 text-stone-300 cursor-not-allowed' : 'border-stone-300 text-stone-600 hover:bg-stone-200'}">Next →</button>`;
+
+	pagination.innerHTML = html;
+}
+
+window.goToPage = function goToPage(page) {
+	const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+	if (page < 1 || page > totalPages) return;
+	currentPage = page;
+	renderPosts();
+	document.getElementById('posts-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+window.clearSearch = function clearSearch() {
+	document.getElementById('blog-search').value = '';
+	activeSearch = '';
+	activeTag = 'all';
+	document.querySelectorAll('.tag-chip').forEach(b => {
+		b.classList.remove('active', 'bg-red', 'text-white', 'border-red');
+		b.classList.add('border-stone-300', 'text-stone-600');
+	});
+	const allBtn = document.querySelector('[data-tag="all"]');
+	allBtn.classList.add('bg-red', 'text-white', 'border-red');
+	allBtn.classList.remove('border-stone-300', 'text-stone-600');
+	applyFilters();
+}
+
+// Search
+document.getElementById('blog-search').addEventListener('input', (e) => {
+	activeSearch = e.target.value.trim();
+	applyFilters();
+});
+
+// Tag chips
+document.querySelectorAll('.tag-chip').forEach(btn => {
+	btn.addEventListener('click', () => {
+		activeTag = btn.getAttribute('data-tag');
+		document.querySelectorAll('.tag-chip').forEach(b => {
+			b.classList.remove('active', 'bg-red', 'text-white', 'border-red');
+			b.classList.add('border-stone-300', 'text-stone-600');
+		});
+		btn.classList.add('active', 'bg-red', 'text-white', 'border-red');
+		btn.classList.remove('border-stone-300', 'text-stone-600');
+		applyFilters();
+	});
+});
+
+// Initial render
+renderPosts();
+</script>

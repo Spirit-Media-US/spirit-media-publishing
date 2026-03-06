@@ -1,13 +1,15 @@
 ---
+import ShareBar from '../../components/ShareBar.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
 	title="The Most Courageous Thing a Leader Can Do: Work On Yourself | Spirit Media Publishing Blog"
-	description="Many leaders today are achieving more than ever while quietly feeling less than ever. Discover why working on yourself is the most courageous — and most strategic — thing a leader can do."
+	description="Many leaders achieve more than ever while quietly feeling less than ever. Why working on yourself is the most courageous thing a Kingdom leader can do."
+	ogImage="/og-woy.jpg"
 >
 	<Fragment slot="head">
-		<meta name="keywords" content="spiritual soul care, Christian leadership formation, Work On Yourself, inner healing for leaders, emotional health and faith" />
+		<meta name="keywords" content="Work On Yourself program, Christian leadership development, inner healing for leaders, Kingdom Messenger, Spirit Media Publishing, emotional health faith, soul care leaders" />
 		<meta name="robots" content="index, follow" />
 		<meta property="og:site_name" content="Spirit Media Publishing" />
 		<meta property="og:type" content="article" />
@@ -18,6 +20,8 @@ import Layout from '../../layouts/Layout.astro';
 			"@context": "https://schema.org",
 			"@type": "BlogPosting",
 			"headline": "The Most Courageous Thing a Leader Can Do: Work On Yourself",
+			"description": "Why working on yourself is the most courageous and strategic thing a Kingdom leader can do — and how Spirit Media's 12-month program helps.",
+			"image": "https://spiritmediapublishing.com/og-woy.jpg",
 			"author": { "@type": "Person", "name": "Kevin White" },
 			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
 			"datePublished": "2026-03-03",
@@ -130,7 +134,7 @@ import Layout from '../../layouts/Layout.astro';
 			<div class="mx-auto max-w-3xl border-t border-stone-200 pt-8">
 				<p class="text-sm text-stone-400 mb-3">Filed under</p>
 				<div class="flex flex-wrap gap-2">
-					{['Spiritual Soul Care', 'Christian Leadership Formation', 'Work On Yourself', 'Inner Healing for Leaders', 'Emotional Health and Faith'].map((tag) => (
+					{["Leadership", "Soul Care", "Kingdom Messenger"].map((tag) => (
 						<span class="text-xs font-semibold text-stone-600 bg-stone-200 rounded-full px-3 py-1">{tag}</span>
 					))}
 				</div>
@@ -138,6 +142,11 @@ import Layout from '../../layouts/Layout.astro';
 		</section>
 
 		<!-- CTA -->
+		<ShareBar
+			title="The Most Courageous Thing a Leader Can Do: Work On Yourself"
+			url="https://spiritmediapublishing.com/blog/work-on-yourself"
+		/>
+
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Ready to Work On Yourself?</h2>

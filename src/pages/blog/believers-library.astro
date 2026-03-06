@@ -1,14 +1,31 @@
 ---
+import ShareBar from '../../components/ShareBar.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
 	title="The Believer's Library: A Global Library for Every Nation, Tribe, and Tongue | Spirit Media Publishing Blog"
-	description="3.3 billion people have limited access to Jesus and to print books — but nearly everyone has a phone. The Believer's Library is a global mobile app designed to place a Christian library in every pocket on earth."
+	description="The Believer's Library is a global mobile app placing a free Christian library in every pocket — reaching 3.3 billion people who lack access to books."
+	ogImage="/og-believers.jpg"
 >
 	<Fragment slot="head">
-		<meta name="keywords" content="Believer's Library, Christian mobile app, global missions, Christian books, 10/40 Window, Spirit Media Publishing, digital library" />
+		<meta name="keywords" content="Believer's Library app, Christian mobile app, global missions, free Christian books, Spirit Media Publishing, digital Bible library, Christian resources worldwide" />
 		<meta name="robots" content="index, follow" />
+		<meta property="og:type" content="article" />
+		<meta property="article:author" content="Kevin White" />
+		<meta property="article:published_time" content="2026-03-03" />
+		<meta property="article:section" content="Technology" />
+		<script type="application/ld+json">{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "The Believer's Library: A Global Library for Every Nation, Tribe, and Tongue",
+			"description": "A global mobile app placing a free Christian library in every pocket — reaching 3.3 billion people who lack access to books and biblical teaching.",
+			"author": { "@type": "Person", "name": "Kevin White" },
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"url": "https://spiritmediapublishing.com/blog/believers-library",
+			"datePublished": "2026-03-03",
+			"image": "https://spiritmediapublishing.com/og-believers.jpg"
+		})}</script>
 		<meta property="og:site_name" content="Spirit Media Publishing" />
 		<meta property="og:type" content="article" />
 		<meta property="og:image" content="/TBLblog.png" />
@@ -135,7 +152,7 @@ import Layout from '../../layouts/Layout.astro';
 			<div class="mx-auto max-w-3xl border-t border-stone-200 pt-8">
 				<p class="text-sm text-stone-400 mb-3">Filed under</p>
 				<div class="flex flex-wrap gap-2">
-					{["Believer's Library", 'Global Missions', 'Christian Technology', '10/40 Window', 'Spirit Media Publishing'].map((tag) => (
+					{["Global Mission", "Technology & AI", "Kingdom Messenger", "Publishing"].map((tag) => (
 						<span class="text-xs font-semibold text-stone-600 bg-stone-200 rounded-full px-3 py-1">{tag}</span>
 					))}
 				</div>
@@ -143,6 +160,11 @@ import Layout from '../../layouts/Layout.astro';
 		</section>
 
 		<!-- CTA -->
+		<ShareBar
+			title="The Believer's Library: A Global Library for Every Nation, Tribe, and Tongue"
+			url="https://spiritmediapublishing.com/blog/believers-library"
+		/>
+
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Get Your Book to the Nations</h2>

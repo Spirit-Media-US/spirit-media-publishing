@@ -1,10 +1,11 @@
 ---
+import ShareBar from '../../components/ShareBar.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
 	title="Why We Start with Heart | Spirit Media Publishing Blog"
-	description="High-capacity leaders are achieving results while losing their souls. Discover why true leadership development must begin with spiritual soul care and how the Father Heart Bible changes everything."
+	description="High-capacity leaders are achieving results while losing their souls. Why true leadership must begin with soul care — and the Father's Heart Bible."
 	ogImage="/blog-heart.jpg"
 >
 	<Fragment slot="head">
@@ -12,17 +13,18 @@ import Layout from '../../layouts/Layout.astro';
 		<meta name="robots" content="index, follow" />
 		<meta property="og:type" content="article" />
 		<meta property="article:author" content="Kevin White" />
-		<meta property="article:published_time" content="2024-11-01" />
+		<meta property="article:published_time" content="2026-03-03" />
 		<meta property="article:section" content="Leadership" />
 		<script type="application/ld+json">{JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "BlogPosting",
 			"headline": "Why We Start with Heart",
-			"description": "High-capacity leaders are achieving results while losing their souls. Discover why true leadership development must begin with spiritual soul care.",
+			"description": "Why true leadership development must begin with spiritual soul care and how the Father's Heart Bible restores leaders to the Father's heart.",
+			"image": "https://spiritmediapublishing.com/blog-heart.jpg",
 			"author": { "@type": "Person", "name": "Kevin White" },
 			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
 			"url": "https://spiritmediapublishing.com/blog/why-we-start-with-heart",
-			"datePublished": "2024-11-01"
+			"datePublished": "2026-03-03"
 		})}</script>
 	</Fragment>
 	<main id="main-content">
@@ -126,12 +128,18 @@ import Layout from '../../layouts/Layout.astro';
 			<div class="mx-auto max-w-3xl border-t border-stone-200 pt-8">
 				<p class="text-sm text-stone-400 mb-3">Filed under</p>
 				<div class="flex flex-wrap gap-2">
-					{['Spiritual Soul Care', "Father's Heart Bible", 'Leadership Development', 'Kingdom Messenger Collective'].map((tag) => (
+					{["Soul Care", "Leadership", "Kingdom Messenger", "Publishing"].map((tag) => (
 						<span class="text-xs font-semibold text-stone-600 bg-stone-200 rounded-full px-3 py-1">{tag}</span>
 					))}
 				</div>
 			</div>
 		</section>
+
+		<ShareBar
+			title="Why We Start with Heart | Spirit Media Publishing"
+			url="https://spiritmediapublishing.com/blog/why-we-start-with-heart"
+		/>
+
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">The Invitation</h2>
