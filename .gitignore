@@ -32,3 +32,18 @@ Thumbs.db
 # pre-existing artefact directories (not part of this project)
 bash/
 filesystem/
+
+# Media files — use Cloudflare R2 instead
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.PNG
+*.gif
+*.webp
+*.heic
+*.HEIC
+*.mp4
+*.mov
+*.mp3
