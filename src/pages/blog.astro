@@ -315,6 +315,6 @@ document.querySelectorAll('.tag-chip').forEach(btn => {
 	});
 });
 
-// Initial render
-renderPosts();
+// Initial render + re-render on Astro client-side navigation (including back button)
+document.addEventListener('astro:page-load', () => renderPosts());
 </script>

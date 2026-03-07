@@ -47,3 +47,6 @@ filesystem/
 *.mp4
 *.mov
 *.mp3
+
+# Sanity studio build artifacts
+.sanity/runtime/
