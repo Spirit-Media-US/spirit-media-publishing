@@ -1,0 +1,40 @@
+/* Spirit Media Brand Tokens — shared across all Spirit Media properties */
+/* Import this file only. Do NOT import spirit-media-global.css in other sites. */
+
+@theme {
+  --color-stone-50: #faf8f5;
+  --color-stone-100: #f5f1ec;
+  --color-stone-200: #ede7df;
+  --color-stone-300: #d9d0c4;
+  --color-stone-400: #bfb4a4;
+  --color-stone-500: #9e9285;
+  --color-stone-600: #7a6e63;
+  --color-stone-700: #574e45;
+  --color-ink: #1a1714;
+  --color-ink-soft: #2e2a26;
+  --color-ink-muted: #4a4540;
+  --color-red: #c0392b;
+  --color-red-deep: #9b2d20;
+  --color-red-soft: #d4544a;
+  --color-red-wash: #f9eeec;
+  --color-surface: #ffffff;
+  --color-surface-warm: #fdfaf7;
+  --color-border: #ddd7cf;
+  --color-border-strong: #c4bab0;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --radius-sm: 0.25rem;
+  --radius: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+}
