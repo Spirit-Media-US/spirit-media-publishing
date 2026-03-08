@@ -1,5 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity.ts';
+
+const MONTHS = ['Jan.','Feb.','Mar.','Apr.','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
+
+const rawPressReleases = await sanityClient.fetch(`
+  *[_type == "pressRelease"] | order(displayOrder asc, publishDate desc) {
+    title, excerpt, publishDate, source, externalUrl,
+    "coverImage": coverImage.asset->url
+  }
+`);
+
+const rawVideos = await sanityClient.fetch(`
+  *[_type == "mediaVideo"] | order(displayOrder asc) {
+    youtubeId, thumbnailQuality, title
+  }
+`);
+
+const FALLBACK_PRESS = [
+  { title: "Generosity Campaign Launched To Share a Gift of Courage with 400,000 Families Fighting Cancer", excerpt: "SpiritMedia.US joins with John Vallely, Paul Weissenstein, Pediatric Cancer Research Foundation, and strategic partners to launch a nationwide generosity campaign for 400,000 families fighting cancer.", publishDate: "Dec. 2, 2024", source: "PRNewswire", externalUrl: "https://www.prnewswire.com/news-releases/generosity-campaign-launched-to-share-a-gift-of-courage-with-400-000-families-fighting-cancer-302319839.html", coverImage: "/pr-cancer-campaign.jpg" },
+  { title: "UCLA's Coach Cori Close Applauds The Pyramid Principle by John Vallely", excerpt: "SpiritMedia.US celebrates the release of The Pyramid Principle — a heart-gripping story of hope for anyone fighting cancer and facing hard places in life.", publishDate: "Nov. 13, 2024", source: "PRNewswire", externalUrl: "https://www.prnewswire.com/news-releases/coach-cori-close-applauds-the-pyramid-principle-by-john-vallely-302304309.html", coverImage: "/pr-coach-close.jpg" },
+  { title: "SpiritMedia.US to Publish The Pyramid Principle by UCLA Superstar and NBA Pro John Vallely", excerpt: "SpiritMedia.US secures exclusive rights to publish The Pyramid Principle by Hall of Famer John Vallely — anticipated to be a New York Times Bestseller.", publishDate: "Aug. 15, 2024", source: "PRNewswire", externalUrl: "https://www.prnewswire.com/news-releases/spiritmediaus-to-publish-the-pyramid-principle-by-ucla-superstar-and-nba-pro-john-vallely-302223398.html", coverImage: "/pr-pyramid-principle.jpg" },
+  { title: "Spirit Media Shakes up the Publishing Industry with Unique, Expedited Process", excerpt: "Spirit Media completes publishing in every format within five months, with paperback editions finalizing in as little as 14 days.", publishDate: "June 18, 2024", source: "PRNewswire", externalUrl: "https://www.prnewswire.com/news-releases/spirit-media-shakes-up-the-publishing-industry-with-unique-expedited-process-302175618.html", coverImage: "/pr-expedited-process.jpg" },
+  { title: "Spirit Media Poised for Rapid Growth, Robust Profitability in 2024", excerpt: "Spirit Media is poised for rapid growth thanks to international business dealings and new funding secured through the U.S. Small Business Administration.", publishDate: "Feb. 1, 2024", source: "PRNewswire", externalUrl: "https://www.prnewswire.com/news-releases/spirit-media-poised-for-rapid-growth-robust-profitability-in-2024-302050871.html", coverImage: "/pr-rapid-growth.jpg" },
+];
+
+const FALLBACK_VIDEOS = [
+  { youtubeId: "e7od2t3u2wI", thumbnailQuality: "maxresdefault", title: "Turn Your God-Given Vision into Global Impact" },
+  { youtubeId: "tCrq_CJu1oQ", thumbnailQuality: "maxresdefault", title: "How Spirit Media Fast-Tracks Publishing with Purpose" },
+  { youtubeId: "RRpWqlfQ7zQ", thumbnailQuality: "maxresdefault", title: "Spirit Media Thanks YOU: Building Success Through Stories" },
+  { youtubeId: "DOSzIf-Ih90", thumbnailQuality: "maxresdefault", title: "Struggling to Launch Your Book? Spirit Media Does It All" },
+  { youtubeId: "h2ph9i4Dv2M", thumbnailQuality: "maxresdefault", title: "How Spirit Media Helps Authors Dominate 195 Nations" },
+  { youtubeId: "rabRf0qWZxE", thumbnailQuality: "maxresdefault", title: "Is Your Story God-Sized? Let us Share It with the World" },
+  { youtubeId: "dvu1MKeFUc4", thumbnailQuality: "sddefault", title: "The Pyramid Principle — Coming Soon" },
+  { youtubeId: "W92hLbOnl8k", thumbnailQuality: "maxresdefault", title: "Spirit Media's Purpose for Global Impact" },
+  { youtubeId: "3v77UY5Xnzk", thumbnailQuality: "maxresdefault", title: "Why Spirit Media — Kevin White, CEO" },
+];
+
+function formatPressDate(d) {
+  if (!d) return '';
+  if (typeof d === 'string' && d.includes('.')) return d; // already formatted fallback
+  const dt = new Date(d + 'T00:00:00');
+  return `${MONTHS[dt.getMonth()]} ${dt.getDate()}, ${dt.getFullYear()}`;
+}
+
+const pressReleases = rawPressReleases.length > 0
+  ? rawPressReleases.map(p => ({ ...p, publishDate: formatPressDate(p.publishDate) }))
+  : FALLBACK_PRESS;
+const mediaVideos = rawVideos.length > 0 ? rawVideos : FALLBACK_VIDEOS;
 ---
 
 <Layout
@@ -84,65 +132,19 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up">
+				{pressReleases.map((pr, i) => (
+					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay={String(i % 3)}>
 						<div class="h-48 overflow-hidden">
-							<img src="/pr-cancer-campaign.jpg" alt="Generosity Campaign" loading="lazy" class="w-full h-full object-cover" />
+							<img src={pr.coverImage} alt={pr.title} loading="lazy" class="w-full h-full object-cover" />
 						</div>
 						<div class="p-7 flex flex-col flex-1">
-							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Dec. 2, 2024 · PRNewswire</p>
-							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Generosity Campaign Launched To Share a Gift of Courage with 400,000 Families Fighting Cancer</h3>
-							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US joins with John Vallely, Paul Weissenstein, Pediatric Cancer Research Foundation, and strategic partners to launch a nationwide generosity campaign for 400,000 families fighting cancer.</p>
-							<a href="https://www.prnewswire.com/news-releases/generosity-campaign-launched-to-share-a-gift-of-courage-with-400-000-families-fighting-cancer-302319839.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
+							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">{pr.publishDate} · {pr.source}</p>
+							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">{pr.title}</h3>
+							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">{pr.excerpt}</p>
+							<a href={pr.externalUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
 						</div>
 					</article>
-
-					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="1">
-						<div class="h-48 overflow-hidden">
-							<img src="/pr-coach-close.jpg" alt="Coach Cori Close" loading="lazy" class="w-full h-full object-cover" />
-						</div>
-						<div class="p-7 flex flex-col flex-1">
-							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Nov. 13, 2024 · PRNewswire</p>
-							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">UCLA's Coach Cori Close Applauds <em>The Pyramid Principle</em> by John Vallely</h3>
-							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US celebrates the release of <em>The Pyramid Principle</em> — a heart-gripping story of hope for anyone fighting cancer and facing hard places in life.</p>
-							<a href="https://www.prnewswire.com/news-releases/coach-cori-close-applauds-the-pyramid-principle-by-john-vallely-302304309.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
-						</div>
-					</article>
-
-					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="2">
-						<div class="h-48 overflow-hidden">
-							<img src="/pr-pyramid-principle.jpg" alt="The Pyramid Principle" loading="lazy" class="w-full h-full object-cover" />
-						</div>
-						<div class="p-7 flex flex-col flex-1">
-							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Aug. 15, 2024 · PRNewswire</p>
-							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">SpiritMedia.US to Publish <em>The Pyramid Principle</em> by UCLA Superstar and NBA Pro John Vallely</h3>
-							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">SpiritMedia.US secures exclusive rights to publish <em>The Pyramid Principle</em> by Hall of Famer John Vallely — anticipated to be a New York Times Bestseller.</p>
-							<a href="https://www.prnewswire.com/news-releases/spiritmediaus-to-publish-the-pyramid-principle-by-ucla-superstar-and-nba-pro-john-vallely-302223398.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
-						</div>
-					</article>
-
-					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="3">
-						<div class="h-48 overflow-hidden">
-							<img src="/pr-expedited-process.jpg" alt="Expedited Publishing Process" loading="lazy" class="w-full h-full object-cover" />
-						</div>
-						<div class="p-7 flex flex-col flex-1">
-							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">June 18, 2024 · PRNewswire</p>
-							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Shakes up the Publishing Industry with Unique, Expedited Process</h3>
-							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media completes publishing in every format within five months, with paperback editions finalizing in as little as 14 days — while traditional publishing takes years.</p>
-							<a href="https://www.prnewswire.com/news-releases/spirit-media-shakes-up-the-publishing-industry-with-unique-expedited-process-302175618.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
-						</div>
-					</article>
-
-					<article class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden flex flex-col" data-animate="fade-up" data-delay="4">
-						<div class="h-48 overflow-hidden">
-							<img src="/pr-rapid-growth.jpg" alt="Rapid Growth" loading="lazy" class="w-full h-full object-cover" />
-						</div>
-						<div class="p-7 flex flex-col flex-1">
-							<p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-3">Feb. 1, 2024 · PRNewswire</p>
-							<h3 class="font-serif text-lg font-bold text-ink-soft mb-3 leading-snug">Spirit Media Poised for Rapid Growth, Robust Profitability in 2024</h3>
-							<p class="type-body-sm text-stone-600 leading-relaxed mb-5 flex-1">Spirit Media is poised for rapid growth thanks to international business dealings and new funding secured through the U.S. Small Business Administration.</p>
-							<a href="https://www.prnewswire.com/news-releases/spirit-media-poised-for-rapid-growth-robust-profitability-in-2024-302050871.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mt-auto">Read Press Release →</a>
-						</div>
-					</article>
+				))}
 
 				</div>
 			</div>
@@ -167,21 +169,12 @@ import Layout from '../layouts/Layout.astro';
 					<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl" data-animate="fade-up" data-delay="1">Spirit Media on YouTube</h2>
 				</div>
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" data-animate="fade-up" data-delay="2">
-					{[
-						{ id: "e7od2t3u2wI", q: "maxresdefault", title: "Turn Your God-Given Vision into Global Impact" },
-						{ id: "tCrq_CJu1oQ", q: "maxresdefault", title: "How Spirit Media Fast-Tracks Publishing with Purpose" },
-						{ id: "RRpWqlfQ7zQ", q: "maxresdefault", title: "Spirit Media Thanks YOU: Building Success Through Stories" },
-						{ id: "DOSzIf-Ih90", q: "maxresdefault", title: "Struggling to Launch Your Book? Spirit Media Does It All" },
-						{ id: "h2ph9i4Dv2M", q: "maxresdefault", title: "How Spirit Media Helps Authors Dominate 195 Nations" },
-						{ id: "rabRf0qWZxE", q: "maxresdefault", title: "Is Your Story God-Sized? Let's Share It with the World" },
-						{ id: "dvu1MKeFUc4", q: "sddefault",     title: "The Pyramid Principle — Coming Soon" },
-						{ id: "W92hLbOnl8k", q: "maxresdefault", title: "Spirit Media's Purpose for Global Impact" },
-						{ id: "3v77UY5Xnzk", q: "maxresdefault", title: "Why Spirit Media — Kevin White, CEO" },
-					].map(({ id, q, title }) => (
-						<a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer" class="group block rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+					{mediaVideos.map(({ youtubeId, thumbnailQuality, title }) => (
+
+						<a href={`https://www.youtube.com/watch?v=${youtubeId}`} target="_blank" rel="noopener noreferrer" class="group block rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
 							<div class="relative aspect-video">
 								<img
-									src={`https://i.ytimg.com/vi/${id}/${q}.jpg`}
+									src={`https://i.ytimg.com/vi/${youtubeId}/${thumbnailQuality}.jpg`}
 									alt={title}
 									loading="lazy"
 									class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"

@@ -1,5 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity.ts';
+
+const rawPortfolioVideos = await sanityClient.fetch(`
+  *[_type == "portfolioVideo"] | order(displayOrder asc) {
+    youtubeEmbedUrl, title
+  }
+`);
+
+const FALLBACK_PORTFOLIO_VIDEOS = [
+  { youtubeEmbedUrl: 'https://www.youtube.com/embed/mKj2akahoQs', title: 'Client Testimonial 1' },
+  { youtubeEmbedUrl: 'https://www.youtube.com/embed/I-smnc5eVpg', title: 'Client Testimonial 2' },
+  { youtubeEmbedUrl: 'https://www.youtube.com/embed/fDQ47Jk0TWs', title: 'Client Testimonial 3' },
+  { youtubeEmbedUrl: 'https://www.youtube.com/embed/PrvL2EGGRGU', title: 'Client Testimonial 4' },
+];
+const portfolioVideos = rawPortfolioVideos.length > 0 ? rawPortfolioVideos : FALLBACK_PORTFOLIO_VIDEOS;
 ---
 
 <Layout
@@ -87,14 +102,9 @@ import Layout from '../layouts/Layout.astro';
 					<h2 class="font-serif text-3xl font-bold text-ink-soft sm:text-4xl" data-animate="fade-up" data-delay="1">What Our Clients Say</h2>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-					{[
-						{ url: 'https://www.youtube.com/embed/mKj2akahoQs', title: 'Client Testimonial 1' },
-						{ url: 'https://www.youtube.com/embed/I-smnc5eVpg', title: 'Client Testimonial 2' },
-						{ url: 'https://www.youtube.com/embed/fDQ47Jk0TWs', title: 'Client Testimonial 3' },
-						{ url: 'https://www.youtube.com/embed/PrvL2EGGRGU', title: 'Client Testimonial 4' },
-					].map(({ url, title }, i) => (
+					{portfolioVideos.map(({ youtubeEmbedUrl, title }, i) => (
 						<div class="aspect-video rounded-2xl overflow-hidden bg-ink-soft" data-animate="fade-up" data-delay={String((i % 4) + 1)}>
-							<iframe class="w-full h-full" src={url} title={title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe class="w-full h-full" src={youtubeEmbedUrl} title={title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					))}
 				</div>

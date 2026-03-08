@@ -1,5 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity.ts';
+
+const rawTestimonials = await sanityClient.fetch(`
+  *[_type == "testimonial"] | order(displayOrder asc) {
+    quote, authorName, authorUrl, authorLocation,
+    "authorPhoto": authorPhoto.asset->url
+  }
+`);
+
+const FALLBACK_TESTIMONIALS = [
+  { quote: "Kevin has accelerated my spiritual transformation journey more than anyone else on earth. Because of him I'm comfortable telling my story.", authorName: "Jim Matuga", authorUrl: "https://inneractionmedia.com/", authorLocation: "Humble Influence — Morgantown, WV", authorPhoto: "/testimonials/jim-matuga.png" },
+  { quote: "Kevin and Spirit Media are so amazing to work with. They guided me through every facet of writing and publishing my book. They empowered me to encourage others.", authorName: "Cindy Love", authorUrl: "https://clowningfromtheheart.com/", authorLocation: "Clowning From the Heart — Walla Walla, WA", authorPhoto: "/testimonials/cindy-love.jpeg" },
+  { quote: "Kevin White and his team have not only worked hard but have been so much fun to work with. I highly recommend Spirit Media to everyone with a message to be published.", authorName: "Van Eure", authorUrl: "https://angusbarn.com/", authorLocation: "Hospitality Rules — Raleigh, NC", authorPhoto: "/testimonials/van-eure.webp" },
+];
+const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TESTIMONIALS;
 ---
 <Layout
 	title="Spirit Media Publishing — Christian Book Publishing & Marketing for Kingdom Authors"
@@ -293,49 +308,25 @@ import Layout from '../layouts/Layout.astro';
 					</h2>
 					<p class="type-body mt-2 text-stone-600" data-animate="fade-in" data-delay="2">Real authors. Real results. Real transformation.</p>
 				</div>
-				<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-					<figure class="rounded-2xl bg-surface p-8 shadow-sm ring-1 ring-stone-200 flex flex-col" data-animate="fade-in" data-delay="1">
-						<blockquote class="type-body-lg text-stone-700 flex-1">
-							<p><span class="font-serif text-red mr-1 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">&ldquo;</span>Kevin has accelerated my spiritual transformation journey more than anyone else on earth. Because of him I'm comfortable telling my story.</p>
-						</blockquote>
-						<figcaption class="mt-6 flex items-center gap-3 pt-6 border-t border-stone-100">
-							<img src="/testimonials/jim-matuga.png" alt="Jim Matuga" class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
-							<div>
-								<p class="type-body-sm font-semibold text-ink-soft">
-									<a href="https://inneractionmedia.com/" target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">Jim Matuga</a>
-								</p>
-								<p class="type-caption text-stone-600">Humble Influence — Morgantown, WV</p>
-							</div>
-						</figcaption>
-					</figure>
-					<figure class="rounded-2xl bg-surface p-8 shadow-sm ring-1 ring-stone-200 flex flex-col" data-animate="fade-in" data-delay="2">
-						<blockquote class="type-body-lg text-stone-700 flex-1">
-							<p><span class="font-serif text-red mr-1 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">&ldquo;</span>Kevin and Spirit Media are so amazing to work with. They guided me through every facet of writing and publishing my book. They empowered me to encourage others.</p>
-						</blockquote>
-						<figcaption class="mt-6 flex items-center gap-3 pt-6 border-t border-stone-100">
-							<img src="/testimonials/cindy-love.jpeg" alt="Cindy Love" class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
-							<div>
-								<p class="type-body-sm font-semibold text-ink-soft">
-									<a href="https://clowningfromtheheart.com/" target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">Cindy Love</a>
-								</p>
-								<p class="type-caption text-stone-600">Clowning From the Heart — Walla Walla, WA</p>
-							</div>
-						</figcaption>
-					</figure>
-					<figure class="rounded-2xl bg-surface p-8 shadow-sm ring-1 ring-stone-200 flex flex-col" data-animate="fade-in" data-delay="3">
-						<blockquote class="type-body-lg text-stone-700 flex-1">
-							<p><span class="font-serif text-red mr-1 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">&ldquo;</span>Kevin White and his team have not only worked hard but have been so much fun to work with. I highly recommend Spirit Media to everyone with a message to be published.</p>
-						</blockquote>
-						<figcaption class="mt-6 flex items-center gap-3 pt-6 border-t border-stone-100">
-							<img src="/testimonials/van-eure.webp" alt="Van Eure" class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
-							<div>
-								<p class="type-body-sm font-semibold text-ink-soft">
-									<a href="https://angusbarn.com/" target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">Van Eure</a>
-								</p>
-								<p class="type-caption text-stone-600">Hospitality Rules — Raleigh, NC</p>
-							</div>
-						</figcaption>
-					</figure>
+								<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+					{testimonials.map((t, i) => (
+						<figure class="rounded-2xl bg-surface p-8 shadow-sm ring-1 ring-stone-200 flex flex-col" data-animate="fade-in" data-delay={String(i + 1)}>
+							<blockquote class="type-body-lg text-stone-700 flex-1">
+								<p><span class="font-serif text-red mr-1 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">&ldquo;</span>{t.quote}</p>
+							</blockquote>
+							<figcaption class="mt-6 flex items-center gap-3 pt-6 border-t border-stone-100">
+								<img src={t.authorPhoto} alt={t.authorName} class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
+								<div>
+									<p class="type-body-sm font-semibold text-ink-soft">
+										{t.authorUrl ? (
+											<a href={t.authorUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">{t.authorName}</a>
+										) : t.authorName}
+									</p>
+									<p class="type-caption text-stone-600">{t.authorLocation}</p>
+								</div>
+							</figcaption>
+						</figure>
+					))}
 				</div>
 			</div>
 		</section>

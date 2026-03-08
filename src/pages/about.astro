@@ -1,5 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity.ts';
+
+const rawTeamMembers = await sanityClient.fetch(`
+  *[_type == "teamMember"] | order(displayOrder asc) {
+    name, role, "photo": photo.asset->url, objectPosition
+  }
+`);
+
+const FALLBACK_TEAM = [
+  { name: 'Kevin & Shelly White', role: 'CEO / Creative', photo: '/headshot-kevin-shelly.jpg', objectPosition: 'center 55%' },
+  { name: 'Ana Marie Barrieses', role: 'HR', photo: '/headshot-ana-marie.jpg', objectPosition: 'center 35%' },
+  { name: 'David Foster', role: 'Publishing', photo: '/headshot-david-foster.jpg', objectPosition: 'center 20%' },
+  { name: 'Walinda Phiri', role: 'Marketing', photo: '/headshot-walinda-phiri.jpg', objectPosition: 'center center' },
+  { name: 'Justin Keishing', role: 'Events', photo: '/headshot-justin-keishing.jpg', objectPosition: 'center 5%' },
+  { name: 'Jay Esteban', role: 'Production', photo: '/headshot-jay-esteban.jpg', objectPosition: 'center 25%' },
+  { name: 'Glory Suresh', role: 'Production Team', photo: '/headshot-glory-suresh.jpg', objectPosition: 'center center' },
+  { name: 'Suresh Bob', role: 'Production Team', photo: '/headshot-suresh-bob.jpg', objectPosition: '75% 20%' },
+  { name: 'Vinit James', role: 'Production Team', photo: '/headshot-vinit-james.png', objectPosition: 'center 20%' },
+  { name: 'Revo Tribaco', role: 'Production Team', photo: '/headshot-revo-tribaco.jpg', objectPosition: 'center 20%' },
+  { name: 'Kali White', role: 'Production Team', photo: '/headshot-kali-white.jpg', objectPosition: 'center 25%' },
+];
+const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 ---
 
 <Layout
@@ -305,26 +327,14 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 					{
-						[
-							{ name: 'Kevin & Shelly White', role: 'CEO / Creative', photo: '/headshot-kevin-shelly.jpg', pos: 'center 55%' },
-							{ name: 'Ana Marie Barrieses', role: 'HR', photo: '/headshot-ana-marie.jpg', pos: 'center 35%' },
-							{ name: 'David Foster', role: 'Publishing', photo: '/headshot-david-foster.jpg', pos: 'center 20%' },
-							{ name: 'Walinda Phiri', role: 'Marketing', photo: '/headshot-walinda-phiri.jpg', pos: 'center center' },
-							{ name: 'Justin Keishing', role: 'Events', photo: '/headshot-justin-keishing.jpg', pos: 'center 5%' },
-							{ name: 'Jay Esteban', role: 'Production', photo: '/headshot-jay-esteban.jpg', pos: 'center 25%' },
-							{ name: 'Glory Suresh', role: 'Production Team', photo: '/headshot-glory-suresh.jpg', pos: 'center center' },
-							{ name: 'Suresh Bob', role: 'Production Team', photo: '/headshot-suresh-bob.jpg', pos: '75% 20%' },
-							{ name: 'Vinit James', role: 'Production Team', photo: '/headshot-vinit-james.png', pos: 'center 20%' },
-							{ name: 'Revo Tribaco', role: 'Production Team', photo: '/headshot-revo-tribaco.jpg', pos: 'center 20%' },
-							{ name: 'Kali White', role: 'Production Team', photo: '/headshot-kali-white.jpg', pos: 'center 25%' },
-						].map(({ name, role, photo, pos }, i) => (
+						teamMembers.map(({ name, role, photo, objectPosition }, i) => (
 							<div
 								class="rounded-2xl border border-stone-200 bg-stone-100 overflow-hidden flex flex-row h-24 transition-shadow hover:shadow-md"
 								data-animate="fade-up"
 								data-delay={String((i % 4) + 1)}
 							>
 								<div class="w-1/2 shrink-0 overflow-hidden">
-									<img src={photo} alt={name} class="w-full h-full object-cover" style={`object-position: ${pos}; filter: sepia(15%) brightness(1.05) contrast(1.02);`} />
+									<img src={photo} alt={name} class="w-full h-full object-cover" style={`object-position: ${objectPosition}; filter: sepia(15%) brightness(1.05) contrast(1.02);`} />
 								</div>
 								<div class="w-1/2 p-3 flex flex-col justify-center">
 									<p class="font-semibold text-sm text-ink-soft leading-snug">{name}</p>
