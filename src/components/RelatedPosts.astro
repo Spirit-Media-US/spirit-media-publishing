@@ -3,7 +3,7 @@ interface Props {
 	currentSlug: string;
 	currentTags: string[];
 }
-const { currentSlug, currentTags } = Astro.props;
+const { currentSlug, currentTags = [] } = Astro.props;
 
 const ALL_POSTS = [
 	{
@@ -61,7 +61,7 @@ const ALL_POSTS = [
 		title: 'The Most Courageous Thing a Leader Can Do',
 		excerpt:
 			'Many leaders are achieving more than ever while quietly feeling less than ever. Discover why working on yourself is the most strategic thing you can do.',
-		image: 'https://cdn.sanity.io/images/pmowd8uo/production/f70a943f61106e4ae7369ea21d4d4723b3e5a7bb-1536x1024.jpg?w=768&h=512&fit=crop&auto=format',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/f70a943f61106e4ae7369ea21d4d4723b3e5a7bb-1536x1024.png?w=768&h=512&fit=crop&auto=format',
 		imagePosition: 'center center',
 		date: 'March 3, 2026',
 		tags: ['Leadership', 'Soul Care', 'Kingdom Messenger'],
@@ -71,7 +71,7 @@ const ALL_POSTS = [
 		title: 'A Global Library for Every Nation, Tribe, and Tongue',
 		excerpt:
 			"3.3 billion people have limited access to Jesus and to print books — but nearly everyone has a phone. The Believer's Library changes everything.",
-		image: 'https://cdn.sanity.io/images/pmowd8uo/production/7b27b1d46368fb3702e227e995ea220a8b42a618-1536x1024.jpg?w=768&h=512&fit=crop&auto=format',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/7b27b1d46368fb3702e227e995ea220a8b42a618-1536x1024.png?w=768&h=512&fit=crop&auto=format',
 		imagePosition: 'center top',
 		date: 'March 3, 2026',
 		tags: ['Global Mission', 'Technology & AI', 'Kingdom Messenger', 'Publishing'],

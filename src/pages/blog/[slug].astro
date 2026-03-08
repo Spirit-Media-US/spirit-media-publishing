@@ -26,49 +26,32 @@ if (!post) {
 
 // Helper function to render portable text blocks as HTML
 function renderPortableText(blocks: any[]): string {
-  if (!blocks) return '';
+  if (!Array.isArray(blocks)) return '';
 
   return blocks
     .map((block: any) => {
-      if (block._type === 'block') {
-        const textContent = block.children
-          ?.map((child: any) => {
-            let text = child.text || '';
+      if (!block || block._type !== 'block') return '';
 
-            // Apply marks (bold, italic)
-            if (child.marks && child.marks.length > 0) {
-              if (child.marks.includes('strong')) {
-                text = `<strong>${text}</strong>`;
-              }
-              if (child.marks.includes('em')) {
-                text = `<em>${text}</em>`;
-              }
-
-              // Handle links
-              const linkMark = child.marks.find((m: any) => typeof m === 'object' && m._type === 'link');
-              if (linkMark && linkMark.href) {
-                text = `<a href="${linkMark.href}" class="text-red hover:underline" target="_blank" rel="noopener noreferrer">${text}</a>`;
-              }
-            }
-
-            return text;
-          })
-          .join('');
-
-        // Determine heading level
-        const style = block.style || 'normal';
-        if (style === 'h2') {
-          return `<h2 class="text-2xl font-serif font-bold text-ink-soft mt-8 mb-4">${textContent}</h2>`;
+      const children = Array.isArray(block.children) ? block.children : [];
+      const textContent = children.map((child: any) => {
+        if (!child) return '';
+        let text = child.text || '';
+        const marks = Array.isArray(child.marks) ? child.marks : [];
+        if (marks.length > 0) {
+          if (marks.includes('strong')) text = `<strong>${text}</strong>`;
+          if (marks.includes('em')) text = `<em>${text}</em>`;
+          const linkMark = marks.find((m: any) => m && typeof m === 'object' && m._type === 'link');
+          if (linkMark?.href) {
+            text = `<a href="${linkMark.href}" class="text-red hover:underline" target="_blank" rel="noopener noreferrer">${text}</a>`;
+          }
         }
-        if (style === 'h3') {
-          return `<h3 class="text-xl font-serif font-bold text-ink-soft mt-6 mb-3">${textContent}</h3>`;
-        }
+        return text;
+      }).join('');
 
-        // Default to paragraph
-        return `<p class="text-stone-600 mb-4 leading-relaxed">${textContent}</p>`;
-      }
-
-      return '';
+      const style = block.style || 'normal';
+      if (style === 'h2') return `<h2 class="text-2xl font-serif font-bold text-ink-soft mt-8 mb-4">${textContent}</h2>`;
+      if (style === 'h3') return `<h3 class="text-xl font-serif font-bold text-ink-soft mt-6 mb-3">${textContent}</h3>`;
+      return `<p class="text-stone-600 mb-4 leading-relaxed">${textContent}</p>`;
     })
     .join('');
 }
