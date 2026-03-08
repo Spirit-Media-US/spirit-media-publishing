@@ -67,29 +67,6 @@ const BOOKS_JSON = JSON.stringify(rawBooks);
 			</div>
 		</section>
 
-		<!-- STATS STRIP -->
-		<section class="bg-stone-300 px-6 py-5">
-			<div class="mx-auto max-w-7xl">
-				<div class="flex items-center justify-around divide-x divide-stone-400">
-					<div class="flex items-baseline gap-2 px-6 lg:px-10">
-						<span id="stat-titles" class="font-serif text-3xl font-bold text-ink-soft">0</span>
-						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600">Published Titles</span>
-					</div>
-					<div class="flex items-baseline gap-2 px-6 lg:px-10">
-						<span id="stat-authors" class="font-serif text-3xl font-bold text-ink-soft">0</span>
-						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600">Kingdom Messengers</span>
-					</div>
-					<div class="flex items-baseline gap-2 px-6 lg:px-10">
-						<span id="stat-formats" class="font-serif text-3xl font-bold text-ink-soft">0</span>
-						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600">Format Editions</span>
-					</div>
-					<div class="flex items-baseline gap-2 px-6 lg:px-10">
-						<span id="stat-years" class="font-serif text-3xl font-bold text-red">3</span>
-						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600">Years of Publishing</span>
-					</div>
-				</div>
-			</div>
-		</section>
 
 		<!-- BOOKSTORE GRID -->
 		<section class="bg-stone-100 py-10 lg:py-16 px-6 lg:px-8">
@@ -116,6 +93,31 @@ const BOOKS_JSON = JSON.stringify(rawBooks);
 			</div>
 		</section>
 
+
+		<!-- STATS STRIP -->
+		<section class="bg-stone-300 px-6 py-5">
+			<div class="mx-auto max-w-7xl">
+				<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+					<div class="flex flex-col items-center text-center py-2">
+						<span id="stat-titles" class="font-serif text-3xl font-bold text-ink-soft">0</span>
+						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Published Titles</span>
+					</div>
+					<div class="flex flex-col items-center text-center py-2">
+						<span id="stat-authors" class="font-serif text-3xl font-bold text-ink-soft">0</span>
+						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Kingdom Messengers</span>
+					</div>
+					<div class="flex flex-col items-center text-center py-2">
+						<span id="stat-formats" class="font-serif text-3xl font-bold text-ink-soft">0</span>
+						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Format Editions</span>
+					</div>
+					<div class="flex flex-col items-center text-center py-2">
+						<span id="stat-years" class="font-serif text-3xl font-bold text-red">3</span>
+						<span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Years of Publishing</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- CTA -->
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
@@ -135,7 +137,7 @@ const BOOKS_JSON = JSON.stringify(rawBooks);
 		(function() {
 			const totalTitles = BOOKS.length;
 			const uniqueAuthors = new Set(BOOKS.map(b => b.author)).size;
-			const totalFormats = BOOKS.reduce((sum, b) => sum + Object.keys(b.formats || {}).length, 0);
+			const totalFormats = BOOKS.reduce((sum, b) => sum + Object.values(b.formats || {}).filter(v => v).length, 0);
 
 			function animateCount(id, target, duration = 1400) {
 				const el = document.getElementById(id);
