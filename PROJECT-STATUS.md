@@ -4,6 +4,25 @@
 
 ---
 
+## Branch & Deploy Workflow
+
+| Step | Action |
+|---|---|
+| **1. Work** | Stay on `dev` branch locally — `git checkout dev` |
+| **2. Preview** | `npm run dev` → localhost:4321 |
+| **3. Commit** | `git add -A && git commit -m "..."` (biome lints on commit) |
+| **4. Push dev** | `git push origin dev` — no Netlify build, no build credit used |
+| **5. Merge to main** | `git checkout main && git merge dev && git push` — triggers Netlify build |
+| **6. Netlify builds** | One build per session, only on `main` |
+
+**Rules:**
+- All day-to-day work happens on `dev`
+- `main` is production — only merge when ready to deploy
+- Netlify is configured in the dashboard to build `main` only
+- The `update-status.mjs` pre-push hook only fires on `main` pushes
+
+---
+
 ## Stack
 - **Framework:** Astro v5 + Tailwind CSS
 - **CMS:** Sanity (projectId: `pmowd8uo`, dataset: `production`)

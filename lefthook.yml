@@ -1,7 +1,14 @@
 pre-push:
   commands:
     update-status:
-      run: node scripts/update-status.mjs && git add PROJECT-STATUS.md
+      # Only update PROJECT-STATUS.md when pushing to main (production deploys)
+      run: |
+        BRANCH=$(git rev-parse --abbrev-ref HEAD)
+        if [ "$BRANCH" = "main" ]; then
+          node scripts/update-status.mjs && git add PROJECT-STATUS.md
+        else
+          echo "ℹ️  Skipping status update (branch: $BRANCH)"
+        fi
       skip:
         - merge
         - rebase
