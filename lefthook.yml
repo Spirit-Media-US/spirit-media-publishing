@@ -1,3 +1,11 @@
+pre-push:
+  commands:
+    update-status:
+      run: node scripts/update-status.mjs && git add PROJECT-STATUS.md
+      skip:
+        - merge
+        - rebase
+
 pre-commit:
   commands:
     biome:

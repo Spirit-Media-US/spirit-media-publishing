@@ -22,11 +22,12 @@
 | testimonial | 3 | Live on homepage, fetched from Sanity |
 | teamMember | 11 | Live on about page, fetched from Sanity |
 | pressRelease | 5 | Live on media-center, fetched from Sanity |
-| mediaVideo | 9 | Added 2026-03-08 — YouTube IDs/titles only, no video files in Sanity |
-| portfolioVideo | 4 | Added 2026-03-08 — YouTube embed URLs |
+| mediaVideo | 9 | YouTube IDs/titles only, no video files in Sanity |
+| portfolioVideo | 4 | YouTube embed URLs |
 | blogPost | 7 | Fully dynamic via [slug].astro |
 | book | 121 | Fully dynamic on /bookstore |
-| siteSettings | 1 | Fields: siteName, tagline, description, email, phone, facebook, instagram, youtube, linkedin, twitter |
+| siteSettings | 1 | phone, email, socials, siteName, tagline, description |
+
 
 ---
 
