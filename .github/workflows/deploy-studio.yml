@@ -25,4 +25,4 @@ jobs:
       - name: Deploy Sanity Studio
         run: npx sanity deploy --yes
         env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }} # secret name: SANITY_DEPLOY_TOKEN — standard across all Spirit Media repos
