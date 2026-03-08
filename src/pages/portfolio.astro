@@ -124,9 +124,19 @@ const portfolioVideos = rawPortfolioVideos.length > 0 ? rawPortfolioVideos : FAL
 				<div class="mb-14">
 					<h3 class="font-serif text-xl font-bold text-ink-soft mb-6" data-animate="fade-up">Websites</h3>
 					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-						{Array.from({length: 9}, (_, i) => (
+						{[
+							"https://cdn.sanity.io/images/pmowd8uo/production/fc6c01a5c82ecb4520edbf28b401d6aa1aa22cdd-612x390.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/c8c6e86f2cfdaabcebb1d85c1b149a18b13e4fc8-612x390.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/c9ffb867b717d65d6d494747456cb9e96d64439e-500x268.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/b46aa760a6867ec885ab5a2dd797b980ad35a89e-500x268.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/d7a7e8421a82901cfb1f7db6ea9d601fc840797a-500x268.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/0bd7ed4b556e3d61310dd7de3d3dac5e69d25955-500x268.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/ee7a56cedf7ac1677f681b1d392833b9aa752237-500x268.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/5e8c35e83d27aeda25deddf62c579f4397079eae-500x268.webp",
+							"https://cdn.sanity.io/images/pmowd8uo/production/bd7b86da91b1d96f5e94b8326f0a86be7082e6ec-500x268.webp",
+						].map((src, i) => (
 							<div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String(i % 3)}>
-								<img src={`/branding-websites-${i+1}.webp`} alt={`Website design ${i+1}`} loading="lazy" class="w-full h-full object-cover" />
+								<img src={src} alt={`Website design ${i+1}`} loading="lazy" class="w-full h-full object-cover" />
 							</div>
 						))}
 					</div>
