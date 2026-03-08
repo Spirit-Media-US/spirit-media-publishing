@@ -9,17 +9,26 @@
 | Step | Action |
 |---|---|
 | **1. Work** | Stay on `dev` branch locally — `git checkout dev` |
-| **2. Preview** | `npm run dev` → localhost:4321 |
+| **2. Preview locally** | `npm run dev` → localhost:4321 |
 | **3. Commit** | `git add -A && git commit -m "..."` (biome lints on commit) |
-| **4. Push dev** | `git push origin dev` — no Netlify build, no build credit used |
-| **5. Merge to main** | `git checkout main && git merge dev && git push` — triggers Netlify build |
-| **6. Netlify builds** | One build per session, only on `main` |
+| **4. Push dev** | `git push origin dev` — triggers a Netlify **branch preview** build, no production deploy |
+| **5. Preview URL** | `https://dev--spirit-media-publishing.netlify.app` — share with team for review |
+| **6. Merge to main** | `git checkout main && git merge dev && git push` — triggers production Netlify build |
+| **7. Live** | `https://spiritmediapublishing.com` updated |
+
+**Netlify configuration (set in dashboard):**
+- Production branch: `main`
+- Branch deploys: `dev` only (individual branches)
+- Deploy Previews: pull requests against `main` or `dev`
+- Sanity → Netlify build hook: `sanity-publish` (triggers production build on content publish)
+  - URL: `https://api.netlify.com/build_hooks/69adc170ab97ecb65a526890`
 
 **Rules:**
 - All day-to-day work happens on `dev`
-- `main` is production — only merge when ready to deploy
-- Netlify is configured in the dashboard to build `main` only
+- Push to `dev` freely — each push gets a preview URL, does NOT touch production
+- Only merge `dev → main` when ready to go live
 - The `update-status.mjs` pre-push hook only fires on `main` pushes
+- Sanity content publishes trigger a production rebuild automatically via the build hook
 
 ---
 
@@ -97,7 +106,7 @@
 ## Remaining Tasks
 | Task | Priority | Notes |
 |---|---|---|
-| Sanity → Netlify webhook | HIGH | Editors publish in Studio but site doesn't rebuild. Manual step: Netlify build hook URL → Sanity API webhook. No code needed. |
+| Sanity → Netlify webhook | HIGH | Build hook URL exists (`sanity-publish`). Still need to add it to Sanity Studio API webhooks so publishing auto-triggers a rebuild. No code needed — Sanity dashboard step only. |
 | .env.example rewrite | MEDIUM | Currently documents old SFTP stack. Needs Sanity + R2 variables documented. |
 | DMARC policy upgrade | MEDIUM | Currently `p=none` (monitoring only). Upgrade to `p=quarantine` after confirming no legitimate mail failures. DNS edit in Cloudflare only. |
 | Remove orphaned public/ images | LOW | mkt-photo-*.jpg and several branding-*.webp not referenced anywhere. Safe to delete after confirming. |
@@ -129,5 +138,5 @@
 - Netlify import always defaults to personal account — switch to Spirit-Media-US org manually
 - Use `astro:page-load` not `pageshow` for post-navigation scripts (ClientRouter intercepts)
 - IntersectionObserver threshold must be low (0.04) with fallback timeout — high thresholds break animations on Netlify
-- One session = one push = one Netlify build credit
-- Always `npm run dev` and preview locally before pushing
+- Push to `dev` freely for preview builds — only `main` pushes go to production
+- Always `npm run dev` and preview locally before pushing to `dev`
