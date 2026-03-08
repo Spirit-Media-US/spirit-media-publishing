@@ -1,11 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity.ts';
+let sitePhone = '1-888-800-3744';
+try {
+  const s = await sanityClient.fetch('*[_type == "siteSettings"][0]{ phone }');
+  if (s?.phone) sitePhone = s.phone;
+} catch(e) {}
 ---
 
 <Layout
 	title="Schedule a Free Publishing & Marketing Consultation — Spirit Media Publishing"
 	description="Ready to publish your book or grow your platform? Schedule a free consultation with Spirit Media Publishing and discover how we can help you reach the nations."
-	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f67376ca3cbad336ac9ed54977f72d3f9917397b-1200x630.jpg"
+	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f67376ca3cbad336ac9ed54977f72d3f9917397b-1200x630?w=1200&h=630&fit=crop&auto=format.jpg?w=1200&h=630&fit=crop&auto=format"
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="contact Spirit Media Publishing, free publishing consultation, schedule a call Spirit Media, Christian book publishing consultation, publish my book, Spirit Media contact" />
@@ -28,11 +34,11 @@ import Layout from '../layouts/Layout.astro';
 					<div class="hero-stagger">
 						<p class="eyebrow eyebrow-red mb-4">Contact Us</p>
 						<h1 class="type-hero text-ink-soft">Ready to Schedule a<br /><span class="text-red">FREE Consultation Call?</span></h1>
-						<p class="mt-6 text-2xl font-bold text-ink-soft"><a href="tel:+18888003744" class="hover:text-red transition-colors">1-888-800-3744</a></p>
+						<p class="mt-6 text-2xl font-bold text-ink-soft"><a href={"tel:+1" + sitePhone.replace(/[^0-9]/g, "")} class="hover:text-red transition-colors">{sitePhone}</a></p>
 						<p class="mt-4 text-stone-600 leading-relaxed max-w-xl">Otherwise, request a call back. Please use this form to inquire about our publishing and marketing services only. No response will be given for employment or sales inquiries. Thank you!</p>
 					</div>
 					<div class="hidden lg:flex items-center justify-center" aria-hidden="true" data-animate="zoom-in">
-						<img src="https://cdn.sanity.io/images/pmowd8uo/production/7833f28378750a49205269eb39a6c2c19f31b92d-1058x394.png" alt="Books published by Spirit Media" class="w-full rounded-2xl" />
+						<img src="https://cdn.sanity.io/images/pmowd8uo/production/7833f28378750a49205269eb39a6c2c19f31b92d-1058x394.png?w=1058&fit=max&auto=format" alt="Books published by Spirit Media" class="w-full rounded-2xl" />
 					</div>
 				</div>
 			</div>

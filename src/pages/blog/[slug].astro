@@ -80,7 +80,7 @@ const formatDate = (dateString: string) => {
 };
 
 const publishDate = formatDate(post.publishDate);
-const heroImage = post.heroImage ? urlFor(post.heroImage).url() : '/blog-default.jpg';
+const heroImage = post.heroImage ? urlFor(post.heroImage).width(1200).format('webp').url() : '/blog-default.jpg';
 const author = post.author || 'Kevin White';
 const tags = post.tags || [];
 

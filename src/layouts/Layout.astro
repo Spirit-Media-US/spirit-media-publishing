@@ -11,7 +11,7 @@ interface Props {
 	ogImage?: string;
 }
 
-const { title, description = 'Spirit Media Publishing', ogImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png' } = Astro.props;
+const { title, description = 'Spirit Media Publishing', ogImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&h=630&fm=jpg&q=85' } = Astro.props;
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
