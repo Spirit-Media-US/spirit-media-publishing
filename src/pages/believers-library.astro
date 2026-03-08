@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
 	<Fragment slot="head">
 		<meta name="keywords" content="Believer's Library app, Christian book app, free Christian books, Christian digital library, Christian books PDF, global missions app, 10/40 Window, Christian books every language, Spirit Media Publishing, mobile Christian library" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "SoftwareApplication",
 			"name": "The Believer's Library",
@@ -20,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
 			"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
 			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
 			"url": "https://spiritmediapublishing.com/believers-library"
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

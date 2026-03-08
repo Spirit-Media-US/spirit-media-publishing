@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
 		<meta name="robots" content="index, follow" />
 		<meta property="og:site_name" content="Spirit Media Publishing" />
 		<meta property="og:locale" content="en_US" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Course",
 			"name": "Kingdom Messenger Collective",
@@ -32,7 +32,7 @@ import Layout from '../layouts/Layout.astro';
 			"image": "https://spiritmediapublishing.com/kingdommessengers.jpg",
 			"educationalLevel": "Advanced",
 			"teaches": "Christian authorship, book publishing, ministry platform building, global movement leadership"
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book marketing, book marketing services, Amazon book reviews, Christian podcast production, YouTube book marketing, social media for authors, Christian author marketing, book launch marketing, paid ads for books, GoHighLevel CRM, Spirit Media Publishing" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",
 			"name": "Christian Book Marketing Services",
@@ -19,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
 			"description": "Proven Christian book marketing services including Amazon reviews, paid ads, podcast production, YouTube optimization, and social media management.",
 			"url": "https://spiritmediapublishing.com/marketing",
 			"areaServed": "Worldwide"
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

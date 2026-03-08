@@ -10,9 +10,33 @@ const rawTestimonials = await sanityClient.fetch(`
 `);
 
 const FALLBACK_TESTIMONIALS = [
-  { quote: "Kevin has accelerated my spiritual transformation journey more than anyone else on earth. Because of him I'm comfortable telling my story.", authorName: "Jim Matuga", authorUrl: "https://inneractionmedia.com/", authorLocation: "Humble Influence — Morgantown, WV", authorPhoto: "https://cdn.sanity.io/images/pmowd8uo/production/0fb4317b2ba3c364e3cd1c9ea115f5bf43d752f9-1280x961.png?w=160&h=120&fit=crop&auto=format" },
-  { quote: "Kevin and Spirit Media are so amazing to work with. They guided me through every facet of writing and publishing my book. They empowered me to encourage others.", authorName: "Cindy Love", authorUrl: "https://clowningfromtheheart.com/", authorLocation: "Clowning From the Heart — Walla Walla, WA", authorPhoto: "https://cdn.sanity.io/images/pmowd8uo/production/41a09e4b87cbb7de8f851e987d90e1dcb45155a9-640x610.jpg?w=160&h=120&fit=crop&auto=format" },
-  { quote: "Kevin White and his team have not only worked hard but have been so much fun to work with. I highly recommend Spirit Media to everyone with a message to be published.", authorName: "Van Eure", authorUrl: "https://angusbarn.com/", authorLocation: "Hospitality Rules — Raleigh, NC", authorPhoto: "https://cdn.sanity.io/images/pmowd8uo/production/84f6c4abf3de42675caab866cce636ad1686a6ff-1194x1003.webp?w=160&h=120&fit=crop&auto=format" },
+	{
+		quote:
+			"Kevin has accelerated my spiritual transformation journey more than anyone else on earth. Because of him I'm comfortable telling my story.",
+		authorName: 'Jim Matuga',
+		authorUrl: 'https://inneractionmedia.com/',
+		authorLocation: 'Humble Influence — Morgantown, WV',
+		authorPhoto:
+			'https://cdn.sanity.io/images/pmowd8uo/production/0fb4317b2ba3c364e3cd1c9ea115f5bf43d752f9-1280x961.png?w=160&h=120&fit=crop&auto=format',
+	},
+	{
+		quote:
+			'Kevin and Spirit Media are so amazing to work with. They guided me through every facet of writing and publishing my book. They empowered me to encourage others.',
+		authorName: 'Cindy Love',
+		authorUrl: 'https://clowningfromtheheart.com/',
+		authorLocation: 'Clowning From the Heart — Walla Walla, WA',
+		authorPhoto:
+			'https://cdn.sanity.io/images/pmowd8uo/production/41a09e4b87cbb7de8f851e987d90e1dcb45155a9-640x610.jpg?w=160&h=120&fit=crop&auto=format',
+	},
+	{
+		quote:
+			'Kevin White and his team have not only worked hard but have been so much fun to work with. I highly recommend Spirit Media to everyone with a message to be published.',
+		authorName: 'Van Eure',
+		authorUrl: 'https://angusbarn.com/',
+		authorLocation: 'Hospitality Rules — Raleigh, NC',
+		authorPhoto:
+			'https://cdn.sanity.io/images/pmowd8uo/production/84f6c4abf3de42675caab866cce636ad1686a6ff-1194x1003.webp?w=160&h=120&fit=crop&auto=format',
+	},
 ];
 const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TESTIMONIALS;
 ---
@@ -24,7 +48,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Organization",
 			"name": "Spirit Media Publishing",
@@ -40,8 +64,8 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 			"foundingDate": "2020",
 			"areaServed": "Worldwide",
 			"serviceType": ["Book Publishing", "Book Marketing", "Ghostwriting", "Cover Design", "Audiobook Production"]
-		})}</script>
-		<script type="application/ld+json">{JSON.stringify({
+		})}></script>
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "WebSite",
 			"url": "https://spiritmediapublishing.com",
@@ -52,7 +76,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				"target": "https://spiritmediapublishing.com/bookstore?q={search_term_string}",
 				"query-input": "required name=search_term_string"
 			}
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book publishing services, publish a Christian book, Christian ghostwriting, book editing services, book cover design, ISBN registration, global book distribution, audiobook production, self publish Christian book, faith-based book publisher, Spirit Media Publishing" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",
 			"name": "Christian Book Publishing Services",
@@ -19,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
 			"description": "Full-service Christian book publishing including ghostwriting, editing, cover design, ISBN, global distribution, and audiobook production.",
 			"url": "https://spiritmediapublishing.com/publishing",
 			"areaServed": "Worldwide"
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

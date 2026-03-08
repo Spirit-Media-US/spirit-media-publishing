@@ -9,12 +9,13 @@ const rawPortfolioVideos = await sanityClient.fetch(`
 `);
 
 const FALLBACK_PORTFOLIO_VIDEOS = [
-  { youtubeEmbedUrl: 'https://www.youtube.com/embed/mKj2akahoQs', title: 'Client Testimonial 1' },
-  { youtubeEmbedUrl: 'https://www.youtube.com/embed/I-smnc5eVpg', title: 'Client Testimonial 2' },
-  { youtubeEmbedUrl: 'https://www.youtube.com/embed/fDQ47Jk0TWs', title: 'Client Testimonial 3' },
-  { youtubeEmbedUrl: 'https://www.youtube.com/embed/PrvL2EGGRGU', title: 'Client Testimonial 4' },
+	{ youtubeEmbedUrl: 'https://www.youtube.com/embed/mKj2akahoQs', title: 'Client Testimonial 1' },
+	{ youtubeEmbedUrl: 'https://www.youtube.com/embed/I-smnc5eVpg', title: 'Client Testimonial 2' },
+	{ youtubeEmbedUrl: 'https://www.youtube.com/embed/fDQ47Jk0TWs', title: 'Client Testimonial 3' },
+	{ youtubeEmbedUrl: 'https://www.youtube.com/embed/PrvL2EGGRGU', title: 'Client Testimonial 4' },
 ];
-const portfolioVideos = rawPortfolioVideos.length > 0 ? rawPortfolioVideos : FALLBACK_PORTFOLIO_VIDEOS;
+const portfolioVideos =
+	rawPortfolioVideos.length > 0 ? rawPortfolioVideos : FALLBACK_PORTFOLIO_VIDEOS;
 ---
 
 <Layout
@@ -25,14 +26,14 @@ const portfolioVideos = rawPortfolioVideos.length > 0 ? rawPortfolioVideos : FAL
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book portfolio, Spirit Media portfolio, Christian book covers, Christian author success stories, book marketing examples, Christian publishing results, Kingdom Messenger books, Spirit Media client work" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "CollectionPage",
 			"name": "Portfolio — 300+ Christian Books Published by Spirit Media",
 			"url": "https://spiritmediapublishing.com/portfolio",
 			"description": "Spirit Media Publishing has helped 300+ Christian authors publish, brand, and market their books across 195 nations.",
 			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

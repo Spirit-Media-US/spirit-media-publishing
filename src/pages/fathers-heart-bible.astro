@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
 	<Fragment slot="head">
 		<meta name="keywords" content="Father's Heart Bible, Christian Bible translation, new Bible translation, Heavenly Father's love, fatherless generation, Spirit Media Publishing, Kevin White Bible, intimate Bible translation, Christian scripture, God's love Bible" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Book",
 			"name": "Father's Heart Bible™",
@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
 			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
 			"url": "https://spiritmediapublishing.com/fathers-heart-bible",
 			"genre": "Religious Text"
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

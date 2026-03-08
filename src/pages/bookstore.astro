@@ -32,7 +32,7 @@ const BOOKS_JSON = JSON.stringify(rawBooks);
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian bookstore, buy Christian books, Kingdom Messenger books, Spirit Media books, Christian authors, faith books, Christian leadership books, discipleship books, healing books, Christian publishing" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "ItemList",
 			"name": "Spirit Media Christian Bookstore",
@@ -51,7 +51,7 @@ const BOOKS_JSON = JSON.stringify(rawBooks);
 				{ "@type": "ListItem", "position": 9, "name": "What's Your Word", "author": "Kevin White", "url": "https://www.amazon.com/dp/1958304123" },
 				{ "@type": "ListItem", "position": 10, "name": "Spirit Media's Ultimate Book Marketing Guide", "author": "Kevin White", "url": "https://www.amazon.com/dp/1958304514" }
 			]
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

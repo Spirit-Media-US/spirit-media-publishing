@@ -1,69 +1,74 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { sanityClient, urlFor } from '../../lib/sanity.ts';
 import RelatedPosts from '../../components/RelatedPosts.astro';
 import ShareBar from '../../components/ShareBar.astro';
+import Layout from '../../layouts/Layout.astro';
+import { sanityClient, urlFor } from '../../lib/sanity.ts';
 
 // Static site — pre-render all blog posts from Sanity at build time
 export async function getStaticPaths() {
-  const posts = await sanityClient.fetch(
-    `*[_type == "blogPost"] { "slug": slug.current }`
-  );
-  return posts.map((p: any) => ({ params: { slug: p.slug } }));
+	const posts = await sanityClient.fetch(`*[_type == "blogPost"] { "slug": slug.current }`);
+	return posts.map((p: any) => ({ params: { slug: p.slug } }));
 }
 
 const { slug } = Astro.params;
 
 // Fetch the full post
-const post = await sanityClient.fetch(
-  `*[_type == "blogPost" && slug.current == $slug][0]`,
-  { slug }
-);
+const post = await sanityClient.fetch(`*[_type == "blogPost" && slug.current == $slug][0]`, {
+	slug,
+});
 
 if (!post) {
-  return Astro.redirect('/blog');
+	return Astro.redirect('/blog');
 }
 
 // Helper function to render portable text blocks as HTML
 function renderPortableText(blocks: any[]): string {
-  if (!Array.isArray(blocks)) return '';
+	if (!Array.isArray(blocks)) return '';
 
-  return blocks
-    .map((block: any) => {
-      if (!block || block._type !== 'block') return '';
+	return blocks
+		.map((block: any) => {
+			if (!block || block._type !== 'block') return '';
 
-      const children = Array.isArray(block.children) ? block.children : [];
-      const textContent = children.map((child: any) => {
-        if (!child) return '';
-        let text = child.text || '';
-        const marks = Array.isArray(child.marks) ? child.marks : [];
-        if (marks.length > 0) {
-          if (marks.includes('strong')) text = `<strong>${text}</strong>`;
-          if (marks.includes('em')) text = `<em>${text}</em>`;
-          const linkMark = marks.find((m: any) => m && typeof m === 'object' && m._type === 'link');
-          if (linkMark?.href) {
-            text = `<a href="${linkMark.href}" class="text-red hover:underline" target="_blank" rel="noopener noreferrer">${text}</a>`;
-          }
-        }
-        return text;
-      }).join('');
+			const children = Array.isArray(block.children) ? block.children : [];
+			const textContent = children
+				.map((child: any) => {
+					if (!child) return '';
+					let text = child.text || '';
+					const marks = Array.isArray(child.marks) ? child.marks : [];
+					if (marks.length > 0) {
+						if (marks.includes('strong')) text = `<strong>${text}</strong>`;
+						if (marks.includes('em')) text = `<em>${text}</em>`;
+						const linkMark = marks.find(
+							(m: any) => m && typeof m === 'object' && m._type === 'link',
+						);
+						if (linkMark?.href) {
+							text = `<a href="${linkMark.href}" class="text-red hover:underline" target="_blank" rel="noopener noreferrer">${text}</a>`;
+						}
+					}
+					return text;
+				})
+				.join('');
 
-      const style = block.style || 'normal';
-      if (style === 'h2') return `<h2 class="text-2xl font-serif font-bold text-ink-soft mt-8 mb-4">${textContent}</h2>`;
-      if (style === 'h3') return `<h3 class="text-xl font-serif font-bold text-ink-soft mt-6 mb-3">${textContent}</h3>`;
-      return `<p class="text-stone-600 mb-4 leading-relaxed">${textContent}</p>`;
-    })
-    .join('');
+			const style = block.style || 'normal';
+			if (style === 'h2')
+				return `<h2 class="text-2xl font-serif font-bold text-ink-soft mt-8 mb-4">${textContent}</h2>`;
+			if (style === 'h3')
+				return `<h3 class="text-xl font-serif font-bold text-ink-soft mt-6 mb-3">${textContent}</h3>`;
+			return `<p class="text-stone-600 mb-4 leading-relaxed">${textContent}</p>`;
+		})
+		.join('');
 }
 
 // Format publish date
 const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+	const date = new Date(dateString);
+	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 };
 
 const publishDate = formatDate(post.publishDate);
-const heroImage = post.heroImage ? urlFor(post.heroImage).width(1200).format('webp').url() : '/blog-default.jpg';
+const heroImage = post.heroImage
+	? urlFor(post.heroImage).width(1200).format('webp').url()
+	: '/blog-default.jpg';
 const author = post.author || 'Kevin White';
 const tags = post.tags || [];
 
@@ -81,7 +86,7 @@ const bodyHtml = renderPortableText(post.body);
     <meta property="article:author" content={author} />
     <meta property="article:published_time" content={post.publishDate} />
     {tags.length > 0 && <meta property="article:section" content={tags[0]} />}
-    <script type="application/ld+json">{JSON.stringify({
+    <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": post.title,
@@ -91,7 +96,7 @@ const bodyHtml = renderPortableText(post.body);
       "publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
       "url": `https://spiritmediapublishing.com/blog/${post.slug.current}`,
       "datePublished": post.publishDate
-    })}</script>
+    })}></script>
   </Fragment>
 
   <main id="main-content">

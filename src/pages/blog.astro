@@ -15,10 +15,28 @@ const rawSanityPosts = await sanityClient.fetch(`
   }
 `);
 
-const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MONTHS = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+];
 const sanityPostsFormatted = rawSanityPosts.map((p: any) => ({
-  ...p,
-  date: p.date ? (() => { const d = new Date(p.date + "T12:00:00Z"); return MONTHS[d.getUTCMonth()] + " " + d.getUTCDate() + ", " + d.getUTCFullYear(); })() : ""
+	...p,
+	date: p.date
+		? (() => {
+				const d = new Date(p.date + 'T12:00:00Z');
+				return MONTHS[d.getUTCMonth()] + ' ' + d.getUTCDate() + ', ' + d.getUTCFullYear();
+			})()
+		: '',
 }));
 const SANITY_POSTS_JSON = JSON.stringify(sanityPostsFormatted);
 ---
@@ -31,14 +49,14 @@ const SANITY_POSTS_JSON = JSON.stringify(sanityPostsFormatted);
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian publishing blog, Christian author tips, how to publish a Christian book, Kingdom Messenger blog, book marketing tips, Christian writing advice, Spirit Media blog, Christian author resources" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Blog",
 			"name": "Spirit Media Publishing Blog",
 			"url": "https://spiritmediapublishing.com/blog",
 			"description": "Insights, tips, and encouragement for Christian authors and Kingdom Messengers.",
 			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 

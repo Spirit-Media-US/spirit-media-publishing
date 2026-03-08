@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
+
 let sitePhone = '1-888-800-3744';
 try {
-  const s = await sanityClient.fetch('*[_type == "siteSettings"][0]{ phone }');
-  if (s?.phone) sitePhone = s.phone;
-} catch(e) {}
+	const s = await sanityClient.fetch('*[_type == "siteSettings"][0]{ phone }');
+	if (s?.phone) sitePhone = s.phone;
+} catch (e) {}
 ---
 
 <Layout
@@ -16,14 +17,14 @@ try {
 	<Fragment slot="head">
 		<meta name="keywords" content="contact Spirit Media Publishing, free publishing consultation, schedule a call Spirit Media, Christian book publishing consultation, publish my book, Spirit Media contact" />
 		<meta name="robots" content="index, follow" />
-		<script type="application/ld+json">{JSON.stringify({
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "ContactPage",
 			"name": "Schedule a Free Consultation — Spirit Media Publishing",
 			"url": "https://spiritmediapublishing.com/contact",
 			"description": "Request a free publishing and marketing consultation with Spirit Media Publishing.",
 			"provider": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com", "telephone": "", "email": "info@spiritmediapublishing.com" }
-		})}</script>
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 
