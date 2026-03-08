@@ -9,17 +9,17 @@ const rawTeamMembers = await sanityClient.fetch(`
 `);
 
 const FALLBACK_TEAM = [
-  { name: 'Kevin & Shelly White', role: 'CEO / Creative', photo: '/headshot-kevin-shelly.jpg', objectPosition: 'center 55%' },
-  { name: 'Ana Marie Barrieses', role: 'HR', photo: '/headshot-ana-marie.jpg', objectPosition: 'center 35%' },
-  { name: 'David Foster', role: 'Publishing', photo: '/headshot-david-foster.jpg', objectPosition: 'center 20%' },
-  { name: 'Walinda Phiri', role: 'Marketing', photo: '/headshot-walinda-phiri.jpg', objectPosition: 'center center' },
-  { name: 'Justin Keishing', role: 'Events', photo: '/headshot-justin-keishing.jpg', objectPosition: 'center 5%' },
-  { name: 'Jay Esteban', role: 'Production', photo: '/headshot-jay-esteban.jpg', objectPosition: 'center 25%' },
-  { name: 'Glory Suresh', role: 'Production Team', photo: '/headshot-glory-suresh.jpg', objectPosition: 'center center' },
-  { name: 'Suresh Bob', role: 'Production Team', photo: '/headshot-suresh-bob.jpg', objectPosition: '75% 20%' },
-  { name: 'Vinit James', role: 'Production Team', photo: '/headshot-vinit-james.png', objectPosition: 'center 20%' },
-  { name: 'Revo Tribaco', role: 'Production Team', photo: '/headshot-revo-tribaco.jpg', objectPosition: 'center 20%' },
-  { name: 'Kali White', role: 'Production Team', photo: '/headshot-kali-white.jpg', objectPosition: 'center 25%' },
+  { name: 'Kevin & Shelly White', role: 'CEO / Creative', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/b0440d24ed4a71d23fbed7621d490e58b5d39652-2316x3088.jpg', objectPosition: 'center 55%' },
+  { name: 'Ana Marie Barrieses', role: 'HR', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/a1eb409c457f61ee03b09c447147556d59540818-720x902.jpg', objectPosition: 'center 35%' },
+  { name: 'David Foster', role: 'Publishing', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/4889ecdf40fc64deecd550332305b49d193f6f82-800x800.jpg', objectPosition: 'center 20%' },
+  { name: 'Walinda Phiri', role: 'Marketing', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/9dd5a114ff5c256f09e44751d1249df828cd1ede-1360x1360.jpg', objectPosition: 'center center' },
+  { name: 'Justin Keishing', role: 'Events', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/204e1ebdf3b4fe6138b59aee134f96b799685d44-1152x1500.jpg', objectPosition: 'center 5%' },
+  { name: 'Jay Esteban', role: 'Production', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/138bfab38bff77e68a027e0cae62e6457d0ac456-582x762.jpg', objectPosition: 'center 25%' },
+  { name: 'Glory Suresh', role: 'Production Team', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/50ac53519f508930d956494db16d1a569979e049-273x361.jpg', objectPosition: 'center center' },
+  { name: 'Suresh Bob', role: 'Production Team', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/b1983a4b9a6bfb508e0cf023f0073a982c28f230-268x305.jpg', objectPosition: '75% 20%' },
+  { name: 'Vinit James', role: 'Production Team', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/f5642a39f86a01b4bbf5abce84f016628d540014-768x816.png', objectPosition: 'center 20%' },
+  { name: 'Revo Tribaco', role: 'Production Team', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/faf8fa50dcef52f75addd865c8216dfb0c2ff867-3353x3352.jpg', objectPosition: 'center 20%' },
+  { name: 'Kali White', role: 'Production Team', photo: 'https://cdn.sanity.io/images/pmowd8uo/production/0a502cb3d0b1a131a2f7f3c96b08c886b32835ba-957x957.jpg', objectPosition: 'center 25%' },
 ];
 const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 ---
@@ -27,7 +27,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 <Layout
 	title="About Spirit Media Publishing — Christian Publishing & Marketing Company"
 	description="Spirit Media Publishing is a global Christian publishing and marketing company empowering Kingdom Messengers to share their message in all 195 nations. Meet our team."
-	ogImage="/og-about.jpg"
+	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/02e9961fbe45d2e8dfc63a772f73719af79693f0-1200x630.jpg"
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="Spirit Media Publishing, about Spirit Media, Christian publishing company, Kevin White publisher, Kingdom Messenger publishing, Christian book publisher, faith-based publishing company, global Christian publisher" />
@@ -73,7 +73,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 						</div>
 					</div>
 					<div class="flex items-start justify-center order-first lg:order-last lg:sticky lg:top-28" data-animate="zoom-in">
-						<img src="/book-collage3.png" alt="A collage of books published by Spirit Media authors across multiple nations" class="w-full rounded-2xl" />
+						<img src="https://cdn.sanity.io/images/pmowd8uo/production/d2c5e4ac450f5a25436b580c1474c320b71ce1b0-1100x1000.png" alt="A collage of books published by Spirit Media authors across multiple nations" class="w-full rounded-2xl" />
 					</div>
 				</div>
 			</div>
@@ -137,7 +137,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 					<div class="grid grid-cols-1 lg:grid-cols-2 lg:items-stretch">
 						<!-- Left: book mockup photo — natural 2:3 ratio drives the card height -->
 						<div data-animate="slide-left">
-							<img src="/fhb-mockup.png" alt="Father's Heart → Beloved Identity by Kevin White" class="w-full block" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/917a1dde3704a12b0f29c784022d6abdcd97a981-1024x1536.png" alt="Father's Heart → Beloved Identity by Kevin White" class="w-full block" />
 						</div>
 						<!-- Right: free book offer -->
 						<div class="p-10 lg:p-12 flex flex-col justify-center bg-stone-700" data-animate="slide-right">

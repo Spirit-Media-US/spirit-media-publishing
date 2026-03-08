@@ -7,7 +7,7 @@ const rawSanityPosts = await sanityClient.fetch(`
     "slug": "/blog/" + slug.current,
     title,
     excerpt,
-    "image": coalesce(heroImage.asset->url + "?w=800&auto=format", "/blog-hero.jpg"),
+    "image": coalesce(heroImage.asset->url + "?w=800&auto=format", "https://cdn.sanity.io/images/pmowd8uo/production/4494cc0dc0ce536868da01dfff4a8252df0c4b16-1200x630.jpg"),
     "imagePosition": "center center",
     "author": coalesce(author, "Kevin White"),
     "date": publishDate,
@@ -26,7 +26,7 @@ const SANITY_POSTS_JSON = JSON.stringify(sanityPostsFormatted);
 <Layout
 	title="Christian Publishing & Marketing Blog — Spirit Media Publishing"
 	description="Insights, tips, and encouragement for Christian authors and Kingdom Messengers. Learn how to write, publish, market your book, and grow your platform."
-	ogImage="/og-blog.jpg"
+	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/bcf44917dfadbfeff18ed69e76c601a976c55508-1200x630.jpg"
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian publishing blog, Christian author tips, how to publish a Christian book, Kingdom Messenger blog, book marketing tips, Christian writing advice, Spirit Media blog, Christian author resources" />
@@ -53,31 +53,31 @@ const SANITY_POSTS_JSON = JSON.stringify(sanityPostsFormatted);
 					</div>
 					<div class="hidden lg:grid grid-cols-3 gap-3" aria-hidden="true" data-animate="zoom-in">
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/blog-hero.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(80%) brightness(0.85) contrast(0.95);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/4494cc0dc0ce536868da01dfff4a8252df0c4b16-1200x630.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(80%) brightness(0.85) contrast(0.95);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/workonyourself1.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(40%) brightness(0.9) hue-rotate(180deg) contrast(0.9);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(40%) brightness(0.9) hue-rotate(180deg) contrast(0.9);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/TBLblog.png" alt="" class="w-full h-full object-cover object-center" style="filter: grayscale(100%) sepia(60%) brightness(0.85) contrast(0.95);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/7b27b1d46368fb3702e227e995ea220a8b42a618-1536x1024.png" alt="" class="w-full h-full object-cover object-center" style="filter: grayscale(100%) sepia(60%) brightness(0.85) contrast(0.95);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/fhb-city.png" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(50%) brightness(0.8) contrast(1.05);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(50%) brightness(0.8) contrast(1.05);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/WOY.png" alt="" class="w-full h-full object-cover object-top" style="filter: grayscale(100%) sepia(70%) brightness(0.85) contrast(0.9);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/f70a943f61106e4ae7369ea21d4d4723b3e5a7bb-1536x1024.png" alt="" class="w-full h-full object-cover object-top" style="filter: grayscale(100%) sepia(70%) brightness(0.85) contrast(0.9);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/workonyourself-hands.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(30%) brightness(0.9) hue-rotate(200deg) contrast(0.95);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/5432c9da4368625822d9697301955f3bb2df9245-4096x2160.jpg" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(30%) brightness(0.9) hue-rotate(200deg) contrast(0.95);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/kevinwhitephoto.jpg" alt="" class="w-full h-full object-cover object-top" style="filter: grayscale(100%) sepia(60%) brightness(0.85) contrast(0.95);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/98cdab94c7bdf9c62947c707766a06e9f17f8d8b-3896x5159.jpg" alt="" class="w-full h-full object-cover object-top" style="filter: grayscale(100%) sepia(60%) brightness(0.85) contrast(0.95);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/fhb-mockup.png" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(50%) brightness(0.9) contrast(0.9);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/917a1dde3704a12b0f29c784022d6abdcd97a981-1024x1536.png" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(50%) brightness(0.9) contrast(0.9);" />
 						</div>
 						<div class="relative rounded-2xl overflow-hidden aspect-square">
-							<img src="/kevin-and-shelly.png" alt="" class="w-full h-full object-cover object-top" style="filter: grayscale(100%) sepia(40%) brightness(0.85) hue-rotate(160deg) contrast(0.95);" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/46e525768b659aa8e97d8aa183994ef26bbd21d7-1250x2000.png" alt="" class="w-full h-full object-cover object-top" style="filter: grayscale(100%) sepia(40%) brightness(0.85) hue-rotate(160deg) contrast(0.95);" />
 						</div>
 					</div>
 				</div>
@@ -149,7 +149,7 @@ const HARDCODED_POSTS = [
 		slug: '/blog/ai-powered-ministry-infrastructure',
 		title: 'The Rise of AI-Powered Ministry Infrastructure',
 		excerpt: 'Why the next generation of global gospel impact requires more than websites — and how AI is transforming how Kingdom messages reach the world.',
-		image: '/blog-aiempoweredministry.png',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/2818dba933e7689c0d43dd1dc3cc4b897010f0ed-1536x1024.png',
 		imagePosition: 'center 40%',
 		author: 'Kevin White',
 		date: 'March 6, 2026',
@@ -159,7 +159,7 @@ const HARDCODED_POSTS = [
 		slug: '/blog/master-youtube-without-it-mastering-you',
 		title: 'How to Master YouTube Without It Mastering You',
 		excerpt: 'A practical guide for authors, creators, and Kingdom communicators who want to build lasting reach — without burning out.',
-		image: '/blog-youtube-howto-feature.png',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/f8dc81706d72594005c0a0e83d7d8b212344b656-1536x1024.png',
 		imagePosition: 'center 50%',
 		author: 'Kevin White',
 		date: 'March 5, 2026',
@@ -169,7 +169,7 @@ const HARDCODED_POSTS = [
 		slug: '/blog/revive-youtube-channel',
 		title: 'How to Revive a "Dead" YouTube Channel',
 		excerpt: 'Why old channels still have value — and a simple strategy to grow to 10,000 subscribers for authors, ministries, and Kingdom communicators.',
-		image: '/blog-youtube-revival.png',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/ba5e54bed15560135c9b445988c42bd05ec4cd45-1536x1024.png',
 		imagePosition: 'center 30%',
 		author: 'Kevin White',
 		date: 'March 5, 2026',
@@ -179,7 +179,7 @@ const HARDCODED_POSTS = [
 		slug: '/blog/end-of-traditional-website-platforms',
 		title: 'The End of "Traditional" Website Platforms',
 		excerpt: 'Why AI-empowered development is replacing WordPress, Wix, and drag-and-drop builders — and what it means for your ministry or business.',
-		image: '/blogwebsite.png',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/0b6dd9ee36733cccc72c35fbf17fb78c33ca0cb3-1536x1024.png',
 		imagePosition: 'center 20%',
 		author: 'Kevin White',
 		date: 'March 4, 2026',
@@ -189,7 +189,7 @@ const HARDCODED_POSTS = [
 		slug: '/blog/why-we-start-with-heart',
 		title: 'Why We Start with Heart',
 		excerpt: 'High-capacity leaders are achieving results while losing their souls. Discover why true leadership development must begin with spiritual soul care.',
-		image: '/blog-hero.jpg',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/4494cc0dc0ce536868da01dfff4a8252df0c4b16-1200x630.jpg',
 		imagePosition: 'center center',
 		author: 'Kevin White',
 		date: 'March 3, 2026',
@@ -199,7 +199,7 @@ const HARDCODED_POSTS = [
 		slug: '/blog/work-on-yourself',
 		title: 'The Most Courageous Thing a Leader Can Do',
 		excerpt: 'Many leaders are achieving more than ever while quietly feeling less than ever. Discover why working on yourself is the most strategic thing you can do.',
-		image: '/WOY.png',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/f70a943f61106e4ae7369ea21d4d4723b3e5a7bb-1536x1024.png',
 		imagePosition: 'center center',
 		author: 'Kevin White',
 		date: 'March 3, 2026',
@@ -209,7 +209,7 @@ const HARDCODED_POSTS = [
 		slug: '/blog/believers-library',
 		title: 'A Global Library for Every Nation, Tribe, and Tongue',
 		excerpt: '3.3 billion people have limited access to Jesus and to print books — but nearly everyone has a phone. The Believer\'s Library changes everything.',
-		image: '/TBLblog.png',
+		image: 'https://cdn.sanity.io/images/pmowd8uo/production/7b27b1d46368fb3702e227e995ea220a8b42a618-1536x1024.png',
 		imagePosition: 'center top',
 		author: 'Kevin White',
 		date: 'March 3, 2026',
