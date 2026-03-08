@@ -3,6 +3,7 @@
   publish = "dist"
 
 [build.environment]
+  PUBLIC_SITE_URL = "https://spiritmediapublishing.com"
   NODE_VERSION = "20"
   NPM_FLAGS = "--prefer-offline"
 
