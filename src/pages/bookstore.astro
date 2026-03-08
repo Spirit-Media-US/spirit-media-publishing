@@ -183,7 +183,7 @@ const BOOKS_JSON = JSON.stringify(rawBooks);
 
 		function renderFormats(b) {
 			const fmts = b.formats || {};
-			let keys = Object.keys(fmts).filter(k => FORMAT_LABELS[k]);
+			let keys = Object.keys(fmts).filter(k => FORMAT_LABELS[k] && fmts[k]);
 			// If no formats defined, fall back to amazon link — detect type by ASIN
 			if (!keys.length) {
 				const asinMatch = b.amazon.match(/\/dp\/([A-Z0-9]+)/);
