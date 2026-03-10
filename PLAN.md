@@ -63,12 +63,12 @@ This plan has three parts:
    Loaded via `source ~/.secrets` in `~/.bashrc`
 
    **Per-developer secrets** (e.g. `ANTHROPIC_API_KEY`) are NOT stored in `~/.secrets`.
-   Instead, each developer's Claude instance gets its own key injected at the container/session level:
-   - **Container-based (claude-box / devcontainer):** Pass via `--env-file` or docker-compose `environment:` at launch
-   - **Direct SSH sessions:** Developer sources their own key file (e.g. `~/.secrets.nathan`, chmod 600) in their shell before running `claude`
+   Each developer gets their own Linux user account with their own secrets file:
+   - **Phase 1 (SSH approach):** Each dev has `~/.secrets.{name}` (e.g. `~/.secrets.nathan`, chmod 600) sourced in their shell profile before running `claude`
+   - **Phase 2 (if containers adopted later):** Pass via `--env-file` or docker-compose `environment:` at container launch
    - **Claude Max:** Key is managed by the service — no local key needed
 
-   This keeps org secrets shared and developer keys isolated, regardless of whether everyone uses the `deploy` user or separate accounts.
+   This keeps org secrets shared and developer keys isolated. See Part 2G for the full architecture decision.
 
 2. **Per-site secrets** (site-specific):
    ```bash
@@ -141,16 +141,18 @@ This plan has three parts:
 | # | Task | Details |
 |---|------|---------|
 | 1 | Tailscale login | Kevin runs `tailscale login` |
-| 2 | SSH config | Each dev adds `Host dev` to `~/.ssh/config` |
-| 3 | Node.js | Install Node 22 LTS via nvm on VPS |
-| 4 | Global tooling | `npm i -g @biomejs/biome lefthook @anthropic-ai/claude-code` |
-| 5 | Per-repo lefthook + biome configs | Ensure each repo has `lefthook.yml` and `biome.json` (use standard template) |
-| 6 | Secrets file | Create `/home/deploy/.secrets` (chmod 600), source in `.bashrc` |
-| 7 | System CLAUDE.md | Create `/home/deploy/CLAUDE.md` with global dev rules |
-| 8 | Claude Code MCP servers | Configure in `/home/deploy/.claude/settings.json` |
-| 9 | Per-site .env files | Create `.env` for each of the 5 existing sites |
-| 10 | Clean up CLAUDE.md files | Remove sensitive content, keep project-specific only |
-| 11 | Developer onboarding doc | Document all of the above for new devs |
+| 2 | **Create Linux user accounts** | One account per developer (kevin, nathan, etc.) with sudo access. Shared `deploy` group for org secrets. |
+| 3 | SSH config | Each dev adds `Host dev` to `~/.ssh/config` pointing to their user |
+| 4 | Node.js | Install Node 22 LTS via nvm on VPS (system-wide or per-user) |
+| 5 | Global tooling | `npm i -g @biomejs/biome lefthook @anthropic-ai/claude-code` |
+| 6 | Per-repo lefthook + biome configs | Ensure each repo has `lefthook.yml` and `biome.json` (use standard template) |
+| 7 | Org secrets file | Create `/home/deploy/.secrets` (chmod 640, group `deploy`), source in each user's `.bashrc` |
+| 8 | Per-developer secrets | Create `~/.secrets.{name}` per user (chmod 600) for `ANTHROPIC_API_KEY` etc. |
+| 9 | System CLAUDE.md | Create `/home/deploy/CLAUDE.md` with global dev rules |
+| 10 | Claude Code MCP servers | Configure in `/home/deploy/.claude/settings.json` |
+| 11 | Per-site .env files | Create `.env` for each of the 5 existing sites |
+| 12 | Clean up CLAUDE.md files | Remove sensitive content, keep project-specific only |
+| 13 | Developer onboarding doc | Document all of the above for new devs |
 
 ### D. MCP Servers on the VPS
 
@@ -209,9 +211,85 @@ Each developer gets a port range for local dev servers:
 - Dev 3: 4361-4380
 - Dev 4: 4381-4400
 
+### G. Dev Environment Architecture Decision
+
+> **Decision (2026-03-10):** Start with SSH user accounts. Migrate to containers when a concrete pain point forces it.
+
+#### What We Evaluated
+
+| Approach | How It Works | Verdict |
+|----------|-------------|---------|
+| **Claude Code Desktop + SSH** | Desktop app SSHes into VPS, Claude Code runs there. Each dev gets a Linux user account. | **Phase 1 — do this now** |
+| **claudebox (containerized)** | Each dev gets an isolated Docker container on VPS with their own Claude Code instance, filesystem, ports, env. Desktop SSHes into the container. | **Phase 2 — adopt when it hurts** |
+| **VS Code / Code Server** | Browser-based IDE on VPS | **Ruled out** — Kevin already has Claude Code Desktop (Max plan). Code Server adds complexity without benefit. |
+| **Local dev (no VPS)** | Each dev runs everything on their own machine | **Ruled out** — inconsistent environments, can't share secrets safely, no centralized MCP servers |
+
+#### Why SSH First
+
+For a 2-3 person team, containers add complexity that isn't justified yet:
+
+- **Zero setup complexity** — just add Linux users, standard tooling
+- **No Docker overhead** — full use of VPS resources (8 vCPU, 32GB)
+- **Nothing extra to maintain** — it's just Linux
+- **Easier to debug** — Kevin is still learning, fewer moving parts
+- **Kevin already understands this model** — SSH is familiar
+
+**Mitigations for SSH risks:**
+- Each dev works on their own branch (enforced by workflow)
+- Port ranges assigned per developer (see Part 2F)
+- Separate Linux users with their own home directories
+- Per-user secrets files (`~/.secrets.kevin`, `~/.secrets.nathan`, chmod 600)
+- Org-wide secrets in `/home/deploy/.secrets` (shared read access via group)
+
+#### What Could Go Wrong (SSH Approach)
+
+| Risk | Likelihood (2-3 devs) | Mitigation |
+|------|----------------------|------------|
+| File conflicts (two Claudes edit same file) | Low — separate branches | Git handles this; lefthook pre-commit catches issues |
+| Port collisions | Low | Assigned port ranges (Part 2F) |
+| Runaway process eats all RAM | Medium | `ulimit` per user, monitoring |
+| Destructive command (`rm -rf`, `git reset --hard`) | Low | Separate user accounts, git reflog as safety net |
+| Secrets leakage between devs | Low | Per-user secrets files, org secrets read-only |
+
+#### When to Migrate to Containers (claudebox)
+
+Move to containers when ANY of these become true:
+- **4+ concurrent developers** on the VPS
+- **Onboarding takes more than 30 minutes** per new dev
+- **A dev needs a different Node version** or incompatible toolchain
+- **Want to run `claude --dangerously-skip-permissions`** safely (containers make this viable)
+- **Want Claude Code to operate fully autonomously** without blast-radius concerns
+- **An actual incident** — one dev's work affects another's
+
+#### What claudebox Gives Us (When We Need It)
+
+[claudebox](https://github.com/RchGrav/claudebox) is a third-party Docker tool (not an Anthropic product) that provides:
+- Per-developer isolated containers with pre-configured dev profiles
+- Multi-instance support on a single host
+- Network isolation with project-specific firewall allowlists
+- Persistent configuration across container restarts
+- Cross-platform support
+
+**Claude Code can manage containers.** If running on the VPS host, Kevin can ask Claude to check container status, restart containers, view resource usage, or spin up containers for new devs. Docker CLI is well within Claude Code's capabilities.
+
+**Resource estimate for containers (Hetzner CCX33: 8 vCPU, 32GB RAM):**
+- ~500MB-1GB baseline per container
+- 3-4 concurrent containers = 2-4GB overhead
+- Leaves 28-30GB for actual dev work — viable but tighter
+
+#### What Was Ruled Out and Why
+
+| Option | Why Ruled Out |
+|--------|--------------|
+| **VS Code / Code Server on VPS** | Kevin has Claude Code Desktop (Max plan). Adding a browser IDE is redundant complexity. |
+| **Local development** | No centralized secrets, inconsistent environments, can't share MCP server configs. VPS is the right call. |
+| **Containers from day one** | Adds Docker maintenance, networking complexity, and debugging difficulty before the team needs it. Premature optimization. |
+| **Shared `deploy` user for everyone** | Secrets leakage, no audit trail of who did what, can't set per-user resource limits. Separate Linux users are trivial to set up. |
+| **Anthropic official devcontainer** | Designed around VS Code, not Claude Code Desktop SSH workflow. Better fit if team adopts VS Code later. |
+
 ---
 
-## Part 2G: Dev Pipeline
+## Part 2H: Dev Pipeline
 
 > **Focus:** CI/CD, build validation, and deploy automation — the pipeline between `git push` and production.
 
@@ -294,9 +372,11 @@ Full architecture details are in the Google Doc version of this plan.
 | Phase | What | Timeline | Status |
 |-------|------|----------|--------|
 | **Phase 0** | Fix the 11 audit issues (Part 1) | Session 1 | **4 of 11 done** |
-| **Phase 1** | VPS operational foundation (Part 2A-F) — secrets, tooling, onboarding | Week 1 | Pending |
+| **Phase 1** | VPS operational foundation (Part 2A-G) — secrets, tooling, SSH user accounts, onboarding | Week 1 | Pending |
+| **Phase 1.5** | Dev pipeline (Part 2H) — CI, branch protection, deploy previews | Week 1-2 | Pending |
 | **Phase 2** | Complete remaining Part 1 fixes (issues 5-11) on VPS | Week 2 | Pending |
 | **Phase 3** | Stabilize all 5 sites on new foundation | Weeks 3-4 | Pending |
+| **Phase 3+** | _Containers (claudebox) — adopt when trigger conditions met (see Part 2G)_ | _When needed_ | _Deferred_ |
 | **Phase 4** | _Scaling architecture (Part 3) — revisit after Phase 3_ | _TBD_ | _Deferred_ |
 
 ---
