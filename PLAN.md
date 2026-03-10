@@ -211,6 +211,45 @@ Each developer gets a port range for local dev servers:
 
 ---
 
+## Part 2G: Dev Pipeline Gaps
+
+> **Focus:** CI/CD, build validation, and deploy automation — the pipeline between `git push` and production.
+
+### Current State
+
+- Biome + Lefthook run **locally only** — nothing enforces quality on push
+- Netlify deploys `main` to production and `dev` to a preview URL
+- No CI, no automated build check, no per-PR previews
+- Sanity → Netlify webhook not wired (content publishes don't trigger rebuilds)
+- `.env.example` still references old SFTP stack
+
+### Pipeline Items
+
+| # | Item | What | Effort |
+|---|------|------|--------|
+| 1 | **Wire Sanity → Netlify webhook** | Add build hook URL in Sanity so content publishes trigger a Netlify rebuild | 5 min, dashboard config |
+| 2 | **Update `.env.example` files** | Remove old SFTP vars, document actual required vars (Sanity, site URL) | 10 min |
+| 3 | **Add GitHub Actions CI** | Workflow on PR: `npm ci` → `biome check` → `astro check` → `astro build`. Blocks merge on failure | ~30 min |
+| 4 | **Add `astro check` to lefthook pre-push** | Catches TypeScript errors before they hit remote. Pre-commit already runs Biome | 10 min |
+| 5 | **Enable Netlify deploy previews per PR** | Every PR gets a live preview URL so reviewers can see changes without checking out the branch | 15 min, Netlify config |
+| 6 | **Monitor build minutes** | Netlify free tier = 1000 min/month. Add a Netlify notification or webhook alert at 80% usage | 10 min |
+
+### Not Doing Now
+
+- **Staging environment** — `dev` branch preview is sufficient for 5 sites. Revisit if deploy issues increase.
+- **Automated Lighthouse / performance checks** — nice to have, not blocking anything today.
+- **Monorepo CI matrix** — only relevant if repos consolidate later (Part 3 territory).
+
+### Where This Fits in the Rollout
+
+These items slot into **Phase 1** (VPS operational foundation) and **Phase 2** (remaining fixes):
+
+- Items 1-2: Phase 1 (do alongside VPS setup)
+- Items 3-5: Phase 2 (do after repos are standardized)
+- Item 6: Phase 2 (after Netlify deploys are stable)
+
+---
+
 ## Part 3: Scaling to 1000+ Sites (DEFERRED)
 
 > **Nathan's note:** Crawl before running. This section is the long-term vision — do NOT implement until the operational foundation (Part 2) is solid and the current 5 sites are stable.
