@@ -46,7 +46,7 @@ This plan has three parts:
 | Content | Where it lives | Why |
 |---------|---------------|-----|
 | Sanity project IDs | `.env` files on VPS per site | Not truly secret but should follow same pattern |
-| API tokens (Sanity, Netlify, Cloudflare) | `/home/deploy/.secrets` (chmod 600, sourced in `.bashrc`) | Scoped to `deploy` user, supports `export` syntax |
+| API tokens (Sanity, Netlify, Cloudflare) | `/home/deploy/.secrets` (chmod 640, group `deploy`) | Shared org secrets, sourced in each dev's `.bashrc` |
 | GHL location IDs, DKIM selectors | `.env` files on VPS per site | Site-specific, not global |
 | SSH keys | `~/.ssh/` on each dev's machine + VPS | Standard SSH key management |
 | Bitwarden credentials | Bitwarden Vault only — never on disk | Emergency access / rotation |
@@ -193,10 +193,10 @@ All API tokens come from env vars (sourced from `~/.secrets`) — never hardcode
 
 **For Nathan or new devs:**
 1. Get Tailscale VPN access (Kevin approves in Tailscale admin)
-2. SSH into the VPS: `ssh deploy@100.114.220.65`
-3. Set personal `ANTHROPIC_API_KEY` via container env, personal secrets file, or use Claude Max (see Part 2A)
-4. Run `claude` from any site directory — system config + MCP servers are already there
-5. Alternatively, use Code Server at dev.spiritmediapublishing.com
+2. Kevin creates a Linux user account on the VPS (see Part 2C, step 2)
+3. SSH into the VPS: `ssh {username}@100.114.220.65` (or via `Host dev` shortcut)
+4. Set personal `ANTHROPIC_API_KEY` in `~/.secrets.{name}` (chmod 600), or use Claude Max (see Part 2A)
+5. Run `claude` from any site directory — system config + MCP servers are already there
 
 **Team structure:**
 - Kevin: final approval, content decisions, merges to main
