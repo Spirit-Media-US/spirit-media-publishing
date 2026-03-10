@@ -211,42 +211,63 @@ Each developer gets a port range for local dev servers:
 
 ---
 
-## Part 2G: Dev Pipeline Gaps
+## Part 2G: Dev Pipeline
 
 > **Focus:** CI/CD, build validation, and deploy automation — the pipeline between `git push` and production.
 
 ### Current State
 
 - Biome + Lefthook run **locally only** — nothing enforces quality on push
-- Netlify deploys `main` to production and `dev` to a preview URL
-- No CI, no automated build check, no per-PR previews
+- No CI — a broken build can land on `main` and go straight to production
+- No branch protection — PRs can be merged without any checks passing
+- No staging — `dev` branch has a Netlify preview URL but it doesn't mirror production config
+- No per-PR deploy previews — reviewers must check out the branch to see changes
 - Sanity → Netlify webhook not wired (content publishes don't trigger rebuilds)
-- `.env.example` still references old SFTP stack
+- `.env.example` still references old SFTP stack — blocks new dev onboarding
+- **Build environment split:** CI runs on GitHub Actions runners, dev servers run on VPS, deploys happen via Netlify from the repo. The VPS is for development only, not the build/deploy path.
 
-### Pipeline Items
+### Pipeline Items (Priority Order)
 
-| # | Item | What | Effort |
-|---|------|------|--------|
-| 1 | **Wire Sanity → Netlify webhook** | Add build hook URL in Sanity so content publishes trigger a Netlify rebuild | 5 min, dashboard config |
-| 2 | **Update `.env.example` files** | Remove old SFTP vars, document actual required vars (Sanity, site URL) | 10 min |
-| 3 | **Add GitHub Actions CI** | Workflow on PR: `npm ci` → `biome check` → `astro check` → `astro build`. Blocks merge on failure | ~30 min |
-| 4 | **Add `astro check` to lefthook pre-push** | Catches TypeScript errors before they hit remote. Pre-commit already runs Biome | 10 min |
-| 5 | **Enable Netlify deploy previews per PR** | Every PR gets a live preview URL so reviewers can see changes without checking out the branch | 15 min, Netlify config |
-| 6 | **Monitor build minutes** | Netlify free tier = 1000 min/month. Add a Netlify notification or webhook alert at 80% usage | 10 min |
+Ordered by dependency and impact — each item builds on the previous.
+
+| # | Item | What | Why This Order | Effort |
+|---|------|------|----------------|--------|
+| 1 | **Add GitHub Actions CI** | Workflow on PR: `npm ci` → `biome check` → `astro check` → `astro build` | Foundation — without CI, nothing else gates what lands on `main` | ~30 min |
+| 2 | **Enable branch protection on `main`** | Require CI to pass before merge. No direct pushes to `main` | CI is useless if PRs can bypass it | 5 min, GitHub settings |
+| 3 | **Add `astro check` to lefthook pre-push** | Catches TypeScript errors before they even hit CI | Shift-left — faster feedback loop, pairs with CI | 10 min |
+| 4 | **Update `.env.example` files** | Remove old SFTP vars, document actual required vars (Sanity, site URL) | Unblocks onboarding — a new dev can't set up without this | 10 min |
+| 5 | **Enable Netlify deploy previews per PR** | Every PR gets a live preview URL for reviewers | Depends on CI being in place to be useful | 15 min, Netlify config |
+| 6 | **Staging environment** | `dev` branch deploys to a staging URL with production-equivalent config (same env vars, same build flags, same Sanity dataset) | Without this, the first time code runs in production config is production itself | 20 min |
+| 7 | **Wire Sanity → Netlify webhook** | Add build hook URL in Sanity so content publishes trigger a Netlify rebuild | Important but it's a dashboard toggle, not a pipeline risk | 5 min, dashboard config |
+| 8 | **Monitor build minutes** | Netlify free tier = 1000 min/month. Add alert at 80% usage | Only matters after the above are generating builds | 10 min |
+
+### Staging Environment Details
+
+The `dev` branch already gets a Netlify preview URL, but it's not true staging because:
+- It may use different env vars than production
+- Build flags may differ
+- No one is systematically testing on it before merging to `main`
+
+**What staging means here:**
+- `dev` branch deploys to `staging.{domain}` (or Netlify's auto-generated URL)
+- Uses the **same** Sanity dataset, env vars, and build config as production
+- Every PR merges to `dev` first → verified on staging → then `dev` merges to `main`
+- Kevin or Nathan signs off on staging before promoting to production
+
+This is not a separate infrastructure — it's enforcing a workflow on the Netlify preview that already exists.
 
 ### Not Doing Now
 
-- **Staging environment** — `dev` branch preview is sufficient for 5 sites. Revisit if deploy issues increase.
 - **Automated Lighthouse / performance checks** — nice to have, not blocking anything today.
 - **Monorepo CI matrix** — only relevant if repos consolidate later (Part 3 territory).
 
 ### Where This Fits in the Rollout
 
-These items slot into **Phase 1** (VPS operational foundation) and **Phase 2** (remaining fixes):
-
-- Items 1-2: Phase 1 (do alongside VPS setup)
-- Items 3-5: Phase 2 (do after repos are standardized)
-- Item 6: Phase 2 (after Netlify deploys are stable)
+| Phase | Pipeline Items | Rationale |
+|-------|---------------|-----------|
+| **Phase 1** (VPS foundation) | #4 `.env.example`, #7 Sanity webhook | Quick wins during setup |
+| **Phase 2** (repo standardization) | #1 CI, #2 Branch protection, #3 Lefthook pre-push | Core pipeline — do first in Phase 2 |
+| **Phase 2** (after CI is live) | #5 Deploy previews, #6 Staging, #8 Build minutes | Layer on once CI is gating merges |
 
 ---
 
