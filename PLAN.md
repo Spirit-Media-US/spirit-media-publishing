@@ -241,6 +241,24 @@ For a 2-3 person team, containers add complexity that isn't justified yet:
 - Per-user secrets files (`~/.secrets.kevin`, `~/.secrets.nathan`, chmod 600)
 - Org-wide secrets in `/home/deploy/.secrets` (shared read access via group)
 
+#### Concurrent Developer Model
+
+This setup supports multiple developers working on the VPS at the same time. Here's how:
+
+**What works concurrently (no coordination needed):**
+- Multiple developers SSH in with separate Linux user accounts simultaneously
+- Each runs their own Claude Code instance from their own shell session
+- Each works on their own branch — git handles merge conflicts when branches converge
+- Each uses their own assigned port range for `npm run dev` — no collisions
+- Each has their own secrets file — no leakage
+
+**What requires sequencing:**
+- **VPS setup (Part 2C checklist)** — one person does this first (Kevin or Nathan). Creating user accounts, installing global tooling, configuring secrets. This is a one-time foundation step.
+- **Same file on same branch** — two Claude instances editing the same file on the same branch will conflict. The branch-per-developer workflow prevents this.
+- **Heavy builds** — two simultaneous `astro build` runs on 32GB RAM is fine. Three or four concurrent builds may cause resource pressure — worth monitoring but not blocking.
+
+**Bottom line:** After the one-time VPS setup, developers can work independently and concurrently without stepping on each other.
+
 #### What Could Go Wrong (SSH Approach)
 
 | Risk | Likelihood (2-3 devs) | Mitigation |
