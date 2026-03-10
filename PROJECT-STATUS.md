@@ -1,5 +1,5 @@
 # Spirit Media Publishing — Project Status & Knowledge Base
-> Last updated: 2026-03-08
+> Last updated: 2026-03-09
 > **Claude: Read this file before making any statements about project state or touching any code.**
 
 ---
@@ -44,7 +44,7 @@
 
 ---
 
-## Sanity Document Counts (as of 2026-03-08)
+## Sanity Document Counts (as of 2026-03-09)
 | Type | Count | Notes |
 |---|---|---|
 | testimonial | 3 | Live on homepage, fetched from Sanity |

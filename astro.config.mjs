@@ -44,7 +44,7 @@ export default defineConfig({
     }),
   ],
   vite: {
-		server: { allowedHosts: ["preview.spiritmediapublishing.com"] },
+		server: { allowedHosts: true },
     plugins: [tailwindcss()],
   },
 });
