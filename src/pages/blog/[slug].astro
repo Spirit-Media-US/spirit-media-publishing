@@ -30,6 +30,10 @@ function renderPortableText(blocks: any[]): string {
 			if (!block || block._type !== 'block') return '';
 
 			const children = Array.isArray(block.children) ? block.children : [];
+			const rawText = children.map((c: any) => c?.text || '').join('');
+			// Skip placeholder blocks left over from content drafts
+			if (/^\{[\w]+\}\s*[—–-]\s*\{[\w]+\}$/.test(rawText.trim())) return '';
+
 			const textContent = children
 				.map((child: any) => {
 					if (!child) return '';
@@ -142,9 +146,9 @@ const bodyHtml = renderPortableText(post.body);
     </section>
 
     <!-- SHARE BAR -->
-    <ShareBar />
+    <ShareBar title={post.title} url={`https://spiritmediapublishing.com/blog/${post.slug.current}`} />
 
     <!-- RELATED POSTS -->
-    <RelatedPosts />
+    <RelatedPosts currentSlug={`/blog/${post.slug.current}`} currentTags={tags} />
   </main>
 </Layout>
