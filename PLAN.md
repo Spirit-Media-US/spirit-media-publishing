@@ -203,13 +203,40 @@ All API tokens come from env vars (sourced from `~/.secrets`) — never hardcode
 - Nathan: executes builds on VPS, monitors deploys, resolves conflicts, architecture decisions
 - Future devs: assigned sites, run Claude Code on VPS with shared context
 
-### F. Port Allocation
+### F. Claude Code Memory Files (How Claude "Remembers")
 
-Each developer gets a port range for local dev servers:
-- Kevin: 4321-4340
-- Nathan: 4341-4360
-- Dev 3: 4361-4380
-- Dev 4: 4381-4400
+Claude Code reads `CLAUDE.md` files automatically at startup. There are three levels, and each developer needs to understand which file to put things in:
+
+| File | Where it lives | Scope | Example content |
+|------|---------------|-------|-----------------|
+| `~/.claude/CLAUDE.md` | Developer's local machine | Every Claude Code session, every project | VPS connection info ("bethel"), personal preferences |
+| `/home/deploy/CLAUDE.md` | On the VPS | All projects on the VPS | Global dev rules, workflow, team info |
+| `<repo>/CLAUDE.md` | Inside each repo (gitignored) | That specific project only | Site name, domain, dev commands, architecture notes |
+
+**Setting up the local memory file (each developer does this once):**
+
+1. Create the file: `~/.claude/CLAUDE.md` (on your Mac/PC, not on the VPS)
+2. Add VPS connection info so Claude always knows how to reach the server:
+
+   ```markdown
+   # Dev Server (Bethel)
+
+   - SSH: `ssh {username}@100.114.220.65`
+   - SSH shortcut: `ssh bethel` (if configured in ~/.ssh/config)
+   - Platform: Hetzner CCX33, Ubuntu 22.04, Ashburn VA
+   - Access: Tailscale VPN only — must be connected to Tailscale first
+
+   ## What's on Bethel
+
+   - All Spirit Media sites live in /home/deploy/sites/
+   - Global tools: biome, lefthook, claude (all on $PATH)
+   - MCP servers: Sanity, Netlify, Cloudflare
+   - My secrets: ~/.secrets.{name} (ANTHROPIC_API_KEY etc.)
+   ```
+
+3. Close and reopen Claude Code Desktop. Ask "How do I connect to bethel?" — if it knows, it worked.
+
+**Key rule:** Never put secrets (API keys, tokens, passwords) in any CLAUDE.md file. Those go in `.secrets` files on the VPS (see Part 2A).
 
 ### G. Dev Environment Architecture Decision
 
@@ -236,7 +263,6 @@ For a 2-3 person team, containers add complexity that isn't justified yet:
 
 **Mitigations for SSH risks:**
 - Each dev works on their own branch (enforced by workflow)
-- Port ranges assigned per developer (see Part 2F)
 - Separate Linux users with their own home directories
 - Per-user secrets files (`~/.secrets.kevin`, `~/.secrets.nathan`, chmod 600)
 - Org-wide secrets in `/home/deploy/.secrets` (shared read access via group)
@@ -249,7 +275,7 @@ This setup supports multiple developers working on the VPS at the same time. Her
 - Multiple developers SSH in with separate Linux user accounts simultaneously
 - Each runs their own Claude Code instance from their own shell session
 - Each works on their own branch — git handles merge conflicts when branches converge
-- Each uses their own assigned port range for `npm run dev` — no collisions
+- Astro auto-increments dev server ports if the default (4321) is busy — no manual port management needed
 - Each has their own secrets file — no leakage
 
 **What requires sequencing:**
@@ -264,7 +290,7 @@ This setup supports multiple developers working on the VPS at the same time. Her
 | Risk | Likelihood (2-3 devs) | Mitigation |
 |------|----------------------|------------|
 | File conflicts (two Claudes edit same file) | Low — separate branches | Git handles this; lefthook pre-commit catches issues |
-| Port collisions | Low | Assigned port ranges (Part 2F) |
+| Port collisions | Low | Astro auto-increments ports; not a real risk |
 | Runaway process eats all RAM | Medium | `ulimit` per user, monitoring |
 | Destructive command (`rm -rf`, `git reset --hard`) | Low | Separate user accounts, git reflog as safety net |
 | Secrets leakage between devs | Low | Per-user secrets files, org secrets read-only |
