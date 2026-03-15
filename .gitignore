@@ -50,5 +50,3 @@ filesystem/
 
 # Sanity studio build artifacts
 .sanity/runtime/
-
-CLAUDE.md
