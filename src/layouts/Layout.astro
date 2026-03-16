@@ -3,15 +3,41 @@ import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 interface Props {
 	title: string;
 	description?: string;
-	/** Absolute or root-relative path to the OG share image. Defaults to /og-image.png */
+	/** Absolute or root-relative path to the OG share image. Defaults to siteSettings.ogImage */
 	ogImage?: string;
 }
 
-const { title, description = 'Spirit Media Publishing', ogImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&h=630&fm=jpg&q=85' } = Astro.props;
+const { title, description = 'Spirit Media Publishing' } = Astro.props;
+let ogImage = Astro.props.ogImage;
+let twitterHandle = '@spiritmediaus';
+let gaId = 'G-W3R21TNHTX';
+
+// Fetch siteSettings for default OG image, Twitter handle, and GA ID
+try {
+	const siteSettings = await sanityClient.fetch(
+		'*[_type == "siteSettings"][0]{ ogImage, twitterHandle, googleAnalyticsId }'
+	);
+	if (siteSettings) {
+		// If no explicit ogImage prop, use siteSettings
+		if (!ogImage && siteSettings.ogImage) {
+			ogImage = urlFor(siteSettings.ogImage).width(1200).height(630).format('jpg').url() || undefined;
+		}
+		if (siteSettings.twitterHandle) twitterHandle = siteSettings.twitterHandle;
+		if (siteSettings.googleAnalyticsId) gaId = siteSettings.googleAnalyticsId;
+	}
+} catch (e) {
+	console.error('Error fetching siteSettings:', e);
+}
+
+// Fallback OG image if still not set
+if (!ogImage) {
+	ogImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&h=630&fm=jpg&q=85';
+}
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
@@ -47,8 +73,8 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@spiritmediaus" />
-    <meta name="twitter:creator" content="@spiritmediaus" />
+    <meta name="twitter:site" content={twitterHandle} />
+    <meta name="twitter:creator" content={twitterHandle} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
@@ -57,12 +83,12 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <slot name="head" />
 
     <!-- Google Analytics GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3R21TNHTX"></script>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-W3R21TNHTX');
+      gtag('config', import.meta.env.PUBLIC_GA_ID || 'G-W3R21TNHTX');
     </script>
 
     <!-- Google Fonts: Cormorant Garamond (display) + Source Sans 3 (body) -->

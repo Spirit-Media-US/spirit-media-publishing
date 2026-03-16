@@ -1,5 +1,6 @@
 ---
 // Site-wide navigation bar with active-link highlighting and Resources dropdown
+import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 const pathname = new URL(Astro.request.url).pathname;
 
@@ -23,6 +24,24 @@ function isActive(href: string): boolean {
 }
 
 const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(href));
+
+// Fetch logo from siteSettings
+let logoUrl: string | undefined;
+let logoFallback = false;
+try {
+	const siteSettings = await sanityClient.fetch('*[_type == "siteSettings"][0]{ logo }');
+	if (siteSettings?.logo) {
+		logoUrl = urlFor(siteSettings.logo).width(440).height(88).fit('max').auto('format').url();
+	}
+} catch (e) {
+	console.error('Error fetching logo:', e);
+	logoFallback = true;
+}
+
+// Fallback logo URL if fetch fails or no logo in Sanity
+if (!logoUrl) {
+	logoUrl = 'https://cdn.sanity.io/images/pmowd8uo/production/dc16e3c604bd5d52de7647af46836ff418c22898-6575x656.png?w=440&h=88&fit=max&auto=format';
+}
 ---
 
 <!-- Skip to main content for keyboard / screen-reader users -->
@@ -40,14 +59,14 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
       <!-- Logo -->
       <a href="/" class="flex shrink-0 items-center" aria-label="Spirit Media Publishing — home">
         <img
-          src="https://cdn.sanity.io/images/pmowd8uo/production/dc16e3c604bd5d52de7647af46836ff418c22898-6575x656.png?w=440&h=88&fit=max&auto=format"
+          src={logoUrl}
           alt="Spirit Media Publishing"
           width="220"
           height="22"
           class="h-auto w-auto max-w-[275px] sm:max-w-[325px]"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
         />
-        <!-- Fallback: shown only if logo.png is missing -->
+        <!-- Fallback: shown only if logo is missing -->
         <span class="hidden items-center gap-2" aria-hidden="true">
           <span class="flex h-8 w-8 items-center justify-center rounded bg-red-600 font-bold text-white text-sm">S</span>
           <span class="font-bold type-card-subheading leading-tight">Spirit Media<br /><span class="text-red type-caption font-semibold">Publishing</span></span>
@@ -210,64 +229,73 @@ const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(
         }
       </div>
 
-      <div class="border-t border-stone-100 pt-3">
-        <a
-          href="/contact"
-          class="block w-full rounded-md bg-red px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-red-deep transition-colors"
-        >
-          Request a Call
-        </a>
-      </div>
+      <!-- CTA in mobile menu -->
+      <a
+        href="/contact"
+        class="mt-4 block rounded-md bg-red px-4 py-2 text-center text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep"
+      >
+        Request a Call
+      </a>
     </nav>
   </div>
 </header>
 
 <script>
-  let navbarController: AbortController | null = null;
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
 
-  function initNavbar() {
-    navbarController?.abort();
-    navbarController = new AbortController();
-    const { signal } = navbarController;
+  mobileMenuBtn?.addEventListener('click', () => {
+    const isHidden = mobileMenu?.classList.contains('hidden');
+    if (isHidden) {
+      mobileMenu?.classList.remove('hidden');
+      hamburgerIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu?.classList.add('hidden');
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
 
-    // Mobile menu toggle
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamburger = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
+  // Close menu when a link is clicked
+  document.querySelectorAll('#mobile-menu a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+    });
+  });
 
-    mobileBtn?.addEventListener('click', () => {
-      if (!mobileMenu || !mobileBtn || !hamburger || !closeIcon) return;
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      mobileBtn.setAttribute('aria-expanded', String(!isOpen));
-      hamburger.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-    }, { signal });
+  // Resources dropdown menu
+  const resourcesBtn = document.getElementById('resources-menu-btn');
+  const resourcesMenu = document.getElementById('resources-menu');
+  const resourcesChevron = document.getElementById('resources-chevron');
 
-    // Resources dropdown toggle
-    const resourcesBtn = document.getElementById('resources-menu-btn');
-    const resourcesMenu = document.getElementById('resources-menu');
-    const chevron = document.getElementById('resources-chevron');
+  resourcesBtn?.addEventListener('click', () => {
+    const isHidden = resourcesMenu?.classList.contains('hidden');
+    if (isHidden) {
+      resourcesMenu?.classList.remove('hidden');
+      resourcesChevron?.classList.add('rotate-180');
+      resourcesBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      resourcesMenu?.classList.add('hidden');
+      resourcesChevron?.classList.remove('rotate-180');
+      resourcesBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
 
-    resourcesBtn?.addEventListener('click', () => {
-      if (!resourcesMenu || !resourcesBtn || !chevron) return;
-      const isOpen = !resourcesMenu.classList.contains('hidden');
-      resourcesMenu.classList.toggle('hidden');
-      resourcesBtn.setAttribute('aria-expanded', String(!isOpen));
-      (chevron as HTMLElement).style.transform = isOpen ? '' : 'rotate(180deg)';
-    }, { signal });
-
-    // Close resources dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!resourcesMenu || !resourcesBtn || !chevron) return;
-      if (!resourcesBtn.contains(e.target as Node) && !resourcesMenu.contains(e.target as Node)) {
-        resourcesMenu.classList.add('hidden');
-        resourcesBtn.setAttribute('aria-expanded', 'false');
-        (chevron as HTMLElement).style.transform = '';
-      }
-    }, { signal });
-  }
-
-  document.addEventListener('astro:page-load', initNavbar);
+  // Close dropdown when a link is clicked
+  document.querySelectorAll('#resources-menu a').forEach((link) => {
+    link.addEventListener('click', () => {
+      resourcesMenu?.classList.add('hidden');
+      resourcesChevron?.classList.remove('rotate-180');
+      resourcesBtn?.setAttribute('aria-expanded', 'false');
+    });
+  });
 </script>

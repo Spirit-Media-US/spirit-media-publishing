@@ -6,5 +6,6 @@ import teamMember from './teamMember'
 import pressRelease from './pressRelease'
 import mediaVideo from './mediaVideo'
 import portfolioVideo from './portfolioVideo'
+import pageHero from './pageHero'
 
-export const schemaTypes = [book, siteSettings, blogPost, testimonial, teamMember, pressRelease, mediaVideo, portfolioVideo]
+export const schemaTypes = [book, siteSettings, blogPost, testimonial, teamMember, pressRelease, mediaVideo, portfolioVideo, pageHero]
