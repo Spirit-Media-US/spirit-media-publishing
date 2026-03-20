@@ -241,61 +241,63 @@ if (!logoUrl) {
 </header>
 
 <script>
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamburgerIcon = document.getElementById('hamburger-icon');
-  const closeIcon = document.getElementById('close-icon');
+  document.addEventListener('astro:page-load', () => {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
 
-  mobileMenuBtn?.addEventListener('click', () => {
-    const isHidden = mobileMenu?.classList.contains('hidden');
-    if (isHidden) {
-      mobileMenu?.classList.remove('hidden');
-      hamburgerIcon?.classList.add('hidden');
-      closeIcon?.classList.remove('hidden');
-      mobileMenuBtn.setAttribute('aria-expanded', 'true');
-    } else {
-      mobileMenu?.classList.add('hidden');
-      hamburgerIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-      mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Close menu when a link is clicked
-  document.querySelectorAll('#mobile-menu a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-      hamburgerIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn?.addEventListener('click', () => {
+      const isHidden = mobileMenu?.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu?.classList.remove('hidden');
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        mobileMenu?.classList.add('hidden');
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
     });
-  });
 
-  // Resources dropdown menu
-  const resourcesBtn = document.getElementById('resources-menu-btn');
-  const resourcesMenu = document.getElementById('resources-menu');
-  const resourcesChevron = document.getElementById('resources-chevron');
+    // Close menu when a link is clicked
+    document.querySelectorAll('#mobile-menu a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.add('hidden');
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-  resourcesBtn?.addEventListener('click', () => {
-    const isHidden = resourcesMenu?.classList.contains('hidden');
-    if (isHidden) {
-      resourcesMenu?.classList.remove('hidden');
-      resourcesChevron?.classList.add('rotate-180');
-      resourcesBtn.setAttribute('aria-expanded', 'true');
-    } else {
-      resourcesMenu?.classList.add('hidden');
-      resourcesChevron?.classList.remove('rotate-180');
-      resourcesBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
+    // Resources dropdown menu
+    const resourcesBtn = document.getElementById('resources-menu-btn');
+    const resourcesMenu = document.getElementById('resources-menu');
+    const resourcesChevron = document.getElementById('resources-chevron');
 
-  // Close dropdown when a link is clicked
-  document.querySelectorAll('#resources-menu a').forEach((link) => {
-    link.addEventListener('click', () => {
-      resourcesMenu?.classList.add('hidden');
-      resourcesChevron?.classList.remove('rotate-180');
-      resourcesBtn?.setAttribute('aria-expanded', 'false');
+    resourcesBtn?.addEventListener('click', () => {
+      const isHidden = resourcesMenu?.classList.contains('hidden');
+      if (isHidden) {
+        resourcesMenu?.classList.remove('hidden');
+        resourcesChevron?.classList.add('rotate-180');
+        resourcesBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        resourcesMenu?.classList.add('hidden');
+        resourcesChevron?.classList.remove('rotate-180');
+        resourcesBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close dropdown when a link is clicked
+    document.querySelectorAll('#resources-menu a').forEach((link) => {
+      link.addEventListener('click', () => {
+        resourcesMenu?.classList.add('hidden');
+        resourcesChevron?.classList.remove('rotate-180');
+        resourcesBtn?.setAttribute('aria-expanded', 'false');
+      });
     });
   });
 </script>
