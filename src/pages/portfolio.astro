@@ -2,6 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
+const YOUTUBE_API_KEY = import.meta.env.YOUTUBE_API_KEY;
+
+const podcastPlaylists = [
+	{ id: 'PLA0Tt6t84cdH7kTmvSywxbvieftR6W0Uy' },
+	{ id: 'PLrF82whd2ACMnsJPmbSDt7qAiHRSebmFv' },
+	{ id: 'PLrF82whd2ACNKB0xQ5M1R4PC27bQLcMw5' },
+];
+
+const playlistData = await Promise.all(
+	podcastPlaylists.map(async ({ id }) => {
+		const [itemsRes, detailRes] = await Promise.all([
+			fetch(
+				`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=6&playlistId=${id}&key=${YOUTUBE_API_KEY}`,
+			),
+			fetch(
+				`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${id}&key=${YOUTUBE_API_KEY}`,
+			),
+		]);
+		const [items, detail] = await Promise.all([itemsRes.json(), detailRes.json()]);
+		const title = detail.items?.[0]?.snippet?.title || 'Podcast Show';
+		const episodes = (items.items || []).map((item: any) => ({
+			videoId: item.snippet.resourceId.videoId,
+			title: item.snippet.title,
+			thumbnail: item.snippet.thumbnails?.medium?.url || item.snippet.thumbnails?.default?.url,
+		}));
+		return { id, title, episodes };
+	}),
+);
+
 const rawPortfolioVideos = await sanityClient.fetch(`
   *[_type == "portfolioVideo"] | order(displayOrder asc) {
     youtubeEmbedUrl, title
@@ -123,21 +152,116 @@ const portfolioVideos =
 
 				<!-- Websites -->
 				<div class="mb-14">
-					<h3 class="font-serif text-xl font-bold text-ink-soft mb-6" data-animate="fade-up">Websites</h3>
-					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+					<h3 class="font-serif text-xl font-bold text-ink-soft mb-10" data-animate="fade-up">Astro + Tailwind Websites</h3>
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-1.5">
+						{([
+							{
+								url: 'https://spiritmediapublishing.com',
+								desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/4db640321f9ccfa8b1480db9c55c89aaf2b91709-1440x900.png',
+								tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/7f7b09ae18a3e2934ee4874fece691e8284a42ef-768x1024.png',
+								mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/600cdcd098bc747ea62bbaebf017e3852212ebcb-375x812.png',
+							},
+							{
+								url: 'https://thekohlergroup.net',
+								desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/33c47b8dfa3c2d4184432b150ba7e7c808b5b29b-1440x900.png',
+								tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/f608fe0da0ce7942613368c725700eb66c804e13-768x1024.png',
+								mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/23d9abbe41b4a447b45adf64bbcf1995bec70d4e-375x812.png',
+							},
+							{
+								url: 'https://clowningfromtheheart.com',
+								desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/d74fcd41bd33a85253e73444acc3d8102668cc7c-1440x900.png',
+								tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/5922235e55976c075d048897802692482cd6acbc-768x1024.png',
+								mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png',
+							},
+						] as any[]).map(({ url, desktop, tablet, mobile }: any, i: number) => (
+							<div data-animate="fade-up" data-delay={String(i + 1)}>
+								<p class="font-sans text-sm text-stone-600 mb-2 truncate">{url.replace('https://', '')}</p>
+								<div class="relative rounded-2xl bg-gradient-to-br from-stone-400 to-stone-500 p-3 overflow-hidden">
+									<div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 18px 18px;"></div>
+									<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-3/4 h-12 bg-red opacity-10 rounded-full blur-2xl"></div>
+									<div class="relative grid items-end gap-1.5" style="grid-template-columns: 1.2fr 4fr 1.8fr;">
+										<a href={url} target="_blank" rel="noopener noreferrer" class="block group">
+											<div class="border-2 border-stone-300 rounded-xl overflow-hidden shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+												<img src={mobile} alt="" loading="lazy" class="w-full block" />
+											</div>
+										</a>
+										<a href={url} target="_blank" rel="noopener noreferrer" class="block group">
+											<div class="bg-stone-300 rounded-t-lg px-2 py-1 flex items-center gap-1 border border-stone-300 border-b-0">
+												<div class="flex gap-0.5 shrink-0">
+													<div class="w-1.5 h-1.5 rounded-full bg-red-400"></div>
+													<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+													<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+												</div>
+												<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{url.replace('https://', '')}</div>
+											</div>
+											<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+												<img src={desktop} alt="" loading="lazy" class="w-full block" />
+											</div>
+										</a>
+										<a href={url} target="_blank" rel="noopener noreferrer" class="block group">
+											<div class="bg-stone-300 rounded-t-md px-1 py-1 flex items-center justify-center border border-stone-300 border-b-0">
+												<div class="w-3 h-0.5 rounded-full bg-stone-400"></div>
+											</div>
+											<div class="overflow-hidden rounded-b-md border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+												<img src={tablet} alt="" loading="lazy" class="w-full block" />
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- Video Production -->
+				<div class="mb-14">
+					<h3 class="font-serif text-xl font-bold text-ink-soft mb-6" data-animate="fade-up">Video Production</h3>
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 						{[
-							"https://cdn.sanity.io/images/pmowd8uo/production/fc6c01a5c82ecb4520edbf28b401d6aa1aa22cdd-612x390.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/c8c6e86f2cfdaabcebb1d85c1b149a18b13e4fc8-612x390.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/c9ffb867b717d65d6d494747456cb9e96d64439e-500x268.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/b46aa760a6867ec885ab5a2dd797b980ad35a89e-500x268.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/d7a7e8421a82901cfb1f7db6ea9d601fc840797a-500x268.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/0bd7ed4b556e3d61310dd7de3d3dac5e69d25955-500x268.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/ee7a56cedf7ac1677f681b1d392833b9aa752237-500x268.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/5e8c35e83d27aeda25deddf62c579f4397079eae-500x268.webp",
-							"https://cdn.sanity.io/images/pmowd8uo/production/bd7b86da91b1d96f5e94b8326f0a86be7082e6ec-500x268.webp",
-						].map((src, i) => (
-							<div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String(i % 3)}>
-								<img src={src} alt={`Website design ${i+1}`} loading="lazy" class="w-full h-full object-cover" />
+							'l_mb3yx43I0',
+							'_ZhaWI4MWW0',
+							'HyErVqxxrCE',
+							'WURiMU2zDQ8',
+							'PyqvcGTqLi0',
+							'cHyWpqdeUBU',
+							'0aNRAFgdOls',
+							'rabRf0qWZxE',
+							'umjQnWi94X4',
+						].map((id, i) => (
+							<div class="aspect-video rounded-xl overflow-hidden bg-ink-soft shadow-sm hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String(i % 3 + 1)}>
+								<iframe
+									class="w-full h-full"
+									src={`https://www.youtube.com/embed/${id}`}
+									title={`Video production ${i + 1}`}
+									loading="lazy"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- Podcast Show Productions -->
+				<div class="mb-14">
+					<h3 class="font-serif text-xl font-bold text-ink-soft mb-8" data-animate="fade-up">Podcast Show Productions</h3>
+					<div class="flex flex-col gap-12">
+						{playlistData.map(({ id, title, episodes }, i) => (
+							<div data-animate="fade-up" data-delay={String(i + 1)}>
+								<div class="flex items-center justify-between mb-4">
+									<h4 class="font-serif text-lg font-bold text-ink-soft">{title}</h4>
+									<a href={`https://www.youtube.com/playlist?list=${id}`} target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-red hover:underline shrink-0 ml-4">View Full Playlist →</a>
+								</div>
+								<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+									{episodes.map((ep: any) => (
+										<a href={`https://www.youtube.com/watch?v=${ep.videoId}&list=${id}`} target="_blank" rel="noopener noreferrer" class="group block">
+											<div class="aspect-video rounded-lg overflow-hidden bg-stone-200 mb-2 shadow-sm group-hover:shadow-md transition-shadow">
+												<img src={ep.thumbnail} alt={ep.title} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+											</div>
+											<p class="text-xs text-stone-600 leading-snug line-clamp-2 group-hover:text-red transition-colors">{ep.title}</p>
+										</a>
+									))}
+								</div>
 							</div>
 						))}
 					</div>
