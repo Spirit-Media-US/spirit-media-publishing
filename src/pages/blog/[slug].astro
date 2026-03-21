@@ -55,10 +55,10 @@ function renderPortableText(blocks: any[]): string {
 
 			const style = block.style || 'normal';
 			if (style === 'h2')
-				return `<h2 class="text-2xl font-serif font-bold text-ink-soft mt-8 mb-4">${textContent}</h2>`;
+				return `<h2 class="font-serif text-2xl font-bold text-ink-soft mt-12 mb-4">${textContent}</h2>`;
 			if (style === 'h3')
-				return `<h3 class="text-xl font-serif font-bold text-ink-soft mt-6 mb-3">${textContent}</h3>`;
-			return `<p class="text-stone-600 mb-4 leading-relaxed">${textContent}</p>`;
+				return `<h3 class="font-serif text-xl font-bold text-ink-soft mt-8 mb-3">${textContent}</h3>`;
+			return `<p class="type-body-lg text-stone-700 leading-relaxed mb-4">${textContent}</p>`;
 		})
 		.join('');
 }
