@@ -211,7 +211,7 @@ All work happens on **dev**. Only merge to **main** when ready to publish. Each 
 1. **Switch to dev:** `git checkout dev`
 2. **Preview locally:** `npm run dev` → localhost:4321 — never push without previewing first
 3. **Build before merging:** `npm run build`
-4. **Commit and push:** `git add . && git commit --no-verify -m "message" && git push origin dev`
+4. **Commit and push:** `git add . && git commit -m "message" && git push origin dev`
 5. **Merge to main (Kevin approval only):** `git checkout main && git merge dev && git push origin main && git checkout dev`
 
 ## Deploy Troubleshooting
@@ -251,6 +251,21 @@ UptimeRobot checks every site every 5 minutes and sends email alerts if anything
 - Use meaningful commit messages
 - Kevin approves all merges to main
 - Before pushing any fix, verify it doesn't break something else — check affected pages on mobile and desktop
+
+## Pre-Commit Content Protection — MANDATORY FOR ALL SITES
+
+Structured data, SEO content, and custom components have been lost multiple times when new sessions overwrote prior session work without checking. Before committing any `.astro` file:
+
+1. **Read the current file first.** Never edit a file based on memory of what it contained — always read the live version on disk before making changes.
+2. **Run `git diff HEAD` before every commit** and review every removed line (`-`). If a line containing any of the following was removed and you didn't explicitly intend to remove it — stop and restore it:
+   - `application/ld+json` — JSON-LD structured data
+   - `<iframe` — YouTube embeds or other iframes
+   - `MailtoLink` — email CTA components
+   - `title=` / `description=` — SEO meta fields
+   - `Barbara Kohler` — brand name in SEO or content
+3. **Never replace YouTube `<iframe>` embeds with `<video>` tags.** The `<video>` tag requires a local file; YouTube embeds are always iframes.
+4. **Never overwrite SEO titles/descriptions** during unrelated work (layout fixes, image updates, etc.) — they are separate from visual changes and must be preserved exactly.
+5. **Each session must treat prior session work as sacred.** The fact that you didn't write something in this session does not mean it can be removed. Check git log to understand what exists before overwriting.
 
 ## Git Rules
 
