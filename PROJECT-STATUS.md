@@ -1,5 +1,5 @@
 # Spirit Media Publishing — Project Status & Knowledge Base
-> Last updated: 2026-03-09
+> Last updated: 2026-03-21
 > **Claude: Read this file before making any statements about project state or touching any code.**
 
 ---
@@ -44,7 +44,7 @@
 
 ---
 
-## Sanity Document Counts (as of 2026-03-09)
+## Sanity Document Counts (as of 2026-03-21)
 | Type | Count | Notes |
 |---|---|---|
 | testimonial | 3 | Live on homepage, fetched from Sanity |
@@ -52,8 +52,8 @@
 | pressRelease | 5 | Live on media-center, fetched from Sanity |
 | mediaVideo | 9 | YouTube IDs/titles only, no video files in Sanity |
 | portfolioVideo | 4 | YouTube embed URLs |
-| blogPost | 7 | Fully dynamic via [slug].astro |
-| book | 121 | Fully dynamic on /bookstore |
+| blogPost | 9 | Fully dynamic via [slug].astro |
+| book | 122 | Fully dynamic on /bookstore |
 | siteSettings | 1 | phone, email, socials, siteName, tagline, description |
 
 

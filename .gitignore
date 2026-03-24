@@ -50,3 +50,6 @@ filesystem/
 
 # Sanity studio build artifacts
 .sanity/runtime/
+
+# Backup files
+*.bak
