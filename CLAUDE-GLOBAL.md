@@ -204,6 +204,14 @@ Each site gets a dedicated port so multiple dev servers can run simultaneously:
 | The Kohler Group | 4325 |
 | Portal | 4326 |
 
+## Mandatory Session Start — Every Claude Session
+
+Before touching any file in a repo, always run:
+```bash
+git checkout dev && git pull origin dev
+```
+No exceptions. This prevents overwriting work from other sessions or the auto-save cron.
+
 ## Deployment Workflow
 
 All work happens on **dev**. Only merge to **main** when ready to publish. Each push to main = one Netlify build credit (1,000/month).
@@ -212,7 +220,10 @@ All work happens on **dev**. Only merge to **main** when ready to publish. Each 
 2. **Preview locally:** `npm run dev` → localhost:4321 — never push without previewing first
 3. **Build before merging:** `npm run build`
 4. **Commit and push:** `git add . && git commit -m "message" && git push origin dev`
-5. **Merge to main (Kevin approval only):** `git checkout main && git merge dev && git push origin main && git checkout dev`
+5. **Merge to main:**
+   - **Kevin requesting deploy:** `gh pr create --base main --head dev --title "Deploy: [description]" --body "" && gh pr merge --admin --merge` then back-merge: `git checkout dev && git merge origin/main && git push origin dev`
+   - **Team requesting deploy (Jufrey, Nathan, Justin, etc.):** Run `/home/deploy/bin/request-deploy.sh "description of changes"` — opens PR and texts Kevin automatically. Stop here. Do not merge.
+   - **Direct `git push origin main` is blocked** by Lefthook on all repos
 
 ## Deploy Troubleshooting
 
