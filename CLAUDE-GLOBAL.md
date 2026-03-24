@@ -40,52 +40,117 @@ Example: "SSH into Bethel, push to dev, Kevin approves merge to main."
 - **Linting:** Biome (formatting + linting) + Lefthook v2 (pre-commit hooks)
 - **Community platform:** Mighty Networks ("Spirit Media Network")
 
-## Launching a New Site
+## The SMP Build Protocol
+
+Internal name: **SMP Build Protocol** | Client-facing name: **The Transformation System**
+
+Eight phases with one mandatory Audit Gate. Every site build and migration follows this map — no exceptions.
 
 ### Phase 1 — Infrastructure
 - Create public GitHub repo under Spirit-Media-US
 - Add .gitignore blocking all media types
+- **Create `CLAUDE.md` in repo root** — every repo must have one before any other work begins (see template below)
 - Connect to Netlify (Spirit Media team, `npm run build`, publish dir: `dist`)
+- Create Sanity project
 - Create R2 bucket, enable public URL
 - Add domain to Cloudflare, activate proxy
 
 ### Phase 2 — Structure
 - Initialize Astro + Tailwind locally
-- Create all pages
-- Build global nav and footer
-- Rough in hero and page layouts
+- Create all pages, global nav, and footer skeleton
+- Set typography foundation before writing any CSS
 
-### Phase 3 — Design and Content
+### Phase 3 — Design & Content
 - Add all copy
-- Upload media to R2, wire up URLs in code
+- Upload media to R2 or Sanity
 - Add SEO meta per page (title + description)
 - Refine design and UX
 
-### Phase 4 — Pre-Launch QA
-- Test all links and navigation
-- Test forms → confirm submission reaches GoHighLevel
-- Mobile + tablet responsive check
-- Lighthouse performance test (target ~90+)
-- Confirm sitemap.xml and robots.txt load
-- Verify analytics firing
+### Phase 4 — Sanity CMS Wiring
+- Define schemas
+- Migrate all hardcoded content into Sanity documents
+- Wire Astro pages to Sanity
+- Deploy schema to cloud
+- Set up Sanity → Netlify deploy webhook
+
+---
+### AUDIT GATE — runs here, every time, no exceptions
+
+**Scan A — Live Site Comparison**
+Fetch each page from the original live site. Compare structure, nav, headings, CTAs to our build. Catches missed content, wrong structure, migration gaps. Runs while original site is still live.
+
+**Scan B — Code Hygiene**
+Grep all Astro pages for hardcoded values: `style=`, `#hex`, `bg-[#`, `text-[#`, `font-[`. Catches design token violations and inline styles.
+
+**Scan C — Design Integrity**
+Grep all pages for hardcoded hex values, inline styles, and font overrides that violate the design system.
+
+**Output:** Google Doc — "[Site Name] — Transformation Layer Report" with Part One (Already Delivered) and Part Two (Recommended Improvements). Delivered to Kevin before Phase 5.
+
+---
+
+### Phase 5 — CAR / Transformation Layer
+- Review Scan A + B + C output
+- Fix all critical issues (CF list)
+- Generate Transformation Layer Report (Google Doc)
+- Kevin + client approve recommended improvements (RI list)
+
+### Phase 6 — Design Polish & QA
+- Implement approved RIs
+- Mobile + desktop visual review
+- Lighthouse, broken links, form testing
 - Cross-browser test: Safari, Chrome, Firefox
-- Check OG image / title / description
-- Verify favicon loads
 - No console errors
 
-### Phase 5 — Launch
+### Phase 7 — Launch
 - Connect custom domain in Netlify
-- Confirm SSL (www and apex) in Cloudflare
-- Ensure Cloudflare proxy is orange (Proxied) on all DNS records pointing to Netlify
+- Confirm SSL (www and apex) in Cloudflare — proxy orange on all DNS records
 - Submit sitemap to Google Search Console
 - Set up UptimeRobot monitoring
-- Enable analytics (Fathom or Plausible)
-- Set up Sanity → Netlify deploy webhook (Build Hooks in Netlify + Webhook in Sanity manage dashboard)
+- Enable analytics (GA4)
+- Set up Sanity → Netlify deploy webhook
 - Send client the Client Guide (portal.spiritmediapublishing.com/clients)
-- Invite client as member in their Sanity Studio dashboard (the invite email includes their Studio link)
+- Invite client as member in their Sanity Studio dashboard
 
-### Phase 6 — Client Delivery
+### Phase 8 — Client Delivery
 Send client email with: live URL, Sanity Studio link, Client Guide link, and support contact.
+
+### Per-Site CLAUDE.md — Required Template
+
+Every repo must have a `CLAUDE.md` in its root. Use this as the starting template:
+
+```markdown
+# [Site Name]
+
+> **CLAUDE.md belongs in version control — NEVER add it to .gitignore. This file is the shared source of truth for all developers and all Claude Code sessions.**
+
+This site: [Site Name] | Repo: github.com/Spirit-Media-US/[repo] | Domain: [domain] | Sanity ID: [id]
+
+## Dev Commands
+
+- `npm run dev` — local preview at localhost:[port]
+- `npm run build` — production build to dist/
+
+## Stack
+
+- Astro 5 + Tailwind CSS v4
+- Sanity Studio at [site].sanity.studio
+- [Other integrations: GHL, R2, analytics, etc.]
+
+## Status — as of [DATE]
+
+### Completed & Live on Main
+- [List completed features]
+
+### Still Pending
+- [List open items]
+
+## Rules
+
+- All work goes to the **dev** branch — never push directly to main
+- Only merge dev to main when Kevin says "push to main"
+- Never push without local preview first
+```
 
 ## Media Rules
 
