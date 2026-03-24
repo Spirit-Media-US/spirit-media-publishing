@@ -40,80 +40,23 @@ Example: "SSH into Bethel, push to dev, Kevin approves merge to main."
 - **Linting:** Biome (formatting + linting) + Lefthook v2 (pre-commit hooks)
 - **Community platform:** Mighty Networks ("Spirit Media Network")
 
-## The SMP Build Protocol
+## Pipelines
 
-Internal name: **SMP Build Protocol** | Client-facing name: **The Transformation System**
+SMP runs automated pipelines for client work. Each pipeline is fully self-contained — its complete spec lives in its own CLAUDE.md. This file is a routing index only.
 
-Eight phases with one mandatory Audit Gate. Every site build and migration follows this map — no exceptions.
+**Backend:** Python Flask server at `/home/deploy/bin/tools-api/` (port 4327, runs 24/7 on Bethel)
+**Portal UI:** `portal.spiritmediapublishing.com/pipelines`
+**How to add a pipeline:** See `/home/deploy/bin/tools-api/CLAUDE.md`
 
-### Phase 1 — Infrastructure
-- Create public GitHub repo under Spirit-Media-US
-- Add .gitignore blocking all media types
-- **Create `CLAUDE.md` in repo root** — every repo must have one before any other work begins (see template below)
-- Connect to Netlify (Spirit Media team, `npm run build`, publish dir: `dist`)
-- Create Sanity project
-- Create R2 bucket, enable public URL
-- Add domain to Cloudflare, activate proxy
+### Pipeline Index
 
-### Phase 2 — Structure
-- Initialize Astro + Tailwind locally
-- Create all pages, global nav, and footer skeleton
-- Set typography foundation before writing any CSS
+| Pipeline | Location | What It Does |
+|----------|----------|--------------|
+| **Website Migration** | `/home/deploy/bin/tools-api/pipelines/migration/` | Full site build/migration — 8 phases (The Transformation System) |
+| **Manuscript Review** | `/home/deploy/bin/tools-api/pipelines/manuscript/` | AI-powered book/content review → Google Doc |
+| **SMP Blog** | `/home/deploy/bin/tools-api/pipelines/blog/` | Parse + publish blog posts to Sanity CMS |
 
-### Phase 3 — Design & Content
-- Add all copy
-- Upload media to R2 or Sanity
-- Add SEO meta per page (title + description)
-- Refine design and UX
-
-### Phase 4 — Sanity CMS Wiring
-- Define schemas
-- Migrate all hardcoded content into Sanity documents
-- Wire Astro pages to Sanity
-- Deploy schema to cloud
-- Set up Sanity → Netlify deploy webhook
-
----
-### AUDIT GATE — runs here, every time, no exceptions
-
-**Scan A — Live Site Comparison**
-Fetch each page from the original live site. Compare structure, nav, headings, CTAs to our build. Catches missed content, wrong structure, migration gaps. Runs while original site is still live.
-
-**Scan B — Code Hygiene**
-Grep all Astro pages for hardcoded values: `style=`, `#hex`, `bg-[#`, `text-[#`, `font-[`. Catches design token violations and inline styles.
-
-**Scan C — Design Integrity**
-Grep all pages for hardcoded hex values, inline styles, and font overrides that violate the design system.
-
-**Output:** Google Doc — "[Site Name] — Transformation Layer Report" with Part One (Already Delivered) and Part Two (Recommended Improvements). Delivered to Kevin before Phase 5.
-
----
-
-### Phase 5 — CAR / Transformation Layer
-- Review Scan A + B + C output
-- Fix all critical issues (CF list)
-- Generate Transformation Layer Report (Google Doc)
-- Kevin + client approve recommended improvements (RI list)
-
-### Phase 6 — Design Polish & QA
-- Implement approved RIs
-- Mobile + desktop visual review
-- Lighthouse, broken links, form testing
-- Cross-browser test: Safari, Chrome, Firefox
-- No console errors
-
-### Phase 7 — Launch
-- Connect custom domain in Netlify
-- Confirm SSL (www and apex) in Cloudflare — proxy orange on all DNS records
-- Submit sitemap to Google Search Console
-- Set up UptimeRobot monitoring
-- Enable analytics (GA4)
-- Set up Sanity → Netlify deploy webhook
-- Send client the Client Guide (portal.spiritmediapublishing.com/clients)
-- Invite client as member in their Sanity Studio dashboard
-
-### Phase 8 — Client Delivery
-Send client email with: live URL, Sanity Studio link, Client Guide link, and support contact.
+When Kevin mentions a pipeline by name, navigate to its folder and read its CLAUDE.md — that is the complete spec.
 
 ### Per-Site CLAUDE.md — Required Template
 
@@ -262,12 +205,16 @@ Each site gets a dedicated port so multiple dev servers can run simultaneously:
 
 | Site | Port |
 |------|------|
-| SMP | 4321 (default) |
+| SMP | 4321 |
 | artsbyjustin | 4322 |
 | FHB | 4323 |
 | WOY | 4324 |
 | The Kohler Group | 4325 |
 | Portal | 4326 |
+| Flask tools-api (Bethel) | 4327 — reserved, do not assign to dev servers |
+| clowning-from-the-heart | 4328 |
+| scripture-alive | 4329 |
+| 10-billion-travelers | 4330 |
 
 ## Mandatory Session Start — Every Claude Session
 
