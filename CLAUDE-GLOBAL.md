@@ -45,6 +45,7 @@ Example: "SSH into Bethel, push to dev, Kevin approves merge to main."
 SMP runs automated pipelines for client work. Each pipeline is fully self-contained — its complete spec lives in its own CLAUDE.md. This file is a routing index only.
 
 **Backend:** Python Flask server at `/home/deploy/bin/tools-api/` (port 4327, runs 24/7 on Bethel)
+**Repo:** `github.com/Spirit-Media-US/tools-api` (private) — all pipeline code is version-controlled here
 **Portal UI:** `portal.spiritmediapublishing.com/pipelines`
 **How to add a pipeline:** See `/home/deploy/bin/tools-api/CLAUDE.md`
 
@@ -314,6 +315,12 @@ Structured data, SEO content, and custom components have been lost multiple time
 | The Kohler Group | `the-kohler-group/` | Spirit-Media-US/the-kohler-group | thekohlergroup.net | 4.x (upgrading) |
 | Arts by Justin | `artsbyjustin/` | Spirit-Media-US/artsbyjustin | artsbyjustin.com | 5.x |
 | Portal | `portal-bw/` | Spirit-Media-US/spirit-media-portal | portal.spiritmediapublishing.com | 4.x (upgrading) |
+
+## Active Services
+
+| Service | Directory | Repo | Purpose |
+|---------|-----------|------|---------|
+| Tools API | `bin/tools-api/` | Spirit-Media-US/tools-api (private) | Flask pipeline server — migration, manuscript, blog |
 
 ## Sanity Project IDs
 
