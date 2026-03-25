@@ -234,7 +234,10 @@ All work happens on **dev**. Only merge to **main** when ready to publish. Each 
 3. **Build before merging:** `npm run build`
 4. **Commit and push:** `git add . && git commit -m "message" && git push origin dev`
 5. **Merge to main:**
-   - **Kevin requesting deploy:** `gh pr create --base main --head dev --title "Deploy: [description]" --body "" && gh pr merge --admin --merge` then back-merge: `git checkout dev && git merge origin/main && git push origin dev`
+   - **Kevin requesting deploy:** Use direct API merge — no PR, no notification email:
+     ```bash
+     source /home/deploy/.secrets && gh api /repos/Spirit-Media-US/[repo]/merges -X POST -f base=main -f head=dev -f commit_message="Deploy: [description]" && git checkout dev && git merge origin/main && git push origin dev
+     ```
    - **Team requesting deploy (Jufrey, Nathan, Justin, etc.):** Run `/home/deploy/bin/request-deploy.sh "description of changes"` — opens PR and texts Kevin automatically. Stop here. Do not merge.
    - **Direct `git push origin main` is blocked** by Lefthook on all repos
 
