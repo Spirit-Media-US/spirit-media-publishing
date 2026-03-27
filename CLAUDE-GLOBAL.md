@@ -44,7 +44,7 @@ Example: "SSH into Bethel, push to dev, Kevin approves merge to main."
 
 SMP runs automated pipelines for client work. Each pipeline is fully self-contained — its complete spec lives in its own CLAUDE.md. This file is a routing index only.
 
-**Backend:** Python Flask server at `/home/deploy/bin/tools-api/` (port 4327, runs 24/7 on Bethel)
+**Backend:** Python stdlib HTTP server at `/home/deploy/bin/tools-api/` (port 4327, runs 24/7 on Bethel) — NO Flask, no frameworks
 **Repo:** `github.com/Spirit-Media-US/tools-api` (private) — all pipeline code is version-controlled here
 **Portal UI:** `portal.spiritmediapublishing.com/pipelines`
 **How to add a pipeline:** See `/home/deploy/bin/tools-api/CLAUDE.md`
@@ -212,7 +212,7 @@ Each site gets a dedicated port so multiple dev servers can run simultaneously:
 | WOY | 4324 |
 | The Kohler Group | 4325 |
 | Portal | 4326 |
-| Flask tools-api (Bethel) | 4327 — reserved, do not assign to dev servers |
+| Tools API (Bethel) | 4327 — reserved, do not assign to dev servers |
 | clowning-from-the-heart | 4328 |
 | scripture-alive | 4329 |
 | 10-billion-travelers | 4330 |
@@ -323,7 +323,7 @@ Structured data, SEO content, and custom components have been lost multiple time
 
 | Service | Directory | Repo | Purpose |
 |---------|-----------|------|---------|
-| Tools API | `bin/tools-api/` | Spirit-Media-US/tools-api (private) | Flask pipeline server — migration, manuscript, blog |
+| Tools API | `bin/tools-api/` | Spirit-Media-US/tools-api (private) | Stdlib HTTP pipeline server — migration, manuscript, blog |
 
 ## Sanity Project IDs
 
