@@ -1,4 +1,5 @@
 ---
+import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
@@ -228,7 +229,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 							<span class="eyebrow">The Believer's Library</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">The world's largest cloud-based Christian library.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Our exclusive mobile app delivering PDF downloads to 3.3 billion souls worldwide with limited access to Jesus.</p>
-							<a href="http://thebelieverslibrary.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors">Visit thebelieverslibrary.com →</a>
+							<a href="https://thebelieverslibrary.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors">Visit thebelieverslibrary.com →</a>
 						</div>
 					</div>
 				</div>
@@ -270,9 +271,9 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						<p class="text-stone-500 italic mb-8">
 							This will affirm God's good work in and through you.
 						</p>
-						<a href="mailto:publisher@spiritmedia.us" class="btn btn-primary">
+						<MailtoLink email="publisher@spiritmedia.us" class="btn btn-primary">
 							Email your Manuscript →
-						</a>
+						</MailtoLink>
 					</div>
 				</div>
 			</div>
