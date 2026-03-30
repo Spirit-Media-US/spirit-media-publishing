@@ -53,3 +53,4 @@ filesystem/
 
 # Backup files
 *.bak
+.mcp.json

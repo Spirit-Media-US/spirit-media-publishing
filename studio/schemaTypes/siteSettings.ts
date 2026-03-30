@@ -64,6 +64,40 @@ export default {
 			description: 'Descriptive text for default hero image',
 		},
 		{
+			name: 'homepageHeroImage',
+			title: 'Homepage Hero Image (book collage)',
+			type: 'image',
+			options: { hotspot: true },
+			description: 'Featured image on homepage',
+		},
+		{
+			name: 'homepageHeroImageAlt',
+			title: 'Homepage Hero Image Alt Text',
+			type: 'string',
+		},
+		{
+			name: 'publishingHeroImage',
+			title: 'Publishing Page Hero Image',
+			type: 'image',
+			options: { hotspot: true },
+		},
+		{
+			name: 'publishingHeroImageAlt',
+			title: 'Publishing Hero Image Alt Text',
+			type: 'string',
+		},
+		{
+			name: 'marketingHeroImage',
+			title: 'Marketing Page Hero Image',
+			type: 'image',
+			options: { hotspot: true },
+		},
+		{
+			name: 'marketingHeroImageAlt',
+			title: 'Marketing Hero Image Alt Text',
+			type: 'string',
+		},
+		{
 			name: 'ogImage',
 			title: 'OG Image (for social sharing)',
 			type: 'image',

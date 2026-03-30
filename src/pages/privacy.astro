@@ -1,4 +1,5 @@
 ---
+import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
 
 const lastUpdated = 'February 28, 2026';
@@ -100,9 +101,9 @@ const lastUpdated = 'February 28, 2026';
             Depending on your location, you may have rights to access, correct, delete, or restrict
             the processing of your personal data. To exercise any of these rights, please contact
             us at{' '}
-            <a href="mailto:info@spiritmedia.us" class="text-red hover:underline">
+            <MailtoLink email="info@spiritmedia.us" class="text-red hover:underline">
               info@spiritmedia.us
-            </a>.
+            </MailtoLink>.
           </p>
         </section>
 
@@ -118,9 +119,9 @@ const lastUpdated = 'February 28, 2026';
           <h2 class="text-lg font-semibold text-ink-soft">9. Contact</h2>
           <p class="mt-3">
             If you have questions or concerns about this privacy policy, please email us at{' '}
-            <a href="mailto:info@spiritmedia.us" class="text-red hover:underline">
+            <MailtoLink email="info@spiritmedia.us" class="text-red hover:underline">
               info@spiritmedia.us
-            </a>.
+            </MailtoLink>.
           </p>
         </section>
       </div>

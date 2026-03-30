@@ -62,11 +62,8 @@ This plan has three parts:
    ```
    Loaded via `source ~/.secrets` in `~/.bashrc`
 
-   **Per-developer secrets** (e.g. `ANTHROPIC_API_KEY`) are NOT stored in `~/.secrets`.
-   Each developer gets their own Linux user account with their own secrets file:
-   - **Phase 1 (SSH approach):** Each dev has `~/.secrets.{name}` (e.g. `~/.secrets.nathan`, chmod 600) sourced in their shell profile before running `claude`
-   - **Phase 2 (if containers adopted later):** Pass via `--env-file` or docker-compose `environment:` at container launch
-   - **Claude Max:** Key is managed by the service — no local key needed
+   **Claude Code authenticates via OAuth** (Claude Team subscription) — no API key needed.
+   Developers run `claude` and follow the login prompt. All automation scripts use the Agent SDK which inherits OAuth credentials.
 
    This keeps org secrets shared and developer keys isolated. See Part 2G for the full architecture decision.
 
@@ -147,7 +144,7 @@ This plan has three parts:
 | 5 | Global tooling | `npm i -g @biomejs/biome lefthook @anthropic-ai/claude-code` |
 | 6 | Per-repo lefthook + biome configs | Ensure each repo has `lefthook.yml` and `biome.json` (use standard template) |
 | 7 | Org secrets file | Create `/home/deploy/.secrets` (chmod 640, group `deploy`), source in each user's `.bashrc` |
-| 8 | Per-developer secrets | Create `~/.secrets.{name}` per user (chmod 600) for `ANTHROPIC_API_KEY` etc. |
+| 8 | Claude Code auth | Each dev runs `claude` and authenticates via OAuth (Team subscription) — no API key needed |
 | 9 | System CLAUDE.md | Create `/home/deploy/CLAUDE.md` with global dev rules |
 | 10 | Claude Code MCP servers | Configure in `/home/deploy/.claude/settings.json` |
 | 11 | Per-site .env files | Create `.env` for each of the 5 existing sites |
@@ -195,7 +192,7 @@ All API tokens come from env vars (sourced from `~/.secrets`) — never hardcode
 1. Get Tailscale VPN access (Kevin approves in Tailscale admin)
 2. Kevin creates a Linux user account on the VPS (see Part 2C, step 2)
 3. SSH into the VPS: `ssh {username}@100.114.220.65` (or via `Host dev` shortcut)
-4. Set personal `ANTHROPIC_API_KEY` in `~/.secrets.{name}` (chmod 600), or use Claude Max (see Part 2A)
+4. Run `claude` and authenticate via OAuth (Claude Team subscription — no API key needed)
 5. Run `claude` from any site directory — system config + MCP servers are already there
 
 **Team structure:**

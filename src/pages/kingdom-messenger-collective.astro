@@ -1,4 +1,5 @@
 ---
+import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -218,7 +219,7 @@ import Layout from '../layouts/Layout.astro';
 							))}
 						</div>
 						<p class="text-white font-semibold mb-4" data-animate="fade-up" data-delay="3">Request a discovery interview:</p>
-						<a href="mailto:kevin@spiritmediapublishing.com" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="4">Email Kevin →</a>
+						<MailtoLink email="kevin@spiritmediapublishing.com" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="4">Email Kevin →</MailtoLink>
 					</div>
 				</div>
 			</div>

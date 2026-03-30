@@ -36,56 +36,54 @@ Example: "SSH into Bethel, push to dev, Kevin approves merge to main."
 
 - **Astro version:** Migrating to Astro 5 + Tailwind CSS v4
 - **Tailwind v4 pattern:** `@tailwindcss/vite` plugin in astro.config.mjs, `@theme` block in CSS (no tailwind.config.mjs)
-- **Build:** `npm run build` → runs `astro check && astro build` → publish directory: `dist`
+- **Build:** `npm run build` runs `astro check && astro build` — publish directory: `dist`
 - **Linting:** Biome (formatting + linting) + Lefthook v2 (pre-commit hooks)
 - **Community platform:** Mighty Networks ("Spirit Media Network")
 
-## Launching a New Site
+## Pipelines
 
-### Phase 1 — Infrastructure
-- Create public GitHub repo under Spirit-Media-US
-- Add .gitignore blocking all media types
-- Connect to Netlify (Spirit Media team, `npm run build`, publish dir: `dist`)
-- Create R2 bucket, enable public URL
-- Add domain to Cloudflare, activate proxy
+SMP runs automated pipelines for client work. Each pipeline is fully self-contained — its complete spec lives in its own CLAUDE.md. This file is a routing index only.
 
-### Phase 2 — Structure
-- Initialize Astro + Tailwind locally
-- Create all pages
-- Build global nav and footer
-- Rough in hero and page layouts
+**Backend:** Python stdlib HTTP server at `/home/deploy/bin/tools-api/` (port 4327, runs 24/7 on Bethel) — NO Flask, no frameworks
+**Repo:** `github.com/Spirit-Media-US/tools-api` (private) — all pipeline code is version-controlled here
+**Portal UI:** `portal.spiritmediapublishing.com/pipelines`
+**How to add a pipeline:** See `/home/deploy/bin/tools-api/CLAUDE.md`
 
-### Phase 3 — Design and Content
-- Add all copy
-- Upload media to R2, wire up URLs in code
-- Add SEO meta per page (title + description)
-- Refine design and UX
+### Pipeline Index
 
-### Phase 4 — Pre-Launch QA
-- Test all links and navigation
-- Test forms → confirm submission reaches GoHighLevel
-- Mobile + tablet responsive check
-- Lighthouse performance test (target ~90+)
-- Confirm sitemap.xml and robots.txt load
-- Verify analytics firing
-- Cross-browser test: Safari, Chrome, Firefox
-- Check OG image / title / description
-- Verify favicon loads
-- No console errors
+| Pipeline | Location | What It Does |
+|----------|----------|--------------|
+| **Website Migration** | `/home/deploy/bin/tools-api/pipelines/migration/` | Full site build/migration — 8 phases (The Transformation System) |
+| **Manuscript Review** | `/home/deploy/bin/tools-api/pipelines/manuscript/` | AI-powered book/content review → Google Doc |
+| **SMP Blog** | `/home/deploy/bin/tools-api/pipelines/blog/` | Parse + publish blog posts to Sanity CMS |
 
-### Phase 5 — Launch
-- Connect custom domain in Netlify
-- Confirm SSL (www and apex) in Cloudflare
-- Ensure Cloudflare proxy is orange (Proxied) on all DNS records pointing to Netlify
-- Submit sitemap to Google Search Console
-- Set up UptimeRobot monitoring
-- Enable analytics (Fathom or Plausible)
-- Set up Sanity → Netlify deploy webhook (Build Hooks in Netlify + Webhook in Sanity manage dashboard)
-- Send client the Client Guide (portal.spiritmediapublishing.com/clients)
-- Invite client as member in their Sanity Studio dashboard (the invite email includes their Studio link)
+When Kevin mentions a pipeline by name, navigate to its folder and read its CLAUDE.md — that is the complete spec.
 
-### Phase 6 — Client Delivery
-Send client email with: live URL, Sanity Studio link, Client Guide link, and support contact.
+### Per-Site CLAUDE.md — Required Template
+
+Every repo must have a CLAUDE.md in its root. Use this as the starting template:
+
+```
+# [Site Name]
+
+This site: [Site Name] | Repo: github.com/Spirit-Media-US/[repo] | Domain: [domain] | Sanity ID: [id]
+
+## Dev Commands
+- npm run dev — local preview
+- npm run build — production build to dist/
+
+## Stack
+- Astro 5 + Tailwind CSS v4
+- Sanity Studio at [site].sanity.studio
+
+## Status — as of [DATE]
+### Completed & Live on Main
+### Still Pending
+
+## Rules
+- All work goes to the dev branch — never push directly to main
+- Only merge dev to main when Kevin says "push to main"
+```
 
 ## Media Rules
 
@@ -93,12 +91,12 @@ Send client email with: live URL, Sanity Studio link, Client Guide link, and sup
 
 - **Images:** Managed through Sanity — clients upload directly in Sanity Studio. Auto-optimized and served via Sanity CDN. No SMP involvement needed.
 - **Audio:** Stored in Cloudflare R2 — Kevin uploads manually.
-- **Video:** Hosted on YouTube and embedded on site (adds SEO value). R2 as backup when YouTube isn't appropriate.
+- **Video:** Hosted on YouTube and embedded on site (adds SEO value). R2 as backup when YouTube is not appropriate.
 - **Never rename or delete a live R2 file** — it will break every page that references it. Sanity handles its own references safely.
 
 ### R2 Bucket & Custom Domain
 
-One bucket organized by site, served from a clean subdomain: **assets.spiritmediapublishing.com**
+One bucket organized by site, served from: **assets.spiritmediapublishing.com**
 
 ```
 spirit-media-assets/
@@ -108,7 +106,7 @@ spirit-media-assets/
 └── believers-library/        (videos)
 ```
 
-Shared assets (logos used across sites) go in `spirit-media-publishing/`. Name files **lowercase with hyphens:** `genesis-chapter-1-audio.mp3`
+Shared assets go in `spirit-media-publishing/`. Name files lowercase with hyphens: `genesis-chapter-1-audio.mp3`
 
 ### How to Add Media to R2
 
@@ -135,20 +133,7 @@ For Spirit Media internal sites, contact forms route to GHL CRM, tagged by site.
 | Kingdom Messenger signup | source:kingdom-messenger | Newsletter |
 | Prayer request forms | source:prayer | Pastoral Care |
 
-### Embedding a GHL Form in Astro
-
-```html
-<!-- In your .astro file -->
-<div class="ghl-form-wrapper">
-  <!-- Paste GHL embed code here -->
-</div>
-```
-
-Request embed codes from Kevin. He creates forms in GHL with proper tags and pipelines.
-
 ## Integrations & MCP Servers
-
-Five MCP integrations are configured on the dev server:
 
 | Integration | Type | Purpose |
 |-------------|------|---------|
@@ -170,8 +155,6 @@ Five MCP integrations are configured on the dev server:
 
 ### VPS User Accounts
 
-All developers have **individual SSH accounts** but share **one universal Claude Code account** (authenticated via Kevin's Claude Team OAuth). No individual ANTHROPIC_API_KEY needed.
-
 | User | Role | Home Directory |
 |------|------|----------------|
 | kevin | Owner / final approval | /home/kevin |
@@ -184,30 +167,32 @@ All developers have **individual SSH accounts** but share **one universal Claude
 ### VPS Secrets & Config
 
 - **Secrets file:** `/home/deploy/.secrets` (chmod 600, sourced by .bashrc)
-- **Tokens stored:** SANITY_API_TOKEN, NETLIFY_PERSONAL_ACCESS_TOKEN, CLOUDFLARE_API_TOKEN, GHL_API_TOKEN, GHL_AGENCY_TOKEN, ANTHROPIC_API_KEY
+- **Tokens stored:** SANITY_API_TOKEN, NETLIFY_PERSONAL_ACCESS_TOKEN, CLOUDFLARE_API_TOKEN, GHL_API_TOKEN, GHL_AGENCY_TOKEN (Claude Code uses OAuth — no API key stored)
 - **Env files:** Keep .env files in `/home/deploy/bin/`
 - **Global CLAUDE.md:** `/home/deploy/CLAUDE.md` — system-wide dev rules
-- **MCP config:** `/home/deploy/.claude/settings.json` (also symlinked/copied to user accounts)
+- **MCP config:** `/home/deploy/.claude/settings.json`
 - **Onboarding doc:** `/home/deploy/ONBOARDING.md`
 - **Sites directory:** `/home/deploy/Sites/` (all repos cloned)
 
 ### VPS Port Allocation
 
-Each site gets a dedicated port so multiple dev servers can run simultaneously:
-
 | Site | Port |
 |------|------|
-| SMP | 4321 (default) |
+| SMP | 4321 |
 | artsbyjustin | 4322 |
 | FHB | 4323 |
 | WOY | 4324 |
 | The Kohler Group | 4325 |
 | Portal | 4326 |
+| Tools API (Bethel) | 4327 — reserved, do not assign to dev servers |
+| clowning-from-the-heart | 4328 |
+| scripture-alive | 4329 |
+| 10-billion-travelers | 4330 |
 
 ## Mandatory Session Start — Every Claude Session
 
 Before touching any file in a repo, always run:
-```bash
+```
 git checkout dev && git pull origin dev
 ```
 No exceptions. This prevents overwriting work from other sessions or the auto-save cron.
@@ -217,17 +202,18 @@ No exceptions. This prevents overwriting work from other sessions or the auto-sa
 All work happens on **dev**. Only merge to **main** when ready to publish. Each push to main = one Netlify build credit (1,000/month).
 
 1. **Switch to dev:** `git checkout dev`
-2. **Preview locally:** `npm run dev` → localhost:4321 — never push without previewing first
+2. **Preview locally:** `npm run dev` — never push without previewing first
 3. **Build before merging:** `npm run build`
 4. **Commit and push:** `git add . && git commit -m "message" && git push origin dev`
 5. **Merge to main:**
-   - **Kevin requesting deploy:** `gh pr create --base main --head dev --title "Deploy: [description]" --body "" && gh pr merge --admin --merge` then back-merge: `git checkout dev && git merge origin/main && git push origin dev`
-   - **Team requesting deploy (Jufrey, Nathan, Justin, etc.):** Run `/home/deploy/bin/request-deploy.sh "description of changes"` — opens PR and texts Kevin automatically. Stop here. Do not merge.
+   - **Kevin requesting deploy:** Use direct API merge — no PR, no notification email:
+     ```
+     source /home/deploy/.secrets && gh api /repos/Spirit-Media-US/[repo]/merges -X POST -f base=main -f head=dev -f commit_message="Deploy: [description]" && git checkout dev && git merge origin/main && git push origin dev
+     ```
+   - **Team requesting deploy:** Run `/home/deploy/bin/request-deploy.sh "description of changes"` — opens PR and texts Kevin automatically. Stop here. Do not merge.
    - **Direct `git push origin main` is blocked** by Lefthook on all repos
 
 ## Deploy Troubleshooting
-
-When a Netlify build fails, check: app.netlify.com → Deploys → failed deploy → Deploy log. **Scroll to the bottom first** — the final error message is usually the root cause.
 
 | Error | Cause | Fix |
 |-------|-------|-----|
@@ -237,17 +223,11 @@ When a Netlify build fails, check: app.netlify.com → Deploys → failed deploy
 | 404 after deploy | Publish dir wrong or page not generated | Confirm publish dir is `dist` in Netlify settings |
 | DNS_PROBE_FINISHED | Cloudflare DNS misconfigured | Verify CNAME points to Netlify and proxy is orange |
 
-## If Something Goes Wrong
-
-- **Site looks broken after your push** — Tell Kevin immediately with a description of what you changed.
-- **Merge conflict** — Don't force push. Stop and message Kevin immediately.
-- **Netlify build failed** — Check the Netlify dashboard and share the error log with Kevin.
-
 ## Uptime Monitoring
 
-UptimeRobot checks every site every 5 minutes and sends email alerts if anything goes down. Every SMP site must be added to UptimeRobot after launch.
+UptimeRobot checks every site every 5 minutes. Every SMP site must be added after launch.
 
-**If you receive a downtime alert:** Do not push a new build. First check if the issue resolves on its own within 2 minutes (Netlify occasionally has brief outages). If it persists, check the Netlify dashboard and notify Kevin.
+**If you receive a downtime alert:** Do not push a new build. Wait 2 minutes first. If it persists, check Netlify and notify Kevin.
 
 ## Best Practices
 
@@ -261,22 +241,21 @@ UptimeRobot checks every site every 5 minutes and sends email alerts if anything
 - Keep .env files in `/home/deploy/bin/`
 - Use meaningful commit messages
 - Kevin approves all merges to main
-- Before pushing any fix, verify it doesn't break something else — check affected pages on mobile and desktop
 
 ## Pre-Commit Content Protection — MANDATORY FOR ALL SITES
 
-Structured data, SEO content, and custom components have been lost multiple times when new sessions overwrote prior session work without checking. Before committing any `.astro` file:
+Before committing any .astro file:
 
-1. **Read the current file first.** Never edit a file based on memory of what it contained — always read the live version on disk before making changes.
-2. **Run `git diff HEAD` before every commit** and review every removed line (`-`). If a line containing any of the following was removed and you didn't explicitly intend to remove it — stop and restore it:
+1. **Read the current file first.** Never edit based on memory — always read the live version.
+2. **Run `git diff HEAD` before every commit** and review every removed line. If any of these were removed unintentionally, restore them:
    - `application/ld+json` — JSON-LD structured data
    - `<iframe` — YouTube embeds or other iframes
    - `MailtoLink` — email CTA components
    - `title=` / `description=` — SEO meta fields
    - `Barbara Kohler` — brand name in SEO or content
-3. **Never replace YouTube `<iframe>` embeds with `<video>` tags.** The `<video>` tag requires a local file; YouTube embeds are always iframes.
-4. **Never overwrite SEO titles/descriptions** during unrelated work (layout fixes, image updates, etc.) — they are separate from visual changes and must be preserved exactly.
-5. **Each session must treat prior session work as sacred.** The fact that you didn't write something in this session does not mean it can be removed. Check git log to understand what exists before overwriting.
+3. **Never replace YouTube `<iframe>` embeds with `<video>` tags.**
+4. **Never overwrite SEO titles/descriptions** during unrelated work.
+5. **Each session must treat prior session work as sacred.**
 
 ## Git Rules
 
@@ -303,6 +282,12 @@ Structured data, SEO content, and custom components have been lost multiple time
 | Arts by Justin | `artsbyjustin/` | Spirit-Media-US/artsbyjustin | artsbyjustin.com | 5.x |
 | Portal | `portal-bw/` | Spirit-Media-US/spirit-media-portal | portal.spiritmediapublishing.com | 4.x (upgrading) |
 
+## Active Services
+
+| Service | Directory | Repo | Purpose |
+|---------|-----------|------|---------|
+| Tools API | `bin/tools-api/` | Spirit-Media-US/tools-api (private) | Stdlib HTTP pipeline server — migration, manuscript, blog |
+
 ## Sanity Project IDs
 
 | Site | Sanity ID |
@@ -320,22 +305,18 @@ Structured data, SEO content, and custom components have been lost multiple time
 - **Multiple parallel sessions:** Open multiple SSH tabs to bethel, run `claude` in each, one site per tab
 - **Start each bethel session with:** `cd ~/Sites/<repo-name>` then `claude` — it reads CLAUDE.md automatically
 - **End each session:** Ask Claude to "update CLAUDE.md status section with what we did"
-- **Per-site CLAUDE.md** files travel with the repo via git — `git pull` syncs context across all machines
 
 ## Team & Contact Routing
 
-| Problem | Contact |
-|---------|---------|
-| Build failures, Git conflicts, server access | Kevin |
-| Content updates, copy changes | Kevin |
-| Design decisions, domain/DNS, Netlify, merge approvals | Kevin |
-| GHL forms, CRM, marketing automation | Kevin |
-| Client requests | Kevin |
+- Build failures, Git conflicts, server access → Kevin
+- Content updates, copy changes → Kevin
+- Design decisions, domain/DNS, Netlify, merge approvals → Kevin
+- GHL forms, CRM, marketing automation → Kevin
+- Client requests → Kevin
 
 ### Team Roles
 
 - **Kevin White** — Owner, final approval, content, Netlify/domains
-- **Nathan** — Technical lead, Git conflicts, team onboarding, VPS admin
 - **Shelly White (COO)** — Content updates
 - **Justin Keishing** — Artist (Arts by Justin site)
 - **Jim Matuga, Sheila Hoffman, Adam Gross** — Submit requests to Kevin
@@ -348,35 +329,22 @@ Structured data, SEO content, and custom components have been lost multiple time
 
 ## Credentials & Secrets
 
-All sensitive credentials stored in **Bitwarden Vault**. Ask a team lead for access. **Never commit tokens or secrets to Git.**
+All sensitive credentials stored in **Bitwarden Vault**. Never commit tokens or secrets to Git.
 
 ## Developer Quick Start Checklist
 
 1. Request Tailscale VPN access
 2. Ask for Bitwarden vault invitation
-3. Add SSH config to `~/.ssh/config`:
-   ```
-   Host bethel
-     HostName 100.114.220.65
-     User deploy
-     IdentityFile ~/.ssh/id_ed25519
-   ```
+3. Add SSH config to `~/.ssh/config` with Host bethel, HostName 100.114.220.65, User deploy
 4. SSH into Bethel: `ssh bethel`
 5. Access Code Server: dev.spiritmediapublishing.com
-6. Set up GitHub SSH key (generate ed25519 key, add public key at github.com/settings/keys)
+6. Set up GitHub SSH key
 7. Clone repos from Spirit-Media-US org
 8. Install dependencies: `npm install`
-9. Read the Playbook for deployment workflow
 
 ## Portal & Resources
 
 - **Internal portal:** portal.spiritmediapublishing.com (PIN: 060622)
 - **Code Server:** dev.spiritmediapublishing.com (Tailscale VPN required)
-- **Team Guide:** Google Doc (https://docs.google.com/document/d/1uA0MV3gWLk_x6T8jn2xeEgYtq8kLa5YRipnzQLVm4zE/edit)
 - **UptimeRobot:** https://uptimerobot.com/dashboard
-- **Astro docs:** https://docs.astro.build
-- **Sanity docs:** https://www.sanity.io/docs
-- **Tailwind docs:** https://tailwindcss.com/docs
-- **Netlify docs:** https://docs.netlify.com
-- **Cloudflare:** https://dash.cloudflare.com
 - **GitHub:** https://github.com/Spirit-Media-US

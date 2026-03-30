@@ -1,4 +1,5 @@
 ---
+import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -25,9 +26,9 @@ import Layout from '../layouts/Layout.astro';
         >
           Go back home
         </a>
-        <a href="mailto:info@spiritmedia.us" class="text-sm font-semibold text-ink-soft">
+        <MailtoLink email="info@spiritmedia.us" class="text-sm font-semibold text-ink-soft">
           Contact us <span aria-hidden="true">&rarr;</span>
-        </a>
+        </MailtoLink>
       </div>
     </div>
   </main>
