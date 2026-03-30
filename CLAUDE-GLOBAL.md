@@ -167,7 +167,7 @@ For Spirit Media internal sites, contact forms route to GHL CRM, tagged by site.
 ### VPS Secrets & Config
 
 - **Secrets file:** `/home/deploy/.secrets` (chmod 600, sourced by .bashrc)
-- **Tokens stored:** SANITY_API_TOKEN, NETLIFY_PERSONAL_ACCESS_TOKEN, CLOUDFLARE_API_TOKEN, GHL_API_TOKEN, GHL_AGENCY_TOKEN, ANTHROPIC_API_KEY
+- **Tokens stored:** SANITY_API_TOKEN, NETLIFY_PERSONAL_ACCESS_TOKEN, CLOUDFLARE_API_TOKEN, GHL_API_TOKEN, GHL_AGENCY_TOKEN (Claude Code uses OAuth — no API key stored)
 - **Env files:** Keep .env files in `/home/deploy/bin/`
 - **Global CLAUDE.md:** `/home/deploy/CLAUDE.md` — system-wide dev rules
 - **MCP config:** `/home/deploy/.claude/settings.json`
