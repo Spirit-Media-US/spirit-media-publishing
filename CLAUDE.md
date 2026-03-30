@@ -9,6 +9,15 @@ This site: Spirit Media Publishing | Repo: github.com/Spirit-Media-US/spirit-med
 - `npm run dev` — local preview at localhost:4321
 - `npm run build` — production build to dist/
 
+## Mandatory — Before Starting Work
+Always start Claude sessions from inside this directory:
+```
+cd ~/Sites/spirit-media-publishing && claude
+```
+Running Claude from ~/ or ~/Sites/ bypasses this project's CLAUDE.md. A pre-edit hook enforces this, but following the workflow prevents warnings and ensures all project rules are loaded.
+
+Then run: `git checkout dev && git pull origin dev`
+
 ## Key Features
 
 - Blog with pagination (6/page), keyword search, tag filter chips (8 SEO categories), RelatedPosts.astro component
