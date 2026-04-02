@@ -1,7 +1,7 @@
 ---
 import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
-import { sanityClient } from '../lib/sanity.ts';
+import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 const rawTestimonials = await sanityClient.fetch(`
   *[_type == "testimonial"] | order(displayOrder asc) {
@@ -9,6 +9,25 @@ const rawTestimonials = await sanityClient.fetch(`
     "authorPhoto": authorPhoto.asset->url
   }
 `);
+
+// Fetch hero image from siteSettings
+let homepageHeroImage: string | undefined;
+let homepageHeroImageAlt = 'Published books by Spirit Media authors';
+
+try {
+	const s = await sanityClient.fetch(
+		'*[_type == "siteSettings"][0]{ homepageHeroImage, homepageHeroImageAlt }'
+	);
+	if (s?.homepageHeroImage) {
+		homepageHeroImage = urlFor(s.homepageHeroImage).width(1200).fit('max').auto('format').url();
+	}
+	if (s?.homepageHeroImageAlt) homepageHeroImageAlt = s.homepageHeroImageAlt;
+} catch (e) {}
+
+// Fallback if not in Sanity
+if (!homepageHeroImage) {
+	homepageHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fit=max&auto=format';
+}
 
 const FALLBACK_TESTIMONIALS = [
 	{
@@ -105,8 +124,8 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<!-- Book collage image — visible on all screens, above text on mobile via order -->
 					<div class="flex items-center justify-center order-first lg:order-last" data-animate="zoom-in">
 						<img
-							src="https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fit=max&auto=format"
-							alt="Published books by Spirit Media authors"
+							src={homepageHeroImage}
+							alt={homepageHeroImageAlt}
 							class="w-full max-h-[360px] lg:max-h-[600px] object-contain"
 						/>
 					</div>

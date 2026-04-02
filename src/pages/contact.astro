@@ -1,12 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { sanityClient } from '../lib/sanity.ts';
+import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 let sitePhone = '1-888-800-3744';
+let contactHeroImage: string | undefined;
+let contactHeroImageAlt = 'Books published by Spirit Media';
+
 try {
-	const s = await sanityClient.fetch('*[_type == "siteSettings"][0]{ phone }');
+	const s = await sanityClient.fetch('*[_type == "siteSettings"][0]{ phone, contactPageHeroImage, contactPageHeroImageAlt }');
 	if (s?.phone) sitePhone = s.phone;
+	if (s?.contactPageHeroImage) {
+		contactHeroImage = urlFor(s.contactPageHeroImage).width(1058).fit('max').auto('format').url();
+	}
+	if (s?.contactPageHeroImageAlt) contactHeroImageAlt = s.contactPageHeroImageAlt;
 } catch (e) {}
+
+// Fallback if not in Sanity
+if (!contactHeroImage) {
+	contactHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/7833f28378750a49205269eb39a6c2c19f31b92d-1058x394.png?w=1058&fit=max&auto=format';
+}
 ---
 
 <Layout
@@ -39,7 +51,7 @@ try {
 						<p class="mt-4 text-stone-600 leading-relaxed max-w-xl">Otherwise, request a call back. Please use this form to inquire about our publishing and marketing services only. No response will be given for employment or sales inquiries. Thank you!</p>
 					</div>
 					<div class="hidden lg:flex items-center justify-center" aria-hidden="true" data-animate="zoom-in">
-						<img src="https://cdn.sanity.io/images/pmowd8uo/production/7833f28378750a49205269eb39a6c2c19f31b92d-1058x394.png?w=1058&fit=max&auto=format" alt="Books published by Spirit Media" class="w-full rounded-2xl" />
+						<img src={contactHeroImage} alt={contactHeroImageAlt} class="w-full rounded-2xl" />
 					</div>
 				</div>
 			</div>

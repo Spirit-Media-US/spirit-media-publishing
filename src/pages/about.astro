@@ -1,12 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { sanityClient } from '../lib/sanity.ts';
+import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 const rawTeamMembers = await sanityClient.fetch(`
   *[_type == "teamMember"] | order(displayOrder asc) {
     name, role, "photo": photo.asset->url, objectPosition
   }
 `);
+
+// Fetch hero image and Kevin & Shelly image from siteSettings
+let aboutHeroImage: string | undefined;
+let aboutHeroImageAlt = 'A collage of books published by Spirit Media authors across multiple nations';
+let kevinShellyImage: string | undefined;
+let kevinShellyImageAlt = 'Kevin and Shelly White';
+
+try {
+	const s = await sanityClient.fetch(
+		'*[_type == "siteSettings"][0]{ aboutHeroImage, aboutHeroImageAlt, aboutKevinShellyImage, aboutKevinShellyImageAlt }'
+	);
+	if (s?.aboutHeroImage) {
+		aboutHeroImage = urlFor(s.aboutHeroImage).width(1000).height(910).fit('crop').auto('format').url();
+	}
+	if (s?.aboutHeroImageAlt) aboutHeroImageAlt = s.aboutHeroImageAlt;
+	if (s?.aboutKevinShellyImage) {
+		kevinShellyImage = urlFor(s.aboutKevinShellyImage).width(800).height(1024).fit('crop').auto('format').url();
+	}
+	if (s?.aboutKevinShellyImageAlt) kevinShellyImageAlt = s.aboutKevinShellyImageAlt;
+} catch (e) {}
+
+// Fallbacks if not in Sanity
+if (!aboutHeroImage) {
+	aboutHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/d2c5e4ac450f5a25436b580c1474c320b71ce1b0-1100x1000.png?w=1000&h=910&fit=crop&auto=format';
+}
+if (!kevinShellyImage) {
+	kevinShellyImage = 'https://cdn.sanity.io/images/pmowd8uo/production/3dc19194b19b5c804633ad324a893237ab692da5-1583x2048.png?w=800&h=1024&fit=crop&auto=format';
+}
 
 const FALLBACK_TEAM = [
 	{
@@ -139,7 +167,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 						</div>
 					</div>
 					<div class="flex items-start justify-center order-first lg:order-last lg:sticky lg:top-28" data-animate="zoom-in">
-						<img src="https://cdn.sanity.io/images/pmowd8uo/production/d2c5e4ac450f5a25436b580c1474c320b71ce1b0-1100x1000.png?w=1000&h=910&fit=crop&auto=format" alt="A collage of books published by Spirit Media authors across multiple nations" class="w-full rounded-2xl" />
+						<img src={aboutHeroImage} alt={aboutHeroImageAlt} class="w-full rounded-2xl" />
 					</div>
 				</div>
 			</div>
@@ -189,7 +217,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 						</div>
 						<!-- Right: photo (stacks first on mobile) -->
 						<div class="overflow-hidden min-h-80 lg:min-h-0 order-first lg:order-last" data-animate="slide-right">
-							<img src="https://cdn.sanity.io/images/pmowd8uo/production/3dc19194b19b5c804633ad324a893237ab692da5-1583x2048.png?w=800&h=1024&fit=crop&auto=format" alt="Kevin and Shelly White" class="w-full h-full object-cover" style="object-position: center 30%;" />
+							<img src={kevinShellyImage} alt={kevinShellyImageAlt} class="w-full h-full object-cover" style="object-position: center 30%;" />
 						</div>
 					</div>
 				</div>
