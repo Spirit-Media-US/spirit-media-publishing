@@ -1,6 +1,26 @@
 ---
 import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
+import { sanityClient, urlFor } from '../lib/sanity.ts';
+
+// Fetch KMC hero image from siteSettings
+let kmcHeroImage: string | undefined;
+let kmcHeroImageAlt = 'Books published by Kingdom Messengers';
+
+try {
+	const s = await sanityClient.fetch(
+		'*[_type == "siteSettings"][0]{ kmcHeroImage, kmcHeroImageAlt }'
+	);
+	if (s?.kmcHeroImage) {
+		kmcHeroImage = urlFor(s.kmcHeroImage).width(1200).fit('max').auto('format').url();
+	}
+	if (s?.kmcHeroImageAlt) kmcHeroImageAlt = s.kmcHeroImageAlt;
+} catch (e) {}
+
+// Fallback if not in Sanity
+if (!kmcHeroImage) {
+	kmcHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=1200&fm=webp&q=80';
+}
 ---
 
 <Layout
@@ -49,11 +69,11 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<!-- Mobile hero image -->
 					<div class="lg:hidden rounded-2xl overflow-hidden" data-animate="fade-in">
-						<img src="https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=1200&fm=webp&q=80" alt="Books published by Kingdom Messengers" class="w-full object-cover max-h-64" />
+						<img src={kmcHeroImage} alt={kmcHeroImageAlt} class="w-full object-cover max-h-64" />
 					</div>
 					<!-- Desktop hero image -->
 					<div class="hidden lg:flex items-center justify-center" data-animate="zoom-in">
-						<img src="https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=1200&fm=webp&q=80" alt="Books published by Kingdom Messengers" class="w-full rounded-2xl" />
+						<img src={kmcHeroImage} alt={kmcHeroImageAlt} class="w-full rounded-2xl" />
 					</div>
 				</div>
 			</div>
