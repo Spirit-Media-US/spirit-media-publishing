@@ -1,8 +1,21 @@
 ---
 import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity.ts';
 
 const lastUpdated = 'February 28, 2026';
+
+// Fetch contact email from Sanity siteSettings
+let contactEmail = 'info@spiritmedia.us'; // Fallback
+
+try {
+	const s = await sanityClient.fetch('*[_type == "siteSettings"][0]{ email }');
+	if (s?.email) {
+		contactEmail = s.email;
+	}
+} catch (e) {
+	// Use fallback if fetch fails
+}
 ---
 
 <Layout
@@ -101,8 +114,8 @@ const lastUpdated = 'February 28, 2026';
             Depending on your location, you may have rights to access, correct, delete, or restrict
             the processing of your personal data. To exercise any of these rights, please contact
             us at{' '}
-            <MailtoLink email="info@spiritmedia.us" class="text-red hover:underline">
-              info@spiritmedia.us
+            <MailtoLink email={contactEmail} class="text-red hover:underline">
+              {contactEmail}
             </MailtoLink>.
           </p>
         </section>
@@ -119,8 +132,8 @@ const lastUpdated = 'February 28, 2026';
           <h2 class="text-lg font-semibold text-ink-soft">9. Contact</h2>
           <p class="mt-3">
             If you have questions or concerns about this privacy policy, please email us at{' '}
-            <MailtoLink email="info@spiritmedia.us" class="text-red hover:underline">
-              info@spiritmedia.us
+            <MailtoLink email={contactEmail} class="text-red hover:underline">
+              {contactEmail}
             </MailtoLink>.
           </p>
         </section>
