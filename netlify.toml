@@ -43,6 +43,12 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://cdn.sanity.io https://assets.spiritmediapublishing.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://pmowd8uo.api.sanity.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://mail.spiritmediaone.com; media-src 'self' https://cdn.sanity.io; object-src 'none'; base-uri 'self'; form-action 'self' https://mail.spiritmediaone.com"
 
+# Sanity Studio static assets
+[[redirects]]
+  from = "/static/*"
+  to = "/studio/static/:splat"
+  status = 200
+
 # Redirect www to non-www
 [[redirects]]
   from = "https://www.spiritmediapublishing.com/*"
