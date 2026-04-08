@@ -24,13 +24,18 @@ Then run: `git checkout dev && git pull origin dev`
 - Bookstore with 117 books, client-side search/filter/sort
 - Sitemap with custom serialize() by page type
 
-## Status — as of 2026-03-24
+**Migration protocol:** /home/deploy/bin/tools-api/pipelines/migration/CLAUDE.md
+**Sanity Studio:** Embedded at spiritmediapublishing.com/studio/ (static build)
+**Infrastructure:** Deploy webhook wired, CORS origins configured, studio deployed
+
+## Status — as of 2026-04-08
 
 ### Completed & Live on Main
 - Full site live at spiritmediapublishing.com
 - Pages: Home, About, Blog, Bookstore, Portfolio, Publishing, Marketing, Media Center, Contact, Join, Privacy, Terms, Thank You
 - Sub-site landing pages: Believers Library, Father's Heart Bible, Work On Yourself, Kingdom Messenger Collective, Express Books
 - Sanity CMS: blog posts + site settings (nav, footer, contact info, OG image)
+- Sanity Studio embedded at /studio with deploy webhook and CORS configured
 - Blog: pagination (6/page), keyword search, tag filter chips (8 SEO categories), RelatedPosts component
 - Bookstore: 117 books, client-side search/filter/sort
 - Portfolio: website showcase, video production, podcast sections
