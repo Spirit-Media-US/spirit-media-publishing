@@ -49,7 +49,9 @@ filesystem/
 *.mp3
 
 # Sanity studio build artifacts
-.sanity/runtime/
+.sanity/
+.netlify/
+public/studio/
 
 # Backup files
 *.bak

@@ -1,5 +1,5 @@
 ---
-import { sanityClient } from '../lib/sanity.ts';
+import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 let sitePhone = '1-888-800-3744';
 let siteEmail = 'hello@spiritmediapublishing.com';
@@ -8,9 +8,11 @@ let siteInstagram = 'https://www.instagram.com/spiritmedia.us';
 let siteYoutube = 'https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA';
 let siteLinkedin = 'https://www.linkedin.com/company/spiritmediaus';
 let siteTwitter = 'https://x.com/SpiritMediaUS';
+let logoUrl: string | undefined;
+
 try {
 	const s = await sanityClient.fetch(
-		'*[_type == "siteSettings"][0]{ phone, email, facebook, instagram, youtube, linkedin, twitter }',
+		'*[_type == "siteSettings"][0]{ phone, email, facebook, instagram, youtube, linkedin, twitter, logo }',
 	);
 	if (s?.phone) sitePhone = s.phone;
 	if (s?.email) siteEmail = s.email;
@@ -19,7 +21,15 @@ try {
 	if (s?.youtube) siteYoutube = s.youtube;
 	if (s?.linkedin) siteLinkedin = s.linkedin;
 	if (s?.twitter) siteTwitter = s.twitter;
+	if (s?.logo) {
+		logoUrl = urlFor(s.logo).width(440).height(88).fit('max').auto('format').url();
+	}
 } catch (e) {}
+
+// Fallback logo URL if fetch fails
+if (!logoUrl) {
+	logoUrl = 'https://cdn.sanity.io/images/pmowd8uo/production/37e09864cdd5c5b0811a221b7f06ce7f15fbcbad-6575x656.png?w=440&h=88&fit=max&auto=format';
+}
 const year = new Date().getFullYear();
 
 const companyLinks = [
@@ -80,7 +90,7 @@ const socialLinks = [
       <div class="lg:col-span-1">
         <a href="/" class="inline-flex items-center" aria-label="Spirit Media Publishing — home">
           <img
-            src="https://cdn.sanity.io/images/pmowd8uo/production/37e09864cdd5c5b0811a221b7f06ce7f15fbcbad-6575x656.png?w=440&h=88&fit=max&auto=format"
+            src={logoUrl}
             alt="Spirit Media Publishing"
             width="220"
             height="44"
