@@ -1,5 +1,73 @@
 [
 	{
+		"title": "Called to Be",
+		"author": "Kevin White",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/called-to-be.jpg",
+		"amazon": "https://www.amazon.com/dp/1961614243",
+		"date": "2023-08-01",
+		"display_title": "Called to Be",
+		"formats": {
+			"paperback": "https://www.amazon.com/dp/1961614243"
+		}
+	},
+	{
+		"title": "Extraordinary Giving",
+		"author": "Kevin White",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/extraordinary-giving.jpg",
+		"amazon": "https://www.amazon.com/dp/1958304921",
+		"date": "2023-07-01",
+		"display_title": "Extraordinary Giving",
+		"formats": {
+			"paperback": "https://www.amazon.com/dp/1958304921",
+			"hardback": "https://www.amazon.com/dp/195830493X"
+		}
+	},
+	{
+		"title": "Co-Co AKA The Lazarus Dog",
+		"author": "Molly Ann Pollock Birth",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/co-co-aka-the-lazarus-dog.jpg",
+		"amazon": "https://www.amazon.com/dp/B0GWJBR3FQ",
+		"date": "2026-04-10",
+		"display_title": "Co-Co AKA The Lazarus Dog",
+		"formats": {
+			"paperback": "https://www.amazon.com/dp/B0GWJBR3FQ"
+		}
+	},
+	{
+		"title": "In The Hands of Our Heavenly Father: A True Story of Faith, Prayer, and Miraculous Healing from Stage IV Cancer",
+		"author": "Daniel Zebarth",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-hands-of-our-heavenly-father.jpg",
+		"amazon": "https://www.amazon.com/dp/B0GVZY2XLT",
+		"date": "2026-04-10",
+		"display_title": "In The Hands of Our Heavenly Father",
+		"formats": {
+			"paperback": "https://www.amazon.com/dp/B0GVZY2XLT"
+		}
+	},
+	{
+		"title": "Pantry Stuffers Rehydration Calculations Made Easy: U.S. and Metric Measurements",
+		"author": "Wanda Bailey Clark",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pantry-stuffers-rehydration.jpg",
+		"amazon": "https://www.amazon.com/dp/B0GDJNLWFT",
+		"date": "2026-04-10",
+		"display_title": "Pantry Stuffers Rehydration Calculations",
+		"formats": {
+			"paperback": "https://www.amazon.com/dp/B0GDJNLWFT",
+			"ebook": "https://www.amazon.com/dp/B0GSC6QKZG"
+		}
+	},
+	{
+		"title": "Rightly Dividing the Truth: Endurance, Hope, and Eternal Glory",
+		"author": "R.S. Smith",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth.jpg",
+		"amazon": "https://www.amazon.com/dp/B0GTWSPTNK",
+		"date": "2026-04-10",
+		"display_title": "Rightly Dividing the Truth: Endurance, Hope & Eternal Glory",
+		"formats": {
+			"ebook": "https://www.amazon.com/dp/B0GTWSPTNK"
+		}
+	},
+	{
 		"title": "Jesus Whispers",
 		"author": "Michele Wilson",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/jesus-whispers.jpg",
@@ -47,14 +115,13 @@
 	{
 		"title": "The Blessing Trail 3: The Power of God's Word",
 		"author": "Wendy Reardon",
-		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the%20blessing%20trail%202.jpg",
-		"amazon": "https://www.amazon.com/dp/1961614960",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-3.jpg",
+		"amazon": "https://www.amazon.com/dp/B0GPD3MJZ4",
 		"date": "2026-02-17",
 		"display_title": "The Blessing Trail 3",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/1961614960",
-			"ebook": "https://www.amazon.com/dp/B0CQDL2LLW",
-			"hardback": "https://www.amazon.com/dp/1961614979"
+			"paperback": "https://www.amazon.com/dp/B0GPD3MJZ4",
+			"ebook": "https://www.amazon.com/dp/B0GRWXPWJK"
 		}
 	},
 	{
@@ -417,12 +484,11 @@
 		"title": "OGW Urdu",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only%20God%20works%20-%20Urdu.jpg",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/B0CVM3N859",
 		"date": "2024-02-09",
 		"display_title": "Only God Works (Urdu)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/B0CVM3N859"
 		}
 	},
 	{
@@ -435,7 +501,8 @@
 		"formats": {
 			"paperback": "https://www.amazon.com/dp/195830476X",
 			"hardback": "https://www.amazon.com/dp/1958304778",
-			"audio": "https://www.amazon.com/dp/B0C35SHHW9"
+			"audio": "https://www.amazon.com/dp/B0C35SHHW9",
+			"ebook": "https://www.amazon.com/dp/B0C112DVWR"
 		}
 	},
 	{
@@ -797,25 +864,24 @@
 		"title": "OGW Arabic",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only%20god%20works%20-%20arabic.jpg",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/B0DCZVWV34",
 		"date": "2024-08-09",
 		"display_title": "Only God Works (Arabic)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/B0DCZVWV34"
 		}
 	},
 	{
 		"title": "The Blessing Trail 2",
 		"author": "Wendy Reardon",
-		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the%20blessing%20trail%202.jpg",
-		"amazon": "https://www.amazon.com/dp/1961614960",
+		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-2.jpg",
+		"amazon": "https://www.amazon.com/dp/B0DCJB8TP5",
 		"date": "2024-08-01",
 		"display_title": "The Blessing Trail 2",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/1961614960",
-			"hardback": "https://www.amazon.com/dp/1961614979",
-			"ebook": "https://www.amazon.com/dp/B0CQDL2LLW"
+			"paperback": "https://www.amazon.com/dp/B0DCJB8TP5",
+			"ebook": "https://www.amazon.com/dp/B0DPLJZRPL",
+			"audio": "https://www.amazon.com/dp/B0FPMNG1V5"
 		}
 	},
 	{
@@ -836,12 +902,11 @@
 		"title": "Only God Works: (Marathi)",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only%20god%20works.jpg",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/B0D2BR36DK",
 		"date": "2024-06-08",
 		"display_title": "Only God Works (Marathi)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/B0D2BR36DK"
 		}
 	},
 	{
@@ -903,36 +968,33 @@
 		"title": "OGW Telugu",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-telugu.webp",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/1961614707",
 		"date": "2023-09-20",
 		"display_title": "Only God Works (Telugu)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/1961614707"
 		}
 	},
 	{
 		"title": "OGW Russian",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-russian.webp",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/B0CSDZ25W6",
 		"date": "2024-01-12",
 		"display_title": "Only God Works (Russian)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/B0CSDZ25W6"
 		}
 	},
 	{
 		"title": "OGW Ukrainian",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-ukranian.webp",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/1961614723",
 		"date": "2023-12-21",
 		"display_title": "Only God Works (Ukrainian)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/1961614723"
 		}
 	},
 	{
@@ -943,32 +1005,29 @@
 		"date": "2023-01-01",
 		"display_title": "Only God Works (Hindi)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/196161474X"
 		}
 	},
 	{
 		"title": "OGW Tamil",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-tamil.webp",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/1961614383",
 		"date": "2023-08-15",
 		"display_title": "Only God Works (Tamil)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/1961614383"
 		}
 	},
 	{
 		"title": "OGW Nagese",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nagese.webp",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/1961614561",
 		"date": "2023-09-08",
 		"display_title": "Only God Works (Nagese)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/1961614561"
 		}
 	},
 	{
@@ -1045,7 +1104,9 @@
 		"date": "2023-01-27",
 		"display_title": "Spirit Media’s Ultimate Book Marketing Guide",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/1958304514?ref_=ast_author_ofdp"
+			"paperback": "https://www.amazon.com/dp/1958304514?ref_=ast_author_ofdp",
+			"ebook": "https://www.amazon.com/dp/B0BT8CBM9F",
+			"audio": "https://www.amazon.com/dp/B0C34Z2MGX"
 		}
 	},
 	{
@@ -1093,7 +1154,9 @@
 		"display_title": "Don’t Die Ugly",
 		"formats": {
 			"paperback": "https://www.amazon.com/dp/1961614642",
-			"hardback": "https://www.amazon.com/dp/1961614669"
+			"hardback": "https://www.amazon.com/dp/1961614669",
+			"ebook": "https://www.amazon.com/dp/B0CNHCV6D2",
+			"audio": "https://www.amazon.com/dp/B0CVLH46BR"
 		}
 	},
 	{
@@ -1222,7 +1285,8 @@
 		"display_title": "Home (Colored)",
 		"formats": {
 			"paperback": "https://www.amazon.com/dp/1961614847",
-			"hardback": "https://www.amazon.com/dp/1961614855"
+			"hardback": "https://www.amazon.com/dp/1961614855",
+			"ebook": "https://www.amazon.com/dp/B0CZ1XM8KR"
 		}
 	},
 	{
@@ -1234,7 +1298,9 @@
 		"display_title": "Faithful in Small Thing",
 		"formats": {
 			"paperback": "https://www.amazon.com/dp/1961614480",
-			"hardback": "https://www.amazon.com/dp/1961614499"
+			"hardback": "https://www.amazon.com/dp/1961614499",
+			"audio": "https://www.amazon.com/dp/B0D8CMBMV9",
+			"ebook": "https://www.amazon.com/dp/B0CNNYSZVR"
 		}
 	},
 	{
@@ -1272,31 +1338,30 @@
 		"formats": {
 			"paperback": "https://www.amazon.com/dp/195830476X",
 			"hardback": "https://www.amazon.com/dp/1958304778",
-			"audio": "https://www.amazon.com/dp/B0C35SHHW9"
+			"audio": "https://www.amazon.com/dp/B0C35SHHW9",
+			"ebook": "https://www.amazon.com/dp/B0C112DVWR"
 		}
 	},
 	{
 		"title": "OGW Nepalese",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nepalese.webp",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/B0CSQVJWNF",
 		"date": "2024-01-12",
 		"display_title": "Only God Works (Nepalese)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/B0CSQVJWNF"
 		}
 	},
 	{
 		"title": "OGW Spanish",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-spanish.webp",
-		"amazon": "https://www.amazon.com/dp/196161474X",
+		"amazon": "https://www.amazon.com/dp/B0CSF1PXB9",
 		"date": "2024-01-12",
 		"display_title": "Only God Works (Spanish)",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/195830476X",
-			"hardback": "https://www.amazon.com/dp/1958304778"
+			"paperback": "https://www.amazon.com/dp/B0CSF1PXB9"
 		}
 	},
 	{
@@ -1385,7 +1450,8 @@
 		"display_title": "Sharing Your Faith and Testimony",
 		"formats": {
 			"paperback": "https://www.amazon.com/dp/1961614782",
-			"hardback": "https://www.amazon.com/dp/1961614790"
+			"hardback": "https://www.amazon.com/dp/1961614790",
+			"ebook": "https://www.amazon.com/dp/B0CW31VZYH"
 		}
 	},
 	{
@@ -1445,20 +1511,22 @@
 		"date": "2023-11-29",
 		"display_title": "12 Days of Crazy",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/1961614820"
+			"paperback": "https://www.amazon.com/dp/1961614820",
+			"ebook": "https://www.amazon.com/dp/B0CQDRM5DT"
 		}
 	},
 	{
 		"title": "Audacious Generosity",
 		"author": "Kevin White",
 		"img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/Audacious-Generosity.jpg",
-		"amazon": "https://www.amazon.com/Audacious-Generosity-Experience-Receive-Possible/dp/1544516142",
+		"amazon": "https://www.amazon.com/dp/1544516142",
 		"date": "2020-11-06",
 		"display_title": "Audacious Generosity",
 		"formats": {
-			"paperback": "https://www.amazon.com/dp/B0D76MS84M",
-			"hardback": "https://www.amazon.com/dp/B0D76MS84M",
-			"ebook": "https://www.amazon.com/dp/B0D76MS84M"
+			"paperback": "https://www.amazon.com/dp/1544516142",
+			"hardback": "https://www.amazon.com/dp/1544516150",
+			"ebook": "https://www.amazon.com/dp/B0D76MS84M",
+			"audio": "https://www.amazon.com/dp/B08X66TSDK"
 		}
 	},
 	{

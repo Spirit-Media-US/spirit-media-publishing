@@ -197,14 +197,24 @@ git checkout dev && git pull origin dev
 ```
 No exceptions. This prevents overwriting work from other sessions or the auto-save cron.
 
+## Inspect Dev Preview
+
+After pushing to dev, say **"inspect dev preview"** in your Claude session. Claude will:
+1. Read the site's CLAUDE.md to get the site name and Netlify slug
+2. Run both technical and visual inspection (Playwright) against `dev--SLUG.netlify.app`
+3. Report errors (broken images, wrong text, empty sections, layout issues) and warnings (missing SEO, placeholder text)
+4. Fix issues immediately in the same session
+
+This replaces local dev servers and Playwright screenshots. The developer pushes to dev, the Netlify preview builds, then "inspect dev preview" catches issues before Kevin reviews.
+
 ## Deployment Workflow
 
 All work happens on **dev**. Only merge to **main** when ready to publish. Each push to main = one Netlify build credit (1,000/month).
 
 1. **Switch to dev:** `git checkout dev`
-2. **Preview locally:** `npm run dev` — never push without previewing first
-3. **Build before merging:** `npm run build`
-4. **Commit and push:** `git add . && git commit -m "message" && git push origin dev`
+2. **Build:** `npm run build`
+3. **Commit and push:** `git add . && git commit -m "message" && git push origin dev`
+4. **Inspect:** Say "inspect dev preview" — fix any issues found
 5. **Merge to main:**
    - **Kevin requesting deploy:** Use direct API merge — no PR, no notification email:
      ```
