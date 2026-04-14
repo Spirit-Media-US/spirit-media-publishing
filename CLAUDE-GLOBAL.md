@@ -16,7 +16,7 @@ You are helping Spirit Media Publishing build and maintain websites.
 
 - **bethel** = the server (Hetzner VPS at 100.114.220.65)
 - **dev** = always the git branch (where all work happens)
-- **main** = always the production branch (triggers Netlify build)
+- **main** = always the production branch (triggers Cloudflare Pages build)
 
 Example: "SSH into Bethel, push to dev, Kevin approves merge to main."
 
@@ -24,7 +24,7 @@ Example: "SSH into Bethel, push to dev, Kevin approves merge to main."
 
 1. **Astro + Tailwind CSS** — pages and styling
 2. **GitHub (Spirit-Media-US)** — code only, never media
-3. **Netlify** — hosting, auto-deploys on push to main (1,000 build credits/month)
+3. **Cloudflare Pages** — hosting, auto-deploys on push to main (free production deploys)
 4. **Cloudflare** — domain, SSL, CDN, security
 5. **Cloudflare R2** — all images, audio, video
 6. **Sanity (sanity.io)** — CMS for client content editing and media management with auto-optimization
@@ -138,7 +138,7 @@ For Spirit Media internal sites, contact forms route to GHL CRM, tagged by site.
 | Integration | Type | Purpose |
 |-------------|------|---------|
 | **Sanity** | Remote MCP (mcp.sanity.io) | Content management, image assets |
-| **Netlify** | npx @netlify/mcp | Hosting, deploys, build status |
+| **Netlify** (legacy) | npx @netlify/mcp | Legacy — hosting migrated to Cloudflare Pages |
 | **Cloudflare** | npx @cloudflare/mcp-server-cloudflare | DNS records, SSL, CDN, R2 |
 | **GoHighLevel (GHL)** | Remote MCP (services.leadconnectorhq.com) | Forms, CRM contacts, marketing automation |
 | **Google Docs** | npx @a-bonus/google-docs-mcp | Team documents, content drafts |
@@ -167,7 +167,7 @@ For Spirit Media internal sites, contact forms route to GHL CRM, tagged by site.
 ### VPS Secrets & Config
 
 - **Secrets file:** `/home/deploy/.secrets` (chmod 600, sourced by .bashrc)
-- **Tokens stored:** SANITY_API_TOKEN, NETLIFY_PERSONAL_ACCESS_TOKEN, CLOUDFLARE_API_TOKEN, GHL_API_TOKEN, GHL_AGENCY_TOKEN (Claude Code uses OAuth — no API key stored)
+- **Tokens stored:** SANITY_API_TOKEN, CLOUDFLARE_API_TOKEN, CLOUDFLARE_PAGES_TOKEN, GHL_API_TOKEN, GHL_AGENCY_TOKEN, NETLIFY_PERSONAL_ACCESS_TOKEN (legacy/dormant) (Claude Code uses OAuth — no API key stored)
 - **Env files:** Keep .env files in `/home/deploy/bin/`
 - **Global CLAUDE.md:** `/home/deploy/CLAUDE.md` — system-wide dev rules
 - **MCP config:** `/home/deploy/.claude/settings.json`
@@ -200,16 +200,16 @@ No exceptions. This prevents overwriting work from other sessions or the auto-sa
 ## Inspect Dev Preview
 
 After pushing to dev, say **"inspect dev preview"** in your Claude session. Claude will:
-1. Read the site's CLAUDE.md to get the site name and Netlify slug
-2. Run both technical and visual inspection (Playwright) against `dev--SLUG.netlify.app`
+1. Read the site's CLAUDE.md to get the site name and Cloudflare Pages project slug
+2. Run both technical and visual inspection (Playwright) against `dev.<project>.pages.dev`
 3. Report errors (broken images, wrong text, empty sections, layout issues) and warnings (missing SEO, placeholder text)
 4. Fix issues immediately in the same session
 
-This replaces local dev servers and Playwright screenshots. The developer pushes to dev, the Netlify preview builds, then "inspect dev preview" catches issues before Kevin reviews.
+This replaces local dev servers and Playwright screenshots. The developer pushes to dev, the Cloudflare Pages preview builds, then "inspect dev preview" catches issues before Kevin reviews.
 
 ## Deployment Workflow
 
-All work happens on **dev**. Only merge to **main** when ready to publish. Each push to main = one Netlify build credit (1,000/month).
+All work happens on **dev**. Only merge to **main** when ready to publish. Pushes to main trigger a Cloudflare Pages production build (free, no credit limit).
 
 1. **Switch to dev:** `git checkout dev`
 2. **Build:** `npm run build`
@@ -230,14 +230,14 @@ All work happens on **dev**. Only merge to **main** when ready to publish. Each 
 | Cannot find module | Missing dependency | `npm install` and commit package-lock.json |
 | Build exceeded memory | Too many large images/files in build | Move media to R2, not `public/` |
 | AstroError | Syntax or component error | Run `npm run build` locally first — fix before pushing |
-| 404 after deploy | Publish dir wrong or page not generated | Confirm publish dir is `dist` in Netlify settings |
-| DNS_PROBE_FINISHED | Cloudflare DNS misconfigured | Verify CNAME points to Netlify and proxy is orange |
+| 404 after deploy | Publish dir wrong or page not generated | Confirm publish dir is `dist` in Cloudflare Pages settings |
+| DNS_PROBE_FINISHED | Cloudflare DNS misconfigured | Verify CNAME points to `<project>.pages.dev` and proxy is orange |
 
 ## Uptime Monitoring
 
 UptimeRobot checks every site every 5 minutes. Every SMP site must be added after launch.
 
-**If you receive a downtime alert:** Do not push a new build. Wait 2 minutes first. If it persists, check Netlify and notify Kevin.
+**If you receive a downtime alert:** Do not push a new build. Wait 2 minutes first. If it persists, check Cloudflare Pages and notify Kevin.
 
 ## Best Practices
 
@@ -245,7 +245,7 @@ UptimeRobot checks every site every 5 minutes. Every SMP site must be added afte
 - Always build before merging to main: `npm run build`
 - Never commit media files to Git
 - Never rename or delete a live media file
-- One push to main per session — batch all changes first
+- Batch changes before merging to main
 - Pricing off all public pages
 - Internal site forms route to GHL, tagged by site
 - Keep .env files in `/home/deploy/bin/`
@@ -271,7 +271,7 @@ Before committing any .astro file:
 
 - All work goes to the **dev branch** — never push directly to main
 - Only merge dev to main when Kevin says "push to main"
-- One push to main = one Netlify build credit (1,000/month). Merge only when ready to go live
+- Pushes to main trigger Cloudflare Pages production builds (free). Merge only when ready to go live
 
 ## Content & Business Rules
 
@@ -320,13 +320,13 @@ Before committing any .astro file:
 
 - Build failures, Git conflicts, server access → Kevin
 - Content updates, copy changes → Kevin
-- Design decisions, domain/DNS, Netlify, merge approvals → Kevin
+- Design decisions, domain/DNS, Cloudflare Pages, merge approvals → Kevin
 - GHL forms, CRM, marketing automation → Kevin
 - Client requests → Kevin
 
 ### Team Roles
 
-- **Kevin White** — Owner, final approval, content, Netlify/domains
+- **Kevin White** — Owner, final approval, content, Cloudflare Pages/domains
 - **Shelly White (COO)** — Content updates
 - **Justin Keishing** — Artist (Arts by Justin site)
 - **Jim Matuga, Sheila Hoffman, Adam Gross** — Submit requests to Kevin

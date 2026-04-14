@@ -10,24 +10,89 @@ let freeGuideImageAlt = 'The Ultimate Book Marketing Guide by Spirit Media';
 
 try {
 	const s = await sanityClient.fetch(
-		'*[_type == "siteSettings"][0]{ publishingHeroImage, publishingHeroImageAlt, publishingFreeGuideImage, publishingFreeGuideImageAlt }'
+		'*[_type == "siteSettings"][0]{ publishingHeroImage, publishingHeroImageAlt, publishingFreeGuideImage, publishingFreeGuideImageAlt }',
 	);
 	if (s?.publishingHeroImage) {
-		publishingHeroImage = urlFor(s.publishingHeroImage).width(1000).height(910).fit('crop').auto('format').url();
+		publishingHeroImage = urlFor(s.publishingHeroImage)
+			.width(1000)
+			.height(910)
+			.fit('crop')
+			.auto('format')
+			.url();
 	}
 	if (s?.publishingHeroImageAlt) publishingHeroImageAlt = s.publishingHeroImageAlt;
 	if (s?.publishingFreeGuideImage) {
-		freeGuideImage = urlFor(s.publishingFreeGuideImage).width(1200).height(1200).fit('crop').auto('format').url();
+		freeGuideImage = urlFor(s.publishingFreeGuideImage)
+			.width(1200)
+			.height(1200)
+			.fit('crop')
+			.auto('format')
+			.url();
 	}
 	if (s?.publishingFreeGuideImageAlt) freeGuideImageAlt = s.publishingFreeGuideImageAlt;
 } catch (e) {}
 
 // Fallbacks if not in Sanity
 if (!publishingHeroImage) {
-	publishingHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/923b58ae57f2c128ce61f22d0acf5e0b673d3759-1100x1000.png?w=1000&h=910&fit=crop&auto=format';
+	publishingHeroImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/923b58ae57f2c128ce61f22d0acf5e0b673d3759-1100x1000.png?w=1000&h=910&fit=crop&auto=format';
 }
 if (!freeGuideImage) {
-	freeGuideImage = 'https://cdn.sanity.io/images/pmowd8uo/production/2a10e5a1b14db28814520bebfd259c500ca8e4b7-2000x2000.png?w=1200&h=1200&fit=crop&auto=format';
+	freeGuideImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/2a10e5a1b14db28814520bebfd259c500ca8e4b7-2000x2000.png?w=1200&h=1200&fit=crop&auto=format';
+}
+
+// Fetch publishing services from Sanity
+interface PublishingService {
+	title: string;
+	body: string;
+}
+let publishingServices: PublishingService[] = [];
+try {
+	const raw = await sanityClient.fetch(
+		`*[_type == "publishingService"] | order(order asc) { title, "body": description }`,
+	);
+	if (Array.isArray(raw) && raw.length > 0) {
+		publishingServices = raw;
+	}
+} catch (e) {}
+
+// Fallback to hardcoded values if Sanity fetch fails
+if (publishingServices.length === 0) {
+	publishingServices = [
+		{
+			title: 'Write Your Book',
+			body: '80% of adults want to write a book. Only 2% do. Our Angel Writing service bridges the gap. Meet with your writer one hour per week via Zoom. They write 3–4 hours weekly in your voice. Book complete in as few as 90 days.',
+		},
+		{
+			title: 'Edit Your Book',
+			body: 'Our editors polish your manuscript to the Chicago Manual of Style — professional, clear, and error-free.',
+		},
+		{
+			title: 'Publish Your Book',
+			body: 'We publish in paperback, hardback, digital, and audiobook with global distribution through Amazon, IngramSpark, libraries, and eBook stores worldwide. All publishing includes a 50/50 royalty split.',
+		},
+		{
+			title: 'Republish Your Book',
+			body: 'Need to re-release, update, or redesign an existing title? We handle the full process.',
+		},
+		{
+			title: "Publish Your Children's Book",
+			body: "Fully illustrated children's books connecting your story with young readers everywhere.",
+		},
+		{
+			title: 'White Label Publishing',
+			body: 'Want to publish under your own label? We make it happen.',
+		},
+		{
+			title: 'Translate Your Book',
+			body: 'We translate into the top 20 spoken languages — reaching over 75% of the human race.',
+		},
+		{
+			title: 'Market Your Book',
+			body: 'Every book we publish receives our full base marketing. Because publishing without marketing is just printing.',
+		},
+	];
 }
 ---
 
@@ -85,16 +150,7 @@ if (!freeGuideImage) {
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Everything You Need to <span class="text-red">Publish</span></h2>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-					{[
-						{ title: 'Write Your Book', body: '80% of adults want to write a book. Only 2% do. Our Angel Writing service bridges the gap. Meet with your writer one hour per week via Zoom. They write 3–4 hours weekly in your voice. Book complete in as few as 90 days.' },
-						{ title: 'Edit Your Book', body: 'Our editors polish your manuscript to the Chicago Manual of Style — professional, clear, and error-free.' },
-						{ title: 'Publish Your Book', body: 'We publish in paperback, hardback, digital, and audiobook with global distribution through Amazon, IngramSpark, libraries, and eBook stores worldwide. All publishing includes a 50/50 royalty split.' },
-						{ title: 'Republish Your Book', body: 'Need to re-release, update, or redesign an existing title? We handle the full process.' },
-						{ title: "Publish Your Children's Book", body: "Fully illustrated children's books connecting your story with young readers everywhere." },
-						{ title: 'White Label Publishing', body: 'Want to publish under your own label? We make it happen.' },
-						{ title: 'Translate Your Book', body: 'We translate into the top 20 spoken languages — reaching over 75% of the human race.' },
-						{ title: 'Market Your Book', body: 'Every book we publish receives our full base marketing. Because publishing without marketing is just printing.' },
-					].map(({ title, body }, i) => (
+					{publishingServices.map(({ title, body }, i) => (
 						<div class="bg-stone-50 rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String((i % 4) + 1)}>
 							<div class="flex items-center gap-3 mb-3">
 								<div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-red-wash text-red">
