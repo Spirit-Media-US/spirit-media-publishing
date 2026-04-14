@@ -1,5 +1,153 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity.ts';
+
+// Fetch marketing services from Sanity
+interface MarketingService {
+	title: string;
+	body: string;
+	photo: string;
+}
+let marketingServices: MarketingService[] = [];
+try {
+	const raw = await sanityClient.fetch(
+		`*[_type == "marketingService"] | order(order asc) { title, "body": description, photo }`,
+	);
+	if (Array.isArray(raw) && raw.length > 0) {
+		marketingServices = raw;
+	}
+} catch (e) {}
+
+// Fallback to hardcoded values if Sanity fetch fails
+if (marketingServices.length === 0) {
+	marketingServices = [
+		{
+			title: 'Book Marketing: Amazon Reviews',
+			body: 'Six-month partnership focused on increasing Amazon reviews. Includes custom instruction sheet, systematic implementation, with a goal of 25 reviews per month.',
+			photo: 'photo-1481627834876-b7833e8f5570',
+		},
+		{
+			title: 'Book Marketing: Advance Reader Copies',
+			body: 'We send advance copies to your personal contacts and USA bookstores. Per-copy cost covers mailing list, up to $5 toward printing, fulfillment, and postage.',
+			photo: 'photo-1507842217343-583bb7270b66',
+		},
+		{
+			title: 'Book Marketing: Paid Digital Ads',
+			body: 'Twelve-month partnership with setup and monthly optimization of paid ads on one platform: Amazon, Google, YouTube, Facebook, Instagram, or TikTok.',
+			photo: 'photo-1460925895917-afdab827c52f',
+		},
+		{
+			title: 'Websites with SEO',
+			body: 'High-performance, responsive website built on the Astro + Tailwind + Claude stack — SSL, SEO, structured data, accessibility, lead gen forms, analytics, and AI-assisted updates in plain English. No technical skills needed.',
+			photo: 'photo-1467232004584-a241de8bcf5d',
+		},
+		{
+			title: 'Landing Pages',
+			body: 'High-converting, responsive landing page built on the Astro + Tailwind + Claude stack — optimized headline, lead capture form, CTA, SSL, SEO, and AI-assisted updates in plain English. No technical skills needed.',
+			photo: 'photo-1559028012-481c04fa702d',
+		},
+		{
+			title: 'CRM Platform',
+			body: 'Setup and monthly optimization of GoHighLevel (Spirit Media ONE) — conversations, calendar scheduling, business phone, voicemail, SMS, invoicing, payment processing, sales pipeline, forms, funnels, workflows, and automations.',
+			photo: 'photo-1552664730-d307ca884978',
+		},
+		{
+			title: 'Community Platform',
+			body: 'Setup and monthly optimization of a branded online community including structure, content strategy, and member development.',
+			photo: 'photo-1529156069898-49953e39b3ac',
+		},
+		{
+			title: 'Video Production',
+			body: 'Eight hours of professional filming — story development, scripting, and full post-production — delivered as short-form feature videos and up to 20 reels per month for 12 months.',
+			photo: 'photo-1492691527719-9d1e07e534b4',
+		},
+		{
+			title: 'Podcast Production',
+			body: 'Setup of a podcast tour with pitch sheet and scheduling management — or launch your own show with full weekly production across all major platforms.',
+			photo: 'photo-1511671782779-c97d3d27a1d4',
+		},
+		{
+			title: 'YouTube Channel Optimization',
+			body: 'Twelve-month partnership in strategy, publishing, and channel optimization for one YouTube channel.',
+			photo: 'photo-1598550476439-6847785fcea6',
+		},
+		{
+			title: 'Social Media Management',
+			body: 'Twelve-month partnership managing up to three platforms. Includes content creation, scheduling up to 20 posts per month, and weekly community engagement.',
+			photo: 'photo-1432888498266-38ffec3eaf0a',
+		},
+		{
+			title: 'Email Marketing',
+			body: 'Twelve-month partnership in email design and management — up to 4 emails per month to your contact list.',
+			photo: 'photo-1563986768609-322da13575f3',
+		},
+		{
+			title: 'SMS Marketing',
+			body: 'Twelve-month partnership in SMS marketing — up to 4 messages per month to your contact list.',
+			photo: 'photo-1512428559087-560fa5ceab42',
+		},
+		{
+			title: 'Public Relations',
+			body: 'Press releases, media kits, promotional videos, flyers, and pitch decks. North America distribution through PR Newswire.',
+			photo: 'photo-1504711434969-e33886168f5c',
+		},
+		{
+			title: 'Google Ads for Nonprofits',
+			body: 'Google offers every 501(c)(3) up to $10,000 in ad grants annually. We manage the complexity so you get the results.',
+			photo: 'photo-1532629345422-7515f3d16bb6',
+		},
+		{
+			title: 'Analytics & Reporting',
+			body: 'Monthly tracking of book sales, website traffic, YouTube, podcasts, and social media performance.',
+			photo: 'photo-1551288049-bebda4e38f71',
+		},
+	];
+}
+
+// Fetch marketing steps from Sanity
+interface MarketingStep {
+	step: string;
+	title: string;
+	desc: string;
+}
+let marketingSteps: MarketingStep[] = [];
+try {
+	const raw = await sanityClient.fetch(
+		`*[_type == "marketingStep"] | order(order asc) { "step": stepNumber, title, "desc": description }`,
+	);
+	if (Array.isArray(raw) && raw.length > 0) {
+		marketingSteps = raw;
+	}
+} catch (e) {}
+
+// Fallback to hardcoded values if Sanity fetch fails
+if (marketingSteps.length === 0) {
+	marketingSteps = [
+		{ step: '1', title: 'Increasing Amazon Reviews', desc: "the world's #1 bookseller" },
+		{
+			step: '2',
+			title: 'Sharing Advance Reader Copies with Bookstores',
+			desc: 'putting your book directly in readers\u2019 hands',
+		},
+		{
+			step: '3',
+			title: 'Landing Page or Website',
+			desc: 'Google is the #1 search engine in the world',
+		},
+		{ step: '4', title: 'YouTube Channel', desc: 'YouTube is the #2 search engine in the world' },
+		{
+			step: '5',
+			title: 'Podcast Show Tour',
+			desc: 'reach established audiences on existing shows',
+		},
+		{
+			step: '6',
+			title: 'Launch Your Own Podcast Show',
+			desc: 'build a loyal audience around your message',
+		},
+		{ step: '7', title: 'Paid Digital Ads', desc: 'amplify what\u2019s already working' },
+	];
+}
 ---
 
 <Layout
@@ -77,15 +225,7 @@ import Layout from '../layouts/Layout.astro';
 					<p class="mt-4 text-stone-600 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">We build from the ground up. Each layer amplifies the last:</p>
 				</div>
 				<div class="space-y-4">
-					{[
-						{ step: '1', title: 'Increasing Amazon Reviews', desc: <span>the world's #1 bookseller — <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-stone-400 hover:decoration-stone-600 transition-colors">amazon.com</a></span> },
-						{ step: '2', title: 'Sharing Advance Reader Copies with Bookstores', desc: 'putting your book directly in readers\u2019 hands' },
-						{ step: '3', title: 'Landing Page or Website', desc: <span>Google is the <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-stone-400 hover:decoration-stone-600 transition-colors">#1 search engine</a> in the world</span> },
-						{ step: '4', title: 'YouTube Channel', desc: <span>YouTube is the <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-stone-400 hover:decoration-stone-600 transition-colors">#2 search engine</a> in the world</span> },
-						{ step: '5', title: 'Podcast Show Tour', desc: 'reach established audiences on existing shows' },
-						{ step: '6', title: 'Launch Your Own Podcast Show', desc: 'build a loyal audience around your message' },
-						{ step: '7', title: 'Paid Digital Ads', desc: 'amplify what\u2019s already working' },
-					].map(({ step, title, desc }, i) => (
+					{marketingSteps.map(({ step, title, desc }, i) => (
 						<div class="flex items-start gap-4 bg-stone-50 rounded-xl p-5 border border-stone-200" data-animate="fade-up" data-delay={String((i % 4) + 1)}>
 							<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red text-white font-bold text-sm">{step}</span>
 							<div>
@@ -107,24 +247,7 @@ import Layout from '../layouts/Layout.astro';
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Marketing Services</h2>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{[
-						{ title: 'Book Marketing: Amazon Reviews', body: 'Six-month partnership focused on increasing Amazon reviews. Includes custom instruction sheet, systematic implementation, with a goal of 25 reviews per month.', photo: 'photo-1481627834876-b7833e8f5570' },
-						{ title: 'Book Marketing: Advance Reader Copies', body: 'We send advance copies to your personal contacts and USA bookstores. Per-copy cost covers mailing list, up to $5 toward printing, fulfillment, and postage.', photo: 'photo-1507842217343-583bb7270b66' },
-						{ title: 'Book Marketing: Paid Digital Ads', body: 'Twelve-month partnership with setup and monthly optimization of paid ads on one platform: Amazon, Google, YouTube, Facebook, Instagram, or TikTok.', photo: 'photo-1460925895917-afdab827c52f' },
-						{ title: 'Websites with SEO', body: 'High-performance, responsive website built on the Astro + Tailwind + Claude stack — SSL, SEO, structured data, accessibility, lead gen forms, analytics, and AI-assisted updates in plain English. No technical skills needed.', photo: 'photo-1467232004584-a241de8bcf5d' },
-						{ title: 'Landing Pages', body: 'High-converting, responsive landing page built on the Astro + Tailwind + Claude stack — optimized headline, lead capture form, CTA, SSL, SEO, and AI-assisted updates in plain English. No technical skills needed.', photo: 'photo-1559028012-481c04fa702d' },
-						{ title: 'CRM Platform', body: 'Setup and monthly optimization of GoHighLevel (Spirit Media ONE) — conversations, calendar scheduling, business phone, voicemail, SMS, invoicing, payment processing, sales pipeline, forms, funnels, workflows, and automations.', photo: 'photo-1552664730-d307ca884978' },
-						{ title: 'Community Platform', body: 'Setup and monthly optimization of a branded online community including structure, content strategy, and member development.', photo: 'photo-1529156069898-49953e39b3ac' },
-						{ title: 'Video Production', body: 'Eight hours of professional filming — story development, scripting, and full post-production — delivered as short-form feature videos and up to 20 reels per month for 12 months.', photo: 'photo-1492691527719-9d1e07e534b4' },
-						{ title: 'Podcast Production', body: 'Setup of a podcast tour with pitch sheet and scheduling management — or launch your own show with full weekly production across all major platforms.', photo: 'photo-1511671782779-c97d3d27a1d4' },
-						{ title: 'YouTube Channel Optimization', body: 'Twelve-month partnership in strategy, publishing, and channel optimization for one YouTube channel.', photo: 'photo-1598550476439-6847785fcea6' },
-						{ title: 'Social Media Management', body: 'Twelve-month partnership managing up to three platforms. Includes content creation, scheduling up to 20 posts per month, and weekly community engagement.', photo: 'photo-1432888498266-38ffec3eaf0a' },
-						{ title: 'Email Marketing', body: 'Twelve-month partnership in email design and management — up to 4 emails per month to your contact list.', photo: 'photo-1563986768609-322da13575f3' },
-						{ title: 'SMS Marketing', body: 'Twelve-month partnership in SMS marketing — up to 4 messages per month to your contact list.', photo: 'photo-1512428559087-560fa5ceab42' },
-						{ title: 'Public Relations', body: 'Press releases, media kits, promotional videos, flyers, and pitch decks. North America distribution through PR Newswire.', photo: 'photo-1504711434969-e33886168f5c' },
-						{ title: 'Google Ads for Nonprofits', body: 'Google offers every 501(c)(3) up to $10,000 in ad grants annually. We manage the complexity so you get the results.', photo: 'photo-1532629345422-7515f3d16bb6' },
-						{ title: 'Analytics & Reporting', body: 'Monthly tracking of book sales, website traffic, YouTube, podcasts, and social media performance.', photo: 'photo-1551288049-bebda4e38f71' },
-					].map(({ title, body, photo }, i) => (
+					{marketingServices.map(({ title, body, photo }, i) => (
 						<div class="bg-stone-100 rounded-2xl overflow-hidden border border-stone-200 hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String((i % 3) + 1)}>
 							<div class="relative h-40 overflow-hidden">
 								<img src={`/mkt-${photo}.jpg`} alt={title} class="w-full h-full object-cover" style="filter: grayscale(100%) sepia(60%) brightness(0.9) contrast(0.95);" loading="lazy" />
