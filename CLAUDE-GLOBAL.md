@@ -267,6 +267,20 @@ Before committing any .astro file:
 4. **Never overwrite SEO titles/descriptions** during unrelated work.
 5. **Each session must treat prior session work as sacred.**
 
+## Footer Copyright — MANDATORY FOR ALL SITES
+
+Every SMP site footer MUST use this exact copyright format:
+
+```
+© {year} {SITE_NAME}. All rights reserved. • Powered by <a href="https://spiritmediapublishing.com">Spirit Media</a>
+```
+
+- No "Copyright by". No pipe (`|`) separators. No Privacy Policy link in the copyright bar.
+- `{SITE_NAME}` = the client-facing site name (e.g., "Global Hope India", "The Kohler Group")
+- `{year}` = dynamic via `new Date().getFullYear()`
+- "Spirit Media" links to `https://spiritmediapublishing.com` (not spiritmedia.us)
+- This is non-negotiable. Every new site, every migration, every redesign uses this exact format.
+
 ## Git Rules
 
 - All work goes to the **dev branch** — never push directly to main
