@@ -212,10 +212,10 @@ This replaces local dev servers and Playwright screenshots. The developer pushes
 All work happens on **dev**. Only merge to **main** when ready to publish. Pushes to main trigger a Cloudflare Pages production build (free, no credit limit).
 
 1. **Switch to dev:** `git checkout dev`
-2. **Build:** `npm run build`
-3. **Commit and push:** `git add . && git commit -m "message" && git push origin dev`
+2. **Make changes**
+3. **Build, commit, push — immediately:** `npm run build && git add <files> && git commit -m "message" && git pushd origin dev` — dev is a preview, no approval needed. NEVER ask before pushing to dev. The dev preview must always reflect the latest work.
 4. **Inspect:** Say "inspect dev preview" — fix any issues found
-5. **Merge to main:**
+5. **Merge to main (ONLY step that requires approval):**
    - **Kevin requesting deploy:** Use direct API merge — no PR, no notification email:
      ```
      source /home/deploy/.secrets && gh api /repos/Spirit-Media-US/[repo]/merges -X POST -f base=main -f head=dev -f commit_message="Deploy: [description]" && git checkout dev && git merge origin/main && git push origin dev
@@ -266,6 +266,20 @@ Before committing any .astro file:
 3. **Never replace YouTube `<iframe>` embeds with `<video>` tags.**
 4. **Never overwrite SEO titles/descriptions** during unrelated work.
 5. **Each session must treat prior session work as sacred.**
+
+## Footer Copyright — MANDATORY FOR ALL SITES
+
+Every SMP site footer MUST use this exact copyright format:
+
+```
+© {year} {SITE_NAME}. All rights reserved. • Powered by <a href="https://spiritmediapublishing.com">Spirit Media</a>
+```
+
+- No "Copyright by". No pipe (`|`) separators. No Privacy Policy link in the copyright bar.
+- `{SITE_NAME}` = the client-facing site name (e.g., "Global Hope India", "The Kohler Group")
+- `{year}` = dynamic via `new Date().getFullYear()`
+- "Spirit Media" links to `https://spiritmediapublishing.com` (not spiritmedia.us)
+- This is non-negotiable. Every new site, every migration, every redesign uses this exact format.
 
 ## Git Rules
 
