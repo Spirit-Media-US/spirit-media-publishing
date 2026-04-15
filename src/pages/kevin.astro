@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Schedule a Call with Kevin White — Spirit Media Publishing"
+	description="Book a free consultation with Kevin White, CEO of Spirit Media Publishing. Let's talk about your book, your message, and your next step."
+	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f67376ca3cbad336ac9ed54977f72d3f9917397b-1200x630.jpg?w=1200&h=630&fit=crop&auto=format"
+>
+	<Fragment slot="head">
+		<meta name="keywords" content="Kevin White, schedule call, Spirit Media Publishing, book consultation, Christian publishing, free consultation" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Schedule a Call with Kevin White",
+			"description": "Book a free consultation with Kevin White, CEO of Spirit Media Publishing.",
+			"url": "https://spiritmediapublishing.com/kevin",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}></script>
+	</Fragment>
+
+	<main id="main-content">
+		<!-- CALENDAR EMBED -->
+		<section class="bg-white px-6 py-12 lg:py-16 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<iframe
+					src="https://mail.spiritmediaone.com/widget/booking/JBJZYruuU5JsL9bbL6xv"
+					style="width:100%; height:800px; border:none; border-radius:3px;"
+					id="msgsndr-booking-JBJZYruuU5JsL9bbL6xv"
+					data-layout="{'id':'INLINE'}"
+					data-trigger-type="alwaysShow"
+					data-trigger-value=""
+					data-activation-type="alwaysActivated"
+					data-activation-value=""
+					data-deactivation-type="neverDeactivate"
+					data-deactivation-value=""
+					data-form-name="Book a Call with Kevin"
+					data-height="800"
+					data-layout-iframe-id="msgsndr-booking-JBJZYruuU5JsL9bbL6xv"
+					data-form-id="JBJZYruuU5JsL9bbL6xv"
+					title="Schedule a call with Kevin White"
+				></iframe>
+				<script is:inline src="https://mail.spiritmediaone.com/js/form_embed.js"></script>
+			</div>
+		</section>
+	</main>
+</Layout>
