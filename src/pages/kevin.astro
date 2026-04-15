@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Schedule a Call with Kevin White — Spirit Media Publishing"
+	description="Book a free consultation with Kevin White, CEO of Spirit Media Publishing. Let's talk about your book, your message, and your next step."
+	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f67376ca3cbad336ac9ed54977f72d3f9917397b-1200x630.jpg?w=1200&h=630&fit=crop&auto=format"
+>
+	<Fragment slot="head">
+		<meta name="keywords" content="Kevin White, schedule call, Spirit Media Publishing, book consultation, Christian publishing, free consultation" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Schedule a Call with Kevin White",
+			"description": "Book a free consultation with Kevin White, CEO of Spirit Media Publishing.",
+			"url": "https://spiritmediapublishing.com/kevin",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}></script>
+	</Fragment>
+
+	<main id="main-content">
+		<!-- HERO -->
+		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8">
+			<div class="mx-auto max-w-4xl text-center">
+				<p class="eyebrow eyebrow-red mb-4">Book a Call</p>
+				<h1 class="type-hero text-ink-soft">Schedule a Call<br />with Kevin White</h1>
+				<p class="mt-6 type-body-lg text-stone-600 max-w-2xl mx-auto">Whether you're ready to publish your book, grow your platform, or explore what's next — let's talk. Pick a time that works for you.</p>
+			</div>
+		</section>
+
+		<!-- CALENDAR EMBED -->
+		<section class="bg-white px-6 py-12 lg:py-16 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<iframe
+					src="https://mail.spiritmediaone.com/widget/booking/JBJZYruuU5JsL9bbL6xv"
+					style="width: 100%; border: none; overflow: hidden; min-height: 700px;"
+					scrolling="no"
+					id="RJycYmzGWG0qBpMC8jAA_1776272696366"
+					title="Schedule a call with Kevin White"
+				></iframe>
+				<script src="https://mail.spiritmediaone.com/js/form_embed.js" type="text/javascript"></script>
+			</div>
+		</section>
+	</main>
+</Layout>
