@@ -10,7 +10,8 @@
       "mcp__sanity__query_documents",
       "mcp__sanity__create_documents_from_json",
       "mcp__sanity__patch_document_from_json",
-      "mcp__sanity__publish_documents"
+      "mcp__sanity__publish_documents",
+      "mcp__cloudflare__route_list"
     ]
   },
   "enabledMcpjsonServers": [
