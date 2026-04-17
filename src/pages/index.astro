@@ -419,6 +419,49 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 			</div>
 		</section>
 
+		<!-- ═══ AI WEBSITES SPOTLIGHT ═══ -->
+		<section class="relative overflow-hidden bg-ink-soft px-6 py-14 lg:py-20 lg:px-8">
+			<div class="absolute inset-0 opacity-25 pointer-events-none" aria-hidden="true" style="background: radial-gradient(ellipse at top right, rgba(192, 57, 43, 0.4), transparent 60%);"></div>
+			<div class="relative mx-auto max-w-7xl">
+				<div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+					<div class="lg:col-span-3" data-animate="slide-left">
+						<span class="eyebrow eyebrow-red">New in 2026</span>
+						<h2 class="type-section-heading text-stone-100 mt-2">
+							AI-Powered Websites Built on the <span class="text-red-soft">Fastest Stack</span> in 2026
+						</h2>
+						<p class="mt-5 type-body-lg text-stone-300 max-w-2xl">
+							Sub-2-second load times. 95+ Google scores. AI-ready infrastructure. Spirit Media builds websites on the stack Google rewards — and visitors actually use.
+						</p>
+						<p class="mt-4 font-serif italic text-red-soft text-lg">
+							When your message deserves a mountaintop instead of a cave.
+						</p>
+						<div class="mt-7 flex flex-wrap gap-4">
+							<a href="/ai-websites" class="inline-flex items-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep">
+								See Our Websites →
+							</a>
+							<a href="/contact" class="inline-flex items-center rounded-md border-2 border-stone-300 px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
+								Free 48-Hour Audit
+							</a>
+						</div>
+					</div>
+					<div class="lg:col-span-2" data-animate="slide-right">
+						<div class="grid grid-cols-2 gap-3">
+							{[
+								'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=400&fm=webp&q=80',
+								'https://cdn.sanity.io/images/pmowd8uo/production/c9ea71e94864174e83453881a1c03f3fb172bc46-1979x824.png?w=400&fm=webp&q=80',
+								'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=400&fm=webp&q=80',
+								'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=400&fm=webp&q=80',
+							].map((src, i) => (
+								<div class="aspect-[4/3] rounded-xl overflow-hidden border border-stone-700 bg-ink">
+									<img src={src} alt={`Spirit Media website sample ${i + 1}`} class="w-full h-full object-cover" loading="lazy" />
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- ═══ TESTIMONIALS ═══ -->
 		<section class="bg-stone-100 px-6 py-12 lg:py-20 lg:px-8">
 			<div class="mx-auto max-w-7xl">

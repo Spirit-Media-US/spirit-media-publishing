@@ -18,6 +18,10 @@ export default defineConfig({
         if (item.url.includes('/blog/') && item.url !== 'https://spiritmediapublishing.com/blog/') {
           return { ...item, changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() };
         }
+        // AI Websites — high-priority launch page
+        if (item.url.endsWith('/ai-websites/') || item.url.endsWith('/ai-websites')) {
+          return { ...item, changefreq: 'weekly', priority: 0.95, lastmod: new Date().toISOString() };
+        }
         // Core service pages
         if (['/publishing/', '/marketing/', '/bookstore/', '/express-books/'].some(p => item.url.endsWith(p))) {
           return { ...item, changefreq: 'monthly', priority: 0.85, lastmod: new Date().toISOString() };

@@ -56,3 +56,4 @@ public/studio/
 # Backup files
 *.bak
 .mcp.json
+.cache/
