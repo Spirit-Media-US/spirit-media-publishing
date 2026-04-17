@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import MailtoLink from '../components/MailtoLink.astro';
+import Layout from '../layouts/Layout.astro';
 import { fetchPageSpeed } from '../lib/pagespeed.ts';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -8,46 +8,54 @@ import { fetchPageSpeed } from '../lib/pagespeed.ts';
 // ─────────────────────────────────────────────────────────────────────────────
 const SHOWCASE = [
 	{
-		name: 'The Kohler Group',
-		url: 'https://thekohlergroup.net',
-		industry: 'Professional Services',
-		screenshot: 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+		name: 'Work On Yourself',
+		url: 'https://workonyourself.com',
+		industry: 'Coaching',
+		screenshot:
+			'https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg?w=800&fm=webp&q=80',
 	},
 	{
 		name: 'Johnny Watts Agency',
 		url: 'https://johnnywattsagency.com',
 		industry: 'Insurance',
-		screenshot: 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
-	},
-	{
-		name: 'Thomas McGovern, CPA',
-		url: 'https://thomasmcgovern.cpa',
-		industry: 'Accounting',
-		screenshot: 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+		screenshot:
+			'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
 	},
 	{
 		name: 'Arts By Justin',
 		url: 'https://artsbyjustin.com',
 		industry: 'Art & Creative',
-		screenshot: 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
-	},
-	{
-		name: 'LionCrest Media',
-		url: 'https://lioncrestmedia.com',
-		industry: 'Media',
-		screenshot: 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+		screenshot:
+			'https://cdn.sanity.io/images/pmowd8uo/production/3888773fa7183ef0133efd02481baf0a7a768df1-6922x4620.jpg?w=800&fm=webp&q=80',
 	},
 	{
 		name: 'Scripture Alive',
 		url: 'https://scripturealive.com',
 		industry: 'Ministry',
-		screenshot: 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+		screenshot:
+			'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+	},
+	{
+		name: 'The Kohler Group',
+		url: 'https://thekohlergroup.net',
+		industry: 'Professional Services',
+		screenshot:
+			'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+	},
+	{
+		name: 'Clowning from the Heart',
+		url: 'https://clowningfromtheheart.com',
+		industry: 'Creative / Author',
+		screenshot:
+			'https://cdn.sanity.io/images/pmowd8uo/production/41a09e4b87cbb7de8f851e987d90e1dcb45155a9-640x610.jpg?w=800&fm=webp&q=80',
 	},
 ] as const;
 
 // Fetch live PageSpeed scores at build time — serialized to avoid PSI rate limits.
 // Cached 24h in .cache/pagespeed.json so subsequent builds are instant.
-const showcaseWithScores: Array<(typeof SHOWCASE)[number] & { scores: Awaited<ReturnType<typeof fetchPageSpeed>> }> = [];
+const showcaseWithScores: Array<
+	(typeof SHOWCASE)[number] & { scores: Awaited<ReturnType<typeof fetchPageSpeed>> }
+> = [];
 for (const site of SHOWCASE) {
 	const scores = await fetchPageSpeed(site.url);
 	showcaseWithScores.push({ ...site, scores });
@@ -57,51 +65,210 @@ for (const site of SHOWCASE) {
 // INDUSTRIES MARQUEE
 // ─────────────────────────────────────────────────────────────────────────────
 const INDUSTRIES = [
-	'Churches', 'Ministries', 'Nonprofits', 'Authors', 'Artists',
-	'Insurance Agencies', 'Counselors', 'CPAs', 'Coaches', 'Real Estate',
-	'Publishers', 'Small Businesses', 'Travel Companies', 'Podcasters', 'Speakers',
-	'Agencies', 'Personal Brands', 'Financial Advisors', 'Law Firms', 'Educators',
-	'Content Creators', 'Therapists', 'E-Commerce Shops', 'Media Companies',
+	'Churches',
+	'Ministries',
+	'Nonprofits',
+	'Authors',
+	'Artists',
+	'Insurance Agencies',
+	'Counselors',
+	'CPAs',
+	'Coaches',
+	'Real Estate',
+	'Publishers',
+	'Small Businesses',
+	'Travel Companies',
+	'Podcasters',
+	'Speakers',
+	'Agencies',
+	'Personal Brands',
+	'Financial Advisors',
+	'Law Firms',
+	'Educators',
+	'Content Creators',
+	'Therapists',
+	'E-Commerce Shops',
+	'Media Companies',
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TESTIMONIALS (3 from video + 3 drafts awaiting client approval)
 // ─────────────────────────────────────────────────────────────────────────────
 const TESTIMONIALS = [
-	{ quote: 'The site looks AMAZING. This is truly an incredible blessing.', author: 'Jeremy Kluth', org: 'Scripture Alive', tag: 'video' },
-	{ quote: "We moved off WordPress and watched our Google rankings climb within weeks. Spirit Media's stack is the only one I've seen that's genuinely built for how search engines — and AI crawlers — actually work in 2026.", author: 'Pete', org: 'LionCrest Media', tag: 'written' },
-	{ quote: 'Loads super fast.', author: 'Linsey Stuckey', org: 'Johnny Watts Agency', tag: 'video' },
-	{ quote: "My portfolio loads in under a second on mobile. Clients see the art the way it's meant to be seen — instantly, sharp, on any device.", author: 'Justin Keishing', org: 'Arts By Justin', tag: 'written' },
-	{ quote: 'I am beyond thrilled.', author: 'Barbara Kohler', org: 'The Kohler Group', tag: 'video' },
-	{ quote: 'Our site loads the same in Delhi as it does in Dallas. For a ministry reaching donors and partners across three continents, that changed everything.', author: 'Bernard', org: 'Global Hope India', tag: 'written' },
+	{
+		quote: 'The site looks AMAZING. This is truly an incredible blessing.',
+		author: 'Jeremy Kluth',
+		org: 'Scripture Alive',
+		tag: 'video',
+	},
+	{
+		quote:
+			"We moved off WordPress and watched our Google rankings climb within weeks. Spirit Media's stack is the only one I've seen that's genuinely built for how search engines — and AI crawlers — actually work in 2026.",
+		author: 'Pete',
+		org: 'LionCrest Media',
+		tag: 'written',
+	},
+	{
+		quote: 'Loads super fast.',
+		author: 'Linsey Stuckey',
+		org: 'Johnny Watts Agency',
+		tag: 'video',
+	},
+	{
+		quote:
+			"My portfolio loads in under a second on mobile. Clients see the art the way it's meant to be seen — instantly, sharp, on any device.",
+		author: 'Justin Keishing',
+		org: 'Arts By Justin',
+		tag: 'written',
+	},
+	{
+		quote: 'I am beyond thrilled.',
+		author: 'Barbara Kohler',
+		org: 'The Kohler Group',
+		tag: 'video',
+	},
+	{
+		quote:
+			'Our site loads the same in Delhi as it does in Dallas. For a ministry reaching donors and partners across three continents, that changed everything.',
+		author: 'Bernard',
+		org: 'Global Hope India',
+		tag: 'written',
+	},
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // FAQ — FAQPage JSON-LD schema built from this list
 // ─────────────────────────────────────────────────────────────────────────────
 const FAQ = [
-	{ q: 'What is an AI-powered website?', a: 'A site built for the AI era of the web — where ChatGPT, Perplexity, and Claude are search engines, Google\'s ranking algorithm runs on Core Web Vitals, and content updates by conversation. Most websites built today are none of these things. Every site we build is all of them.' },
-	{ q: 'What is the fastest website platform in 2026?', a: 'Astro. It ships zero JavaScript by default, compiles to static HTML, and consistently scores 95–100 on Google\'s Core Web Vitals. Every site we build uses it.' },
-	{ q: 'Is Astro better than WordPress?', a: 'For speed, security, and SEO — yes. WordPress carries 15+ years of plugin overhead; Astro ships nothing you don\'t need. Our Astro sites load 4–8× faster than the average WordPress site.' },
-	{ q: 'How long does it take to build a Spirit Media website?', a: 'Standard builds ship in 3–6 weeks. Complex migrations (100+ pages) in 6–10 weeks. Every project follows our published 9-phase protocol.' },
-	{ q: 'Do I own my website?', a: 'Completely. You own the domain, the code (on GitHub), the content (in Sanity), and the media (in Cloudflare R2). No vendor lock-in.' },
-	{ q: 'What does it cost?', a: 'Projects start at $6,000. Your free 48-hour audit includes a custom quote for your specific site.' },
-	{ q: 'Can I update the site myself?', a: 'Yes. You edit content in Sanity Studio (visual editor, no code) or by conversation with Claude AI. Zero developer involvement required.' },
-	{ q: 'Is this real, or is this a gimmick?', a: 'It\'s real. Six live examples are on this page with live Google PageSpeed scores. The technology (Astro, Cloudflare, Sanity, Claude) has been in production with us since 2024. You can audit any of our sites yourself using pagespeed.web.dev. Nothing on this page is a mockup.' },
+	{
+		q: 'What is an AI-powered website?',
+		a: "A site built for the AI era of the web — where ChatGPT, Perplexity, and Claude are search engines, Google's ranking algorithm runs on Core Web Vitals, and content updates by conversation. Most websites built today are none of these things. Every site we build is all of them.",
+	},
+	{
+		q: 'What is the fastest website platform in 2026?',
+		a: "Astro. It ships zero JavaScript by default, compiles to static HTML, and consistently scores 95–100 on Google's Core Web Vitals. Every site we build uses it.",
+	},
+	{
+		q: 'Is Astro better than WordPress?',
+		a: "For speed, security, and SEO — yes. WordPress carries 15+ years of plugin overhead; Astro ships nothing you don't need. Our Astro sites load 4–8× faster than the average WordPress site.",
+	},
+	{
+		q: 'How long does it take to build a Spirit Media website?',
+		a: 'Standard builds ship in 3–6 weeks. Complex migrations (100+ pages) in 6–10 weeks. Every project follows our published 9-phase protocol.',
+	},
+	{
+		q: 'Do I own my website?',
+		a: 'Completely. You own the domain, the code (on GitHub), the content (in Sanity), and the media (in Cloudflare R2). No vendor lock-in.',
+	},
+	{
+		q: 'What does it cost?',
+		a: 'Projects start at $6,000. Your free 48-hour audit includes a custom quote for your specific site.',
+	},
+	{
+		q: 'Can I update the site myself?',
+		a: 'Yes. You edit content in Sanity Studio (visual editor, no code) or by conversation with Claude AI. Zero developer involvement required.',
+	},
+	{
+		q: 'Is this real, or is this a gimmick?',
+		a: "It's real. Six live examples are on this page with live Google PageSpeed scores. The technology (Astro, Cloudflare, Sanity, Claude) has been in production with us since 2024. You can audit any of our sites yourself using pagespeed.web.dev. Nothing on this page is a mockup.",
+	},
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // INTEGRATIONS (grouped)
 // ─────────────────────────────────────────────────────────────────────────────
 const INTEGRATIONS = [
-	{ group: 'CRM & Marketing', items: ['GoHighLevel (GHL)', 'HubSpot', 'Salesforce', 'ActiveCampaign', 'Mailchimp', 'ConvertKit', 'Klaviyo', 'Beehiiv'] },
-	{ group: 'Analytics & SEO', items: ['Google Analytics (GA4)', 'Google Tag Manager', 'Google Search Console', 'Microsoft Clarity', 'Plausible', 'Fathom', 'Hotjar', 'Ahrefs'] },
-	{ group: 'Payments & Donations', items: ['Stripe', 'PayPal', 'Square', 'Apple Pay', 'Donorbox', 'Tithe.ly', 'Pushpay', 'Shopify'] },
-	{ group: 'Scheduling', items: ['Calendly', 'Cal.com', 'GHL Calendars', 'Acuity', 'Google Calendar'] },
-	{ group: 'Media & Content', items: ['YouTube', 'Vimeo', 'Cloudflare Stream', 'Spotify', 'Apple Podcasts', 'Buzzsprout', 'Sanity CMS', 'Cloudflare R2'] },
-	{ group: 'Social', items: ['Instagram', 'Facebook', 'X / Twitter', 'LinkedIn', 'TikTok', 'YouTube', 'Pinterest', 'Threads'] },
-	{ group: 'AI & Search', items: ['Claude AI', 'OpenAI / ChatGPT', 'Perplexity', 'Google Gemini', 'Algolia Search', 'llms.txt'] },
-	{ group: 'Ads', items: ['Google Ads', 'Meta Ads', 'LinkedIn Ads', 'TikTok Ads', 'GA4 Conversions', 'Server-side GTM'] },
+	{
+		group: 'CRM & Marketing',
+		items: [
+			'GoHighLevel (GHL)',
+			'HubSpot',
+			'Salesforce',
+			'ActiveCampaign',
+			'Mailchimp',
+			'ConvertKit',
+			'Klaviyo',
+			'Beehiiv',
+		],
+	},
+	{
+		group: 'Analytics & SEO',
+		items: [
+			'Google Analytics (GA4)',
+			'Google Tag Manager',
+			'Google Search Console',
+			'Microsoft Clarity',
+			'Plausible',
+			'Fathom',
+			'Hotjar',
+			'Ahrefs',
+		],
+	},
+	{
+		group: 'Payments & Donations',
+		items: [
+			'Stripe',
+			'PayPal',
+			'Square',
+			'Apple Pay',
+			'Donorbox',
+			'Tithe.ly',
+			'Pushpay',
+			'Shopify',
+		],
+	},
+	{
+		group: 'Scheduling',
+		items: ['Calendly', 'Cal.com', 'GHL Calendars', 'Acuity', 'Google Calendar'],
+	},
+	{
+		group: 'Media & Content',
+		items: [
+			'YouTube',
+			'Vimeo',
+			'Cloudflare Stream',
+			'Spotify',
+			'Apple Podcasts',
+			'Buzzsprout',
+			'Sanity CMS',
+			'Cloudflare R2',
+		],
+	},
+	{
+		group: 'Social',
+		items: [
+			'Instagram',
+			'Facebook',
+			'X / Twitter',
+			'LinkedIn',
+			'TikTok',
+			'YouTube',
+			'Pinterest',
+			'Threads',
+		],
+	},
+	{
+		group: 'AI & Search',
+		items: [
+			'Claude AI',
+			'OpenAI / ChatGPT',
+			'Perplexity',
+			'Google Gemini',
+			'Algolia Search',
+			'llms.txt',
+		],
+	},
+	{
+		group: 'Ads',
+		items: [
+			'Google Ads',
+			'Meta Ads',
+			'LinkedIn Ads',
+			'TikTok Ads',
+			'GA4 Conversions',
+			'Server-side GTM',
+		],
+	},
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -121,10 +288,21 @@ const serviceSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Service',
 	serviceType: 'AI-Powered Website Design and Development',
-	provider: { '@type': 'Organization', name: 'Spirit Media Publishing', url: 'https://spiritmediapublishing.com' },
+	provider: {
+		'@type': 'Organization',
+		name: 'Spirit Media Publishing',
+		url: 'https://spiritmediapublishing.com',
+	},
 	areaServed: 'Worldwide',
-	description: 'AI-powered websites built on Astro, Cloudflare, Sanity, and Claude AI — sub-2-second load times, 95+ Google scores, AI-ready infrastructure.',
-	offers: { '@type': 'Offer', url: 'https://spiritmediapublishing.com/ai-websites', priceCurrency: 'USD', price: '6000', availability: 'https://schema.org/InStock' },
+	description:
+		'AI-powered websites built on Astro, Cloudflare, Sanity, and Claude AI — sub-2-second load times, 95+ Google scores, AI-ready infrastructure.',
+	offers: {
+		'@type': 'Offer',
+		url: 'https://spiritmediapublishing.com/ai-websites',
+		priceCurrency: 'USD',
+		price: '6000',
+		availability: 'https://schema.org/InStock',
+	},
 };
 
 const breadcrumbSchema = {
@@ -132,7 +310,12 @@ const breadcrumbSchema = {
 	'@type': 'BreadcrumbList',
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spiritmediapublishing.com' },
-		{ '@type': 'ListItem', position: 2, name: 'AI Websites', item: 'https://spiritmediapublishing.com/ai-websites' },
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'AI Websites',
+			item: 'https://spiritmediapublishing.com/ai-websites',
+		},
 	],
 };
 ---
