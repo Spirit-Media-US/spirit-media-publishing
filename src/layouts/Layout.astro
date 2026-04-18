@@ -20,12 +20,13 @@ let gaId = 'G-W3R21TNHTX';
 // Fetch siteSettings for default OG image, Twitter handle, and GA ID
 try {
 	const siteSettings = await sanityClient.fetch(
-		'*[_type == "siteSettings"][0]{ ogImage, twitterHandle, googleAnalyticsId }'
+		'*[_type == "siteSettings"][0]{ ogImage, twitterHandle, googleAnalyticsId }',
 	);
 	if (siteSettings) {
 		// If no explicit ogImage prop, use siteSettings
 		if (!ogImage && siteSettings.ogImage) {
-			ogImage = urlFor(siteSettings.ogImage).width(1200).height(630).format('jpg').url() || undefined;
+			ogImage =
+				urlFor(siteSettings.ogImage).width(1200).height(630).format('jpg').url() || undefined;
 		}
 		if (siteSettings.twitterHandle) twitterHandle = siteSettings.twitterHandle;
 		if (siteSettings.googleAnalyticsId) gaId = siteSettings.googleAnalyticsId;
@@ -36,7 +37,8 @@ try {
 
 // Fallback OG image if still not set
 if (!ogImage) {
-	ogImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&h=630&fm=jpg&q=85';
+	ogImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&h=630&fm=jpg&q=85';
 }
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
@@ -82,13 +84,26 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <!-- Per-page head slot (keywords, schema, etc.) -->
     <slot name="head" />
 
-    <!-- Google Analytics GA4 -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-    <script>
+    <!-- Google Analytics GA4 — deferred until idle to free main thread for LCP -->
+    <script is:inline define:vars={{ gaId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', import.meta.env.PUBLIC_GA_ID || 'G-W3R21TNHTX');
+      window.gtag = gtag;
+      const loadGA = () => {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', gaId);
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA, { timeout: 4000 });
+      } else {
+        window.addEventListener('load', () => setTimeout(loadGA, 1500));
+      }
     </script>
 
     <!-- Google Fonts: Cormorant Garamond (display) + Source Sans 3 (body) -->

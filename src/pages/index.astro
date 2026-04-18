@@ -44,65 +44,127 @@ try {
 			homepageWriteBookImage, homepageWriteBookImageAlt,
 			homepagePublishBookImage, homepagePublishBookImageAlt,
 			homepageMarketMessageImage, homepageMarketMessageImageAlt
-		}`
+		}`,
 	);
 	if (s?.homepageHeroImage) {
-		homepageHeroImage = urlFor(s.homepageHeroImage).width(1200).fit('max').auto('format').url();
+		homepageHeroImage = urlFor(s.homepageHeroImage)
+			.width(1200)
+			.fit('max')
+			.format('webp')
+			.quality(80)
+			.url();
 	}
 	if (s?.homepageHeroImageAlt) homepageHeroImageAlt = s.homepageHeroImageAlt;
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
 
 	// Brand Images
-	if (s?.fhbImage) fhbImage = urlFor(s.fhbImage).width(1024).height(1024).fit('crop').auto('format').url();
-	if (s?.kmcBrandImage) kmcBrandImage = urlFor(s.kmcBrandImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.woyImage) woyImage = urlFor(s.woyImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.expressBooksImage) expressBooksImage = urlFor(s.expressBooksImage).width(768).height(512).fit('crop').auto('format').url();
-	if (s?.believerLibraryImage) believerLibraryImage = urlFor(s.believerLibraryImage).width(768).height(512).fit('crop').auto('format').url();
+	if (s?.fhbImage)
+		fhbImage = urlFor(s.fhbImage).width(1024).height(1024).fit('crop').auto('format').url();
+	if (s?.kmcBrandImage)
+		kmcBrandImage = urlFor(s.kmcBrandImage).width(768).height(384).fit('crop').auto('format').url();
+	if (s?.woyImage)
+		woyImage = urlFor(s.woyImage).width(768).height(384).fit('crop').auto('format').url();
+	if (s?.expressBooksImage)
+		expressBooksImage = urlFor(s.expressBooksImage)
+			.width(768)
+			.height(512)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.believerLibraryImage)
+		believerLibraryImage = urlFor(s.believerLibraryImage)
+			.width(768)
+			.height(512)
+			.fit('crop')
+			.auto('format')
+			.url();
 
 	// Service Images
-	if (s?.homepageManuscriptReviewImage) manuscriptReviewImage = urlFor(s.homepageManuscriptReviewImage).width(600).height(900).fit('crop').auto('format').url();
-	if (s?.homepageChildrensBooksImage) childrensBooksImage = urlFor(s.homepageChildrensBooksImage).width(980).fit('max').auto('format').url();
-	if (s?.homepageWriteBookImage) writeBookImage = urlFor(s.homepageWriteBookImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.homepagePublishBookImage) publishBookImage = urlFor(s.homepagePublishBookImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.homepageMarketMessageImage) marketMessageImage = urlFor(s.homepageMarketMessageImage).width(1200).fit('max').auto('format').url();
+	if (s?.homepageManuscriptReviewImage)
+		manuscriptReviewImage = urlFor(s.homepageManuscriptReviewImage)
+			.width(600)
+			.height(900)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.homepageChildrensBooksImage)
+		childrensBooksImage = urlFor(s.homepageChildrensBooksImage)
+			.width(980)
+			.fit('max')
+			.auto('format')
+			.url();
+	if (s?.homepageWriteBookImage)
+		writeBookImage = urlFor(s.homepageWriteBookImage)
+			.width(768)
+			.height(384)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.homepagePublishBookImage)
+		publishBookImage = urlFor(s.homepagePublishBookImage)
+			.width(768)
+			.height(384)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.homepageMarketMessageImage)
+		marketMessageImage = urlFor(s.homepageMarketMessageImage)
+			.width(1200)
+			.fit('max')
+			.auto('format')
+			.url();
 } catch (e) {}
 
 // Fallbacks if not in Sanity
 if (!homepageHeroImage) {
-	homepageHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fit=max&auto=format';
+	homepageHeroImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fm=webp&q=80&fit=max';
 }
+// Smaller mobile variant for srcset (saves ~60% bytes on small viewports)
+const homepageHeroImageMobile = homepageHeroImage.replace(/([?&])w=\d+/, '$1w=720');
 if (!homepageAudioUrl) {
-	homepageAudioUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';
+	homepageAudioUrl =
+		'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';
 }
 if (!fhbImage) {
-	fhbImage = 'https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png?w=1024&h=1024&fit=crop&auto=format';
+	fhbImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png?w=1024&h=1024&fit=crop&auto=format';
 }
 if (!kmcBrandImage) {
-	kmcBrandImage = 'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=768&h=384&fit=crop&auto=format';
+	kmcBrandImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!woyImage) {
-	woyImage = 'https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg?w=768&h=384&fit=crop&auto=format';
+	woyImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!expressBooksImage) {
-	expressBooksImage = 'https://cdn.sanity.io/images/pmowd8uo/production/91eff73d0166bac824bdf85f24744ce93fe49895-1536x1024.png?w=768&h=512&fit=crop&auto=format';
+	expressBooksImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/91eff73d0166bac824bdf85f24744ce93fe49895-1536x1024.png?w=768&h=512&fit=crop&auto=format';
 }
 if (!believerLibraryImage) {
-	believerLibraryImage = 'https://cdn.sanity.io/images/pmowd8uo/production/61db533060e24d4df68be79e6cc455a8a16f1df7-1500x900.png?w=768&h=512&fit=crop&auto=format';
+	believerLibraryImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/61db533060e24d4df68be79e6cc455a8a16f1df7-1500x900.png?w=768&h=512&fit=crop&auto=format';
 }
 if (!manuscriptReviewImage) {
-	manuscriptReviewImage = 'https://cdn.sanity.io/images/pmowd8uo/production/993fc8968f7fb09961f2a446e6030fb031f50d43-600x900.png?w=600&h=900&fit=crop&auto=format';
+	manuscriptReviewImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/993fc8968f7fb09961f2a446e6030fb031f50d43-600x900.png?w=600&h=900&fit=crop&auto=format';
 }
 if (!childrensBooksImage) {
-	childrensBooksImage = 'https://cdn.sanity.io/images/pmowd8uo/production/54244efc1f358c9a434b90fb5cbe94baf28fda6a-980x201.png?w=980&fit=max&auto=format';
+	childrensBooksImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/54244efc1f358c9a434b90fb5cbe94baf28fda6a-980x201.png?w=980&fit=max&auto=format';
 }
 if (!writeBookImage) {
-	writeBookImage = 'https://cdn.sanity.io/images/pmowd8uo/production/3888773fa7183ef0133efd02481baf0a7a768df1-6922x4620.jpg?w=768&h=384&fit=crop&auto=format';
+	writeBookImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/3888773fa7183ef0133efd02481baf0a7a768df1-6922x4620.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!publishBookImage) {
-	publishBookImage = 'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=768&h=384&fit=crop&auto=format';
+	publishBookImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!marketMessageImage) {
-	marketMessageImage = 'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=1200&fit=max&auto=format';
+	marketMessageImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=1200&fit=max&auto=format';
 }
 
 const FALLBACK_TESTIMONIALS = [
@@ -144,6 +206,15 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company" />
 		<meta name="robots" content="index, follow" />
+		<!-- Preload LCP hero image (mobile variant first, desktop via imagesrcset) -->
+		<link
+			rel="preload"
+			as="image"
+			href={homepageHeroImageMobile}
+			imagesrcset={`${homepageHeroImageMobile} 720w, ${homepageHeroImage} 1200w`}
+			imagesizes="(max-width: 1023px) 100vw, 50vw"
+			fetchpriority="high"
+		/>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Organization",
@@ -201,7 +272,14 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<div class="flex items-center justify-center order-first lg:order-last" data-animate="zoom-in">
 						<img
 							src={homepageHeroImage}
+							srcset={`${homepageHeroImageMobile} 720w, ${homepageHeroImage} 1200w`}
+							sizes="(max-width: 1023px) 100vw, 50vw"
 							alt={homepageHeroImageAlt}
+							width="1200"
+							height="776"
+							fetchpriority="high"
+							loading="eager"
+							decoding="async"
 							class="w-full max-h-[360px] lg:max-h-[600px] object-contain"
 						/>
 					</div>
