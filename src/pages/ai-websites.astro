@@ -4,50 +4,32 @@ import Layout from '../layouts/Layout.astro';
 import { fetchPageSpeed } from '../lib/pagespeed.ts';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SHOWCASE SITES (hardcoded per Kevin — 6 curated live examples)
+// SHOWCASE SITES — device-mockup sets mirror /portfolio "Astro + Tailwind Websites"
 // ─────────────────────────────────────────────────────────────────────────────
 const SHOWCASE = [
 	{
-		name: 'Work On Yourself',
-		url: 'https://workonyourself.com',
-		industry: 'Coaching',
-		screenshot:
-			'https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg?w=800&fm=webp&q=80',
-	},
-	{
-		name: 'Johnny Watts Agency',
-		url: 'https://johnnywattsagency.com',
-		industry: 'Insurance',
-		screenshot:
-			'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
-	},
-	{
-		name: 'Arts By Justin',
-		url: 'https://artsbyjustin.com',
-		industry: 'Art & Creative',
-		screenshot:
-			'https://cdn.sanity.io/images/pmowd8uo/production/3888773fa7183ef0133efd02481baf0a7a768df1-6922x4620.jpg?w=800&fm=webp&q=80',
-	},
-	{
-		name: 'Scripture Alive',
-		url: 'https://scripturealive.com',
-		industry: 'Ministry',
-		screenshot:
-			'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+		name: 'Spirit Media Publishing',
+		url: 'https://spiritmediapublishing.com',
+		industry: 'Publishing',
+		desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/4db640321f9ccfa8b1480db9c55c89aaf2b91709-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/7f7b09ae18a3e2934ee4874fece691e8284a42ef-768x1024.png?w=600&fm=webp&q=85',
+		mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/600cdcd098bc747ea62bbaebf017e3852212ebcb-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		name: 'The Kohler Group',
 		url: 'https://thekohlergroup.net',
 		industry: 'Professional Services',
-		screenshot:
-			'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=800&fm=webp&q=80',
+		desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/33c47b8dfa3c2d4184432b150ba7e7c808b5b29b-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/f608fe0da0ce7942613368c725700eb66c804e13-768x1024.png?w=600&fm=webp&q=85',
+		mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/23d9abbe41b4a447b45adf64bbcf1995bec70d4e-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		name: 'Clowning from the Heart',
 		url: 'https://clowningfromtheheart.com',
 		industry: 'Creative / Author',
-		screenshot:
-			'https://cdn.sanity.io/images/pmowd8uo/production/41a09e4b87cbb7de8f851e987d90e1dcb45155a9-640x610.jpg?w=800&fm=webp&q=80',
+		desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/d74fcd41bd33a85253e73444acc3d8102668cc7c-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/5922235e55976c075d048897802692482cd6acbc-768x1024.png?w=600&fm=webp&q=85',
+		mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png?w=300&fm=webp&q=85',
 	},
 ] as const;
 
