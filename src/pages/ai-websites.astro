@@ -11,25 +11,34 @@ const SHOWCASE = [
 		name: 'Spirit Media Publishing',
 		url: 'https://spiritmediapublishing.com',
 		industry: 'Publishing',
-		desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/4db640321f9ccfa8b1480db9c55c89aaf2b91709-1440x900.png?w=1400&fm=webp&q=85',
-		tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/7f7b09ae18a3e2934ee4874fece691e8284a42ef-768x1024.png?w=600&fm=webp&q=85',
-		mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/600cdcd098bc747ea62bbaebf017e3852212ebcb-375x812.png?w=300&fm=webp&q=85',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/4db640321f9ccfa8b1480db9c55c89aaf2b91709-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/7f7b09ae18a3e2934ee4874fece691e8284a42ef-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/600cdcd098bc747ea62bbaebf017e3852212ebcb-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		name: 'The Kohler Group',
 		url: 'https://thekohlergroup.net',
 		industry: 'Professional Services',
-		desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/33c47b8dfa3c2d4184432b150ba7e7c808b5b29b-1440x900.png?w=1400&fm=webp&q=85',
-		tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/f608fe0da0ce7942613368c725700eb66c804e13-768x1024.png?w=600&fm=webp&q=85',
-		mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/23d9abbe41b4a447b45adf64bbcf1995bec70d4e-375x812.png?w=300&fm=webp&q=85',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/33c47b8dfa3c2d4184432b150ba7e7c808b5b29b-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/f608fe0da0ce7942613368c725700eb66c804e13-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/23d9abbe41b4a447b45adf64bbcf1995bec70d4e-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		name: 'Clowning from the Heart',
 		url: 'https://clowningfromtheheart.com',
 		industry: 'Creative / Author',
-		desktop: 'https://cdn.sanity.io/images/pmowd8uo/production/d74fcd41bd33a85253e73444acc3d8102668cc7c-1440x900.png?w=1400&fm=webp&q=85',
-		tablet:  'https://cdn.sanity.io/images/pmowd8uo/production/5922235e55976c075d048897802692482cd6acbc-768x1024.png?w=600&fm=webp&q=85',
-		mobile:  'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png?w=300&fm=webp&q=85',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/d74fcd41bd33a85253e73444acc3d8102668cc7c-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/5922235e55976c075d048897802692482cd6acbc-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png?w=300&fm=webp&q=85',
 	},
 ] as const;
 
@@ -152,7 +161,7 @@ const FAQ = [
 	},
 	{
 		q: 'Is this real, or is this a gimmick?',
-		a: "It's real. Six live examples are on this page with live Google PageSpeed scores. The technology (Astro, Cloudflare, Sanity, Claude) has been in production with us since 2024. You can audit any of our sites yourself using pagespeed.web.dev. Nothing on this page is a mockup.",
+		a: "It's real. Three live examples are on this page with live Google PageSpeed scores. The technology (Astro, Cloudflare, Sanity, Claude) has been in production with us since 2024. You can audit any of our sites yourself using pagespeed.web.dev. Nothing on this page is a mockup.",
 	},
 ];
 
@@ -392,7 +401,7 @@ const breadcrumbSchema = {
 				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">What's Changed</p>
 				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">The Shift Already Happened</h2>
 				<p class="mt-6 type-body-lg text-stone-600" data-animate="fade-up" data-delay="2">
-					While most websites are still built the way they were a decade ago — slow, plugin-heavy, brittle, invisible to AI search — a new category has arrived. AI-powered websites load in under two seconds, rank on the first page of Google <em>and</em> ChatGPT, carry schema the old platforms can't emit, and update themselves by conversation. They aren't the future. They're live. Scroll down and watch six of them load in real time.
+					While most websites are still built the way they were a decade ago — slow, plugin-heavy, brittle, invisible to AI search — a new category has arrived. AI-powered websites load in under two seconds, rank on the first page of Google <em>and</em> ChatGPT, carry schema the old platforms can't emit, and update themselves by conversation. They aren't the future. They're live. Scroll down and watch three of them load in real time.
 				</p>
 			</div>
 		</section>
@@ -402,21 +411,51 @@ const breadcrumbSchema = {
 			<div class="mx-auto max-w-7xl">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Live Proof</p>
-					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Six Websites. Six Live Scores. Pulled Right Now.</h2>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Three Live Proofs. Real Sites. Real Scores.</h2>
 					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
 						These aren't marketing screenshots. Every score on this page was fetched from Google PageSpeed during this site's last build. Click any site, open it in a new tab, and see for yourself — no dashboard, no demo, no staging environment. This is production.
 					</p>
 				</div>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					{showcaseWithScores.map((s, i) => (
-						<a href={s.url} target="_blank" rel="noopener noreferrer" class="group bg-surface rounded-2xl border border-stone-200 shadow-sm hover:shadow-lg transition-all overflow-hidden" data-animate="fade-up" data-delay={(i % 3) + 1}>
-							<div class="h-40 bg-stone-100 overflow-hidden border-b border-stone-200">
-								<img src={s.screenshot} alt={`${s.name} website screenshot`} class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-							</div>
-							<div class="p-6">
+						<div data-animate="fade-up" data-delay={String((i % 3) + 1)}>
+							<a href={s.url} target="_blank" rel="noopener noreferrer" class="block group">
+								<p class="font-sans text-sm text-stone-600 mb-2 truncate">{s.url.replace('https://', '')}</p>
+								<div class="relative rounded-2xl bg-gradient-to-br from-stone-400 to-stone-500 p-3 overflow-hidden">
+									<div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 18px 18px;"></div>
+									<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-3/4 h-12 bg-red opacity-10 rounded-full blur-2xl"></div>
+									<div class="relative grid items-end gap-1.5" style="grid-template-columns: 1.2fr 4fr 1.8fr;">
+										<div class="border-2 border-stone-300 rounded-xl overflow-hidden shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+											<img src={s.mobile} alt={`${s.name} mobile preview`} loading="lazy" class="w-full block" />
+										</div>
+										<div>
+											<div class="bg-stone-300 rounded-t-lg px-2 py-1 flex items-center gap-1 border border-stone-300 border-b-0">
+												<div class="flex gap-0.5 shrink-0">
+													<div class="w-1.5 h-1.5 rounded-full bg-red-400"></div>
+													<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+													<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+												</div>
+												<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{s.url.replace('https://', '')}</div>
+											</div>
+											<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+												<img src={s.desktop} alt={`${s.name} desktop preview`} loading="lazy" class="w-full block" />
+											</div>
+										</div>
+										<div>
+											<div class="bg-stone-300 rounded-t-md px-1 py-1 flex items-center justify-center border border-stone-300 border-b-0">
+												<div class="w-3 h-0.5 rounded-full bg-stone-400"></div>
+											</div>
+											<div class="overflow-hidden rounded-b-md border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+												<img src={s.tablet} alt={`${s.name} tablet preview`} loading="lazy" class="w-full block" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+							<div class="mt-4 bg-surface rounded-2xl border border-stone-200 p-5">
 								<div class="flex items-center justify-between mb-2">
 									<p class="text-xs font-semibold uppercase tracking-wider text-stone-500">{s.industry}</p>
-									<span class="text-red group-hover:translate-x-1 transition-transform">↗</span>
+									<a href={s.url} target="_blank" rel="noopener noreferrer" class="text-red text-sm font-semibold hover:underline">Visit ↗</a>
 								</div>
 								<h3 class="font-serif text-xl font-bold text-ink-soft mb-4">{s.name}</h3>
 								<div class="grid grid-cols-2 gap-3 pt-3 border-t border-stone-200">
@@ -436,7 +475,7 @@ const breadcrumbSchema = {
 									</div>
 								</div>
 							</div>
-						</a>
+						</div>
 					))}
 				</div>
 				<p class="mt-6 text-center text-xs text-stone-500">
@@ -491,7 +530,7 @@ const breadcrumbSchema = {
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Under the Hood</p>
 					<h2 class="type-section-heading text-stone-100" data-animate="fade-up" data-delay="1">The Stack No One Else Is Using Yet</h2>
 					<p class="mt-4 type-body-lg text-stone-300 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
-						This is the exact stack powering the six sites above. Nothing about it is theoretical — every piece has been shipping in production for us since 2024. WordPress shops can't use it. Wix and Squarespace can't touch it.
+						This is the exact stack powering the three sites above. Nothing about it is theoretical — every piece has been shipping in production for us since 2024. WordPress shops can't use it. Wix and Squarespace can't touch it.
 					</p>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
