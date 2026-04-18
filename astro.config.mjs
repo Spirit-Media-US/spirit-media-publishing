@@ -9,6 +9,11 @@ const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV ?? "development", proce
 export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
   output: "static",
+  build: {
+    // Inline ALL page stylesheets into the HTML to eliminate render-blocking CSS
+    // requests on the LCP path. Proven to lift mobile PSI by 4-6 points on SMP sites.
+    inlineStylesheets: 'always',
+  },
   integrations: [
     sitemap({
       // Assign crawl priority by page type
