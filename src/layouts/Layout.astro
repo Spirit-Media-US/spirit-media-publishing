@@ -52,6 +52,17 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- TLS warmup for LCP-critical origins (must precede any resource from these origins) -->
+    <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
+    <link rel="preconnect" href="https://assets.spiritmediapublishing.com" crossorigin />
+
+    <!-- Self-hosted fonts from R2 — hoisted above <title> so browser discovers them in the first packet -->
+    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2" crossorigin />
+
+    <!-- Per-page head slot — hoisted so page-specific LCP preloads (e.g., hero image) come early -->
+    <slot name="head-early" />
+
     <!-- Primary SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -106,9 +117,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       }
     </script>
 
-    <!-- Self-hosted fonts from R2 (assets.spiritmediapublishing.com) — eliminates render-blocking external CSS -->
-    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2" crossorigin />
+    <!-- @font-face declarations — fonts themselves are preloaded at top of <head> -->
     <style is:global is:inline>
       @font-face{font-family:'Playfair Display';font-style:italic;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700-italic.woff2') format('woff2');}
       @font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2') format('woff2');}

@@ -207,10 +207,8 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 	description="Spirit Media helps Christian authors publish and market their books to 195 nations. Ghostwriting, editing, cover design, audiobooks, and global distribution."
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
 >
-	<Fragment slot="head">
-		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company" />
-		<meta name="robots" content="index, follow" />
-		<!-- Preload LCP hero image (mobile variant first, desktop via imagesrcset) -->
+	<Fragment slot="head-early">
+		<!-- Preload LCP hero image — hoisted to top of <head> via head-early slot so browser discovers it in the first packet -->
 		<link
 			rel="preload"
 			as="image"
@@ -219,6 +217,10 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 			imagesizes="(max-width: 1023px) 100vw, 50vw"
 			fetchpriority="high"
 		/>
+	</Fragment>
+	<Fragment slot="head">
+		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company" />
+		<meta name="robots" content="index, follow" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Organization",
