@@ -7,7 +7,7 @@ const rawSanityPosts = await sanityClient.fetch(`
     "slug": "/blog/" + slug.current,
     title,
     excerpt,
-    "image": coalesce(heroImage.asset->url + "?w=800&auto=format", "https://cdn.sanity.io/images/pmowd8uo/production/4494cc0dc0ce536868da01dfff4a8252df0c4b16-1200x630.jpg?w=1200&h=630&fit=crop&auto=format"),
+    "image": coalesce(heroImage.asset->url + "?w=800&fm=webp&q=80", "https://cdn.sanity.io/images/pmowd8uo/production/4494cc0dc0ce536868da01dfff4a8252df0c4b16-1200x630.jpg?w=1200&h=630&fit=crop&fm=webp&q=80"),
     "imagePosition": "center center",
     "author": coalesce(author, "Kevin White"),
     "date": publishDate,
@@ -44,7 +44,7 @@ const SANITY_POSTS_JSON = JSON.stringify(sanityPostsFormatted);
 <Layout
 	title="Christian Publishing & Marketing Blog — Spirit Media"
 	description="Insights, tips, and encouragement for Christian authors and Kingdom Messengers. Learn how to write, publish, market your book, and grow your platform."
-	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/bcf44917dfadbfeff18ed69e76c601a976c55508-1200x630.jpg?w=1200&h=630&fit=crop&auto=format"
+	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/bcf44917dfadbfeff18ed69e76c601a976c55508-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian publishing blog, Christian author tips, how to publish a Christian book, Kingdom Messenger blog, book marketing tips, Christian writing advice, Spirit Media blog, Christian author resources" />
