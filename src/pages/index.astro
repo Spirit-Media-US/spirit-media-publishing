@@ -113,8 +113,11 @@ try {
 } catch (e) {}
 
 // Hero LCP image — self-hosted on R2, same origin as fonts (single TLS handshake).
-// Three sizes pre-generated: 640w (DPR 1.75 mobile), 800w (DPR 2 mobile), 1200w (desktop).
-// Early Hint in public/_headers preloads the mobile variant.
+// Four sizes pre-generated: 480w (low-DPR mobile LCP), 640w (DPR 1.75 mobile),
+// 800w (DPR 2 mobile), 1200w (desktop).
+// Early Hint in public/_headers preloads the smallest variant.
+const homepageHeroImage480 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-xs.webp';
 const homepageHeroImage640 =
 	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.webp';
 const homepageHeroImage800 =
@@ -274,8 +277,8 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<div class="flex items-center justify-center order-first lg:order-last">
 						<img
 							src={homepageHeroImage}
-							srcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
-							sizes="(max-width: 1023px) 358px, 600px"
+							srcset={`${homepageHeroImage480} 480w, ${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
+							sizes="(max-width: 640px) 270px, (max-width: 1023px) 358px, 600px"
 							alt={homepageHeroImageAlt}
 							width="1200"
 							height="776"
