@@ -426,23 +426,24 @@
 	transition-delay: 0.48s;
 }
 
-.hero-stagger > * {
-	opacity: 0;
+/* Auto-play stagger — no opacity:0 gate. `both` fill-mode applies the
+   keyframes' starting opacity:0 during the delay then settles to 1.
+   Without the gate, text renders immediately if JS is slow/absent,
+   which keeps the H1 out of the LCP race. */
+.hero-stagger > *:nth-child(1) {
+	animation: fadeUp 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger.loaded > *:nth-child(1) {
-	animation: fadeUp 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.hero-stagger > *:nth-child(2) {
+	animation: fadeUp 0.7s 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger.loaded > *:nth-child(2) {
-	animation: fadeUp 0.7s 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.hero-stagger > *:nth-child(3) {
+	animation: fadeUp 0.7s 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger.loaded > *:nth-child(3) {
-	animation: fadeUp 0.7s 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.hero-stagger > *:nth-child(4) {
+	animation: fadeUp 0.7s 0.46s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger.loaded > *:nth-child(4) {
-	animation: fadeUp 0.7s 0.46s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.hero-stagger.loaded > *:nth-child(5) {
-	animation: fadeUp 0.7s 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.hero-stagger > *:nth-child(5) {
+	animation: fadeUp 0.7s 0.58s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes fadeUp {
