@@ -10,16 +10,13 @@ export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
   output: "static",
   build: {
-    // 'always' inlines the Tailwind bundle into every HTML response. For SMP's
-    // 50KB bundle (TW v4 + custom design tokens) this measured better than
-    // 'auto' on desktop PSI (98-99 vs 80) because eliminating the render-
-    // blocking external CSS fetch outweighs the HTML-bloat cost. Validated
-    // on dev preview 2026-04-19. Font preloads + 103 Early Hints in
-    // public/_headers cover the LCP warmup separately.
-    // NOTE: Beasties/Critters are NOT compatible with TW v4 utility-heavy
-    // markup — JSDOM scan doesn't see responsive variants or @theme utilities,
-    // pruning causes CLS when the async bundle re-applies them.
-    inlineStylesheets: 'always',
+    // Phase 3 of 100 Club plan: small per-page sheets inlined automatically;
+    // the full Tailwind bundle is emitted as external CSS and rewritten to
+    // async (media="print" onload swap) by scripts/async-css.mjs postbuild.
+    // Hand-rolled critical CSS in Layout.astro covers above-fold paint so the
+    // async window doesn't cause FOUC. Validated pattern from
+    // the-kohler-group (TW v4, same utility profile as SMP).
+    inlineStylesheets: 'auto',
   },
   integrations: [
     sitemap({

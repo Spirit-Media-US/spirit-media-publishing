@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "rm -rf public/studio && sanity build public/studio --yes && astro build",
+		"build": "rm -rf public/studio && sanity build public/studio --yes && astro build && node scripts/async-css.mjs",
 		"preview": "astro preview",
 		"astro": "astro",
 		"check": "biome check --write",
