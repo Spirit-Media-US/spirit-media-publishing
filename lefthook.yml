@@ -62,3 +62,9 @@ pre-commit:
       skip:
         - merge
         - rebase
+    100club-lint:
+      # Guardrails against 100 Club regressions. Script self-skips on non-100-Club sites.
+      run: /home/deploy/bin/100club-lint.sh
+      skip:
+        - merge
+        - rebase
