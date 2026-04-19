@@ -64,16 +64,11 @@ export default {
 			description: 'Descriptive text for default hero image',
 		},
 		{
-			name: 'homepageHeroImage',
-			title: 'Homepage Hero Image (book collage)',
-			type: 'image',
-			options: { hotspot: true },
-			description: 'Featured image on homepage',
-		},
-		{
 			name: 'homepageHeroImageAlt',
 			title: 'Homepage Hero Image Alt Text',
 			type: 'string',
+			description:
+				'Accessibility alt text for the homepage hero. The hero image itself is self-hosted on R2 at assets.spiritmediapublishing.com/spirit-media-publishing/hero-{mobile,tablet,desktop}.webp for LCP performance — it is NOT editable in Sanity. To change the hero visual, upload new WebP files to that R2 path.',
 		},
 		{
 			name: 'publishingHeroImage',
@@ -189,7 +184,7 @@ export default {
 		// Brand/Program Images (for homepage brand cards section)
 		{
 			name: 'fhbImage',
-			title: 'Father\'s Heart Bible Image',
+			title: "Father's Heart Bible Image",
 			type: 'image',
 			options: { hotspot: true },
 			description: 'Featured image for FHB card on homepage',
@@ -237,14 +232,14 @@ export default {
 		},
 		{
 			name: 'believerLibraryImage',
-			title: 'The Believer\'s Library Image',
+			title: "The Believer's Library Image",
 			type: 'image',
 			options: { hotspot: true },
-			description: 'Featured image for Believer\'s Library card on homepage',
+			description: "Featured image for Believer's Library card on homepage",
 		},
 		{
 			name: 'believerLibraryImageAlt',
-			title: 'Believer\'s Library Image Alt Text',
+			title: "Believer's Library Image Alt Text",
 			type: 'string',
 		},
 		// Homepage Service/Process Images
@@ -262,14 +257,14 @@ export default {
 		},
 		{
 			name: 'homepageChildrensBooksImage',
-			title: 'Homepage - Children\'s Books Image',
+			title: "Homepage - Children's Books Image",
 			type: 'image',
 			options: { hotspot: true },
-			description: 'Featured image for children\'s book covers section',
+			description: "Featured image for children's book covers section",
 		},
 		{
 			name: 'homepageChildrensBooksImageAlt',
-			title: 'Children\'s Books Image Alt Text',
+			title: "Children's Books Image Alt Text",
 			type: 'string',
 		},
 		{

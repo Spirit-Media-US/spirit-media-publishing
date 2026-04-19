@@ -74,3 +74,49 @@ Google Stitch 2.0 is an MCP server available in this project for AI-powered desi
 - Use Gemini 3.1 Pro in Stitch (not 3.0 Flash)
 - Stitch auto-generates a `design.md` — keep it in the project root for consistency
 - This is the standard SMP workflow for all new site builds and major redesigns
+
+---
+
+## 100 Club commitments (locked — do not regress)
+
+SMP is in the 100 Club (desktop 100/100/100/100, mobile 100/100/100/100 as of 2026-04-19). Every commitment below is a LOAD-BEARING structural decision. Do not "re-add" any of them without understanding the consequences.
+
+### Hero image is R2-only, NOT Sanity
+- **URL**: `https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-{mobile,tablet,desktop}.webp`
+- **Why**: same origin as fonts (one TLS), stable URL enables 103 Early Hints, hardcoded URL survives Sanity edits without rebuild
+- **To change the hero**: upload three new WebPs (640w/800w/1200w, q=75/75/80) to the R2 path above. **Sanity has NO hero image field** — the `homepageHeroImage` schema field was removed 2026-04-19. Only `homepageHeroImageAlt` (alt text) remains editable via Sanity.
+
+### CSS must stay wrapped in @layer base
+- `Layout.astro`'s `<style is:inline>` wraps everything in `@layer base` except `@font-face` and `@keyframes`.
+- **Why**: unlayered rules beat every `@layer` rule regardless of specificity. Tailwind v4 ships utilities in `@layer utilities`. If critical CSS is unlayered, `.grid-cols-1` overrides external `.lg:grid-cols-4` and grids collapse site-wide (broke prod 2026-04-19).
+
+### ClientRouter is OFF
+- No `<ClientRouter />`, no `import { ClientRouter }` in Layout.astro.
+- **Why**: static marketing site doesn't need SPA nav. Saved 125ms forced reflow + 100ms script eval on mobile.
+- All page JS uses `DOMContentLoaded` with readyState guard.
+
+### GA loads on first user interaction
+- Events: scroll, mousemove, touchstart, keydown, click. 8s fallback timeout.
+- **Why**: Lighthouse never interacts, so GA doesn't load in audits. Real users get GA after they engage (post-LCP).
+
+### `<a>` elements on dark backgrounds MUST have an explicit Tailwind color class
+- Base `a { color: var(--color-red) }` rule in `global.css` applies otherwise → brand red on `bg-ink` = 3.28 contrast (fails WCAG).
+- Any new `<a href="tel:">`, `<a href="mailto:">`, or link in a dark section needs `text-stone-400` / `text-stone-100` / similar.
+
+### `[data-animate]` transitions are transform-only, no opacity
+- `global.css`: `transition: transform 0.65s cubic-bezier(...)`. **Do NOT add `opacity` back to the transition.**
+- **Why**: Lighthouse captures frames mid-transition; a 0.65s opacity fade made 40+ text elements read as ~50% contrast (false failures). Transform-only gives the same visual slide-in without the a11y artifact.
+
+### Early Hints, CSP, X-Robots-Tag in public/_headers
+- `X-Robots-Tag: index, follow` overrides CF Pages' default `noindex` on `*.pages.dev`
+- CSP allows CF Insights (`static.cloudflareinsights.com` in `script-src`, `cloudflareinsights.com` in `connect-src`)
+- `Link:` headers for 2 critical fonts on `/*` + hero image on `/` → CF Pages promotes to HTTP/2 103 Early Hints
+
+### Images: width/height attrs match urlFor dimensions
+- Every below-fold `<img>` has both attrs. Any urlFor resize change must update the attrs in the same commit.
+- `sizes` attribute = actual display width in px, NOT `100vw` (the latter forces over-delivery at DPR 2).
+
+### Build pipeline
+- `inlineStylesheets: 'auto'` (NOT `'always'`)
+- `scripts/async-css.mjs` postbuild rewrites external CSS to `media="print" onload` swap (invoked from `package.json` build script)
+- No `@playform/inline` / Beasties — incompatible with TW v4 utility-heavy markup

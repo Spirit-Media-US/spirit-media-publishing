@@ -31,7 +31,7 @@ let marketMessageImage: string | undefined;
 try {
 	const s = await sanityClient.fetch(
 		`*[_type == "siteSettings"][0]{
-			homepageHeroImage, homepageHeroImageAlt,
+			homepageHeroImageAlt,
 			homepageAudioUrl,
 			fhbImage, fhbImageAlt,
 			kmcBrandImage, kmcBrandImageAlt,
@@ -45,11 +45,11 @@ try {
 			homepageMarketMessageImage, homepageMarketMessageImageAlt
 		}`,
 	);
-	// NOTE: homepage hero is intentionally sourced from R2 (see below), not Sanity —
-	// same-origin as fonts (one TLS handshake) and stable URL for 103 Early Hints.
-	// Sanity's CMS copy is used elsewhere (OG fallback, future variants) but NOT
-	// for the LCP img. If the hero image design changes, re-upload to R2 at
+	// Homepage hero is R2-only (not Sanity) for LCP performance: same origin as
+	// fonts (one TLS handshake) + stable URL for 103 Early Hints. To change the
+	// hero visual, upload new WebP files to
 	// assets.spiritmediapublishing.com/spirit-media-publishing/hero-{mobile,tablet,desktop}.webp
+	// Only alt text is editable via Sanity.
 	if (s?.homepageHeroImageAlt) homepageHeroImageAlt = s.homepageHeroImageAlt;
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
 
