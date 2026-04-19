@@ -113,8 +113,15 @@ try {
 } catch (e) {}
 
 // Hero LCP image — self-hosted on R2, same origin as fonts (single TLS handshake).
-// Three sizes pre-generated: 640w (DPR 1.75 mobile), 800w (DPR 2 mobile), 1200w (desktop).
-// Early Hint in public/_headers preloads the mobile variant.
+// AVIF primary (mobile 480w/tablet 800w/desktop 1200w, q50-55); WebP fallback
+// (mobile 640w/tablet 800w/desktop 1200w, q75-80) for pre-AVIF browsers.
+// Early Hint in public/_headers preloads the AVIF mobile variant.
+const homepageHeroAvif480 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.avif';
+const homepageHeroAvif800 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-tablet.avif';
+const homepageHeroAvif1200 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-desktop.avif';
 const homepageHeroImage640 =
 	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.webp';
 const homepageHeroImage800 =
@@ -203,12 +210,15 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
 >
 	<Fragment slot="head-early">
-		<!-- Preload LCP hero image — hoisted to top of <head> via head-early slot so browser discovers it in the first packet -->
+		<!-- Preload LCP hero image — AVIF only. `type="image/avif"` causes non-AVIF
+		     browsers to skip the preload and fall back to the <picture> <source>
+		     chain at normal priority. -->
 		<link
 			rel="preload"
 			as="image"
-			href={homepageHeroImage640}
-			imagesrcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
+			type="image/avif"
+			href={homepageHeroAvif480}
+			imagesrcset={`${homepageHeroAvif480} 480w, ${homepageHeroAvif800} 800w, ${homepageHeroAvif1200} 1200w`}
 			imagesizes="(max-width: 1023px) 358px, 600px"
 			fetchpriority="high"
 		/>
@@ -271,19 +281,30 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					</div>
 					<!-- Book collage image — visible on all screens, above text on mobile via order -->
 					<!-- NO data-animate: opacity:0 pre-reveal hides the LCP element from Lighthouse and delays LCP by 2+ seconds. -->
+					<!-- AVIF sources first (browsers pick top-to-bottom), WebP fallback for pre-AVIF browsers. -->
 					<div class="flex items-center justify-center order-first lg:order-last">
-						<img
-							src={homepageHeroImage}
-							srcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
-							sizes="(max-width: 1023px) 358px, 600px"
-							alt={homepageHeroImageAlt}
-							width="1200"
-							height="776"
-							fetchpriority="high"
-							loading="eager"
-							decoding="async"
-							class="w-full max-h-[360px] lg:max-h-[600px] object-contain"
-						/>
+						<picture>
+							<source
+								type="image/avif"
+								srcset={`${homepageHeroAvif480} 480w, ${homepageHeroAvif800} 800w, ${homepageHeroAvif1200} 1200w`}
+								sizes="(max-width: 1023px) 358px, 600px"
+							/>
+							<source
+								type="image/webp"
+								srcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
+								sizes="(max-width: 1023px) 358px, 600px"
+							/>
+							<img
+								src={homepageHeroImage}
+								alt={homepageHeroImageAlt}
+								width="1200"
+								height="776"
+								fetchpriority="high"
+								loading="eager"
+								decoding="async"
+								class="w-full max-h-[360px] lg:max-h-[600px] object-contain"
+							/>
+						</picture>
 					</div>
 		</section>
 
