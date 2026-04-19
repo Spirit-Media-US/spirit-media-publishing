@@ -29,7 +29,10 @@
 	font-family: "Playfair Display";
 	font-style: normal;
 	font-weight: 800;
-	font-display: swap;
+	/* optional: either paints once with the real font if it arrives in ~100ms,
+	   or never swaps. Prevents font-swap repaints from being counted as a new
+	   LCP on the hero H1 (caught this 2026-04-19 on simulated Slow 4G). */
+	font-display: optional;
 	src: url("https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2")
 		format("woff2");
 }

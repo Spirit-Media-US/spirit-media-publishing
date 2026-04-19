@@ -269,20 +269,24 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 							<a href="/contact" class="btn btn-primary">Request a Call</a>
 						</div>
 					</div>
-					<!-- Book collage image — visible on all screens, above text on mobile via order -->
+					<!-- Book collage image — DESKTOP ONLY. -->
+					<!-- Hidden on mobile so the H1 becomes the LCP element (bounded by FCP)
+					     rather than an image (~1s extra render delay on simulated Slow 4G).
+					     Paired with font-display: optional on Playfair 800 to stop font-swap
+					     repaints from re-firing LCP. -->
 					<!-- NO data-animate: opacity:0 pre-reveal hides the LCP element from Lighthouse and delays LCP by 2+ seconds. -->
-					<div class="flex items-center justify-center order-first lg:order-last">
+					<div class="hidden lg:flex items-center justify-center lg:order-last">
 						<img
 							src={homepageHeroImage}
-							srcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
-							sizes="(max-width: 1023px) 358px, 600px"
+							srcset={`${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
+							sizes="600px"
 							alt={homepageHeroImageAlt}
 							width="1200"
 							height="776"
 							fetchpriority="high"
 							loading="eager"
 							decoding="async"
-							class="w-full max-h-[360px] lg:max-h-[600px] object-contain"
+							class="w-full max-h-[600px] object-contain"
 						/>
 					</div>
 		</section>
