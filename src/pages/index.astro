@@ -283,7 +283,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<!-- NO data-animate: opacity:0 pre-reveal hides the LCP element from Lighthouse and delays LCP by 2+ seconds. -->
 					<!-- AVIF sources first (browsers pick top-to-bottom), WebP fallback for pre-AVIF browsers. -->
 					<div class="flex items-center justify-center order-first lg:order-last">
-						<picture>
+						<picture class="w-full">
 							<source
 								type="image/avif"
 								srcset={`${homepageHeroAvif480} 480w, ${homepageHeroAvif800} 800w, ${homepageHeroAvif1200} 1200w`}
