@@ -94,6 +94,8 @@ for (const [w, h, label] of [
     const r = [];
     const vw = window.innerWidth;
     for (const el of document.querySelectorAll('[class*=":grid-cols-"]')) {
+      // Skip elements hidden at this viewport (no grid-cols assertion on display:none)
+      if (el.offsetParent === null && el !== document.body) continue;
       // Find the highest breakpoint whose class applies
       const bps = [
         ['lg', 1024],
@@ -132,9 +134,14 @@ for (const [w, h, label] of [
       // Only numeric h-N (skip h-auto, h-full, h-screen, arbitrary values)
       const m = img.className.match(/\bh-(\d+)\b/);
       if (!m) continue;
+      // Skip elements hidden at this viewport (display:none, hidden ancestor, etc.)
+      // A hidden element has null offsetParent OR zero client rect width — both safe to skip
+      const rect = img.getBoundingClientRect();
+      if (img.offsetParent === null && img !== document.body) continue;
+      if (rect.width === 0 && rect.height === 0) continue;
       const n = parseInt(m[1], 10);
       const expected = n * 0.25 * rootFs;
-      const actual = img.getBoundingClientRect().height;
+      const actual = rect.height;
       if (Math.abs(actual - expected) > 3) {
         r.push({
           alt: (img.alt || '').slice(0, 40),
