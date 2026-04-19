@@ -419,46 +419,43 @@ const breadcrumbSchema = {
 				</div>
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					{showcaseWithScores.map((s, i) => (
-						<div data-animate="fade-up" data-delay={String((i % 3) + 1)}>
-							<a href={s.url} target="_blank" rel="noopener noreferrer" class="block group">
-								<p class="font-sans text-sm text-stone-600 mb-2 truncate">{s.url.replace('https://', '')}</p>
-								<div class="relative rounded-2xl bg-gradient-to-br from-stone-400 to-stone-500 p-3 overflow-hidden">
-									<div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 18px 18px;"></div>
-									<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-3/4 h-12 bg-red opacity-10 rounded-full blur-2xl"></div>
-									<div class="relative grid items-end gap-1.5" style="grid-template-columns: 1.2fr 4fr 1.8fr;">
-										<div class="border-2 border-stone-300 rounded-xl overflow-hidden shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
-											<img src={s.mobile} alt={`${s.name} mobile preview`} loading="lazy" class="w-full block" />
+						<div data-animate="fade-up" data-delay={String((i % 3) + 1)} class="group bg-surface rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
+							<a href={s.url} target="_blank" rel="noopener noreferrer" class="block relative bg-gradient-to-br from-stone-400 to-stone-500 p-3 overflow-hidden">
+								<div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 18px 18px;"></div>
+								<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-3/4 h-12 bg-red opacity-10 rounded-full blur-2xl"></div>
+								<div class="relative grid items-end gap-1.5" style="grid-template-columns: 1.2fr 4fr 1.8fr;">
+									<div class="border-2 border-stone-300 rounded-xl overflow-hidden shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+										<img src={s.mobile} alt={`${s.name} mobile preview`} loading="lazy" class="w-full block" />
+									</div>
+									<div>
+										<div class="bg-stone-300 rounded-t-lg px-2 py-1 flex items-center gap-1 border border-stone-300 border-b-0">
+											<div class="flex gap-0.5 shrink-0">
+												<div class="w-1.5 h-1.5 rounded-full bg-red-400"></div>
+												<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+												<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+											</div>
+											<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{s.url.replace('https://', '')}</div>
 										</div>
-										<div>
-											<div class="bg-stone-300 rounded-t-lg px-2 py-1 flex items-center gap-1 border border-stone-300 border-b-0">
-												<div class="flex gap-0.5 shrink-0">
-													<div class="w-1.5 h-1.5 rounded-full bg-red-400"></div>
-													<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
-													<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-												</div>
-												<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{s.url.replace('https://', '')}</div>
-											</div>
-											<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
-												<img src={s.desktop} alt={`${s.name} desktop preview`} loading="lazy" class="w-full block" />
-											</div>
+										<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+											<img src={s.desktop} alt={`${s.name} desktop preview`} loading="lazy" class="w-full block" />
 										</div>
-										<div>
-											<div class="bg-stone-300 rounded-t-md px-1 py-1 flex items-center justify-center border border-stone-300 border-b-0">
-												<div class="w-3 h-0.5 rounded-full bg-stone-400"></div>
-											</div>
-											<div class="overflow-hidden rounded-b-md border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
-												<img src={s.tablet} alt={`${s.name} tablet preview`} loading="lazy" class="w-full block" />
-											</div>
+									</div>
+									<div>
+										<div class="bg-stone-300 rounded-t-md px-1 py-1 flex items-center justify-center border border-stone-300 border-b-0">
+											<div class="w-3 h-0.5 rounded-full bg-stone-400"></div>
+										</div>
+										<div class="overflow-hidden rounded-b-md border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+											<img src={s.tablet} alt={`${s.name} tablet preview`} loading="lazy" class="w-full block" />
 										</div>
 									</div>
 								</div>
 							</a>
-							<div class="mt-4 bg-surface rounded-2xl border border-stone-200 p-5">
-								<div class="flex items-center justify-between mb-2">
-									<p class="text-xs font-semibold uppercase tracking-wider text-stone-500">{s.industry}</p>
-									<a href={s.url} target="_blank" rel="noopener noreferrer" class="text-red text-sm font-semibold hover:underline">Visit ↗</a>
+							<div class="p-4 flex-1 flex flex-col">
+								<div class="flex items-baseline justify-between mb-1">
+									<p class="text-[0.65rem] font-semibold uppercase tracking-wider text-stone-500">{s.industry}</p>
+									<a href={s.url} target="_blank" rel="noopener noreferrer" class="text-red text-xs font-semibold hover:underline">Visit ↗</a>
 								</div>
-								<h3 class="font-serif text-xl font-bold text-ink-soft mb-4">{s.name}</h3>
+								<h3 class="font-serif text-lg font-bold text-ink-soft mb-2">{s.name}</h3>
 								<HundredClubStats scores={s.scores} psiUrl={s.url} />
 							</div>
 						</div>
