@@ -492,34 +492,32 @@
 	transition-delay: 0.48s;
 }
 
-/* Auto-play stagger — no opacity:0 gate. `both` fill-mode applies the
-   keyframes' starting opacity:0 during the delay then settles to 1.
-   Without the gate, text renders immediately if JS is slow/absent,
-   which keeps the H1 out of the LCP race. */
-.hero-stagger > *:nth-child(1) {
+/* Gated on window.load (html.loaded class set by inline script in Layout.astro).
+   No animation runs during the LCP paint window — keeps main-thread style+layout
+   quiet while the hero image paints. After load fires, `both` fill-mode plays
+   the fadeUp keyframes with staggered delays. */
+html.loaded .hero-stagger > *:nth-child(1) {
 	animation: fadeUp 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger > *:nth-child(2) {
+html.loaded .hero-stagger > *:nth-child(2) {
 	animation: fadeUp 0.7s 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger > *:nth-child(3) {
+html.loaded .hero-stagger > *:nth-child(3) {
 	animation: fadeUp 0.7s 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger > *:nth-child(4) {
+html.loaded .hero-stagger > *:nth-child(4) {
 	animation: fadeUp 0.7s 0.46s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.hero-stagger > *:nth-child(5) {
+html.loaded .hero-stagger > *:nth-child(5) {
 	animation: fadeUp 0.7s 0.58s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes fadeUp {
 	from {
 		opacity: 0;
-		transform: translateY(24px);
 	}
 	to {
 		opacity: 1;
-		transform: translateY(0);
 	}
 }
 

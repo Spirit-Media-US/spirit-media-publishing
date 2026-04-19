@@ -8,14 +8,13 @@
   Link: <https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin
   Link: <https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin
 
-# Homepage — additional Early Hint for the LCP hero image (R2-hosted, stable URL)
-# imagesrcset lets DPR-2 mobile devices preload the correct variant (tablet@800w)
-# instead of wasting bytes on the wrong one.
-/
-  Link: <https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.webp>; rel=preload; as=image; fetchpriority=high; imagesrcset="https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.webp 640w, https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-tablet.webp 800w, https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-desktop.webp 1200w"; imagesizes="(max-width: 1023px) 358px, 600px"
-# Link: headers above CF Pages promotes to 103 Early Hints on cached edge hits
-# (20-30% LCP win, CF BFCM data). Hero moved from Sanity CDN to R2 so it shares
-# origin with fonts (one TLS handshake) and has a stable URL safe for Early Hints.
+# Hero image Early Hint removed 2026-04-19: HTTP Link: headers don't support
+# `media` queries, so an Early Hint fires on every viewport — mobile would
+# download the collage even though the mobile layout is text-only (Scripture
+# Alive pattern). Desktop keeps preload via HTML <link media="(min-width:
+# 1024px)"> in src/pages/index.astro. Trade: desktop loses the 20-30% Early
+# Hint LCP win; mobile gains a guarantee of zero hero bytes. Desktop was
+# already scoring 100 — the trade favors mobile.
 
 # ─── Long cache for hashed/immutable assets ────────────────────────────
 # CF Pages default is max-age=14400 (4h) which wastes bandwidth re-downloading

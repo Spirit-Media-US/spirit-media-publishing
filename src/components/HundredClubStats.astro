@@ -1,0 +1,110 @@
+---
+interface CategoryScores {
+	performance: number | null;
+	accessibility: number | null;
+	bestPractices: number | null;
+	seo: number | null;
+}
+
+interface Props {
+	scores: {
+		mobile: CategoryScores;
+		desktop: CategoryScores;
+		measuredAt: string | null;
+	} | null;
+	psiUrl: string;
+}
+
+const { scores, psiUrl } = Astro.props;
+
+const CATEGORIES: Array<{ key: keyof CategoryScores; short: string }> = [
+	{ key: 'performance', short: 'Perf' },
+	{ key: 'accessibility', short: 'A11y' },
+	{ key: 'bestPractices', short: 'BP' },
+	{ key: 'seo', short: 'SEO' },
+];
+
+function ringColor(n: number | null): string {
+	if (n === null) return '#d6d3d1';
+	if (n >= 90) return '#0cce6b';
+	if (n >= 50) return '#ffa400';
+	return '#ff4e42';
+}
+
+function ringBg(n: number | null): string {
+	if (n === null) return '#f5f5f4';
+	if (n >= 90) return '#dcfce7';
+	if (n >= 50) return '#fef3c7';
+	return '#fee2e2';
+}
+
+const CIRC = 100.53;
+
+function formatDate(iso: string | null): string {
+	if (!iso) return '';
+	const d = new Date(iso);
+	return `Verified ${d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}`;
+}
+
+const verifiedLabel = scores?.measuredAt ? formatDate(scores.measuredAt) : 'Awaiting verification';
+const psiReportUrl = `https://pagespeed.web.dev/report?url=${encodeURIComponent(psiUrl)}`;
+---
+
+<div class="hundred-club-stats mt-auto pt-3 border-t border-stone-200">
+	<div class="grid gap-1 items-center mb-1" style="grid-template-columns: 3rem 1fr 1fr 1fr 1fr;">
+		<span></span>
+		{CATEGORIES.map((cat) => (
+			<span class="text-[0.55rem] font-semibold uppercase tracking-[0.08em] text-stone-400 text-center">{cat.short}</span>
+		))}
+	</div>
+	{(['mobile', 'desktop'] as const).map((device) => {
+		const row = scores?.[device];
+		return (
+			<div class="grid gap-1 items-center mb-1" style="grid-template-columns: 3rem 1fr 1fr 1fr 1fr;">
+				<span class="text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-stone-600">
+					{device === 'mobile' ? 'Mobile' : 'Desktop'}
+				</span>
+				{CATEGORIES.map((cat) => {
+					const score = row?.[cat.key] ?? null;
+					const color = ringColor(score);
+					const bg = ringBg(score);
+					const offset = score === null ? CIRC : CIRC - (CIRC * score) / 100;
+					return (
+						<div class="flex items-center justify-center">
+							<div class="relative w-9 h-9" style={`background:${bg};border-radius:50%;`}>
+								<svg class="w-9 h-9" viewBox="0 0 36 36" aria-hidden="true">
+									<circle cx="18" cy="18" r="16" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.6" />
+									{score !== null && (
+										<circle
+											cx="18"
+											cy="18"
+											r="16"
+											fill="none"
+											stroke={color}
+											stroke-width="2.5"
+											stroke-dasharray={CIRC}
+											stroke-dashoffset={offset}
+											stroke-linecap="round"
+											transform="rotate(-90 18 18)"
+										/>
+									)}
+								</svg>
+								<div class="absolute inset-0 flex items-center justify-center">
+									<span class="font-serif font-bold text-[0.65rem]" style={`color:${color};`}>
+										{score ?? '—'}
+									</span>
+								</div>
+							</div>
+						</div>
+					);
+				})}
+			</div>
+		);
+	})}
+	<div class="mt-2 pt-2 border-t border-stone-100 flex items-center justify-between text-[0.6rem] text-stone-500">
+		<span>{verifiedLabel}</span>
+		<a href={psiReportUrl} target="_blank" rel="noopener noreferrer" class="text-red font-semibold hover:underline">
+			Verify on PSI ↗
+		</a>
+	</div>
+</div>
