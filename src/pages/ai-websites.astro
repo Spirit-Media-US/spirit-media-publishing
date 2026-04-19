@@ -1,13 +1,16 @@
 ---
+import HundredClubStats from '../components/HundredClubStats.astro';
 import MailtoLink from '../components/MailtoLink.astro';
+import hundredClubData from '../data/100-club.json';
 import Layout from '../layouts/Layout.astro';
-import { fetchPageSpeed } from '../lib/pagespeed.ts';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SHOWCASE SITES — device-mockup sets mirror /portfolio "Astro + Tailwind Websites"
+// Scores are pulled from src/data/100-club.json (PSI median-of-5, verified).
 // ─────────────────────────────────────────────────────────────────────────────
 const SHOWCASE = [
 	{
+		slug: 'spirit-media-publishing',
 		name: 'Spirit Media Publishing',
 		url: 'https://spiritmediapublishing.com',
 		industry: 'Publishing',
@@ -19,6 +22,7 @@ const SHOWCASE = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/600cdcd098bc747ea62bbaebf017e3852212ebcb-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
+		slug: 'the-kohler-group',
 		name: 'The Kohler Group',
 		url: 'https://thekohlergroup.net',
 		industry: 'Professional Services',
@@ -30,6 +34,7 @@ const SHOWCASE = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/23d9abbe41b4a447b45adf64bbcf1995bec70d4e-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
+		slug: 'clowning-from-the-heart',
 		name: 'Clowning from the Heart',
 		url: 'https://clowningfromtheheart.com',
 		industry: 'Creative / Author',
@@ -42,15 +47,11 @@ const SHOWCASE = [
 	},
 ] as const;
 
-// Fetch live PageSpeed scores at build time — serialized to avoid PSI rate limits.
-// Cached 24h in .cache/pagespeed.json so subsequent builds are instant.
-const showcaseWithScores: Array<
-	(typeof SHOWCASE)[number] & { scores: Awaited<ReturnType<typeof fetchPageSpeed>> }
-> = [];
-for (const site of SHOWCASE) {
-	const scores = await fetchPageSpeed(site.url);
-	showcaseWithScores.push({ ...site, scores });
-}
+type HundredClubSites = typeof hundredClubData.sites;
+const showcaseWithScores = SHOWCASE.map((s) => ({
+	...s,
+	scores: (hundredClubData.sites as HundredClubSites)[s.slug as keyof HundredClubSites] ?? null,
+}));
 
 // ─────────────────────────────────────────────────────────────────────────────
 // INDUSTRIES MARQUEE
@@ -458,28 +459,13 @@ const breadcrumbSchema = {
 									<a href={s.url} target="_blank" rel="noopener noreferrer" class="text-red text-sm font-semibold hover:underline">Visit ↗</a>
 								</div>
 								<h3 class="font-serif text-xl font-bold text-ink-soft mb-4">{s.name}</h3>
-								<div class="grid grid-cols-2 gap-3 pt-3 border-t border-stone-200">
-									<div>
-										<p class="text-xs text-stone-500 mb-1">Mobile</p>
-										<p class={`font-serif text-2xl font-bold ${s.scores.mobile && s.scores.mobile >= 90 ? 'text-red' : s.scores.mobile && s.scores.mobile >= 50 ? 'text-stone-700' : 'text-stone-400'}`}>
-											{s.scores.mobile ?? '—'}
-											{s.scores.mobile && <span class="text-sm text-stone-400 ml-1">/100</span>}
-										</p>
-									</div>
-									<div>
-										<p class="text-xs text-stone-500 mb-1">Desktop</p>
-										<p class={`font-serif text-2xl font-bold ${s.scores.desktop && s.scores.desktop >= 90 ? 'text-red' : s.scores.desktop && s.scores.desktop >= 50 ? 'text-stone-700' : 'text-stone-400'}`}>
-											{s.scores.desktop ?? '—'}
-											{s.scores.desktop && <span class="text-sm text-stone-400 ml-1">/100</span>}
-										</p>
-									</div>
-								</div>
+								<HundredClubStats scores={s.scores} psiUrl={s.url} />
 							</div>
 						</div>
 					))}
 				</div>
 				<p class="mt-6 text-center text-xs text-stone-500">
-					Scores from Google PageSpeed Insights. Cached for 24 hours between builds. Audit any site yourself at <a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="underline text-red">pagespeed.web.dev</a>.
+					Scores are PageSpeed Insights median-of-5, verified on each site's live domain. Audit any site yourself at <a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="underline text-red">pagespeed.web.dev</a>.
 				</p>
 			</div>
 		</section>

@@ -1,0 +1,26 @@
+{
+	"_comment": "100 Club scores — PSI median-of-5, verified manually or by nightly cron. Update when a site clears or re-verifies.",
+	"sites": {
+		"spirit-media-publishing": {
+			"name": "Spirit Media Publishing",
+			"url": "https://spiritmediapublishing.com",
+			"mobile": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
+			"desktop": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
+			"measuredAt": null
+		},
+		"the-kohler-group": {
+			"name": "The Kohler Group",
+			"url": "https://thekohlergroup.net",
+			"mobile": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
+			"desktop": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
+			"measuredAt": null
+		},
+		"clowning-from-the-heart": {
+			"name": "Clowning from the Heart",
+			"url": "https://clowningfromtheheart.com",
+			"mobile": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
+			"desktop": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
+			"measuredAt": null
+		}
+	}
+}
