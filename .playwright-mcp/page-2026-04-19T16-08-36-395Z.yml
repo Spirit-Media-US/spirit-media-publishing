@@ -1,0 +1,86 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - link "PageSpeed Insights logo PageSpeed Insights" [ref=e3] [cursor=pointer]:
+      - /url: ./
+      - img "PageSpeed Insights logo" [ref=e4]
+      - generic [ref=e5]: PageSpeed Insights
+    - generic [ref=e8]:
+      - generic [ref=e10]: Docs
+      - link "Docs" [ref=e11] [cursor=pointer]:
+        - /url: https://developers.google.com/speed/docs/insights/v5/about
+  - generic [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: This site uses cookies from Google to deliver its services and to analyze traffic.
+      - generic [ref=e21]:
+        - generic [ref=e23]:
+          - generic [ref=e25]: Learn More.
+          - link "Learn More." [ref=e26] [cursor=pointer]:
+            - /url: https://policies.google.com/technologies/cookies
+        - button "Ok, Got it." [ref=e28]:
+          - generic [ref=e31]: Ok, Got it.
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - textbox [active] [ref=e35]:
+          - /placeholder: Enter a web page URL
+        - paragraph [ref=e37]: Enter a valid URL
+      - button "Analyze" [ref=e39]:
+        - generic [ref=e42]: Analyze
+    - generic [ref=e45]:
+      - heading "Make your web pages fast on all devices" [level=1] [ref=e46]
+      - paragraph [ref=e47]: Check out
+      - generic [ref=e48]:
+        - link "What's new" [ref=e50] [cursor=pointer]:
+          - /url: https://developers.google.com/speed/docs/insights/release_notes
+        - link "Documentation" [ref=e52] [cursor=pointer]:
+          - /url: https://developers.google.com/speed/docs/insights/v5/about
+        - link "Learn about Web Performance" [ref=e54] [cursor=pointer]:
+          - /url: https://developers.google.com/speed
+  - contentinfo [ref=e55]:
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]: More on PageSpeed Insights
+          - link "What's new" [ref=e61] [cursor=pointer]:
+            - /url: https://developers.google.com/speed/docs/insights/release_notes
+          - link "Documentation" [ref=e63] [cursor=pointer]:
+            - /url: https://developers.google.com/speed/docs/insights/v5/about
+          - link "Learn about Web Performance" [ref=e65] [cursor=pointer]:
+            - /url: https://developers.google.com/speed
+          - link "Ask questions on Stack Overflow" [ref=e67] [cursor=pointer]:
+            - /url: https://stackoverflow.com/questions/tagged/pagespeed-insights
+          - link "Mailing list" [ref=e69] [cursor=pointer]:
+            - /url: https://groups.google.com/g/pagespeed-insights-discuss
+        - generic [ref=e70]:
+          - generic [ref=e71]: Related Content
+          - link "Updates" [ref=e73] [cursor=pointer]:
+            - /url: https://developer.chrome.com/blog
+          - link "Web Fundamentals" [ref=e75] [cursor=pointer]:
+            - /url: https://developers.google.com/focus/web-development
+          - link "Case Studies" [ref=e77] [cursor=pointer]:
+            - /url: https://web.dev/case-studies
+          - link "Podcasts" [ref=e79] [cursor=pointer]:
+            - /url: https://web.dev/shows
+        - generic [ref=e80]:
+          - generic [ref=e81]: Connect
+          - link "Twitter" [ref=e83] [cursor=pointer]:
+            - /url: https://twitter.com/ChromiumDev
+          - link "Youtube" [ref=e85] [cursor=pointer]:
+            - /url: https://www.youtube.com/user/ChromeDevelopers
+      - generic [ref=e86]:
+        - link "Google Developers Logo" [ref=e87] [cursor=pointer]:
+          - /url: https://developers.google.com/
+          - img "Google Developers Logo" [ref=e88]
+        - link "Chrome" [ref=e89] [cursor=pointer]:
+          - /url: https://developer.chrome.com/
+        - link "Firebase" [ref=e90] [cursor=pointer]:
+          - /url: https://firebase.google.com/
+        - link "All products" [ref=e91] [cursor=pointer]:
+          - /url: https://developers.google.com/products/
+      - generic [ref=e92]:
+        - link "Terms and Privacy Policy" [ref=e94] [cursor=pointer]:
+          - /url: https://policies.google.com/
+        - generic [ref=e95]:
+          - text: For details, see the
+          - link "Google Developers Site Policies" [ref=e96] [cursor=pointer]:
+            - /url: https://developers.google.com/terms/site-policies
+          - text: .
