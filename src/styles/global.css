@@ -80,7 +80,12 @@
 	font-family: "Playfair fallback";
 	font-style: normal;
 	font-weight: 700 800;
-	src: local("Georgia"), local("Times New Roman"), local("Times");
+	/* Linux (PSI / CI) first — Liberation Serif, DejaVu Serif are metric-
+	   compatible with Times / Georgia and ship with every Linux distro.
+	   Then the Windows/Mac names. First match wins. */
+	src:
+		local("Liberation Serif"), local("DejaVu Serif"), local("Georgia"), local("Times New Roman"),
+		local("Times");
 	size-adjust: 107%;
 	ascent-override: 95%;
 	descent-override: 24%;
@@ -90,7 +95,7 @@
 	font-family: "SourceSans fallback";
 	font-style: normal;
 	font-weight: 400 700;
-	src: local("Arial"), local("Helvetica");
+	src: local("Liberation Sans"), local("DejaVu Sans"), local("Arial"), local("Helvetica");
 	size-adjust: 100.8%;
 	ascent-override: 95%;
 	descent-override: 22%;

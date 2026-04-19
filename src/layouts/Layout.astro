@@ -88,8 +88,8 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
          Georgia / Times as local serif, Arial / Helvetica as local sans. The
          size-adjust + ascent/descent-override values approximate the real font
          metrics so the paint box is stable before and after swap. */
-      @font-face{font-family:'Playfair fallback';font-style:normal;font-weight:700 800;src:local('Georgia'),local('Times New Roman'),local('Times');size-adjust:107%;ascent-override:95%;descent-override:24%;line-gap-override:0%}
-      @font-face{font-family:'SourceSans fallback';font-style:normal;font-weight:400 700;src:local('Arial'),local('Helvetica');size-adjust:100.8%;ascent-override:95%;descent-override:22%;line-gap-override:0%}
+      @font-face{font-family:'Playfair fallback';font-style:normal;font-weight:700 800;src:local('Liberation Serif'),local('DejaVu Serif'),local('Georgia'),local('Times New Roman'),local('Times');size-adjust:107%;ascent-override:95%;descent-override:24%;line-gap-override:0%}
+      @font-face{font-family:'SourceSans fallback';font-style:normal;font-weight:400 700;src:local('Liberation Sans'),local('DejaVu Sans'),local('Arial'),local('Helvetica');size-adjust:100.8%;ascent-override:95%;descent-override:22%;line-gap-override:0%}
 
       /* --- All critical CSS wrapped in @layer base so Tailwind v4's async-
              loaded @layer utilities always wins the cascade when the full
