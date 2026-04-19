@@ -1,0 +1,331 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Spirit Media Publishing — home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Spirit Media Publishing" [ref=e7]
+      - button "Open main menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e12]:
+    - generic [ref=e14]:
+      - heading "Born from holy conviction. Built for global impact." [level=1] [ref=e15]:
+        - text: Born from holy conviction.
+        - text: Built for global impact.
+      - paragraph [ref=e16]: We refuse small vision. We reveal the Father's heart for His beloved children, for generations, and until the Good News bears fruit in every nation.
+      - paragraph [ref=e17]:
+        - text: Welcome to Spirit Media! We develop Kingdom Messengers by empowering them from
+        - strong [ref=e18]: heart → message → movement.
+      - generic [ref=e19]:
+        - link "We Are Spirit Media" [ref=e20] [cursor=pointer]:
+          - /url: /about
+        - link "Request a Call" [ref=e21] [cursor=pointer]:
+          - /url: /contact
+    - blockquote [ref=e24]:
+      - generic [ref=e25]: “
+      - paragraph [ref=e26]: "\"Publish Our Father's glorious deeds among the nations. Tell everyone about the amazing things He does.\""
+      - generic [ref=e27]: — Psalm 96:3 (FHB)
+    - generic [ref=e29]:
+      - paragraph [ref=e30]: We are already praying for you and our Father's message through you. Click here to listen →
+      - generic [ref=e31]: Your browser does not support the audio element.
+    - generic [ref=e33]:
+      - generic [ref=e34]: Our Mission
+      - paragraph [ref=e35]: Spirit Media is a Christian publishing and marketing family with a mission to reveal our Father's heart to all 195 nations worldwide.
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]: Exclusive Home of
+        - heading "Our Brands & Programs" [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]: Father's Heart Bible™
+          - generic [ref=e43]: Kingdom Messenger Collective
+          - generic [ref=e44]: Work On Yourself
+          - generic [ref=e45]: EXPRESS BOOKS™
+          - generic [ref=e46]: The Believer's Library
+      - generic [ref=e47]:
+        - img "Father's Heart Bible — An Intimate Translation" [ref=e49]
+        - generic [ref=e50]:
+          - generic [ref=e51]: Father's Heart Bible™ (FHB)
+          - heading "An intimate translation revealing our Father's heart to a fatherless generation." [level=3] [ref=e52]
+          - paragraph [ref=e53]: "One message for every reader: \"Come home. You belong to Me. You are My beloved child.\" Each gift of $100 places three Father's Heart Bibles into the hands of readers worldwide."
+          - link "Visit FathersHeartBible.com →" [ref=e54] [cursor=pointer]:
+            - /url: https://fathersheartbible.com
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - img "Kingdom Messenger Collective" [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]: Kingdom Messenger Collective
+            - heading "From God-given message to sustainable movement." [level=3] [ref=e60]
+            - paragraph [ref=e61]: Our flagship development program that walks with Kingdom Messengers through a 3+ year partnership.
+            - link "Learn More →" [ref=e62] [cursor=pointer]:
+              - /url: /kingdom-messenger-collective
+        - generic [ref=e63]:
+          - img "Work On Yourself" [ref=e64]
+          - generic [ref=e65]:
+            - generic [ref=e66]: Work On Yourself
+            - heading "A soul care intensive for leaders whose outer success has outpaced their inner life." [level=3] [ref=e67]
+            - paragraph [ref=e68]: A twelve-month protected season where leaders are accompanied rather than optimized.
+            - link "Visit WorkOnYourself.com →" [ref=e69] [cursor=pointer]:
+              - /url: https://workonyourself.com
+        - generic [ref=e70]:
+          - img "EXPRESS BOOKS™" [ref=e71]
+          - generic [ref=e72]:
+            - generic [ref=e73]: EXPRESS BOOKS™
+            - heading "Fast reads. Lasting impact." [level=3] [ref=e74]
+            - paragraph [ref=e75]: Intentionally compact books designed to be read in under an hour. No filler. No fluff. Transformation that lasts a lifetime.
+            - link "Learn More →" [ref=e76] [cursor=pointer]:
+              - /url: /express-books
+        - generic [ref=e77]:
+          - img "The Believer's Library" [ref=e78]
+          - generic [ref=e79]:
+            - generic [ref=e80]: The Believer's Library
+            - heading "The world's largest cloud-based Christian library." [level=3] [ref=e81]
+            - paragraph [ref=e82]: Our exclusive mobile app delivering PDF downloads to 3.3 billion souls worldwide with limited access to Jesus.
+            - link "Visit thebelieverslibrary.com →" [ref=e83] [cursor=pointer]:
+              - /url: https://thebelieverslibrary.com/
+    - generic [ref=e86]:
+      - img "Sample Spirit Media Manuscript Review document" [ref=e88]
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]: Free Offer
+          - heading "Free Manuscript Review" [level=2] [ref=e92]
+          - paragraph [ref=e93]:
+            - text: Share your manuscript with us and our team of seasoned editors will provide a
+            - strong [ref=e94]: FREE customized 20-point review ($250 value).
+        - generic [ref=e95]:
+          - generic [ref=e96]: Manuscript Overview
+          - generic [ref=e97]: Biblical Accuracy
+          - generic [ref=e98]: Target Audience Analysis
+          - generic [ref=e99]: Genre & Market Fit
+          - generic [ref=e100]: Content Organization
+          - generic [ref=e101]: Thematic Depth
+          - generic [ref=e102]: Emotional Impact
+          - generic [ref=e103]: Writing Style & Voice
+          - generic [ref=e104]: Grammar & Mechanics
+          - generic [ref=e105]: Clarity & Readability
+          - generic [ref=e106]: Research & Credibility
+          - generic [ref=e107]: Reader Engagement & Pacing
+          - generic [ref=e108]: Unique Selling Points
+          - generic [ref=e109]: Final Editing Assessment
+          - generic [ref=e110]: Market Potential
+          - generic [ref=e111]: Strengths
+          - generic [ref=e112]: Areas for Improvement
+          - generic [ref=e113]: Top Amazon Categories
+          - generic [ref=e114]: Optimized KDP Keywords
+          - generic [ref=e115]: Summary & Recommendations
+        - paragraph [ref=e116]: This will affirm God's good work in and through you.
+        - link "Email your Manuscript →" [ref=e117] [cursor=pointer]:
+          - /url: "#"
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]: Services
+        - heading "Providing Solutions You Need Right Now" [level=2] [ref=e123]:
+          - text: Providing Solutions
+          - text: You Need Right Now
+        - paragraph [ref=e124]: At Spirit Media, our passion is to amplify your message and increase your impact. Our comprehensive publishing and marketing solutions are here to serve you.
+        - link "Learn More →" [ref=e125] [cursor=pointer]:
+          - /url: /publishing
+        - img "Children's book covers published by Spirit Media" [ref=e126]
+      - generic [ref=e127]:
+        - link "Write My Book Meet with your writer one hour per week. Book complete in as few as 90 days." [ref=e128] [cursor=pointer]:
+          - /url: /publishing
+          - img [ref=e130]
+          - generic [ref=e132]:
+            - heading "Write My Book" [level=3] [ref=e133]
+            - paragraph [ref=e134]: Meet with your writer one hour per week. Book complete in as few as 90 days.
+        - link "Publish My Book Paperback, hardback, digital, and audiobook — global distribution worldwide." [ref=e135] [cursor=pointer]:
+          - /url: /publishing
+          - img [ref=e137]
+          - generic [ref=e139]:
+            - heading "Publish My Book" [level=3] [ref=e140]
+            - paragraph [ref=e141]: Paperback, hardback, digital, and audiobook — global distribution worldwide.
+        - link "Publish My Children's Book Fully illustrated children's books connecting your story with young readers." [ref=e142] [cursor=pointer]:
+          - /url: /publishing
+          - img [ref=e144]
+          - generic [ref=e146]:
+            - heading "Publish My Children's Book" [level=3] [ref=e147]
+            - paragraph [ref=e148]: Fully illustrated children's books connecting your story with young readers.
+        - link "Build My Website Website design, SEO, and digital strategy to grow your online presence." [ref=e149] [cursor=pointer]:
+          - /url: /marketing
+          - img [ref=e151]
+          - generic [ref=e153]:
+            - heading "Build My Website" [level=3] [ref=e154]
+            - paragraph [ref=e155]: Website design, SEO, and digital strategy to grow your online presence.
+        - link "Increase My Sales Audit your listings, increase reviews, market to bookstores and increase your sales." [ref=e156] [cursor=pointer]:
+          - /url: /marketing
+          - img [ref=e158]
+          - generic [ref=e160]:
+            - heading "Increase My Sales" [level=3] [ref=e161]
+            - paragraph [ref=e162]: Audit your listings, increase reviews, market to bookstores and increase your sales.
+        - link "Produce My Podcast Show Podcast production, YouTube optimization, and video content strategy." [ref=e163] [cursor=pointer]:
+          - /url: /marketing
+          - img [ref=e165]
+          - generic [ref=e167]:
+            - heading "Produce My Podcast Show" [level=3] [ref=e168]
+            - paragraph [ref=e169]: Podcast production, YouTube optimization, and video content strategy.
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - generic [ref=e174]: New in 2026
+        - heading "AI-Powered Websites Built on the Fastest Stack in 2026" [level=2] [ref=e175]
+        - paragraph [ref=e176]: Sub-2-second load times. 95+ Google scores. AI-ready infrastructure. Spirit Media builds websites on the stack Google rewards — and visitors actually use.
+        - paragraph [ref=e177]: When your message deserves a mountaintop instead of a cave.
+        - generic [ref=e178]:
+          - link "See Our Websites →" [ref=e179] [cursor=pointer]:
+            - /url: /ai-websites
+          - link "Free 48-Hour Audit" [ref=e180] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e182]:
+        - img "Spirit Media website sample 1" [ref=e184]
+        - img "Spirit Media website sample 2" [ref=e186]
+        - img "Spirit Media website sample 3" [ref=e188]
+        - img "Spirit Media website sample 4" [ref=e190]
+    - generic [ref=e192]:
+      - generic [ref=e193]:
+        - generic [ref=e194]: Testimonials
+        - heading "Spirit Media Celebrates" [level=2] [ref=e195]
+        - paragraph [ref=e196]: Real authors. Real results. Real transformation.
+      - generic [ref=e197]:
+        - figure "Jim Matuga Jim Matuga Humble Influence — Morgantown, WV" [ref=e198]:
+          - blockquote [ref=e199]:
+            - paragraph [ref=e200]: “Kevin has accelerated my spiritual transformation journey more than anyone else on earth. Because of him I'm comfortable telling my story.
+          - generic [ref=e201]:
+            - img "Jim Matuga" [ref=e202]
+            - generic [ref=e203]:
+              - paragraph [ref=e204]:
+                - link "Jim Matuga" [ref=e205] [cursor=pointer]:
+                  - /url: https://inneractionmedia.com/
+              - paragraph [ref=e206]: Humble Influence — Morgantown, WV
+        - figure "Cindy Love Cindy Love Clowning From the Heart — Walla Walla, WA" [ref=e207]:
+          - blockquote [ref=e208]:
+            - paragraph [ref=e209]: “Kevin and Spirit Media are so amazing to work with. They guided me through every facet of writing and publishing my book. They empowered me to encourage others.
+          - generic [ref=e210]:
+            - img "Cindy Love" [ref=e211]
+            - generic [ref=e212]:
+              - paragraph [ref=e213]:
+                - link "Cindy Love" [ref=e214] [cursor=pointer]:
+                  - /url: https://clowningfromtheheart.com/
+              - paragraph [ref=e215]: Clowning From the Heart — Walla Walla, WA
+        - figure "Van Eure Van Eure Hospitality Rules — Raleigh, NC" [ref=e216]:
+          - blockquote [ref=e217]:
+            - paragraph [ref=e218]: “Kevin White and his team have not only worked hard but have been so much fun to work with. I highly recommend Spirit Media to everyone with a message to be published.
+          - generic [ref=e219]:
+            - img "Van Eure" [ref=e220]
+            - generic [ref=e221]:
+              - paragraph [ref=e222]:
+                - link "Van Eure" [ref=e223] [cursor=pointer]:
+                  - /url: https://angusbarn.com/
+              - paragraph [ref=e224]: Hospitality Rules — Raleigh, NC
+    - generic [ref=e226]:
+      - generic [ref=e227]:
+        - heading "Partnering in Your Success" [level=2] [ref=e228]:
+          - text: Partnering in
+          - emphasis [ref=e229]: Your Success
+        - paragraph [ref=e230]: Choose the path that's right for you.
+      - generic [ref=e231]:
+        - generic [ref=e232]:
+          - img "Write my book" [ref=e233]
+          - generic [ref=e234]:
+            - heading "Help Me Write My Book" [level=3] [ref=e235]: 1Help Me Write My Book
+            - paragraph [ref=e236]: Tell us your vision! We will write your book in your voice using our proven Angel Writing process.
+            - link "Start Writing →" [ref=e237] [cursor=pointer]:
+              - /url: /publishing
+        - generic [ref=e238]:
+          - img "Publish my book" [ref=e239]
+          - generic [ref=e240]:
+            - heading "Publish My Book" [level=3] [ref=e241]: 2Publish My Book
+            - paragraph [ref=e242]: Ready to publish? Let us partner with you to bring your book to life and take your message to the nations.
+            - link "Start Publishing →" [ref=e243] [cursor=pointer]:
+              - /url: /publishing
+        - generic [ref=e244]:
+          - img "Market my message" [ref=e245]
+          - generic [ref=e246]:
+            - heading "Market My Message" [level=3] [ref=e247]: 3Market My Message
+            - paragraph [ref=e248]: Need to reach your audience? Let us help you get the word out with our systematic marketing strategies.
+            - link "Start Marketing →" [ref=e249] [cursor=pointer]:
+              - /url: /marketing
+    - generic [ref=e251]:
+      - heading "Ready to publish your message to the nations?" [level=2] [ref=e252]
+      - paragraph [ref=e253]: Let's talk about your vision. Our team will walk you through every option and help you find the right path forward — no pressure, no obligation.
+      - link "Request a Free Consultation" [ref=e254] [cursor=pointer]:
+        - /url: /contact
+  - contentinfo [ref=e255]:
+    - generic [ref=e257]:
+      - generic [ref=e258]:
+        - link "Spirit Media Publishing — home" [ref=e259] [cursor=pointer]:
+          - /url: /
+          - img "Spirit Media Publishing" [ref=e260]
+        - paragraph [ref=e261]: We develop Kingdom Messengers by empowering them from heart → message → movement. Revealing our Father's heart to all 195 nations.
+        - generic [ref=e262]:
+          - link "Facebook" [ref=e263] [cursor=pointer]:
+            - /url: https://www.facebook.com/spiritmedia.us
+            - img [ref=e264]
+          - link "Instagram" [ref=e266] [cursor=pointer]:
+            - /url: https://www.instagram.com/spiritmedia.us
+            - img [ref=e267]
+          - link "YouTube" [ref=e269] [cursor=pointer]:
+            - /url: https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA
+            - img [ref=e270]
+          - link "LinkedIn" [ref=e272] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/spiritmediaus
+            - img [ref=e273]
+          - link "X (Twitter)" [ref=e275] [cursor=pointer]:
+            - /url: https://x.com/SpiritMediaUS
+            - img [ref=e276]
+      - generic [ref=e278]:
+        - heading "Company" [level=3] [ref=e279]
+        - list [ref=e280]:
+          - listitem [ref=e281]:
+            - link "About Us" [ref=e282] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e283]:
+            - link "Identity" [ref=e284] [cursor=pointer]:
+              - /url: /identity
+          - listitem [ref=e285]:
+            - link "Publishing" [ref=e286] [cursor=pointer]:
+              - /url: /publishing
+          - listitem [ref=e287]:
+            - link "Marketing" [ref=e288] [cursor=pointer]:
+              - /url: /marketing
+          - listitem [ref=e289]:
+            - link "Contact" [ref=e290] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e291]:
+        - heading "Resources" [level=3] [ref=e292]
+        - list [ref=e293]:
+          - listitem [ref=e294]:
+            - link "Bookstore" [ref=e295] [cursor=pointer]:
+              - /url: /bookstore
+          - listitem [ref=e296]:
+            - link "Blog" [ref=e297] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e298]:
+            - link "Media Center" [ref=e299] [cursor=pointer]:
+              - /url: /media-center
+          - listitem [ref=e300]:
+            - link "Portfolio" [ref=e301] [cursor=pointer]:
+              - /url: /portfolio
+      - generic [ref=e302]:
+        - heading "Get in Touch" [level=3] [ref=e303]
+        - list [ref=e304]:
+          - listitem [ref=e305]:
+            - img [ref=e306]
+            - generic [ref=e309]:
+              - text: "205 S Academy St #3251"
+              - text: Cary, NC 27519
+          - listitem [ref=e310]:
+            - img [ref=e311]
+            - link "1-888-800-3744" [ref=e313] [cursor=pointer]:
+              - /url: tel:+118888003744
+          - listitem [ref=e314]:
+            - img [ref=e315]
+            - button "Email Us" [ref=e317] [cursor=pointer]
+    - generic [ref=e320]:
+      - paragraph [ref=e321]:
+        - text: © 2026 Spirit Media Publishing. All rights reserved. • Powered by
+        - link "Spirit Media" [ref=e322] [cursor=pointer]:
+          - /url: https://spiritmediapublishing.com
+      - navigation "Legal navigation" [ref=e323]:
+        - link "Privacy Policy" [ref=e324] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e325] [cursor=pointer]:
+          - /url: /terms
