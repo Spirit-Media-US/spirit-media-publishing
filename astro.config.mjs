@@ -10,13 +10,16 @@ export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
   output: "static",
   build: {
-    // 'auto' inlines small per-page sheets and emits the Tailwind bundle as
-    // an external <link> that CF Pages promotes to 103 Early Hints via the
-    // Link: headers in public/_headers. Validated industry pattern for Astro 5
-    // + TW v4 (early 2026) — Beasties/Critters are NOT compatible with TW v4
-    // utility-heavy markup: JSDOM scan doesn't see responsive variants or
-    // @theme custom utilities, causing CLS when the async bundle applies them.
-    inlineStylesheets: 'auto',
+    // 'always' inlines the Tailwind bundle into every HTML response. For SMP's
+    // 50KB bundle (TW v4 + custom design tokens) this measured better than
+    // 'auto' on desktop PSI (98-99 vs 80) because eliminating the render-
+    // blocking external CSS fetch outweighs the HTML-bloat cost. Validated
+    // on dev preview 2026-04-19. Font preloads + 103 Early Hints in
+    // public/_headers cover the LCP warmup separately.
+    // NOTE: Beasties/Critters are NOT compatible with TW v4 utility-heavy
+    // markup — JSDOM scan doesn't see responsive variants or @theme utilities,
+    // pruning causes CLS when the async bundle re-applies them.
+    inlineStylesheets: 'always',
   },
   integrations: [
     sitemap({
