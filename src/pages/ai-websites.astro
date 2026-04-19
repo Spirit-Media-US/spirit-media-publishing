@@ -60,9 +60,21 @@ const SHOWCASE = [
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PORTFOLIO — Additional sites, shown under FAQ. Same device-mockup composition.
+// PORTFOLIO — All SMP sites not in Live Proof, alpha order. Same 3-mockup composition.
 // ─────────────────────────────────────────────────────────────────────────────
 const PORTFOLIO = [
+	{
+		slug: 'arts-by-justin',
+		name: 'Arts by Justin',
+		url: 'https://artsbyjustin.com',
+		industry: 'Artist / Creative',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/34463ffbe7e5b30fc25fea1852be65d85f924da4-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/f984525497dc1ed8c58fb8054ea11182c5b98b3b-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/0dbd37bb32d46c2c6d2854309b6b44517538e52b-375x812.png?w=300&fm=webp&q=85',
+	},
 	{
 		slug: 'clowning-from-the-heart',
 		name: 'Clowning from the Heart',
@@ -74,6 +86,78 @@ const PORTFOLIO = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/5922235e55976c075d048897802692482cd6acbc-768x1024.png?w=600&fm=webp&q=85',
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'johnny-watts-agency',
+		name: 'Johnny Watts Agency',
+		url: 'https://johnnywattsagency.com',
+		industry: 'Insurance',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/c5caa8212399e926e523f3bfbeb19dfd8d547646-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/9466e5f673509748becb94a50825f4f8e7c519b6-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/e64e0cd3312b39d5b922a0b62e480fe621a1a231-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'kevin-white',
+		name: 'Kevin White',
+		url: 'https://kevinwhite.us',
+		industry: 'Author / Speaker',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/0f1c337d40ebc1c8a9a87efbd509cad45a39b2d3-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/139df3b79b6ff1be16e48bb5250cdc46a68d545a-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/3bacd0afa4ef4de909d55309dbed7fe6c99e7e5a-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'lioncrest-media',
+		name: 'LionCrest Media',
+		url: 'https://lioncrestmedia.com',
+		industry: 'Publishing',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/ef4c2c915070340467936c84242c97a7b0ea72e6-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/412150df21c6ecffb7a28057fb2af314f14cb078-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/894fcc9f079cc585c8b4d3b8561abcc51509c784-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'sm-gives',
+		name: 'SM Gives',
+		url: 'https://smgives.org',
+		industry: 'Nonprofit / Ministry',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/20efeaabadb82f0d414a8c6ed56a8c2636935532-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/5bbb069ade6d7a55a68c8c988341d3b7ccba0c73-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/a9bc69456023ddccf6f385ac3e6ad93c944fed5b-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'thomas-mcgovern-cpa',
+		name: 'Thomas McGovern CPA',
+		url: 'https://thomasmcgovern.cpa',
+		industry: 'CPA / Professional Services',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/2ad5e55c2ff6dc72d945dc96f4d4fec11918d99c-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/7ed7a7a1acdeb51778eae73c5d6b7f1c47518c04-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/799051ff7e7483b55b2794504c0f0e25c4815c92-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'work-on-yourself',
+		name: 'Work On Yourself',
+		url: 'https://workonyourself.com',
+		industry: 'Coaching / Soul Care',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/aef283c738e71af9e121234c8a75fa5477dcd616-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/e79851d723b01d14c5696b902306f61e4b4e9bdd-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/5e4988f6dcac42daa4484731e23fdb5e5af9cb61-375x812.png?w=300&fm=webp&q=85',
 	},
 ] as const;
 
