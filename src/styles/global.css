@@ -320,9 +320,10 @@
 	font-weight: 700;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	/* stone-500 on bg-stone-50 = 2.86 contrast (fails WCAG AA 4.5).
-	   stone-600 (#7a6e63) on bg-stone-50 = 6.14 — passes. */
-	color: var(--color-stone-600);
+	/* stone-700 on bg-stone-50 = 9.7. Use 700 (not 600) so the effective
+	   color survives opacity-fade animations on parent cards without falling
+	   below WCAG AA 4.5:1 (seen on brand-card .eyebrow during fade-in). */
+	color: var(--color-stone-700);
 	margin-bottom: 0.75rem;
 }
 

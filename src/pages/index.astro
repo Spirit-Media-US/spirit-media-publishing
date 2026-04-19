@@ -57,20 +57,20 @@ try {
 	if (s?.fhbImage)
 		fhbImage = urlFor(s.fhbImage).width(600).height(600).fit('crop').auto('format').url();
 	if (s?.kmcBrandImage)
-		kmcBrandImage = urlFor(s.kmcBrandImage).width(768).height(384).fit('crop').auto('format').url();
+		kmcBrandImage = urlFor(s.kmcBrandImage).width(600).height(300).fit('crop').auto('format').url();
 	if (s?.woyImage)
-		woyImage = urlFor(s.woyImage).width(768).height(384).fit('crop').auto('format').url();
+		woyImage = urlFor(s.woyImage).width(600).height(300).fit('crop').auto('format').url();
 	if (s?.expressBooksImage)
 		expressBooksImage = urlFor(s.expressBooksImage)
-			.width(768)
-			.height(512)
+			.width(600)
+			.height(400)
 			.fit('crop')
 			.auto('format')
 			.url();
 	if (s?.believerLibraryImage)
 		believerLibraryImage = urlFor(s.believerLibraryImage)
-			.width(768)
-			.height(512)
+			.width(600)
+			.height(400)
 			.fit('crop')
 			.auto('format')
 			.url();
@@ -91,22 +91,23 @@ try {
 			.url();
 	if (s?.homepageWriteBookImage)
 		writeBookImage = urlFor(s.homepageWriteBookImage)
-			.width(768)
-			.height(384)
+			.width(600)
+			.height(300)
 			.fit('crop')
 			.auto('format')
 			.url();
 	if (s?.homepagePublishBookImage)
 		publishBookImage = urlFor(s.homepagePublishBookImage)
-			.width(768)
-			.height(384)
+			.width(600)
+			.height(300)
 			.fit('crop')
 			.auto('format')
 			.url();
 	if (s?.homepageMarketMessageImage)
 		marketMessageImage = urlFor(s.homepageMarketMessageImage)
-			.width(1200)
-			.fit('max')
+			.width(600)
+			.height(300)
+			.fit('crop')
 			.auto('format')
 			.url();
 } catch (e) {}
@@ -373,42 +374,42 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					<!-- KMC -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">Kingdom Messenger Collective</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">From God-given message to sustainable movement.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Our flagship development program that walks with Kingdom Messengers through a 3+ year partnership.</p>
-							<a href="/kingdom-messenger-collective" class="text-sm font-semibold text-red hover:text-red-deep transition-colors">Learn More →</a>
+							<a href="/kingdom-messenger-collective" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
 						</div>
 					</div>
 					<!-- WOY -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="2">
-						<img src={woyImage} alt="Work On Yourself" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={woyImage} alt="Work On Yourself" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">Work On Yourself</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">A soul care intensive for leaders whose outer success has outpaced their inner life.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">A twelve-month protected season where leaders are accompanied rather than optimized.</p>
-							<a href="https://workonyourself.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-red hover:text-red-deep transition-colors">Visit WorkOnYourself.com →</a>
+							<a href="https://workonyourself.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit WorkOnYourself.com →</a>
 						</div>
 					</div>
 					<!-- Express Books -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
-						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="768" height="512" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">EXPRESS BOOKS™</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">Fast reads. Lasting impact.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Intentionally compact books designed to be read in under an hour. No filler. No fluff. Transformation that lasts a lifetime.</p>
-							<a href="/express-books" class="text-sm font-semibold text-red hover:text-red-deep transition-colors">Learn More →</a>
+							<a href="/express-books" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
 						</div>
 					</div>
 					<!-- Believer's Library -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="4">
-						<img src={believerLibraryImage} alt="The Believer's Library" width="768" height="512" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
+						<img src={believerLibraryImage} alt="The Believer's Library" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
 						<div class="p-7">
 							<span class="eyebrow">The Believer's Library</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">The world's largest cloud-based Christian library.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Our exclusive mobile app delivering PDF downloads to 3.3 billion souls worldwide with limited access to Jesus.</p>
-							<a href="https://thebelieverslibrary.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors">Visit thebelieverslibrary.com →</a>
+							<a href="https://thebelieverslibrary.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit thebelieverslibrary.com →</a>
 						</div>
 					</div>
 				</div>
@@ -569,7 +570,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 											<a href={t.authorUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">{t.authorName}</a>
 										) : t.authorName}
 									</p>
-									<p class="type-caption text-stone-600">{t.authorLocation}</p>
+									<p class="type-caption text-stone-700">{t.authorLocation}</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -589,7 +590,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={writeBookImage} alt="Write my book" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
+						<img src={writeBookImage} alt="Write my book" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">1</span>Help Me Write My Book</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Tell us your vision! We will write your book in your voice using our proven Angel Writing process.</p>
@@ -597,7 +598,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="2">
-						<img src={publishBookImage} alt="Publish my book" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={publishBookImage} alt="Publish my book" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">2</span>Publish My Book</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Ready to publish? Let us partner with you to bring your book to life and take your message to the nations.</p>
@@ -605,7 +606,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
-						<img src={marketMessageImage} alt="Market my message" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={marketMessageImage} alt="Market my message" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">3</span>Market My Message</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Need to reach your audience? Let us help you get the word out with our systematic marketing strategies.</p>
