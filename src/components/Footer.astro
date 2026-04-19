@@ -28,7 +28,8 @@ try {
 
 // Fallback logo URL if fetch fails
 if (!logoUrl) {
-	logoUrl = 'https://cdn.sanity.io/images/pmowd8uo/production/37e09864cdd5c5b0811a221b7f06ce7f15fbcbad-6575x656.png?w=440&h=88&fit=max&auto=format';
+	logoUrl =
+		'https://cdn.sanity.io/images/pmowd8uo/production/37e09864cdd5c5b0811a221b7f06ce7f15fbcbad-6575x656.png?w=440&h=88&fit=max&auto=format';
 }
 const year = new Date().getFullYear();
 
@@ -181,7 +182,6 @@ const socialLinks = [
               data-e={siteEmail.split('@')[0]}
               data-d={siteEmail.split('@')[1]}
               class="transition-colors hover:text-stone-100 cursor-pointer underline bg-transparent border-0 p-0 text-inherit font-inherit"
-              aria-label="Reveal email address"
             >Email Us</button>
           </li>
         </ul>

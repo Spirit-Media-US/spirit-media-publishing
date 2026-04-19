@@ -120,11 +120,12 @@ if (!homepageHeroImage) {
 	homepageHeroImage =
 		'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fm=webp&q=80&fit=max';
 }
-// Smaller mobile variant for srcset — tuned for LCP on 390px viewports.
-// w=480 q=70 keeps the asset ~40KB (vs 47KB at q=80) with no visible quality drop.
+// Smaller mobile variant for srcset — sized for the ~358px display at DPR 1.75-2
+// that PSI's Moto G Power emulator uses. 640w avoids the 1200w over-delivery that
+// cost us 170KB of wasted bytes (PSI image-delivery-insight, 2026-04-19).
 const homepageHeroImageMobile = homepageHeroImage
-	.replace(/([?&])w=\d+/, '$1w=480')
-	.replace(/([?&])q=\d+/, '$1q=70');
+	.replace(/([?&])w=\d+/, '$1w=640')
+	.replace(/([?&])q=\d+/, '$1q=75');
 if (!homepageAudioUrl) {
 	homepageAudioUrl =
 		'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';
@@ -214,7 +215,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 			rel="preload"
 			as="image"
 			href={homepageHeroImageMobile}
-			imagesrcset={`${homepageHeroImageMobile} 480w, ${homepageHeroImage} 1200w`}
+			imagesrcset={`${homepageHeroImageMobile} 640w, ${homepageHeroImage} 1200w`}
 			imagesizes="(max-width: 1023px) 100vw, 50vw"
 			fetchpriority="high"
 		/>
@@ -275,7 +276,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<div class="flex items-center justify-center order-first lg:order-last" data-animate="zoom-in">
 						<img
 							src={homepageHeroImage}
-							srcset={`${homepageHeroImageMobile} 480w, ${homepageHeroImage} 1200w`}
+							srcset={`${homepageHeroImageMobile} 640w, ${homepageHeroImage} 1200w`}
 							sizes="(max-width: 1023px) 100vw, 50vw"
 							alt={homepageHeroImageAlt}
 							width="1200"
@@ -296,7 +297,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<p class="type-scripture text-stone-100">
 						"Publish Our Father's glorious deeds among the nations. Tell everyone about the amazing things He does."
 					</p>
-					<cite class="mt-6 block text-sm font-semibold tracking-widest text-red not-italic">
+					<cite class="mt-6 block text-sm font-semibold tracking-widest text-stone-300 not-italic">
 						— Psalm 96:3 (FHB)
 					</cite>
 				</blockquote>
@@ -351,6 +352,8 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						<img
 							src={fhbImage}
 							alt="Father's Heart Bible — An Intimate Translation"
+							width="288"
+							height="288"
 							loading="lazy"
 							decoding="async"
 							class="w-72 object-contain rounded-2xl shadow-2xl"
@@ -373,7 +376,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					<!-- KMC -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">Kingdom Messenger Collective</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">From God-given message to sustainable movement.</h3>
@@ -383,7 +386,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					</div>
 					<!-- WOY -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="2">
-						<img src={woyImage} alt="Work On Yourself" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={woyImage} alt="Work On Yourself" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">Work On Yourself</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">A soul care intensive for leaders whose outer success has outpaced their inner life.</h3>
@@ -393,7 +396,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					</div>
 					<!-- Express Books -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
-						<img src={expressBooksImage} alt="EXPRESS BOOKS™" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="768" height="512" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">EXPRESS BOOKS™</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">Fast reads. Lasting impact.</h3>
@@ -403,7 +406,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					</div>
 					<!-- Believer's Library -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="4">
-						<img src={believerLibraryImage} alt="The Believer's Library" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
+						<img src={believerLibraryImage} alt="The Believer's Library" width="768" height="512" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
 						<div class="p-7">
 							<span class="eyebrow">The Believer's Library</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">The world's largest cloud-based Christian library.</h3>
@@ -421,7 +424,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<!-- Image left -->
 					<div class="flex justify-center" data-animate="slide-left">
-						<img src={manuscriptReviewImage} alt="Sample Spirit Media Manuscript Review document" loading="lazy" decoding="async" class="w-full max-w-xs" />
+						<img src={manuscriptReviewImage} alt="Sample Spirit Media Manuscript Review document" width="600" height="900" loading="lazy" decoding="async" class="w-full max-w-xs" />
 					</div>
 					<!-- Content right -->
 					<div data-animate="slide-right">
@@ -474,7 +477,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						<a href="/publishing" class="btn btn-primary">
 							Learn More →
 						</a>
-						<img src={childrensBooksImage} alt="Children's book covers published by Spirit Media" loading="lazy" decoding="async" class="w-full mt-8" />
+						<img src={childrensBooksImage} alt="Children's book covers published by Spirit Media" width="980" height="201" loading="lazy" decoding="async" class="w-full mt-8" />
 					</div>
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-animate="slide-right">
 						{
@@ -536,7 +539,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 								'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=400&fm=webp&q=80',
 							].map((src, i) => (
 								<div class="aspect-[4/3] rounded-xl overflow-hidden border border-stone-700 bg-ink">
-									<img src={src} alt={`Spirit Media website sample ${i + 1}`} class="w-full h-full object-cover" loading="lazy" />
+									<img src={src} alt={`Spirit Media website sample ${i + 1}`} width="400" height="300" class="w-full h-full object-cover" loading="lazy" decoding="async" />
 								</div>
 							))}
 						</div>
@@ -589,7 +592,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={writeBookImage} alt="Write my book" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
+						<img src={writeBookImage} alt="Write my book" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">1</span>Help Me Write My Book</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Tell us your vision! We will write your book in your voice using our proven Angel Writing process.</p>
@@ -597,7 +600,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="2">
-						<img src={publishBookImage} alt="Publish my book" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={publishBookImage} alt="Publish my book" width="768" height="384" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">2</span>Publish My Book</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Ready to publish? Let us partner with you to bring your book to life and take your message to the nations.</p>
@@ -605,7 +608,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
-						<img src={marketMessageImage} alt="Market my message" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+						<img src={marketMessageImage} alt="Market my message" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">3</span>Market My Message</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Need to reach your audience? Let us help you get the word out with our systematic marketing strategies.</p>
