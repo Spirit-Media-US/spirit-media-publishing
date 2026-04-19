@@ -310,7 +310,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<br class="hidden sm:block" />
 					Click here to listen &rarr;
 				</p>
-				<audio controls class="mx-auto w-full max-w-md rounded-full" style="accent-color:#c0392b;">
+				<audio controls preload="none" class="mx-auto w-full max-w-md rounded-full" style="accent-color:#c0392b;">
 					<source src={homepageAudioUrl} type="audio/mpeg" />
 					Your browser does not support the audio element.
 				</audio>
