@@ -13,18 +13,12 @@ import { sanityClient, urlFor } from '../lib/sanity.ts';
 const R2_BASE = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/homepage';
 
 // Hero alt text + audio URL still fetched from Sanity (text only, tiny GROQ).
+// Testimonials are now hardcoded (see FALLBACK_TESTIMONIALS below) so the
+// author photos can stay on R2 — Sanity testimonials would re-inject
+// cdn.sanity.io photo URLs and reintroduce the TLS handshake.
 let homepageHeroImageAlt = 'Published books by Spirit Media authors';
 let homepageAudioUrl: string | undefined;
-let rawTestimonials: any[] = [];
 try {
-	[rawTestimonials] = await Promise.all([
-		sanityClient.fetch(`
-			*[_type == "testimonial"] | order(displayOrder asc) {
-				quote, authorName, authorUrl, authorLocation,
-				"authorPhoto": authorPhoto.asset->url + "?w=128&h=128&fit=crop&fm=webp&q=80"
-			}
-		`),
-	]);
 	const s = await sanityClient.fetch(
 		`*[_type == "siteSettings"][0]{ homepageHeroImageAlt, homepageAudioUrl }`,
 	);
@@ -66,8 +60,7 @@ const FALLBACK_TESTIMONIALS = [
 		authorName: 'Jim Matuga',
 		authorUrl: 'https://inneractionmedia.com/',
 		authorLocation: 'Humble Influence — Morgantown, WV',
-		authorPhoto:
-			'https://cdn.sanity.io/images/pmowd8uo/production/0fb4317b2ba3c364e3cd1c9ea115f5bf43d752f9-1280x961.png?w=160&h=120&fit=crop&fm=webp&q=80',
+		authorPhoto: `${R2_BASE}/testimonial-jim.webp`,
 	},
 	{
 		quote:
@@ -75,8 +68,7 @@ const FALLBACK_TESTIMONIALS = [
 		authorName: 'Cindy Love',
 		authorUrl: 'https://clowningfromtheheart.com/',
 		authorLocation: 'Clowning From the Heart — Walla Walla, WA',
-		authorPhoto:
-			'https://cdn.sanity.io/images/pmowd8uo/production/41a09e4b87cbb7de8f851e987d90e1dcb45155a9-640x610.jpg?w=160&h=120&fit=crop&fm=webp&q=80',
+		authorPhoto: `${R2_BASE}/testimonial-cindy.webp`,
 	},
 	{
 		quote:
@@ -84,11 +76,10 @@ const FALLBACK_TESTIMONIALS = [
 		authorName: 'Van Eure',
 		authorUrl: 'https://angusbarn.com/',
 		authorLocation: 'Hospitality Rules — Raleigh, NC',
-		authorPhoto:
-			'https://cdn.sanity.io/images/pmowd8uo/production/84f6c4abf3de42675caab866cce636ad1686a6ff-1194x1003.webp?w=160&h=120&fit=crop&fm=webp&q=80',
+		authorPhoto: `${R2_BASE}/testimonial-van.webp`,
 	},
 ];
-const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TESTIMONIALS;
+const testimonials = FALLBACK_TESTIMONIALS;
 ---
 <Layout
 	title="Spirit Media Publishing | Christian Book Publishing"

@@ -34,10 +34,10 @@ try {
 	console.error('Error fetching siteSettings:', e);
 }
 
-// Fallback OG image if still not set
+// Fallback OG image if still not set — served from R2, same origin as fonts.
 if (!ogImage) {
 	ogImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&h=630&fm=jpg&q=85';
+		'https://assets.spiritmediapublishing.com/spirit-media-publishing/homepage/og-homepage.jpg';
 }
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
@@ -51,8 +51,12 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- TLS warmup for LCP-critical origins (must precede any resource from these origins) -->
-    <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
+    <!-- TLS warmup for LCP-critical origin. Homepage and most marketing pages
+         now serve all imagery from R2 (same origin as fonts + logo) — Sanity
+         preconnect removed because on mobile it wasted a TLS connection slot
+         without a matching resource fetch. Pages that still use cdn.sanity.io
+         (blog post bodies, bookstore) can add their own preconnect via
+         <slot name="head"> if needed. -->
     <link rel="preconnect" href="https://assets.spiritmediapublishing.com" crossorigin />
 
     <!-- Critical fonts on the mobile above-fold:
