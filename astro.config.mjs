@@ -18,8 +18,11 @@ export default defineConfig({
   },
   integrations: [
     // Beasties: extract above-fold critical CSS, inline it, async-load the rest.
-    // Same bare config as thomasmcgovern-cpa 100 Club proof-of-concept (2026-04-18).
-    inline(),
+    // pruneSource:false keeps all CSS selectors in the external bundle so that
+    // responsive utilities (lg:*, md:*) and layout utilities (.order-first,
+    // .btn, etc.) still apply once the async bundle loads — Beasties' JSDOM
+    // doesn't detect these during extraction on SMP's utility-heavy markup.
+    inline({ Beasties: { pruneSource: false } }),
     sitemap({
       // Assign crawl priority by page type
       customPages: [],
