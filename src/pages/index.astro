@@ -286,10 +286,15 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 		<!-- DESKTOP HERO — side-by-side grid, book collage image. Hidden below lg
 		     (1024px) so mobile never pays the download cost. srcset targets the
 		     actual rendered widths only: 800w (DPR-1 desktop ~600px) and 1200w
-		     (DPR-2 desktop). No 480w variant — that was the failed mobile chase. -->
-		<section class="bg-stone-50 px-6 pt-12 pb-16 lg:px-8 overflow-hidden hidden lg:block">
+		     (DPR-2 desktop). No 480w variant — that was the failed mobile chase.
+
+		     Utility classes are all lg:-prefixed (lg:pt-12, lg:pb-16, lg:grid-cols-2)
+		     so critical CSS covers them — without the prefix, grid-cols-2/pt-12/pb-16
+		     are in the async Tailwind bundle and the section reflows from 1-col to
+		     2-col when the bundle lands (CLS 0.458 regression on prod 2026-04-19). -->
+		<section class="bg-stone-50 px-6 lg:pt-12 lg:pb-16 lg:px-8 overflow-hidden hidden lg:block">
 			<div class="mx-auto max-w-7xl">
-				<div class="grid grid-cols-2 gap-16 items-center">
+				<div class="grid lg:grid-cols-2 gap-16 items-center">
 					<div class="hero-stagger">
 						<h1 class="type-hero text-ink-soft">
 							Born from holy conviction.
