@@ -307,14 +307,22 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 							<a href="/contact" class="btn btn-primary">Request a Call</a>
 						</div>
 					</div>
+					<!-- `<source media>` gates the preload scanner by viewport. On mobile
+					     no source matches, falling through to the `<img>` — which is
+					     loading="lazy" so Chrome's preload scanner skips it entirely.
+					     Without these guards, PSI mobile downloads hero-desktop.avif
+					     (139KB) because the preload scanner evaluates srcset BEFORE CSS
+					     computes display:none on the hidden parent. -->
 					<picture>
 						<source
 							type="image/avif"
+							media="(min-width: 1024px)"
 							srcset={`${homepageHeroAvif800} 800w, ${homepageHeroAvif1200} 1200w`}
 							sizes="600px"
 						/>
 						<source
 							type="image/webp"
+							media="(min-width: 1024px)"
 							srcset={`${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
 							sizes="600px"
 						/>
@@ -324,7 +332,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 							width="1200"
 							height="776"
 							fetchpriority="high"
-							loading="eager"
+							loading="lazy"
 							decoding="async"
 							class="w-full max-h-[600px] object-contain"
 						/>
