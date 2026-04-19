@@ -78,15 +78,21 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:500;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-500.woff2') format('woff2')}
       @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2') format('woff2')}
 
-      /* --- resets + base --- */
-      *,*::before,*::after{box-sizing:border-box;border:0 solid}
-      html{-webkit-text-size-adjust:100%;font-size:18px;line-height:1.7;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-      body{margin:0;background:#faf8f5;color:#574e45;font-family:'Source Sans 3',system-ui,sans-serif;line-height:1.7}
-      img,picture,svg,video,canvas{display:block;max-width:100%;height:auto}
-      h1,h2,h3,h4,h5,h6{margin:0;font-family:'Playfair Display',Georgia,serif;color:#2e2a26;line-height:1.2;font-weight:600;overflow-wrap:break-word}
-      p{margin:0;overflow-wrap:break-word}
-      a{color:inherit;text-decoration:none}
-      button{font:inherit;color:inherit;background:transparent;cursor:pointer;padding:0;border:0}
+      /* --- resets + base — wrapped in @layer base so Tailwind v4's
+             @layer utilities (.h-48 etc.) can override. Unlayered rules
+             beat every @layer rule regardless of specificity, which would
+             make `img { height: auto }` win over `.h-48 { height: 12rem }`
+             and break card layouts site-wide (caught in prod 2026-04-19). --- */
+      @layer base {
+        *,*::before,*::after{box-sizing:border-box;border:0 solid}
+        html{-webkit-text-size-adjust:100%;font-size:18px;line-height:1.7;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{margin:0;background:#faf8f5;color:#574e45;font-family:'Source Sans 3',system-ui,sans-serif;line-height:1.7}
+        img,picture,svg,video,canvas{display:block;max-width:100%;height:auto}
+        h1,h2,h3,h4,h5,h6{margin:0;font-family:'Playfair Display',Georgia,serif;color:#2e2a26;line-height:1.2;font-weight:600;overflow-wrap:break-word}
+        p{margin:0;overflow-wrap:break-word}
+        a{color:inherit;text-decoration:none}
+        button{font:inherit;color:inherit;background:transparent;cursor:pointer;padding:0;border:0}
+      }
 
       /* --- SMP custom classes used above the fold --- */
       .type-hero{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.25rem,4.5vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.02em}
