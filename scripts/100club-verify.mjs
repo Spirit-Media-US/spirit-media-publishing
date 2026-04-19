@@ -34,7 +34,9 @@ if (!existsSync(CHROME)) {
   process.exit(1);
 }
 
-const PORT = 4989 + Math.floor(Math.random() * 10); // randomised to avoid dev-server collisions
+// pid-based port so parallel Bethel builds never collide.
+// 5000-5999 range avoids common dev-server ports.
+const PORT = 5000 + (process.pid % 1000);
 const serve = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1'], {
   cwd: DIST,
   stdio: 'ignore',
