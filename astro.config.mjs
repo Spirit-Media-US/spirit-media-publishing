@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import inline from "@playform/inline";
 import tailwindcss from "@tailwindcss/vite";
 import { loadEnv } from "vite";
 
@@ -10,11 +11,15 @@ export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
   output: "static",
   build: {
-    // Inline ALL page stylesheets into the HTML to eliminate render-blocking CSS
-    // requests on the LCP path. Proven to lift mobile PSI by 4-6 points on SMP sites.
-    inlineStylesheets: 'always',
+    // Beasties (@playform/inline below) handles critical CSS extraction +
+    // async-loads the rest. 'auto' keeps tiny per-page sheets inlined while
+    // larger ones go external for Beasties to process.
+    inlineStylesheets: 'auto',
   },
   integrations: [
+    // Beasties: extract above-fold critical CSS, inline it, async-load the rest.
+    // Same bare config as thomasmcgovern-cpa 100 Club proof-of-concept (2026-04-18).
+    inline(),
     sitemap({
       // Assign crawl priority by page type
       customPages: [],

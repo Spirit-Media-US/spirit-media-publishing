@@ -6,6 +6,16 @@
 @import "tailwindcss";
 
 /* =============================================================================
+   CRITICAL FONTS — above-fold homepage weights ONLY.
+   Non-critical weights (Playfair 700, 700-italic, Source Sans 600) live in
+   public/deferred.css so they don't compete with LCP fetch.
+   ============================================================================= */
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:800;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2') format('woff2');}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2') format('woff2');}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:500;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-500.woff2') format('woff2');}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2') format('woff2');}
+
+/* =============================================================================
    BRAND COLOR TOKENS
    ============================================================================= */
 

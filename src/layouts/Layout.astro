@@ -56,9 +56,11 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
     <link rel="preconnect" href="https://assets.spiritmediapublishing.com" crossorigin />
 
-    <!-- Self-hosted fonts from R2 — hoisted above <title> so browser discovers them in the first packet -->
-    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2" crossorigin />
+    <!-- Critical fonts for above-fold — Playfair 800 (H1 hero) + Source Sans 400 (body copy).
+         Non-critical weights (Playfair 700, 700-italic, Source Sans 500/600/700) live in
+         public/deferred.css and are loaded after critical paint. -->
     <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2" crossorigin />
 
     <!-- Per-page head slot — hoisted so page-specific LCP preloads (e.g., hero image) come early -->
     <slot name="head-early" />
@@ -117,16 +119,10 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       }
     </script>
 
-    <!-- @font-face declarations — fonts themselves are preloaded at top of <head> -->
-    <style is:global is:inline>
-      @font-face{font-family:'Playfair Display';font-style:italic;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700-italic.woff2') format('woff2');}
-      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2') format('woff2');}
-      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:800;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2') format('woff2');}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2') format('woff2');}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:500;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-500.woff2') format('woff2');}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-600.woff2') format('woff2');}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2') format('woff2');}
-    </style>
+    <!-- Deferred CSS — non-critical @font-face declarations and below-fold styles.
+         Critical above-fold font weights are inlined in src/styles/global.css and picked up
+         by Beasties for critical-CSS extraction. -->
+    <link rel="stylesheet" href="/deferred.css" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon-final.svg" />
