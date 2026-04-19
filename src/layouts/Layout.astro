@@ -55,10 +55,15 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
     <link rel="preconnect" href="https://assets.spiritmediapublishing.com" crossorigin />
 
-    <!-- Critical fonts — Playfair 800 (H1) + Source Sans 400 (body). Other weights
-         load via the async Tailwind bundle rewritten by scripts/async-css.mjs. -->
+    <!-- Critical fonts on the mobile above-fold:
+         - Playfair 800 → H1
+         - Source Sans 400 → hero paragraphs
+         - Source Sans 700 → <strong> inside p2 + both CTA button labels
+         Not preloading these three caused ~100KB of late-arriving font payload
+         that triggered post-FCP LCP re-paints on mobile. -->
     <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2" crossorigin />
 
     <!-- Per-page head slot — hoisted so page-specific LCP preloads (e.g., hero image) come early -->
     <slot name="head-early" />
@@ -82,7 +87,6 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       @font-face{font-family:'Playfair Display';font-style:normal;font-weight:800;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2') format('woff2')}
       @font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2') format('woff2')}
       @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2') format('woff2')}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:500;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-500.woff2') format('woff2')}
       @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2') format('woff2')}
       /* Metric-adjusted fallbacks — eliminate FCP→LCP gap from font-swap re-paint.
          Georgia / Times as local serif, Arial / Helvetica as local sans. The
