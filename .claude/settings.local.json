@@ -11,15 +11,21 @@
       "mcp__sanity__create_documents_from_json",
       "mcp__sanity__patch_document_from_json",
       "mcp__sanity__publish_documents",
-      "mcp__cloudflare__route_list"
+      "mcp__cloudflare__route_list",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_take_screenshot"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "stitch",
     "sanity",
     "netlify",
     "cloudflare",
     "prod-ghl-mcp",
-    "google-docs"
+    "google-docs",
+    "playwright"
   ]
 }
