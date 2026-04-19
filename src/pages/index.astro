@@ -10,8 +10,7 @@ const rawTestimonials = await sanityClient.fetch(`
   }
 `);
 
-// Fetch hero image and brand images from siteSettings
-let homepageHeroImage: string | undefined;
+// Hero is self-hosted on R2 (see below). This holds alt text + audio URL from Sanity.
 let homepageHeroImageAlt = 'Published books by Spirit Media authors';
 let homepageAudioUrl: string | undefined;
 
@@ -46,14 +45,11 @@ try {
 			homepageMarketMessageImage, homepageMarketMessageImageAlt
 		}`,
 	);
-	if (s?.homepageHeroImage) {
-		homepageHeroImage = urlFor(s.homepageHeroImage)
-			.width(1200)
-			.fit('max')
-			.format('webp')
-			.quality(80)
-			.url();
-	}
+	// NOTE: homepage hero is intentionally sourced from R2 (see below), not Sanity —
+	// same-origin as fonts (one TLS handshake) and stable URL for 103 Early Hints.
+	// Sanity's CMS copy is used elsewhere (OG fallback, future variants) but NOT
+	// for the LCP img. If the hero image design changes, re-upload to R2 at
+	// assets.spiritmediapublishing.com/spirit-media-publishing/hero-{mobile,tablet,desktop}.webp
 	if (s?.homepageHeroImageAlt) homepageHeroImageAlt = s.homepageHeroImageAlt;
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
 
@@ -115,21 +111,15 @@ try {
 			.url();
 } catch (e) {}
 
-// Fallbacks if not in Sanity
-if (!homepageHeroImage) {
-	homepageHeroImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fm=webp&q=80&fit=max';
-}
-// Three hero sizes for a proper srcset: 640 (DPR 1.75), 800 (DPR 2), 1200 (desktop).
-// Picking the right variant by DPR saves ~80-170KB vs over-delivering 1200w.
-const homepageHeroImage640 = homepageHeroImage
-	.replace(/([?&])w=\d+/, '$1w=640')
-	.replace(/([?&])q=\d+/, '$1q=75');
-const homepageHeroImage800 = homepageHeroImage
-	.replace(/([?&])w=\d+/, '$1w=800')
-	.replace(/([?&])q=\d+/, '$1q=75');
-// Kept for backwards-compat with earlier references:
-const homepageHeroImageMobile = homepageHeroImage640;
+// Hero LCP image — self-hosted on R2, same origin as fonts (single TLS handshake).
+// Three sizes pre-generated: 640w (DPR 1.75 mobile), 800w (DPR 2 mobile), 1200w (desktop).
+// Early Hint in public/_headers preloads the mobile variant.
+const homepageHeroImage640 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.webp';
+const homepageHeroImage800 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-tablet.webp';
+const homepageHeroImage =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-desktop.webp';
 if (!homepageAudioUrl) {
 	homepageAudioUrl =
 		'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';

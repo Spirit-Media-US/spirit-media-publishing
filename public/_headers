@@ -7,7 +7,10 @@
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self' https://assets.spiritmediapublishing.com; img-src 'self' data: https://cdn.sanity.io https://assets.spiritmediapublishing.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://pmowd8uo.api.sanity.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://mail.spiritmediaone.com; media-src 'self' https://cdn.sanity.io https://assets.spiritmediapublishing.com; object-src 'none'; base-uri 'self'; form-action 'self' https://mail.spiritmediaone.com
   Link: <https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin
   Link: <https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin
+
+# Homepage — additional Early Hint for the LCP hero image (R2-hosted, stable URL)
+/
+  Link: <https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.webp>; rel=preload; as=image; fetchpriority=high
 # Link: headers above CF Pages promotes to 103 Early Hints on cached edge hits
-# (20-30% LCP win, CF BFCM data). Only stable font URLs — hero image is
-# Sanity-generated + CSS filename is hashed, so both change on content/code
-# updates and aren't safe to Early-Hint.
+# (20-30% LCP win, CF BFCM data). Hero moved from Sanity CDN to R2 so it shares
+# origin with fonts (one TLS handshake) and has a stable URL safe for Early Hints.
