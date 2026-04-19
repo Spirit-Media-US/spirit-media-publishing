@@ -273,7 +273,8 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<!-- Book collage image — visible on all screens, above text on mobile via order -->
-					<div class="flex items-center justify-center order-first lg:order-last" data-animate="zoom-in">
+					<!-- NO data-animate: opacity:0 pre-reveal hides the LCP element from Lighthouse and delays LCP by 2+ seconds. -->
+					<div class="flex items-center justify-center order-first lg:order-last">
 						<img
 							src={homepageHeroImage}
 							srcset={`${homepageHeroImageMobile} 640w, ${homepageHeroImage} 1200w`}
