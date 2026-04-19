@@ -200,26 +200,27 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <!-- Per-page head slot (keywords, schema, etc.) -->
     <slot name="head" />
 
-    <!-- Google Analytics GA4 — deferred until idle to free main thread for LCP -->
+    <!-- Google Analytics GA4 — loaded on first user interaction to protect LCP/TBT.
+         Kohler/TMCG pattern: scroll/mousemove/touchstart/keydown/click triggers load
+         with an 8s fallback timeout. Keeps ~130ms of gtag JS off the LCP main thread. -->
     <script is:inline define:vars={{ gaId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      const loadGA = () => {
+      function loadGA() {
         if (window.__gaLoaded) return;
         window.__gaLoaded = true;
-        const s = document.createElement('script');
+        var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
         document.head.appendChild(s);
         gtag('js', new Date());
         gtag('config', gaId);
-      };
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGA, { timeout: 4000 });
-      } else {
-        window.addEventListener('load', () => setTimeout(loadGA, 1500));
       }
+      var gaEvents = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+      function gaTrigger(){ gaEvents.forEach(function(e){ window.removeEventListener(e, gaTrigger); }); loadGA(); }
+      gaEvents.forEach(function(e){ window.addEventListener(e, gaTrigger, { passive: true, once: true }); });
+      setTimeout(function(){ if(!window.__gaLoaded) loadGA(); }, 8000);
     </script>
 
     <!-- Favicon -->
