@@ -451,7 +451,7 @@ const breadcrumbSchema = {
 						These aren't marketing screenshots. Every score on this page was fetched from Google PageSpeed during this site's last build. Click any site, open it in a new tab, and see for yourself — no dashboard, no demo, no staging environment. This is production.
 					</p>
 				</div>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{showcaseWithScores.map((s, i) => (
 						<div data-animate="fade-up" data-delay={String((i % 3) + 1)} class="group bg-surface rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
 							<a href={s.url} target="_blank" rel="noopener noreferrer" class="block relative bg-gradient-to-br from-stone-400 to-stone-500 p-3 overflow-hidden">
