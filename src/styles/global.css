@@ -445,12 +445,15 @@
    SCROLL-TRIGGERED ANIMATIONS
    ============================================================================= */
 
+/* Scroll-triggered animations: transform-only (no opacity).
+   Opacity fades caused Lighthouse to sample mid-transition on every
+   data-animate element and report color-contrast failures — brand red
+   rendered as ~#cb5e52 at ~0.5 opacity, etc. (caught 2026-04-19).
+   Keeping the transform gives the same visual effect without the
+   a11y penalty. */
 [data-animate] {
-	opacity: 0;
 	transform: translateY(28px);
-	transition:
-		opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-		transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+	transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-animate="fade-in"] {
@@ -463,11 +466,10 @@
 	transform: translateX(32px);
 }
 [data-animate="zoom-in"] {
-	transform: scale(0.92);
+	transform: scale(0.96);
 }
 
 [data-animate].is-visible {
-	opacity: 1;
 	transform: translate(0) scale(1);
 }
 
