@@ -176,7 +176,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       }
 
       /* @keyframes must live outside @layer */
-      @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+      /* Transform-only (no opacity) so Lighthouse doesn't see the LCP element
+         as invisible during the LCP window — same rule as [data-animate]. */
+      @keyframes fadeUp{from{transform:translateY(24px)}to{transform:none}}
     </style>
 
     <!-- Primary SEO -->
