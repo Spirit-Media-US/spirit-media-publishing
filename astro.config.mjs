@@ -9,6 +9,15 @@ const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV ?? "development", proce
 export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
   output: "static",
+  build: {
+    // Phase 3 of 100 Club plan: small per-page sheets inlined automatically;
+    // the full Tailwind bundle is emitted as external CSS and rewritten to
+    // async (media="print" onload swap) by scripts/async-css.mjs postbuild.
+    // Hand-rolled critical CSS in Layout.astro covers above-fold paint so the
+    // async window doesn't cause FOUC. Validated pattern from
+    // the-kohler-group (TW v4, same utility profile as SMP).
+    inlineStylesheets: 'auto',
+  },
   integrations: [
     sitemap({
       // Assign crawl priority by page type
@@ -17,6 +26,10 @@ export default defineConfig({
         // Blog posts — highest priority, weekly refresh
         if (item.url.includes('/blog/') && item.url !== 'https://spiritmediapublishing.com/blog/') {
           return { ...item, changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() };
+        }
+        // AI Websites — high-priority launch page
+        if (item.url.endsWith('/ai-websites/') || item.url.endsWith('/ai-websites')) {
+          return { ...item, changefreq: 'weekly', priority: 0.95, lastmod: new Date().toISOString() };
         }
         // Core service pages
         if (['/publishing/', '/marketing/', '/bookstore/', '/express-books/'].some(p => item.url.endsWith(p))) {

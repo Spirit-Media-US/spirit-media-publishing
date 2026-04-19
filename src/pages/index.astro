@@ -6,12 +6,11 @@ import { sanityClient, urlFor } from '../lib/sanity.ts';
 const rawTestimonials = await sanityClient.fetch(`
   *[_type == "testimonial"] | order(displayOrder asc) {
     quote, authorName, authorUrl, authorLocation,
-    "authorPhoto": authorPhoto.asset->url
+    "authorPhoto": authorPhoto.asset->url + "?w=128&h=128&fit=crop&fm=webp&q=80"
   }
 `);
 
-// Fetch hero image and brand images from siteSettings
-let homepageHeroImage: string | undefined;
+// Hero is self-hosted on R2 (see below). This holds alt text + audio URL from Sanity.
 let homepageHeroImageAlt = 'Published books by Spirit Media authors';
 let homepageAudioUrl: string | undefined;
 
@@ -44,65 +43,127 @@ try {
 			homepageWriteBookImage, homepageWriteBookImageAlt,
 			homepagePublishBookImage, homepagePublishBookImageAlt,
 			homepageMarketMessageImage, homepageMarketMessageImageAlt
-		}`
+		}`,
 	);
-	if (s?.homepageHeroImage) {
-		homepageHeroImage = urlFor(s.homepageHeroImage).width(1200).fit('max').auto('format').url();
-	}
+	// NOTE: homepage hero is intentionally sourced from R2 (see below), not Sanity —
+	// same-origin as fonts (one TLS handshake) and stable URL for 103 Early Hints.
+	// Sanity's CMS copy is used elsewhere (OG fallback, future variants) but NOT
+	// for the LCP img. If the hero image design changes, re-upload to R2 at
+	// assets.spiritmediapublishing.com/spirit-media-publishing/hero-{mobile,tablet,desktop}.webp
 	if (s?.homepageHeroImageAlt) homepageHeroImageAlt = s.homepageHeroImageAlt;
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
 
 	// Brand Images
-	if (s?.fhbImage) fhbImage = urlFor(s.fhbImage).width(1024).height(1024).fit('crop').auto('format').url();
-	if (s?.kmcBrandImage) kmcBrandImage = urlFor(s.kmcBrandImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.woyImage) woyImage = urlFor(s.woyImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.expressBooksImage) expressBooksImage = urlFor(s.expressBooksImage).width(768).height(512).fit('crop').auto('format').url();
-	if (s?.believerLibraryImage) believerLibraryImage = urlFor(s.believerLibraryImage).width(768).height(512).fit('crop').auto('format').url();
+	if (s?.fhbImage)
+		fhbImage = urlFor(s.fhbImage).width(600).height(600).fit('crop').auto('format').url();
+	if (s?.kmcBrandImage)
+		kmcBrandImage = urlFor(s.kmcBrandImage).width(600).height(300).fit('crop').auto('format').url();
+	if (s?.woyImage)
+		woyImage = urlFor(s.woyImage).width(600).height(300).fit('crop').auto('format').url();
+	if (s?.expressBooksImage)
+		expressBooksImage = urlFor(s.expressBooksImage)
+			.width(600)
+			.height(400)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.believerLibraryImage)
+		believerLibraryImage = urlFor(s.believerLibraryImage)
+			.width(600)
+			.height(400)
+			.fit('crop')
+			.auto('format')
+			.url();
 
 	// Service Images
-	if (s?.homepageManuscriptReviewImage) manuscriptReviewImage = urlFor(s.homepageManuscriptReviewImage).width(600).height(900).fit('crop').auto('format').url();
-	if (s?.homepageChildrensBooksImage) childrensBooksImage = urlFor(s.homepageChildrensBooksImage).width(980).fit('max').auto('format').url();
-	if (s?.homepageWriteBookImage) writeBookImage = urlFor(s.homepageWriteBookImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.homepagePublishBookImage) publishBookImage = urlFor(s.homepagePublishBookImage).width(768).height(384).fit('crop').auto('format').url();
-	if (s?.homepageMarketMessageImage) marketMessageImage = urlFor(s.homepageMarketMessageImage).width(1200).fit('max').auto('format').url();
+	if (s?.homepageManuscriptReviewImage)
+		manuscriptReviewImage = urlFor(s.homepageManuscriptReviewImage)
+			.width(600)
+			.height(900)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.homepageChildrensBooksImage)
+		childrensBooksImage = urlFor(s.homepageChildrensBooksImage)
+			.width(980)
+			.fit('max')
+			.auto('format')
+			.url();
+	if (s?.homepageWriteBookImage)
+		writeBookImage = urlFor(s.homepageWriteBookImage)
+			.width(600)
+			.height(300)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.homepagePublishBookImage)
+		publishBookImage = urlFor(s.homepagePublishBookImage)
+			.width(600)
+			.height(300)
+			.fit('crop')
+			.auto('format')
+			.url();
+	if (s?.homepageMarketMessageImage)
+		marketMessageImage = urlFor(s.homepageMarketMessageImage)
+			.width(600)
+			.height(300)
+			.fit('crop')
+			.auto('format')
+			.url();
 } catch (e) {}
 
-// Fallbacks if not in Sanity
-if (!homepageHeroImage) {
-	homepageHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fit=max&auto=format';
-}
+// Hero LCP image — self-hosted on R2, same origin as fonts (single TLS handshake).
+// Three sizes pre-generated: 640w (DPR 1.75 mobile), 800w (DPR 2 mobile), 1200w (desktop).
+// Early Hint in public/_headers preloads the mobile variant.
+const homepageHeroImage640 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-mobile.webp';
+const homepageHeroImage800 =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-tablet.webp';
+const homepageHeroImage =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/hero-desktop.webp';
 if (!homepageAudioUrl) {
-	homepageAudioUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';
+	homepageAudioUrl =
+		'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';
 }
 if (!fhbImage) {
-	fhbImage = 'https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png?w=1024&h=1024&fit=crop&auto=format';
+	fhbImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png?w=600&h=600&fit=crop&auto=format';
 }
 if (!kmcBrandImage) {
-	kmcBrandImage = 'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=768&h=384&fit=crop&auto=format';
+	kmcBrandImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!woyImage) {
-	woyImage = 'https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg?w=768&h=384&fit=crop&auto=format';
+	woyImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!expressBooksImage) {
-	expressBooksImage = 'https://cdn.sanity.io/images/pmowd8uo/production/91eff73d0166bac824bdf85f24744ce93fe49895-1536x1024.png?w=768&h=512&fit=crop&auto=format';
+	expressBooksImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/91eff73d0166bac824bdf85f24744ce93fe49895-1536x1024.png?w=768&h=512&fit=crop&auto=format';
 }
 if (!believerLibraryImage) {
-	believerLibraryImage = 'https://cdn.sanity.io/images/pmowd8uo/production/61db533060e24d4df68be79e6cc455a8a16f1df7-1500x900.png?w=768&h=512&fit=crop&auto=format';
+	believerLibraryImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/61db533060e24d4df68be79e6cc455a8a16f1df7-1500x900.png?w=768&h=512&fit=crop&auto=format';
 }
 if (!manuscriptReviewImage) {
-	manuscriptReviewImage = 'https://cdn.sanity.io/images/pmowd8uo/production/993fc8968f7fb09961f2a446e6030fb031f50d43-600x900.png?w=600&h=900&fit=crop&auto=format';
+	manuscriptReviewImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/993fc8968f7fb09961f2a446e6030fb031f50d43-600x900.png?w=600&h=900&fit=crop&auto=format';
 }
 if (!childrensBooksImage) {
-	childrensBooksImage = 'https://cdn.sanity.io/images/pmowd8uo/production/54244efc1f358c9a434b90fb5cbe94baf28fda6a-980x201.png?w=980&fit=max&auto=format';
+	childrensBooksImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/54244efc1f358c9a434b90fb5cbe94baf28fda6a-980x201.png?w=980&fit=max&auto=format';
 }
 if (!writeBookImage) {
-	writeBookImage = 'https://cdn.sanity.io/images/pmowd8uo/production/3888773fa7183ef0133efd02481baf0a7a768df1-6922x4620.jpg?w=768&h=384&fit=crop&auto=format';
+	writeBookImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/3888773fa7183ef0133efd02481baf0a7a768df1-6922x4620.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!publishBookImage) {
-	publishBookImage = 'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=768&h=384&fit=crop&auto=format';
+	publishBookImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=768&h=384&fit=crop&auto=format';
 }
 if (!marketMessageImage) {
-	marketMessageImage = 'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=1200&fit=max&auto=format';
+	marketMessageImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=1200&fit=max&auto=format';
 }
 
 const FALLBACK_TESTIMONIALS = [
@@ -141,6 +202,17 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 	description="Spirit Media helps Christian authors publish and market their books to 195 nations. Ghostwriting, editing, cover design, audiobooks, and global distribution."
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
 >
+	<Fragment slot="head-early">
+		<!-- Preload LCP hero image — hoisted to top of <head> via head-early slot so browser discovers it in the first packet -->
+		<link
+			rel="preload"
+			as="image"
+			href={homepageHeroImage640}
+			imagesrcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
+			imagesizes="(max-width: 1023px) 358px, 600px"
+			fetchpriority="high"
+		/>
+	</Fragment>
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company" />
 		<meta name="robots" content="index, follow" />
@@ -198,10 +270,18 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<!-- Book collage image — visible on all screens, above text on mobile via order -->
-					<div class="flex items-center justify-center order-first lg:order-last" data-animate="zoom-in">
+					<!-- NO data-animate: opacity:0 pre-reveal hides the LCP element from Lighthouse and delays LCP by 2+ seconds. -->
+					<div class="flex items-center justify-center order-first lg:order-last">
 						<img
 							src={homepageHeroImage}
+							srcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
+							sizes="(max-width: 1023px) 358px, 600px"
 							alt={homepageHeroImageAlt}
+							width="1200"
+							height="776"
+							fetchpriority="high"
+							loading="eager"
+							decoding="async"
 							class="w-full max-h-[360px] lg:max-h-[600px] object-contain"
 						/>
 					</div>
@@ -215,7 +295,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<p class="type-scripture text-stone-100">
 						"Publish Our Father's glorious deeds among the nations. Tell everyone about the amazing things He does."
 					</p>
-					<cite class="mt-6 block text-sm font-semibold tracking-widest text-red not-italic">
+					<cite class="mt-6 block text-sm font-semibold tracking-widest text-stone-300 not-italic">
 						— Psalm 96:3 (FHB)
 					</cite>
 				</blockquote>
@@ -270,6 +350,10 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						<img
 							src={fhbImage}
 							alt="Father's Heart Bible — An Intimate Translation"
+							width="288"
+							height="288"
+							loading="lazy"
+							decoding="async"
 							class="w-72 object-contain rounded-2xl shadow-2xl"
 						/>
 					</div>
@@ -290,42 +374,42 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					<!-- KMC -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" class="w-full h-48 object-cover" />
+						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">Kingdom Messenger Collective</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">From God-given message to sustainable movement.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Our flagship development program that walks with Kingdom Messengers through a 3+ year partnership.</p>
-							<a href="/kingdom-messenger-collective" class="text-sm font-semibold text-red hover:text-red-deep transition-colors">Learn More →</a>
+							<a href="/kingdom-messenger-collective" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
 						</div>
 					</div>
 					<!-- WOY -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="2">
-						<img src={woyImage} alt="Work On Yourself" class="w-full h-48 object-cover" />
+						<img src={woyImage} alt="Work On Yourself" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">Work On Yourself</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">A soul care intensive for leaders whose outer success has outpaced their inner life.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">A twelve-month protected season where leaders are accompanied rather than optimized.</p>
-							<a href="https://workonyourself.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-red hover:text-red-deep transition-colors">Visit WorkOnYourself.com →</a>
+							<a href="https://workonyourself.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit WorkOnYourself.com →</a>
 						</div>
 					</div>
 					<!-- Express Books -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
-						<img src={expressBooksImage} alt="EXPRESS BOOKS™" class="w-full h-48 object-cover" />
+						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-7">
 							<span class="eyebrow">EXPRESS BOOKS™</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">Fast reads. Lasting impact.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Intentionally compact books designed to be read in under an hour. No filler. No fluff. Transformation that lasts a lifetime.</p>
-							<a href="/express-books" class="text-sm font-semibold text-red hover:text-red-deep transition-colors">Learn More →</a>
+							<a href="/express-books" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
 						</div>
 					</div>
 					<!-- Believer's Library -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="4">
-						<img src={believerLibraryImage} alt="The Believer's Library" class="w-full h-48 object-cover object-top" />
+						<img src={believerLibraryImage} alt="The Believer's Library" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
 						<div class="p-7">
 							<span class="eyebrow">The Believer's Library</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">The world's largest cloud-based Christian library.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Our exclusive mobile app delivering PDF downloads to 3.3 billion souls worldwide with limited access to Jesus.</p>
-							<a href="https://thebelieverslibrary.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors">Visit thebelieverslibrary.com →</a>
+							<a href="https://thebelieverslibrary.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit thebelieverslibrary.com →</a>
 						</div>
 					</div>
 				</div>
@@ -338,7 +422,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<!-- Image left -->
 					<div class="flex justify-center" data-animate="slide-left">
-						<img src={manuscriptReviewImage} alt="Sample Spirit Media Manuscript Review document" class="w-full max-w-xs" />
+						<img src={manuscriptReviewImage} alt="Sample Spirit Media Manuscript Review document" width="600" height="900" loading="lazy" decoding="async" class="w-full max-w-xs" />
 					</div>
 					<!-- Content right -->
 					<div data-animate="slide-right">
@@ -391,7 +475,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						<a href="/publishing" class="btn btn-primary">
 							Learn More →
 						</a>
-						<img src={childrensBooksImage} alt="Children's book covers published by Spirit Media" class="w-full mt-8" />
+						<img src={childrensBooksImage} alt="Children's book covers published by Spirit Media" width="980" height="201" loading="lazy" decoding="async" class="w-full mt-8" />
 					</div>
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-animate="slide-right">
 						{
@@ -419,6 +503,49 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 			</div>
 		</section>
 
+		<!-- ═══ AI WEBSITES SPOTLIGHT ═══ -->
+		<section class="relative overflow-hidden bg-ink-soft px-6 py-14 lg:py-20 lg:px-8">
+			<div class="absolute inset-0 opacity-25 pointer-events-none" aria-hidden="true" style="background: radial-gradient(ellipse at top right, rgba(192, 57, 43, 0.4), transparent 60%);"></div>
+			<div class="relative mx-auto max-w-7xl">
+				<div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+					<div class="lg:col-span-3" data-animate="slide-left">
+						<span class="eyebrow eyebrow-red">New in 2026</span>
+						<h2 class="type-section-heading text-stone-100 mt-2">
+							AI-Powered Websites Built on the <span class="text-red-soft">Fastest Stack</span> in 2026
+						</h2>
+						<p class="mt-5 type-body-lg text-stone-300 max-w-2xl">
+							Sub-2-second load times. 95+ Google scores. AI-ready infrastructure. Spirit Media builds websites on the stack Google rewards — and visitors actually use.
+						</p>
+						<p class="mt-4 font-serif italic text-red-soft text-lg">
+							When your message deserves a mountaintop instead of a cave.
+						</p>
+						<div class="mt-7 flex flex-wrap gap-4">
+							<a href="/ai-websites" class="inline-flex items-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep">
+								See Our Websites →
+							</a>
+							<a href="/contact" class="inline-flex items-center rounded-md border-2 border-stone-300 px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
+								Free 48-Hour Audit
+							</a>
+						</div>
+					</div>
+					<div class="lg:col-span-2" data-animate="slide-right">
+						<div class="grid grid-cols-2 gap-3">
+							{[
+								'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=400&fm=webp&q=80',
+								'https://cdn.sanity.io/images/pmowd8uo/production/c9ea71e94864174e83453881a1c03f3fb172bc46-1979x824.png?w=400&fm=webp&q=80',
+								'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=400&fm=webp&q=80',
+								'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=400&fm=webp&q=80',
+							].map((src, i) => (
+								<div class="aspect-[4/3] rounded-xl overflow-hidden border border-stone-700 bg-ink">
+									<img src={src} alt={`Spirit Media website sample ${i + 1}`} width="400" height="300" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- ═══ TESTIMONIALS ═══ -->
 		<section class="bg-stone-100 px-6 py-12 lg:py-20 lg:px-8">
 			<div class="mx-auto max-w-7xl">
@@ -427,7 +554,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-in" data-delay="1">
 						Spirit Media Celebrates
 					</h2>
-					<p class="type-body mt-2 text-stone-600" data-animate="fade-in" data-delay="2">Real authors. Real results. Real transformation.</p>
+					<p class="type-body mt-2 text-stone-700" data-animate="fade-in" data-delay="2">Real authors. Real results. Real transformation.</p>
 				</div>
 								<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 					{testimonials.map((t, i) => (
@@ -436,14 +563,14 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 								<p><span class="font-serif text-red mr-1 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">&ldquo;</span>{t.quote}</p>
 							</blockquote>
 							<figcaption class="mt-6 flex items-center gap-3 pt-6 border-t border-stone-100">
-								<img src={t.authorPhoto} alt={t.authorName} class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
+								<img src={t.authorPhoto} alt={t.authorName} width="64" height="64" loading="lazy" decoding="async" class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
 								<div>
 									<p class="type-body-sm font-semibold text-ink-soft">
 										{t.authorUrl ? (
 											<a href={t.authorUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">{t.authorName}</a>
 										) : t.authorName}
 									</p>
-									<p class="type-caption text-stone-600">{t.authorLocation}</p>
+									<p class="type-caption text-stone-700">{t.authorLocation}</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -459,11 +586,11 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-in">
 						Partnering in <em>Your Success</em>
 					</h2>
-					<p class="mt-2 text-stone-500" data-animate="fade-in" data-delay="1">Choose the path that's right for you.</p>
+					<p class="mt-2 text-stone-700" data-animate="fade-in" data-delay="1">Choose the path that's right for you.</p>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={writeBookImage} alt="Write my book" class="w-full h-48 object-cover object-top" />
+						<img src={writeBookImage} alt="Write my book" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">1</span>Help Me Write My Book</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Tell us your vision! We will write your book in your voice using our proven Angel Writing process.</p>
@@ -471,7 +598,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="2">
-						<img src={publishBookImage} alt="Publish my book" class="w-full h-48 object-cover" />
+						<img src={publishBookImage} alt="Publish my book" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">2</span>Publish My Book</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Ready to publish? Let us partner with you to bring your book to life and take your message to the nations.</p>
@@ -479,7 +606,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 						</div>
 					</div>
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
-						<img src={marketMessageImage} alt="Market my message" class="w-full h-48 object-cover" />
+						<img src={marketMessageImage} alt="Market my message" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
 						<div class="p-8">
 							<h3 class="type-card-heading text-ink-soft mb-3"><span class="font-serif text-red mr-2 align-bottom" style="font-size:4rem;line-height:1;font-style:normal" aria-hidden="true">3</span>Market My Message</h3>
 							<p class="type-body-lg text-stone-700 mb-6">Need to reach your audience? Let us help you get the word out with our systematic marketing strategies.</p>

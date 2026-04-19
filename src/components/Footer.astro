@@ -28,7 +28,8 @@ try {
 
 // Fallback logo URL if fetch fails
 if (!logoUrl) {
-	logoUrl = 'https://cdn.sanity.io/images/pmowd8uo/production/37e09864cdd5c5b0811a221b7f06ce7f15fbcbad-6575x656.png?w=440&h=88&fit=max&auto=format';
+	logoUrl =
+		'https://cdn.sanity.io/images/pmowd8uo/production/37e09864cdd5c5b0811a221b7f06ce7f15fbcbad-6575x656.png?w=440&h=88&fit=max&auto=format';
 }
 const year = new Date().getFullYear();
 
@@ -125,7 +126,7 @@ const socialLinks = [
 
       <!-- Company links -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest text-red-soft">Company</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-stone-300">Company</h3>
         <ul class="mt-4 space-y-3">
           {
             companyLinks.map(({ href, label }) => (
@@ -141,7 +142,7 @@ const socialLinks = [
 
       <!-- Resources links -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest text-red-soft">Resources</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-stone-300">Resources</h3>
         <ul class="mt-4 space-y-3">
           {
             resourceLinks.map(({ href, label }) => (
@@ -157,7 +158,7 @@ const socialLinks = [
 
       <!-- Contact info -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest text-red-soft">Get in Touch</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-stone-300">Get in Touch</h3>
         <ul class="mt-4 space-y-3 text-sm text-stone-400">
           <li class="flex items-start gap-2">
             <svg class="mt-0.5 h-4 w-4 shrink-0 text-red-soft" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -181,7 +182,6 @@ const socialLinks = [
               data-e={siteEmail.split('@')[0]}
               data-d={siteEmail.split('@')[1]}
               class="transition-colors hover:text-stone-100 cursor-pointer underline bg-transparent border-0 p-0 text-inherit font-inherit"
-              aria-label="Reveal email address"
             >Email Us</button>
           </li>
         </ul>
@@ -193,13 +193,13 @@ const socialLinks = [
   <div class="border-t border-ink-muted/30">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <p class="text-xs text-stone-600">
+        <p class="text-xs text-stone-400">
           &copy; <span id="footer-year"></span> Spirit Media Publishing. All rights reserved. &bull; Powered by <a href="https://spiritmediapublishing.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Spirit Media</a>
         </p>
         <nav aria-label="Legal navigation" class="flex gap-6">
           {
             legalLinks.map(({ href, label }) => (
-              <a href={href} class="text-xs text-stone-600 transition-colors hover:text-stone-400">
+              <a href={href} class="text-xs text-stone-400 transition-colors hover:text-stone-400">
                 {label}
               </a>
             ))
