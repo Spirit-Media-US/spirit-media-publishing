@@ -17,7 +17,8 @@
       "mcp__playwright__browser_evaluate",
       "mcp__playwright__browser_take_screenshot",
       "Bash(curl -sI https://spiritmediapublishing.com/favicon-final.svg)",
-      "Bash(curl -s https://spiritmediapublishing.com/)"
+      "Bash(curl -s https://spiritmediapublishing.com/)",
+      "mcp__playwright__browser_resize"
     ]
   },
   "enableAllProjectMcpServers": true,
