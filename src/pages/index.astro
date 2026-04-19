@@ -3,114 +3,39 @@ import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
-const rawTestimonials = await sanityClient.fetch(`
-  *[_type == "testimonial"] | order(displayOrder asc) {
-    quote, authorName, authorUrl, authorLocation,
-    "authorPhoto": authorPhoto.asset->url + "?w=128&h=128&fit=crop&fm=webp&q=80"
-  }
-`);
+// All homepage brand/program/testimonial imagery is served from R2 (same origin
+// as fonts + logo + hero). No cdn.sanity.io TLS handshake anywhere in the
+// homepage request chain on any page lifecycle stage.
+//
+// To swap a brand image: upload a new <name>.webp to
+//   assets.spiritmediapublishing.com/spirit-media-publishing/homepage/
+// (source of truth is R2, not Sanity — matches the logo + hero pattern).
+const R2_BASE = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/homepage';
 
-// Hero is self-hosted on R2 (see below). This holds alt text + audio URL from Sanity.
+// Hero alt text + audio URL still fetched from Sanity (text only, tiny GROQ).
+// Testimonials are now hardcoded (see FALLBACK_TESTIMONIALS below) so the
+// author photos can stay on R2 — Sanity testimonials would re-inject
+// cdn.sanity.io photo URLs and reintroduce the TLS handshake.
 let homepageHeroImageAlt = 'Published books by Spirit Media authors';
 let homepageAudioUrl: string | undefined;
-
-// Brand/Program Images
-let fhbImage: string | undefined;
-let kmcBrandImage: string | undefined;
-let woyImage: string | undefined;
-let expressBooksImage: string | undefined;
-let believerLibraryImage: string | undefined;
-
-// Service/Process Images
-let manuscriptReviewImage: string | undefined;
-let childrensBooksImage: string | undefined;
-let writeBookImage: string | undefined;
-let publishBookImage: string | undefined;
-let marketMessageImage: string | undefined;
-
 try {
 	const s = await sanityClient.fetch(
-		`*[_type == "siteSettings"][0]{
-			homepageHeroImageAlt,
-			homepageAudioUrl,
-			fhbImage, fhbImageAlt,
-			kmcBrandImage, kmcBrandImageAlt,
-			woyImage, woyImageAlt,
-			expressBooksImage, expressBooksImageAlt,
-			believerLibraryImage, believerLibraryImageAlt,
-			homepageManuscriptReviewImage, homepageManuscriptReviewImageAlt,
-			homepageChildrensBooksImage, homepageChildrensBooksImageAlt,
-			homepageWriteBookImage, homepageWriteBookImageAlt,
-			homepagePublishBookImage, homepagePublishBookImageAlt,
-			homepageMarketMessageImage, homepageMarketMessageImageAlt
-		}`,
+		`*[_type == "siteSettings"][0]{ homepageHeroImageAlt, homepageAudioUrl }`,
 	);
-	// Homepage hero is R2-only (not Sanity) for LCP performance: same origin as
-	// fonts (one TLS handshake) + stable URL for 103 Early Hints. To change the
-	// hero visual, upload new WebP files to
-	// assets.spiritmediapublishing.com/spirit-media-publishing/hero-{mobile,tablet,desktop}.webp
-	// Only alt text is editable via Sanity.
 	if (s?.homepageHeroImageAlt) homepageHeroImageAlt = s.homepageHeroImageAlt;
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
-
-	// Brand Images
-	if (s?.fhbImage)
-		fhbImage = urlFor(s.fhbImage).width(600).height(600).fit('crop').auto('format').url();
-	if (s?.kmcBrandImage)
-		kmcBrandImage = urlFor(s.kmcBrandImage).width(600).height(300).fit('crop').auto('format').url();
-	if (s?.woyImage)
-		woyImage = urlFor(s.woyImage).width(600).height(300).fit('crop').auto('format').url();
-	if (s?.expressBooksImage)
-		expressBooksImage = urlFor(s.expressBooksImage)
-			.width(600)
-			.height(400)
-			.fit('crop')
-			.auto('format')
-			.url();
-	if (s?.believerLibraryImage)
-		believerLibraryImage = urlFor(s.believerLibraryImage)
-			.width(600)
-			.height(400)
-			.fit('crop')
-			.auto('format')
-			.url();
-
-	// Service Images
-	if (s?.homepageManuscriptReviewImage)
-		manuscriptReviewImage = urlFor(s.homepageManuscriptReviewImage)
-			.width(600)
-			.height(900)
-			.fit('crop')
-			.auto('format')
-			.url();
-	if (s?.homepageChildrensBooksImage)
-		childrensBooksImage = urlFor(s.homepageChildrensBooksImage)
-			.width(980)
-			.fit('max')
-			.auto('format')
-			.url();
-	if (s?.homepageWriteBookImage)
-		writeBookImage = urlFor(s.homepageWriteBookImage)
-			.width(600)
-			.height(300)
-			.fit('crop')
-			.auto('format')
-			.url();
-	if (s?.homepagePublishBookImage)
-		publishBookImage = urlFor(s.homepagePublishBookImage)
-			.width(600)
-			.height(300)
-			.fit('crop')
-			.auto('format')
-			.url();
-	if (s?.homepageMarketMessageImage)
-		marketMessageImage = urlFor(s.homepageMarketMessageImage)
-			.width(600)
-			.height(300)
-			.fit('crop')
-			.auto('format')
-			.url();
 } catch (e) {}
+
+const fhbImage = `${R2_BASE}/fhb.webp`;
+const kmcBrandImage = `${R2_BASE}/kmc.webp`;
+const woyImage = `${R2_BASE}/woy.webp`;
+const expressBooksImage = `${R2_BASE}/express-books.webp`;
+const believerLibraryImage = `${R2_BASE}/believers-library.webp`;
+const manuscriptReviewImage = `${R2_BASE}/manuscript-review.webp`;
+const childrensBooksImage = `${R2_BASE}/childrens-books.webp`;
+const writeBookImage = `${R2_BASE}/write-book.webp`;
+const publishBookImage = `${R2_BASE}/publish-book.webp`;
+const marketMessageImage = `${R2_BASE}/market-message.webp`;
 
 // Hero LCP image — self-hosted on R2, same origin as fonts (one TLS handshake).
 // Desktop-only block (hidden lg:block) so mobile never fetches the hero.
@@ -127,46 +52,6 @@ if (!homepageAudioUrl) {
 	homepageAudioUrl =
 		'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';
 }
-if (!fhbImage) {
-	fhbImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png?w=600&h=600&fit=crop&fm=webp&q=80';
-}
-if (!kmcBrandImage) {
-	kmcBrandImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=768&h=384&fit=crop&fm=webp&q=80';
-}
-if (!woyImage) {
-	woyImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/12c2efc3621bf094d025b2500f14df20d397003b-7360x4912.jpg?w=768&h=384&fit=crop&fm=webp&q=80';
-}
-if (!expressBooksImage) {
-	expressBooksImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/91eff73d0166bac824bdf85f24744ce93fe49895-1536x1024.png?w=768&h=512&fit=crop&fm=webp&q=80';
-}
-if (!believerLibraryImage) {
-	believerLibraryImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/61db533060e24d4df68be79e6cc455a8a16f1df7-1500x900.png?w=768&h=512&fit=crop&fm=webp&q=80';
-}
-if (!manuscriptReviewImage) {
-	manuscriptReviewImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/993fc8968f7fb09961f2a446e6030fb031f50d43-600x900.png?w=600&h=900&fit=crop&fm=webp&q=80';
-}
-if (!childrensBooksImage) {
-	childrensBooksImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/54244efc1f358c9a434b90fb5cbe94baf28fda6a-980x201.png?w=980&fit=max&fm=webp&q=80';
-}
-if (!writeBookImage) {
-	writeBookImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/3888773fa7183ef0133efd02481baf0a7a768df1-6922x4620.jpg?w=768&h=384&fit=crop&fm=webp&q=80';
-}
-if (!publishBookImage) {
-	publishBookImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=768&h=384&fit=crop&fm=webp&q=80';
-}
-if (!marketMessageImage) {
-	marketMessageImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=1200&fit=max&fm=webp&q=80';
-}
 
 const FALLBACK_TESTIMONIALS = [
 	{
@@ -175,8 +60,7 @@ const FALLBACK_TESTIMONIALS = [
 		authorName: 'Jim Matuga',
 		authorUrl: 'https://inneractionmedia.com/',
 		authorLocation: 'Humble Influence — Morgantown, WV',
-		authorPhoto:
-			'https://cdn.sanity.io/images/pmowd8uo/production/0fb4317b2ba3c364e3cd1c9ea115f5bf43d752f9-1280x961.png?w=160&h=120&fit=crop&fm=webp&q=80',
+		authorPhoto: `${R2_BASE}/testimonial-jim.webp`,
 	},
 	{
 		quote:
@@ -184,8 +68,7 @@ const FALLBACK_TESTIMONIALS = [
 		authorName: 'Cindy Love',
 		authorUrl: 'https://clowningfromtheheart.com/',
 		authorLocation: 'Clowning From the Heart — Walla Walla, WA',
-		authorPhoto:
-			'https://cdn.sanity.io/images/pmowd8uo/production/41a09e4b87cbb7de8f851e987d90e1dcb45155a9-640x610.jpg?w=160&h=120&fit=crop&fm=webp&q=80',
+		authorPhoto: `${R2_BASE}/testimonial-cindy.webp`,
 	},
 	{
 		quote:
@@ -193,11 +76,10 @@ const FALLBACK_TESTIMONIALS = [
 		authorName: 'Van Eure',
 		authorUrl: 'https://angusbarn.com/',
 		authorLocation: 'Hospitality Rules — Raleigh, NC',
-		authorPhoto:
-			'https://cdn.sanity.io/images/pmowd8uo/production/84f6c4abf3de42675caab866cce636ad1686a6ff-1194x1003.webp?w=160&h=120&fit=crop&fm=webp&q=80',
+		authorPhoto: `${R2_BASE}/testimonial-van.webp`,
 	},
 ];
-const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TESTIMONIALS;
+const testimonials = FALLBACK_TESTIMONIALS;
 ---
 <Layout
 	title="Spirit Media Publishing | Christian Book Publishing"
@@ -262,8 +144,9 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 		     (min-width: 1024px). -->
 
 		<!-- MOBILE HERO — text-only. H1 is LCP. No hero-stagger (no post-LCP flash
-		     on an element that IS the LCP). -->
-		<section class="bg-stone-50 px-6 pt-14 pb-12 overflow-hidden lg:hidden">
+		     on an element that IS the LCP). Tight pt-8/pb-10 pushes the LCP text up
+		     in the viewport so it paints with less layout work beforehand. -->
+		<section class="bg-stone-50 px-6 pt-8 pb-10 overflow-hidden lg:hidden">
 			<div class="mx-auto max-w-7xl">
 				<h1 class="type-hero text-ink-soft">
 					Born from holy conviction.
@@ -590,10 +473,10 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<div class="lg:col-span-2" data-animate="slide-right">
 						<div class="grid grid-cols-2 gap-3">
 							{[
-								'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=400&fm=webp&q=80',
-								'https://cdn.sanity.io/images/pmowd8uo/production/c9ea71e94864174e83453881a1c03f3fb172bc46-1979x824.png?w=400&fm=webp&q=80',
-								'https://cdn.sanity.io/images/pmowd8uo/production/16fb58183a4e32ee38a5f85c32337333108525a1-5402x3601.jpg?w=400&fm=webp&q=80',
-								'https://cdn.sanity.io/images/pmowd8uo/production/8e2ef79c9f5c68c22598bb6fb7640af8cb349b01-8192x5464.jpg?w=400&fm=webp&q=80',
+								`${R2_BASE}/ai-sample-1.webp`,
+								`${R2_BASE}/ai-sample-2.webp`,
+								`${R2_BASE}/ai-sample-3.webp`,
+								`${R2_BASE}/ai-sample-4.webp`,
 							].map((src, i) => (
 								<div class="aspect-[4/3] rounded-xl overflow-hidden border border-stone-700 bg-ink">
 									<img src={src} alt={`Spirit Media website sample ${i + 1}`} width="400" height="300" class="w-full h-full object-cover" loading="lazy" decoding="async" />

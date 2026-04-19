@@ -5,18 +5,15 @@
 
 @import "tailwindcss";
 
-/* @font-face declarations for all weights (critical + non-critical) live here,
-   inside the main Tailwind bundle which is async-loaded by scripts/async-css.mjs.
-   Critical weights (Playfair 800, Source Sans 400/500/700) are ALSO inlined in
-   Layout.astro <style is:inline> so they're available during the async window. */
-@font-face {
-	font-family: "Playfair Display";
-	font-style: italic;
-	font-weight: 700;
-	font-display: swap;
-	src: url("https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700-italic.woff2")
-		format("woff2");
-}
+/* @font-face declarations for the 3 weights actually used across the site.
+   Slimmed 2026-04-19 from 7 faces to 3 — italic, 500, 600 were fetching on
+   mobile during the LCP window despite having no above-fold users. Removed
+   weights now synthesize from 400 (medium / semibold) and from 700 (italic),
+   which is visually acceptable for the places they appeared (below-fold
+   nav chips, pull quotes).
+   Critical weights (Playfair 800 + 700, Source Sans 400 + 700) are ALSO
+   inlined in Layout.astro <style is:inline> so they're available during the
+   async window. */
 @font-face {
 	font-family: "Playfair Display";
 	font-style: normal;
@@ -44,26 +41,46 @@
 @font-face {
 	font-family: "Source Sans 3";
 	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src: url("https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-500.woff2")
-		format("woff2");
-}
-@font-face {
-	font-family: "Source Sans 3";
-	font-style: normal;
-	font-weight: 600;
-	font-display: swap;
-	src: url("https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-600.woff2")
-		format("woff2");
-}
-@font-face {
-	font-family: "Source Sans 3";
-	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
 	src: url("https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2")
 		format("woff2");
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Metric-adjusted local-font fallbacks.
+   Purpose: Collapse the FCP→LCP gap on mobile. Before these existed, Chrome
+   emitted a new LCP candidate whenever Playfair/SourceSans swapped into the
+   H1 or hero paragraph because the paint-box dimensions changed (Georgia and
+   system-ui have different glyph widths + vertical metrics than the custom
+   fonts). With size-adjust + ascent/descent-override matched to the real
+   fonts, the fallback glyphs occupy the same box, so the swap does NOT emit
+   a new LCP entry — LCP timestamp stays at FCP.
+   ────────────────────────────────────────────────────────────────────────── */
+@font-face {
+	font-family: "Playfair fallback";
+	font-style: normal;
+	font-weight: 700 800;
+	/* Linux (PSI / CI) first — Liberation Serif, DejaVu Serif are metric-
+	   compatible with Times / Georgia and ship with every Linux distro.
+	   Then the Windows/Mac names. First match wins. */
+	src:
+		local("Liberation Serif"), local("DejaVu Serif"), local("Georgia"), local("Times New Roman"),
+		local("Times");
+	size-adjust: 107%;
+	ascent-override: 95%;
+	descent-override: 24%;
+	line-gap-override: 0%;
+}
+@font-face {
+	font-family: "SourceSans fallback";
+	font-style: normal;
+	font-weight: 400 700;
+	src: local("Liberation Sans"), local("DejaVu Sans"), local("Arial"), local("Helvetica");
+	size-adjust: 100.8%;
+	ascent-override: 95%;
+	descent-override: 22%;
+	line-gap-override: 0%;
 }
 
 /* =============================================================================
@@ -102,11 +119,16 @@
 	--color-shadow: rgba(26, 23, 20, 0.08);
 	--color-shadow-md: rgba(26, 23, 20, 0.15);
 
-	/* — Typography — */
-	--font-display: "Playfair Display", Georgia, serif;
-	--font-body: "Source Sans 3", system-ui, sans-serif;
-	--font-sans: "Source Sans 3", system-ui, sans-serif;
-	--font-serif: "Playfair Display", Georgia, serif;
+	/* — Typography —
+	   Metric-adjusted fallbacks ('Playfair fallback', 'SourceSans fallback')
+	   sit between the custom font and the plain local fallback. They use
+	   size-adjust / ascent-override / descent-override so Georgia / Arial
+	   paint at the same box dimensions as the custom fonts — eliminates the
+	   FCP→LCP gap from font-swap re-paint on mobile. */
+	--font-display: "Playfair Display", "Playfair fallback", Georgia, serif;
+	--font-body: "Source Sans 3", "SourceSans fallback", system-ui, sans-serif;
+	--font-sans: "Source Sans 3", "SourceSans fallback", system-ui, sans-serif;
+	--font-serif: "Playfair Display", "Playfair fallback", Georgia, serif;
 	--font-mono: "Courier New", Courier, monospace;
 
 	/* — Radius — */

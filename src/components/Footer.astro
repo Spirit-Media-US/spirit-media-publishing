@@ -8,11 +8,14 @@ let siteInstagram = 'https://www.instagram.com/spiritmedia.us';
 let siteYoutube = 'https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA';
 let siteLinkedin = 'https://www.linkedin.com/company/spiritmediaus';
 let siteTwitter = 'https://x.com/SpiritMediaUS';
-let logoUrl: string | undefined;
+// Logo served from R2 (same origin as fonts) — keeps mobile off the
+// cdn.sanity.io TLS handshake entirely. Footer is below the fold so the
+// <img> is loading="lazy" and never competes with LCP.
+const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp';
 
 try {
 	const s = await sanityClient.fetch(
-		'*[_type == "siteSettings"][0]{ phone, email, facebook, instagram, youtube, linkedin, twitter, logo }',
+		'*[_type == "siteSettings"][0]{ phone, email, facebook, instagram, youtube, linkedin, twitter }',
 	);
 	if (s?.phone) sitePhone = s.phone;
 	if (s?.email) siteEmail = s.email;
@@ -21,16 +24,7 @@ try {
 	if (s?.youtube) siteYoutube = s.youtube;
 	if (s?.linkedin) siteLinkedin = s.linkedin;
 	if (s?.twitter) siteTwitter = s.twitter;
-	if (s?.logo) {
-		logoUrl = urlFor(s.logo).width(440).height(88).fit('max').auto('format').url();
-	}
 } catch (e) {}
-
-// Fallback logo URL if fetch fails
-if (!logoUrl) {
-	logoUrl =
-		'https://cdn.sanity.io/images/pmowd8uo/production/37e09864cdd5c5b0811a221b7f06ce7f15fbcbad-6575x656.png?w=440&h=88&fit=max&fm=webp&q=80';
-}
 const year = new Date().getFullYear();
 
 const companyLinks = [
@@ -93,8 +87,10 @@ const socialLinks = [
           <img
             src={logoUrl}
             alt="Spirit Media Publishing"
-            width="220"
+            width="440"
             height="44"
+            loading="lazy"
+            decoding="async"
             class="h-auto w-auto max-w-[220px]"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />

@@ -34,10 +34,10 @@ try {
 	console.error('Error fetching siteSettings:', e);
 }
 
-// Fallback OG image if still not set
+// Fallback OG image if still not set — served from R2, same origin as fonts.
 if (!ogImage) {
 	ogImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&h=630&fm=jpg&q=85';
+		'https://assets.spiritmediapublishing.com/spirit-media-publishing/homepage/og-homepage.jpg';
 }
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
@@ -51,14 +51,23 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- TLS warmup for LCP-critical origins (must precede any resource from these origins) -->
-    <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
+    <!-- TLS warmup for LCP-critical origin. Homepage and most marketing pages
+         now serve all imagery from R2 (same origin as fonts + logo) — Sanity
+         preconnect removed because on mobile it wasted a TLS connection slot
+         without a matching resource fetch. Pages that still use cdn.sanity.io
+         (blog post bodies, bookstore) can add their own preconnect via
+         <slot name="head"> if needed. -->
     <link rel="preconnect" href="https://assets.spiritmediapublishing.com" crossorigin />
 
-    <!-- Critical fonts — Playfair 800 (H1) + Source Sans 400 (body). Other weights
-         load via the async Tailwind bundle rewritten by scripts/async-css.mjs. -->
+    <!-- Critical fonts on the mobile above-fold:
+         - Playfair 800 → H1
+         - Source Sans 400 → hero paragraphs
+         - Source Sans 700 → <strong> inside p2 + both CTA button labels
+         Not preloading these three caused ~100KB of late-arriving font payload
+         that triggered post-FCP LCP re-paints on mobile. -->
     <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2" crossorigin />
 
     <!-- Per-page head slot — hoisted so page-specific LCP preloads (e.g., hero image) come early -->
     <slot name="head-early" />
@@ -82,8 +91,13 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       @font-face{font-family:'Playfair Display';font-style:normal;font-weight:800;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2') format('woff2')}
       @font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2') format('woff2')}
       @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2') format('woff2')}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:500;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-500.woff2') format('woff2')}
       @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2') format('woff2')}
+      /* Metric-adjusted fallbacks — eliminate FCP→LCP gap from font-swap re-paint.
+         Georgia / Times as local serif, Arial / Helvetica as local sans. The
+         size-adjust + ascent/descent-override values approximate the real font
+         metrics so the paint box is stable before and after swap. */
+      @font-face{font-family:'Playfair fallback';font-style:normal;font-weight:700 800;src:local('Liberation Serif'),local('DejaVu Serif'),local('Georgia'),local('Times New Roman'),local('Times');size-adjust:107%;ascent-override:95%;descent-override:24%;line-gap-override:0%}
+      @font-face{font-family:'SourceSans fallback';font-style:normal;font-weight:400 700;src:local('Liberation Sans'),local('DejaVu Sans'),local('Arial'),local('Helvetica');size-adjust:100.8%;ascent-override:95%;descent-override:22%;line-gap-override:0%}
 
       /* --- All critical CSS wrapped in @layer base so Tailwind v4's async-
              loaded @layer utilities always wins the cascade when the full
@@ -95,19 +109,19 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         /* resets */
         *,*::before,*::after{box-sizing:border-box;border:0 solid}
         html{-webkit-text-size-adjust:100%;font-size:18px;line-height:1.7;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-        body{margin:0;background:#faf8f5;color:#574e45;font-family:'Source Sans 3',system-ui,sans-serif;line-height:1.7}
+        body{margin:0;background:#faf8f5;color:#574e45;font-family:'Source Sans 3','SourceSans fallback',system-ui,sans-serif;line-height:1.7}
         img,picture,svg,video,canvas{display:block;max-width:100%;height:auto}
-        h1,h2,h3,h4,h5,h6{margin:0;font-family:'Playfair Display',Georgia,serif;color:#2e2a26;line-height:1.2;font-weight:600;overflow-wrap:break-word}
+        h1,h2,h3,h4,h5,h6{margin:0;font-family:'Playfair Display','Playfair fallback',Georgia,serif;color:#2e2a26;line-height:1.2;font-weight:600;overflow-wrap:break-word}
         p{margin:0;overflow-wrap:break-word}
         a{color:inherit;text-decoration:none}
         button{font:inherit;color:inherit;background:transparent;cursor:pointer;padding:0;border:0}
 
         /* SMP custom component classes used above the fold */
-        .type-hero{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.25rem,4.5vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.02em}
-        .type-body-lg{font-family:'Source Sans 3',system-ui,sans-serif;font-size:1rem;line-height:1.75}
-        .eyebrow{display:block;font-family:'Source Sans 3',system-ui,sans-serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#574e45;margin-bottom:.75rem}
+        .type-hero{font-family:'Playfair Display','Playfair fallback',Georgia,serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.02em}
+        .type-body-lg{font-family:'Source Sans 3','SourceSans fallback',system-ui,sans-serif;font-size:1rem;line-height:1.75}
+        .eyebrow{display:block;font-family:'Source Sans 3','SourceSans fallback',system-ui,sans-serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#574e45;margin-bottom:.75rem}
         .eyebrow-red{color:#c0392b}
-        .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Source Sans 3',system-ui,sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.75rem 1.75rem;border-radius:.375rem;cursor:pointer;border:2px solid transparent;text-decoration:none;transition:all .15s}
+        .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Source Sans 3','SourceSans fallback',system-ui,sans-serif;font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.75rem 1.75rem;border-radius:.375rem;cursor:pointer;border:2px solid transparent;text-decoration:none;transition:all .15s}
         .btn-primary{background-color:#c0392b;color:#fff;border-color:#c0392b}
         .btn-primary:hover{background-color:#9b2d20;border-color:#9b2d20;color:#fff}
         .btn-ghost{background-color:transparent;color:#c0392b;border-color:#c0392b}
@@ -144,7 +158,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         .p-2{padding:.5rem}
         .px-3{padding-inline:.75rem}.px-4{padding-inline:1rem}.px-6{padding-inline:1.5rem}.px-8{padding-inline:2rem}
         .py-1{padding-block:.25rem}.py-2{padding-block:.5rem}.py-3{padding-block:.75rem}
-        .pt-14{padding-top:3.5rem}.pb-12{padding-bottom:3rem}
+        .pt-8{padding-top:2rem}.pt-14{padding-top:3.5rem}.pb-10{padding-bottom:2.5rem}.pb-12{padding-bottom:3rem}
         .border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f1ec}.border-stone-200{border-color:#ede7df}
         .rounded{border-radius:.375rem}.rounded-md{border-radius:.5rem}.rounded-lg{border-radius:.75rem}.rounded-full{border-radius:9999px}
         .bg-stone-50{background-color:#faf8f5}.bg-stone-100{background-color:#f5f1ec}.bg-surface{background-color:#fff}.bg-white{background-color:#fff}

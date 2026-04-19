@@ -1,6 +1,5 @@
 ---
 // Site-wide navigation bar with active-link highlighting and Resources dropdown
-import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 const pathname = new URL(Astro.request.url).pathname;
 
@@ -26,24 +25,13 @@ function isActive(href: string): boolean {
 
 const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(href));
 
-// Fetch logo from siteSettings
-let logoUrl: string | undefined;
-let logoFallback = false;
-try {
-	const siteSettings = await sanityClient.fetch('*[_type == "siteSettings"][0]{ logo }');
-	if (siteSettings?.logo) {
-		logoUrl = urlFor(siteSettings.logo).width(440).height(88).fit('max').auto('format').url();
-	}
-} catch (e) {
-	console.error('Error fetching logo:', e);
-	logoFallback = true;
-}
-
-// Fallback logo URL if fetch fails or no logo in Sanity
-if (!logoUrl) {
-	logoUrl =
-		'https://cdn.sanity.io/images/pmowd8uo/production/dc16e3c604bd5d52de7647af46836ff418c22898-6575x656.png?w=440&h=88&fit=max&fm=webp&q=80';
-}
+// Logo is always served from R2 — same origin as fonts keeps the mobile
+// critical path on a single TLS handshake. To change the logo, upload a new
+// smp-logo.webp to assets.spiritmediapublishing.com/spirit-media-publishing/.
+// Sanity is no longer the source of truth for the logo (its check was
+// fragile — any edit in Sanity Studio would re-route the logo back to
+// cdn.sanity.io, re-introducing the second TLS handshake).
+const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp';
 ---
 
 <!-- Skip to main content for keyboard / screen-reader users -->
@@ -63,8 +51,10 @@ if (!logoUrl) {
         <img
           src={logoUrl}
           alt="Spirit Media Publishing"
-          width="220"
-          height="22"
+          width="440"
+          height="44"
+          fetchpriority="high"
+          decoding="async"
           class="h-auto w-auto max-w-[275px] sm:max-w-[325px]"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
         />
