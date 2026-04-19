@@ -760,7 +760,7 @@ const breadcrumbSchema = {
 
 <script>
 	// Intersection observer for data-animate (SMP pattern)
-	document.addEventListener('astro:page-load', () => {
+	function initAiWebsiteAnimations() {
 		const io = new IntersectionObserver((entries) => {
 			entries.forEach((e) => {
 				if (e.isIntersecting) {
@@ -773,5 +773,10 @@ const breadcrumbSchema = {
 
 		// hero-stagger
 		document.querySelectorAll('.hero-stagger').forEach((el) => el.classList.add('loaded'));
-	});
+	}
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initAiWebsiteAnimations);
+	} else {
+		initAiWebsiteAnimations();
+	}
 </script>

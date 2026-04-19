@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
@@ -225,8 +224,6 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon-final.svg" />
-
-    <ClientRouter />
   </head>
   <body class="flex min-h-screen flex-col bg-stone-50 text-ink antialiased">
     <Navbar />
@@ -264,7 +261,11 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         }
       }
 
-      document.addEventListener('astro:page-load', initAnimations);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAnimations);
+      } else {
+        initAnimations();
+      }
     </script>
   </body>
 </html>

@@ -41,7 +41,8 @@ try {
 
 // Fallback logo URL if fetch fails or no logo in Sanity
 if (!logoUrl) {
-	logoUrl = 'https://cdn.sanity.io/images/pmowd8uo/production/dc16e3c604bd5d52de7647af46836ff418c22898-6575x656.png?w=440&h=88&fit=max&auto=format';
+	logoUrl =
+		'https://cdn.sanity.io/images/pmowd8uo/production/dc16e3c604bd5d52de7647af46836ff418c22898-6575x656.png?w=440&h=88&fit=max&auto=format';
 }
 ---
 
@@ -242,7 +243,7 @@ if (!logoUrl) {
 </header>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  function initNavbar() {
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -300,5 +301,11 @@ if (!logoUrl) {
         resourcesBtn?.setAttribute('aria-expanded', 'false');
       });
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbar);
+  } else {
+    initNavbar();
+  }
 </script>
