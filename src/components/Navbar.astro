@@ -1,6 +1,5 @@
 ---
 // Site-wide navigation bar with active-link highlighting and Resources dropdown
-import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 const pathname = new URL(Astro.request.url).pathname;
 
@@ -26,29 +25,13 @@ function isActive(href: string): boolean {
 
 const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(href));
 
-// Logo is self-hosted on R2 — same origin as fonts, so no second TLS handshake
-// on the mobile critical path. Kept Sanity fetch only as a soft override in case
-// siteSettings logo is ever customized, but default is R2 for LCP.
-const R2_LOGO = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp';
-let logoUrl: string = R2_LOGO;
-try {
-	const siteSettings = await sanityClient.fetch('*[_type == "siteSettings"][0]{ logo }');
-	if (siteSettings?.logo) {
-		// Only override R2 default if Sanity logo is explicitly set AND not the
-		// stock Spirit Media logo — keeps the same-origin path for the default.
-		const sanityUrl = urlFor(siteSettings.logo)
-			.width(440)
-			.height(88)
-			.fit('max')
-			.auto('format')
-			.url();
-		if (sanityUrl && !sanityUrl.includes('dc16e3c604bd5d52de7647af46836ff418c22898')) {
-			logoUrl = sanityUrl;
-		}
-	}
-} catch (e) {
-	console.error('Error fetching logo:', e);
-}
+// Logo is always served from R2 — same origin as fonts keeps the mobile
+// critical path on a single TLS handshake. To change the logo, upload a new
+// smp-logo.webp to assets.spiritmediapublishing.com/spirit-media-publishing/.
+// Sanity is no longer the source of truth for the logo (its check was
+// fragile — any edit in Sanity Studio would re-route the logo back to
+// cdn.sanity.io, re-introducing the second TLS handshake).
+const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp';
 ---
 
 <!-- Skip to main content for keyboard / screen-reader users -->
