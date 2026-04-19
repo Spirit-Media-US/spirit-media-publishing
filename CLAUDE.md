@@ -79,7 +79,10 @@ Google Stitch 2.0 is an MCP server available in this project for AI-powered desi
 
 ## 100 Club commitments (locked — do not regress)
 
-**100 Club bar = homepage, median-of-5. Inner pages are quality work, not gate criteria.**
+**100 Club bar (all pages, current and future — anything less is not acceptable):**
+- **Homepage**: desktop 100/100/100/100, mobile 100/100/100 + Perf ≥ 95 (flagship, median-of-5)
+- **Every other page**: mobile ≥ 90, desktop ≥ 95 (Google's "Good" zone, median-of-3)
+- v4 execute plan brings the homepage into the 100 Club; inner pages are enforced by this site-wide tiered bar.
 
 SMP is in the 100 Club (desktop 100/100/100/100, mobile 100/100/100/100 as of 2026-04-19). Every commitment below is a LOAD-BEARING structural decision. Do not "re-add" any of them without understanding the consequences.
 
