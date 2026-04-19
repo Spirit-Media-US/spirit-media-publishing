@@ -34,6 +34,48 @@ const SHOWCASE = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/23d9abbe41b4a447b45adf64bbcf1995bec70d4e-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
+		slug: 'scripture-alive',
+		name: 'Scripture Alive',
+		url: 'https://scripturealive.com',
+		industry: 'Performing Arts / Ministry',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/828aa346ff88f53849846efb910c2dd4a3d4299b-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/1b6024d1984be02c1bc6e923deeb17f7a59e2aae-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/ea4a047bebb82efbe12394be00baafc03170c644-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'fathers-heart-bible',
+		name: "Father's Heart Bible",
+		url: 'https://fathersheartbible.com',
+		industry: 'Publishing / Ministry',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/e5d306b0be0669975c6e29371d82dc6a094d9c73-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/34b6c453b66bce2ff82bd3c43ae500c139be81d7-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/df665a3bc9ff1a38d06c2d1f370a52ecc7cc8faf-375x812.png?w=300&fm=webp&q=85',
+	},
+] as const;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PORTFOLIO — All SMP sites not in Live Proof, alpha order. Same 3-mockup composition.
+// ─────────────────────────────────────────────────────────────────────────────
+const PORTFOLIO = [
+	{
+		slug: 'arts-by-justin',
+		name: 'Arts by Justin',
+		url: 'https://artsbyjustin.com',
+		industry: 'Artist / Creative',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/34463ffbe7e5b30fc25fea1852be65d85f924da4-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/f984525497dc1ed8c58fb8054ea11182c5b98b3b-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/0dbd37bb32d46c2c6d2854309b6b44517538e52b-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
 		slug: 'clowning-from-the-heart',
 		name: 'Clowning from the Heart',
 		url: 'https://clowningfromtheheart.com',
@@ -45,10 +87,86 @@ const SHOWCASE = [
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png?w=300&fm=webp&q=85',
 	},
+	{
+		slug: 'johnny-watts-agency',
+		name: 'Johnny Watts Agency',
+		url: 'https://johnnywattsagency.com',
+		industry: 'Insurance',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/c5caa8212399e926e523f3bfbeb19dfd8d547646-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/9466e5f673509748becb94a50825f4f8e7c519b6-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/e64e0cd3312b39d5b922a0b62e480fe621a1a231-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'kevin-white',
+		name: 'Kevin White',
+		url: 'https://kevinwhite.us',
+		industry: 'Author / Speaker',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/0f1c337d40ebc1c8a9a87efbd509cad45a39b2d3-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/139df3b79b6ff1be16e48bb5250cdc46a68d545a-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/3bacd0afa4ef4de909d55309dbed7fe6c99e7e5a-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'lioncrest-media',
+		name: 'LionCrest Media',
+		url: 'https://lioncrestmedia.com',
+		industry: 'Publishing',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/ef4c2c915070340467936c84242c97a7b0ea72e6-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/412150df21c6ecffb7a28057fb2af314f14cb078-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/894fcc9f079cc585c8b4d3b8561abcc51509c784-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'sm-gives',
+		name: 'SM Gives',
+		url: 'https://smgives.org',
+		industry: 'Nonprofit / Ministry',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/20efeaabadb82f0d414a8c6ed56a8c2636935532-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/5bbb069ade6d7a55a68c8c988341d3b7ccba0c73-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/a9bc69456023ddccf6f385ac3e6ad93c944fed5b-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'thomas-mcgovern-cpa',
+		name: 'Thomas McGovern CPA',
+		url: 'https://thomasmcgovern.cpa',
+		industry: 'CPA / Professional Services',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/2ad5e55c2ff6dc72d945dc96f4d4fec11918d99c-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/7ed7a7a1acdeb51778eae73c5d6b7f1c47518c04-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/799051ff7e7483b55b2794504c0f0e25c4815c92-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'work-on-yourself',
+		name: 'Work On Yourself',
+		url: 'https://workonyourself.com',
+		industry: 'Coaching / Soul Care',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/aef283c738e71af9e121234c8a75fa5477dcd616-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/e79851d723b01d14c5696b902306f61e4b4e9bdd-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/5e4988f6dcac42daa4484731e23fdb5e5af9cb61-375x812.png?w=300&fm=webp&q=85',
+	},
 ] as const;
 
 type HundredClubSites = typeof hundredClubData.sites;
 const showcaseWithScores = SHOWCASE.map((s) => ({
+	...s,
+	scores: (hundredClubData.sites as HundredClubSites)[s.slug as keyof HundredClubSites] ?? null,
+}));
+const portfolioWithScores = PORTFOLIO.map((s) => ({
 	...s,
 	scores: (hundredClubData.sites as HundredClubSites)[s.slug as keyof HundredClubSites] ?? null,
 }));
@@ -412,12 +530,12 @@ const breadcrumbSchema = {
 			<div class="mx-auto max-w-7xl">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Live Proof</p>
-					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Three Live Proofs. Real Sites. Real Scores.</h2>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Four Live Proofs. Real Sites. Real Scores.</h2>
 					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
 						These aren't marketing screenshots. Every score on this page was fetched from Google PageSpeed during this site's last build. Click any site, open it in a new tab, and see for yourself — no dashboard, no demo, no staging environment. This is production.
 					</p>
 				</div>
-				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{showcaseWithScores.map((s, i) => (
 						<div data-animate="fade-up" data-delay={String((i % 3) + 1)} class="group bg-surface rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
 							<a href={s.url} target="_blank" rel="noopener noreferrer" class="block relative bg-gradient-to-br from-stone-400 to-stone-500 p-3 overflow-hidden">
@@ -661,6 +779,62 @@ const breadcrumbSchema = {
 								<p class="type-body text-stone-700">{f.a}</p>
 							</div>
 						</details>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ──────────────────── SECTION 10b — PORTFOLIO ──────────────────── -->
+		<section class="bg-stone-50 py-16 lg:py-20 px-6 lg:px-8">
+			<div class="mx-auto max-w-7xl">
+				<div class="text-center mb-12">
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">More from Our Portfolio</p>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Every Site We've Built.</h2>
+					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
+						A growing catalog of client sites — churches, ministries, authors, agencies, and small businesses. Every one of them built on the same AI-powered stack.
+					</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{portfolioWithScores.map((s, i) => (
+						<div data-animate="fade-up" data-delay={String((i % 3) + 1)} class="group bg-surface rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
+							<a href={s.url} target="_blank" rel="noopener noreferrer" class="block relative bg-gradient-to-br from-stone-400 to-stone-500 p-3 overflow-hidden">
+								<div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 18px 18px;"></div>
+								<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-3/4 h-12 bg-red opacity-10 rounded-full blur-2xl"></div>
+								<div class="relative grid items-end gap-1.5" style="grid-template-columns: 1.2fr 4fr 1.8fr;">
+									<div class="border-2 border-stone-300 rounded-xl overflow-hidden shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+										<img src={s.mobile} alt={`${s.name} mobile preview`} loading="lazy" class="w-full block" />
+									</div>
+									<div>
+										<div class="bg-stone-300 rounded-t-lg px-2 py-1 flex items-center gap-1 border border-stone-300 border-b-0">
+											<div class="flex gap-0.5 shrink-0">
+												<div class="w-1.5 h-1.5 rounded-full bg-red-400"></div>
+												<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+												<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+											</div>
+											<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{s.url.replace('https://', '')}</div>
+										</div>
+										<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+											<img src={s.desktop} alt={`${s.name} desktop preview`} loading="lazy" class="w-full block" />
+										</div>
+									</div>
+									<div>
+										<div class="bg-stone-300 rounded-t-md px-1 py-1 flex items-center justify-center border border-stone-300 border-b-0">
+											<div class="w-3 h-0.5 rounded-full bg-stone-400"></div>
+										</div>
+										<div class="overflow-hidden rounded-b-md border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
+											<img src={s.tablet} alt={`${s.name} tablet preview`} loading="lazy" class="w-full block" />
+										</div>
+									</div>
+								</div>
+							</a>
+							<div class="p-4 flex-1 flex flex-col">
+								<div class="flex items-baseline justify-between mb-1">
+									<p class="text-[0.65rem] font-semibold uppercase tracking-wider text-stone-500">{s.industry}</p>
+									<a href={s.url} target="_blank" rel="noopener noreferrer" class="text-red text-xs font-semibold hover:underline">Visit ↗</a>
+								</div>
+								<h3 class="font-serif text-lg font-bold text-ink-soft">{s.name}</h3>
+							</div>
+						</div>
 					))}
 				</div>
 			</div>
