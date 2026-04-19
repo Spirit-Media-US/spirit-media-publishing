@@ -9,7 +9,7 @@ let kmcHeroImageAlt = 'Books published by Kingdom Messengers';
 
 try {
 	const s = await sanityClient.fetch(
-		'*[_type == "siteSettings"][0]{ kmcHeroImage, kmcHeroImageAlt }'
+		'*[_type == "siteSettings"][0]{ kmcHeroImage, kmcHeroImageAlt }',
 	);
 	if (s?.kmcHeroImage) {
 		kmcHeroImage = urlFor(s.kmcHeroImage).width(1200).fit('max').auto('format').url();
@@ -19,7 +19,8 @@ try {
 
 // Fallback if not in Sanity
 if (!kmcHeroImage) {
-	kmcHeroImage = 'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=1200&fm=webp&q=80';
+	kmcHeroImage =
+		'https://cdn.sanity.io/images/pmowd8uo/production/ffe76698b677c2a7f0d5722adc843c5776c3ee2b-6000x4000.jpg?w=1200&fm=webp&q=80';
 }
 ---
 
@@ -93,7 +94,7 @@ if (!kmcHeroImage) {
 					<!-- LEFT: Photo spanning both text blocks -->
 					<div class="hidden lg:flex justify-end items-stretch" data-animate="slide-left">
 						<img
-							src="https://cdn.sanity.io/images/pmowd8uo/production/835f0b7a967793427b04315ab9b926c420368d01-800x2155.jpg?w=600&h=1600&fit=crop&auto=format"
+							src="https://cdn.sanity.io/images/pmowd8uo/production/835f0b7a967793427b04315ab9b926c420368d01-800x2155.jpg?w=600&h=1600&fit=crop&fm=webp&q=80"
 							alt="Kingdom Messenger"
 							class="w-1/2 h-full object-cover rounded-2xl mt-8 ml-auto"
 						/>
@@ -127,7 +128,7 @@ if (!kmcHeroImage) {
 						<p class="text-stone-700 leading-relaxed mb-4">Through weekly video podcasts over 7+ years, Kevin has reached audiences in 163 countries. As founder and CEO of Spirit Media, he has helped publish over 300 books for authors across the globe.</p>
 						<p class="text-stone-700 leading-relaxed">For over 40 years, God has used Kevin to raise up and commission Kingdom Messengers. Now, he invites you to walk the same path.</p>
 					</div>
-					<img src="https://cdn.sanity.io/images/pmowd8uo/production/98cdab94c7bdf9c62947c707766a06e9f17f8d8b-3896x5159.jpg?w=800&h=1067&fit=crop&auto=format" alt="Kevin White" class="w-3/4 h-full object-cover object-top rounded-2xl" data-animate="slide-right" />
+					<img src="https://cdn.sanity.io/images/pmowd8uo/production/98cdab94c7bdf9c62947c707766a06e9f17f8d8b-3896x5159.jpg?w=800&h=1067&fit=crop&fm=webp&q=80" alt="Kevin White" class="w-3/4 h-full object-cover object-top rounded-2xl" data-animate="slide-right" />
 				</div>
 			</div>
 		</section>
@@ -163,7 +164,7 @@ if (!kmcHeroImage) {
 					<p class="eyebrow eyebrow-red mb-1" data-animate="fade-up">Pathway</p>
 					<h2 class="font-serif text-3xl font-bold sm:text-4xl" data-animate="fade-up" data-delay="1">The Formation Pathway</h2>
 				</div>
-				<img src="https://cdn.sanity.io/images/pmowd8uo/production/415c2c2af0909c84ff5a7cc33ec7618314a47346-1600x613.jpg?w=1200&h=460&fit=crop&auto=format" alt="Formation Pathway" class="w-3/4 mx-auto rounded-2xl -mt-2 mb-8" data-animate="fade-up" />
+				<img src="https://cdn.sanity.io/images/pmowd8uo/production/415c2c2af0909c84ff5a7cc33ec7618314a47346-1600x613.jpg?w=1200&h=460&fit=crop&fm=webp&q=80" alt="Formation Pathway" class="w-3/4 mx-auto rounded-2xl -mt-2 mb-8" data-animate="fade-up" />
 				<div class="space-y-4">
 					<div class="bg-stone-50/10 rounded-2xl p-8" data-animate="fade-up" data-delay="1">
 						<h3 class="font-serif text-xl font-bold text-red-soft mb-2">Phase 1 — Heart</h3>
