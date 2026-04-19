@@ -262,8 +262,9 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 		     (min-width: 1024px). -->
 
 		<!-- MOBILE HERO — text-only. H1 is LCP. No hero-stagger (no post-LCP flash
-		     on an element that IS the LCP). -->
-		<section class="bg-stone-50 px-6 pt-14 pb-12 overflow-hidden lg:hidden">
+		     on an element that IS the LCP). Tight pt-8/pb-10 pushes the LCP text up
+		     in the viewport so it paints with less layout work beforehand. -->
+		<section class="bg-stone-50 px-6 pt-8 pb-10 overflow-hidden lg:hidden">
 			<div class="mx-auto max-w-7xl">
 				<h1 class="type-hero text-ink-soft">
 					Born from holy conviction.

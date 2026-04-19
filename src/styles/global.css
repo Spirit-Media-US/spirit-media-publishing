@@ -66,6 +66,37 @@
 		format("woff2");
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Metric-adjusted local-font fallbacks.
+   Purpose: Collapse the FCP→LCP gap on mobile. Before these existed, Chrome
+   emitted a new LCP candidate whenever Playfair/SourceSans swapped into the
+   H1 or hero paragraph because the paint-box dimensions changed (Georgia and
+   system-ui have different glyph widths + vertical metrics than the custom
+   fonts). With size-adjust + ascent/descent-override matched to the real
+   fonts, the fallback glyphs occupy the same box, so the swap does NOT emit
+   a new LCP entry — LCP timestamp stays at FCP.
+   ────────────────────────────────────────────────────────────────────────── */
+@font-face {
+	font-family: "Playfair fallback";
+	font-style: normal;
+	font-weight: 700 800;
+	src: local("Georgia"), local("Times New Roman"), local("Times");
+	size-adjust: 107%;
+	ascent-override: 95%;
+	descent-override: 24%;
+	line-gap-override: 0%;
+}
+@font-face {
+	font-family: "SourceSans fallback";
+	font-style: normal;
+	font-weight: 400 700;
+	src: local("Arial"), local("Helvetica");
+	size-adjust: 100.8%;
+	ascent-override: 95%;
+	descent-override: 22%;
+	line-gap-override: 0%;
+}
+
 /* =============================================================================
    BRAND COLOR TOKENS
    ============================================================================= */
@@ -102,11 +133,16 @@
 	--color-shadow: rgba(26, 23, 20, 0.08);
 	--color-shadow-md: rgba(26, 23, 20, 0.15);
 
-	/* — Typography — */
-	--font-display: "Playfair Display", Georgia, serif;
-	--font-body: "Source Sans 3", system-ui, sans-serif;
-	--font-sans: "Source Sans 3", system-ui, sans-serif;
-	--font-serif: "Playfair Display", Georgia, serif;
+	/* — Typography —
+	   Metric-adjusted fallbacks ('Playfair fallback', 'SourceSans fallback')
+	   sit between the custom font and the plain local fallback. They use
+	   size-adjust / ascent-override / descent-override so Georgia / Arial
+	   paint at the same box dimensions as the custom fonts — eliminates the
+	   FCP→LCP gap from font-swap re-paint on mobile. */
+	--font-display: "Playfair Display", "Playfair fallback", Georgia, serif;
+	--font-body: "Source Sans 3", "SourceSans fallback", system-ui, sans-serif;
+	--font-sans: "Source Sans 3", "SourceSans fallback", system-ui, sans-serif;
+	--font-serif: "Playfair Display", "Playfair fallback", Georgia, serif;
 	--font-mono: "Courier New", Courier, monospace;
 
 	/* — Radius — */

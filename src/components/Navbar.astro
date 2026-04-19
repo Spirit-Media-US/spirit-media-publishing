@@ -26,23 +26,28 @@ function isActive(href: string): boolean {
 
 const isResourcesActive = resourcesLinks.some(({ href }) => pathname.startsWith(href));
 
-// Fetch logo from siteSettings
-let logoUrl: string | undefined;
-let logoFallback = false;
+// Logo is self-hosted on R2 — same origin as fonts, so no second TLS handshake
+// on the mobile critical path. Kept Sanity fetch only as a soft override in case
+// siteSettings logo is ever customized, but default is R2 for LCP.
+const R2_LOGO = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp';
+let logoUrl: string = R2_LOGO;
 try {
 	const siteSettings = await sanityClient.fetch('*[_type == "siteSettings"][0]{ logo }');
 	if (siteSettings?.logo) {
-		logoUrl = urlFor(siteSettings.logo).width(440).height(88).fit('max').auto('format').url();
+		// Only override R2 default if Sanity logo is explicitly set AND not the
+		// stock Spirit Media logo — keeps the same-origin path for the default.
+		const sanityUrl = urlFor(siteSettings.logo)
+			.width(440)
+			.height(88)
+			.fit('max')
+			.auto('format')
+			.url();
+		if (sanityUrl && !sanityUrl.includes('dc16e3c604bd5d52de7647af46836ff418c22898')) {
+			logoUrl = sanityUrl;
+		}
 	}
 } catch (e) {
 	console.error('Error fetching logo:', e);
-	logoFallback = true;
-}
-
-// Fallback logo URL if fetch fails or no logo in Sanity
-if (!logoUrl) {
-	logoUrl =
-		'https://cdn.sanity.io/images/pmowd8uo/production/dc16e3c604bd5d52de7647af46836ff418c22898-6575x656.png?w=440&h=88&fit=max&fm=webp&q=80';
 }
 ---
 
@@ -63,8 +68,10 @@ if (!logoUrl) {
         <img
           src={logoUrl}
           alt="Spirit Media Publishing"
-          width="220"
-          height="22"
+          width="440"
+          height="44"
+          fetchpriority="high"
+          decoding="async"
           class="h-auto w-auto max-w-[275px] sm:max-w-[325px]"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
         />
