@@ -79,6 +79,8 @@ Google Stitch 2.0 is an MCP server available in this project for AI-powered desi
 
 ## 100 Club commitments (locked — do not regress)
 
+**100 Club bar = homepage, median-of-5. Inner pages are quality work, not gate criteria.**
+
 SMP is in the 100 Club (desktop 100/100/100/100, mobile 100/100/100/100 as of 2026-04-19). Every commitment below is a LOAD-BEARING structural decision. Do not "re-add" any of them without understanding the consequences.
 
 ### Hero image is R2-only, NOT Sanity
