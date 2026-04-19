@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import inline from "@playform/inline";
 import tailwindcss from "@tailwindcss/vite";
 import { loadEnv } from "vite";
 
@@ -11,18 +10,15 @@ export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
   output: "static",
   build: {
-    // Beasties (@playform/inline below) handles critical CSS extraction +
-    // async-loads the rest. 'auto' keeps tiny per-page sheets inlined while
-    // larger ones go external for Beasties to process.
+    // 'auto' inlines small per-page sheets and emits the Tailwind bundle as
+    // an external <link> that CF Pages promotes to 103 Early Hints via the
+    // Link: headers in public/_headers. Validated industry pattern for Astro 5
+    // + TW v4 (early 2026) — Beasties/Critters are NOT compatible with TW v4
+    // utility-heavy markup: JSDOM scan doesn't see responsive variants or
+    // @theme custom utilities, causing CLS when the async bundle applies them.
     inlineStylesheets: 'auto',
   },
   integrations: [
-    // Beasties: extract above-fold critical CSS, inline it, async-load the rest.
-    // pruneSource:false keeps all CSS selectors in the external bundle so that
-    // responsive utilities (lg:*, md:*) and layout utilities (.order-first,
-    // .btn, etc.) still apply once the async bundle loads — Beasties' JSDOM
-    // doesn't detect these during extraction on SMP's utility-heavy markup.
-    inline({ Beasties: { pruneSource: false } }),
     sitemap({
       // Assign crawl priority by page type
       customPages: [],
