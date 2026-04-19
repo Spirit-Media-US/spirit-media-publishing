@@ -59,7 +59,7 @@ try {
 
 	// Brand Images
 	if (s?.fhbImage)
-		fhbImage = urlFor(s.fhbImage).width(1024).height(1024).fit('crop').auto('format').url();
+		fhbImage = urlFor(s.fhbImage).width(600).height(600).fit('crop').auto('format').url();
 	if (s?.kmcBrandImage)
 		kmcBrandImage = urlFor(s.kmcBrandImage).width(768).height(384).fit('crop').auto('format').url();
 	if (s?.woyImage)
@@ -120,19 +120,23 @@ if (!homepageHeroImage) {
 	homepageHeroImage =
 		'https://cdn.sanity.io/images/pmowd8uo/production/83b595b916eeb64126e303f3fc71027c55aa6dbb-4000x2588.png?w=1200&fm=webp&q=80&fit=max';
 }
-// Smaller mobile variant for srcset — sized for the ~358px display at DPR 1.75-2
-// that PSI's Moto G Power emulator uses. 640w avoids the 1200w over-delivery that
-// cost us 170KB of wasted bytes (PSI image-delivery-insight, 2026-04-19).
-const homepageHeroImageMobile = homepageHeroImage
+// Three hero sizes for a proper srcset: 640 (DPR 1.75), 800 (DPR 2), 1200 (desktop).
+// Picking the right variant by DPR saves ~80-170KB vs over-delivering 1200w.
+const homepageHeroImage640 = homepageHeroImage
 	.replace(/([?&])w=\d+/, '$1w=640')
 	.replace(/([?&])q=\d+/, '$1q=75');
+const homepageHeroImage800 = homepageHeroImage
+	.replace(/([?&])w=\d+/, '$1w=800')
+	.replace(/([?&])q=\d+/, '$1q=75');
+// Kept for backwards-compat with earlier references:
+const homepageHeroImageMobile = homepageHeroImage640;
 if (!homepageAudioUrl) {
 	homepageAudioUrl =
 		'https://assets.spiritmediapublishing.com/spirit-media-publishing/SM-2-23-26.mp3';
 }
 if (!fhbImage) {
 	fhbImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png?w=1024&h=1024&fit=crop&auto=format';
+		'https://cdn.sanity.io/images/pmowd8uo/production/8b5d1c39f892218c978d3e3caf5720e09833bbc4-1024x1024.png?w=600&h=600&fit=crop&auto=format';
 }
 if (!kmcBrandImage) {
 	kmcBrandImage =
@@ -212,8 +216,8 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 		<link
 			rel="preload"
 			as="image"
-			href={homepageHeroImageMobile}
-			imagesrcset={`${homepageHeroImageMobile} 640w, ${homepageHeroImage} 1200w`}
+			href={homepageHeroImage640}
+			imagesrcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
 			imagesizes="(max-width: 1023px) 100vw, 50vw"
 			fetchpriority="high"
 		/>
@@ -279,7 +283,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<div class="flex items-center justify-center order-first lg:order-last">
 						<img
 							src={homepageHeroImage}
-							srcset={`${homepageHeroImageMobile} 640w, ${homepageHeroImage} 1200w`}
+							srcset={`${homepageHeroImage640} 640w, ${homepageHeroImage800} 800w, ${homepageHeroImage} 1200w`}
 							sizes="(max-width: 1023px) 100vw, 50vw"
 							alt={homepageHeroImageAlt}
 							width="1200"
@@ -559,7 +563,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-in" data-delay="1">
 						Spirit Media Celebrates
 					</h2>
-					<p class="type-body mt-2 text-stone-600" data-animate="fade-in" data-delay="2">Real authors. Real results. Real transformation.</p>
+					<p class="type-body mt-2 text-stone-700" data-animate="fade-in" data-delay="2">Real authors. Real results. Real transformation.</p>
 				</div>
 								<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 					{testimonials.map((t, i) => (
@@ -591,7 +595,7 @@ const testimonials = rawTestimonials.length > 0 ? rawTestimonials : FALLBACK_TES
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-in">
 						Partnering in <em>Your Success</em>
 					</h2>
-					<p class="mt-2 text-stone-500" data-animate="fade-in" data-delay="1">Choose the path that's right for you.</p>
+					<p class="mt-2 text-stone-700" data-animate="fade-in" data-delay="1">Choose the path that's right for you.</p>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div class="rounded-2xl bg-surface border border-stone-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
