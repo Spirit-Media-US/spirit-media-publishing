@@ -57,6 +57,30 @@ const SHOWCASE = [
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/df665a3bc9ff1a38d06c2d1f370a52ecc7cc8faf-375x812.png?w=300&fm=webp&q=85',
 	},
+	{
+		slug: 'thomas-mcgovern-cpa',
+		name: 'Thomas McGovern CPA',
+		url: 'https://thomasmcgovern.cpa',
+		industry: 'CPA / Professional Services',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/2ad5e55c2ff6dc72d945dc96f4d4fec11918d99c-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/7ed7a7a1acdeb51778eae73c5d6b7f1c47518c04-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/799051ff7e7483b55b2794504c0f0e25c4815c92-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'johnny-watts-agency',
+		name: 'Johnny Watts Agency',
+		url: 'https://johnnywattsagency.com',
+		industry: 'Insurance',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/c5caa8212399e926e523f3bfbeb19dfd8d547646-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/9466e5f673509748becb94a50825f4f8e7c519b6-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/e64e0cd3312b39d5b922a0b62e480fe621a1a231-375x812.png?w=300&fm=webp&q=85',
+	},
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -86,18 +110,6 @@ const PORTFOLIO = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/5922235e55976c075d048897802692482cd6acbc-768x1024.png?w=600&fm=webp&q=85',
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png?w=300&fm=webp&q=85',
-	},
-	{
-		slug: 'johnny-watts-agency',
-		name: 'Johnny Watts Agency',
-		url: 'https://johnnywattsagency.com',
-		industry: 'Insurance',
-		desktop:
-			'https://cdn.sanity.io/images/pmowd8uo/production/c5caa8212399e926e523f3bfbeb19dfd8d547646-1440x900.png?w=1400&fm=webp&q=85',
-		tablet:
-			'https://cdn.sanity.io/images/pmowd8uo/production/9466e5f673509748becb94a50825f4f8e7c519b6-768x1024.png?w=600&fm=webp&q=85',
-		mobile:
-			'https://cdn.sanity.io/images/pmowd8uo/production/e64e0cd3312b39d5b922a0b62e480fe621a1a231-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		slug: 'kevin-white',
@@ -134,18 +146,6 @@ const PORTFOLIO = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/5bbb069ade6d7a55a68c8c988341d3b7ccba0c73-768x1024.png?w=600&fm=webp&q=85',
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/a9bc69456023ddccf6f385ac3e6ad93c944fed5b-375x812.png?w=300&fm=webp&q=85',
-	},
-	{
-		slug: 'thomas-mcgovern-cpa',
-		name: 'Thomas McGovern CPA',
-		url: 'https://thomasmcgovern.cpa',
-		industry: 'CPA / Professional Services',
-		desktop:
-			'https://cdn.sanity.io/images/pmowd8uo/production/2ad5e55c2ff6dc72d945dc96f4d4fec11918d99c-1440x900.png?w=1400&fm=webp&q=85',
-		tablet:
-			'https://cdn.sanity.io/images/pmowd8uo/production/7ed7a7a1acdeb51778eae73c5d6b7f1c47518c04-768x1024.png?w=600&fm=webp&q=85',
-		mobile:
-			'https://cdn.sanity.io/images/pmowd8uo/production/799051ff7e7483b55b2794504c0f0e25c4815c92-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		slug: 'work-on-yourself',
@@ -460,9 +460,9 @@ const breadcrumbSchema = {
 							When your message deserves a mountaintop instead of a cave.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<a href="/contact" class="inline-flex items-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep">
+							<button type="button" data-open-proposal class="inline-flex items-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep cursor-pointer">
 								Get Your Free Website Proposal →
-							</a>
+							</button>
 							<a href="/contact" class="inline-flex items-center rounded-md border-2 border-stone-300 px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
 								Schedule FREE Consultation
 							</a>
@@ -527,7 +527,7 @@ const breadcrumbSchema = {
 			<div class="mx-auto max-w-7xl">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Live Proof</p>
-					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Four Live Proofs. Real Sites. Real Scores.</h2>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Six Live Proofs. Real Sites. Real Scores.</h2>
 					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
 						These aren't marketing screenshots. Every score on this page was fetched from Google PageSpeed during this site's last build. Click any site, open it in a new tab, and see for yourself — no dashboard, no demo, no staging environment. This is production.
 					</p>
@@ -846,9 +846,9 @@ const breadcrumbSchema = {
 					Give us your website URL, name, email, and phone. In about five minutes you'll have a free proposal in your inbox — a full Lighthouse report, security audit, SEO breakdown, schema analysis, AI-readability check, and a custom quote. Yours to keep whether you hire us or not. No sales pressure — the data makes the case.
 				</p>
 				<div class="mt-10 flex flex-wrap justify-center gap-4" data-animate="fade-up" data-delay="3">
-					<a href="/contact" class="inline-flex items-center rounded-md bg-red px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep">
+					<button type="button" data-open-proposal class="inline-flex items-center rounded-md bg-red px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep cursor-pointer">
 						Get Your Free Website Proposal →
-					</a>
+					</button>
 					<MailtoLink email="info@spiritmedia.us" class="inline-flex items-center rounded-md border-2 border-stone-300 px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
 						Or Start a Conversation →
 					</MailtoLink>
@@ -859,8 +859,160 @@ const breadcrumbSchema = {
 			</div>
 		</section>
 
+		<!-- ───────────────────────── PROPOSAL FORM MODAL ───────────────────────── -->
+		<div
+			id="proposal-modal"
+			class="fixed inset-0 z-50 hidden items-center justify-center bg-ink-soft/80 backdrop-blur-sm px-4 py-8 overflow-y-auto"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="proposal-modal-title"
+		>
+			<div class="relative w-full max-w-lg rounded-2xl bg-surface shadow-2xl my-auto">
+				<button
+					type="button"
+					id="proposal-modal-close"
+					aria-label="Close"
+					class="absolute top-4 right-4 text-stone-400 hover:text-ink-soft transition-colors"
+				>
+					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg>
+				</button>
+
+				<div id="proposal-modal-form" class="p-8">
+					<p class="eyebrow eyebrow-red mb-3">Free Website Proposal</p>
+					<h2 id="proposal-modal-title" class="font-serif text-2xl font-bold text-ink-soft mb-2">Get your proposal in 5 minutes.</h2>
+					<p class="text-sm text-stone-600 mb-6">We'll audit your site and email you a full proposal — performance, SEO, security, AI-readiness, and a custom quote.</p>
+
+					<form id="proposal-form" class="space-y-4" novalidate>
+						<div>
+							<label for="pf-url" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Website URL</label>
+							<input id="pf-url" name="url" type="text" required placeholder="yoursite.com" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div>
+							<label for="pf-name" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Your Name</label>
+							<input id="pf-name" name="name" type="text" required autocomplete="name" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div>
+							<label for="pf-email" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Email</label>
+							<input id="pf-email" name="email" type="email" required autocomplete="email" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div>
+							<label for="pf-phone" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Phone</label>
+							<input id="pf-phone" name="phone" type="tel" required autocomplete="tel" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;">
+							<label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+						</div>
+						<button type="submit" id="pf-submit" class="w-full inline-flex items-center justify-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
+							Get My Proposal →
+						</button>
+						<p id="pf-error" class="hidden text-sm text-red font-semibold"></p>
+					</form>
+				</div>
+
+				<div id="proposal-modal-success" class="p-8 hidden text-center">
+					<div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+						<svg class="h-7 w-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+						</svg>
+					</div>
+					<h2 class="font-serif text-2xl font-bold text-ink-soft mb-3">Your proposal is being generated.</h2>
+					<p class="text-stone-600">It'll arrive in your inbox within 5 minutes.</p>
+					<p class="mt-2 text-sm text-stone-500">Check your spam folder just in case — and reply if you'd like to talk it through.</p>
+					<button type="button" id="proposal-modal-done" class="mt-6 inline-flex items-center rounded-md border-2 border-stone-300 px-6 py-2 text-sm font-bold uppercase tracking-[0.08em] text-stone-700 hover:bg-stone-100 cursor-pointer">
+						Close
+					</button>
+				</div>
+			</div>
+		</div>
+
 	</main>
 </Layout>
+
+<script>
+	const TOOLS_API = 'https://tools-api.spiritmediapublishing.com';
+	const modal = document.getElementById('proposal-modal');
+	const form = document.getElementById('proposal-form') as HTMLFormElement | null;
+	const formView = document.getElementById('proposal-modal-form');
+	const successView = document.getElementById('proposal-modal-success');
+	const submitBtn = document.getElementById('pf-submit') as HTMLButtonElement | null;
+	const errEl = document.getElementById('pf-error');
+
+	function openModal() {
+		if (!modal) return;
+		formView?.classList.remove('hidden');
+		successView?.classList.add('hidden');
+		errEl?.classList.add('hidden');
+		if (errEl) errEl.textContent = '';
+		if (form) form.reset();
+		modal.classList.remove('hidden');
+		modal.classList.add('flex');
+		document.body.style.overflow = 'hidden';
+		setTimeout(() => (document.getElementById('pf-url') as HTMLInputElement | null)?.focus(), 50);
+	}
+
+	function closeModal() {
+		if (!modal) return;
+		modal.classList.add('hidden');
+		modal.classList.remove('flex');
+		document.body.style.overflow = '';
+	}
+
+	document.querySelectorAll('[data-open-proposal]').forEach((btn) => {
+		btn.addEventListener('click', openModal);
+	});
+	document.getElementById('proposal-modal-close')?.addEventListener('click', closeModal);
+	document.getElementById('proposal-modal-done')?.addEventListener('click', closeModal);
+	modal?.addEventListener('click', (e) => {
+		if (e.target === modal) closeModal();
+	});
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal();
+	});
+
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		if (!submitBtn || !errEl) return;
+		errEl.classList.add('hidden');
+		errEl.textContent = '';
+		submitBtn.disabled = true;
+		const originalText = submitBtn.textContent;
+		submitBtn.textContent = 'Submitting…';
+
+		const fd = new FormData(form);
+		const payload = {
+			url: String(fd.get('url') || '').trim(),
+			name: String(fd.get('name') || '').trim(),
+			email: String(fd.get('email') || '').trim(),
+			phone: String(fd.get('phone') || '').trim(),
+			company: String(fd.get('company') || ''),
+		};
+
+		try {
+			const resp = await fetch(`${TOOLS_API}/api/public/ai-websites-submit`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
+			});
+			const data = await resp.json().catch(() => ({}));
+			if (!resp.ok || !data.ok) {
+				errEl.textContent = data.error || 'Something went wrong. Please try again or email info@spiritmedia.us.';
+				errEl.classList.remove('hidden');
+				submitBtn.disabled = false;
+				submitBtn.textContent = originalText;
+				return;
+			}
+			formView?.classList.add('hidden');
+			successView?.classList.remove('hidden');
+		} catch (err) {
+			errEl.textContent = 'Unable to reach our server. Please try again, or email info@spiritmedia.us.';
+			errEl.classList.remove('hidden');
+			submitBtn.disabled = false;
+			submitBtn.textContent = originalText;
+		}
+	});
+</script>
 
 <style>
 	/* ───── INDUSTRIES MARQUEE ───── */
