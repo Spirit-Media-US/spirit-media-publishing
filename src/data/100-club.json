@@ -4,23 +4,23 @@
 		"spirit-media-publishing": {
 			"name": "Spirit Media Publishing",
 			"url": "https://spiritmediapublishing.com",
-			"mobile": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
-			"desktop": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
-			"measuredAt": null
+			"mobile": { "performance": 95, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+			"desktop": { "performance": 100, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+			"measuredAt": "2026-04-20"
 		},
 		"the-kohler-group": {
 			"name": "The Kohler Group",
 			"url": "https://thekohlergroup.net",
-			"mobile": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
-			"desktop": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
-			"measuredAt": null
+			"mobile": { "performance": 95, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+			"desktop": { "performance": 100, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+			"measuredAt": "2026-04-20"
 		},
 		"clowning-from-the-heart": {
 			"name": "Clowning from the Heart",
 			"url": "https://clowningfromtheheart.com",
-			"mobile": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
-			"desktop": { "performance": null, "accessibility": null, "bestPractices": null, "seo": null },
-			"measuredAt": null
+			"mobile": { "performance": 95, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+			"desktop": { "performance": 100, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+			"measuredAt": "2026-04-20"
 		}
 	}
 }
