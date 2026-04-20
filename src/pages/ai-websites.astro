@@ -57,6 +57,30 @@ const SHOWCASE = [
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/df665a3bc9ff1a38d06c2d1f370a52ecc7cc8faf-375x812.png?w=300&fm=webp&q=85',
 	},
+	{
+		slug: 'thomas-mcgovern-cpa',
+		name: 'Thomas McGovern CPA',
+		url: 'https://thomasmcgovern.cpa',
+		industry: 'CPA / Professional Services',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/2ad5e55c2ff6dc72d945dc96f4d4fec11918d99c-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/7ed7a7a1acdeb51778eae73c5d6b7f1c47518c04-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/799051ff7e7483b55b2794504c0f0e25c4815c92-375x812.png?w=300&fm=webp&q=85',
+	},
+	{
+		slug: 'johnny-watts-agency',
+		name: 'Johnny Watts Agency',
+		url: 'https://johnnywattsagency.com',
+		industry: 'Insurance',
+		desktop:
+			'https://cdn.sanity.io/images/pmowd8uo/production/c5caa8212399e926e523f3bfbeb19dfd8d547646-1440x900.png?w=1400&fm=webp&q=85',
+		tablet:
+			'https://cdn.sanity.io/images/pmowd8uo/production/9466e5f673509748becb94a50825f4f8e7c519b6-768x1024.png?w=600&fm=webp&q=85',
+		mobile:
+			'https://cdn.sanity.io/images/pmowd8uo/production/e64e0cd3312b39d5b922a0b62e480fe621a1a231-375x812.png?w=300&fm=webp&q=85',
+	},
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -86,18 +110,6 @@ const PORTFOLIO = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/5922235e55976c075d048897802692482cd6acbc-768x1024.png?w=600&fm=webp&q=85',
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/56379200db139490af1754bf7a3232ac7cfd37ac-375x812.png?w=300&fm=webp&q=85',
-	},
-	{
-		slug: 'johnny-watts-agency',
-		name: 'Johnny Watts Agency',
-		url: 'https://johnnywattsagency.com',
-		industry: 'Insurance',
-		desktop:
-			'https://cdn.sanity.io/images/pmowd8uo/production/c5caa8212399e926e523f3bfbeb19dfd8d547646-1440x900.png?w=1400&fm=webp&q=85',
-		tablet:
-			'https://cdn.sanity.io/images/pmowd8uo/production/9466e5f673509748becb94a50825f4f8e7c519b6-768x1024.png?w=600&fm=webp&q=85',
-		mobile:
-			'https://cdn.sanity.io/images/pmowd8uo/production/e64e0cd3312b39d5b922a0b62e480fe621a1a231-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		slug: 'kevin-white',
@@ -134,18 +146,6 @@ const PORTFOLIO = [
 			'https://cdn.sanity.io/images/pmowd8uo/production/5bbb069ade6d7a55a68c8c988341d3b7ccba0c73-768x1024.png?w=600&fm=webp&q=85',
 		mobile:
 			'https://cdn.sanity.io/images/pmowd8uo/production/a9bc69456023ddccf6f385ac3e6ad93c944fed5b-375x812.png?w=300&fm=webp&q=85',
-	},
-	{
-		slug: 'thomas-mcgovern-cpa',
-		name: 'Thomas McGovern CPA',
-		url: 'https://thomasmcgovern.cpa',
-		industry: 'CPA / Professional Services',
-		desktop:
-			'https://cdn.sanity.io/images/pmowd8uo/production/2ad5e55c2ff6dc72d945dc96f4d4fec11918d99c-1440x900.png?w=1400&fm=webp&q=85',
-		tablet:
-			'https://cdn.sanity.io/images/pmowd8uo/production/7ed7a7a1acdeb51778eae73c5d6b7f1c47518c04-768x1024.png?w=600&fm=webp&q=85',
-		mobile:
-			'https://cdn.sanity.io/images/pmowd8uo/production/799051ff7e7483b55b2794504c0f0e25c4815c92-375x812.png?w=300&fm=webp&q=85',
 	},
 	{
 		slug: 'work-on-yourself',
@@ -192,8 +192,6 @@ const INDUSTRIES = [
 	'Speakers',
 	'Agencies',
 	'Personal Brands',
-	'Financial Advisors',
-	'Law Firms',
 	'Educators',
 	'Content Creators',
 	'Therapists',
@@ -207,43 +205,50 @@ const INDUSTRIES = [
 const TESTIMONIALS = [
 	{
 		quote: 'The site looks AMAZING. This is truly an incredible blessing.',
-		author: 'Jeremy Kluth',
+		author: 'Jeremy',
 		org: 'Scripture Alive',
 		tag: 'video',
 	},
 	{
-		quote:
-			"We moved off WordPress and watched our Google rankings climb within weeks. Spirit Media's stack is the only one I've seen that's genuinely built for how search engines — and AI crawlers — actually work in 2026.",
+		quote: 'We moved off WordPress and watched our Google rankings climb within weeks.',
 		author: 'Pete',
 		org: 'LionCrest Media',
 		tag: 'written',
 	},
 	{
 		quote: 'Loads super fast.',
-		author: 'Linsey Stuckey',
+		author: 'Linsey',
 		org: 'Johnny Watts Agency',
 		tag: 'video',
 	},
 	{
 		quote:
 			"My portfolio loads in under a second on mobile. Clients see the art the way it's meant to be seen — instantly, sharp, on any device.",
-		author: 'Justin Keishing',
+		author: 'Justin',
 		org: 'Arts By Justin',
 		tag: 'written',
 	},
 	{
 		quote: 'I am beyond thrilled.',
-		author: 'Barbara Kohler',
+		author: 'Barbara',
 		org: 'The Kohler Group',
 		tag: 'video',
 	},
 	{
-		quote:
-			'Our site loads the same in Delhi as it does in Dallas. For a ministry reaching donors and partners across three continents, that changed everything.',
+		quote: 'Our site loads the same in Delhi as it does in Dallas.',
 		author: 'Bernard',
 		org: 'Global Hope India',
 		tag: 'written',
 	},
+] as const;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RESULTS MARQUEE — short, punchy client wins (pink bar below "Window" section)
+// ─────────────────────────────────────────────────────────────────────────────
+const RESULTS_MARQUEE = [
+	{ quote: 'We received 3 more leads through our website over the weekend.', name: 'Barbara' },
+	{ quote: 'Four new inquiries this week — more than the old site got in a month.', name: 'Cindy' },
+	{ quote: 'Two consultations booked through the site yesterday.', name: 'Tom' },
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -252,7 +257,7 @@ const TESTIMONIALS = [
 const FAQ = [
 	{
 		q: 'What is an AI-powered website?',
-		a: "A site built for the AI era of the web — where ChatGPT, Perplexity, and Claude are search engines, Google's ranking algorithm runs on Core Web Vitals, and content updates by conversation. Most websites built today are none of these things. Every site we build is all of them.",
+		a: "A site built for the AI era of the web — where Claude AI, Perplexity, and other AI agents are search engines, Google's ranking algorithm runs on Core Web Vitals, and content updates by conversation. Most websites built today are none of these things. Every site we build is all of them.",
 	},
 	{
 		q: 'What is the fastest website platform in 2026?',
@@ -272,7 +277,7 @@ const FAQ = [
 	},
 	{
 		q: 'What does it cost?',
-		a: 'Projects start at $6,000. Your free 48-hour audit includes a custom quote for your specific site.',
+		a: 'Projects start at $6,000. Your free website proposal includes a custom quote for your specific site, delivered in about five minutes.',
 	},
 	{
 		q: 'Can I update the site myself?',
@@ -360,8 +365,8 @@ const INTEGRATIONS = [
 	{
 		group: 'AI & Search',
 		items: [
-			'Claude AI',
-			'OpenAI / ChatGPT',
+			'Anthropic / Claude AI',
+			'OpenAI',
 			'Perplexity',
 			'Google Gemini',
 			'Algolia Search',
@@ -456,18 +461,15 @@ const breadcrumbSchema = {
 						<h1 class="type-hero text-stone-100" style="font-size: clamp(2.5rem, 5.5vw, 4.5rem);">
 							AI-Powered Websites Built on the <span class="text-red-soft">Fastest Stack</span> in 2026
 						</h1>
-						<p class="mt-6 type-body-lg text-stone-300 max-w-2xl">
-							Sub-2-second load times. 95+ Google scores. AI-ready infrastructure. Spirit Media builds websites on the stack Google rewards — and visitors actually use.
-						</p>
-						<p class="mt-5 font-serif italic text-red-soft" style="font-size: 1.5rem; line-height: 1.4;">
+						<p class="mt-6 font-serif italic text-red-soft max-w-2xl" style="font-size: 1.5rem; line-height: 1.4;">
 							When your message deserves a mountaintop instead of a cave.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<a href="/contact" class="inline-flex items-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep">
-								Get Your Free 48-Hour Audit →
-							</a>
-							<a href="#story" class="inline-flex items-center rounded-md border-2 border-stone-300 px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
-								Watch the 90-Second Story ↓
+							<button type="button" data-open-proposal class="inline-flex items-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep cursor-pointer">
+								Get Your Free Website Proposal →
+							</button>
+							<a href="/kevin/" class="inline-flex items-center rounded-md border-2 border-stone-300 px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
+								Schedule FREE Consultation
 							</a>
 						</div>
 					</div>
@@ -517,10 +519,10 @@ const breadcrumbSchema = {
 		<!-- ───────────────────────── SECTION 2 — THE SHIFT ───────────────────────── -->
 		<section class="bg-stone-50 py-16 lg:py-20 px-6 lg:px-8">
 			<div class="mx-auto max-w-4xl text-center">
-				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">What's Changed</p>
-				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">The Shift Already Happened</h2>
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Future Is Here.</p>
+				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Our 100 Club</h2>
 				<p class="mt-6 type-body-lg text-stone-600" data-animate="fade-up" data-delay="2">
-					While most websites are still built the way they were a decade ago — slow, plugin-heavy, brittle, invisible to AI search — a new category has arrived. AI-powered websites load in under two seconds, rank on the first page of Google <em>and</em> ChatGPT, carry schema the old platforms can't emit, and update themselves by conversation. They aren't the future. They're live. Scroll down and watch three of them load in real time.
+					The shift already happened. AI-empowered websites — our <strong>100 Club</strong> — hit 100/100/100/100 on Google, load in under two seconds, rank on the first page of Google <em>and</em> Claude AI, carry schema the old platforms can't emit, and update themselves by conversation. While most sites still load the way they did a decade ago — slow, plugin-heavy, brittle, invisible to AI search — a new category has arrived. Scroll down and watch the fastest, wisest websites in the world load in real time.
 				</p>
 			</div>
 		</section>
@@ -530,7 +532,7 @@ const breadcrumbSchema = {
 			<div class="mx-auto max-w-7xl">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Live Proof</p>
-					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Four Live Proofs. Real Sites. Real Scores.</h2>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Six Live Proofs. Real Sites. Real Scores.</h2>
 					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
 						These aren't marketing screenshots. Every score on this page was fetched from Google PageSpeed during this site's last build. Click any site, open it in a new tab, and see for yourself — no dashboard, no demo, no staging environment. This is production.
 					</p>
@@ -586,66 +588,69 @@ const breadcrumbSchema = {
 		</section>
 
 		<!-- ────────────── SECTION 4 — WHAT MAKES A WEBSITE AI-POWERED ────────────── -->
-		<section class="bg-stone-50 py-16 lg:py-20 px-6 lg:px-8">
+		<section class="bg-stone-50 py-12 lg:py-16 px-6 lg:px-8">
 			<div class="mx-auto max-w-6xl">
-				<div class="text-center mb-12">
+				<div class="text-center mb-8">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Definition</p>
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">What Makes a Website AI-Powered?</h2>
-					<p class="mt-4 type-body-lg text-stone-600 max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">
-						Three things. They didn't exist on the web three years ago. All three are standard on every site we build.
+					<p class="mt-3 type-body-lg text-stone-600 max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">
+						Three things. They didn't exist three years ago. All three are standard on every site we build.
 					</p>
 				</div>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-					<div class="bg-surface rounded-2xl border border-stone-200 p-8 shadow-sm" data-animate="fade-up" data-delay="1">
-						<div class="flex h-12 w-12 items-center justify-center rounded-full bg-red-wash text-red mb-4">
-							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z M12 3v18 M3 12h18" /></svg>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+					<div class="bg-surface rounded-2xl border border-stone-200 p-6 shadow-sm" data-animate="fade-up" data-delay="1">
+						<div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-wash text-red mb-3">
+							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z M12 3v18 M3 12h18" /></svg>
 						</div>
-						<h3 class="type-card-heading text-ink-soft mb-3">AI-Search Readable</h3>
-						<p class="type-body-sm text-stone-600"><code class="text-red">llms.txt</code>, full schema markup, and semantic HTML mean ChatGPT, Perplexity, and Claude can read your site, cite it, and recommend you. The old web was built for Google crawlers. The new web is built for AI agents.</p>
+						<h3 class="type-card-heading text-ink-soft mb-2">AI-Search Readable</h3>
+						<p class="type-body-sm text-stone-600"><code class="text-red">llms.txt</code>, full schema, and semantic HTML mean Claude AI, Perplexity, and other AI agents can read, cite, and recommend your site.</p>
 					</div>
-					<div class="bg-surface rounded-2xl border border-stone-200 p-8 shadow-sm" data-animate="fade-up" data-delay="2">
-						<div class="flex h-12 w-12 items-center justify-center rounded-full bg-red-wash text-red mb-4">
-							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9v6.75h-9V8.25Z M3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM8.25 15.75l-4.5 4.5 M15.75 15.75l4.5 4.5" /></svg>
+					<div class="bg-surface rounded-2xl border border-stone-200 p-6 shadow-sm" data-animate="fade-up" data-delay="2">
+						<div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-wash text-red mb-3">
+							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9v6.75h-9V8.25Z M3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM8.25 15.75l-4.5 4.5 M15.75 15.75l4.5 4.5" /></svg>
 						</div>
-						<h3 class="type-card-heading text-ink-soft mb-3">AI-Assisted Content</h3>
-						<p class="type-body-sm text-stone-600">Your site is connected to Claude AI. You type what you want changed. It ships. No developer, no ticket, no plugin, no wait.</p>
+						<h3 class="type-card-heading text-ink-soft mb-2">AI-Assisted Content</h3>
+						<p class="type-body-sm text-stone-600">Connected to Claude AI. Type what you want changed. It ships. No developer, no ticket, no plugin, no wait.</p>
 					</div>
-					<div class="bg-surface rounded-2xl border border-stone-200 p-8 shadow-sm" data-animate="fade-up" data-delay="3">
-						<div class="flex h-12 w-12 items-center justify-center rounded-full bg-red-wash text-red mb-4">
-							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+					<div class="bg-surface rounded-2xl border border-stone-200 p-6 shadow-sm" data-animate="fade-up" data-delay="3">
+						<div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-wash text-red mb-3">
+							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
 						</div>
-						<h3 class="type-card-heading text-ink-soft mb-3">AI-Optimized Performance</h3>
-						<p class="type-body-sm text-stone-600">Built on Astro's zero-JavaScript architecture, served from Cloudflare's global edge in 300+ cities. Load times so low (&lt;1.5s) that Google's algorithm treats your pages as premium inventory.</p>
+						<h3 class="type-card-heading text-ink-soft mb-2">AI-Optimized Performance</h3>
+						<p class="type-body-sm text-stone-600">Astro's zero-JS architecture on Cloudflare's 300+ edge cities. Load times under 1.5s — Google treats your pages as premium inventory.</p>
 					</div>
 				</div>
-				<p class="mt-10 text-center font-serif italic text-xl text-stone-600 max-w-2xl mx-auto">
+				<p class="mt-8 text-center font-serif italic text-lg text-stone-600 max-w-2xl mx-auto">
 					Everyone is talking about AI. We build the infrastructure underneath it.
 				</p>
 			</div>
 		</section>
 
 		<!-- ───────────────────────── SECTION 5 — THE STACK ───────────────────────── -->
-		<section class="bg-ink-soft py-16 lg:py-20 px-6 lg:px-8">
+		<section class="bg-gradient-to-br from-stone-400 to-stone-500 py-12 lg:py-16 px-6 lg:px-8">
 			<div class="mx-auto max-w-7xl">
-				<div class="text-center mb-12">
+				<div class="text-center mb-10">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Under the Hood</p>
-					<h2 class="type-section-heading text-stone-100" data-animate="fade-up" data-delay="1">The Stack No One Else Is Using Yet</h2>
-					<p class="mt-4 type-body-lg text-stone-300 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
-						This is the exact stack powering the three sites above. Nothing about it is theoretical — every piece has been shipping in production for us since 2024. WordPress shops can't use it. Wix and Squarespace can't touch it.
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">The Stack — and the Wisdom Behind It</h2>
+					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
+						The tools that ship our 100 Club sites, plus the experience and conviction behind every build. WordPress shops can't use the tech. No one can replicate the heart.
 					</p>
 				</div>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 					{[
 						{ name: 'Astro 5', tag: 'The fastest website framework in the world. Zero JavaScript by default.' },
 						{ name: 'Tailwind CSS v4', tag: 'Pixel-perfect design that compiles to 8 KB of CSS. No bloat, ever.' },
 						{ name: 'Cloudflare Pages & CDN', tag: 'Served from 300+ global edge locations. Same speed in Nairobi as in New York.' },
 						{ name: 'Sanity CMS', tag: 'Real-time content updates. Your team edits with zero developer involvement.' },
 						{ name: 'Claude AI Integration', tag: 'Update your site by conversation. Type what you want, it ships.' },
-						{ name: 'llms.txt + Full Schema', tag: 'AI-search ready. Built for how ChatGPT and Perplexity crawl the web in 2026.' },
+						{ name: 'llms.txt + Full Schema', tag: 'AI-search ready. Built for how Claude AI and Perplexity crawl the web in 2026.' },
+						{ name: 'Mobile-First, Always', tag: '8.7B mobiles worldwide. Every site is designed for mobile before desktop — the way your visitors actually browse.' },
+						{ name: '40 Years of Brand & Marketing Wisdom', tag: 'Four decades of branding, copywriting, and marketing strategy shape every page — not just the code beneath it.' },
+						{ name: 'Heart → Message → Movement', tag: 'We exist to empower Kingdom messengers. Every build is fuel for the mission, not just a website.' },
 					].map((card, i) => (
-						<div class="rounded-2xl border border-stone-700 bg-ink p-6 hover:border-red transition-colors" data-animate="fade-up" data-delay={(i % 3) + 1}>
-							<h3 class="type-card-heading text-stone-100 mb-2">{card.name}</h3>
-							<p class="type-body-sm text-stone-400">{card.tag}</p>
+						<div class="rounded-2xl border border-stone-200 bg-surface p-5 shadow-sm hover:shadow-md hover:border-red transition-all" data-animate="fade-up" data-delay={(i % 3) + 1}>
+							<h3 class="type-card-heading text-ink-soft mb-2">{card.name}</h3>
+							<p class="type-body-sm text-stone-600">{card.tag}</p>
 						</div>
 					))}
 				</div>
@@ -655,14 +660,37 @@ const breadcrumbSchema = {
 		<!-- ────────────── SECTION 6 — THIS WINDOW WON'T STAY OPEN ────────────── -->
 		<section class="bg-red-wash py-16 lg:py-20 px-6 lg:px-8">
 			<div class="mx-auto max-w-4xl text-center">
-				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Moment</p>
-				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">This Window Won't Stay Open</h2>
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Mission</p>
+				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Step Ahead. Onto the Mountain.</h2>
 				<p class="mt-6 type-body-lg text-stone-700" data-animate="fade-up" data-delay="2">
-					Every technology shift has a narrow window where the early adopters win and everyone else plays catch-up for five years. The shift to AI-native websites is that window — right now. Google already treats Core Web Vitals as a ranking factor. ChatGPT and Perplexity already cite sites with <code class="text-red">llms.txt</code> before ones without. The businesses that upgrade in 2026 will own page one for the next decade. The ones that wait will spend 2028 trying to climb back.
+					Your competition is still building for desktop, still fighting plugin bloat, still invisible to AI search. While they catch up, you step forward — mobile-first with Kingdom excellence, AI-ready from day one. Our Father's message is too important to be hidden in a cave. It deserves the mountaintop.
 				</p>
 				<p class="mt-6 font-serif italic text-lg text-ink-soft" data-animate="fade-up" data-delay="3">
-					Our clients aren't just getting a website. They're getting the infrastructure to carry their message further than last year's platform ever could.
+					Our clients aren't just getting a website. They're getting the platform to carry their message further than last year's tools ever could.
 				</p>
+			</div>
+		</section>
+
+		<!-- ───────────────────── RESULTS MARQUEE (matches closing CTA) ───────────────────── -->
+		<section class="bg-ink-soft py-5 border-y border-stone-700 overflow-hidden" aria-label="Recent client results">
+			<p class="text-center text-xs font-semibold uppercase tracking-[0.25em] text-stone-100 mb-2">What clients are saying</p>
+			<div class="marquee" role="list">
+				<ul class="marquee-track" aria-hidden="false">
+					{RESULTS_MARQUEE.map((t) => (
+						<li role="listitem" class="marquee-item-testimonial">
+							<span class="font-serif italic text-stone-100">&ldquo;{t.quote}&rdquo;</span>
+							<span class="ml-3 font-semibold text-red-soft not-italic">— {t.name}</span>
+						</li>
+					))}
+				</ul>
+				<ul class="marquee-track" aria-hidden="true">
+					{RESULTS_MARQUEE.map((t) => (
+						<li class="marquee-item-testimonial">
+							<span class="font-serif italic text-stone-100">&ldquo;{t.quote}&rdquo;</span>
+							<span class="ml-3 font-semibold text-red-soft not-italic">— {t.name}</span>
+						</li>
+					))}
+				</ul>
 			</div>
 		</section>
 
@@ -691,7 +719,6 @@ const breadcrumbSchema = {
 								['Security headers', '5/5', '2/5 default', '3/5', '3/5'],
 								['AI-search ready (llms.txt)', 'Yes', 'No', 'No', 'No'],
 								['Plugin bloat', 'Zero', 'High', 'Medium', 'Medium'],
-								['Monthly hosting cost', '$0 (Cloudflare)', '$25–100', '$29–49', '$23–65'],
 								['Global CDN included', 'Yes', 'Paid add-on', 'Yes', 'Yes'],
 								['Custom design', 'Unlimited', 'Theme-limited', 'Template-locked', 'Template-locked'],
 								['Ownership', 'You own everything', 'Yours + plugin licenses', 'Wix-locked', 'Squarespace-locked'],
@@ -711,20 +738,20 @@ const breadcrumbSchema = {
 		</section>
 
 		<!-- ───────────────────────── SECTION 8 — TESTIMONIALS ───────────────────────── -->
-		<section class="bg-stone-100 py-16 lg:py-20 px-6 lg:px-8">
+		<section class="bg-stone-100 py-12 lg:py-16 px-6 lg:px-8">
 			<div class="mx-auto max-w-7xl">
-				<div class="text-center mb-12">
+				<div class="text-center mb-8">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">In Their Words</p>
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">What Our Clients Say After the Switch</h2>
 				</div>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 					{TESTIMONIALS.map((t, i) => (
-						<figure class="bg-surface rounded-2xl border border-stone-200 p-6 shadow-sm flex flex-col" data-animate="fade-up" data-delay={(i % 3) + 1}>
-							<svg class="h-8 w-8 text-red mb-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+						<figure class="bg-surface rounded-2xl border border-stone-200 p-5 shadow-sm flex flex-col" data-animate="fade-up" data-delay={(i % 3) + 1}>
+							<svg class="h-6 w-6 text-red mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
 							<blockquote class="type-body text-ink-soft flex-1 italic">{t.quote}</blockquote>
-							<figcaption class="mt-4 pt-4 border-t border-stone-200">
-								<p class="font-semibold text-ink-soft">{t.author}</p>
-								<p class="text-sm text-stone-500">{t.org}</p>
+							<figcaption class="mt-3 pt-3 border-t border-stone-200">
+								<p class="font-semibold text-ink-soft text-sm">{t.author}</p>
+								<p class="text-xs text-stone-500">{t.org}</p>
 							</figcaption>
 						</figure>
 					))}
@@ -789,7 +816,7 @@ const breadcrumbSchema = {
 			<div class="mx-auto max-w-7xl">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">More from Our Portfolio</p>
-					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Every Site We've Built.</h2>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Other Sites We've Modernized.</h2>
 					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
 						A growing catalog of client sites — churches, ministries, authors, agencies, and small businesses. Every one of them built on the same AI-powered stack.
 					</p>
@@ -843,27 +870,190 @@ const breadcrumbSchema = {
 		<!-- ───────────────────────── SECTION 11 — CTA ───────────────────────── -->
 		<section class="bg-ink-soft py-16 lg:py-24 px-6 lg:px-8">
 			<div class="mx-auto max-w-4xl text-center">
-				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Take the Next Step</p>
-				<h2 class="type-section-heading text-stone-100" data-animate="fade-up" data-delay="1">Stop Reading. Claim the Audit.</h2>
-				<p class="mt-6 type-body-lg text-stone-300 max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">
-					Your free 48-hour audit includes a full Lighthouse report, security audit, SEO breakdown, schema analysis, AI-readability check, and a custom quote. The report is yours to keep whether you hire us or not. There's no sales pressure because there doesn't need to be — the data makes the case.
+				<p class="eyebrow eyebrow-red mb-4" data-animate="fade-up">Take the Next Step</p>
+				<h2 class="type-section-heading text-stone-100" data-animate="fade-up" data-delay="1">For Him. Through Him.</h2>
+				<blockquote class="mt-8 relative" data-animate="fade-up" data-delay="2">
+					<svg class="mx-auto mb-4 h-8 w-8 text-red-soft opacity-60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+					</svg>
+					<p class="font-serif italic text-stone-100 text-2xl lg:text-3xl leading-relaxed max-w-3xl mx-auto">
+						Our Heavenly Father created everything in the heavenly realms and on earth&hellip; everything was created through Him and for Him.
+					</p>
+					<footer class="mt-5 text-red-soft text-sm font-semibold uppercase tracking-[0.2em]">
+						Colossians 1:16 &middot; FHB
+					</footer>
+				</blockquote>
+				<p class="mt-10 type-body-lg text-stone-300 max-w-2xl mx-auto" data-animate="fade-up" data-delay="3">
+					Your website is an instrument of that mission — built to carry your message to the nations He's already preparing. We'd be honored to build it with you.
 				</p>
 				<div class="mt-10 flex flex-wrap justify-center gap-4" data-animate="fade-up" data-delay="3">
-					<a href="/contact" class="inline-flex items-center rounded-md bg-red px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep">
-						Get Your Free 48-Hour Audit →
+					<button type="button" data-open-proposal class="inline-flex items-center rounded-md bg-red px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep cursor-pointer">
+						Get Your Free Website Proposal →
+					</button>
+					<a href="/kevin/" class="inline-flex items-center rounded-md border-2 border-stone-300 px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
+						Schedule FREE Consult →
 					</a>
-					<MailtoLink email="info@spiritmedia.us" class="inline-flex items-center rounded-md border-2 border-stone-300 px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-stone-100 transition-all hover:bg-stone-100 hover:text-ink-soft">
-						Or Start a Conversation →
-					</MailtoLink>
 				</div>
 				<p class="mt-12 pt-8 border-t border-stone-700 text-stone-400 text-sm">
-					75+ websites built since 2018 · 15 AI-powered sites live · New launches every week · 5/5 security headers
+					75+ websites built since 2022 &middot; New launches every week &middot; 5/5 security headers
 				</p>
 			</div>
 		</section>
 
+		<!-- ───────────────────────── PROPOSAL FORM MODAL ───────────────────────── -->
+		<div
+			id="proposal-modal"
+			class="fixed inset-0 z-50 hidden items-center justify-center bg-ink-soft/80 backdrop-blur-sm px-4 py-8 overflow-y-auto"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="proposal-modal-title"
+		>
+			<div class="relative w-full max-w-lg rounded-2xl bg-surface shadow-2xl my-auto">
+				<button
+					type="button"
+					id="proposal-modal-close"
+					aria-label="Close"
+					class="absolute top-4 right-4 text-stone-400 hover:text-ink-soft transition-colors"
+				>
+					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg>
+				</button>
+
+				<div id="proposal-modal-form" class="p-8">
+					<p class="eyebrow eyebrow-red mb-3">Free Website Proposal</p>
+					<h2 id="proposal-modal-title" class="font-serif text-2xl font-bold text-ink-soft mb-2">Get your proposal in 5 minutes.</h2>
+					<p class="text-sm text-stone-600 mb-6">We'll audit your site and email you a full proposal — performance, SEO, security, AI-readiness, and a custom quote.</p>
+
+					<form id="proposal-form" class="space-y-4" novalidate>
+						<div>
+							<label for="pf-url" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Website URL</label>
+							<input id="pf-url" name="url" type="text" required placeholder="yoursite.com" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div>
+							<label for="pf-name" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Your Name</label>
+							<input id="pf-name" name="name" type="text" required autocomplete="name" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div>
+							<label for="pf-email" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Email</label>
+							<input id="pf-email" name="email" type="email" required autocomplete="email" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div>
+							<label for="pf-phone" class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Phone</label>
+							<input id="pf-phone" name="phone" type="tel" required autocomplete="tel" class="w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent" />
+						</div>
+						<div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;">
+							<label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+						</div>
+						<button type="submit" id="pf-submit" class="w-full inline-flex items-center justify-center rounded-md bg-red px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
+							Get My Proposal →
+						</button>
+						<p id="pf-error" class="hidden text-sm text-red font-semibold"></p>
+					</form>
+				</div>
+
+				<div id="proposal-modal-success" class="p-8 hidden text-center">
+					<div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+						<svg class="h-7 w-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+						</svg>
+					</div>
+					<h2 class="font-serif text-2xl font-bold text-ink-soft mb-3">Your proposal is being generated.</h2>
+					<p class="text-stone-600">It'll arrive in your inbox within 5 minutes.</p>
+					<p class="mt-2 text-sm text-stone-500">Check your spam folder just in case — and reply if you'd like to talk it through.</p>
+					<button type="button" id="proposal-modal-done" class="mt-6 inline-flex items-center rounded-md border-2 border-stone-300 px-6 py-2 text-sm font-bold uppercase tracking-[0.08em] text-stone-700 hover:bg-stone-100 cursor-pointer">
+						Close
+					</button>
+				</div>
+			</div>
+		</div>
+
 	</main>
 </Layout>
+
+<script>
+	const TOOLS_API = 'https://tools-api.spiritmediapublishing.com';
+	const modal = document.getElementById('proposal-modal');
+	const form = document.getElementById('proposal-form') as HTMLFormElement | null;
+	const formView = document.getElementById('proposal-modal-form');
+	const successView = document.getElementById('proposal-modal-success');
+	const submitBtn = document.getElementById('pf-submit') as HTMLButtonElement | null;
+	const errEl = document.getElementById('pf-error');
+
+	function openModal() {
+		if (!modal) return;
+		formView?.classList.remove('hidden');
+		successView?.classList.add('hidden');
+		errEl?.classList.add('hidden');
+		if (errEl) errEl.textContent = '';
+		if (form) form.reset();
+		modal.classList.remove('hidden');
+		modal.classList.add('flex');
+		document.body.style.overflow = 'hidden';
+		setTimeout(() => (document.getElementById('pf-url') as HTMLInputElement | null)?.focus(), 50);
+	}
+
+	function closeModal() {
+		if (!modal) return;
+		modal.classList.add('hidden');
+		modal.classList.remove('flex');
+		document.body.style.overflow = '';
+	}
+
+	document.querySelectorAll('[data-open-proposal]').forEach((btn) => {
+		btn.addEventListener('click', openModal);
+	});
+	document.getElementById('proposal-modal-close')?.addEventListener('click', closeModal);
+	document.getElementById('proposal-modal-done')?.addEventListener('click', closeModal);
+	modal?.addEventListener('click', (e) => {
+		if (e.target === modal) closeModal();
+	});
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal();
+	});
+
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		if (!submitBtn || !errEl) return;
+		errEl.classList.add('hidden');
+		errEl.textContent = '';
+		submitBtn.disabled = true;
+		const originalText = submitBtn.textContent;
+		submitBtn.textContent = 'Submitting…';
+
+		const fd = new FormData(form);
+		const payload = {
+			url: String(fd.get('url') || '').trim(),
+			name: String(fd.get('name') || '').trim(),
+			email: String(fd.get('email') || '').trim(),
+			phone: String(fd.get('phone') || '').trim(),
+			company: String(fd.get('company') || ''),
+		};
+
+		try {
+			const resp = await fetch(`${TOOLS_API}/api/public/ai-websites-submit`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
+			});
+			const data = await resp.json().catch(() => ({}));
+			if (!resp.ok || !data.ok) {
+				errEl.textContent = data.error || 'Something went wrong. Please try again or email info@spiritmedia.us.';
+				errEl.classList.remove('hidden');
+				submitBtn.disabled = false;
+				submitBtn.textContent = originalText;
+				return;
+			}
+			formView?.classList.add('hidden');
+			successView?.classList.remove('hidden');
+		} catch (err) {
+			errEl.textContent = 'Unable to reach our server. Please try again, or email info@spiritmedia.us.';
+			errEl.classList.remove('hidden');
+			submitBtn.disabled = false;
+			submitBtn.textContent = originalText;
+		}
+	});
+</script>
 
 <style>
 	/* ───── INDUSTRIES MARQUEE ───── */
@@ -901,6 +1091,16 @@ const breadcrumbSchema = {
 		content: '•';
 		color: var(--color-red);
 		margin-left: 2.5rem;
+	}
+	.marquee-item-testimonial {
+		font-size: 1rem;
+		white-space: nowrap;
+	}
+	.marquee-item-testimonial::after {
+		content: '✦';
+		color: var(--color-red);
+		margin-left: 2.5rem;
+		font-size: 0.75rem;
 	}
 	@keyframes marquee-scroll {
 		from { transform: translateX(0); }
