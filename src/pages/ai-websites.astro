@@ -245,6 +245,15 @@ const TESTIMONIALS = [
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
+// RESULTS MARQUEE — short, punchy client wins (pink bar below "Window" section)
+// ─────────────────────────────────────────────────────────────────────────────
+const RESULTS_MARQUEE = [
+	{ quote: 'We received 3 more leads through our website over the weekend.', name: 'Barbara' },
+	{ quote: 'Four new inquiries this week — more than the old site got in a month.', name: 'Cindy' },
+	{ quote: 'Two consultations booked through the site yesterday.', name: 'Tom' },
+] as const;
+
+// ─────────────────────────────────────────────────────────────────────────────
 // FAQ — FAQPage JSON-LD schema built from this list
 // ─────────────────────────────────────────────────────────────────────────────
 const FAQ = [
@@ -664,6 +673,29 @@ const breadcrumbSchema = {
 			</div>
 		</section>
 
+		<!-- ───────────────────── RESULTS MARQUEE (pink) ───────────────────── -->
+		<section class="bg-pink-100 py-5 border-y border-pink-200 overflow-hidden" aria-label="Recent client results">
+			<p class="text-center text-xs font-semibold uppercase tracking-[0.25em] text-red mb-2">What clients are saying</p>
+			<div class="marquee" role="list">
+				<ul class="marquee-track" aria-hidden="false">
+					{RESULTS_MARQUEE.map((t) => (
+						<li role="listitem" class="marquee-item-testimonial">
+							<span class="font-serif italic text-ink-soft">&ldquo;{t.quote}&rdquo;</span>
+							<span class="ml-3 font-semibold text-red not-italic">— {t.name}</span>
+						</li>
+					))}
+				</ul>
+				<ul class="marquee-track" aria-hidden="true">
+					{RESULTS_MARQUEE.map((t) => (
+						<li class="marquee-item-testimonial">
+							<span class="font-serif italic text-ink-soft">&ldquo;{t.quote}&rdquo;</span>
+							<span class="ml-3 font-semibold text-red not-italic">— {t.name}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+
 		<!-- ───────────────────── SECTION 7 — COMPARISON TABLE ───────────────────── -->
 		<section class="bg-stone-50 py-16 lg:py-20 px-6 lg:px-8">
 			<div class="mx-auto max-w-6xl">
@@ -1051,6 +1083,16 @@ const breadcrumbSchema = {
 		content: '•';
 		color: var(--color-red);
 		margin-left: 2.5rem;
+	}
+	.marquee-item-testimonial {
+		font-size: 1rem;
+		white-space: nowrap;
+	}
+	.marquee-item-testimonial::after {
+		content: '✦';
+		color: var(--color-red);
+		margin-left: 2.5rem;
+		font-size: 0.75rem;
 	}
 	@keyframes marquee-scroll {
 		from { transform: translateX(0); }
