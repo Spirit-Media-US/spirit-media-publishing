@@ -620,16 +620,16 @@ const breadcrumbSchema = {
 		</section>
 
 		<!-- ───────────────────────── SECTION 5 — THE STACK ───────────────────────── -->
-		<section class="bg-ink-soft py-16 lg:py-20 px-6 lg:px-8">
+		<section class="bg-stone-50 py-12 lg:py-16 px-6 lg:px-8">
 			<div class="mx-auto max-w-7xl">
-				<div class="text-center mb-12">
+				<div class="text-center mb-10">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Under the Hood</p>
-					<h2 class="type-section-heading text-stone-100" data-animate="fade-up" data-delay="1">The Stack No One Else Is Using Yet</h2>
-					<p class="mt-4 type-body-lg text-stone-300 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
-						This is the exact stack powering the three sites above. Nothing about it is theoretical — every piece has been shipping in production for us since 2024. WordPress shops can't use it. Wix and Squarespace can't touch it.
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">The Stack — and the Wisdom Behind It</h2>
+					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
+						The tools that ship our 100 Club sites, plus the experience and conviction behind every build. WordPress shops can't use the tech. No one can replicate the heart.
 					</p>
 				</div>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 					{[
 						{ name: 'Astro 5', tag: 'The fastest website framework in the world. Zero JavaScript by default.' },
 						{ name: 'Tailwind CSS v4', tag: 'Pixel-perfect design that compiles to 8 KB of CSS. No bloat, ever.' },
@@ -637,10 +637,13 @@ const breadcrumbSchema = {
 						{ name: 'Sanity CMS', tag: 'Real-time content updates. Your team edits with zero developer involvement.' },
 						{ name: 'Claude AI Integration', tag: 'Update your site by conversation. Type what you want, it ships.' },
 						{ name: 'llms.txt + Full Schema', tag: 'AI-search ready. Built for how ChatGPT and Perplexity crawl the web in 2026.' },
+						{ name: 'Mobile-First, Always', tag: 'Our passion is phones. Every site is designed for mobile before desktop — the way your visitors actually browse.' },
+						{ name: '40 Years of Brand & Marketing Wisdom', tag: 'Four decades of branding, copywriting, and marketing strategy shape every page — not just the code beneath it.' },
+						{ name: 'Heart → Message → Movement', tag: 'We exist to empower Kingdom messengers. Every build is fuel for the mission, not just a website.' },
 					].map((card, i) => (
-						<div class="rounded-2xl border border-stone-700 bg-ink p-6 hover:border-red transition-colors" data-animate="fade-up" data-delay={(i % 3) + 1}>
-							<h3 class="type-card-heading text-stone-100 mb-2">{card.name}</h3>
-							<p class="type-body-sm text-stone-400">{card.tag}</p>
+						<div class="rounded-2xl border border-stone-200 bg-surface p-5 shadow-sm hover:shadow-md hover:border-red transition-all" data-animate="fade-up" data-delay={(i % 3) + 1}>
+							<h3 class="type-card-heading text-ink-soft mb-2">{card.name}</h3>
+							<p class="type-body-sm text-stone-600">{card.tag}</p>
 						</div>
 					))}
 				</div>
