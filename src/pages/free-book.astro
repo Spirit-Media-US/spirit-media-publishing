@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const fhbiCoverUrl =
+	'https://cdn.sanity.io/images/rusi1hyi/production/3ab3f8d98e6ac0913d382922f0983efe6cb5535f-1278x2118.png?w=600&fm=webp&q=80';
+---
+
+<Layout
+	title="Receive Your FREE Copy — Father's Heart → Beloved Identity | Spirit Media Publishing"
+	description="Receive your FREE copy of Father's Heart → Beloved Identity — a complete journey through Scripture that traces the Father's voice from Genesis to the New Testament."
+	ogImage="https://cdn.sanity.io/images/rusi1hyi/production/3ab3f8d98e6ac0913d382922f0983efe6cb5535f-1278x2118.png?w=1200&h=630&fit=crop&fm=jpg&q=85"
+>
+	<Fragment slot="head">
+		<meta name="keywords" content="free book, Father's Heart, Beloved Identity, Christian book, free PDF, Spirit Media Publishing" />
+		<meta name="robots" content="index, follow" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Receive Your FREE Copy — Father's Heart → Beloved Identity",
+			"url": "https://spiritmediapublishing.com/free-book",
+			"description": "Receive your FREE copy of Father's Heart → Beloved Identity — a complete journey through Scripture that traces the Father's voice from Genesis to the New Testament.",
+			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}></script>
+	</Fragment>
+
+	<main id="main-content">
+
+		<!-- HERO -->
+		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-7xl">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div class="hero-stagger">
+						<p class="eyebrow eyebrow-red mb-4">FREE Book</p>
+						<h1 class="type-hero text-ink-soft">
+							Receive your <span class="text-red">FREE</span> copy of<br />
+							Father's Heart → Beloved Identity
+						</h1>
+						<p class="mt-6 text-lg text-stone-600 leading-relaxed max-w-xl">
+							A complete journey through Scripture that traces the Father's voice from Genesis to the New Testament — revealing His heart as He has always intended it to be known.
+						</p>
+						<p class="mt-4 text-lg text-stone-600 leading-relaxed max-w-xl">
+							Concise, accessible, and written for encounter rather than analysis. You can read it in one sitting — and carry it with you for a lifetime.
+						</p>
+						<a
+							href="#form"
+							class="mt-8 inline-flex items-center px-8 py-3.5 bg-red text-white text-base font-semibold rounded-md hover:bg-red-deep transition-colors"
+						>
+							Get the Free Book →
+						</a>
+					</div>
+					<div class="flex items-center justify-center" aria-hidden="true" data-animate="zoom-in">
+						<img
+							src={fhbiCoverUrl}
+							alt="Father's Heart → Beloved Identity — free PDF"
+							class="w-64 md:w-80 lg:w-96 block"
+							style="filter: drop-shadow(0 16px 32px rgba(0,0,0,0.22));"
+							width="600"
+							height="994"
+							loading="eager"
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- FORM -->
+		<section id="form" class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-3xl mx-auto" data-animate="fade-up">
+				<div class="text-center mb-8">
+					<p class="eyebrow eyebrow-red mb-4">Download Now</p>
+					<h2 class="font-serif text-3xl md:text-4xl font-bold text-ink-soft">Get your free copy below.</h2>
+					<p class="mt-4 text-stone-600">Enter your details and your PDF will be sent immediately.</p>
+				</div>
+				<div class="bg-white rounded-lg shadow-sm p-2 sm:p-6 md:p-10">
+					<iframe
+						src="https://mail.spiritmediaone.com/widget/survey/UYe8vyLv7DZ5BuMRhEfv"
+						style="border:none;width:100%;min-height:750px;"
+						scrolling="no"
+						id="UYe8vyLv7DZ5BuMRhEfv"
+						title="Receive Your Free Book"
+					></iframe>
+					<script is:inline src="https://mail.spiritmediaone.com/js/form_embed.js"></script>
+				</div>
+				<p class="text-xs text-center text-stone-500 mt-4">
+					Free. No spam. Unsubscribe any time.
+				</p>
+			</div>
+		</section>
+
+	</main>
+</Layout>
