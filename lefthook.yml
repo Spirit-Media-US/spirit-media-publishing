@@ -32,6 +32,12 @@ pre-push:
 
 pre-commit:
   commands:
+    perf-traits-doc:
+      run: /home/deploy/bin/perf-traits-audit.sh --commit-hook
+      stage_fixed: true
+      skip:
+        - merge
+        - rebase
     behind-remote:
       run: |
         git fetch --quiet
