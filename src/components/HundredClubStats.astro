@@ -54,7 +54,7 @@ const psiReportUrl = `https://pagespeed.web.dev/report?url=${encodeURIComponent(
 	<div class="grid gap-1 items-center mb-1" style="grid-template-columns: 3rem 1fr 1fr 1fr 1fr;">
 		<span></span>
 		{CATEGORIES.map((cat) => (
-			<span class="text-[0.55rem] font-semibold uppercase tracking-[0.08em] text-stone-400 text-center">{cat.short}</span>
+			<span class="text-[0.55rem] font-semibold uppercase tracking-[0.08em] text-stone-700 text-center">{cat.short}</span>
 		))}
 	</div>
 	{(['mobile', 'desktop'] as const).map((device) => {
@@ -101,7 +101,7 @@ const psiReportUrl = `https://pagespeed.web.dev/report?url=${encodeURIComponent(
 			</div>
 		);
 	})}
-	<div class="mt-2 pt-2 border-t border-stone-100 flex items-center justify-between text-[0.6rem] text-stone-500">
+	<div class="mt-2 pt-2 border-t border-stone-100 flex items-center justify-between text-[0.6rem] text-stone-700">
 		<span>{verifiedLabel}</span>
 		<a href={psiReportUrl} target="_blank" rel="noopener noreferrer" class="text-red font-semibold hover:underline">
 			Verify on PSI ↗

@@ -456,7 +456,7 @@ const breadcrumbSchema = {
 			<div class="relative mx-auto max-w-7xl">
 				<div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
 					<div class="hero-stagger lg:col-span-2">
-						<p class="eyebrow eyebrow-red mb-4">Websites</p>
+						<p class="eyebrow eyebrow-on-dark mb-4">Websites</p>
 						<h1 class="type-hero text-stone-100" style="font-size: clamp(2.5rem, 5.5vw, 4.5rem);">
 							AI-Powered Websites Built on the <span class="text-red-soft">Fastest Stack</span> in 2026
 						</h1>
@@ -520,11 +520,11 @@ const breadcrumbSchema = {
 
 		<!-- ───────────────────────── INDUSTRIES MARQUEE ───────────────────────── -->
 		<section class="bg-stone-100 py-6 border-y border-stone-200 overflow-hidden" aria-label="Industries we build websites for">
-			<p class="text-center text-xs font-semibold uppercase tracking-[0.25em] text-stone-500 mb-3">Built for</p>
-			<div class="marquee" role="list">
+			<p class="text-center text-xs font-semibold uppercase tracking-[0.25em] text-stone-700 mb-3">Built for</p>
+			<div class="marquee">
 				<ul class="marquee-track" aria-hidden="false">
 					{INDUSTRIES.map((i) => (
-						<li role="listitem" class="marquee-item">{i}</li>
+						<li class="marquee-item">{i}</li>
 					))}
 				</ul>
 				<ul class="marquee-track" aria-hidden="true">
@@ -552,7 +552,7 @@ const breadcrumbSchema = {
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Live Proof</p>
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Six Live Proofs. Real Sites. Real Scores.</h2>
-					<p class="mt-4 type-body-lg text-stone-600 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
+					<p class="mt-4 type-body-lg text-stone-700 max-w-3xl mx-auto" data-animate="fade-up" data-delay="2">
 						These aren't marketing screenshots. Every score on this page was fetched from Google PageSpeed during this site's last build. Click any site, open it in a new tab, and see for yourself — no dashboard, no demo, no staging environment. This is production.
 					</p>
 				</div>
@@ -573,7 +573,7 @@ const breadcrumbSchema = {
 												<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
 												<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
 											</div>
-											<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{s.url.replace('https://', '')}</div>
+											<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-700 truncate">{s.url.replace('https://', '')}</div>
 										</div>
 										<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
 											<img src={s.desktop} alt={`${s.name} desktop preview`} loading="lazy" class="w-full block" />
@@ -591,7 +591,7 @@ const breadcrumbSchema = {
 							</a>
 							<div class="p-4 flex-1 flex flex-col">
 								<div class="flex items-baseline justify-between mb-1">
-									<p class="text-[0.65rem] font-semibold uppercase tracking-wider text-stone-500">{s.industry}</p>
+									<p class="text-[0.65rem] font-semibold uppercase tracking-wider text-stone-700">{s.industry}</p>
 									<a href={s.url} target="_blank" rel="noopener noreferrer" class="text-red text-xs font-semibold hover:underline">Visit ↗</a>
 								</div>
 								<h3 class="font-serif text-lg font-bold text-ink-soft mb-2">{s.name}</h3>
@@ -600,7 +600,7 @@ const breadcrumbSchema = {
 						</div>
 					))}
 				</div>
-				<p class="mt-6 text-center text-xs text-stone-500">
+				<p class="mt-6 text-center text-xs text-stone-700">
 					Scores are PageSpeed Insights median-of-5, verified on each site's live domain. Audit any site yourself at <a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="underline text-red">pagespeed.web.dev</a>.
 				</p>
 			</div>
@@ -709,12 +709,12 @@ const breadcrumbSchema = {
 		<!-- ───────────────────── RESULTS MARQUEE (matches closing CTA) ───────────────────── -->
 		<section class="bg-ink-soft py-5 border-y border-stone-700 overflow-hidden" aria-label="Recent client results">
 			<p class="text-center text-xs font-semibold uppercase tracking-[0.25em] text-stone-100 mb-2">What clients are saying</p>
-			<div class="marquee" role="list">
+			<div class="marquee">
 				<ul class="marquee-track" aria-hidden="false">
 					{RESULTS_MARQUEE.map((t) => (
-						<li role="listitem" class="marquee-item-testimonial">
+						<li class="marquee-item-testimonial">
 							<span class="font-serif italic text-stone-100">&ldquo;{t.quote}&rdquo;</span>
-							<span class="ml-3 font-semibold text-red-soft not-italic">— {t.name}</span>
+							<span class="ml-3 font-semibold not-italic" style="color:#f4a09a">— {t.name}</span>
 						</li>
 					))}
 				</ul>
@@ -722,7 +722,7 @@ const breadcrumbSchema = {
 					{RESULTS_MARQUEE.map((t) => (
 						<li class="marquee-item-testimonial">
 							<span class="font-serif italic text-stone-100">&ldquo;{t.quote}&rdquo;</span>
-							<span class="ml-3 font-semibold text-red-soft not-italic">— {t.name}</span>
+							<span class="ml-3 font-semibold not-italic" style="color:#f4a09a">— {t.name}</span>
 						</li>
 					))}
 				</ul>
@@ -786,7 +786,7 @@ const breadcrumbSchema = {
 							<blockquote class="type-body text-ink-soft flex-1 italic">{t.quote}</blockquote>
 							<figcaption class="mt-3 pt-3 border-t border-stone-200">
 								<p class="font-semibold text-ink-soft text-sm">{t.author}</p>
-								<p class="text-xs text-stone-500">{t.org}</p>
+								<p class="text-xs text-stone-700">{t.org}</p>
 							</figcaption>
 						</figure>
 					))}
@@ -873,7 +873,7 @@ const breadcrumbSchema = {
 												<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
 												<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
 											</div>
-											<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{s.url.replace('https://', '')}</div>
+											<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-700 truncate">{s.url.replace('https://', '')}</div>
 										</div>
 										<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
 											<img src={s.desktop} alt={`${s.name} desktop preview`} loading="lazy" class="w-full block" />
@@ -891,7 +891,7 @@ const breadcrumbSchema = {
 							</a>
 							<div class="p-4 flex-1 flex flex-col">
 								<div class="flex items-baseline justify-between mb-1">
-									<p class="text-[0.65rem] font-semibold uppercase tracking-wider text-stone-500">{s.industry}</p>
+									<p class="text-[0.65rem] font-semibold uppercase tracking-wider text-stone-700">{s.industry}</p>
 									<a href={s.url} target="_blank" rel="noopener noreferrer" class="text-red text-xs font-semibold hover:underline">Visit ↗</a>
 								</div>
 								<h3 class="font-serif text-lg font-bold text-ink-soft">{s.name}</h3>
@@ -905,16 +905,16 @@ const breadcrumbSchema = {
 		<!-- ───────────────────────── SECTION 11 — CTA ───────────────────────── -->
 		<section class="bg-ink-soft py-16 lg:py-24 px-6 lg:px-8">
 			<div class="mx-auto max-w-4xl text-center">
-				<p class="eyebrow eyebrow-red mb-4" data-animate="fade-up">Take the Next Step</p>
+				<p class="eyebrow eyebrow-on-dark mb-4" data-animate="fade-up">Take the Next Step</p>
 				<h2 class="type-section-heading text-stone-100" data-animate="fade-up" data-delay="1">For Him. Through Him.</h2>
 				<blockquote class="mt-8 relative" data-animate="fade-up" data-delay="2">
-					<svg class="mx-auto mb-4 h-8 w-8 text-red-soft opacity-60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+					<svg class="mx-auto mb-4 h-8 w-8 opacity-60" viewBox="0 0 24 24" fill="currentColor" style="color:#f4a09a" aria-hidden="true">
 						<path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
 					</svg>
 					<p class="font-serif italic text-stone-100 text-2xl lg:text-3xl leading-relaxed max-w-3xl mx-auto">
 						Our Heavenly Father created everything in the heavenly realms and on earth&hellip; everything was created through Him and for Him.
 					</p>
-					<footer class="mt-5 text-red-soft text-sm font-semibold uppercase tracking-[0.2em]">
+					<footer class="mt-5 text-sm font-semibold uppercase tracking-[0.2em]" style="color:#f4a09a">
 						Colossians 1:16 &middot; FHB
 					</footer>
 				</blockquote>
