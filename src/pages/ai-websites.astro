@@ -442,6 +442,9 @@ const breadcrumbSchema = {
 	<Fragment slot="head">
 		<meta name="keywords" content="AI-powered websites, AI-ready websites, AI-empowered websites, fastest websites 2026, best SEO websites, Astro website design, fast loading website builder, Core Web Vitals, AI search ready, llms.txt, website design for churches, websites for nonprofits, websites for insurance agencies, websites for CPAs, websites for artists, websites for authors" />
 		<meta name="robots" content="index, follow" />
+		<!-- Hero video poster — above-fold on both mobile (stacked) and desktop (60% col). Viewport-split preload. -->
+		<link rel="preload" as="image" href="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-mobile.webp" media="(max-width: 1023px)" fetchpriority="high" />
+		<link rel="preload" as="image" href="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp" media="(min-width: 1024px)" fetchpriority="high" />
 		<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -487,11 +490,11 @@ const breadcrumbSchema = {
 								<img
 									src="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp"
 									srcset="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-mobile.webp 640w, https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp 1280w"
-									sizes="(max-width: 1024px) 100vw, 720px"
+									sizes="(max-width: 1023px) 100vw, 720px"
 									width="1280"
 									height="720"
 									alt=""
-									loading="lazy"
+									fetchpriority="high"
 									decoding="async"
 									class="absolute inset-0 w-full h-full object-cover"
 								/>
