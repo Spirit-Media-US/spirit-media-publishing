@@ -353,6 +353,13 @@
 	color: var(--color-red);
 }
 
+/* Brand-red eyebrow variant for dark backgrounds (bg-ink, bg-ink-soft).
+   #c0392b on #2e2a26 = 3.04 contrast (fails WCAG AA). #f4a09a on #2e2a26
+   = 6.6 contrast (passes). Same brand-red hue, lifted for legibility. */
+.eyebrow-on-dark {
+	color: #f4a09a;
+}
+
 .pull-quote {
 	font-family: var(--font-display);
 	font-size: 1.875rem;

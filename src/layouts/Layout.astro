@@ -88,10 +88,10 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
          ======================================================================== -->
     <style is:inline>
       /* --- critical @font-face (unlayered per CSS spec — @font-face is not valid inside @layer) --- */
-      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:800;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2') format('woff2')}
-      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2') format('woff2')}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2') format('woff2')}
-      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:swap;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2') format('woff2')}
+      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:800;font-display:optional;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-800.woff2') format('woff2')}
+      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:optional;src:url('https://assets.spiritmediapublishing.com/fonts/playfair-display/playfair-display-700.woff2') format('woff2')}
+      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:optional;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-400.woff2') format('woff2')}
+      @font-face{font-family:'Source Sans 3';font-style:normal;font-weight:700;font-display:optional;src:url('https://assets.spiritmediapublishing.com/fonts/source-sans-3/source-sans-3-700.woff2') format('woff2')}
       /* Metric-adjusted fallbacks — eliminate FCP→LCP gap from font-swap re-paint.
          Georgia / Times as local serif, Arial / Helvetica as local sans. The
          size-adjust + ascent/descent-override values approximate the real font
@@ -147,19 +147,21 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         .top-0{top:0}.left-0{left:0}.right-0{right:0}.inset-0{inset:0}
         .z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}
         .h-6{height:1.5rem}.h-8{height:2rem}.h-14{height:3.5rem}.h-20{height:5rem}.h-auto{height:auto}.h-full{height:100%}
+        .aspect-video{aspect-ratio:16/9}
         .w-6{width:1.5rem}.w-8{width:2rem}.w-full{width:100%}.w-auto{width:auto}
         .min-h-screen{min-height:100vh}
         .max-w-7xl{max-width:80rem}.max-w-3xl{max-width:48rem}.max-w-xl{max-width:36rem}
         .max-w-\[275px\]{max-width:275px}
         .max-h-\[360px\]{max-height:360px}
         .mx-auto{margin-inline:auto}.my-0{margin-block:0}
-        .mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-9{margin-top:2.25rem}
+        .mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.mt-12{margin-top:3rem}
         .mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}
+        .gap-6{gap:1.5rem}.gap-12{gap:3rem}
         .p-2{padding:.5rem}
         .px-3{padding-inline:.75rem}.px-4{padding-inline:1rem}.px-6{padding-inline:1.5rem}.px-8{padding-inline:2rem}
-        .py-1{padding-block:.25rem}.py-2{padding-block:.5rem}.py-3{padding-block:.75rem}
+        .py-1{padding-block:.25rem}.py-2{padding-block:.5rem}.py-3{padding-block:.75rem}.py-16{padding-block:4rem}
         .pt-8{padding-top:2rem}.pt-14{padding-top:3.5rem}.pb-10{padding-bottom:2.5rem}.pb-12{padding-bottom:3rem}
-        .border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f1ec}.border-stone-200{border-color:#ede7df}
+        .border{border-width:1px}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f1ec}.border-stone-200{border-color:#ede7df}.border-stone-700{border-color:#574e45}
         .rounded{border-radius:.375rem}.rounded-md{border-radius:.5rem}.rounded-lg{border-radius:.75rem}.rounded-full{border-radius:9999px}
         .bg-stone-50{background-color:#faf8f5}.bg-stone-100{background-color:#f5f1ec}.bg-surface{background-color:#fff}.bg-white{background-color:#fff}
         .bg-red{background-color:#c0392b}.hover\:bg-red-deep:hover{background-color:#9b2d20}.hover\:bg-stone-50:hover{background-color:#faf8f5}.hover\:bg-stone-100:hover{background-color:#f5f1ec}
@@ -184,6 +186,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
           .sm\:inline-flex{display:inline-flex}
           .sm\:max-w-\[325px\]{max-width:325px}
         }
+        @media(min-width:768px){
+          .md\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+        }
         @media(min-width:1024px){
           .lg\:block{display:block}
           .lg\:hidden{display:none}
@@ -191,7 +196,11 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
           .lg\:px-8{padding-inline:2rem}
           .lg\:pt-12{padding-top:3rem}
           .lg\:pb-16{padding-bottom:4rem}
+          .lg\:py-24{padding-block:6rem}
           .lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+          .lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+          .lg\:col-span-2{grid-column:span 2 / span 2}
+          .lg\:col-span-3{grid-column:span 3 / span 3}
           .lg\:order-last{order:9999}
           .lg\:max-h-\[600px\]{max-height:600px}
         }
