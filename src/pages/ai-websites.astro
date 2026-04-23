@@ -473,16 +473,17 @@ const breadcrumbSchema = {
 						</div>
 					</div>
 
-					<!-- Video placeholder card (swap to YouTube iframe once rendered) -->
+					<!-- 90-Second Story video -->
 					<div class="lg:col-span-2" id="story" data-animate="zoom-in">
 						<div class="relative aspect-video rounded-2xl overflow-hidden border border-stone-700 bg-ink shadow-2xl">
-							<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-								<div class="flex h-16 w-16 items-center justify-center rounded-full bg-red mb-3 shadow-lg">
-									<svg class="h-7 w-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-								</div>
-								<p class="text-stone-100 font-serif text-lg font-bold">90-Second Story</p>
-								<p class="text-stone-400 text-sm mt-1">Launching soon</p>
-							</div>
+							<iframe
+								src="https://www.youtube.com/embed/CysY0rli25w"
+								title="Spirit Media — AI-Powered Websites: The 90-Second Story"
+								class="absolute inset-0 w-full h-full"
+								loading="lazy"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
 						</div>
 					</div>
 				</div>
