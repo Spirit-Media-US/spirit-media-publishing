@@ -184,6 +184,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
           .sm\:inline-flex{display:inline-flex}
           .sm\:max-w-\[325px\]{max-width:325px}
         }
+        @media(min-width:768px){
+          .md\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+        }
         @media(min-width:1024px){
           .lg\:block{display:block}
           .lg\:hidden{display:none}
@@ -191,7 +194,11 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
           .lg\:px-8{padding-inline:2rem}
           .lg\:pt-12{padding-top:3rem}
           .lg\:pb-16{padding-bottom:4rem}
+          .lg\:py-24{padding-block:6rem}
           .lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+          .lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+          .lg\:col-span-2{grid-column:span 2 / span 2}
+          .lg\:col-span-3{grid-column:span 3 / span 3}
           .lg\:order-last{order:9999}
           .lg\:max-h-\[600px\]{max-height:600px}
         }
