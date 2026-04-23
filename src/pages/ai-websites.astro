@@ -442,8 +442,7 @@ const breadcrumbSchema = {
 	<Fragment slot="head">
 		<meta name="keywords" content="AI-powered websites, AI-ready websites, AI-empowered websites, fastest websites 2026, best SEO websites, Astro website design, fast loading website builder, Core Web Vitals, AI search ready, llms.txt, website design for churches, websites for nonprofits, websites for insurance agencies, websites for CPAs, websites for artists, websites for authors" />
 		<meta name="robots" content="index, follow" />
-		<!-- Hero video poster — above-fold on both mobile (stacked) and desktop (60% col). Viewport-split preload. -->
-		<link rel="preload" as="image" href="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-mobile.webp" media="(max-width: 1023px)" fetchpriority="high" />
+		<!-- Hero video poster — only on desktop (video hidden on mobile for perf). -->
 		<link rel="preload" as="image" href="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp" media="(min-width: 1024px)" fetchpriority="high" />
 		<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -477,8 +476,9 @@ const breadcrumbSchema = {
 					</div>
 
 					<!-- 90-Second Story video — click-to-load facade (no YouTube JS until played) -->
-					<!-- No data-animate: transform-on-mount above the fold is counted as CLS (SMP Trait 7). -->
-					<div class="lg:col-span-3" id="story">
+					<!-- Hidden on mobile: the ~138KB of poster bytes (srcset picks 1280w at DPR 2)
+					     was dragging window.load and pulling mobile LCP to ~3.8s. lg:block only. -->
+					<div class="hidden lg:block lg:col-span-3" id="story">
 						<div class="relative aspect-video rounded-2xl overflow-hidden border border-stone-700 bg-ink shadow-2xl">
 							<button
 								type="button"
@@ -487,17 +487,24 @@ const breadcrumbSchema = {
 								aria-label="Play 90-Second Story video"
 								class="group absolute inset-0 w-full h-full block cursor-pointer"
 							>
-								<img
-									src="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp"
-									srcset="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-mobile.webp 640w, https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp 1280w"
-									sizes="(max-width: 1023px) 100vw, 720px"
-									width="1280"
-									height="720"
-									alt=""
-									fetchpriority="high"
-									decoding="async"
-									class="absolute inset-0 w-full h-full object-cover"
-								/>
+								<picture>
+									<source
+										media="(min-width: 1024px)"
+										srcset="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp"
+									/>
+									<!-- Mobile: no <source> matches → <img> uses a tiny empty-SVG data URI.
+									     Parent div is hidden on mobile anyway; this just prevents the preload
+									     scanner from fetching the 101KB desktop poster. -->
+									<img
+										src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2F%3E"
+										alt=""
+										width="1280"
+										height="720"
+										fetchpriority="high"
+										decoding="async"
+										class="absolute inset-0 w-full h-full object-cover"
+									/>
+								</picture>
 								<span class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30 group-hover:from-black/0 group-hover:to-black/20 transition-colors"></span>
 								<span class="absolute inset-0 flex items-center justify-center">
 									<svg class="h-20 w-20 drop-shadow-2xl transition-transform group-hover:scale-110" viewBox="0 0 68 48" aria-hidden="true">
