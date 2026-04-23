@@ -487,17 +487,24 @@ const breadcrumbSchema = {
 								aria-label="Play 90-Second Story video"
 								class="group absolute inset-0 w-full h-full block cursor-pointer"
 							>
-								<img
-									src="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp"
-									srcset="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-mobile.webp 640w, https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp 1280w"
-									sizes="(max-width: 1023px) 100vw, 720px"
-									width="1280"
-									height="720"
-									alt=""
-									fetchpriority="high"
-									decoding="async"
-									class="absolute inset-0 w-full h-full object-cover"
-								/>
+								<picture>
+									<source
+										media="(min-width: 1024px)"
+										srcset="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp"
+									/>
+									<!-- Mobile: no <source> matches → <img> uses a tiny empty-SVG data URI.
+									     Parent div is hidden on mobile anyway; this just prevents the preload
+									     scanner from fetching the 101KB desktop poster. -->
+									<img
+										src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2F%3E"
+										alt=""
+										width="1280"
+										height="720"
+										fetchpriority="high"
+										decoding="async"
+										class="absolute inset-0 w-full h-full object-cover"
+									/>
+								</picture>
 								<span class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30 group-hover:from-black/0 group-hover:to-black/20 transition-colors"></span>
 								<span class="absolute inset-0 flex items-center justify-center">
 									<svg class="h-20 w-20 drop-shadow-2xl transition-transform group-hover:scale-110" viewBox="0 0 68 48" aria-hidden="true">
