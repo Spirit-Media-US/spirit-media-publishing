@@ -63,3 +63,6 @@ public/studio/
 
 # Per-machine Claude Code settings
 .claude/settings.local.json
+
+# Wrangler/Miniflare local runtime state
+.wrangler/
