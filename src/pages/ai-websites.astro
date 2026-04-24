@@ -442,7 +442,7 @@ const breadcrumbSchema = {
 	<Fragment slot="head">
 		<meta name="keywords" content="AI-powered websites, AI-ready websites, AI-empowered websites, fastest websites 2026, best SEO websites, Astro website design, fast loading website builder, Core Web Vitals, AI search ready, llms.txt, website design for churches, websites for nonprofits, websites for insurance agencies, websites for CPAs, websites for artists, websites for authors" />
 		<meta name="robots" content="index, follow" />
-		<!-- Hero video poster — only on desktop (video hidden on mobile for perf). -->
+		<!-- Desktop hero poster preload — gated to ≥1024px so mobile LCP (H1 text) stays uncontested. -->
 		<link rel="preload" as="image" href="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp" media="(min-width: 1024px)" fetchpriority="high" />
 		<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -476,9 +476,9 @@ const breadcrumbSchema = {
 					</div>
 
 					<!-- 90-Second Story video — click-to-load facade (no YouTube JS until played) -->
-					<!-- Hidden on mobile: the ~138KB of poster bytes (srcset picks 1280w at DPR 2)
-					     was dragging window.load and pulling mobile LCP to ~3.8s. lg:block only. -->
-					<div class="hidden lg:block lg:col-span-3" id="story">
+					<!-- Mobile uses the 36KB mobile poster + loading="lazy" so H1 stays the LCP element.
+					     Desktop uses the 101KB poster, warmed by the media-gated preload above with fetchpriority=high. -->
+					<div class="lg:col-span-3" id="story">
 						<div class="relative aspect-video rounded-2xl overflow-hidden border border-stone-700 bg-ink shadow-2xl">
 							<button
 								type="button"
@@ -492,15 +492,12 @@ const breadcrumbSchema = {
 										media="(min-width: 1024px)"
 										srcset="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-desktop.webp"
 									/>
-									<!-- Mobile: no <source> matches → <img> uses a tiny empty-SVG data URI.
-									     Parent div is hidden on mobile anyway; this just prevents the preload
-									     scanner from fetching the 101KB desktop poster. -->
 									<img
-										src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2F%3E"
+										src="https://assets.spiritmediapublishing.com/spirit-media-publishing/ai-websites-poster-mobile.webp"
 										alt=""
 										width="1280"
 										height="720"
-										fetchpriority="high"
+										loading="lazy"
 										decoding="async"
 										class="absolute inset-0 w-full h-full object-cover"
 									/>
