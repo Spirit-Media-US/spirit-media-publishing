@@ -1,5 +1,6 @@
 ---
 import { sanityClient, urlFor } from '../lib/sanity.ts';
+import HundredClubBadge from './HundredClubBadge.astro';
 
 let sitePhone = '1-888-800-3744';
 let siteEmail = 'hello@spiritmediapublishing.com';
@@ -191,6 +192,7 @@ const socialLinks = [
       <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
         <p class="text-xs text-stone-400">
           &copy; <span id="footer-year"></span> Spirit Media Publishing. All rights reserved. &bull; Powered by <a href="https://spiritmediapublishing.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Spirit Media</a>
+          <HundredClubBadge />
         </p>
         <nav aria-label="Legal navigation" class="flex gap-6">
           {

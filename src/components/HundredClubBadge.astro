@@ -1,0 +1,45 @@
+---
+// 100 Club Member badge — renders only if this site's slug is in the registry
+// at /home/deploy/etc/100club-sites.json (synced to src/data/ by
+// scripts/sync-100club-registry.mjs at build time).
+//
+// Auto-disappears if the site is removed from the registry: next build picks
+// up the updated registry from R2 and the inClub check returns false.
+import registry from '../data/100club-sites.json';
+
+const SLUG = 'spirit-media-publishing';
+const inClub = registry.some((s) => s.slug === SLUG);
+---
+
+{inClub && (
+  <a
+    href="https://spiritmediapublishing.com/ai-websites"
+    class="hundred-club-badge"
+    title="100 Club Member — verified PageSpeed performance. Click to learn more."
+    rel="noopener"
+  >
+    100 Club Member
+  </a>
+)}
+
+<style>
+  .hundred-club-badge {
+    display: inline-block;
+    padding: 0.125rem 0.625rem;
+    margin-left: 0.375rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: inherit;
+    border: 1px solid currentColor;
+    border-radius: 9999px;
+    opacity: 0.55;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+  .hundred-club-badge:hover,
+  .hundred-club-badge:focus-visible {
+    opacity: 1;
+  }
+</style>

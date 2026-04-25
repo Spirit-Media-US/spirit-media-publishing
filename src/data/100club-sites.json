@@ -1,0 +1,100 @@
+[
+	{
+		"slug": "WOY",
+		"repo": "Spirit-Media-US/WOY",
+		"prodUrl": "https://workonyourself.com",
+		"previewUrl": "https://woy.pages.dev",
+		"mobilePerf": 99,
+		"mobilePerfType": "single-shot 2026-04-25",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "B"
+	},
+	{
+		"slug": "thomasmcgovern-cpa",
+		"repo": "Spirit-Media-US/thomasmcgovern-cpa",
+		"prodUrl": "https://thomasmcgovern.cpa",
+		"previewUrl": "https://thomasmcgovern-cpa.pages.dev",
+		"prodCutOver": false,
+		"prodCutOverNote": "Encirca nameservers — awaiting Kevin's change. Apex currently serves an Encirca parking page, not our build.",
+		"mobilePerf": 97,
+		"mobilePerfType": "single-shot 2026-04-25 (measured on previewUrl)",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "A"
+	},
+	{
+		"slug": "spirit-media-portal",
+		"repo": "Spirit-Media-US/spirit-media-portal",
+		"prodUrl": "https://portal.spiritmediapublishing.com",
+		"previewUrl": "https://spirit-media-portal.pages.dev",
+		"mobilePerf": 96,
+		"mobilePerfType": "single-shot 2026-04-25",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "A"
+	},
+	{
+		"slug": "scripture-alive",
+		"repo": "Spirit-Media-US/scripture-alive",
+		"prodUrl": "https://scripturealive.com",
+		"previewUrl": "https://scripture-alive.pages.dev",
+		"mobilePerf": 89,
+		"mobilePerfType": "single-shot 2026-04-25",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "A",
+		"regressionNote": "Dropped from 97 (2026-04-22) to 89 — needs investigation. CLS 0.094 (was 0). Suspect a Sanity content change or hero regression."
+	},
+	{
+		"slug": "global-hope-india",
+		"repo": "Spirit-Media-US/global-hope-india",
+		"prodUrl": null,
+		"previewUrl": "https://global-hope-india.pages.dev",
+		"prodCutOver": false,
+		"prodCutOverNote": "No prod domain assigned yet.",
+		"mobilePerf": 97,
+		"mobilePerfType": "single-shot 2026-04-25 (measured on previewUrl)",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "A"
+	},
+	{
+		"slug": "spirit-media-publishing",
+		"repo": "Spirit-Media-US/spirit-media-publishing",
+		"prodUrl": "https://spiritmediapublishing.com",
+		"previewUrl": "https://spirit-media-publishing.pages.dev",
+		"mobilePerf": 96,
+		"mobilePerfType": "single-shot 2026-04-25",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "A"
+	},
+	{
+		"slug": "clowning-from-the-heart",
+		"repo": "Spirit-Media-US/clowning-from-the-heart",
+		"prodUrl": "https://clowningfromtheheart.com",
+		"previewUrl": "https://clowning-from-the-heart.pages.dev",
+		"mobilePerf": 95,
+		"mobilePerfType": "single-shot 2026-04-25",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "A",
+		"regressionNote": "Dropped from 96 (2026-04-22) to 95 — within noise range, but watch."
+	},
+	{
+		"slug": "the-kohler-group",
+		"repo": "Spirit-Media-US/the-kohler-group",
+		"prodUrl": "https://thekohlergroup.net",
+		"previewUrl": "https://the-kohler-group.pages.dev",
+		"mobilePerf": 93,
+		"mobilePerfType": "single-shot 2026-04-25",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "A",
+		"regressionNote": "Dropped from 96 (median-of-5 2026-04-22) to 93 (single-shot 2026-04-25) — needs verification with median-of-5."
+	},
+	{
+		"slug": "10-billion-travelers",
+		"repo": "Spirit-Media-US/10-billion-travelers",
+		"prodUrl": "https://10btravelers.com",
+		"previewUrl": "https://10-billion-travelers.pages.dev",
+		"mobilePerf": 94,
+		"mobilePerfType": "single-shot 2026-04-25",
+		"measuredAt": "2026-04-25",
+		"perfPattern": "B",
+		"regressionNote": "Dropped from 97 (2026-04-22) to 94. FROZEN-warning site (uses inlineStylesheets:'always' intentionally — see CLAUDE.md). May be variance."
+	}
+]
