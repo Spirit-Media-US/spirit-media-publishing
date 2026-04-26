@@ -13,7 +13,7 @@ try {
   const data = await res.json();
   if (!Array.isArray(data)) throw new Error('Registry payload is not an array');
   fs.mkdirSync('src/data', { recursive: true });
-  fs.writeFileSync(TARGET, JSON.stringify(data, null, 2));
+  fs.writeFileSync(TARGET, JSON.stringify(data, null, '\t') + '\n');
   console.log(`✓ Synced 100 Club registry (${data.length} sites)`);
 } catch (err) {
   console.warn(`⚠ 100 Club registry sync failed: ${err.message} — using local copy`);
