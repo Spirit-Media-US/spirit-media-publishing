@@ -21,7 +21,22 @@ if (!post) {
 	return Astro.redirect('/blog');
 }
 
-// Helper function to render portable text blocks as HTML
+// Slugify heading text for jump-link anchors. Lowercases, strips punctuation,
+// collapses whitespace to single hyphens. Must match the Jump-to TOC's #anchors.
+function slugifyHeading(s: string): string {
+	return s
+		.toLowerCase()
+		.replace(/[‘’“”]/g, '')
+		.replace(/[^\w\s-]/g, '')
+		.trim()
+		.replace(/\s+/g, '-');
+}
+
+// Render Sanity portable text to HTML.
+//
+// Sanity stores link annotations as a separate `markDefs` array on each block;
+// the child span carries only the markDef _key as a string. Looking up that
+// _key in markDefs gives us the href. Strong/em are inline string decorators.
 function renderPortableText(blocks: any[]): string {
 	if (!Array.isArray(blocks)) return '';
 
@@ -34,6 +49,14 @@ function renderPortableText(blocks: any[]): string {
 			// Skip placeholder blocks left over from content drafts
 			if (/^\{[\w]+\}\s*[—–-]\s*\{[\w]+\}$/.test(rawText.trim())) return '';
 
+			const markDefs = Array.isArray(block.markDefs) ? block.markDefs : [];
+			const linkByKey: Record<string, string> = {};
+			for (const md of markDefs) {
+				if (md && md._type === 'link' && md._key && md.href) {
+					linkByKey[md._key] = md.href;
+				}
+			}
+
 			const textContent = children
 				.map((child: any) => {
 					if (!child) return '';
@@ -42,11 +65,12 @@ function renderPortableText(blocks: any[]): string {
 					if (marks.length > 0) {
 						if (marks.includes('strong')) text = `<strong>${text}</strong>`;
 						if (marks.includes('em')) text = `<em>${text}</em>`;
-						const linkMark = marks.find(
-							(m: any) => m && typeof m === 'object' && m._type === 'link',
-						);
-						if (linkMark?.href) {
-							text = `<a href="${linkMark.href}" class="text-red hover:underline" target="_blank" rel="noopener noreferrer">${text}</a>`;
+						const linkKey = marks.find((m: any) => typeof m === 'string' && linkByKey[m]);
+						if (linkKey) {
+							const href = linkByKey[linkKey];
+							const isExternal = /^https?:\/\//i.test(href);
+							const targetAttrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+							text = `<a href="${href}" class="text-red hover:underline"${targetAttrs}>${text}</a>`;
 						}
 					}
 					return text;
@@ -54,22 +78,32 @@ function renderPortableText(blocks: any[]): string {
 				.join('');
 
 			const style = block.style || 'normal';
-			if (style === 'h2')
-				return `<h2 class="font-serif text-2xl font-bold text-ink-soft mt-12 mb-4">${textContent}</h2>`;
+			if (style === 'h2') {
+				const id = slugifyHeading(rawText);
+				return `<h2 id="${id}" class="font-serif text-2xl font-bold text-ink-soft mt-12 mb-4 scroll-mt-24">${textContent}</h2>`;
+			}
 			if (style === 'h3')
 				return `<h3 class="font-serif text-xl font-bold text-ink-soft mt-8 mb-3">${textContent}</h3>`;
+			if (style === 'blockquote')
+				return `<blockquote class="my-6 px-6 py-5 lg:px-8 rounded-2xl text-lg leading-relaxed bg-stone-50 border border-stone-200 text-ink-soft">${textContent}</blockquote>`;
 			return `<p class="type-body-lg text-stone-700 leading-relaxed mb-4">${textContent}</p>`;
 		})
 		.join('');
 }
 
-// Format publish date
 const formatDate = (dateString: string) => {
 	const date = new Date(dateString);
 	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 };
 
 const publishDate = formatDate(post.publishDate);
+// Surface a visible "Updated" stamp only when dateModified differs from publishDate.
+// publishDate is a date (YYYY-MM-DD); dateModified is a datetime. Compare on the
+// date portion so a same-day "modified" timestamp doesn't render a noisy stamp.
+const modifiedDate =
+	post.dateModified && post.dateModified.slice(0, 10) !== post.publishDate
+		? formatDate(post.dateModified)
+		: null;
 const heroImage = post.heroImage
 	? urlFor(post.heroImage).width(1200).format('webp').url()
 	: '/blog-default.jpg';
@@ -77,6 +111,51 @@ const author = post.author || 'Kevin White';
 const tags = post.tags || [];
 
 const bodyHtml = renderPortableText(post.body);
+
+const postUrl = `https://spiritmediapublishing.com/blog/${post.slug.current}`;
+const dateModified = post.dateModified || post.publishDate;
+
+// BlogPosting schema: now carries dateModified (Gold-Level milestone #14).
+const blogPostingSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: post.title,
+	description: post.excerpt || post.seoDescription || post.title,
+	image: heroImage,
+	author: { '@type': 'Person', name: author },
+	publisher: {
+		'@type': 'Organization',
+		name: 'Spirit Media Publishing',
+		url: 'https://spiritmediapublishing.com',
+	},
+	url: postUrl,
+	mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+	datePublished: post.publishDate,
+	dateModified,
+	inLanguage: 'en-US',
+	keywords: tags.join(', '),
+	articleSection: tags[0] || undefined,
+};
+
+// FAQPage schema — only emitted when the post defines FAQ pairs in Sanity
+// (Gold-Level milestone #13). AI Overviews and Perplexity extract these verbatim.
+const faqs = Array.isArray(post.faqs) ? post.faqs : [];
+const faqSchema =
+	faqs.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'FAQPage',
+				mainEntity: faqs
+					.filter((f: any) => f?.question && f?.answer)
+					.map((f: any) => ({
+						'@type': 'Question',
+						name: f.question,
+						acceptedAnswer: { '@type': 'Answer', text: f.answer },
+					})),
+			}
+		: null;
+
+const jsonLd = [blogPostingSchema, faqSchema].filter(Boolean);
 ---
 
 <Layout
@@ -89,18 +168,11 @@ const bodyHtml = renderPortableText(post.body);
     <meta property="og:type" content="article" />
     <meta property="article:author" content={author} />
     <meta property="article:published_time" content={post.publishDate} />
+    <meta property="article:modified_time" content={dateModified} />
     {tags.length > 0 && <meta property="article:section" content={tags[0]} />}
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": post.title,
-      "description": post.excerpt || post.title,
-      "image": heroImage,
-      "author": { "@type": "Person", "name": author },
-      "publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
-      "url": `https://spiritmediapublishing.com/blog/${post.slug.current}`,
-      "datePublished": post.publishDate
-    })}></script>
+    {jsonLd.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    ))}
   </Fragment>
 
   <main id="main-content">
@@ -115,10 +187,16 @@ const bodyHtml = renderPortableText(post.body);
         <a href="/blog" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red hover:text-red-deep transition-colors mb-5">← Back to Blog</a>
         <h1 class="type-hero text-ink-soft">{post.title}</h1>
         {post.excerpt && <p class="mt-3 type-body-lg text-stone-600 max-w-2xl">{post.excerpt}</p>}
-        <div class="flex items-center gap-3 mt-4 pb-8 text-sm text-stone-500 border-b border-stone-200">
+        <div class="flex items-center gap-3 mt-4 pb-8 text-sm text-stone-500 border-b border-stone-200 flex-wrap">
           <span>By <span class="font-semibold text-ink-soft">{author}</span></span>
           <span>·</span>
           <span>{publishDate}</span>
+          {modifiedDate && (
+            <>
+              <span>·</span>
+              <span>Updated {modifiedDate}</span>
+            </>
+          )}
         </div>
       </div>
     </section>
