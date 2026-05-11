@@ -1,4 +1,5 @@
 ---
+import BlogCTA from '../../components/BlogCTA.astro';
 import RelatedPosts from '../../components/RelatedPosts.astro';
 import ShareBar from '../../components/ShareBar.astro';
 import Layout from '../../layouts/Layout.astro';
@@ -220,6 +221,7 @@ const jsonLd = [blogPostingSchema, faqSchema].filter(Boolean);
     <section class="bg-white px-6 py-10 lg:px-8 lg:py-16">
       <div class="mx-auto max-w-3xl prose prose-stone max-w-none">
         <div set:html={bodyHtml} class="space-y-4" />
+        <BlogCTA />
       </div>
     </section>
 
