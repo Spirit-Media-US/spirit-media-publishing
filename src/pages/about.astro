@@ -147,6 +147,29 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 			"description": "Spirit Media Publishing is a global Christian publishing and marketing company empowering Kingdom Messengers to share their message in all 195 nations.",
 			"publisher": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
 		})}></script>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com/" },
+				{ "@type": "ListItem", "position": 2, "name": "About", "item": "https://spiritmediapublishing.com/about/" }
+			]
+		})}></script>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Kevin White",
+			"jobTitle": "Founder & CEO, Spirit Media Publishing",
+			"description": "Kevin White is the founder of Spirit Media Publishing, a global Christian publishing and marketing company. He has helped Kingdom Messengers across 195 nations bring their books, podcasts, and ministries to market.",
+			"image": "https://cdn.sanity.io/images/pmowd8uo/production/3dc19194b19b5c804633ad324a893237ab692da5-1583x2048.png?w=400&h=400&fit=crop&fm=webp&q=85",
+			"worksFor": { "@type": "Organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"url": "https://spiritmediapublishing.com/about/",
+			"sameAs": [
+				"TODO_KEVIN_LINKEDIN_URL",
+				"TODO_KEVIN_TWITTER_OR_X_URL",
+				"TODO_KEVIN_YOUTUBE_OR_SUBSTACK_URL"
+			]
+		})}></script>
 	</Fragment>
 	<main id="main-content">
 
