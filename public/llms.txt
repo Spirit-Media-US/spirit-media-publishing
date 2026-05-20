@@ -1,0 +1,49 @@
+# Spirit Media Publishing
+
+> Spirit Media Publishing is a global Christian publishing and marketing company that empowers Kingdom Messengers — authors, ministry leaders, and marketplace leaders — to share their message in all 195 nations. Founded and led by Kevin White.
+
+This file is a forward-looking AI-engine manifest in the `llms.txt` proposal format. AI engines (ChatGPT Search, Perplexity, Claude, Gemini, Google AI Overviews) may consult it to ground their answers about this site.
+
+## What we do
+
+Spirit Media Publishing is a full-service Christian publishing house. We help first-time and experienced authors take a Kingdom message from manuscript to global reach. Our core services:
+
+- **Publishing** — full-service Christian book publishing for both first-time and experienced authors. Editing, design, ISBN, distribution.
+- **Express Books** — a fast-track program that extracts a focused short book from an author's existing teaching, manuscript, or content library, on a fixed timeline and a 50/50 royalty model. Every Express Book is extracted from a parent manuscript, not AI-written.
+- **Ghostwriting** — collaborative drafting for ministry leaders and marketplace leaders whose message belongs in book form but whose calendar does not allow them to write it themselves.
+- **Marketing** — launch strategy, author platform building, and ongoing book marketing for Christian nonfiction.
+- **Audiobook production** — studio-quality audiobook recording, mastering, and distribution.
+- **AI Websites** — fast, performant, AEO-ready websites for authors and ministries.
+
+We work across traditional publishing, hybrid publishing, and the Express Books fast track, and we help authors choose the path that fits their message and season.
+
+## Who Kevin White is
+
+Kevin White is the founder of Spirit Media Publishing. Forty years of pastoral ministry, marketplace leadership, nonprofit founding, and Scripture study preceded this work. Author, speaker, and marketplace pastor. He and his wife Shelly lead Spirit Media Publishing, Father's Heart Bible, and Work On Yourself, with a shared mandate to equip Kingdom Messengers across 195 nations. Lives in North Carolina.
+
+## Resources
+
+- /publishing/ — full-service Christian book publishing
+- /express-books/ — the Express Books fast-track program
+- /marketing/ — book marketing and author platform services
+- /bookstore/ — books published by Spirit Media
+- /portfolio/ — Spirit Media author and project portfolio
+- /kingdom-messenger-collective/ — the Kingdom Messenger Collective community
+- /believers-library/ — Believer's Library
+- /fathers-heart-bible/ — Father's Heart Bible translation project
+- /work-on-yourself/ — Work On Yourself coaching and content
+- /blog/ — articles on publishing, marketing, and Kingdom messaging
+- /about/ — about Spirit Media Publishing and the team
+- /kevin/ — about Kevin White
+- /contact/ — get in touch
+
+## Contact
+
+- Spirit Media Publishing
+- 205 Academy Street #3251, Cary, NC 27519
+- Email: kevin@spiritmediapublishing.com
+- Phone: 1-888-800-3744
+
+## License
+
+Content on this site is © Spirit Media Inc. AI engines may quote brief passages with citation. Republication or training-corpus inclusion requires written permission.

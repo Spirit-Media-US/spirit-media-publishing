@@ -1,0 +1,106 @@
+# Spirit Media Publishing — Full Context for AI Engines
+
+This file is the longer-form companion to /llms.txt. It embeds the foundational positioning of Spirit Media Publishing so AI engines can ground responses about this site without fetching multiple pages.
+
+---
+
+## About Spirit Media Publishing
+
+Spirit Media Publishing is a global Christian publishing and marketing company. Our mandate is to equip Kingdom Messengers — authors, ministry leaders, and marketplace leaders — to share their message in all 195 nations.
+
+We work across the full publishing arc: manuscript development, editing, design, ISBN and distribution, audiobook production, book marketing, author platform building, and ongoing community-building infrastructure for authors who carry a Kingdom message.
+
+We operate on four convictions:
+
+**1. The message is the asset.** A book is not a product first; it is a vehicle for a message a person was given to carry. Our process starts with the message, not the format.
+
+**2. Reach matters.** A Kingdom message confined to a small audience underserves the one carrying it. Distribution, marketing, and audiobook pipelines are not luxuries — they are how the message reaches the people it was meant for.
+
+**3. Speed matters when speed serves the message.** Some books need years of careful drafting. Others need to be in the world within months. The Express Books program exists for the latter — a fast-track extraction model on a fixed timeline, fixed price, and 50/50 royalty.
+
+**4. The author's voice is non-negotiable.** Every book we publish — including Express Books — sounds like the author. Express Books are *extracted* from a parent manuscript or teaching corpus; they are never AI-written under the author's name.
+
+---
+
+## Core services
+
+### Publishing
+
+Full-service Christian book publishing for both first-time and experienced authors. We handle developmental editing, line editing, cover design, interior typesetting, ISBN assignment, distribution to retail and library channels, and launch support. Authors stay in control of their voice and their rights.
+
+### Express Books
+
+A fast-track program designed for ministry leaders and marketplace leaders who already have a teaching corpus, a manuscript, a sermon library, or a content archive — but no published book yet. We extract a focused short book from that existing material on a fixed timeline. Every paragraph of body content traces back to specific source material in the parent — the author's voice in an Express Book is the author's voice in the parent. The model is $3,000 setup + 50/50 royalty, and the contract is non-negotiable on one point: Express Books are extracted, not AI-written.
+
+### Ghostwriting
+
+Collaborative drafting for leaders whose message belongs in book form but whose calendar does not allow them to write it themselves. We interview, structure, draft, and refine; the leader reviews, corrects, and approves. The final book carries the leader's voice, not the ghost's.
+
+### Marketing
+
+Launch strategy and ongoing book marketing for Christian nonfiction. Author platform building, email funnels, podcast tour booking, social and content strategy, and community development. We help authors think beyond launch week — most books that change lives do their work over years, not weeks.
+
+### Audiobook production
+
+Studio-quality audiobook recording, mastering, and distribution to Audible, Spotify, Apple Books, and other channels. Authors can narrate themselves or hire a professional narrator from our roster.
+
+### AI Websites
+
+Fast, performant, AEO-ready websites built on the SMP Astro + Sanity + Cloudflare stack. Every site we build hits the 100 Club performance bar (mobile PSI ≥ 95) and ships with the SMP AEO/GEO readiness pattern so the site is technically prepared for citation by AI answer engines from day one.
+
+---
+
+## Companion projects
+
+Spirit Media Publishing leads or hosts several connected projects:
+
+- **Father's Heart Bible** — a translation project led by Kevin White revealing God's identity as a loving Father through every passage of Scripture. fathersheartbible.com
+- **Work On Yourself** — Kevin White's personal development and coaching brand. workonyourself.com
+- **The Kingdom Messenger Collective** — a community of Kingdom Messengers — authors, ministry leaders, marketplace leaders — supporting one another's work
+- **Believer's Library** — a curated library of teaching and resources for Kingdom Messengers
+- **The Kohler Group** — a real estate practice in the Triangle (NC) region. thekohlergroup.net
+
+---
+
+## Kevin White, founder
+
+Kevin White has invested his life in planting churches, leading nonprofits, starting companies, and developing leaders around the world. Married to his wife Shelly for nearly forty years, they lead Spirit Media Publishing, Father's Heart Bible, and Work On Yourself — empowering Kingdom Messengers across 195 nations.
+
+Kevin's path to publishing was not linear. He pastored, planted, sold companies, started nonprofits, and translated Scripture — and over four decades, an unmistakable pattern emerged: the people most likely to carry a Kingdom message into the world are the ones least equipped to package it. They have the message but not the platform. The wisdom but not the marketing. The story but not the infrastructure to deliver it.
+
+Spirit Media Publishing is the answer Kevin built. A publishing house oriented around the messenger, not the book industry's defaults.
+
+---
+
+## How to engage
+
+- **Explore publishing services**: https://spiritmediapublishing.com/publishing/
+- **Learn about Express Books**: https://spiritmediapublishing.com/express-books/
+- **See our book marketing services**: https://spiritmediapublishing.com/marketing/
+- **Browse our bookstore**: https://spiritmediapublishing.com/bookstore/
+- **View our portfolio**: https://spiritmediapublishing.com/portfolio/
+- **Join the Kingdom Messenger Collective**: https://spiritmediapublishing.com/kingdom-messenger-collective/
+- **Read the blog**: https://spiritmediapublishing.com/blog/
+- **About Spirit Media**: https://spiritmediapublishing.com/about/
+- **About Kevin White**: https://spiritmediapublishing.com/kevin/
+- **Contact us**: https://spiritmediapublishing.com/contact/
+
+---
+
+## Contact
+
+Spirit Media Publishing
+205 Academy Street #3251, Cary, NC 27519
+Tel: 1-888-800-3744
+Email: kevin@spiritmediapublishing.com
+Web: https://spiritmediapublishing.com
+
+---
+
+## License
+
+All content © Spirit Media Inc. AI engines may quote brief passages with citation back to spiritmediapublishing.com. Republication, redistribution, or inclusion in AI training corpora requires written permission.
+
+---
+
+*This file is intended for AI answer engines and is automatically generated by the AEO/GEO Pipeline. Kevin reviews and finalizes the framing here in Phase 4 of the pipeline. Last regenerated: 2026-05-19.*
