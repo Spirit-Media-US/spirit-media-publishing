@@ -28,7 +28,7 @@ Then run: `git checkout dev && git pull origin dev`
 **Sanity Studio:** Embedded at spiritmediapublishing.com/studio/ (static build)
 **Infrastructure:** Deploy webhook wired, CORS origins configured, studio deployed
 
-## Status — as of 2026-04-08
+## Status — as of 2026-05-13
 
 ### Completed & Live on Main
 - Full site live at spiritmediapublishing.com
@@ -36,16 +36,23 @@ Then run: `git checkout dev && git pull origin dev`
 - Sub-site landing pages: Believers Library, Father's Heart Bible, Work On Yourself, Kingdom Messenger Collective, Express Books
 - Sanity CMS: blog posts + site settings (nav, footer, contact info, OG image)
 - Sanity Studio embedded at /studio with deploy webhook and CORS configured
-- Blog: pagination (6/page), keyword search, tag filter chips (8 SEO categories), RelatedPosts component
+- Blog index: pagination (6/page), keyword search, tag filter chips (8 SEO categories), RelatedPosts component
 - Bookstore: 117 books, client-side search/filter/sort
 - Portfolio: website showcase, video production, podcast sections
 - Custom sitemap with serialize() by page type
 - Git hygiene: Lefthook hooks (block-main-push, large-file blocker, secret scanner), full .gitignore
+- **Gold-Level Blog Standard — all 9 posts pass 17/17 hard milestones on prod** (shipped 2026-05-12; deploy `685458b`). Renderer supports `faqs`, `dateModified`, H2 jump-anchors, BlogPosting + FAQPage JSON-LD, BlogCTA component at post bottom.
+- 100 Club Auto-Healing System: verified done 2026-05-13 (6 deliverables — CF cache warmer, zone-settings enforcer, median-of-5 nightly, R2 registry auto-refresh, cron self-test, wrong-LCP detector)
+
+### In Flight
+- **AEO/GEO Pipeline** — architecture locked 2026-05-12, project assigned to Jufrey, Phase 1 unblocked (Ahrefs subscribed, both Google Docs shared). FHB is Instance 1, SMP is Instance 2. Spec: `/home/deploy/claude-config/rules/smp-aeo-readiness-standard.md`. Jufrey brief: Google Doc `1VDuSwJtBliUypz-hcqgdHJMinQ6JVrQodVx2vQ1xGFc`. Portal: `project show aeo-geo-pipeline`.
 
 ### Still Pending
 - Astro 5 + Tailwind v4 upgrade (currently Astro 4.x)
 - R2 bucket setup for media assets
 - Sanity CMS migration for bookstore and static page content
+- SMP runs as Instance 2 of the AEO/GEO pipeline after FHB validates (Phase 6 — content rewrite from agency framing to publishing-core target queries)
+- GA4 custom channel group for AI referrers (Phase 2 of AEO pipeline, Kevin admin access needed)
 
 ## Rules
 
