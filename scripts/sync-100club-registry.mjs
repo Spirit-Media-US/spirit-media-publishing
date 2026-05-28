@@ -13,8 +13,19 @@ try {
   const data = await res.json();
   if (!Array.isArray(data)) throw new Error('Registry payload is not an array');
   fs.mkdirSync('src/data', { recursive: true });
-  fs.writeFileSync(TARGET, JSON.stringify(data, null, '\t') + '\n');
-  console.log(`✓ Synced 100 Club registry (${data.length} sites)`);
+  const newJson = JSON.stringify(data, null, '\t') + '\n';
+  let existingJson = '';
+  try {
+    existingJson = fs.readFileSync(TARGET, 'utf8');
+  } catch {
+    /* file may not exist yet */
+  }
+  if (newJson === existingJson) {
+    console.log(`✓ 100 Club registry already in sync (${data.length} sites)`);
+  } else {
+    fs.writeFileSync(TARGET, newJson);
+    console.log(`✓ Synced 100 Club registry (${data.length} sites, updated)`);
+  }
 } catch (err) {
   console.warn(`⚠ 100 Club registry sync failed: ${err.message} — using local copy`);
   if (!fs.existsSync(TARGET)) {

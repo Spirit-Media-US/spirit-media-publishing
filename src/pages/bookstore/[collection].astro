@@ -1,0 +1,68 @@
+---
+import BookstoreBody from '../../components/BookstoreBody.astro';
+import Layout from '../../layouts/Layout.astro';
+import { sanityClient } from '../../lib/sanity.ts';
+
+export async function getStaticPaths() {
+	const collections: string[] = await sanityClient.fetch(`
+		array::unique(*[_type == "book" && defined(collections)].collections[])
+	`);
+	return (collections || []).map((name) => ({
+		params: {
+			collection: name
+				.toLowerCase()
+				.replace(/\s+/g, '-')
+				.replace(/[^a-z0-9-]/g, ''),
+		},
+		props: { collectionName: name },
+	}));
+}
+
+const { collectionName } = Astro.props;
+const { collection: collectionSlug } = Astro.params;
+
+const canonicalUrl = `https://spiritmediapublishing.com/bookstore/${collectionSlug}`;
+const pageTitle = `${collectionName} — Spirit Media Bookstore`;
+const pageDescription = `Browse Spirit Media's ${collectionName} collection — short, transformative Christian reads published by Spirit Media Publishing.`;
+const heroTitleHtml = `<span class="text-red">${collectionName}</span>`;
+const heroSubtitle = `${collectionName} from the Spirit Media Christian bookstore. Browse the collection below.`;
+---
+
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/e1274263f40d901cf33297ab4c8110e8ad9d9ca7-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
+>
+	<Fragment slot="head">
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalUrl} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			"name": pageTitle,
+			"description": pageDescription,
+			"url": canonicalUrl,
+			"isPartOf": {
+				"@type": "WebSite",
+				"name": "Spirit Media Publishing",
+				"url": "https://spiritmediapublishing.com"
+			},
+			"breadcrumb": {
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com" },
+					{ "@type": "ListItem", "position": 2, "name": "Bookstore", "item": "https://spiritmediapublishing.com/bookstore" },
+					{ "@type": "ListItem", "position": 3, "name": collectionName, "item": canonicalUrl }
+				]
+			}
+		})}></script>
+	</Fragment>
+	<main id="main-content">
+		<BookstoreBody
+			initialCollection={collectionName}
+			heroEyebrow="Collection"
+			heroTitleHtml={heroTitleHtml}
+			heroSubtitle={heroSubtitle}
+		/>
+	</main>
+</Layout>
