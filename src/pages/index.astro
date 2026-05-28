@@ -82,8 +82,8 @@ const FALLBACK_TESTIMONIALS = [
 const testimonials = FALLBACK_TESTIMONIALS;
 ---
 <Layout
-	title="Spirit Media Publishing | Christian Book Publishing"
-	description="Spirit Media helps Christian authors publish and market their books to 195 nations. Ghostwriting, editing, cover design, audiobooks, and global distribution."
+	title="Spirit Media Publishing | Christian Publishing, Marketing & AI Ministry Platforms"
+	description="Spirit Media helps Christian authors and Kingdom-minded ministries with full-service publishing, marketing, and our AI-Empowered Ministry Platform — website, CRM, donations, blog, AEO/GEO, community, and outreach in one integrated system."
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
 >
 	<Fragment slot="head-early">
@@ -103,7 +103,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 		/>
 	</Fragment>
 	<Fragment slot="head">
-		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company" />
+		<meta name="keywords" content="Christian book publishing, Christian author publishing, publish a Christian book, Christian book marketing, Kingdom Messenger, Spirit Media Publishing, self publish Christian book, Christian ghostwriting, audiobook publishing, faith-based publishing, Christian publishing company, AI ministry platform, Kingdom technology platform, ministry CRM, church website builder, AEO for nonprofits, all-in-one church platform" />
 		<meta name="robots" content="index, follow" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
@@ -116,11 +116,11 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				"https://www.facebook.com/spiritmediaus",
 				"https://www.instagram.com/spiritmediaus"
 			],
-			"description": "Spirit Media Publishing helps Christian authors publish, market, and distribute their books across 195 nations.",
+			"description": "Spirit Media Publishing helps Christian authors and Kingdom-minded ministries with full-service publishing, marketing, and the AI-Empowered Ministry Platform — an all-in-one ministry technology system.",
 			"founder": { "@type": "Person", "name": "Kevin White" },
 			"foundingDate": "2020",
 			"areaServed": "Worldwide",
-			"serviceType": ["Book Publishing", "Book Marketing", "Ghostwriting", "Cover Design", "Audiobook Production"]
+			"serviceType": ["Book Publishing", "Book Marketing", "Ghostwriting", "Cover Design", "Audiobook Production", "AI Ministry Platform", "Ministry Technology", "Church Software", "Ministry CRM", "Nonprofit Donations Platform"]
 		})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
@@ -266,6 +266,49 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				<p class="type-scripture text-ink-soft" data-animate="fade-in" data-delay="1">
 					Spirit Media is a Christian publishing and marketing family with a mission to reveal our Father's heart to all <span class="text-red">195 nations</span> worldwide.
 				</p>
+			</div>
+		</section>
+
+		<!-- ═══ MINISTRY PLATFORM ═══ -->
+		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-7xl">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+					<div data-animate="fade-up">
+						<p class="eyebrow eyebrow-red mb-3">Beyond Publishing</p>
+						<h2 class="type-section-heading text-ink-soft">
+							The Platform Powering<br />
+							<span class="text-red">Kingdom Ministries</span>
+						</h2>
+						<p class="mt-6 type-body-lg text-stone-700 leading-relaxed">
+							Spirit Media's quiet-but-powerful offering: the <strong>AI-Empowered Kingdom Ministry Platform</strong> — the complete technology system a ministry needs to thrive online. Website, CRM, donations, blog, AEO/GEO engine, community, and AI-powered outreach — running as one integrated stack.
+						</p>
+						<p class="mt-4 type-body text-stone-700 leading-relaxed">
+							We build and operate the entire platform so leadership can focus on mission instead of managing technology.
+						</p>
+						<div class="mt-8 flex flex-wrap gap-4">
+							<a href="/platform" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Explore the Platform →</a>
+							<a href="/contact" class="rounded-md border-2 border-red-600 bg-stone-50 px-6 py-3 text-sm font-semibold text-red transition-colors hover:bg-red-wash">Request a Call</a>
+						</div>
+					</div>
+					<div class="grid grid-cols-2 gap-3" data-animate="fade-up" data-delay="2">
+						{[
+							{ n: 1, name: 'The Ministry CRM' },
+							{ n: 2, name: 'Donations' },
+							{ n: 3, name: 'The Blog' },
+							{ n: 4, name: 'AEO / GEO Engine' },
+							{ n: 5, name: 'Community' },
+							{ n: 6, name: 'Lead Discovery & Outreach' },
+						].map(({ n, name }) => (
+							<a href="/platform" class="group bg-white rounded-xl p-4 border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+								<div class="flex items-center gap-2 mb-1">
+									<span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-red-wash text-red font-bold text-xs">{n}</span>
+									<span class="type-caption text-stone-500 font-semibold uppercase tracking-wider">Module</span>
+								</div>
+								<p class="type-body-sm font-semibold text-ink-soft group-hover:text-red transition-colors">{name}</p>
+							</a>
+						))}
+					</div>
+				</div>
 			</div>
 		</section>
 

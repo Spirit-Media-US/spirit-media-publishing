@@ -1,0 +1,422 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Last meaningful update — used in BlogPosting/Service JSON-LD + visible byline
+const dateModified = '2026-05-28';
+const datePublished = '2026-05-28';
+
+const FAQ_ITEMS = [
+	{
+		q: 'What is a Ministry Platform?',
+		a: 'A Ministry Platform is the complete, AI-empowered technology system a Kingdom-minded organization needs to thrive online — website, contact relationships, donations, blog publishing, AI-search visibility, community, and outbound outreach — running as one integrated stack. Spirit Media builds and operates this entire platform for you so leadership can focus on mission instead of managing technology.',
+	},
+	{
+		q: 'How is the Ministry Platform different from a website?',
+		a: 'A website is the public-facing layer. The Ministry Platform is the website plus six elective modules that turn it into a complete ministry operations system — a CRM that captures every relationship, an embedded donations system, a Gold-Level blog, an AEO/GEO engine that makes you citable by ChatGPT and Perplexity, a private branded community with AI ministry companions, and AI-driven prospect discovery for outbound outreach.',
+	},
+	{
+		q: 'How is this different from Mighty Networks, Givebutter, or Subsplash?',
+		a: 'Mighty Networks and Givebutter are rented platforms with monthly per-network fees and limited SEO visibility. Subsplash is a single-purpose app builder. The Spirit Media Ministry Platform is owned, statically rendered for perfect performance and AI citability, integrates a real CRM, processes giving at Stripe nonprofit rates, and replaces all three with one unified stack — under your domain, with your data.',
+	},
+	{
+		q: 'Do I need every module to start?',
+		a: 'No. Every Ministry Platform begins with the Website Builder (the foundation every ministry needs). The six modules are elective and added in the order that fits the ministry — most commonly The Ministry CRM first, then Donations, then The Blog and AEO/GEO engine together, with Community and Outreach added once the foundation is established.',
+	},
+	{
+		q: 'Is the Ministry Platform appropriate for non-ministry businesses?',
+		a: 'Yes. While built and named for Kingdom-minded ministries, the underlying architecture serves any purpose-driven organization — nonprofits, faith-based businesses, churches, ministry schools, mission organizations, and Christian publishing houses. The 501(c)(3) donation pricing applies specifically to qualified nonprofits.',
+	},
+	{
+		q: 'Does the Ministry Platform include hosting?',
+		a: 'Yes. Every Ministry Platform is hosted on Cloudflare Pages (free global edge delivery) and powered by Bethel — our Spirit Media-managed server in Ashburn, Virginia. There are no third-party hosting fees, no per-network charges, and no traffic limits. Hosting, SSL, CDN, and security are included.',
+	},
+	{
+		q: 'How long does it take to launch a Ministry Platform?',
+		a: 'A standard Ministry Platform launches in 30 to 90 days depending on the modules selected. The Website Builder typically takes 30 to 45 days. Each elective module adds 1 to 3 weeks of integration time. We launch incrementally rather than all-at-once so each layer is stable before the next is added.',
+	},
+];
+
+const MODULES = [
+	{
+		num: 1,
+		name: 'The Ministry CRM',
+		tagline: 'Every relationship, tracked and stewarded automatically.',
+		anchor: 'ministry-crm',
+		body: 'A complete contact-management and marketing-automation system, deeply integrated with your website. Every inquiry, prayer request, donation, blog comment, and form submission flows into your CRM tagged by source, ready for thoughtful follow-up.',
+		bullets: [
+			{
+				term: 'Contacts & segmentation',
+				body: 'every visitor who reaches out becomes a tracked contact, organized by ministry, campaign, and engagement history.',
+			},
+			{
+				term: 'Email & SMS marketing',
+				body: 'send branded broadcasts, set up nurture sequences, and reach members on the channel they use.',
+			},
+			{
+				term: 'Automation workflows',
+				body: 'welcome sequences, donor stewardship, event reminders, follow-up cadences — all running in the background so no relationship falls through the cracks.',
+			},
+			{
+				term: 'Built-in calendars & forms',
+				body: 'booking pages, intake forms, and event registrations that feed directly into the same contact database.',
+			},
+		],
+	},
+	{
+		num: 2,
+		name: 'Donations for Nonprofits',
+		tagline: 'Secure, low-cost giving built for 501(c)(3) ministries.',
+		anchor: 'donations',
+		body: 'A complete online giving experience embedded directly in your site — no redirect to a third-party page, no clunky external form. Donors give in seconds with cards, digital wallets, or bank transfer.',
+		bullets: [
+			{
+				term: 'Nonprofit pricing',
+				body: 'qualified 501(c)(3) ministries keep more of every gift through reduced processing rates from Stripe NPO.',
+			},
+			{
+				term: 'Automatic receipts',
+				body: 'every donor receives a clean, branded, tax-ready receipt instantly.',
+			},
+			{
+				term: 'One-time and recurring',
+				body: 'supporters can give once or become monthly partners.',
+			},
+			{
+				term: 'Hands-off administration',
+				body: 'gifts and donor records flow automatically into your systems, so your team is not doing manual bookkeeping.',
+			},
+		],
+	},
+	{
+		num: 3,
+		name: 'The Blog',
+		tagline: 'Publish content that people read and AI engines cite.',
+		anchor: 'blog',
+		body: 'A complete, search-ready blog added to your site, with everything a modern blog needs out of the box: keyword search, category filtering, related posts, social sharing, and clean mobile design. Every post is engineered to win across four channels at once — traditional search (SEO), AI answer engines (AEO), generative AI (GEO), and human readers.',
+		bullets: [
+			{
+				term: 'AI Hero-Image Generator',
+				body: 'every post gets a custom, on-brand header image — no stock-photo budget, no design bottleneck.',
+			},
+			{
+				term: 'Gold-Level Standard',
+				body: 'every post hits a 17-point content-quality bar before publication, structured for AI citation and reader engagement.',
+			},
+			{
+				term: 'Full-text search & categories',
+				body: 'visitors find what they need without leaving your site.',
+			},
+			{
+				term: 'Related posts engine',
+				body: 'every article surfaces three related posts, keeping readers in your content.',
+			},
+		],
+	},
+	{
+		num: 4,
+		name: 'The AEO / GEO Engine',
+		tagline: 'Become the source AI engines cite.',
+		anchor: 'aeo-geo',
+		body: "People increasingly ask ChatGPT, Perplexity, Google's AI Overviews, and Claude their questions instead of scrolling through search results. The AEO / GEO Engine engineers your site to be the trusted source those AI engines find, rely on, and cite by name.",
+		bullets: [
+			{
+				term: 'Answer Engine Optimization (AEO)',
+				body: 'your content is structured so AI engines can extract clear, direct answers to the questions your audience is asking.',
+			},
+			{
+				term: 'Generative Engine Optimization (GEO)',
+				body: 'your site is established as an authoritative source AI uses to ground its responses, with the credibility signals — author identity, citations, structured data — those engines weigh most.',
+			},
+			{
+				term: 'Citation tracking',
+				body: 'we monitor which AI engines are citing your site, for which questions, so growth is measurable rather than guesswork.',
+			},
+			{
+				term: 'Forward-looking advantage',
+				body: 'be present in the answers — not just the search results.',
+			},
+		],
+	},
+	{
+		num: 5,
+		name: 'The Community',
+		tagline: 'A private, branded gathering place — with AI ministry companions.',
+		anchor: 'community',
+		body: 'Move your community off rented social media and onto a space you own. The Community module gives your ministry private member spaces, member profiles, posts, and discussion — all under your own brand and your own domain. What makes it different is the built-in AI agents that serve your community around the clock.',
+		bullets: [
+			{
+				term: 'Daily Prompt companion',
+				body: 'posts a thoughtful, voice-matched question each day to keep conversation alive.',
+			},
+			{
+				term: 'Care & safety agents',
+				body: 'watch for members in crisis and quietly surface them to leadership.',
+			},
+			{
+				term: 'Welcome & engagement agents',
+				body: 'greet new members and help them find their place.',
+			},
+			{
+				term: 'Your voice, your brand',
+				body: 'every agent speaks in your ministry’s voice — an extension of your leaders, not a generic platform.',
+			},
+		],
+	},
+	{
+		num: 6,
+		name: 'AI-Powered Lead Discovery & Outreach',
+		tagline: "Real-time prospect intelligence that scales your ministry's reach.",
+		anchor: 'outreach',
+		body: 'A powerful business-development engine that finds, qualifies, and engages new prospects automatically. Combining live Google Maps data with AI scoring, it builds your outreach pipeline while you focus on ministry.',
+		bullets: [
+			{
+				term: 'Real-time prospect extraction',
+				body: 'pulls names, URLs, phone numbers, and emails directly from Google Maps for any geography or category you target.',
+			},
+			{
+				term: 'AI-driven lead scoring',
+				body: 'evaluates each prospect against your custom text criteria, surfacing only the leads most aligned with your mission.',
+			},
+			{
+				term: 'Automated proposal generation',
+				body: 'instantly produces a personalized, polished proposal for each qualified prospect.',
+			},
+			{
+				term: '7-touch nurture campaign over 40 days',
+				body: 'an automated email sequence that warms each prospect with proof, story, and clear next steps.',
+			},
+		],
+	},
+];
+
+const canonicalUrl = 'https://spiritmediapublishing.com/platform';
+---
+
+<Layout
+	title="AI-Empowered Kingdom Ministry Platform — Spirit Media"
+	description="The complete AI-empowered platform for Kingdom ministries: website + CRM + donations + blog + AEO/GEO + community + outreach. Built for ministries that want their technology to match the weight of their mission."
+	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
+>
+	<Fragment slot="head">
+		<meta name="keywords" content="AI ministry platform, Kingdom technology platform, AI for ministry, AI for church, ministry CRM, church CRM, nonprofit donations platform, Christian website builder, ministry website with CRM, AI-empowered ministry software, answer engine optimization, AEO for nonprofits, ministry AI tools, all-in-one church platform, Spirit Media Publishing platform" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalUrl} />
+
+		<!-- Service JSON-LD — primary entity for this page -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "AI-Empowered Kingdom Ministry Platform",
+			"alternateName": "Spirit Media Ministry Platform",
+			"provider": {
+				"@type": "Organization",
+				"name": "Spirit Media Publishing",
+				"url": "https://spiritmediapublishing.com",
+				"founder": { "@type": "Person", "name": "Kevin White" }
+			},
+			"serviceType": "AI Ministry Platform",
+			"description": "The complete AI-empowered technology platform for Kingdom-minded ministries — integrated website, CRM, donations, blog, AEO/GEO engine, community, and outbound outreach. Built and operated by Spirit Media Publishing.",
+			"url": canonicalUrl,
+			"areaServed": "Worldwide",
+			"audience": { "@type": "Audience", "audienceType": "Kingdom-minded ministries, nonprofits, Christian businesses, and faith-based organizations" },
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Ministry Platform Modules",
+				"itemListElement": MODULES.map((m, i) => ({
+					"@type": "Offer",
+					"position": i + 1,
+					"name": m.name,
+					"description": m.tagline
+				}))
+			}
+		})}></script>
+
+		<!-- BreadcrumbList JSON-LD -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com/" },
+				{ "@type": "ListItem", "position": 2, "name": "Ministry Platform", "item": canonicalUrl }
+			]
+		})}></script>
+
+		<!-- FAQPage JSON-LD -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": FAQ_ITEMS.map(({ q, a }) => ({
+				"@type": "Question",
+				"name": q,
+				"acceptedAnswer": { "@type": "Answer", "text": a }
+			}))
+		})}></script>
+	</Fragment>
+
+	<main id="main-content">
+
+		<!-- HERO -->
+		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-7xl">
+				<div class="hero-stagger max-w-4xl">
+					<p class="eyebrow eyebrow-red mb-4">AI-Empowered Ministry Platform</p>
+					<h1 class="type-hero text-ink-soft">
+						The Platform Powering
+						<br />
+						<span class="text-red">Kingdom Ministries</span>
+					</h1>
+					<p class="mt-6 type-body-lg text-stone-700 max-w-3xl">
+						The <strong>Spirit Media Ministry Platform</strong> is the complete AI-empowered technology system a Kingdom-minded organization needs to thrive online — website, contact relationships, donations, blog publishing, AI-search visibility, community, and outbound outreach — running as one integrated stack. We build and operate the entire platform so leadership can focus on mission instead of managing technology.
+					</p>
+					<div class="mt-9 flex flex-wrap gap-4">
+						<a href="/contact" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Request a Call →</a>
+						<a href="#modules" class="rounded-md border-2 border-red-600 bg-stone-50 px-6 py-3 text-sm font-semibold text-red transition-colors hover:bg-red-wash">See the Six Modules</a>
+					</div>
+					<p class="mt-6 type-caption text-stone-500">By <span class="font-semibold text-ink-soft">Kevin White</span>, Founder of Spirit Media Publishing · Last updated {dateModified}</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- KEY TAKEAWAY callout -->
+		<section class="bg-white px-6 py-10 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<div class="border-l-4 border-red bg-red-wash rounded-r-2xl p-6 lg:p-8">
+					<p class="eyebrow eyebrow-red mb-2">Key Takeaway</p>
+					<p class="type-body-lg text-ink-soft leading-relaxed">
+						A Ministry Platform is more than a website. It is a <strong>site plus six integrated modules</strong> — CRM, Donations, Blog, AEO/GEO Engine, Community, and Lead Discovery & Outreach — that turn a static brochure into a complete ministry operations system, owned under your own brand and domain, on Spirit Media's dedicated infrastructure.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- THE WEBSITE BUILDER (foundation) -->
+		<section class="bg-stone-100 px-6 py-12 lg:py-20 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Foundation</p>
+				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">The Website Builder</h2>
+				<p class="mt-3 type-body italic text-stone-600" data-animate="fade-up" data-delay="1">The foundation every ministry starts with.</p>
+				<p class="mt-6 type-body-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="2">
+					Built on a modern, lightning-fast technology stack (Astro paired with Cloudflare's global edge network), every Spirit Media site is designed to load instantly anywhere in the world, look beautiful on every device, and stay secure around the clock.
+				</p>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+					<div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm" data-animate="fade-up" data-delay="2">
+						<h3 class="type-card-subheading text-ink-soft mb-3">The 100 Club Standard</h3>
+						<p class="type-body-sm text-stone-700 leading-relaxed">
+							Every Spirit Media site is built to score a perfect <strong>100 / 100 / 100 / 100</strong> on Google's PageSpeed Insights — mobile and desktop. This is not a premium upgrade; it is our baseline. Your site loads faster than virtually every other site your visitors encounter, ranks higher in search, and works flawlessly for everyone.
+						</p>
+					</div>
+					<div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm" data-animate="fade-up" data-delay="3">
+						<h3 class="type-card-subheading text-ink-soft mb-3">Client-Friendly, AI-Empowered Revisions</h3>
+						<p class="type-body-sm text-stone-700 leading-relaxed">
+							You do not need to be technical to keep your site current. Describe the change you want in plain language and AI makes it, end to end. Your content also lives in an easy visual editor, so your team can update pages and swap photos safely — no developer required.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- MODULES OVERVIEW GRID -->
+		<section id="modules" class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8 scroll-mt-24">
+			<div class="mx-auto max-w-7xl">
+				<div class="text-center mb-12">
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Platform</p>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Six Modules That Extend <span class="text-red">Your Platform</span></h2>
+					<p class="mt-4 type-body-lg text-stone-700 max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">Each module is a complete, self-contained system that integrates seamlessly with your site and the modules around it. Add what you need, when you need it.</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{MODULES.map(({ num, name, tagline, anchor }, i) => (
+						<a href={`#${anchor}`} class="group bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-shadow" data-animate="fade-up" data-delay={String((i % 3) + 1)}>
+							<div class="flex items-center gap-3 mb-3">
+								<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-red-wash text-red font-bold text-sm">{num}</span>
+								<h3 class="type-card-subheading text-ink-soft group-hover:text-red transition-colors">{name}</h3>
+							</div>
+							<p class="type-body-sm italic text-stone-600">{tagline}</p>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- MODULE 1 — Ministry CRM -->
+		{MODULES.map(({ num, name, tagline, anchor, body, bullets }) => (
+			<section id={anchor} class="bg-white px-6 py-12 lg:py-20 lg:px-8 scroll-mt-24 border-t border-stone-200">
+				<div class="mx-auto max-w-4xl">
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Module {num}</p>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">{name}</h2>
+					<p class="mt-3 type-body italic text-stone-600" data-animate="fade-up" data-delay="1">{tagline}</p>
+					<p class="mt-6 type-body-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="2">{body}</p>
+					<ul class="mt-8 space-y-4">
+						{bullets.map(({ term, body: bbody }) => (
+							<li class="flex items-start gap-4" data-animate="fade-up" data-delay="2">
+								<svg class="h-6 w-6 shrink-0 text-red mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+								<span class="type-body text-stone-700"><strong class="text-ink-soft">{term}</strong> — {bbody}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</section>
+		))}
+
+		<!-- TECH STACK -->
+		<section class="bg-stone-100 px-6 py-12 lg:py-20 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">The Foundation Beneath It All</p>
+				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Built on Enterprise Infrastructure</h2>
+				<p class="mt-6 type-body-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="2">
+					Every Ministry Platform runs on the same secure, AI-managed infrastructure: <strong>Bethel</strong>, our dedicated Spirit Media–managed server in Ashburn, Virginia, paired with <strong>Cloudflare</strong>'s global edge network for delivery, security, and storage. Behind that, an always-on Tools API runs every dynamic feature — donations, blog publishing, automation, outreach, AI agents — and Claude powers the conversational development workflow that keeps your platform evolving.
+				</p>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+					<div class="bg-white rounded-xl p-5 border border-stone-200">
+						<p class="type-caption text-red font-semibold mb-1">Performance</p>
+						<p class="type-body-sm text-stone-700">Cloudflare global edge — your site is served from data centers worldwide.</p>
+					</div>
+					<div class="bg-white rounded-xl p-5 border border-stone-200">
+						<p class="type-caption text-red font-semibold mb-1">Security</p>
+						<p class="type-body-sm text-stone-700">Enterprise SSL, intelligent AI-bot management, no public server access.</p>
+					</div>
+					<div class="bg-white rounded-xl p-5 border border-stone-200">
+						<p class="type-caption text-red font-semibold mb-1">Reliability</p>
+						<p class="type-body-sm text-stone-700">Always-on monitoring every five minutes — issues caught before visitors notice.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="bg-white px-6 py-12 lg:py-20 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Common Questions</p>
+				<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Ministry Platform FAQ</h2>
+				<div class="mt-10 space-y-4">
+					{FAQ_ITEMS.map(({ q, a }, i) => (
+						<details class="group bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden" data-animate="fade-up" data-delay={String((i % 3) + 1)}>
+							<summary class="cursor-pointer p-6 flex items-start justify-between gap-4 hover:bg-stone-100 transition-colors">
+								<h3 class="type-card-subheading text-ink-soft pr-2">{q}</h3>
+								<svg class="h-5 w-5 shrink-0 text-red mt-1 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+							</summary>
+							<div class="px-6 pb-6">
+								<p class="type-body text-stone-700 leading-relaxed">{a}</p>
+							</div>
+						</details>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8">
+			<div class="mx-auto max-w-4xl text-center">
+				<h2 class="type-section-heading text-ink-soft">Ready to Build Your <span class="text-red">Ministry Platform?</span></h2>
+				<p class="mt-6 type-body-lg text-stone-700 max-w-2xl mx-auto">
+					The Gospel deserves the world's most effective technology. Schedule a call and we'll walk through which modules fit your ministry, your audience, and the season you're in.
+				</p>
+				<div class="mt-9 flex flex-wrap justify-center gap-4">
+					<a href="/contact" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Request a Call →</a>
+					<a href="/portfolio" class="rounded-md border-2 border-red-600 bg-stone-50 px-6 py-3 text-sm font-semibold text-red transition-colors hover:bg-red-wash">See the Portfolio</a>
+				</div>
+			</div>
+		</section>
+
+	</main>
+</Layout>
