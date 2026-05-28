@@ -28,7 +28,7 @@ Then run: `git checkout dev && git pull origin dev`
 **Sanity Studio:** Embedded at spiritmediapublishing.com/studio/ (static build)
 **Infrastructure:** Deploy webhook wired, CORS origins configured, studio deployed
 
-## Status — as of 2026-05-13
+## Status — as of 2026-05-28
 
 ### Completed & Live on Main
 - Full site live at spiritmediapublishing.com
@@ -37,7 +37,8 @@ Then run: `git checkout dev && git pull origin dev`
 - Sanity CMS: blog posts + site settings (nav, footer, contact info, OG image)
 - Sanity Studio embedded at /studio with deploy webhook and CORS configured
 - Blog index: pagination (6/page), keyword search, tag filter chips (8 SEO categories), RelatedPosts component
-- Bookstore: 117 books, client-side search/filter/sort
+- Bookstore: 132 books, client-side search / author / sort / collection-chip filter
+- Bookstore Collections: new `collections` array on book schema + `/bookstore/express-books/` marketing URL (dynamic [collection].astro). Express Books currently tags Hallelujah Even Here, Invisible Wounds, Father's Heart - Beloved Identity. Future collections auto-route as the schema list grows.
 - Portfolio: website showcase, video production, podcast sections
 - Custom sitemap with serialize() by page type
 - Git hygiene: Lefthook hooks (block-main-push, large-file blocker, secret scanner), full .gitignore
