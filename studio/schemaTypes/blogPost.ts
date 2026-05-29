@@ -156,6 +156,14 @@ export default {
 			description: 'For search engine results (optimal length: 150-160 characters)',
 		},
 		{
+			name: 'isLaunchContent',
+			title: 'Launch Content (held until launch)',
+			type: 'boolean',
+			description:
+				'When true, this post is held back from production and only appears on the platform-reveal preview branch. Set to false (or unset) when ready to go live. Implements Path B staging — branch detection via CF_PAGES_BRANCH at build time.',
+			initialValue: false,
+		},
+		{
 			name: 'aeoApprovedBy',
 			title: 'AEO Editorial Approval — Approved By',
 			type: 'string',

@@ -2,8 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
+// Launch-content gate — Path B from platform-reveal staging design.
+// `isLaunchContent: true` posts are held until launch. The platform-reveal
+// preview branch includes them; main/dev exclude them. CF_PAGES_BRANCH is
+// auto-injected by Cloudflare Pages at build time. Local builds default to
+// including launch content for authoring/preview.
+const branch = process.env.CF_PAGES_BRANCH || 'local';
+const includeLaunch = branch === 'platform-reveal' || branch === 'local';
+const launchFilter = includeLaunch ? '' : ' && (isLaunchContent != true)';
+
 const rawSanityPosts = await sanityClient.fetch(`
-  *[_type == "blogPost"] | order(publishDate desc) {
+  *[_type == "blogPost"${launchFilter}] | order(publishDate desc) {
     "slug": "/blog/" + slug.current,
     title,
     excerpt,

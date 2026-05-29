@@ -6,8 +6,16 @@ import Layout from '../../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../../lib/sanity.ts';
 
 // Static site — pre-render all blog posts from Sanity at build time
+// Launch-content gate (Path B): branch-aware filter inside the static-paths
+// callback because Astro hoists getStaticPaths and the surrounding const
+// scope isn't available to it during build.
 export async function getStaticPaths() {
-	const posts = await sanityClient.fetch(`*[_type == "blogPost"] { "slug": slug.current }`);
+	const branch = process.env.CF_PAGES_BRANCH || 'local';
+	const includeLaunch = branch === 'platform-reveal' || branch === 'local';
+	const launchFilter = includeLaunch ? '' : ' && (isLaunchContent != true)';
+	const posts = await sanityClient.fetch(
+		`*[_type == "blogPost"${launchFilter}] { "slug": slug.current }`,
+	);
 	return posts.map((p: any) => ({ params: { slug: p.slug } }));
 }
 
