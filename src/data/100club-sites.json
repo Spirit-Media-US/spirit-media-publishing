@@ -4,9 +4,9 @@
 		"repo": "Spirit-Media-US/WOY",
 		"prodUrl": "https://workonyourself.com",
 		"previewUrl": "https://woy.pages.dev",
-		"mobilePerf": 99,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerf": 100,
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "B"
 	},
 	{
@@ -16,9 +16,9 @@
 		"previewUrl": "https://thomasmcgovern-cpa.pages.dev",
 		"prodCutOver": false,
 		"prodCutOverNote": "Encirca nameservers — awaiting Kevin's change. Apex currently serves an Encirca parking page, not our build.",
-		"mobilePerf": 97,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerf": 99,
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "A"
 	},
 	{
@@ -26,11 +26,10 @@
 		"repo": "Spirit-Media-US/spirit-media-portal",
 		"prodUrl": "https://portal.spiritmediapublishing.com",
 		"previewUrl": "https://spirit-media-portal.pages.dev",
-		"mobilePerf": 97,
-		"mobilePerfType": "median-of-5 2026-05-27",
-		"measuredAt": "2026-05-27",
-		"perfPattern": "A",
-		"regressionNote": "[auto] median-of-5 = 94 on 2026-05-28 (baseline was 97)"
+		"mobilePerf": 98,
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
+		"perfPattern": "A"
 	},
 	{
 		"slug": "scripture-alive",
@@ -50,9 +49,9 @@
 		"previewUrl": "https://global-hope-india.pages.dev",
 		"prodCutOver": false,
 		"prodCutOverNote": "No prod domain assigned yet.",
-		"mobilePerf": 96,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerf": 97,
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "A"
 	},
 	{
@@ -61,8 +60,8 @@
 		"prodUrl": "https://spiritmediapublishing.com",
 		"previewUrl": "https://spirit-media-publishing.pages.dev",
 		"mobilePerf": 96,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "A"
 	},
 	{
@@ -70,9 +69,9 @@
 		"repo": "Spirit-Media-US/clowning-from-the-heart",
 		"prodUrl": "https://clowningfromtheheart.com",
 		"previewUrl": "https://clowning-from-the-heart.pages.dev",
-		"mobilePerf": 98,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerf": 97,
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "A",
 		"regressionNote": "Dropped from 96 (2026-04-22) to 95 — within noise range, but watch."
 	},
@@ -93,8 +92,8 @@
 		"prodUrl": "https://10btravelers.com",
 		"previewUrl": "https://10-billion-travelers.pages.dev",
 		"mobilePerf": 100,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "B",
 		"regressionNote": "Dropped from 97 (2026-04-22) to 94. FROZEN-warning site (uses inlineStylesheets:'always' intentionally — see CLAUDE.md). May be variance."
 	},
@@ -103,9 +102,9 @@
 		"repo": "Spirit-Media-US/kevin-white-us",
 		"prodUrl": "https://kevinwhite.us",
 		"previewUrl": "https://kevin-white-us.pages.dev",
-		"mobilePerf": 99,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerf": 98,
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "A",
 		"perfNote": "System-fonts only (no @font-face); video LCP. Mobile 96 (runs 99,96,96,96,96), Desktop 100 (one PSI noise outlier 68 ignored)."
 	},
@@ -115,8 +114,8 @@
 		"prodUrl": "https://johnnywattsagency.com",
 		"previewUrl": "https://john-watts-agency.pages.dev",
 		"mobilePerf": 99,
-		"mobilePerfType": "median-of-5 2026-05-28",
-		"measuredAt": "2026-05-28",
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
 		"perfPattern": "A"
 	},
 	{
@@ -127,7 +126,8 @@
 		"mobilePerf": 97,
 		"mobilePerfType": "median-of-5 2026-05-28",
 		"measuredAt": "2026-05-28",
-		"perfPattern": "A"
+		"perfPattern": "A",
+		"regressionNote": "[auto] median-of-5 = 94 on 2026-05-29 (baseline was 97)"
 	},
 	{
 		"slug": "sm-gives",
@@ -138,18 +138,17 @@
 		"perfPattern": "A",
 		"mobilePerf": 97,
 		"mobilePerfType": "median-of-5 2026-05-26",
-		"regressionNote": "[auto] median-of-5 = 82 on 2026-05-28 (baseline was 97)"
+		"regressionNote": "[auto] median-of-5 = 80 on 2026-05-29 (baseline was 97)"
 	},
 	{
 		"slug": "FHB",
 		"repo": "Spirit-Media-US/FHB",
 		"prodUrl": "https://fathersheartbible.com",
 		"previewUrl": "https://fathersheartbible.pages.dev",
-		"mobilePerf": 97,
-		"mobilePerfType": "median-of-5 2026-05-26",
-		"measuredAt": "2026-05-26",
-		"perfPattern": "A",
-		"regressionNote": "[auto] median-of-5 = 88 on 2026-05-28 (baseline was 97)"
+		"mobilePerf": 99,
+		"mobilePerfType": "median-of-5 2026-05-29",
+		"measuredAt": "2026-05-29",
+		"perfPattern": "A"
 	},
 	{
 		"slug": "lioncrest-media",
@@ -158,7 +157,7 @@
 		"previewUrl": "https://lioncrest-media.pages.dev",
 		"measuredAt": "2026-04-25",
 		"perfPattern": "A",
-		"regressionNote": "[auto] median-of-5 = 68 on 2026-05-28"
+		"regressionNote": "[auto] median-of-5 = 91 on 2026-05-29"
 	},
 	{
 		"slug": "the-pyramid-principle",
@@ -170,6 +169,6 @@
 		"measuredAt": "2026-05-12",
 		"perfPattern": "A",
 		"perfNote": "Newly registered 2026-05-13 after prod launch. Below 95 club minimum — Phase 7 target: critical-CSS extraction for mobile LCP. Nightly auto-audit will refresh against prodUrl.",
-		"regressionNote": "[auto] median-of-5 = 89 on 2026-05-28 (baseline was 88)"
+		"regressionNote": "[auto] median-of-5 = 88 on 2026-05-29 (baseline was 88)"
 	}
 ]
