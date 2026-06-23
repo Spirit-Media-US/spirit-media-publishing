@@ -156,7 +156,13 @@
 		"mobilePerfType": "median-of-5 2026-06-22",
 		"measuredAt": "2026-06-22",
 		"perfPattern": "A",
-		"perfNote": "ACCEPTED FOR JUNE CAMPAIGN (Jay 2026-06-02). Mobile dropped 98->85 — CLS 0.29 from the June \"First Public Reading\" hero copy (long hardcoded heroSubheading in index.astro reflows on font-load). NOT a font-metric bug: recalibrating fonts was tried 5/23 AND 6/2 and REGRESSES (PSI Linux substitutes Liberation Sans) — keep the approximated 100.8/95/22 values. FIX = restore the shorter Sanity heroHeading after the campaign (planned post-July-1, MANUAL); expected return to ~98. Until then accept. Do not auto-fix / do not recalibrate fonts."
+		"perfNote": "ACCEPTED FOR JUNE CAMPAIGN (Jay 2026-06-02). Mobile dropped 98->85 — CLS 0.29 from the June \"First Public Reading\" hero copy (long hardcoded heroSubheading in index.astro reflows on font-load). NOT a font-metric bug: recalibrating fonts was tried 5/23 AND 6/2 and REGRESSES (PSI Linux substitutes Liberation Sans) — keep the approximated 100.8/95/22 values. FIX = restore the shorter Sanity heroHeading after the campaign (planned post-July-1, MANUAL); expected return to ~98. Until then accept. Do not auto-fix / do not recalibrate fonts.",
+		"intentionalRegression": {
+			"since": "2026-06-02",
+			"reason": "June \"First Public Reading\" campaign hero copy (long hardcoded heroSubheading) raises CLS ~0.29 on mobile. Accepted for the campaign by Jay 2026-06-02; restore shorter Sanity heroHeading post-July-1 (manual) to return to ~98. Do not auto-fix / do not recalibrate fonts.",
+			"acceptedMedian": 85,
+			"decidedBy": "Jay (2026-06-02)"
+		}
 	},
 	{
 		"slug": "lioncrest-media",
@@ -180,6 +186,12 @@
 		"measuredAt": "2026-06-15",
 		"perfPattern": "A",
 		"perfNote": "ACCEPTED CAP ~88-91 / PARKED (Jay 2026-06-02). Sole blocker = render-blocking-CSS-gated mobile LCP ~3.3-3.5s (bimodal; warm runs hit 99-100). 10+ documented reverted attempts (Phases 5-7 + late May): async-css, inlineStylesheets:always, font size-adjust x2, preload retarget x2, Beasties critical x2, hand-rolled critical x2. CF zone Phase0 already applied, fonts calibrated 5/18. Kevin shipped to prod at 88 knowingly. Untried lever = Beasties + manual critical block guaranteeing .hero-book-img sizing + interactive padding (the 2 audits Beasties Attempt-2 broke). Parked pending dedicated session greenlight; NOT auto-fix.",
-		"regressionNote": "[auto] median-of-5 = 93 on 2026-06-22 (baseline was 99)"
+		"regressionNote": "[auto] median-of-5 = 93 on 2026-06-22 (baseline was 99)",
+		"intentionalRegression": {
+			"since": "2026-06-02",
+			"reason": "Sole blocker is render-blocking-CSS-gated mobile LCP ~3.3-3.5s (bimodal; warm runs hit 99-100). 10+ documented reverted fix attempts. Shipped to prod at this level knowingly; PARKED pending a dedicated session greenlight (Jay 2026-06-02). NOT auto-fix.",
+			"acceptedMedian": 88,
+			"decidedBy": "Jay (2026-06-02)"
+		}
 	}
 ]
