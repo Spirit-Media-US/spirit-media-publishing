@@ -4,9 +4,9 @@
 		"repo": "Spirit-Media-US/WOY",
 		"prodUrl": "https://workonyourself.com",
 		"previewUrl": "https://woy.pages.dev",
-		"mobilePerf": 99,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerf": 100,
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "B"
 	},
 	{
@@ -17,19 +17,19 @@
 		"prodCutOver": false,
 		"prodCutOverNote": "Encirca nameservers — awaiting Kevin's change. Apex currently serves an Encirca parking page, not our build.",
 		"mobilePerf": 97,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerfType": "median-of-5 2026-06-26",
+		"measuredAt": "2026-06-26",
 		"perfPattern": "A",
-		"regressionNote": "[auto] median-of-5 = 78 on 2026-06-25 (baseline was 97)"
+		"regressionNote": "[auto] median-of-5 = 79 on 2026-06-27 (baseline was 97)"
 	},
 	{
 		"slug": "spirit-media-portal",
 		"repo": "Spirit-Media-US/spirit-media-portal",
 		"prodUrl": "https://portal.spiritmediapublishing.com",
 		"previewUrl": "https://spirit-media-portal.pages.dev",
-		"mobilePerf": 98,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerf": 97,
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A"
 	},
 	{
@@ -57,8 +57,8 @@
 		"previewUrl": "https://global-hope-india.pages.dev",
 		"prodCutOver": true,
 		"mobilePerf": 97,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A"
 	},
 	{
@@ -66,9 +66,9 @@
 		"repo": "Spirit-Media-US/spirit-media-publishing",
 		"prodUrl": "https://spiritmediapublishing.com",
 		"previewUrl": "https://spirit-media-publishing.pages.dev",
-		"mobilePerf": 96,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerf": 99,
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A"
 	},
 	{
@@ -77,8 +77,8 @@
 		"prodUrl": "https://clowningfromtheheart.com",
 		"previewUrl": "https://clowning-from-the-heart.pages.dev",
 		"mobilePerf": 98,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A",
 		"regressionNote": "Dropped from 96 (2026-04-22) to 95 — within noise range, but watch."
 	},
@@ -88,8 +88,8 @@
 		"prodUrl": "https://thekohlergroup.net",
 		"previewUrl": "https://the-kohler-group.pages.dev",
 		"mobilePerf": 97,
-		"mobilePerfType": "median-of-5 2026-06-24",
-		"measuredAt": "2026-06-24",
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A",
 		"regressionNote": "Dropped from 96 (median-of-5 2026-04-22) to 93 (single-shot 2026-04-25) — needs verification with median-of-5.",
 		"intentionalRegression": {
@@ -104,9 +104,9 @@
 		"repo": "Spirit-Media-US/10-billion-travelers",
 		"prodUrl": "https://10btravelers.com",
 		"previewUrl": "https://10-billion-travelers.pages.dev",
-		"mobilePerf": 100,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerf": 99,
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "B",
 		"regressionNote": "Dropped from 97 (2026-04-22) to 94. FROZEN-warning site (uses inlineStylesheets:'always' intentionally — see CLAUDE.md). May be variance."
 	},
@@ -116,8 +116,8 @@
 		"prodUrl": "https://kevinwhite.us",
 		"previewUrl": "https://kevin-white-us.pages.dev",
 		"mobilePerf": 99,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A",
 		"perfNote": "System-fonts only (no @font-face); video LCP. Mobile 96 (runs 99,96,96,96,96), Desktop 100 (one PSI noise outlier 68 ignored)."
 	},
@@ -127,8 +127,8 @@
 		"prodUrl": "https://johnnywattsagency.com",
 		"previewUrl": "https://john-watts-agency.pages.dev",
 		"mobilePerf": 99,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A"
 	},
 	{
@@ -137,20 +137,19 @@
 		"prodUrl": "https://artsbyjustin.com",
 		"previewUrl": "https://artsbyjustin.pages.dev",
 		"mobilePerf": 98,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"measuredAt": "2026-06-25",
-		"perfPattern": "A",
-		"regressionNote": "[auto] median-of-5 = 94 on 2026-06-25 (baseline was 98)"
+		"mobilePerfType": "median-of-5 2026-06-27",
+		"measuredAt": "2026-06-27",
+		"perfPattern": "A"
 	},
 	{
 		"slug": "sm-gives",
 		"repo": "Spirit-Media-US/sm-gives",
 		"prodUrl": "https://smgives.org",
 		"previewUrl": "https://sm-gives.pages.dev",
-		"measuredAt": "2026-06-25",
+		"measuredAt": "2026-06-27",
 		"perfPattern": "A",
 		"mobilePerf": 98,
-		"mobilePerfType": "median-of-5 2026-06-25",
+		"mobilePerfType": "median-of-5 2026-06-27",
 		"intentionalRegression": {
 			"since": "2026-06-22",
 			"reason": "Mobile text-only hero (H1 = LCP, commit c3d36c2). Bimodal font-race PSI variance is a consequence of the accepted design, not a regression.",
@@ -173,24 +172,8 @@
 			"reason": "June \"First Public Reading\" campaign hero copy raises CLS ~0.29 on mobile. Accepted for the campaign by Jay 2026-06-02; restore shorter Sanity heroHeading post-July-1 (manual). Do not auto-fix / do not recalibrate fonts.",
 			"acceptedMedian": 85,
 			"decidedBy": "Jay (2026-06-02)"
-		}
-	},
-	{
-		"slug": "lioncrest-media",
-		"repo": "Spirit-Media-US/lioncrest-media",
-		"prodUrl": "https://lioncrestmedia.com",
-		"previewUrl": "https://lioncrest-media.pages.dev",
-		"measuredAt": "2026-06-25",
-		"perfPattern": "A",
-		"perfNote": "ACCEPTED CAP ~91 (Jay 2026-06-02). Full-bleed mobile hero bg photo is the LCP @~3.1s on Slow-4G and is the SOLE blocker; kept per Kevin 5/29 visual request. Fonts metric-calibrated, CLS/TBT already maxed, font-display:optional set. Verified CSS-bg vs <img> both land ~3s (img tested 2026-06-02, median 90 + CLS regress, reverted). Not a fixable regression — deliberate visual>score tradeoff. Do not auto-fix.",
-		"mobilePerf": 98,
-		"mobilePerfType": "median-of-5 2026-06-25",
-		"intentionalRegression": {
-			"since": "2026-06-22",
-			"reason": "Mobile text-only hero (H1 = LCP) + accepted full-bleed hero-photo cap (Jay 2026-06-02, kept per Kevin 5/29). No code regression — PSI variance around the accepted design.",
-			"acceptedMedian": 91,
-			"decidedBy": "Kevin (2026-06-22)"
-		}
+		},
+		"regressionNote": "[auto] median-of-5 = 87 on 2026-06-27 (baseline was 98)"
 	},
 	{
 		"slug": "the-pyramid-principle",
@@ -207,7 +190,6 @@
 			"reason": "Render-blocking-CSS-gated mobile LCP ~3.3-3.5s (bimodal; warm runs hit 99-100). 10+ reverted fix attempts. Shipped to prod at this level knowingly; PARKED pending dedicated session (Jay 2026-06-02). NOT auto-fix.",
 			"acceptedMedian": 88,
 			"decidedBy": "Jay (2026-06-02)"
-		},
-		"regressionNote": "[auto] median-of-5 = 86 on 2026-06-25 (baseline was 99)"
+		}
 	}
 ]
