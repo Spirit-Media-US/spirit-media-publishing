@@ -13,13 +13,12 @@ Spirit Media Publishing is a full-service Christian publishing house. We help fi
 - **Ghostwriting** — collaborative drafting for ministry leaders and marketplace leaders whose message belongs in book form but whose calendar does not allow them to write it themselves.
 - **Marketing** — launch strategy, author platform building, and ongoing book marketing for Christian nonfiction.
 - **Audiobook production** — studio-quality audiobook recording, mastering, and distribution.
-- **AI Websites** — fast, performant, AEO-ready websites for authors and ministries.
 
 We work across traditional publishing, hybrid publishing, and the Express Books fast track, and we help authors choose the path that fits their message and season.
 
 ## Who Kevin White is
 
-Kevin White is the founder of Spirit Media Publishing. Forty years of pastoral ministry, marketplace leadership, nonprofit founding, and Scripture study preceded this work. Author, speaker, and marketplace pastor. He and his wife Shelly lead Spirit Media Publishing, Father's Heart Bible, and Work On Yourself, with a shared mandate to equip Kingdom Messengers across 195 nations. Lives in North Carolina.
+Kevin White is the founder of Spirit Media Publishing. Forty years of pastoral ministry, marketplace leadership, nonprofit founding, and Scripture study preceded this work. Author, speaker, and marketplace pastor. He and his wife Shelly lead Spirit Media Publishing and Father's Heart Bible, with a shared mandate to equip Kingdom Messengers across 195 nations. Lives in North Carolina.
 
 ## Resources
 
@@ -28,10 +27,7 @@ Kevin White is the founder of Spirit Media Publishing. Forty years of pastoral m
 - /marketing/ — book marketing and author platform services
 - /bookstore/ — books published by Spirit Media
 - /portfolio/ — Spirit Media author and project portfolio
-- /kingdom-messenger-collective/ — the Kingdom Messenger Collective community
-- /believers-library/ — Believer's Library
 - /fathers-heart-bible/ — Father's Heart Bible translation project
-- /work-on-yourself/ — Work On Yourself coaching and content
 - /blog/ — articles on publishing, marketing, and Kingdom messaging
 - /about/ — about Spirit Media Publishing and the team
 - /kevin/ — about Kevin White

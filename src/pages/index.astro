@@ -27,10 +27,7 @@ try {
 } catch (e) {}
 
 const fhbImage = `${R2_BASE}/fhb.webp`;
-const kmcBrandImage = `${R2_BASE}/kmc.webp`;
-const woyImage = `${R2_BASE}/woy.webp`;
 const expressBooksImage = `${R2_BASE}/express-books.webp`;
-const believerLibraryImage = `${R2_BASE}/believers-library.webp`;
 const manuscriptReviewImage = `${R2_BASE}/manuscript-review.webp`;
 const childrensBooksImage = `${R2_BASE}/childrens-books.webp`;
 const writeBookImage = `${R2_BASE}/write-book.webp`;
@@ -274,16 +271,9 @@ const testimonials = FALLBACK_TESTIMONIALS;
 			<div class="mx-auto max-w-7xl">
 				<div class="text-center mb-6">
 					<span class="eyebrow eyebrow-red" data-animate="fade-in">Exclusive Home of</span>
-					<h2 class="type-section-heading text-ink-soft mb-6" data-animate="fade-in" data-delay="1">
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-in" data-delay="1">
 						Our Brands &amp; Programs
 					</h2>
-					<div class="flex flex-wrap justify-center gap-3" data-animate="fade-in" data-delay="2">
-						{['Father\'s Heart Bible™', 'Kingdom Messenger Collective', 'Work On Yourself', 'EXPRESS BOOKS™', 'The Believer\'s Library'].map((brand) => (
-							<span class="inline-flex items-center gap-1.5 rounded-full bg-surface px-4 py-1.5 text-sm font-semibold text-ink-soft ring-1 ring-stone-300 shadow-sm">
-								{brand}
-							</span>
-						))}
-					</div>
 				</div>
 
 				<!-- FHB — Featured hero card -->
@@ -312,28 +302,8 @@ const testimonials = FALLBACK_TESTIMONIALS;
 					</div>
 				</div>
 
-				<!-- 4 remaining brand cards -->
-				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-					<!-- KMC -->
-					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
-						<div class="p-7">
-							<span class="eyebrow">Kingdom Messenger Collective</span>
-							<h3 class="type-card-subheading text-ink-soft mb-3">From God-given message to sustainable movement.</h3>
-							<p class="type-body-lg text-stone-700 mb-5">Our flagship development program that walks with Kingdom Messengers through a 3+ year partnership.</p>
-							<a href="/kingdom-messenger-collective" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
-						</div>
-					</div>
-					<!-- WOY -->
-					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="2">
-						<img src={woyImage} alt="Work On Yourself" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
-						<div class="p-7">
-							<span class="eyebrow">Work On Yourself</span>
-							<h3 class="type-card-subheading text-ink-soft mb-3">A soul care intensive for leaders whose outer success has outpaced their inner life.</h3>
-							<p class="type-body-lg text-stone-700 mb-5">A twelve-month protected season where leaders are accompanied rather than optimized.</p>
-							<a href="https://workonyourself.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit WorkOnYourself.com →</a>
-						</div>
-					</div>
+				<!-- Remaining brand cards -->
+				<div class="grid grid-cols-1 gap-6 max-w-md mx-auto">
 					<!-- Express Books -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
 						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
@@ -342,16 +312,6 @@ const testimonials = FALLBACK_TESTIMONIALS;
 							<h3 class="type-card-subheading text-ink-soft mb-3">Fast reads. Lasting impact.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Intentionally compact books designed to be read in under an hour. No filler. No fluff. Transformation that lasts a lifetime.</p>
 							<a href="/express-books" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
-						</div>
-					</div>
-					<!-- Believer's Library -->
-					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="4">
-						<img src={believerLibraryImage} alt="The Believer's Library" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top" />
-						<div class="p-7">
-							<span class="eyebrow">The Believer's Library</span>
-							<h3 class="type-card-subheading text-ink-soft mb-3">The world's largest cloud-based Christian library.</h3>
-							<p class="type-body-lg text-stone-700 mb-5">Our exclusive mobile app delivering PDF downloads to 3.3 billion souls worldwide with limited access to Jesus.</p>
-							<a href="https://thebelieverslibrary.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit thebelieverslibrary.com →</a>
 						</div>
 					</div>
 				</div>
