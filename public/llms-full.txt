@@ -44,10 +44,6 @@ Launch strategy and ongoing book marketing for Christian nonfiction. Author plat
 
 Studio-quality audiobook recording, mastering, and distribution to Audible, Spotify, Apple Books, and other channels. Authors can narrate themselves or hire a professional narrator from our roster.
 
-### AI Websites
-
-Fast, performant, AEO-ready websites built on the SMP Astro + Sanity + Cloudflare stack. Every site we build hits the 100 Club performance bar (mobile PSI ≥ 95) and ships with the SMP AEO/GEO readiness pattern so the site is technically prepared for citation by AI answer engines from day one.
-
 ---
 
 ## Companion projects
@@ -55,16 +51,14 @@ Fast, performant, AEO-ready websites built on the SMP Astro + Sanity + Cloudflar
 Spirit Media Publishing leads or hosts several connected projects:
 
 - **Father's Heart Bible** — a translation project led by Kevin White revealing God's identity as a loving Father through every passage of Scripture. fathersheartbible.com
-- **Work On Yourself** — Kevin White's personal development and coaching brand. workonyourself.com
 - **The Kingdom Messenger Collective** — a community of Kingdom Messengers — authors, ministry leaders, marketplace leaders — supporting one another's work
-- **Believer's Library** — a curated library of teaching and resources for Kingdom Messengers
 - **The Kohler Group** — a real estate practice in the Triangle (NC) region. thekohlergroup.net
 
 ---
 
 ## Kevin White, founder
 
-Kevin White has invested his life in planting churches, leading nonprofits, starting companies, and developing leaders around the world. Married to his wife Shelly for nearly forty years, they lead Spirit Media Publishing, Father's Heart Bible, and Work On Yourself — empowering Kingdom Messengers across 195 nations.
+Kevin White has invested his life in planting churches, leading nonprofits, starting companies, and developing leaders around the world. Married to his wife Shelly for nearly forty years, they lead Spirit Media Publishing and Father's Heart Bible — empowering Kingdom Messengers across 195 nations.
 
 Kevin's path to publishing was not linear. He pastored, planted, sold companies, started nonprofits, and translated Scripture — and over four decades, an unmistakable pattern emerged: the people most likely to carry a Kingdom message into the world are the ones least equipped to package it. They have the message but not the platform. The wisdom but not the marketing. The story but not the infrastructure to deliver it.
 
