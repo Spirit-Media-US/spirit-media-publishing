@@ -27,7 +27,6 @@ Kevin White is the founder of Spirit Media Publishing. Forty years of pastoral m
 - /marketing/ — book marketing and author platform services
 - /bookstore/ — books published by Spirit Media
 - /portfolio/ — Spirit Media author and project portfolio
-- /kingdom-messenger-collective/ — the Kingdom Messenger Collective community
 - /fathers-heart-bible/ — Father's Heart Bible translation project
 - /blog/ — articles on publishing, marketing, and Kingdom messaging
 - /about/ — about Spirit Media Publishing and the team

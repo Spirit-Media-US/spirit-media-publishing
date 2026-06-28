@@ -27,7 +27,6 @@ try {
 } catch (e) {}
 
 const fhbImage = `${R2_BASE}/fhb.webp`;
-const kmcBrandImage = `${R2_BASE}/kmc.webp`;
 const expressBooksImage = `${R2_BASE}/express-books.webp`;
 const manuscriptReviewImage = `${R2_BASE}/manuscript-review.webp`;
 const childrensBooksImage = `${R2_BASE}/childrens-books.webp`;
@@ -276,7 +275,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 						Our Brands &amp; Programs
 					</h2>
 					<div class="flex flex-wrap justify-center gap-3" data-animate="fade-in" data-delay="2">
-						{['Father\'s Heart Bible™', 'Kingdom Messenger Collective', 'EXPRESS BOOKS™'].map((brand) => (
+						{['Father\'s Heart Bible™', 'EXPRESS BOOKS™'].map((brand) => (
 							<span class="inline-flex items-center gap-1.5 rounded-full bg-surface px-4 py-1.5 text-sm font-semibold text-ink-soft ring-1 ring-stone-300 shadow-sm">
 								{brand}
 							</span>
@@ -311,17 +310,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				</div>
 
 				<!-- Remaining brand cards -->
-				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-					<!-- KMC -->
-					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="1">
-						<img src={kmcBrandImage} alt="Kingdom Messenger Collective" width="600" height="300" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
-						<div class="p-7">
-							<span class="eyebrow">Kingdom Messenger Collective</span>
-							<h3 class="type-card-subheading text-ink-soft mb-3">From God-given message to sustainable movement.</h3>
-							<p class="type-body-lg text-stone-700 mb-5">Our flagship development program that walks with Kingdom Messengers through a 3+ year partnership.</p>
-							<a href="/kingdom-messenger-collective" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
-						</div>
-					</div>
+				<div class="grid grid-cols-1 gap-6 max-w-md mx-auto">
 					<!-- Express Books -->
 					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
 						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover" />

@@ -36,7 +36,7 @@ export default defineConfig({
           return { ...item, changefreq: 'weekly', priority: 0.8, lastmod: new Date().toISOString() };
         }
         // Ministry arms
-        if (['/fathers-heart-bible/', '/kingdom-messenger-collective/'].some(p => item.url.endsWith(p))) {
+        if (['/fathers-heart-bible/'].some(p => item.url.endsWith(p))) {
           return { ...item, changefreq: 'monthly', priority: 0.75, lastmod: new Date().toISOString() };
         }
         // Homepage
