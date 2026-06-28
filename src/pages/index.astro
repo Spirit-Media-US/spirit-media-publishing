@@ -276,42 +276,28 @@ const testimonials = FALLBACK_TESTIMONIALS;
 					</h2>
 				</div>
 
-				<!-- FHB — Featured hero card -->
-				<div class="bg-ink-soft rounded-3xl p-8 lg:p-10 mb-6 mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" data-animate="fade-in">
-					<div class="flex items-center justify-center order-first lg:order-last mt-6 lg:mt-0">
-						<img
-							src={fhbImage}
-							alt="Father's Heart Bible — An Intimate Translation"
-							width="288"
-							height="288"
-							loading="lazy"
-							decoding="async"
-							class="w-72 object-contain rounded-2xl shadow-2xl"
-						/>
+				<!-- Brand cards — equal size, side by side -->
+				<div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
+					<!-- FHB -->
+					<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm transition-shadow hover:shadow-md" data-animate="fade-in" data-delay="1">
+						<div class="flex h-48 items-center justify-center bg-ink-soft p-4">
+							<img src={fhbImage} alt="Father's Heart Bible — An Intimate Translation" width="288" height="288" loading="lazy" decoding="async" class="h-full w-auto object-contain rounded-lg shadow-2xl" />
+						</div>
+						<div class="flex flex-1 flex-col p-7">
+							<span class="eyebrow">Father's Heart Bible™ (FHB)</span>
+							<h3 class="type-card-subheading text-ink-soft mb-3">An intimate translation revealing our Father's heart to a fatherless generation.</h3>
+							<p class="type-body-lg text-stone-700 mb-5">One message for every reader: "Come home. You belong to Me. You are My beloved child." Each gift of $100 places three Father's Heart Bibles into the hands of readers worldwide.</p>
+							<a href="https://fathersheartbible.com" target="_blank" rel="noopener noreferrer" class="mt-auto text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit FathersHeartBible.com →</a>
+						</div>
 					</div>
-					<div class="order-last lg:order-first">						<span class="eyebrow" style="color: var(--color-stone-400);">Father's Heart Bible™ (FHB)</span>
-						<h3 class="type-card-heading mb-4 leading-snug text-stone-100">
-							An intimate translation revealing our Father's heart to a fatherless generation.
-						</h3>
-						<p class="type-body-lg text-stone-300 mb-6">
-							One message for every reader: "Come home. You belong to Me. You are My beloved child." Each gift of $100 places three Father's Heart Bibles into the hands of readers worldwide.
-						</p>
-						<a href="https://fathersheartbible.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-							Visit FathersHeartBible.com →
-						</a>
-					</div>
-				</div>
-
-				<!-- Remaining brand cards -->
-				<div class="grid grid-cols-1 gap-6 max-w-md mx-auto">
 					<!-- Express Books -->
-					<div class="rounded-2xl border border-stone-200 bg-stone-50 shadow-sm hover:shadow-md transition-shadow overflow-hidden" data-animate="fade-in" data-delay="3">
-						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover" />
-						<div class="p-7">
+					<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm transition-shadow hover:shadow-md" data-animate="fade-in" data-delay="2">
+						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="h-48 w-full object-cover" />
+						<div class="flex flex-1 flex-col p-7">
 							<span class="eyebrow">EXPRESS BOOKS™</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">Fast reads. Lasting impact.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Intentionally compact books designed to be read in under an hour. No filler. No fluff. Transformation that lasts a lifetime.</p>
-							<a href="/express-books" class="text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
+							<a href="/express-books" class="mt-auto text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
 						</div>
 					</div>
 				</div>
