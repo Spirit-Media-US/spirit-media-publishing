@@ -112,6 +112,40 @@ const scriptureReels = [
 		poster: 'reel-posters/fhb-gen1.jpg',
 	},
 ];
+
+// More of our work — the portfolio + live author/brand feeds we produce reels for.
+const moreWork = [
+	{
+		label: 'Full Portfolio',
+		sub: 'Testimonials, brand design & podcasts',
+		href: '/portfolio',
+		ext: false,
+	},
+	{
+		label: 'John P. Boyle',
+		sub: 'YouTube',
+		href: 'https://www.youtube.com/@JohnPBoyle',
+		ext: true,
+	},
+	{
+		label: 'The Kohler Group',
+		sub: 'YouTube',
+		href: 'https://www.youtube.com/@tkgpllc',
+		ext: true,
+	},
+	{
+		label: 'Morgan Laird',
+		sub: 'Instagram',
+		href: 'https://www.instagram.com/morganhlaird/',
+		ext: true,
+	},
+	{
+		label: 'Kevin White',
+		sub: 'Instagram',
+		href: 'https://www.instagram.com/kevinwhiteus/',
+		ext: true,
+	},
+];
 ---
 
 <Layout
@@ -236,6 +270,24 @@ const scriptureReels = [
 					))}
 				</div>
 				<p class="mt-8 type-body-sm text-stone-500 italic text-center">Author interview reels produced for John Boyle; scripture reels from the Father's Heart Bible™.</p>
+
+				<div class="mt-12 pt-8 border-t border-stone-200">
+					<h3 class="type-card-subheading text-ink-soft mb-1 text-center">More of our work</h3>
+					<p class="type-body-sm text-stone-600 text-center mb-6">See our full portfolio and the live author &amp; brand feeds we produce reels for.</p>
+					<div class="flex flex-wrap justify-center gap-3">
+						{moreWork.map((m) => (
+							<a
+								href={m.href}
+								target={m.ext ? '_blank' : undefined}
+								rel={m.ext ? 'noopener noreferrer' : undefined}
+								class="rounded-xl bg-stone-50 border border-stone-200 px-5 py-3 hover:shadow-md transition-shadow text-center min-w-[9rem]"
+							>
+								<span class="block font-semibold text-ink-soft text-sm">{m.label} {m.ext ? '↗' : '→'}</span>
+								<span class="block type-body-sm text-stone-500">{m.sub}</span>
+							</a>
+						))}
+					</div>
+				</div>
 			</div>
 		</section>
 
