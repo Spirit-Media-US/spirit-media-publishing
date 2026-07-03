@@ -74,6 +74,44 @@ const steps = [
 		d: 'We publish on a schedule, watch what works, and double down on it.',
 	},
 ];
+
+// Real examples produced by Spirit Media, served from R2. Two modes:
+// on-camera author interview reels + scripture/audiogram reels (no camera).
+const REEL_CDN = 'https://pub-95ca7305dcbd45198e93dc04cd8a80d1.r2.dev';
+const interviewReels = [
+	{
+		title: 'Misdiagnosed for a Decade',
+		file: 'john-boyle/john-boyle-5-misdiagnosed-for-a-decade.mp4',
+		poster: 'reel-posters/boyle-5.jpg',
+	},
+	{
+		title: "You're Not Crazy, You're Wounded",
+		file: 'john-boyle/john-boyle-14-you-re-not-crazy-you-re-wounded.mp4',
+		poster: 'reel-posters/boyle-14.jpg',
+	},
+	{
+		title: 'From a Symbol of Death to a Symbol of Love',
+		file: 'john-boyle/john-boyle-16-from-a-symbol-of-death-to-a-symbol-of-love.mp4',
+		poster: 'reel-posters/boyle-16.jpg',
+	},
+	{
+		title: 'Light Despite the Darkness',
+		file: 'john-boyle/john-boyle-19-light-despite-the-darkness.mp4',
+		poster: 'reel-posters/boyle-19.jpg',
+	},
+];
+const scriptureReels = [
+	{
+		title: 'Psalm 23',
+		file: 'fhb/audiogram-samples/gen-psalm23-video.mp4',
+		poster: 'reel-posters/fhb-psalm23.jpg',
+	},
+	{
+		title: 'Genesis 1 — read-along',
+		file: 'fhb/audiogram-samples/gen1-styleA-wordsync.mp4',
+		poster: 'reel-posters/fhb-gen1.jpg',
+	},
+];
 ---
 
 <Layout
@@ -161,8 +199,48 @@ const steps = [
 			</div>
 		</section>
 
-		<!-- FAQ -->
+		<!-- EXAMPLES -->
 		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-12">
+					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">See It in Action</p>
+					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">Reels we've made for real authors</h2>
+					<p class="mt-4 text-stone-600 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">From an author's interview to finished, captioned short-form video — and scripture reels that need no camera at all. Tap any reel to play.</p>
+				</div>
+
+				<h3 class="type-card-subheading text-ink-soft mb-5">Author interview reels</h3>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-14">
+					{interviewReels.map((r, i) => (
+						<figure data-animate="fade-up" data-delay={String((i % 4) + 1)}>
+							<div class="rounded-2xl overflow-hidden border border-stone-200 bg-black aspect-[9/16]">
+								<video class="w-full h-full object-cover" controls preload="none" playsinline poster={`${REEL_CDN}/${r.poster}`}>
+									<source src={`${REEL_CDN}/${r.file}`} type="video/mp4" />
+								</video>
+							</div>
+							<figcaption class="type-body-sm text-stone-600 mt-2">{r.title}</figcaption>
+						</figure>
+					))}
+				</div>
+
+				<h3 class="type-card-subheading text-ink-soft mb-5">Scripture &amp; audiogram reels <span class="text-stone-400 font-normal text-base">— no camera needed</span></h3>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+					{scriptureReels.map((r, i) => (
+						<figure data-animate="fade-up" data-delay={String((i % 4) + 1)}>
+							<div class="rounded-2xl overflow-hidden border border-stone-200 bg-black aspect-[9/16]">
+								<video class="w-full h-full object-cover" controls preload="none" playsinline poster={`${REEL_CDN}/${r.poster}`}>
+									<source src={`${REEL_CDN}/${r.file}`} type="video/mp4" />
+								</video>
+							</div>
+							<figcaption class="type-body-sm text-stone-600 mt-2">{r.title}</figcaption>
+						</figure>
+					))}
+				</div>
+				<p class="mt-8 type-body-sm text-stone-500 italic text-center">Author interview reels produced for John Boyle; scripture reels from the Father's Heart Bible™.</p>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="bg-stone-50 py-12 lg:py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto">
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Questions</p>
