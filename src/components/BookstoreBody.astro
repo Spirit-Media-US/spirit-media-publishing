@@ -212,9 +212,13 @@ const allCollections = [
     grid.innerHTML = filtered.map(b => {
       const dateLabel = b.date ? new Date(b.date + 'T12:00:00').toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'}) : '';
       const displayTitle = b.display_title || b.title;
+      // Light/white covers (e.g. FHB White Edition) blend into the white card —
+      // add a hairline between the cover and the card body so the edge reads.
+      const lightCover = /White Edition/i.test(b.title || '') || /White Edition/i.test(displayTitle || '');
+      const coverBorder = lightCover ? ' border-b border-stone-200' : '';
       return `<div class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
         <a href="${b.amazon}" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="aspect-[2/3] overflow-hidden bg-stone-100">
+          <div class="aspect-[2/3] overflow-hidden bg-stone-100${coverBorder}">
             <img src="${b.img}" alt="${displayTitle}" loading="lazy"
               class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
           </div>
