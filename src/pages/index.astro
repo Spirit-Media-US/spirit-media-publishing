@@ -105,16 +105,27 @@ const testimonials = FALLBACK_TESTIMONIALS;
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Organization",
+			"@id": "https://spiritmediapublishing.com/#organization",
 			"name": "Spirit Media Publishing",
+			"alternateName": "SMP",
+			"parentOrganization": { "@type": "Organization", "name": "Spirit Media Inc." },
 			"url": "https://spiritmediapublishing.com",
 			"logo": "https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp",
 			"sameAs": [
 				"https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA",
 				"https://www.facebook.com/spiritmediaus",
-				"https://www.instagram.com/spiritmediaus"
+				"https://www.instagram.com/spiritmediaus",
+				"https://www.linkedin.com/company/spiritmediaus"
 			],
-			"description": "Spirit Media Publishing helps Christian authors publish, market, and distribute their books across 195 nations.",
-			"founder": { "@type": "Person", "name": "Kevin White" },
+			"description": "Spirit Media Publishing, the publishing imprint of Spirit Media Inc., helps Christian authors publish, market, and distribute their books across 195 nations.",
+			"founder": {
+				"@type": "Person",
+				"name": "Kevin White",
+				"sameAs": [
+					"https://www.linkedin.com/in/kevinwhiteus/",
+					"https://www.amazon.com/stores/author/B08LZYTR2B"
+				]
+			},
 			"foundingDate": "2020",
 			"areaServed": "Worldwide",
 			"serviceType": ["Book Publishing", "Book Marketing", "Ghostwriting", "Cover Design", "Audiobook Production"]
