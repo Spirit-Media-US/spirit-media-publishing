@@ -26,7 +26,7 @@ try {
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
 } catch (e) {}
 
-const fhbImage = `${R2_BASE}/fhb.webp`;
+const fhbImage = `${R2_BASE}/fhb-brand.webp`;
 const expressBooksImage = `${R2_BASE}/express-books.webp`;
 const childrensBooksImage = `${R2_BASE}/childrens-books.webp`;
 const writeBookImage = `${R2_BASE}/write-book.webp`;
@@ -317,9 +317,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				<div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
 					<!-- FHB -->
 					<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm transition-shadow hover:shadow-md" data-animate="fade-in" data-delay="1">
-						<div class="flex h-48 items-center justify-center bg-ink-soft p-4">
-							<img src={fhbImage} alt="Father's Heart Bible — An Intimate Translation" width="288" height="288" loading="lazy" decoding="async" class="h-full w-auto object-contain rounded-lg shadow-2xl" />
-						</div>
+						<img src={fhbImage} alt="Readers around the world holding the Father's Heart Bible in print" width="1200" height="800" loading="lazy" decoding="async" class="h-56 w-full object-cover" />
 						<div class="flex flex-1 flex-col p-7">
 							<span class="eyebrow">Father's Heart Bible™ (FHB)</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">An intimate translation revealing our Father's heart to a fatherless generation.</h3>
@@ -329,7 +327,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 					</div>
 					<!-- Express Books -->
 					<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm transition-shadow hover:shadow-md" data-animate="fade-in" data-delay="2">
-						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="h-48 w-full object-cover" />
+						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="h-56 w-full object-cover" />
 						<div class="flex flex-1 flex-col p-7">
 							<span class="eyebrow">EXPRESS BOOKS™</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">Fast reads. Lasting impact.</h3>

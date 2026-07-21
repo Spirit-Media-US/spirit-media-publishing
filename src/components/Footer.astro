@@ -11,7 +11,8 @@ let siteTwitter = 'https://x.com/SpiritMediaUS';
 // Logo served from R2 (same origin as fonts) — keeps mobile off the
 // cdn.sanity.io TLS handshake entirely. Footer is below the fold so the
 // <img> is loading="lazy" and never competes with LCP.
-const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp';
+const logoUrl =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo-redwhite.webp';
 
 try {
 	const s = await sanityClient.fetch(
