@@ -18,11 +18,10 @@ try {
 	if (s?.contactPageHeroImageAlt) contactHeroImageAlt = s.contactPageHeroImageAlt;
 } catch (e) {}
 
-// Fallback if not in Sanity
-if (!contactHeroImage) {
-	contactHeroImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/7833f28378750a49205269eb39a6c2c19f31b92d-1058x394.png?w=1058&fit=max&fm=webp&q=80';
-}
+// Contact hero image (Kevin-selected 2026-07-21). Overrides the Sanity value
+// so the readable 1200x630 art is used on this page.
+contactHeroImage =
+	'https://cdn.sanity.io/images/pmowd8uo/production/232962df9e9743a5790ae86776ab683dbd76042b-1200x630.jpg';
 ---
 
 <Layout
@@ -51,8 +50,8 @@ if (!contactHeroImage) {
 					<div class="hero-stagger">
 						<p class="eyebrow eyebrow-red mb-4">Contact Us</p>
 						<h1 class="type-hero text-ink-soft">Getting to<br /><span class="text-red">Know You</span></h1>
-						<p class="mt-6 text-xl font-semibold text-ink-soft max-w-xl">Before we talk about your manuscript, we'd love to understand your heart for it.</p>
-						<p class="mt-4 text-stone-600 leading-relaxed max-w-xl">We've learned that the books that go on to reach the nations come from authors who are deeply aligned with us on <em>why</em> — not just <em>what</em>. This isn't a test to pass; it's how we make sure a partnership would truly serve you. Publishing and marketing a book to reach the world takes real investment on both sides, and the last thing we want is to take you down a road that isn't right for you. So tell us honestly — there are no wrong answers, only clear ones.</p>
+						<p class="mt-6 text-xl font-semibold text-ink-soft max-w-xl">Before we talk about your project, we'd love to understand your heart for it.</p>
+						<p class="mt-4 text-stone-600 leading-relaxed max-w-xl">We've learned that the messages that go on to reach the nations come from people who are deeply aligned with us on <em>why</em> — not just <em>what</em>. This isn't a test to pass; it's how we make sure a partnership would truly serve you. Taking a message to the nations — through publishing, marketing, or both — takes real investment on both sides, and the last thing we want is to lead you down a road that isn't right for you. So tell us honestly — there are no wrong answers, only clear ones.</p>
 					</div>
 					<div class="hidden lg:flex items-center justify-center" aria-hidden="true" data-animate="zoom-in">
 						<img src={contactHeroImage} alt={contactHeroImageAlt} class="w-full rounded-2xl" />

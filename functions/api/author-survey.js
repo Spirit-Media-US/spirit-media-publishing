@@ -17,6 +17,7 @@ const FIELD_IDS = {
 	worthItScale: 'qRvX1BneydZiHLI5eU87', // Author Survey — Worth it if no dollars (1-10)
 	worthItWhy: '2Z4BAjdMj3uw0YunA0yP', // Author Survey — Worth it, why
 	investmentScale: 'fX0nBIy6GXnJvavAxtS0', // Author Survey — Investment readiness (1-10)
+	investmentWhy: 'QjvP5mGaIZtXUS8Yinv7', // Author Survey — Investment readiness, why
 	writingFor: 'F3ZbCt8EYOv0MuBUW7Ts', // Author Survey — Who are you writing for and why
 	whyYes: 'GkXuUOsMZ6RFDf36Wfyz', // Author Survey — What would make you say yes
 };
@@ -62,6 +63,7 @@ export async function onRequestPost({ request, env }) {
 		{ id: FIELD_IDS.worthItScale, field_value: String(body.worthItScale ?? '') },
 		{ id: FIELD_IDS.worthItWhy, field_value: (body.worthItWhy || '').trim() },
 		{ id: FIELD_IDS.investmentScale, field_value: String(body.investmentScale ?? '') },
+		{ id: FIELD_IDS.investmentWhy, field_value: (body.investmentWhy || '').trim() },
 		{ id: FIELD_IDS.writingFor, field_value: (body.writingFor || '').trim() },
 		{ id: FIELD_IDS.whyYes, field_value: (body.whyYes || '').trim() },
 	].filter((f) => f.field_value !== '');

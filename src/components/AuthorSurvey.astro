@@ -4,15 +4,9 @@
 // Submits to the /api/author-survey Pages Function, which upserts a GHL
 // contact + custom fields + the "author-motive-survey" tag.
 //
-// Best-practice engagement order (see progress_author_motive_survey memory):
-//   contact block → Q1 select-all → Q2 heart slider → Q3 investment slider
-//   → Q4 open → Q5 open → thank-you (reveals phone).
-interface Props {
-	phone?: string;
-}
-const { phone = '1-888-800-3744' } = Astro.props;
-const phoneDigits = phone.replace(/[^0-9]/g, '');
-
+// Engagement order: contact → Q1 select-all → Q2 conviction thermometer →
+// Q3 investment thermometer → Q4 open → Q5 open → thank-you.
+// Thermometers have NO default and reveal "Care to explain?" only after a pick.
 const lookingForOptions = [
 	'A partner who shares my mission and faith',
 	'Professional editing and design',
@@ -27,17 +21,16 @@ const lookingForOptions = [
 	"I've been turned down or burned by another publisher",
 	'I want it done fast',
 ];
+const scale = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 ---
 
-<div class="ams" id="ams-root" data-phone={phone} data-phone-digits={phoneDigits}>
-	<!-- Progress -->
+<div class="ams" id="ams-root">
 	<div class="ams-progress" aria-hidden="true">
 		<div class="ams-progress-bar" id="ams-bar" style="width:0%"></div>
 	</div>
 	<p class="ams-step-count" id="ams-count">Step 1 of 6</p>
 
 	<form id="ams-form" novalidate>
-		<!-- Honeypot -->
 		<input type="text" name="website_hp" id="ams-hp" tabindex="-1" autocomplete="off"
 			style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true" />
 
@@ -55,52 +48,73 @@ const lookingForOptions = [
 
 		<!-- STEP 2 — Q1 select all -->
 		<fieldset class="ams-step" data-step="2">
-			<legend class="ams-q">What are you looking for in a publisher?</legend>
+			<legend class="ams-q">What are you looking for in a partner?</legend>
 			<p class="ams-help">Check all that apply.</p>
 			<div class="ams-checks">
-				{lookingForOptions.map((opt, i) => (
+				{lookingForOptions.map((opt) => (
 					<label class="ams-check">
 						<input type="checkbox" name="lookingFor" value={opt} />
 						<span>{opt}</span>
 					</label>
 				))}
-				<label class="ams-check ams-check-other">
+				<label class="ams-check">
 					<input type="checkbox" id="ams-other-toggle" />
-					<span>Other:</span>
-					<input class="ams-input ams-other-input" type="text" id="ams-other-text"
-						placeholder="Tell us in a few words" disabled />
+					<span>Other</span>
 				</label>
+				<input class="ams-input ams-other-input" type="text" id="ams-other-text"
+					placeholder="Tell us in a few words…" disabled hidden />
 			</div>
 		</fieldset>
 
-		<!-- STEP 3 — Q2 heart slider -->
+		<!-- STEP 3 — Q2 conviction thermometer -->
 		<fieldset class="ams-step" data-step="3">
-			<legend class="ams-q">If this book reached the nations but never earned you a dollar, would it still be worth it?</legend>
-			<input class="ams-range" type="range" min="1" max="10" value="5" id="ams-worth" name="worthItScale" />
-			<div class="ams-range-val">Your answer: <strong id="ams-worth-val">5</strong> / 10</div>
-			<div class="ams-anchors">
-				<span>1 — No, if it doesn't earn, it isn't worth it</span>
-				<span>10 — Absolutely, reaching people is the whole reason</span>
+			<legend class="ams-q">If your message reached the nations but never earned you a dollar, would it still be worth it?</legend>
+			<p class="ams-help">Tap the level that's most true for you.</p>
+			<div class="ams-thermo-wrap">
+				<div class="ams-thermo" data-input="ams-worth" data-explain="ams-worth-explain" role="group" aria-label="Scale from 1 to 10">
+					{scale.map((v) => (
+						<button type="button" class="ams-seg" data-val={v} aria-pressed="false" aria-label={`${v} out of 10`}>{v}</button>
+					))}
+				</div>
+				<div class="ams-anchors-v">
+					<span class="top">10 — Absolutely; reaching people is the whole reason</span>
+					<span class="mid">5 — It would be hard, but it might still be worth it</span>
+					<span class="bot">1 — No; if it doesn't earn, it isn't worth it</span>
+				</div>
 			</div>
-			<label class="ams-label" for="ams-worth-why">Care to explain? <em>(This is the part we read most closely.)</em></label>
-			<textarea class="ams-input ams-textarea" id="ams-worth-why" name="worthItWhy" rows="3"></textarea>
+			<input type="hidden" id="ams-worth" name="worthItScale" value="" />
+			<div class="ams-explain" id="ams-worth-explain" hidden>
+				<label class="ams-label" for="ams-worth-why">Care to explain? <em>(This is the part we read most closely.)</em></label>
+				<textarea class="ams-input ams-textarea" id="ams-worth-why" name="worthItWhy" rows="3"></textarea>
+			</div>
 		</fieldset>
 
-		<!-- STEP 4 — Q3 investment slider -->
+		<!-- STEP 4 — Q3 investment thermometer -->
 		<fieldset class="ams-step" data-step="4">
-			<legend class="ams-q">Publishing and marketing a book to reach the nations takes real investment. Where are you today?</legend>
-			<input class="ams-range" type="range" min="1" max="10" value="5" id="ams-invest" name="investmentScale" />
-			<div class="ams-range-val">Your answer: <strong id="ams-invest-val">5</strong> / 10</div>
-			<div class="ams-anchors">
-				<span>1 — Hoping someone else funds it entirely</span>
-				<span>5 — I can invest some, but I'll need it affordable</span>
-				<span>10 — Ready to invest whatever it takes</span>
+			<legend class="ams-q">Taking your message to the nations takes real investment. Where are you today?</legend>
+			<p class="ams-help">Tap the level that's most true for you.</p>
+			<div class="ams-thermo-wrap">
+				<div class="ams-thermo" data-input="ams-invest" data-explain="ams-invest-explain" role="group" aria-label="Scale from 1 to 10">
+					{scale.map((v) => (
+						<button type="button" class="ams-seg" data-val={v} aria-pressed="false" aria-label={`${v} out of 10`}>{v}</button>
+					))}
+				</div>
+				<div class="ams-anchors-v">
+					<span class="top">10 — Ready to invest whatever it takes</span>
+					<span class="mid">5 — I can invest some, but I'll need it affordable</span>
+					<span class="bot">1 — Hoping someone else funds it entirely</span>
+				</div>
+			</div>
+			<input type="hidden" id="ams-invest" name="investmentScale" value="" />
+			<div class="ams-explain" id="ams-invest-explain" hidden>
+				<label class="ams-label" for="ams-invest-why">Care to explain?</label>
+				<textarea class="ams-input ams-textarea" id="ams-invest-why" name="investmentWhy" rows="3"></textarea>
 			</div>
 		</fieldset>
 
 		<!-- STEP 5 — Q4 open -->
 		<fieldset class="ams-step" data-step="5">
-			<legend class="ams-q">Who is the one person you're writing this for — and why?</legend>
+			<legend class="ams-q">Who is the one person this message is for — and why?</legend>
 			<textarea class="ams-input ams-textarea" name="writingFor" rows="5"></textarea>
 		</fieldset>
 
@@ -110,30 +124,27 @@ const lookingForOptions = [
 			<textarea class="ams-input ams-textarea" name="whyYes" rows="5"></textarea>
 		</fieldset>
 
-		<!-- Nav -->
 		<div class="ams-nav">
 			<button type="button" class="ams-btn ams-btn-ghost" id="ams-back" hidden>Back</button>
 			<button type="button" class="ams-btn ams-btn-red" id="ams-next">Continue</button>
-			<button type="submit" class="ams-btn ams-btn-red" id="ams-submit" hidden>Send my heart to Spirit Media</button>
+			<button type="submit" class="ams-btn ams-btn-red" id="ams-submit" hidden>Send my responses</button>
 		</div>
 	</form>
 
-	<!-- Thank-you -->
 	<div class="ams-thanks" id="ams-thanks" hidden>
-		<h3 class="ams-thanks-title">Thank you — we've received your heart.</h3>
+		<h3 class="ams-thanks-title">Thank you for sharing this with us.</h3>
 		<p class="ams-thanks-body">
-			A member of our team will read every word and reach out personally. We're honored you'd
-			trust us with your book.
+			We've read what matters most — your heart and your vision. Someone from our team will
+			reach out to you personally very soon.
 		</p>
 		<p class="ams-thanks-body">
-			If you'd like to talk sooner, here's our direct line:
-			<a class="ams-phone" href={`tel:+1${phoneDigits}`}>{phone}</a>
+			We're grateful you'd trust us, and we look forward to talking about how we can help take
+			your message to the nations.
 		</p>
 	</div>
 
 	<div class="ams-fail" id="ams-fail" hidden>
-		<p>We're sorry — something went wrong saving your responses. Please try again, or call us at
-			<a href={`tel:+1${phoneDigits}`}>{phone}</a>.</p>
+		<p>We're sorry — something went wrong saving your responses. Please try again in a moment.</p>
 	</div>
 </div>
 
@@ -167,13 +178,22 @@ const lookingForOptions = [
 	}
 	.ams-check:hover { border-color: #d6d3d1; background: #fafaf9; }
 	.ams-check input { margin-top: .2rem; width: 1.05rem; height: 1.05rem; accent-color: var(--color-red, #c8102e); flex: none; }
-	.ams-check-other { flex-wrap: wrap; }
-	.ams-other-input { margin-top: .5rem; flex-basis: 100%; }
+	.ams-other-input { margin-top: .1rem; }
 
-	.ams-range { width: 100%; accent-color: var(--color-red, #c8102e); margin: 1.25rem 0 .5rem; }
-	.ams-range-val { font-size: .95rem; color: #44403c; }
-	.ams-range-val strong { color: var(--color-red, #c8102e); font-size: 1.15rem; }
-	.ams-anchors { display: flex; flex-direction: column; gap: .15rem; margin: .6rem 0 .5rem; font-size: .8rem; color: #78716c; }
+	/* Thermometer */
+	.ams-thermo-wrap { display: flex; gap: 1.25rem; align-items: stretch; margin: 1rem 0 .5rem; }
+	.ams-thermo { display: flex; flex-direction: column; gap: 4px; flex: none; }
+	.ams-seg {
+		width: 84px; padding: .5rem 0; border: 1px solid #d6d3d1; background: #fff; color: #78716c;
+		font-weight: 700; font-size: 1rem; cursor: pointer; border-radius: .35rem; transition: background .12s, color .12s, border-color .12s, transform .05s;
+	}
+	.ams-seg:hover { border-color: var(--color-red, #c8102e); }
+	.ams-seg:active { transform: scale(.98); }
+	.ams-seg.is-on { background: var(--color-red, #c8102e); color: #fff; border-color: var(--color-red, #c8102e); }
+	.ams-seg.is-pick { box-shadow: 0 0 0 3px rgba(200,16,46,.25); }
+	.ams-anchors-v { display: flex; flex-direction: column; justify-content: space-between; padding: .1rem 0; font-size: .9rem; color: #57534e; line-height: 1.35; }
+	.ams-anchors-v .mid { color: #78716c; }
+	.ams-explain { animation: ams-fade .3s ease; }
 
 	.ams-err { color: var(--color-red, #c8102e); font-weight: 600; margin-top: .75rem; }
 
@@ -189,8 +209,7 @@ const lookingForOptions = [
 	.ams-thanks, .ams-fail { text-align: center; padding: 2rem 0; }
 	.ams-thanks-title { font-size: 1.6rem; font-weight: 700; color: #292524; margin-bottom: 1rem; }
 	.ams-thanks-body { color: #57534e; line-height: 1.6; max-width: 34rem; margin: 0 auto .75rem; }
-	.ams-phone { display: inline-block; margin-top: .35rem; font-size: 1.25rem; font-weight: 700; color: var(--color-red, #c8102e); }
-	.ams-fail a { color: var(--color-red, #c8102e); font-weight: 600; }
+	.ams-fail { color: var(--color-red, #c8102e); font-weight: 600; }
 </style>
 
 <script>
@@ -205,6 +224,11 @@ const lookingForOptions = [
 		const submitBtn = document.getElementById('ams-submit') as HTMLButtonElement;
 		const total = steps.length;
 		let cur = 0;
+
+		const scrollTop = () => {
+			const y = root.getBoundingClientRect().top + window.scrollY - 96;
+			window.scrollTo({ top: y, behavior: 'smooth' });
+		};
 
 		const render = () => {
 			steps.forEach((s, i) => s.classList.toggle('is-active', i === cur));
@@ -225,34 +249,48 @@ const lookingForOptions = [
 
 		nextBtn.addEventListener('click', () => {
 			if (cur === 0 && !validateStep1()) return;
-			if (cur < total - 1) { cur++; render(); root.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+			if (cur < total - 1) { cur++; render(); scrollTop(); }
 		});
 		backBtn.addEventListener('click', () => {
-			if (cur > 0) { cur--; render(); root.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+			if (cur > 0) { cur--; render(); scrollTop(); }
 		});
 
-		// Slider live values
-		const bind = (rangeId: string, valId: string) => {
-			const r = document.getElementById(rangeId) as HTMLInputElement;
-			const v = document.getElementById(valId) as HTMLElement;
-			if (r && v) r.addEventListener('input', () => { v.textContent = r.value; });
-		};
-		bind('ams-worth', 'ams-worth-val');
-		bind('ams-invest', 'ams-invest-val');
+		// Thermometers: click a segment → fill up to it, reveal explain.
+		root.querySelectorAll('.ams-thermo').forEach((therm) => {
+			const el = therm as HTMLElement;
+			const hidden = document.getElementById(el.dataset.input as string) as HTMLInputElement;
+			const explain = document.getElementById(el.dataset.explain as string) as HTMLElement;
+			el.addEventListener('click', (e) => {
+				const seg = (e.target as HTMLElement).closest('.ams-seg') as HTMLElement | null;
+				if (!seg) return;
+				const val = Number(seg.dataset.val);
+				hidden.value = String(val);
+				el.querySelectorAll('.ams-seg').forEach((s) => {
+					const sv = Number((s as HTMLElement).dataset.val);
+					s.classList.toggle('is-on', sv <= val);
+					s.classList.toggle('is-pick', sv === val);
+					s.setAttribute('aria-pressed', sv === val ? 'true' : 'false');
+				});
+				if (explain) explain.hidden = false;
+			});
+		});
 
-		// "Other" toggle enables its text input
+		// Q1 "Other" — text input lives OUTSIDE the label so clicking it can't
+		// toggle the checkbox.
 		const otherToggle = document.getElementById('ams-other-toggle') as HTMLInputElement;
 		const otherText = document.getElementById('ams-other-text') as HTMLInputElement;
 		if (otherToggle && otherText) {
 			otherToggle.addEventListener('change', () => {
+				otherText.hidden = !otherToggle.checked;
 				otherText.disabled = !otherToggle.checked;
 				if (otherToggle.checked) otherText.focus();
+				else otherText.value = '';
 			});
 		}
 
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
-			if (!validateStep1()) { cur = 0; render(); return; }
+			if (!validateStep1()) { cur = 0; render(); scrollTop(); return; }
 
 			const lookingFor = Array.from(
 				form.querySelectorAll('input[name="lookingFor"]:checked'),
@@ -261,6 +299,7 @@ const lookingForOptions = [
 				lookingFor.push(`Other: ${otherText.value.trim()}`);
 			}
 
+			const val = (sel: string) => (form.querySelector(sel) as HTMLInputElement | HTMLTextAreaElement)?.value ?? '';
 			const data = {
 				website_hp: (document.getElementById('ams-hp') as HTMLInputElement).value,
 				name: (document.getElementById('ams-name') as HTMLInputElement).value,
@@ -270,8 +309,9 @@ const lookingForOptions = [
 				worthItScale: (document.getElementById('ams-worth') as HTMLInputElement).value,
 				worthItWhy: (document.getElementById('ams-worth-why') as HTMLTextAreaElement).value,
 				investmentScale: (document.getElementById('ams-invest') as HTMLInputElement).value,
-				writingFor: (form.querySelector('[name="writingFor"]') as HTMLTextAreaElement).value,
-				whyYes: (form.querySelector('[name="whyYes"]') as HTMLTextAreaElement).value,
+				investmentWhy: (document.getElementById('ams-invest-why') as HTMLTextAreaElement).value,
+				writingFor: val('[name="writingFor"]'),
+				whyYes: val('[name="whyYes"]'),
 			};
 
 			submitBtn.disabled = true;
@@ -288,14 +328,14 @@ const lookingForOptions = [
 					(root.querySelector('.ams-progress') as HTMLElement).hidden = true;
 					count.hidden = true;
 					(document.getElementById('ams-thanks') as HTMLElement).hidden = false;
-					root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					scrollTop();
 				} else {
 					throw new Error(out.error || 'failed');
 				}
 			} catch {
 				(document.getElementById('ams-fail') as HTMLElement).hidden = false;
 				submitBtn.disabled = false;
-				submitBtn.textContent = 'Send my heart to Spirit Media';
+				submitBtn.textContent = 'Send my responses';
 			}
 		});
 
