@@ -28,7 +28,6 @@ try {
 
 const fhbImage = `${R2_BASE}/fhb.webp`;
 const expressBooksImage = `${R2_BASE}/express-books.webp`;
-const manuscriptReviewImage = `${R2_BASE}/manuscript-review.webp`;
 const childrensBooksImage = `${R2_BASE}/childrens-books.webp`;
 const writeBookImage = `${R2_BASE}/write-book.webp`;
 const publishBookImage = `${R2_BASE}/publish-book.webp`;
@@ -144,6 +143,33 @@ const testimonials = FALLBACK_TESTIMONIALS;
 		})}></script>
 	</Fragment>
 	<main id="main-content">
+
+		<!-- ═══ FHB LAUNCH HERO ═══ -->
+		<!-- Announcement hero: Father's Heart Bible now in print + free to read/listen.
+		     Headline text paints first (LCP-friendly); the 3 print mockups sit below.
+		     Mockups are R2-hosted WebP (1000x667), same origin as the rest of the page. -->
+		<section class="bg-ink-soft text-white px-6 pt-12 pb-14 lg:pt-16 lg:pb-20 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-6xl text-center">
+				<p class="eyebrow eyebrow-red mb-4">Now in Print</p>
+				<h1 class="type-hero">The Father's Heart Bible<br /><span class="text-red">is here.</span></h1>
+				<p class="mt-6 mx-auto max-w-2xl type-body-lg text-stone-200">
+					An intimate translation revealing our Father's heart to His beloved children — now
+					in print, and free to read or listen online.
+				</p>
+				<div class="mt-8 grid grid-cols-3 gap-3 sm:gap-5 max-w-4xl mx-auto">
+					<img src={`${R2_BASE}/fhb-print-1.webp`} width="1000" height="667" loading="eager" decoding="async"
+						alt="A young man holding the Father's Heart Bible in print" class="w-full rounded-xl shadow-lg" />
+					<img src={`${R2_BASE}/fhb-print-2.webp`} width="1000" height="667" loading="eager" decoding="async"
+						alt="A family reading the Father's Heart Bible together" class="w-full rounded-xl shadow-lg" />
+					<img src={`${R2_BASE}/fhb-print-3.webp`} width="1000" height="667" loading="eager" decoding="async"
+						alt="A woman reading the Father's Heart Bible to a loved one in the hospital" class="w-full rounded-xl shadow-lg" />
+				</div>
+				<div class="mt-9 flex flex-wrap justify-center gap-4">
+					<a href="/print" class="btn btn-primary">Get It in Print</a>
+					<a href="/read" class="inline-flex items-center rounded-md border border-white px-6 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-ink-soft">Read &amp; Listen Free</a>
+				</div>
+			</div>
+		</section>
 
 		<!-- ═══ HERO ═══ -->
 		<!-- Two-block pattern (Scripture Alive): mobile is text-only so the H1 is the
@@ -310,49 +336,6 @@ const testimonials = FALLBACK_TESTIMONIALS;
 							<p class="type-body-lg text-stone-700 mb-5">Intentionally compact books designed to be read in under an hour. No filler. No fluff. Transformation that lasts a lifetime.</p>
 							<a href="/express-books" class="mt-auto text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
 						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ═══ FREE MANUSCRIPT REVIEW ═══ -->
-		<section class="bg-ink-soft px-6 py-12 lg:py-20 lg:px-8">
-			<div class="mx-auto max-w-7xl">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-					<!-- Image left -->
-					<div class="flex justify-center" data-animate="slide-left">
-						<img src={manuscriptReviewImage} alt="Sample Spirit Media Manuscript Review document" width="600" height="900" loading="lazy" decoding="async" class="w-full max-w-xs" />
-					</div>
-					<!-- Content right -->
-					<div data-animate="slide-right">
-						<div class="mb-10">
-							<span class="eyebrow" style="color: var(--color-stone-500);" data-animate="fade-in">Free Offer</span>
-							<h2 class="type-section-heading text-stone-100 mb-4">
-								Free Manuscript Review
-							</h2>
-							<p class="type-body-lg text-stone-400">
-								Share your manuscript with us and our team of seasoned editors will provide a <strong class="text-stone-200">FREE customized 20-point review ($250 value).</strong>
-							</p>
-						</div>
-						<div class="flex flex-wrap gap-2 mb-8">
-							{[
-								'Manuscript Overview', 'Biblical Accuracy', 'Target Audience Analysis', 'Genre & Market Fit',
-								'Content Organization', 'Thematic Depth', 'Emotional Impact', 'Writing Style & Voice',
-								'Grammar & Mechanics', 'Clarity & Readability', 'Research & Credibility', 'Reader Engagement & Pacing',
-								'Unique Selling Points', 'Final Editing Assessment', 'Market Potential', 'Strengths',
-								'Areas for Improvement', 'Top Amazon Categories', 'Optimized KDP Keywords', 'Summary & Recommendations',
-							].map((item) => (
-								<span class="bg-ink-muted/40 text-stone-400 text-xs font-medium px-3 py-1.5 rounded-full ring-1 ring-stone-600/30">
-									{item}
-								</span>
-							))}
-						</div>
-						<p class="text-stone-500 italic mb-8">
-							This will affirm God's good work in and through you.
-						</p>
-						<MailtoLink email="publisher@spiritmedia.us" class="btn btn-primary">
-							Email your Manuscript →
-						</MailtoLink>
 					</div>
 				</div>
 			</div>
