@@ -107,22 +107,39 @@ export async function onRequestPost({ request, env }) {
 
 		// Notify the team directly via Mailgun (reliable; independent of GHL workflow).
 		if (env.MAILGUN_API_KEY) {
+			// Full survey questions paired with the person's answers.
+			const worthWhy = (body.worthItWhy || '').trim();
+			const investWhy = (body.investmentWhy || '').trim();
 			const rows = [
-				['Name', name],
-				['Email', email],
-				['Phone', phone || '—'],
-				['Looking for in a partner', lookingFor || '—'],
-				['Worth it even with no dollars (1–10)', body.worthItScale || '—'],
-				['— why', body.worthItWhy || '—'],
-				['Investment readiness (1–10)', body.investmentScale || '—'],
-				['— why', body.investmentWhy || '—'],
-				['Who this is for — and why', body.writingFor || '—'],
-				['What would make them say yes', body.whyYes || '—'],
+				['What are you looking for in a partner?', lookingFor || '—'],
+				[
+					'If your message reached the nations but never earned you a dollar, would it still be worth it? (1 = no · 10 = absolutely)',
+					(body.worthItScale ? `${body.worthItScale} / 10` : '—') +
+						(worthWhy ? `\n\nWhy: ${worthWhy}` : ''),
+				],
+				[
+					'Taking your message to the nations takes real investment. Where are you today? (1 = someone else funds it · 10 = whatever it takes)',
+					(body.investmentScale ? `${body.investmentScale} / 10` : '—') +
+						(investWhy ? `\n\nWhy: ${investWhy}` : ''),
+				],
+				[
+					'Who is the one person or people this message is for — and why?',
+					(body.writingFor || '').trim() || '—',
+				],
+				[
+					'What would make you say yes to us publishing and/or marketing your message?',
+					(body.whyYes || '').trim() || '—',
+				],
 			];
-			const html = `<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:0 auto;color:#292524;">
-				<h2 style="margin:0 0 12px;">New Author Motive Survey — ${esc(name)}</h2>
+			const html = `<div style="font-family:Arial,Helvetica,sans-serif;max-width:660px;margin:0 auto;color:#292524;">
+				<h2 style="margin:0 0 4px;">New Author Motive Survey — ${esc(name)}</h2>
+				<div style="color:#78716c;font-size:13px;margin-bottom:14px;">${esc(email)}${phone ? ' · ' + esc(phone) : ''}</div>
 				<table style="width:100%;border-collapse:collapse;border:1px solid #eee;">
-					${rows.map((r) => `<tr><td style="vertical-align:top;padding:8px 12px;border-bottom:1px solid #eee;font-weight:700;width:42%;">${esc(r[0])}</td><td style="vertical-align:top;padding:8px 12px;border-bottom:1px solid #eee;white-space:pre-wrap;">${esc(r[1])}</td></tr>`).join('')}
+					<tr style="background:#fafaf9;">
+						<th style="text-align:left;padding:8px 12px;font-size:12px;color:#78716c;text-transform:uppercase;letter-spacing:.04em;">Question</th>
+						<th style="text-align:left;padding:8px 12px;font-size:12px;color:#78716c;text-transform:uppercase;letter-spacing:.04em;">Response</th>
+					</tr>
+					${rows.map((r) => `<tr><td style="vertical-align:top;padding:10px 12px;border-bottom:1px solid #eee;font-weight:700;font-size:13px;width:50%;">${esc(r[0])}</td><td style="vertical-align:top;padding:10px 12px;border-bottom:1px solid #eee;font-size:14px;white-space:pre-wrap;">${esc(r[1])}</td></tr>`).join('')}
 				</table>
 			</div>`;
 			const form = new URLSearchParams();
