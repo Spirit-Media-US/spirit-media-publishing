@@ -1,4 +1,5 @@
 ---
+import AuthorSurvey from '../components/AuthorSurvey.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
@@ -49,9 +50,9 @@ if (!contactHeroImage) {
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div class="hero-stagger">
 						<p class="eyebrow eyebrow-red mb-4">Contact Us</p>
-						<h1 class="type-hero text-ink-soft">Ready to Schedule a<br /><span class="text-red">FREE Consultation Call?</span></h1>
-						<p class="mt-6 text-2xl font-bold text-ink-soft"><a href={"tel:+1" + sitePhone.replace(/[^0-9]/g, "")} class="hover:text-red transition-colors">{sitePhone}</a></p>
-						<p class="mt-4 text-stone-600 leading-relaxed max-w-xl">Otherwise, request a call back. Please use this form to inquire about our publishing and marketing services only. No response will be given for employment or sales inquiries. Thank you!</p>
+						<h1 class="type-hero text-ink-soft">Getting to<br /><span class="text-red">Know You</span></h1>
+						<p class="mt-6 text-xl font-semibold text-ink-soft max-w-xl">Before we talk about your manuscript, we'd love to understand your heart for it.</p>
+						<p class="mt-4 text-stone-600 leading-relaxed max-w-xl">We've learned that the books that go on to reach the nations come from authors who are deeply aligned with us on <em>why</em> — not just <em>what</em>. This isn't a test to pass; it's how we make sure a partnership would truly serve you. Publishing and marketing a book to reach the world takes real investment on both sides, and the last thing we want is to take you down a road that isn't right for you. So tell us honestly — there are no wrong answers, only clear ones.</p>
 					</div>
 					<div class="hidden lg:flex items-center justify-center" aria-hidden="true" data-animate="zoom-in">
 						<img src={contactHeroImage} alt={contactHeroImageAlt} class="w-full rounded-2xl" />
@@ -63,24 +64,7 @@ if (!contactHeroImage) {
 		<!-- FORM -->
 		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto" data-animate="fade-up">
-				<iframe
-					src="https://mail.spiritmediaone.com/widget/form/SRpyaMchAsDAtYsMfaTg"
-					style="width:100%; height:700px; border:none; border-radius:3px;"
-					id="inline-SRpyaMchAsDAtYsMfaTg"
-					data-layout="{'id':'INLINE'}"
-					data-trigger-type="alwaysShow"
-					data-trigger-value=""
-					data-activation-type="alwaysActivated"
-					data-activation-value=""
-					data-deactivation-type="neverDeactivate"
-					data-deactivation-value=""
-					data-form-name="Request A Call"
-					data-height="692"
-					data-layout-iframe-id="inline-SRpyaMchAsDAtYsMfaTg"
-					data-form-id="SRpyaMchAsDAtYsMfaTg"
-					title="Request A Call"
-				></iframe>
-				<script is:inline src="https://mail.spiritmediaone.com/js/form_embed.js"></script>
+				<AuthorSurvey phone={sitePhone} />
 			</div>
 		</section>
 

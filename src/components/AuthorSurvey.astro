@@ -1,0 +1,304 @@
+---
+// AuthorSurvey.astro — "Getting to Know You" multi-step motive survey.
+// Self-contained: vanilla JS, no React island (keeps /contact static + fast).
+// Submits to the /api/author-survey Pages Function, which upserts a GHL
+// contact + custom fields + the "author-motive-survey" tag.
+//
+// Best-practice engagement order (see progress_author_motive_survey memory):
+//   contact block → Q1 select-all → Q2 heart slider → Q3 investment slider
+//   → Q4 open → Q5 open → thank-you (reveals phone).
+interface Props {
+	phone?: string;
+}
+const { phone = '1-888-800-3744' } = Astro.props;
+const phoneDigits = phone.replace(/[^0-9]/g, '');
+
+const lookingForOptions = [
+	'A partner who shares my mission and faith',
+	'Professional editing and design',
+	'Help getting my message to the nations',
+	'Marketing and promotion support',
+	'Guidance through the whole process',
+	'A team that believes in the message, not just the sales',
+	'I want to leave a legacy for my family',
+	'I believe this message was given to me to steward',
+	'I want to reach people the Church often misses',
+	"I'm looking for the best royalty / the most money",
+	"I've been turned down or burned by another publisher",
+	'I want it done fast',
+];
+---
+
+<div class="ams" id="ams-root" data-phone={phone} data-phone-digits={phoneDigits}>
+	<!-- Progress -->
+	<div class="ams-progress" aria-hidden="true">
+		<div class="ams-progress-bar" id="ams-bar" style="width:0%"></div>
+	</div>
+	<p class="ams-step-count" id="ams-count">Step 1 of 6</p>
+
+	<form id="ams-form" novalidate>
+		<!-- Honeypot -->
+		<input type="text" name="website_hp" id="ams-hp" tabindex="-1" autocomplete="off"
+			style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true" />
+
+		<!-- STEP 1 — Contact -->
+		<fieldset class="ams-step is-active" data-step="1">
+			<legend class="ams-q">First, so we know who we're talking to</legend>
+			<label class="ams-label" for="ams-name">Your name</label>
+			<input class="ams-input" type="text" id="ams-name" name="name" autocomplete="name" required />
+			<label class="ams-label" for="ams-email">Email</label>
+			<input class="ams-input" type="email" id="ams-email" name="email" autocomplete="email" required />
+			<label class="ams-label" for="ams-phone">Phone</label>
+			<input class="ams-input" type="tel" id="ams-phone" name="phone" autocomplete="tel" />
+			<p class="ams-err" id="ams-err-1" hidden>Please share your name and a valid email.</p>
+		</fieldset>
+
+		<!-- STEP 2 — Q1 select all -->
+		<fieldset class="ams-step" data-step="2">
+			<legend class="ams-q">What are you looking for in a publisher?</legend>
+			<p class="ams-help">Check all that apply.</p>
+			<div class="ams-checks">
+				{lookingForOptions.map((opt, i) => (
+					<label class="ams-check">
+						<input type="checkbox" name="lookingFor" value={opt} />
+						<span>{opt}</span>
+					</label>
+				))}
+				<label class="ams-check ams-check-other">
+					<input type="checkbox" id="ams-other-toggle" />
+					<span>Other:</span>
+					<input class="ams-input ams-other-input" type="text" id="ams-other-text"
+						placeholder="Tell us in a few words" disabled />
+				</label>
+			</div>
+		</fieldset>
+
+		<!-- STEP 3 — Q2 heart slider -->
+		<fieldset class="ams-step" data-step="3">
+			<legend class="ams-q">If this book reached the nations but never earned you a dollar, would it still be worth it?</legend>
+			<input class="ams-range" type="range" min="1" max="10" value="5" id="ams-worth" name="worthItScale" />
+			<div class="ams-range-val">Your answer: <strong id="ams-worth-val">5</strong> / 10</div>
+			<div class="ams-anchors">
+				<span>1 — No, if it doesn't earn, it isn't worth it</span>
+				<span>10 — Absolutely, reaching people is the whole reason</span>
+			</div>
+			<label class="ams-label" for="ams-worth-why">Care to explain? <em>(This is the part we read most closely.)</em></label>
+			<textarea class="ams-input ams-textarea" id="ams-worth-why" name="worthItWhy" rows="3"></textarea>
+		</fieldset>
+
+		<!-- STEP 4 — Q3 investment slider -->
+		<fieldset class="ams-step" data-step="4">
+			<legend class="ams-q">Publishing and marketing a book to reach the nations takes real investment. Where are you today?</legend>
+			<input class="ams-range" type="range" min="1" max="10" value="5" id="ams-invest" name="investmentScale" />
+			<div class="ams-range-val">Your answer: <strong id="ams-invest-val">5</strong> / 10</div>
+			<div class="ams-anchors">
+				<span>1 — Hoping someone else funds it entirely</span>
+				<span>5 — I can invest some, but I'll need it affordable</span>
+				<span>10 — Ready to invest whatever it takes</span>
+			</div>
+		</fieldset>
+
+		<!-- STEP 5 — Q4 open -->
+		<fieldset class="ams-step" data-step="5">
+			<legend class="ams-q">Who is the one person you're writing this for — and why?</legend>
+			<textarea class="ams-input ams-textarea" name="writingFor" rows="5"></textarea>
+		</fieldset>
+
+		<!-- STEP 6 — Q5 open -->
+		<fieldset class="ams-step" data-step="6">
+			<legend class="ams-q">What would make you say <em>yes</em> to us?</legend>
+			<textarea class="ams-input ams-textarea" name="whyYes" rows="5"></textarea>
+		</fieldset>
+
+		<!-- Nav -->
+		<div class="ams-nav">
+			<button type="button" class="ams-btn ams-btn-ghost" id="ams-back" hidden>Back</button>
+			<button type="button" class="ams-btn ams-btn-red" id="ams-next">Continue</button>
+			<button type="submit" class="ams-btn ams-btn-red" id="ams-submit" hidden>Send my heart to Spirit Media</button>
+		</div>
+	</form>
+
+	<!-- Thank-you -->
+	<div class="ams-thanks" id="ams-thanks" hidden>
+		<h3 class="ams-thanks-title">Thank you — we've received your heart.</h3>
+		<p class="ams-thanks-body">
+			A member of our team will read every word and reach out personally. We're honored you'd
+			trust us with your book.
+		</p>
+		<p class="ams-thanks-body">
+			If you'd like to talk sooner, here's our direct line:
+			<a class="ams-phone" href={`tel:+1${phoneDigits}`}>{phone}</a>
+		</p>
+	</div>
+
+	<div class="ams-fail" id="ams-fail" hidden>
+		<p>We're sorry — something went wrong saving your responses. Please try again, or call us at
+			<a href={`tel:+1${phoneDigits}`}>{phone}</a>.</p>
+	</div>
+</div>
+
+<style>
+	.ams { max-width: 42rem; margin: 0 auto; }
+	.ams-progress { height: 6px; background: #e7e5e4; border-radius: 999px; overflow: hidden; }
+	.ams-progress-bar { height: 100%; background: var(--color-red, #c8102e); transition: width .35s ease; }
+	.ams-step-count { margin: .5rem 0 1.5rem; font-size: .8rem; color: #78716c; font-weight: 600; letter-spacing: .02em; }
+
+	.ams-step { border: 0; padding: 0; margin: 0; display: none; }
+	.ams-step.is-active { display: block; animation: ams-fade .3s ease; }
+	@keyframes ams-fade { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: none;} }
+
+	.ams-q { font-size: 1.4rem; line-height: 1.3; font-weight: 700; color: #292524; margin-bottom: .5rem; }
+	.ams-q em { color: var(--color-red, #c8102e); font-style: italic; }
+	.ams-help { color: #78716c; margin-bottom: 1rem; }
+	.ams-label { display: block; font-weight: 600; color: #44403c; margin: 1rem 0 .35rem; }
+	.ams-label em { font-weight: 400; color: #78716c; }
+
+	.ams-input {
+		width: 100%; padding: .75rem .9rem; border: 1px solid #d6d3d1; border-radius: .6rem;
+		font: inherit; color: #292524; background: #fff; transition: border-color .15s;
+	}
+	.ams-input:focus { outline: none; border-color: var(--color-red, #c8102e); box-shadow: 0 0 0 3px rgba(200,16,46,.12); }
+	.ams-textarea { resize: vertical; }
+
+	.ams-checks { display: grid; gap: .5rem; }
+	.ams-check {
+		display: flex; align-items: flex-start; gap: .6rem; padding: .7rem .9rem;
+		border: 1px solid #e7e5e4; border-radius: .6rem; cursor: pointer; transition: background .12s, border-color .12s;
+	}
+	.ams-check:hover { border-color: #d6d3d1; background: #fafaf9; }
+	.ams-check input { margin-top: .2rem; width: 1.05rem; height: 1.05rem; accent-color: var(--color-red, #c8102e); flex: none; }
+	.ams-check-other { flex-wrap: wrap; }
+	.ams-other-input { margin-top: .5rem; flex-basis: 100%; }
+
+	.ams-range { width: 100%; accent-color: var(--color-red, #c8102e); margin: 1.25rem 0 .5rem; }
+	.ams-range-val { font-size: .95rem; color: #44403c; }
+	.ams-range-val strong { color: var(--color-red, #c8102e); font-size: 1.15rem; }
+	.ams-anchors { display: flex; flex-direction: column; gap: .15rem; margin: .6rem 0 .5rem; font-size: .8rem; color: #78716c; }
+
+	.ams-err { color: var(--color-red, #c8102e); font-weight: 600; margin-top: .75rem; }
+
+	.ams-nav { display: flex; gap: .75rem; margin-top: 2rem; }
+	.ams-btn { padding: .8rem 1.5rem; border-radius: .6rem; font-weight: 700; cursor: pointer; border: 0; font-size: 1rem; transition: opacity .15s, transform .05s; }
+	.ams-btn:active { transform: translateY(1px); }
+	.ams-btn-red { background: var(--color-red, #c8102e); color: #fff; margin-left: auto; }
+	.ams-btn-red:hover { opacity: .92; }
+	.ams-btn-red[disabled] { opacity: .6; cursor: wait; }
+	.ams-btn-ghost { background: transparent; color: #57534e; border: 1px solid #d6d3d1; }
+	.ams-btn-ghost:hover { background: #fafaf9; }
+
+	.ams-thanks, .ams-fail { text-align: center; padding: 2rem 0; }
+	.ams-thanks-title { font-size: 1.6rem; font-weight: 700; color: #292524; margin-bottom: 1rem; }
+	.ams-thanks-body { color: #57534e; line-height: 1.6; max-width: 34rem; margin: 0 auto .75rem; }
+	.ams-phone { display: inline-block; margin-top: .35rem; font-size: 1.25rem; font-weight: 700; color: var(--color-red, #c8102e); }
+	.ams-fail a { color: var(--color-red, #c8102e); font-weight: 600; }
+</style>
+
+<script>
+	const root = document.getElementById('ams-root');
+	if (root) {
+		const form = document.getElementById('ams-form') as HTMLFormElement;
+		const steps = Array.from(root.querySelectorAll('.ams-step')) as HTMLElement[];
+		const bar = document.getElementById('ams-bar') as HTMLElement;
+		const count = document.getElementById('ams-count') as HTMLElement;
+		const backBtn = document.getElementById('ams-back') as HTMLButtonElement;
+		const nextBtn = document.getElementById('ams-next') as HTMLButtonElement;
+		const submitBtn = document.getElementById('ams-submit') as HTMLButtonElement;
+		const total = steps.length;
+		let cur = 0;
+
+		const render = () => {
+			steps.forEach((s, i) => s.classList.toggle('is-active', i === cur));
+			bar.style.width = `${((cur + 1) / total) * 100}%`;
+			count.textContent = `Step ${cur + 1} of ${total}`;
+			backBtn.hidden = cur === 0;
+			nextBtn.hidden = cur === total - 1;
+			submitBtn.hidden = cur !== total - 1;
+		};
+
+		const validateStep1 = () => {
+			const name = (document.getElementById('ams-name') as HTMLInputElement).value.trim();
+			const email = (document.getElementById('ams-email') as HTMLInputElement).value.trim();
+			const ok = name.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+			(document.getElementById('ams-err-1') as HTMLElement).hidden = ok;
+			return ok;
+		};
+
+		nextBtn.addEventListener('click', () => {
+			if (cur === 0 && !validateStep1()) return;
+			if (cur < total - 1) { cur++; render(); root.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+		});
+		backBtn.addEventListener('click', () => {
+			if (cur > 0) { cur--; render(); root.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+		});
+
+		// Slider live values
+		const bind = (rangeId: string, valId: string) => {
+			const r = document.getElementById(rangeId) as HTMLInputElement;
+			const v = document.getElementById(valId) as HTMLElement;
+			if (r && v) r.addEventListener('input', () => { v.textContent = r.value; });
+		};
+		bind('ams-worth', 'ams-worth-val');
+		bind('ams-invest', 'ams-invest-val');
+
+		// "Other" toggle enables its text input
+		const otherToggle = document.getElementById('ams-other-toggle') as HTMLInputElement;
+		const otherText = document.getElementById('ams-other-text') as HTMLInputElement;
+		if (otherToggle && otherText) {
+			otherToggle.addEventListener('change', () => {
+				otherText.disabled = !otherToggle.checked;
+				if (otherToggle.checked) otherText.focus();
+			});
+		}
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			if (!validateStep1()) { cur = 0; render(); return; }
+
+			const lookingFor = Array.from(
+				form.querySelectorAll('input[name="lookingFor"]:checked'),
+			).map((el) => (el as HTMLInputElement).value);
+			if (otherToggle?.checked && otherText.value.trim()) {
+				lookingFor.push(`Other: ${otherText.value.trim()}`);
+			}
+
+			const data = {
+				website_hp: (document.getElementById('ams-hp') as HTMLInputElement).value,
+				name: (document.getElementById('ams-name') as HTMLInputElement).value,
+				email: (document.getElementById('ams-email') as HTMLInputElement).value,
+				phone: (document.getElementById('ams-phone') as HTMLInputElement).value,
+				lookingFor,
+				worthItScale: (document.getElementById('ams-worth') as HTMLInputElement).value,
+				worthItWhy: (document.getElementById('ams-worth-why') as HTMLTextAreaElement).value,
+				investmentScale: (document.getElementById('ams-invest') as HTMLInputElement).value,
+				writingFor: (form.querySelector('[name="writingFor"]') as HTMLTextAreaElement).value,
+				whyYes: (form.querySelector('[name="whyYes"]') as HTMLTextAreaElement).value,
+			};
+
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Sending…';
+			try {
+				const res = await fetch('/api/author-survey', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(data),
+				});
+				const out = await res.json();
+				if (res.ok && out.ok) {
+					form.hidden = true;
+					(root.querySelector('.ams-progress') as HTMLElement).hidden = true;
+					count.hidden = true;
+					(document.getElementById('ams-thanks') as HTMLElement).hidden = false;
+					root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				} else {
+					throw new Error(out.error || 'failed');
+				}
+			} catch {
+				(document.getElementById('ams-fail') as HTMLElement).hidden = false;
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Send my heart to Spirit Media';
+			}
+		});
+
+		render();
+	}
+</script>
