@@ -189,7 +189,8 @@ const scaleNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	.ps-scale { display: flex; flex-wrap: wrap; gap: 4px; }
 	.ps-num { flex: 1 1 auto; min-width: 30px; padding: .4rem 0; border: 1px solid #d6d3d1; background: #fff; color: #78716c; font-weight: 700; border-radius: .35rem; cursor: pointer; transition: background .1s, color .1s, border-color .1s; }
 	.ps-num:hover { border-color: var(--color-red, #c8102e); }
-	.ps-num.is-pick { background: var(--color-red, #c8102e); color: #fff; border-color: var(--color-red, #c8102e); }
+	.ps-num.is-on { background: var(--color-red, #c8102e); color: #fff; border-color: var(--color-red, #c8102e); }
+	.ps-num.is-pick { box-shadow: 0 0 0 3px rgba(200,16,46,.25); }
 	.ps-scale-ends { display: flex; justify-content: space-between; font-size: .72rem; color: #a8a29e; margin-top: .3rem; }
 
 	.ps-choices { display: grid; gap: .5rem; }
@@ -248,8 +249,13 @@ const scaleNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 			el.addEventListener('click', (e) => {
 				const btn = (e.target as HTMLElement).closest('.ps-num') as HTMLElement | null;
 				if (!btn) return;
-				hidden.value = btn.dataset.val as string;
-				el.querySelectorAll('.ps-num').forEach((n) => n.classList.toggle('is-pick', n === btn));
+				const val = Number(btn.dataset.val);
+				hidden.value = String(val);
+				el.querySelectorAll('.ps-num').forEach((n) => {
+					const nv = Number((n as HTMLElement).dataset.val);
+					n.classList.toggle('is-on', nv <= val);
+					n.classList.toggle('is-pick', nv === val);
+				});
 			});
 		});
 
