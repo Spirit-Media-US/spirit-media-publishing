@@ -122,7 +122,7 @@ const investAnchors: Record<number, string> = {
 
 		<!-- STEP 6 — Q5 open -->
 		<fieldset class="ams-step" data-step="6">
-			<legend class="ams-q">What would make you say <em>yes</em> to us?</legend>
+			<legend class="ams-q">What would make you say <em>yes</em> to us publishing and/or marketing your message?</legend>
 			<textarea class="ams-input ams-textarea" name="whyYes" rows="5"></textarea>
 		</fieldset>
 
@@ -227,7 +227,9 @@ const investAnchors: Record<number, string> = {
 		let cur = 0;
 
 		const scrollTop = () => {
-			const y = root.getBoundingClientRect().top + window.scrollY - 96;
+			// Offset clears the sticky navbar so the progress bar + "Step X of Y"
+			// stay visible when advancing (otherwise the bare question is jarring).
+			const y = root.getBoundingClientRect().top + window.scrollY - 128;
 			window.scrollTo({ top: y, behavior: 'smooth' });
 		};
 
