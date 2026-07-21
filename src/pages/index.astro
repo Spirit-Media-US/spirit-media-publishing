@@ -78,8 +78,8 @@ const FALLBACK_TESTIMONIALS = [
 const testimonials = FALLBACK_TESTIMONIALS;
 ---
 <Layout
-	title="Spirit Media Publishing | Christian Book Publishing"
-	description="Spirit Media helps Christian authors publish and market their books to 195 nations. Ghostwriting, editing, cover design, audiobooks, and global distribution."
+	title="Spirit Media Publishing | Home of the Father's Heart Bible™"
+	description="Spirit Media Publishing helps Christian authors publish and market their message to 195 nations — and is the publisher of the Father's Heart Bible™, now in print and free to read or listen online."
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
 >
 	<Fragment slot="head-early">
@@ -139,6 +139,30 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				"@type": "SearchAction",
 				"target": "https://spiritmediapublishing.com/bookstore?q={search_term_string}",
 				"query-input": "required name=search_term_string"
+			}
+		})}></script>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Book",
+			"@id": "https://fathersheartbible.com/#book",
+			"name": "Father's Heart Bible",
+			"alternateName": "Father's Heart Bible: An Intimate Translation",
+			"bookEdition": "An Intimate Translation",
+			"inLanguage": "en",
+			"url": "https://fathersheartbible.com",
+			"author": { "@type": "Organization", "name": "Spirit Media Publishing" },
+			"publisher": { "@id": "https://spiritmediapublishing.com/#organization" },
+			"description": "The Father's Heart Bible™ is a fresh translation from the original Hebrew, Aramaic, and Greek that reveals God as Father. Available in regular and large print, paperback and hardback, plus ebook and audiobook.",
+			"bookFormat": [
+				"https://schema.org/Paperback",
+				"https://schema.org/Hardcover",
+				"https://schema.org/EBook",
+				"https://schema.org/AudiobookFormat"
+			],
+			"offers": {
+				"@type": "Offer",
+				"availability": "https://schema.org/InStock",
+				"url": "https://fathersheartbible.com/print/"
 			}
 		})}></script>
 	</Fragment>
