@@ -10,9 +10,7 @@
 const lookingForOptions = [
 	'A partner who shares my mission and faith',
 	'Professional editing and design',
-	'Help getting my message to the nations',
 	'Marketing and promotion support',
-	'Guidance through the whole process',
 	'A team that believes in the message, not just the sales',
 	'I want to leave a legacy for my family',
 	'I believe this message was given to me to steward',
@@ -51,8 +49,8 @@ const investAnchors: Record<number, string> = {
 			<input class="ams-input" type="text" id="ams-name" name="name" autocomplete="name" required />
 			<label class="ams-label" for="ams-email">Email</label>
 			<input class="ams-input" type="email" id="ams-email" name="email" autocomplete="email" required />
-			<label class="ams-label" for="ams-phone">Phone</label>
-			<input class="ams-input" type="tel" id="ams-phone" name="phone" autocomplete="tel" />
+			<label class="ams-label" for="ams-phone">Phone <em>(include your country code if outside the U.S.)</em></label>
+			<input class="ams-input" type="tel" id="ams-phone" name="phone" autocomplete="tel" placeholder="e.g. +1 888 800 3744" />
 			<p class="ams-err" id="ams-err-1" hidden>Please share your name and a valid email.</p>
 		</fieldset>
 
@@ -116,7 +114,7 @@ const investAnchors: Record<number, string> = {
 
 		<!-- STEP 5 — Q4 open -->
 		<fieldset class="ams-step" data-step="5">
-			<legend class="ams-q">Who is the one person this message is for — and why?</legend>
+			<legend class="ams-q">Who is the one person or people this message is for — and why?</legend>
 			<textarea class="ams-input ams-textarea" name="writingFor" rows="5"></textarea>
 		</fieldset>
 
