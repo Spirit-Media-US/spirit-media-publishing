@@ -1,4 +1,5 @@
 ---
+import AuthorSurvey from '../components/AuthorSurvey.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
@@ -17,11 +18,10 @@ try {
 	if (s?.contactPageHeroImageAlt) contactHeroImageAlt = s.contactPageHeroImageAlt;
 } catch (e) {}
 
-// Fallback if not in Sanity
-if (!contactHeroImage) {
-	contactHeroImage =
-		'https://cdn.sanity.io/images/pmowd8uo/production/7833f28378750a49205269eb39a6c2c19f31b92d-1058x394.png?w=1058&fit=max&fm=webp&q=80';
-}
+// Contact hero image (Kevin-selected 2026-07-21). Overrides the Sanity value
+// so the readable 1200x630 art is used on this page.
+contactHeroImage =
+	'https://cdn.sanity.io/images/pmowd8uo/production/232962df9e9743a5790ae86776ab683dbd76042b-1200x630.jpg';
 ---
 
 <Layout
@@ -44,43 +44,29 @@ if (!contactHeroImage) {
 	<main id="main-content">
 
 		<!-- HERO -->
-		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:py-28 lg:px-8 overflow-hidden">
-			<div class="mx-auto max-w-7xl">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+		<section class="bg-stone-50 px-6 lg:px-8 pt-12 lg:pt-20 pb-8 lg:pb-10 overflow-hidden">
+			<div class="mx-auto max-w-6xl">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 					<div class="hero-stagger">
 						<p class="eyebrow eyebrow-red mb-4">Contact Us</p>
-						<h1 class="type-hero text-ink-soft">Ready to Schedule a<br /><span class="text-red">FREE Consultation Call?</span></h1>
-						<p class="mt-6 text-2xl font-bold text-ink-soft"><a href={"tel:+1" + sitePhone.replace(/[^0-9]/g, "")} class="hover:text-red transition-colors">{sitePhone}</a></p>
-						<p class="mt-4 text-stone-600 leading-relaxed max-w-xl">Otherwise, request a call back. Please use this form to inquire about our publishing and marketing services only. No response will be given for employment or sales inquiries. Thank you!</p>
+						<h1 class="type-hero text-ink-soft">Getting to<br /><span class="text-red">Know You</span></h1>
+						<p class="mt-6 text-2xl font-semibold text-ink-soft leading-snug">Before we talk about your project, we'd love to understand your heart for it.</p>
 					</div>
-					<div class="hidden lg:flex items-center justify-center" aria-hidden="true" data-animate="zoom-in">
-						<img src={contactHeroImage} alt={contactHeroImageAlt} class="w-full rounded-2xl" />
+					<div class="flex items-center justify-center" data-animate="zoom-in">
+						<img src={contactHeroImage} alt={contactHeroImageAlt} class="w-full max-w-md rounded-2xl shadow-sm" />
 					</div>
+				</div>
+				<div class="mt-8 lg:mt-10 mx-auto max-w-3xl text-center" data-animate="fade-up">
+					<p class="eyebrow eyebrow-red mb-3">Welcome to Spirit Media Publishing</p>
+					<p class="text-xl text-stone-600 leading-relaxed">We've learned that the messages that go on to reach the nations come from people who are deeply aligned with us on <em>why</em> — not just <em>what</em>. This 1–3 minute survey is how we make sure a partnership would truly serve you. Taking a message to the nations — through publishing, marketing, or both — takes real investment on both sides, and the last thing we want is to lead you down a road that isn't right for you. Please tell us more. There are no wrong answers, only clear ones.</p>
 				</div>
 			</div>
 		</section>
 
 		<!-- FORM -->
-		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
+		<section class="bg-stone-100 pt-8 lg:pt-10 pb-12 lg:pb-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto" data-animate="fade-up">
-				<iframe
-					src="https://mail.spiritmediaone.com/widget/form/SRpyaMchAsDAtYsMfaTg"
-					style="width:100%; height:700px; border:none; border-radius:3px;"
-					id="inline-SRpyaMchAsDAtYsMfaTg"
-					data-layout="{'id':'INLINE'}"
-					data-trigger-type="alwaysShow"
-					data-trigger-value=""
-					data-activation-type="alwaysActivated"
-					data-activation-value=""
-					data-deactivation-type="neverDeactivate"
-					data-deactivation-value=""
-					data-form-name="Request A Call"
-					data-height="692"
-					data-layout-iframe-id="inline-SRpyaMchAsDAtYsMfaTg"
-					data-form-id="SRpyaMchAsDAtYsMfaTg"
-					title="Request A Call"
-				></iframe>
-				<script is:inline src="https://mail.spiritmediaone.com/js/form_embed.js"></script>
+				<AuthorSurvey phone={sitePhone} />
 			</div>
 		</section>
 
