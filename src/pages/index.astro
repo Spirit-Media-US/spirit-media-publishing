@@ -26,9 +26,8 @@ try {
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
 } catch (e) {}
 
-const fhbImage = `${R2_BASE}/fhb.webp`;
+const fhbImage = `${R2_BASE}/fhb-brand.webp`;
 const expressBooksImage = `${R2_BASE}/express-books.webp`;
-const manuscriptReviewImage = `${R2_BASE}/manuscript-review.webp`;
 const childrensBooksImage = `${R2_BASE}/childrens-books.webp`;
 const writeBookImage = `${R2_BASE}/write-book.webp`;
 const publishBookImage = `${R2_BASE}/publish-book.webp`;
@@ -144,6 +143,56 @@ const testimonials = FALLBACK_TESTIMONIALS;
 		})}></script>
 	</Fragment>
 	<main id="main-content">
+
+		<!-- ═══ FHB LAUNCH HERO ═══ -->
+		<!-- Announcement hero: 3 print-lifestyle photos across the full page, title
+		     across the bottom of them, then intro + CTAs. Photos are R2-hosted WebP
+		     (1000x667), same origin as the rest of the page. -->
+		<section class="overflow-hidden" style="background-color:#fbeaee">
+			<!-- 3 photos across the page -->
+			<div class="relative">
+				<div class="grid grid-cols-3">
+					<a href="https://fathersheartbible.com" class="block" aria-label="Father's Heart Bible"><img src={`${R2_BASE}/fhb-print-1.webp`} width="1000" height="667" loading="eager" fetchpriority="high" decoding="async"
+						alt="A young man holding the Father's Heart Bible in print" class="h-64 sm:h-80 lg:h-[30rem] w-full object-cover" /></a>
+					<a href="https://fathersheartbible.com" class="block" aria-label="Father's Heart Bible"><img src={`${R2_BASE}/fhb-print-2.webp`} width="1000" height="667" loading="eager" decoding="async"
+						alt="A family reading the Father's Heart Bible together" class="h-64 sm:h-80 lg:h-[30rem] w-full object-cover" /></a>
+					<a href="https://fathersheartbible.com" class="block" aria-label="Father's Heart Bible"><img src={`${R2_BASE}/fhb-print-3.webp`} width="1000" height="667" loading="eager" decoding="async"
+						alt="A woman reading the Father's Heart Bible to a loved one" class="h-64 sm:h-80 lg:h-[30rem] w-full object-cover" /></a>
+				</div>
+				<!-- title across the bottom of the photos -->
+				<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-6 pt-24 pb-5 lg:pb-8">
+					<h1 class="type-hero text-white text-center leading-tight">Father's Heart Bible<sup class="text-[0.4em] align-super">™</sup> is here!</h1>
+				</div>
+			</div>
+			<!-- intro + CTAs -->
+			<div class="mx-auto max-w-3xl text-center px-6 pt-10 lg:pt-12">
+				<p class="eyebrow eyebrow-red mb-4">Published by Spirit Media Publishing</p>
+				<p class="type-body-lg text-stone-700">Father's Heart Bible™: An Intimate Translation is a fresh Bible translation from the original Hebrew, Aramaic, and Greek that lets you hear God as He truly is — not a distant deity, but your Father.</p>
+				<div class="mt-8 flex flex-wrap justify-center gap-4">
+					<a href="https://fathersheartbible.com/print" class="btn btn-primary">Get It in Print</a>
+					<a href="https://fathersheartbible.com/read" class="btn btn-ghost">Read &amp; Listen Free</a>
+				</div>
+			</div>
+			<!-- Availability: colors + formats -->
+			<div class="mx-auto max-w-4xl text-center px-6 pt-10 pb-12 lg:pb-16">
+				<p class="type-body-lg text-stone-700 mb-8">Available in regular print and large print, in paperback and hardback — each in 3 popular colors:</p>
+				<div class="grid grid-cols-3 gap-4 sm:gap-10 max-w-2xl mx-auto items-end">
+					<figure>
+						<a href="https://fathersheartbible.com" class="block" aria-label="Father's Heart Bible — Charcoal"><img src={`${R2_BASE}/fhb-cover-charcoal.webp`} width="454" height="760" loading="lazy" decoding="async" alt="Father's Heart Bible — Charcoal hardback" class="w-full h-auto drop-shadow-xl" /></a>
+						<figcaption class="mt-3 text-sm font-semibold text-stone-700">Charcoal</figcaption>
+					</figure>
+					<figure>
+						<a href="https://fathersheartbible.com" class="block" aria-label="Father's Heart Bible — Plum"><img src={`${R2_BASE}/fhb-cover-plum.webp`} width="454" height="760" loading="lazy" decoding="async" alt="Father's Heart Bible — Plum hardback" class="w-full h-auto drop-shadow-xl" /></a>
+						<figcaption class="mt-3 text-sm font-semibold text-stone-700">Plum</figcaption>
+					</figure>
+					<figure>
+						<a href="https://fathersheartbible.com" class="block" aria-label="Father's Heart Bible — White"><img src={`${R2_BASE}/fhb-cover-white.webp`} width="454" height="760" loading="lazy" decoding="async" alt="Father's Heart Bible — White hardback" class="w-full h-auto drop-shadow-xl" /></a>
+						<figcaption class="mt-3 text-sm font-semibold text-stone-700">White</figcaption>
+					</figure>
+				</div>
+				<p class="type-body-lg text-stone-700 mt-8">Also available in <a href="https://fathersheartbible.com/print/" class="text-red-deep font-semibold underline hover:text-red transition-colors">ebook</a> and <a href="https://fathersheartbible.com/print/" class="text-red-deep font-semibold underline hover:text-red transition-colors">audiobook</a>. Everywhere books are sold worldwide.</p>
+			</div>
+		</section>
 
 		<!-- ═══ HERO ═══ -->
 		<!-- Two-block pattern (Scripture Alive): mobile is text-only so the H1 is the
@@ -279,7 +328,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 
 		<!-- ═══ EXCLUSIVE HOME OF (BRAND CARDS) ═══ -->
 		<section class="bg-surface px-6 py-12 lg:py-20 lg:px-8">
-			<div class="mx-auto max-w-7xl">
+			<div class="mx-auto max-w-5xl">
 				<div class="text-center mb-6">
 					<span class="eyebrow eyebrow-red" data-animate="fade-in">Exclusive Home of</span>
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-in" data-delay="1">
@@ -291,68 +340,23 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				<div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
 					<!-- FHB -->
 					<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm transition-shadow hover:shadow-md" data-animate="fade-in" data-delay="1">
-						<div class="flex h-48 items-center justify-center bg-ink-soft p-4">
-							<img src={fhbImage} alt="Father's Heart Bible — An Intimate Translation" width="288" height="288" loading="lazy" decoding="async" class="h-full w-auto object-contain rounded-lg shadow-2xl" />
-						</div>
+						<img src={fhbImage} alt="Readers around the world holding the Father's Heart Bible in print" width="1200" height="800" loading="lazy" decoding="async" class="h-72 w-full object-cover" />
 						<div class="flex flex-1 flex-col p-7">
-							<span class="eyebrow">Father's Heart Bible™ (FHB)</span>
+							<span class="font-serif text-xl font-bold text-ink-soft">Father's Heart Bible™ (FHB)</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">An intimate translation revealing our Father's heart to a fatherless generation.</h3>
-							<p class="type-body-lg text-stone-700 mb-5">One message for every reader: "Come home. You belong to Me. You are My beloved child." Each gift of $100 places three Father's Heart Bibles into the hands of readers worldwide.</p>
+							<p class="type-body-lg text-stone-700 mb-5">One message for every reader: "Come home. You belong to Me. You are My beloved child."</p>
 							<a href="https://fathersheartbible.com" target="_blank" rel="noopener noreferrer" class="mt-auto text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit FathersHeartBible.com →</a>
 						</div>
 					</div>
 					<!-- Express Books -->
 					<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm transition-shadow hover:shadow-md" data-animate="fade-in" data-delay="2">
-						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="h-48 w-full object-cover" />
+						<img src={expressBooksImage} alt="EXPRESS BOOKS™" width="600" height="400" loading="lazy" decoding="async" class="h-72 w-full object-cover" />
 						<div class="flex flex-1 flex-col p-7">
-							<span class="eyebrow">EXPRESS BOOKS™</span>
+							<span class="font-serif text-xl font-bold text-ink-soft">EXPRESS BOOKS™</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">Fast reads. Lasting impact.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">Intentionally compact books designed to be read in under an hour. No filler. No fluff. Transformation that lasts a lifetime.</p>
 							<a href="/express-books" class="mt-auto text-sm font-semibold text-red-deep hover:text-red transition-colors">Learn More →</a>
 						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ═══ FREE MANUSCRIPT REVIEW ═══ -->
-		<section class="bg-ink-soft px-6 py-12 lg:py-20 lg:px-8">
-			<div class="mx-auto max-w-7xl">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-					<!-- Image left -->
-					<div class="flex justify-center" data-animate="slide-left">
-						<img src={manuscriptReviewImage} alt="Sample Spirit Media Manuscript Review document" width="600" height="900" loading="lazy" decoding="async" class="w-full max-w-xs" />
-					</div>
-					<!-- Content right -->
-					<div data-animate="slide-right">
-						<div class="mb-10">
-							<span class="eyebrow" style="color: var(--color-stone-500);" data-animate="fade-in">Free Offer</span>
-							<h2 class="type-section-heading text-stone-100 mb-4">
-								Free Manuscript Review
-							</h2>
-							<p class="type-body-lg text-stone-400">
-								Share your manuscript with us and our team of seasoned editors will provide a <strong class="text-stone-200">FREE customized 20-point review ($250 value).</strong>
-							</p>
-						</div>
-						<div class="flex flex-wrap gap-2 mb-8">
-							{[
-								'Manuscript Overview', 'Biblical Accuracy', 'Target Audience Analysis', 'Genre & Market Fit',
-								'Content Organization', 'Thematic Depth', 'Emotional Impact', 'Writing Style & Voice',
-								'Grammar & Mechanics', 'Clarity & Readability', 'Research & Credibility', 'Reader Engagement & Pacing',
-								'Unique Selling Points', 'Final Editing Assessment', 'Market Potential', 'Strengths',
-								'Areas for Improvement', 'Top Amazon Categories', 'Optimized KDP Keywords', 'Summary & Recommendations',
-							].map((item) => (
-								<span class="bg-ink-muted/40 text-stone-400 text-xs font-medium px-3 py-1.5 rounded-full ring-1 ring-stone-600/30">
-									{item}
-								</span>
-							))}
-						</div>
-						<p class="text-stone-500 italic mb-8">
-							This will affirm God's good work in and through you.
-						</p>
-						<MailtoLink email="publisher@spiritmedia.us" class="btn btn-primary">
-							Email your Manuscript →
-						</MailtoLink>
 					</div>
 				</div>
 			</div>
@@ -483,7 +487,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 					Let's talk about your vision. Our team will walk you through every option and help you find the right path forward — no pressure, no obligation.
 				</p>
 				<a href="/contact" class="btn btn-primary" data-animate="fade-in" data-delay="2">
-					Request a Free Consultation
+					Let's Connect
 				</a>
 			</div>
 		</section>
