@@ -1,0 +1,36 @@
+---
+import PartnershipSurvey from '../components/PartnershipSurvey.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Before We Partner — Spirit Media Publishing"
+	description="A private step for prospective Spirit Media partners."
+>
+	<Fragment slot="head">
+		<meta name="robots" content="noindex, nofollow" />
+	</Fragment>
+	<main id="main-content">
+		<!-- HERO -->
+		<section class="bg-stone-50 px-6 lg:px-8 pt-12 lg:pt-20 pb-8 lg:pb-10 overflow-hidden">
+			<div class="mx-auto max-w-3xl text-center">
+				<p class="eyebrow eyebrow-red mb-4">Partnership</p>
+				<h1 class="type-hero text-ink-soft">Before We<br /><span class="text-red">Partner</span></h1>
+				<p class="mt-6 text-xl text-stone-600 leading-relaxed">
+					Before we solidify our partnership, we have a few questions for you — and we imagine
+					you may have some for us, too. This will help us communicate effectively and develop
+					healthy collaboration as partners in our Heavenly Father's kingdom. It takes about
+					3–4 minutes. Please answer honestly and by instinct — your first response is usually
+					the truest.
+				</p>
+			</div>
+		</section>
+
+		<!-- SURVEY -->
+		<section class="bg-stone-100 pt-8 lg:pt-10 pb-12 lg:pb-20 px-6 lg:px-8">
+			<div class="max-w-3xl mx-auto" data-animate="fade-up">
+				<PartnershipSurvey />
+			</div>
+		</section>
+	</main>
+</Layout>

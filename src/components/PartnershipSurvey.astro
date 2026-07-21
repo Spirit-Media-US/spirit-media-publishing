@@ -1,0 +1,335 @@
+---
+// PartnershipSurvey.astro — private /partnership doctrine + collaboration survey.
+// Self-contained vanilla JS multi-step. Posts to /api/partnership-survey, which
+// scores server-side (respondent never sees a score) and writes band + subscores
+// to GHL. Disguised items — do NOT relabel options; the function scores by key.
+const scaleStatements = [
+	"When God gives me a clear vision, I don't let people talk me out of it.",
+	'Some of the best course-corrections in my life have come from people who disagreed with me.',
+	"I can usually sense when someone on a team isn't spiritually in tune with what God is doing.",
+	"I've heard from God clearly enough that I rarely need to second-guess it.",
+	"When something matters deeply to me, it's hard to let others make decisions without me.",
+];
+const launch = [
+	['keep', "I'd keep the date — once I've prayed and settled on something, I follow through."],
+	['together', "I'd ask their reasoning, sit with it, and make the decision together."],
+	['defer', "I'd defer to the team — this is their expertise."],
+	['trust', "I'd feel unsettled, but pray and trust the process we agreed to."],
+];
+const decision = [
+	['demand', "Tell them clearly it needs to change — it's my name on this."],
+	['both', 'Raise it directly, hear them out, and work toward a decision we both own.'],
+	['peace', "Let it go to keep the peace — it's not worth the friction."],
+	[
+		'trustcore',
+		'Trust their expertise unless it touches something core to me, then talk it through.',
+	],
+];
+const mistake = [
+	['firmly', "Address it firmly right away — mistakes like that can't happen."],
+	['goodintent', 'Feel the frustration, but assume good intent and talk it through kindly.'],
+	['fixself', 'Quietly fix it myself so it is done right.'],
+	['grace', 'Extend grace — we all fall short — and ask how we prevent it next time.'],
+];
+const picture = [
+	['hired', 'Hired hands who carry out my vision'],
+	['partners', 'Partners with a real voice in the decisions'],
+	['guides', 'Guides who help shape the work'],
+	['family', 'Family walking this out together'],
+];
+const selectAll = [
+	['pushback', "I want people who'll push back on me when they see something I don't"],
+	['signoff', 'I need to sign off on every detail'],
+	['holdloosely', 'I can hold my plans loosely when there is a good reason to change'],
+	['followlead', 'I work best when others follow my lead'],
+	['assumebest', 'I tend to assume the best when something goes wrong'],
+	['visionintact', 'It is important to me that my original vision stays intact'],
+	['sharedecision', 'I would rather share a decision than carry it alone'],
+	['hardtrust', "It's hard for me to fully trust people I haven't worked with before"],
+];
+const scaleNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+---
+
+<div class="ps" id="ps-root">
+	<div class="ps-progress" aria-hidden="true"><div class="ps-bar" id="ps-bar" style="width:0%"></div></div>
+	<p class="ps-count" id="ps-count">Step 1 of 9</p>
+
+	<form id="ps-form" novalidate>
+		<input type="text" name="website_hp" id="ps-hp" tabindex="-1" autocomplete="off"
+			style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true" />
+
+		<!-- 1 identity -->
+		<fieldset class="ps-step is-active" data-step="1">
+			<legend class="ps-q">First, who you are</legend>
+			<label class="ps-label" for="ps-name">Your name</label>
+			<input class="ps-input" id="ps-name" name="name" autocomplete="name" required />
+			<label class="ps-label" for="ps-email">Email</label>
+			<input class="ps-input" id="ps-email" name="email" type="email" autocomplete="email" required />
+			<p class="ps-err" id="ps-err-1" hidden>Please share your name and a valid email.</p>
+		</fieldset>
+
+		<!-- 2 scales -->
+		<fieldset class="ps-step" data-step="2">
+			<legend class="ps-q">A quick read on how you work</legend>
+			<p class="ps-help">For each, tap how true it is of you — 1 = not like me, 10 = very like me.</p>
+			{scaleStatements.map((st, i) => (
+				<div class="ps-scale-row">
+					<p class="ps-scale-text">{st}</p>
+					<div class="ps-scale" data-input={`ps-scale-${i}`} role="group" aria-label={st}>
+						{scaleNums.map((n) => (
+							<button type="button" class="ps-num" data-val={n} aria-label={`${n} of 10`}>{n}</button>
+						))}
+					</div>
+					<div class="ps-scale-ends"><span>Not like me</span><span>Very like me</span></div>
+					<input type="hidden" id={`ps-scale-${i}`} name={`scale-${i}`} value="" />
+				</div>
+			))}
+			<p class="ps-err" id="ps-err-2" hidden>Please answer each one.</p>
+		</fieldset>
+
+		<!-- 3 launch -->
+		<fieldset class="ps-step" data-step="3">
+			<legend class="ps-q">Your launch is about three weeks away. After reviewing everything, our team recommends moving the date out 30 days to do it well — but you had felt strongly about the original date. What's closest to how you'd respond?</legend>
+			<div class="ps-choices" data-name="launch">
+				{launch.map(([k, t]) => (
+					<label class="ps-choice"><input type="radio" name="launch" value={k} /><span>{t}</span></label>
+				))}
+			</div>
+			<p class="ps-err" data-err="launch" hidden>Please choose one.</p>
+		</fieldset>
+
+		<!-- 4 decision -->
+		<fieldset class="ps-step" data-step="4">
+			<legend class="ps-q">Midway through, our team makes a creative or editorial decision you disagree with. What's closest to what you'd do?</legend>
+			<div class="ps-choices" data-name="decision">
+				{decision.map(([k, t]) => (
+					<label class="ps-choice"><input type="radio" name="decision" value={k} /><span>{t}</span></label>
+				))}
+			</div>
+			<p class="ps-err" data-err="decision" hidden>Please choose one.</p>
+		</fieldset>
+
+		<!-- 5 mistake -->
+		<fieldset class="ps-step" data-step="5">
+			<legend class="ps-q">A member of our team makes a mistake that costs you time. In the first day, what's closest to your honest response?</legend>
+			<div class="ps-choices" data-name="mistake">
+				{mistake.map(([k, t]) => (
+					<label class="ps-choice"><input type="radio" name="mistake" value={k} /><span>{t}</span></label>
+				))}
+			</div>
+			<p class="ps-err" data-err="mistake" hidden>Please choose one.</p>
+		</fieldset>
+
+		<!-- 6 picture -->
+		<fieldset class="ps-step" data-step="6">
+			<legend class="ps-q">When we work together, which is closest to how you picture us?</legend>
+			<div class="ps-choices" data-name="picture">
+				{picture.map(([k, t]) => (
+					<label class="ps-choice"><input type="radio" name="picture" value={k} /><span>{t}</span></label>
+				))}
+			</div>
+			<p class="ps-err" data-err="picture" hidden>Please choose one.</p>
+		</fieldset>
+
+		<!-- 7 select all -->
+		<fieldset class="ps-step" data-step="7">
+			<legend class="ps-q">Which of these feel true about working with a team you trust?</legend>
+			<p class="ps-help">Check all that apply.</p>
+			<div class="ps-checks">
+				{selectAll.map(([k, t]) => (
+					<label class="ps-check"><input type="checkbox" name="selectAll" value={k} /><span>{t}</span></label>
+				))}
+			</div>
+		</fieldset>
+
+		<!-- 8 story -->
+		<fieldset class="ps-step" data-step="8">
+			<legend class="ps-q">Tell us about a time you were sure God was showing you something, and it didn't unfold the way you expected. What did that do in you?</legend>
+			<textarea class="ps-input ps-textarea" name="story" rows="5"></textarea>
+		</fieldset>
+
+		<!-- 9 questions -->
+		<fieldset class="ps-step" data-step="9">
+			<legend class="ps-q">Now, your turn — what questions do you have for us?</legend>
+			<p class="ps-help">Ask us anything. This is a two-way conversation.</p>
+			<textarea class="ps-input ps-textarea" name="questions" rows="5"></textarea>
+		</fieldset>
+
+		<div class="ps-nav">
+			<button type="button" class="ps-btn ps-ghost" id="ps-back" hidden>Back</button>
+			<button type="button" class="ps-btn ps-red" id="ps-next">Continue</button>
+			<button type="submit" class="ps-btn ps-red" id="ps-submit" hidden>Send my responses</button>
+		</div>
+	</form>
+
+	<div class="ps-thanks" id="ps-thanks" hidden>
+		<h3 class="ps-thanks-title">Thank you for your honesty and your heart.</h3>
+		<p class="ps-thanks-body">This means a great deal to us. Someone from our team will follow up with you personally — and we'll make sure your questions get real answers. We're grateful to be considering this journey with you.</p>
+	</div>
+	<div class="ps-fail" id="ps-fail" hidden><p>We're sorry — something went wrong saving your responses. Please try again in a moment.</p></div>
+</div>
+
+<style>
+	.ps { max-width: 42rem; margin: 0 auto; }
+	.ps-progress { height: 6px; background: #e7e5e4; border-radius: 999px; overflow: hidden; }
+	.ps-bar { height: 100%; background: var(--color-red, #c8102e); transition: width .35s ease; }
+	.ps-count { margin: .5rem 0 1.5rem; font-size: .8rem; color: #78716c; font-weight: 600; letter-spacing: .02em; }
+	.ps-step { border: 0; padding: 0; margin: 0; display: none; }
+	.ps-step.is-active { display: block; animation: ps-fade .3s ease; }
+	@keyframes ps-fade { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: none;} }
+	.ps-q { font-size: 1.3rem; line-height: 1.35; font-weight: 700; color: #292524; margin-bottom: .5rem; }
+	.ps-help { color: #78716c; margin-bottom: 1rem; }
+	.ps-label { display: block; font-weight: 600; color: #44403c; margin: 1rem 0 .35rem; }
+	.ps-input { width: 100%; padding: .75rem .9rem; border: 1px solid #d6d3d1; border-radius: .6rem; font: inherit; color: #292524; background: #fff; }
+	.ps-input:focus { outline: none; border-color: var(--color-red, #c8102e); box-shadow: 0 0 0 3px rgba(200,16,46,.12); }
+	.ps-textarea { resize: vertical; }
+
+	.ps-scale-row { padding: .9rem 0; border-bottom: 1px solid #f0efed; }
+	.ps-scale-text { font-weight: 600; color: #292524; margin-bottom: .5rem; }
+	.ps-scale { display: flex; flex-wrap: wrap; gap: 4px; }
+	.ps-num { flex: 1 1 auto; min-width: 30px; padding: .4rem 0; border: 1px solid #d6d3d1; background: #fff; color: #78716c; font-weight: 700; border-radius: .35rem; cursor: pointer; transition: background .1s, color .1s, border-color .1s; }
+	.ps-num:hover { border-color: var(--color-red, #c8102e); }
+	.ps-num.is-pick { background: var(--color-red, #c8102e); color: #fff; border-color: var(--color-red, #c8102e); }
+	.ps-scale-ends { display: flex; justify-content: space-between; font-size: .72rem; color: #a8a29e; margin-top: .3rem; }
+
+	.ps-choices { display: grid; gap: .5rem; }
+	.ps-choice { display: flex; align-items: flex-start; gap: .6rem; padding: .8rem .9rem; border: 1px solid #e7e5e4; border-radius: .6rem; cursor: pointer; transition: background .12s, border-color .12s; }
+	.ps-choice:hover { border-color: #d6d3d1; background: #fafaf9; }
+	.ps-choice input { margin-top: .2rem; width: 1.05rem; height: 1.05rem; accent-color: var(--color-red, #c8102e); flex: none; }
+
+	.ps-checks { display: grid; gap: .5rem; }
+	.ps-check { display: flex; align-items: flex-start; gap: .6rem; padding: .7rem .9rem; border: 1px solid #e7e5e4; border-radius: .6rem; cursor: pointer; }
+	.ps-check:hover { border-color: #d6d3d1; background: #fafaf9; }
+	.ps-check input { margin-top: .2rem; width: 1.05rem; height: 1.05rem; accent-color: var(--color-red, #c8102e); flex: none; }
+
+	.ps-err { color: var(--color-red, #c8102e); font-weight: 600; margin-top: .75rem; }
+	.ps-nav { display: flex; gap: .75rem; margin-top: 2rem; }
+	.ps-btn { padding: .8rem 1.5rem; border-radius: .6rem; font-weight: 700; cursor: pointer; border: 0; font-size: 1rem; }
+	.ps-red { background: var(--color-red, #c8102e); color: #fff; margin-left: auto; }
+	.ps-red:hover { opacity: .92; }
+	.ps-red[disabled] { opacity: .6; cursor: wait; }
+	.ps-ghost { background: transparent; color: #57534e; border: 1px solid #d6d3d1; }
+	.ps-thanks, .ps-fail { text-align: center; padding: 2rem 0; }
+	.ps-thanks-title { font-size: 1.5rem; font-weight: 700; color: #292524; margin-bottom: 1rem; }
+	.ps-thanks-body { color: #57534e; line-height: 1.6; max-width: 34rem; margin: 0 auto .75rem; }
+	.ps-fail { color: var(--color-red, #c8102e); font-weight: 600; }
+</style>
+
+<script>
+	const root = document.getElementById('ps-root');
+	if (root) {
+		const form = document.getElementById('ps-form') as HTMLFormElement;
+		const steps = Array.from(root.querySelectorAll('.ps-step')) as HTMLElement[];
+		const bar = document.getElementById('ps-bar') as HTMLElement;
+		const count = document.getElementById('ps-count') as HTMLElement;
+		const backBtn = document.getElementById('ps-back') as HTMLButtonElement;
+		const nextBtn = document.getElementById('ps-next') as HTMLButtonElement;
+		const submitBtn = document.getElementById('ps-submit') as HTMLButtonElement;
+		const total = steps.length;
+		let cur = 0;
+
+		const scrollTop = () => {
+			const y = root.getBoundingClientRect().top + window.scrollY - 128;
+			window.scrollTo({ top: y, behavior: 'smooth' });
+		};
+		const render = () => {
+			steps.forEach((s, i) => s.classList.toggle('is-active', i === cur));
+			bar.style.width = `${((cur + 1) / total) * 100}%`;
+			count.textContent = `Step ${cur + 1} of ${total}`;
+			backBtn.hidden = cur === 0;
+			nextBtn.hidden = cur === total - 1;
+			submitBtn.hidden = cur !== total - 1;
+		};
+
+		// Scale segmented buttons
+		root.querySelectorAll('.ps-scale').forEach((sc) => {
+			const el = sc as HTMLElement;
+			const hidden = document.getElementById(el.dataset.input as string) as HTMLInputElement;
+			el.addEventListener('click', (e) => {
+				const btn = (e.target as HTMLElement).closest('.ps-num') as HTMLElement | null;
+				if (!btn) return;
+				hidden.value = btn.dataset.val as string;
+				el.querySelectorAll('.ps-num').forEach((n) => n.classList.toggle('is-pick', n === btn));
+			});
+		});
+
+		const stepEl = (i: number) => steps[i];
+		const validate = (i: number) => {
+			const el = stepEl(i);
+			// step 1: name + email
+			if (i === 0) {
+				const name = (document.getElementById('ps-name') as HTMLInputElement).value.trim();
+				const email = (document.getElementById('ps-email') as HTMLInputElement).value.trim();
+				const ok = name.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+				(document.getElementById('ps-err-1') as HTMLElement).hidden = ok;
+				return ok;
+			}
+			// step 2: all 5 scales answered
+			if (i === 1) {
+				const all = Array.from(el.querySelectorAll('input[type=hidden]')).every((h) => (h as HTMLInputElement).value !== '');
+				(document.getElementById('ps-err-2') as HTMLElement).hidden = all;
+				return all;
+			}
+			// steps 3-6: a radio group chosen
+			const choices = el.querySelector('.ps-choices') as HTMLElement | null;
+			if (choices) {
+				const nm = choices.dataset.name as string;
+				const ok = !!form.querySelector(`input[name="${nm}"]:checked`);
+				const err = el.querySelector(`[data-err="${nm}"]`) as HTMLElement | null;
+				if (err) err.hidden = ok;
+				return ok;
+			}
+			return true; // select-all + opens optional
+		};
+
+		nextBtn.addEventListener('click', () => {
+			if (!validate(cur)) return;
+			if (cur < total - 1) { cur++; render(); scrollTop(); }
+		});
+		backBtn.addEventListener('click', () => { if (cur > 0) { cur--; render(); scrollTop(); } });
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			for (let i = 0; i <= 5; i++) { if (!validate(i)) { cur = i; render(); scrollTop(); return; } }
+			const scales = [0, 1, 2, 3, 4].map((i) => (document.getElementById(`ps-scale-${i}`) as HTMLInputElement).value);
+			const picked = (nm: string) => (form.querySelector(`input[name="${nm}"]:checked`) as HTMLInputElement)?.value || '';
+			const selectAll = Array.from(form.querySelectorAll('input[name="selectAll"]:checked')).map((el) => (el as HTMLInputElement).value);
+			const data = {
+				website_hp: (document.getElementById('ps-hp') as HTMLInputElement).value,
+				name: (document.getElementById('ps-name') as HTMLInputElement).value,
+				email: (document.getElementById('ps-email') as HTMLInputElement).value,
+				scales,
+				launch: picked('launch'),
+				decision: picked('decision'),
+				mistake: picked('mistake'),
+				picture: picked('picture'),
+				selectAll,
+				story: (form.querySelector('[name="story"]') as HTMLTextAreaElement).value,
+				questions: (form.querySelector('[name="questions"]') as HTMLTextAreaElement).value,
+			};
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Sending…';
+			try {
+				const res = await fetch('/api/partnership-survey', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(data),
+				});
+				const out = await res.json();
+				if (res.ok && out.ok) {
+					form.hidden = true;
+					(root.querySelector('.ps-progress') as HTMLElement).hidden = true;
+					count.hidden = true;
+					(document.getElementById('ps-thanks') as HTMLElement).hidden = false;
+					scrollTop();
+				} else throw new Error(out.error || 'failed');
+			} catch {
+				(document.getElementById('ps-fail') as HTMLElement).hidden = false;
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Send my responses';
+			}
+		});
+
+		render();
+	}
+</script>
