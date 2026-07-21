@@ -10,6 +10,14 @@
 // Worker alongside the static assets. Route: POST /api/author-survey
 
 const GHL_LOCATION_ID = 'oPP9m0hKJpU6cFB7yD9w';
+const MAILGUN_DOMAIN = 'notify.spiritmediapublishing.com';
+const FROM = 'SMP Author Survey <survey@notify.spiritmediapublishing.com>';
+const DEFAULT_TO = 'kevin@spiritmediapublishing.com';
+const esc = (x) =>
+	String(x == null ? '' : x)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;');
 
 // Answer key → GHL custom field ID (created 2026-07-21 for the SMP location).
 const FIELD_IDS = {
@@ -95,6 +103,45 @@ export async function onRequestPost({ request, env }) {
 			const detail = await res.text();
 			console.log('GHL upsert failed', res.status, detail);
 			return json({ ok: false, error: 'We could not save your responses. Please try again.' }, 502);
+		}
+
+		// Notify the team directly via Mailgun (reliable; independent of GHL workflow).
+		if (env.MAILGUN_API_KEY) {
+			const rows = [
+				['Name', name],
+				['Email', email],
+				['Phone', phone || '—'],
+				['Looking for in a partner', lookingFor || '—'],
+				['Worth it even with no dollars (1–10)', body.worthItScale || '—'],
+				['— why', body.worthItWhy || '—'],
+				['Investment readiness (1–10)', body.investmentScale || '—'],
+				['— why', body.investmentWhy || '—'],
+				['Who this is for — and why', body.writingFor || '—'],
+				['What would make them say yes', body.whyYes || '—'],
+			];
+			const html = `<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:0 auto;color:#292524;">
+				<h2 style="margin:0 0 12px;">New Author Motive Survey — ${esc(name)}</h2>
+				<table style="width:100%;border-collapse:collapse;border:1px solid #eee;">
+					${rows.map((r) => `<tr><td style="vertical-align:top;padding:8px 12px;border-bottom:1px solid #eee;font-weight:700;width:42%;">${esc(r[0])}</td><td style="vertical-align:top;padding:8px 12px;border-bottom:1px solid #eee;white-space:pre-wrap;">${esc(r[1])}</td></tr>`).join('')}
+				</table>
+			</div>`;
+			const form = new URLSearchParams();
+			form.set('from', FROM);
+			form.set('to', env.NOTIFY_TO || DEFAULT_TO);
+			form.set('subject', `New Author Motive Survey — ${name}`);
+			form.set('html', html);
+			try {
+				await fetch(`https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`, {
+					method: 'POST',
+					headers: {
+						Authorization: 'Basic ' + btoa('api:' + env.MAILGUN_API_KEY),
+						'Content-Type': 'application/x-www-form-urlencoded',
+					},
+					body: form.toString(),
+				});
+			} catch (e) {
+				console.log('Mailgun notify error', e);
+			}
 		}
 
 		return json({ ok: true });
