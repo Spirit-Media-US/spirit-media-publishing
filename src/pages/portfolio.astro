@@ -4,6 +4,8 @@ import { sanityClient } from '../lib/sanity.ts';
 
 const YOUTUBE_API_KEY = import.meta.env.YOUTUBE_API_KEY;
 
+const encodePath = (path: string) => path.split('/').map(encodeURIComponent).join('/');
+
 const podcastPlaylists = [
 	{ id: 'PLA0Tt6t84cdFyf3yby3m0iIcCIo2o8J4Z' },
 	{ id: 'PLA0Tt6t84cdH7kTmvSywxbvieftR6W0Uy' },
@@ -600,7 +602,7 @@ const portfolioVideos =
 									{clips.map(({ label, file, poster }) => (
 										<div class="rounded-xl overflow-hidden bg-ink-soft shadow-sm">
 											<video class="w-full aspect-video" controls preload="none" playsinline poster={`${PODCAST_SAMPLE_CDN}/${poster}`}>
-												<source src={`${PODCAST_SAMPLE_CDN}/${encodeURI(file)}`} type="video/mp4" />
+												<source src={`${PODCAST_SAMPLE_CDN}/${encodePath(file)}`} type="video/mp4" />
 											</video>
 											<p class="text-xs text-stone-500 px-3 py-2 bg-white">{label}</p>
 										</div>
@@ -681,7 +683,7 @@ const portfolioVideos =
 								{clips.map(({ label, file, poster }) => (
 									<div class="rounded-xl overflow-hidden bg-ink-soft shadow-sm">
 										<video class="w-full aspect-video" controls preload="none" playsinline poster={`https://pub-95ca7305dcbd45198e93dc04cd8a80d1.r2.dev/social-posters/${poster}`}>
-											<source src={`${SOCIAL_FEATURES_CDN}/${encodeURI(file)}`} type="video/mp4" />
+											<source src={`${SOCIAL_FEATURES_CDN}/${encodePath(file)}`} type="video/mp4" />
 										</video>
 										<p class="text-xs text-stone-500 px-3 py-2 bg-stone-50">{label}</p>
 									</div>
@@ -709,7 +711,7 @@ const portfolioVideos =
 								{clips.map(({ label, file, poster }) => (
 									<div class="rounded-xl overflow-hidden bg-ink-soft shadow-sm">
 										<video class="w-full aspect-[9/16]" controls preload="none" playsinline poster={`https://pub-95ca7305dcbd45198e93dc04cd8a80d1.r2.dev/social-posters/${poster}`}>
-											<source src={`${SOCIAL_REELS_CDN}/${encodeURI(file)}`} type="video/mp4" />
+											<source src={`${SOCIAL_REELS_CDN}/${encodePath(file)}`} type="video/mp4" />
 										</video>
 										<p class="text-xs text-stone-500 px-3 py-2 bg-white">{label}</p>
 									</div>
