@@ -16,22 +16,38 @@ const podcastSamples = [
 	{
 		show: 'College Sports Count',
 		clips: [
-			{ label: 'Opener', file: 'college-sports-count/Opener - College Sports Count.mp4' },
-			{ label: 'Closer', file: 'college-sports-count/Closer - College Sports Count.mp4' },
+			{
+				label: 'Opener',
+				file: 'college-sports-count/Opener - College Sports Count.mp4',
+				poster: 'posters/csc-opener.jpg',
+			},
+			{
+				label: 'Closer',
+				file: 'college-sports-count/Closer - College Sports Count.mp4',
+				poster: 'posters/csc-closer.jpg',
+			},
 		],
 	},
 	{
 		show: 'Kevin White Show',
 		clips: [
-			{ label: 'Opener', file: 'kws/KWS Opener 2024 - new music.mp4' },
-			{ label: 'Closer', file: 'kws/KWS Closer 2024 - new music.mp4' },
+			{
+				label: 'Opener',
+				file: 'kws/KWS Opener 2024 - new music.mp4',
+				poster: 'posters/kws-opener.jpg',
+			},
+			{
+				label: 'Closer',
+				file: 'kws/KWS Closer 2024 - new music.mp4',
+				poster: 'posters/kws-closer.jpg',
+			},
 		],
 	},
 	{
 		show: 'THSC',
 		clips: [
-			{ label: 'Opener', file: 'thsc/THSC opener.mp4' },
-			{ label: 'Closer', file: 'thsc/THSC closer.mp4' },
+			{ label: 'Opener', file: 'thsc/THSC opener.mp4', poster: 'posters/thsc-opener.jpg' },
+			{ label: 'Closer', file: 'thsc/THSC closer.mp4', poster: 'posters/thsc-closer.jpg' },
 		],
 	},
 ];
@@ -303,9 +319,9 @@ const portfolioVideos =
 							<div data-animate="fade-up" data-delay={String(i + 1)}>
 								<h4 class="font-serif text-lg font-bold text-ink-soft mb-4">{show}</h4>
 								<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-									{clips.map(({ label, file }) => (
+									{clips.map(({ label, file, poster }) => (
 										<div class="rounded-xl overflow-hidden bg-ink-soft shadow-sm">
-											<video class="w-full aspect-video" controls preload="none" playsinline>
+											<video class="w-full aspect-video" controls preload="none" playsinline poster={`${PODCAST_SAMPLE_CDN}/${poster}`}>
 												<source src={`${PODCAST_SAMPLE_CDN}/${encodeURI(file)}`} type="video/mp4" />
 											</video>
 											<p class="text-xs text-stone-500 px-3 py-2 bg-white">{label}</p>
