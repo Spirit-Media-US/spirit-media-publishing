@@ -141,29 +141,21 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				"query-input": "required name=search_term_string"
 			}
 		})}></script>
+		{/* REFERENCE ONLY — do not redefine the work here.
+		    The canonical Book node for https://fathersheartbible.com/#book is defined on
+		    fathersheartbible.com/the-fathers-heart-bible (all nine ISBNs via workExample,
+		    editor Kevin White, copyrightHolder, datePublished). This page previously emitted
+		    a SECOND, thinner definition of the same @id with conflicting values — inLanguage
+		    "en" vs "en-US", a different description, an unlinked inline author, and an offers
+		    block — which is exactly the kind of contradiction that breaks entity resolution.
+		    Identity fields only below; every descriptive property stays on the canonical node. */}
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Book",
 			"@id": "https://fathersheartbible.com/#book",
 			"name": "Father's Heart Bible",
-			"alternateName": "Father's Heart Bible: An Intimate Translation",
-			"bookEdition": "An Intimate Translation",
-			"inLanguage": "en",
 			"url": "https://fathersheartbible.com",
-			"author": { "@type": "Organization", "name": "Spirit Media Publishing" },
-			"publisher": { "@id": "https://spiritmediapublishing.com/#organization" },
-			"description": "The Father's Heart Bible™ is a fresh translation from the original Hebrew, Aramaic, and Greek that reveals God as Father. Available in regular and large print, paperback and hardback, plus ebook and audiobook.",
-			"bookFormat": [
-				"https://schema.org/Paperback",
-				"https://schema.org/Hardcover",
-				"https://schema.org/EBook",
-				"https://schema.org/AudiobookFormat"
-			],
-			"offers": {
-				"@type": "Offer",
-				"availability": "https://schema.org/InStock",
-				"url": "https://fathersheartbible.com/print/"
-			}
+			"publisher": { "@id": "https://spiritmediapublishing.com/#organization" }
 		})}></script>
 	</Fragment>
 	<main id="main-content">
