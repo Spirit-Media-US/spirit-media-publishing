@@ -83,6 +83,22 @@ const testimonials = FALLBACK_TESTIMONIALS;
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
 >
 	<Fragment slot="head-early">
+		<!-- MOBILE LCP preload — the announcement hero's first photo.
+		     Root cause #3 (no preload for the LCP element). The gated preload below
+		     is for the OLD 'Born from holy conviction' collage, and its comment that
+		     "mobile is text-only, the H1 is LCP" stopped being true when the FHB
+		     launch hero (ab8881a) put three photos ABOVE that section on every
+		     viewport. Since then the mobile LCP has been fhb-print-1.webp, fetched
+		     with no preload and no priority hint — LCP 3.5s against a 1.8s FCP.
+		     Not viewport-gated: this hero is visible at all widths, unlike the
+		     collage. 27KB, so this buys discovery time, not bytes. -->
+		<link
+			rel="preload"
+			as="image"
+			type="image/webp"
+			href={`${R2_BASE}/fhb-print-1.webp`}
+			fetchpriority="high"
+		/>
 		<!-- Desktop-only hero preload. Mobile layout is text-only (H1 is LCP) and
 		     never fetches the hero — `media="(min-width: 1024px)"` gates this <link>
 		     so PSI mobile sees zero bytes for the collage. Matches the `<picture>`
