@@ -93,21 +93,18 @@ const allCollections = [
 <!-- STATS STRIP -->
 <section class="bg-stone-300 px-6 py-5">
   <div class="mx-auto max-w-7xl">
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="flex flex-col items-center text-center py-2">
         <span id="stat-titles" class="font-serif text-3xl font-bold text-ink-soft">0</span>
         <span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Published Titles</span>
+        <span class="text-xs text-stone-500">every format</span>
       </div>
       <div class="flex flex-col items-center text-center py-2">
         <span id="stat-authors" class="font-serif text-3xl font-bold text-ink-soft">0</span>
         <span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Kingdom Messengers</span>
       </div>
       <div class="flex flex-col items-center text-center py-2">
-        <span id="stat-formats" class="font-serif text-3xl font-bold text-ink-soft">0</span>
-        <span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Format Editions</span>
-      </div>
-      <div class="flex flex-col items-center text-center py-2">
-        <span id="stat-years" class="font-serif text-3xl font-bold text-red">3</span>
+        <span id="stat-years" class="font-serif text-3xl font-bold text-red">0</span>
         <span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Years of Publishing</span>
       </div>
     </div>
@@ -131,9 +128,32 @@ const allCollections = [
 
   // --- STATS COUNTERS (derived live from BOOKS data) ---
   (function() {
-    const totalTitles = BOOKS.length;
-    const uniqueAuthors = new Set(BOOKS.map(b => b.author)).size;
-    const totalFormats = BOOKS.reduce((sum, b) => sum + Object.values(b.formats || {}).filter(v => v).length, 0);
+    // "Published Titles" counts EVERY FORMAT EDITION — a book released in
+    // paperback, hardback and ebook is three titles on the shelf. Kevin
+    // 2026-08-28. The unique-book count is still shown under the grid as
+    // "Showing N of M titles".
+    const totalTitles = BOOKS.reduce((sum, b) => sum + Object.values(b.formats || {}).filter(v => v).length, 0);
+
+    // Kingdom Messengers = PEOPLE, so split co-author strings and drop Spirit
+    // Media itself (it's the publisher of the FHB editions and Your Time, not
+    // a messenger).
+    const PUBLISHER = /^spirit media(\s+publishing)?$/i;
+    const people = new Set();
+    BOOKS.forEach(b => {
+      (b.author || '')
+        .split(/,| and /i)
+        .map(n => n.trim())
+        .filter(n => n && !PUBLISHER.test(n))
+        .forEach(n => people.add(n));
+    });
+    const uniqueAuthors = people.size;
+
+    // Years of publishing, counted from June 2022 — computed so it never goes
+    // stale (it was hardcoded to 3 and sat wrong).
+    const FOUNDED = new Date(2022, 5, 1); // June 2022
+    const now = new Date();
+    let years = now.getFullYear() - FOUNDED.getFullYear();
+    if (now.getMonth() < FOUNDED.getMonth()) years -= 1;
 
     function animateCount(id, target, duration = 1400) {
       const el = document.getElementById(id);
@@ -153,7 +173,7 @@ const allCollections = [
       if (entries[0].isIntersecting) {
         animateCount('stat-titles', totalTitles);
         animateCount('stat-authors', uniqueAuthors, 1200);
-        animateCount('stat-formats', totalFormats, 1600);
+        animateCount('stat-years', years, 1600);
         obs.disconnect();
       }
     }, { threshold: 0.3 });
