@@ -137,12 +137,15 @@ const allCollections = [
     // Media itself (it's the publisher of the FHB editions and Your Time, not
     // a messenger).
     const PUBLISHER = /^spirit media(\s+publishing)?$/i;
+    // A generational/credential suffix is part of the name before it, not a
+    // second person — "John A. Wilson, Jr." is one man.
+    const SUFFIX = /^(jr|sr|ii|iii|iv|v|md|phd|dds|esq)\.?$/i;
     const people = new Set();
     BOOKS.forEach(b => {
       (b.author || '')
         .split(/,| and /i)
         .map(n => n.trim())
-        .filter(n => n && !PUBLISHER.test(n))
+        .filter(n => n && !PUBLISHER.test(n) && !SUFFIX.test(n))
         .forEach(n => people.add(n));
     });
     const uniqueAuthors = people.size;
