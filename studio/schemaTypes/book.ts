@@ -87,7 +87,15 @@ export default {
 			type: 'array',
 			of: [{ type: 'string' }],
 			options: {
-				list: [{ title: 'Express Books', value: 'Express Books' }],
+				list: [
+					{ title: 'Express Books', value: 'Express Books' },
+					// The fifteen targeted 6x9 editions, the 8x10 journaling Bible and the eBook.
+					// The bookstore page builds its chips from whatever values exist, so the site
+					// worked the moment the rows were tagged — but the Studio is where Kevin edits,
+					// and a value missing from this list shows there as out-of-list. The ™ glyph is
+					// deliberate: it is how the site renders the mark everywhere else.
+					{ title: "Father's Heart Bible™ (FHB)", value: "Father's Heart Bible™ (FHB)" },
+				],
 			},
 			description:
 				'Cross-cutting groupings (e.g., Express Books). A book can belong to multiple collections.',
