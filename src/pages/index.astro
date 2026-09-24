@@ -31,7 +31,8 @@ try {
 	if (s?.homepageAudioUrl) homepageAudioUrl = s.homepageAudioUrl;
 } catch (e) {}
 
-const fhbImage = `${R2_BASE}/fhb-brand.webp`;
+// DS004 (Kevin 2026-09-24), 3:2 like the fhb-brand.webp it replaces; that key stays on R2.
+const fhbImage = `${R2_BASE}/fhb-brand-ds004.webp`;
 const expressBooksImage = `${R2_BASE}/express-books.webp`;
 const childrensBooksImage = `${R2_BASE}/childrens-books.webp`;
 const writeBookImage = `${R2_BASE}/write-book.webp`;
@@ -217,7 +218,9 @@ const pageDescription =
 			@layer base {
 				.fhb-hero-link { display: block; }
 				.fhb-hero-img { display: block; width: 100%; height: auto; aspect-ratio: 2400 / 920; }
+				.fhb-tagline { font-family: var(--font-body); color: #44403c; line-height: 1.4; font-size: clamp(1rem, 2.1vw, 1.45rem); text-wrap: balance; }
 			}
+			@media (min-width: 768px) { .fhb-tagline { white-space: nowrap; } }
 		</style>
 		<section class="overflow-hidden" style="background-color:#fbeaee">
 			<a href="https://fathersheartbible.com" class="block fhb-hero-link" aria-label="Father's Heart Bible"><img src={`${R2_BASE}/fhb-hero-a02-1600.webp`} width="2400" height="920" srcset={heroA02Srcset} sizes="(max-width: 767px) 480px, 100vw"
@@ -231,10 +234,12 @@ const pageDescription =
 			<CoverMarquee />
 
 			<!-- intro + CTAs — Kevin 2026-09-24: the FHB back-cover copy, verbatim,
-			     minus its closing tagline (the marquee above already carries it). The
-			     three colour words use the VoiceChips palette. Then the two original
-			     buttons. -->
-			<div class="mx-auto max-w-3xl text-center px-6 pt-4 pb-12 lg:pt-6 lg:pb-16">
+			     minus its closing tagline. The three colour words use the VoiceChips
+			     palette. Then the two original buttons, then the tagline as the section's
+			     closing line (Kevin 2026-09-24: below the buttons; it appears ONCE).
+			     Rhythm with CoverMarquee: 2rem between every part, 1rem between
+			     paragraphs, 3rem / 4rem (lg) clear space above and below the group. -->
+			<div class="mx-auto max-w-3xl text-center px-6 pt-8 pb-12 lg:pb-16">
 				<p class="type-body-lg text-stone-700">For a hundred and twenty-five years, red letters have shown you the Son speaking. Our Father speaks more than three times as often — 128,579 words across 5,615 verses. Father's Heart Bible is the first Bible in print where you can see who is speaking.</p>
 				<p class="mt-4 type-body-lg text-stone-700">Our Father's words in <strong style="color:#2563eb">BLUE</strong>. The Son's in <strong style="color:#c8102e">RED</strong>. The Spirit's in <strong style="color:#6a3fa0">PURPLE</strong>.</p>
 				<p class="mt-4 type-body-lg text-stone-700">More than one word in four of the Bible is a divine voice speaking. This is not a study Bible about our Father. It is His voice, made visible, so you can hear it.</p>
@@ -242,6 +247,7 @@ const pageDescription =
 					<a href="https://fathersheartbible.com/print" class="btn btn-primary">Get It in Print</a>
 					<a href="https://fathersheartbible.com/read" class="btn btn-ghost">Read &amp; Listen Free</a>
 				</div>
+				<p class="fhb-tagline mt-8">Receive the Father. Hear his voice. His heart is for you.</p>
 			</div>
 		</section>
 
@@ -389,9 +395,11 @@ const pageDescription =
 
 				<!-- Brand cards — equal size, side by side -->
 				<div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
-					<!-- FHB -->
+					<!-- FHB — the photo keeps its own 3:2 on phones (a fixed 18rem there is
+					     near-square and clips the outer faces of DS004); from md up it matches
+					     the side-by-side cards' 18rem. -->
 					<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm transition-shadow hover:shadow-md" data-animate="fade-in" data-delay="1">
-						<img src={fhbImage} alt="Readers around the world holding the Father's Heart Bible in print" width="1200" height="800" loading="lazy" decoding="async" class="h-72 w-full object-cover" />
+						<img src={fhbImage} alt="Three smiling students on a college campus, each holding a Father's Heart Bible: the Teen, Chosen and Peace editions" width="1200" height="800" loading="lazy" decoding="async" class="aspect-[3/2] h-auto w-full object-cover md:aspect-auto md:h-[18rem]" />
 						<div class="flex flex-1 flex-col p-7">
 							<span class="font-serif text-xl font-bold text-ink-soft">Father's Heart Bible™ (FHB)</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">An intimate translation revealing our Father's heart to a fatherless generation.</h3>
