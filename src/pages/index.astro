@@ -81,10 +81,17 @@ const FALLBACK_TESTIMONIALS = [
 	},
 ];
 const testimonials = FALLBACK_TESTIMONIALS;
+// Meta + OG + Twitter description (Layout feeds all three from this). Taken from the
+// short description on the FHB General Edition metadata sheet (Google Doc
+// 11UaTB4cKiy2BTWc8tpTlaXLnn6UDQM2CO5nFpa900g4), so it matches the back-cover copy
+// on the page. 154 chars — keep under ~160 so it is not truncated.
+const pageTitle = "Spirit Media Publishing | Home of the Father's Heart Bible™";
+const pageDescription =
+	"Father's Heart Bible™ is the first Bible in print where you can see who is speaking: our Father's words in blue, the Son's in red, the Spirit's in purple.";
 ---
 <Layout
-	title="Spirit Media Publishing | Home of the Father's Heart Bible™"
-	description="Spirit Media Publishing helps Christian authors publish and market their message to 195 nations — and is the publisher of the Father's Heart Bible™, now in print and free to read or listen online."
+	title={pageTitle}
+	description={pageDescription}
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
 >
 	<Fragment slot="head-early">
@@ -134,7 +141,8 @@ const testimonials = FALLBACK_TESTIMONIALS;
 				"https://www.instagram.com/spiritmediaus",
 				"https://www.linkedin.com/company/spiritmediaus"
 			],
-			"description": "Spirit Media Publishing, the publishing imprint of Spirit Media Inc., helps Christian authors publish, market, and distribute their books across 195 nations.",
+			// The sheet's approved publisher description (FHB General Edition metadata, verbatim).
+			"description": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. Born from holy conviction and built for global impact, Spirit Media Publishing offers full-service publishing in paperback, hardback, digital, and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. Spirit Media Publishing presents Father's Heart Bible™ translated from Hebrew, Aramaic, and Greek to reveal God as Father. Its Divine Voice Color™ edition is the first Bible in print to color each divine voice: Father in blue, Son in red, Spirit in purple — so every reader can hear their Father's voice.",
 			"founder": {
 				"@type": "Person",
 				"name": "Kevin White",
@@ -150,6 +158,7 @@ const testimonials = FALLBACK_TESTIMONIALS;
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "WebSite",
+			"@id": "https://spiritmediapublishing.com/#website",
 			"url": "https://spiritmediapublishing.com",
 			"name": "Spirit Media Publishing",
 			"description": "Christian book publishing and marketing for Kingdom authors",
@@ -174,6 +183,20 @@ const testimonials = FALLBACK_TESTIMONIALS;
 			"name": "Father's Heart Bible",
 			"url": "https://fathersheartbible.com",
 			"publisher": { "@id": "https://spiritmediapublishing.com/#organization" }
+		})}></script>
+		{/* The homepage itself: says what the page is ABOUT by pointing at the Book @id,
+		    never by restating the book's facts (those live on the canonical node on fathersheartbible.com). */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"@id": "https://spiritmediapublishing.com/#webpage",
+			"url": "https://spiritmediapublishing.com/",
+			"name": pageTitle,
+			"description": pageDescription,
+			"inLanguage": "en-US",
+			"isPartOf": { "@id": "https://spiritmediapublishing.com/#website" },
+			"publisher": { "@id": "https://spiritmediapublishing.com/#organization" },
+			"about": { "@id": "https://fathersheartbible.com/#book" }
 		})}></script>
 	</Fragment>
 	<main id="main-content">
