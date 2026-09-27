@@ -241,7 +241,10 @@ const pageDescription =
 			     paragraphs, 3rem / 4rem (lg) clear space above and below the group. -->
 			<div class="mx-auto max-w-3xl text-center px-6 pt-8 pb-12 lg:pb-16">
 				<p class="type-body-lg text-stone-700">For a hundred and twenty-five years, red letters have shown you the Son speaking. Our Father speaks more than three times as often — 128,579 words across 5,615 verses. Father's Heart Bible is the first Bible in print where you can see who is speaking.</p>
-				<p class="mt-4 type-body-lg text-stone-700">Our Father's words in <strong style="color:#2563eb">BLUE</strong>. The Son's in <strong style="color:#c8102e">RED</strong>. The Spirit's in <strong style="color:#6a3fa0">PURPLE</strong>.</p>
+				<!-- Colour words at 19px bold = WCAG "large text" (>=18.66px bold, AA 3:1). BLUE #2563eb
+				     on this #fbeaee band measures 4.46:1 — under 4.5 at the 18px body size, clear of AA
+				     at 19px. All three move together so they read as one set (Kevin 2026-09-26). -->
+				<p class="mt-4 type-body-lg text-stone-700">Our Father's words in <strong style="color:#2563eb;font-size:19px">BLUE</strong>. The Son's in <strong style="color:#c8102e;font-size:19px">RED</strong>. The Spirit's in <strong style="color:#6a3fa0;font-size:19px">PURPLE</strong>.</p>
 				<p class="mt-4 type-body-lg text-stone-700">More than one word in four of the Bible is a divine voice speaking. This is not a study Bible about our Father. It is His voice, made visible, so you can hear it.</p>
 				<div class="mt-8 flex flex-wrap justify-center gap-4">
 					<a href="https://fathersheartbible.com/print" class="btn btn-primary">Get It in Print</a>
