@@ -1,4 +1,8 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import fhbSnapshot from '../data/fhb-editions.json';
 import { sanityClient } from '../lib/sanity.ts';
 
 interface Props {
@@ -17,6 +21,7 @@ const {
 
 const rawBooks = await sanityClient.fetch(`
   *[_type == "book"] | order(publishDate desc) {
+    _id,
     title,
     "display_title": coalesce(displayTitle, title),
     author,
@@ -36,6 +41,136 @@ const rawBooks = await sanityClient.fetch(`
     }
   }
 `);
+
+// ── Every FHB AUDIENCE and LANGUAGE edition (Kevin 2026-10-07: "update SMP bookstore with all
+// the audience editions and languages"). ONE MASTER PER FACT: titles, dates, cards and links
+// are read from the FHB repo's own edition data, never typed here —
+//   dvc-editions.ts (the audience editions sold) · language-editions.ts (the language editions
+//   rendered, and their Amazon links) · editions/<slug>.json (the /bibles/<slug>-bible page)
+//   · card-art.ts (where each card lives on R2).
+// Not Sanity documents: publishing one fires the webhook that rebuilds PRODUCTION, so new FHB
+// cards could not wait on the dev preview for Kevin's review.
+// An audience edition that already has its bookstore document (`fhb-edition-<slug>`, the join
+// FHB/scripts/sync-amazon-links.mjs uses) keeps it and its Amazon links; it only gains the
+// sub-collection. Everything else becomes a card linking to its FHB edition page, whose order
+// form sells both bindings.
+// COVER RULE (Kevin 2026-10-06): only the card cut from the edition's BUILT cover. Each card URL
+// is fetched; one that does not answer 200 is left out and logged, never a placeholder.
+// A build on Bethel rewrites src/data/fhb-editions.json; a build without the FHB repo (a
+// Cloudflare build, e.g. the Sanity publish webhook) uses that committed snapshot.
+async function deriveFhbEditions() {
+	const FHB_DATA = '/srv/sites/FHB/src/data';
+	if (!fs.existsSync(path.join(FHB_DATA, 'language-editions.ts'))) return fhbSnapshot;
+	const load = (f: string) => import(/* @vite-ignore */ pathToFileURL(path.join(FHB_DATA, f)).href);
+	const { cardUrl } = await load('card-art.ts');
+	const { dvcEditions } = await load('dvc-editions.ts');
+	const { languageEditions, langSlug } = await load('language-editions.ts');
+	const page = (slug: string) => {
+		const f = path.join(FHB_DATA, 'editions', `${slug}.json`);
+		return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
+	};
+	const { umbrella, audience, language } = fhbSnapshot.collections;
+	const AUTHOR = 'Kevin White and Spirit Media Publishing'; // as the Sanity fhb-edition-* docs carry it
+	const SITE = 'https://fathersheartbible.com';
+	const rows: any[] = [];
+	const left: string[] = [];
+	for (const e of dvcEditions) {
+		const ed = page(e.slug);
+		if (!ed) {
+			left.push(`${e.slug}: no /bibles page data`);
+			continue;
+		}
+		const key = ed.coverImage ?? `dvc-${e.slug}`;
+		// card-art.ts: every non-language card is 600x764, the 8x10 journaling card 600x725
+		rows.push({
+			group: 'audience',
+			sanityId: `fhb-edition-${e.slug}`,
+			title: ed.title,
+			display_title: e.title,
+			author: AUTHOR,
+			img: cardUrl(key, 600),
+			w: 600,
+			h: key === 'dvc-journaling' ? 725 : 764,
+			href: `${SITE}/bibles/${e.slug}-bible/`,
+			date: ed.datePublished ?? null,
+			collections: [umbrella, audience],
+		});
+	}
+	for (const l of languageEditions) {
+		const slug = langSlug(l);
+		const ed = page(slug);
+		if (!ed) {
+			left.push(`${l.code}: no /bibles page data (${slug}.json)`);
+			continue;
+		}
+		const english = l.english.replace(/\s*\(.*\)/, '');
+		// language cards come at 360x458 (card-art.ts)
+		rows.push({
+			group: 'language',
+			title: `${ed.title} — ${english} Edition`,
+			display_title: `${l.name} — ${english} Edition`,
+			author: AUTHOR,
+			img: cardUrl(`lang-${l.code}`, 360),
+			w: 360,
+			h: 458,
+			href: `${SITE}/bibles/${slug}-bible/`,
+			date: ed.datePublished ?? null,
+			collections: [umbrella, language],
+			formats: l.amazon ?? {},
+		});
+	}
+	const checked = await Promise.all(
+		rows.map(async (r) => {
+			const res: any = await fetch(r.img, {
+				method: 'HEAD',
+				signal: AbortSignal.timeout(15000),
+			}).catch((err) => ({ ok: false, status: String(err) }));
+			if (!res.ok) left.push(`${r.display_title}: card ${r.img} answered ${res.status}`);
+			return res.ok ? r : null;
+		}),
+	);
+	const editions = checked.filter(Boolean);
+	const out = {
+		...fhbSnapshot,
+		editions,
+		audience: editions.filter((r) => r.group === 'audience').length,
+		language: editions.filter((r) => r.group === 'language').length,
+	};
+	const json = `${JSON.stringify(out, null, '\t')}\n`;
+	const target = path.resolve('src/data/fhb-editions.json');
+	if (fs.existsSync(target) && fs.readFileSync(target, 'utf8') !== json)
+		fs.writeFileSync(target, json);
+	console.log(`[bookstore] FHB: ${out.audience} audience + ${out.language} language editions`);
+	for (const l of left) console.log(`[bookstore] FHB left out — ${l}`);
+	return out;
+}
+// Once per build, not once per page: index + every collection page render this component.
+const g = globalThis as any;
+if (!g.__fhbEditions) g.__fhbEditions = deriveFhbEditions();
+const fhb = await g.__fhbEditions;
+
+const byId = new Map(rawBooks.map((b: any) => [b._id, b]));
+for (const e of fhb.editions as any[]) {
+	const doc = e.sanityId && byId.get(e.sanityId);
+	if (doc) {
+		doc.collections = [...new Set([...(doc.collections || []), ...e.collections])];
+		continue;
+	}
+	const listed = Object.values(e.formats || {}).some(Boolean);
+	rawBooks.push({
+		title: e.title,
+		display_title: e.display_title,
+		author: e.author,
+		img: e.img,
+		w: e.w,
+		h: e.h,
+		amazon: e.href,
+		date: e.date,
+		collections: e.collections,
+		// No Amazon listing yet: both bindings are ordered on the edition's own page.
+		formats: listed ? e.formats : { hardback: e.href, paperback: e.href },
+	});
+}
 
 const BOOKS_JSON = JSON.stringify(rawBooks);
 
@@ -251,7 +386,7 @@ const allCollections = [
       return `<div class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
         <a ${buyAttrs} class="block">
           <div class="aspect-[2/3] overflow-hidden bg-stone-100${coverBorder}">
-            ${b.img ? `<img src="${b.img}" alt="${displayTitle}" loading="lazy"
+            ${b.img ? `<img src="${b.img}" alt="${displayTitle}" loading="lazy"${b.w ? ` width="${b.w}" height="${b.h}"` : ''}
               class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />` : ''}
           </div>
         </a>

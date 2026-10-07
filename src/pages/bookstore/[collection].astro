@@ -1,18 +1,27 @@
 ---
 import BookstoreBody from '../../components/BookstoreBody.astro';
+import fhbEditions from '../../data/fhb-editions.json';
 import Layout from '../../layouts/Layout.astro';
 import { sanityClient } from '../../lib/sanity.ts';
 
 export async function getStaticPaths() {
-	const collections: string[] = await sanityClient.fetch(`
+	const sanityCollections: string[] = await sanityClient.fetch(`
 		array::unique(*[_type == "book" && defined(collections)].collections[])
 	`);
-	return (collections || []).map((name) => ({
+	// The FHB audience/language collections come from fhb-editions.json (BookstoreBody merges
+	// those editions in at build time), so they are not in Sanity's list.
+	const fhbCollections = [
+		...new Set((fhbEditions.editions as { collections: string[] }[]).flatMap((e) => e.collections)),
+	];
+	const collections = [...new Set([...(sanityCollections || []), ...fhbCollections])];
+	return collections.map((name) => ({
 		params: {
+			// "Father's Heart Bible™ — Audience Editions" → fathers-heart-bible-audience-editions
 			collection: name
 				.toLowerCase()
 				.replace(/\s+/g, '-')
-				.replace(/[^a-z0-9-]/g, ''),
+				.replace(/[^a-z0-9-]/g, '')
+				.replace(/-+/g, '-'),
 		},
 		props: { collectionName: name },
 	}));
