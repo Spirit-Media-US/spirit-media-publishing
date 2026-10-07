@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 31,
+	"language": 33,
 	"editions": [
 		{
 			"group": "audience",
@@ -306,6 +306,19 @@
 			"href": "https://fathersheartbible.com/bibles/journaling-bible/",
 			"date": null,
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — የአማርኛ መጽሐፍ ቅዱስ (Amharic) — Amharic Edition",
+			"display_title": "የአማርኛ መጽሐፍ ቅዱስ — Amharic Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-am-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/amharic-bible/",
+			"date": "2026-10-29",
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -777,6 +790,19 @@
 			"w": 360,
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/yoruba-bible/",
+			"date": "2026-10-29",
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — IBhayibheli lesiZulu (Zulu) — Zulu Edition",
+			"display_title": "IBhayibheli lesiZulu — Zulu Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-zu-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/zulu-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {}
