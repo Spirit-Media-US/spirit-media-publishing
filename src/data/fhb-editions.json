@@ -318,7 +318,10 @@
 			"href": "https://fathersheartbible.com/bibles/arabic-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM5ND4V3",
+				"paperback": "https://www.amazon.com/dp/B0HM5GZDW7"
+			}
 		},
 		{
 			"group": "language",
@@ -331,7 +334,10 @@
 			"href": "https://fathersheartbible.com/bibles/bengali-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM54D5N9",
+				"paperback": "https://www.amazon.com/dp/B0HM53PFTY"
+			}
 		},
 		{
 			"group": "language",
@@ -344,7 +350,10 @@
 			"href": "https://fathersheartbible.com/bibles/cantonese-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM57DD2C",
+				"paperback": "https://www.amazon.com/dp/B0HM53Q6ZG"
+			}
 		},
 		{
 			"group": "language",
@@ -370,7 +379,9 @@
 			"href": "https://fathersheartbible.com/bibles/filipino-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"paperback": "https://www.amazon.com/dp/B0HM1Z4Q4Q"
+			}
 		},
 		{
 			"group": "language",
@@ -383,7 +394,9 @@
 			"href": "https://fathersheartbible.com/bibles/french-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM239RY6"
+			}
 		},
 		{
 			"group": "language",
@@ -396,7 +409,9 @@
 			"href": "https://fathersheartbible.com/bibles/german-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM1YZLJB"
+			}
 		},
 		{
 			"group": "language",
@@ -409,7 +424,10 @@
 			"href": "https://fathersheartbible.com/bibles/hindi-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM69LYLQ",
+				"paperback": "https://www.amazon.com/dp/B0HM6GLGNS"
+			}
 		},
 		{
 			"group": "language",
@@ -422,7 +440,10 @@
 			"href": "https://fathersheartbible.com/bibles/indonesian-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM1QR5NW",
+				"paperback": "https://www.amazon.com/dp/B0HM1P12LK"
+			}
 		},
 		{
 			"group": "language",
@@ -435,7 +456,10 @@
 			"href": "https://fathersheartbible.com/bibles/italian-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM387933",
+				"paperback": "https://www.amazon.com/dp/B0HM33JN8Y"
+			}
 		},
 		{
 			"group": "language",
@@ -448,7 +472,10 @@
 			"href": "https://fathersheartbible.com/bibles/japanese-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM4X3JM2",
+				"paperback": "https://www.amazon.com/dp/B0HM56F116"
+			}
 		},
 		{
 			"group": "language",
@@ -461,7 +488,10 @@
 			"href": "https://fathersheartbible.com/bibles/korean-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM6VPTFX",
+				"paperback": "https://www.amazon.com/dp/B0HM5YJQPG"
+			}
 		},
 		{
 			"group": "language",
@@ -474,7 +504,10 @@
 			"href": "https://fathersheartbible.com/bibles/marathi-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM6FDWVW",
+				"paperback": "https://www.amazon.com/dp/B0HM6HLXV6"
+			}
 		},
 		{
 			"group": "language",
@@ -487,7 +520,10 @@
 			"href": "https://fathersheartbible.com/bibles/nigerian-pidgin-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM38RN6M",
+				"paperback": "https://www.amazon.com/dp/B0HM2MS4GS"
+			}
 		},
 		{
 			"group": "language",
@@ -500,7 +536,10 @@
 			"href": "https://fathersheartbible.com/bibles/persian-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM4WRFQT",
+				"paperback": "https://www.amazon.com/dp/B0HM5DNX39"
+			}
 		},
 		{
 			"group": "language",
@@ -526,7 +565,10 @@
 			"href": "https://fathersheartbible.com/bibles/portuguese-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM24TLT9",
+				"paperback": "https://www.amazon.com/dp/B0HM21ZRF3"
+			}
 		},
 		{
 			"group": "language",
@@ -539,7 +581,10 @@
 			"href": "https://fathersheartbible.com/bibles/punjabi-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM6HKNQ3",
+				"paperback": "https://www.amazon.com/dp/B0HM72KLJL"
+			}
 		},
 		{
 			"group": "language",
@@ -552,7 +597,10 @@
 			"href": "https://fathersheartbible.com/bibles/russian-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM21ZRDD",
+				"paperback": "https://www.amazon.com/dp/B0HM259JBV"
+			}
 		},
 		{
 			"group": "language",
@@ -578,7 +626,10 @@
 			"href": "https://fathersheartbible.com/bibles/spanish-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM1PD5LK",
+				"paperback": "https://www.amazon.com/dp/B0HM276R43"
+			}
 		},
 		{
 			"group": "language",
@@ -591,7 +642,9 @@
 			"href": "https://fathersheartbible.com/bibles/swahili-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM25FNDG"
+			}
 		},
 		{
 			"group": "language",
@@ -604,7 +657,10 @@
 			"href": "https://fathersheartbible.com/bibles/tamil-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM78HLDF",
+				"paperback": "https://www.amazon.com/dp/B0HM692BHJ"
+			}
 		},
 		{
 			"group": "language",
@@ -617,7 +673,10 @@
 			"href": "https://fathersheartbible.com/bibles/tangkhul-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM6VYQPD",
+				"paperback": "https://www.amazon.com/dp/B0HM63G3QJ"
+			}
 		},
 		{
 			"group": "language",
@@ -630,7 +689,10 @@
 			"href": "https://fathersheartbible.com/bibles/telugu-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM2PGT5F",
+				"paperback": "https://www.amazon.com/dp/B0HM3236K9"
+			}
 		},
 		{
 			"group": "language",
@@ -643,7 +705,10 @@
 			"href": "https://fathersheartbible.com/bibles/traditional-chinese-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM636LBP",
+				"paperback": "https://www.amazon.com/dp/B0HM6CHG3Y"
+			}
 		},
 		{
 			"group": "language",
@@ -656,7 +721,10 @@
 			"href": "https://fathersheartbible.com/bibles/turkish-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM25FNDH",
+				"paperback": "https://www.amazon.com/dp/B0HM1HDN87"
+			}
 		},
 		{
 			"group": "language",
@@ -695,7 +763,10 @@
 			"href": "https://fathersheartbible.com/bibles/vietnamese-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM33L8BD",
+				"paperback": "https://www.amazon.com/dp/B0HM3895RT"
+			}
 		},
 		{
 			"group": "language",
