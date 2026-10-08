@@ -763,7 +763,10 @@
 			"href": "https://fathersheartbible.com/bibles/urdu-bible/",
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMC9T1HF",
+				"paperback": "https://www.amazon.com/dp/B0HMCH74DN"
+			}
 		},
 		{
 			"group": "language",
