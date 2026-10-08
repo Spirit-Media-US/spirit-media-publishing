@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 33,
+	"language": 34,
 	"editions": [
 		{
 			"group": "audience",
@@ -598,6 +598,19 @@
 				"hardback": "https://www.amazon.com/dp/B0HM6HKNQ3",
 				"paperback": "https://www.amazon.com/dp/B0HM72KLJL"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Biblia Românească (Romanian) — Romanian Edition",
+			"display_title": "Biblia Românească — Romanian Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ro-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/romanian-bible/",
+			"date": "2026-10-29",
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
+			"formats": {}
 		},
 		{
 			"group": "language",
