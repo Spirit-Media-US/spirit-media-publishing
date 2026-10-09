@@ -379,7 +379,10 @@
 			"href": "https://fathersheartbible.com/bibles/cebuano-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMFGBP9K",
+				"paperback": "https://www.amazon.com/dp/B0HMFWRW1Z"
+			}
 		},
 		{
 			"group": "language",
@@ -393,7 +396,8 @@
 			"date": "2026-10-08",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
-				"paperback": "https://www.amazon.com/dp/B0HM1Z4Q4Q"
+				"paperback": "https://www.amazon.com/dp/B0HM1Z4Q4Q",
+				"hardback": "https://www.amazon.com/dp/B0HM2G38KM"
 			}
 		},
 		{
@@ -565,7 +569,10 @@
 			"href": "https://fathersheartbible.com/bibles/polish-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMFRWM9J",
+				"paperback": "https://www.amazon.com/dp/B0HMFL322D"
+			}
 		},
 		{
 			"group": "language",
@@ -639,7 +646,10 @@
 			"href": "https://fathersheartbible.com/bibles/simplified-chinese-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMG63M8M",
+				"paperback": "https://www.amazon.com/dp/B0HMFW8GMC"
+			}
 		},
 		{
 			"group": "language",
@@ -763,7 +773,10 @@
 			"href": "https://fathersheartbible.com/bibles/ukrainian-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMFHK1D6",
+				"paperback": "https://www.amazon.com/dp/B0HMFTX7J9"
+			}
 		},
 		{
 			"group": "language",
