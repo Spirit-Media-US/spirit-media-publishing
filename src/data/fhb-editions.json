@@ -318,7 +318,10 @@
 			"href": "https://fathersheartbible.com/bibles/amharic-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMJZNMJ7",
+				"paperback": "https://www.amazon.com/dp/B0HMJTVLKD"
+			}
 		},
 		{
 			"group": "language",
@@ -821,7 +824,10 @@
 			"href": "https://fathersheartbible.com/bibles/yoruba-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMJQCJ4B",
+				"paperback": "https://www.amazon.com/dp/B0HMK1RKTM"
+			}
 		},
 		{
 			"group": "language",
@@ -834,7 +840,10 @@
 			"href": "https://fathersheartbible.com/bibles/zulu-bible/",
 			"date": "2026-10-29",
 			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMJWWNSF",
+				"paperback": "https://www.amazon.com/dp/B0HMJVCQ7W"
+			}
 		}
 	]
 }
