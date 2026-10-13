@@ -119,14 +119,36 @@ async function deriveFhbEditions() {
 			formats: l.amazon ?? {},
 		});
 	}
+	// A 5xx, a 429 or a timeout is the asset host failing, not a missing card: three tries, and a
+	// card still unanswered stays only if the committed snapshot already carries that same card
+	// (verified 200 when it was written). 2026-10-13: Cloudflare IAD trouble failed 11 of 57 HEADs
+	// in one build and the snapshot lost 11 published editions. A 404 is left out on the first answer.
+	const head = async (url: string) => {
+		let res: any;
+		for (let i = 0; i < 3; i++) {
+			if (i) await new Promise((done) => setTimeout(done, 2000 * i));
+			res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(15000) }).catch(
+				(err) => ({ ok: false, status: String(err) }),
+			);
+			if (res.ok || (typeof res.status === 'number' && res.status < 500 && res.status !== 429))
+				break;
+		}
+		return res;
+	};
+	const known = new Set((fhbSnapshot.editions as any[]).map((r) => `${r.href} ${r.img}`));
 	const checked = await Promise.all(
 		rows.map(async (r) => {
-			const res: any = await fetch(r.img, {
-				method: 'HEAD',
-				signal: AbortSignal.timeout(15000),
-			}).catch((err) => ({ ok: false, status: String(err) }));
-			if (!res.ok) left.push(`${r.display_title}: card ${r.img} answered ${res.status}`);
-			return res.ok ? r : null;
+			const res = await head(r.img);
+			if (res.ok) return r;
+			const hostFailed = typeof res.status !== 'number' || res.status >= 500 || res.status === 429;
+			if (hostFailed && known.has(`${r.href} ${r.img}`)) {
+				console.log(
+					`[bookstore] FHB kept from the snapshot — ${r.display_title}: card ${r.img} answered ${res.status} three times`,
+				);
+				return r;
+			}
+			left.push(`${r.display_title}: card ${r.img} answered ${res.status}`);
+			return null;
 		}),
 	);
 	const editions = checked.filter(Boolean);
