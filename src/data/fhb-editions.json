@@ -5,8 +5,8 @@
 		"audience": "Father's Heart Bible™ — Audience Editions",
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
-	"audience": 23,
-	"language": 34,
+	"audience": 18,
+	"language": 28,
 	"editions": [
 		{
 			"group": "audience",
@@ -19,10 +19,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/athletes-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -35,10 +32,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/chosen-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -51,26 +45,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/couples-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
-		},
-		{
-			"group": "audience",
-			"sanityId": "fhb-edition-dads",
-			"title": "Dad's Bible",
-			"display_title": "Dad's Bible",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/dvc-dads-600.webp",
-			"w": 600,
-			"h": 764,
-			"href": "https://fathersheartbible.com/bibles/dads-bible/",
-			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -83,10 +58,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/first-responders-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -99,10 +71,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/graduates-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -115,10 +84,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/grandparents-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -131,10 +97,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/intercessors-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -147,10 +110,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/mens-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -163,10 +123,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/moms-bible/",
 			"date": "2026-09-01",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -179,10 +136,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/nurses-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -195,42 +149,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/pastors-bible/",
 			"date": "2026-09-01",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
-		},
-		{
-			"group": "audience",
-			"sanityId": "fhb-edition-peace",
-			"title": "Peace Bible",
-			"display_title": "Peace Bible",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/dvc-peace-600.webp",
-			"w": 600,
-			"h": 764,
-			"href": "https://fathersheartbible.com/bibles/peace-bible/",
-			"date": "2026-09-01",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
-		},
-		{
-			"group": "audience",
-			"sanityId": "fhb-edition-presidents",
-			"title": "President's Bible",
-			"display_title": "President's Bible",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/dvc-presidents-600.webp",
-			"w": 600,
-			"h": 764,
-			"href": "https://fathersheartbible.com/bibles/presidents-bible/",
-			"date": "2026-09-01",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -243,10 +162,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/recovery-bible/",
 			"date": "2026-09-01",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -259,10 +175,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/seekers-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -275,10 +188,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/seventeen-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -291,26 +201,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/soldiers-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
-		},
-		{
-			"group": "audience",
-			"sanityId": "fhb-edition-teachers",
-			"title": "Father’s Heart Bible — Teacher's Bible",
-			"display_title": "Teacher's Bible",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/dvc-teachers-600.webp",
-			"w": 600,
-			"h": 764,
-			"href": "https://fathersheartbible.com/bibles/teachers-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -323,10 +214,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/teen-bible/",
 			"date": "2026-09-01",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -339,10 +227,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/womens-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "audience",
@@ -355,26 +240,7 @@
 			"h": 764,
 			"href": "https://fathersheartbible.com/bibles/worship-leaders-bible/",
 			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
-		},
-		{
-			"group": "audience",
-			"sanityId": "fhb-edition-journaling",
-			"title": "She Hears Her Father’s Voice",
-			"display_title": "She Hears Her Father’s Voice - Journaling Bible",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/dvc-journaling-600.webp",
-			"w": 600,
-			"h": 725,
-			"href": "https://fathersheartbible.com/bibles/journaling-bible/",
-			"date": null,
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Audience Editions"
-			]
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Audience Editions"]
 		},
 		{
 			"group": "language",
@@ -386,10 +252,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/amharic-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMJZNMJ7",
 				"paperback": "https://www.amazon.com/dp/B0HMJTVLKD"
@@ -405,10 +268,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/arabic-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM5ND4V3",
 				"paperback": "https://www.amazon.com/dp/B0HM5GZDW7"
@@ -424,10 +284,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/bengali-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM54D5N9",
 				"paperback": "https://www.amazon.com/dp/B0HM53PFTY"
@@ -443,10 +300,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/cantonese-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM57DD2C",
 				"paperback": "https://www.amazon.com/dp/B0HM53Q6ZG"
@@ -462,10 +316,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/cebuano-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMFGBP9K",
 				"paperback": "https://www.amazon.com/dp/B0HMFWRW1Z"
@@ -481,10 +332,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/filipino-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"paperback": "https://www.amazon.com/dp/B0HM1Z4Q4Q",
 				"hardback": "https://www.amazon.com/dp/B0HM2G38KM"
@@ -500,10 +348,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/french-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM239RY6",
 				"paperback": "https://www.amazon.com/dp/B0HM1XBLJT"
@@ -519,10 +364,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/german-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM1YZLJB",
 				"paperback": "https://www.amazon.com/dp/B0HM2FS25B"
@@ -538,10 +380,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/hindi-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM69LYLQ",
 				"paperback": "https://www.amazon.com/dp/B0HM6GLGNS"
@@ -557,10 +396,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/indonesian-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM1QR5NW",
 				"paperback": "https://www.amazon.com/dp/B0HM1P12LK"
@@ -576,10 +412,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/italian-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM387933",
 				"paperback": "https://www.amazon.com/dp/B0HM33JN8Y"
@@ -595,10 +428,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/japanese-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM4X3JM2",
 				"paperback": "https://www.amazon.com/dp/B0HM56F116"
@@ -614,10 +444,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/korean-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM6VPTFX",
 				"paperback": "https://www.amazon.com/dp/B0HM5YJQPG"
@@ -633,10 +460,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/marathi-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM6FDWVW",
 				"paperback": "https://www.amazon.com/dp/B0HM6HLXV6"
@@ -652,10 +476,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/nigerian-pidgin-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM38RN6M",
 				"paperback": "https://www.amazon.com/dp/B0HM2MS4GS"
@@ -671,70 +492,10 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/persian-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM4WRFQT",
 				"paperback": "https://www.amazon.com/dp/B0HM5DNX39"
-			}
-		},
-		{
-			"group": "language",
-			"title": "Father’s Heart Bible — Polska Biblia (Polish) — Polish Edition",
-			"display_title": "Polska Biblia — Polish Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-pl-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/polish-bible/",
-			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HMFRWM9J",
-				"paperback": "https://www.amazon.com/dp/B0HMFL322D"
-			}
-		},
-		{
-			"group": "language",
-			"title": "Father’s Heart Bible — Bíblia Portuguesa (Portuguese) — Portuguese Edition",
-			"display_title": "Bíblia Portuguesa — Portuguese Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-pt-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/portuguese-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM24TLT9",
-				"paperback": "https://www.amazon.com/dp/B0HM21ZRF3"
-			}
-		},
-		{
-			"group": "language",
-			"title": "Father’s Heart Bible — ਪੰਜਾਬੀ ਬਾਈਬਲ (Punjabi) — Punjabi Edition",
-			"display_title": "ਪੰਜਾਬੀ ਬਾਈਬਲ — Punjabi Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-pa-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/punjabi-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM6HKNQ3",
-				"paperback": "https://www.amazon.com/dp/B0HM72KLJL"
 			}
 		},
 		{
@@ -747,10 +508,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/romanian-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMP7MN3B",
 				"paperback": "https://www.amazon.com/dp/B0HMP274N3"
@@ -766,10 +524,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/russian-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM21ZRDD",
 				"paperback": "https://www.amazon.com/dp/B0HM259JBV"
@@ -785,10 +540,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/simplified-chinese-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMG63M8M",
 				"paperback": "https://www.amazon.com/dp/B0HMFW8GMC"
@@ -804,10 +556,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/spanish-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM1PD5LK",
 				"paperback": "https://www.amazon.com/dp/B0HM276R43"
@@ -823,10 +572,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/swahili-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM25FNDG",
 				"paperback": "https://www.amazon.com/dp/B0HM268P5W"
@@ -842,10 +588,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/tamil-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM78HLDF",
 				"paperback": "https://www.amazon.com/dp/B0HM692BHJ"
@@ -861,32 +604,10 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/tangkhul-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM6VYQPD",
 				"paperback": "https://www.amazon.com/dp/B0HM63G3QJ"
-			}
-		},
-		{
-			"group": "language",
-			"title": "Father’s Heart Bible — తెలుగు బైబిల్ (Telugu) — Telugu Edition",
-			"display_title": "తెలుగు బైబిల్ — Telugu Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-te-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/telugu-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM2PGT5F",
-				"paperback": "https://www.amazon.com/dp/B0HM3236K9"
 			}
 		},
 		{
@@ -899,10 +620,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/traditional-chinese-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM636LBP",
 				"paperback": "https://www.amazon.com/dp/B0HM6CHG3Y"
@@ -918,10 +636,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/turkish-bible/",
 			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM25FNDH",
 				"paperback": "https://www.amazon.com/dp/B0HM1HDN87"
@@ -937,51 +652,10 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/ukrainian-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMFHK1D6",
 				"paperback": "https://www.amazon.com/dp/B0HMFTX7J9"
-			}
-		},
-		{
-			"group": "language",
-			"title": "Father’s Heart Bible — اردو بائبل (Urdu) — Urdu Edition",
-			"display_title": "اردو بائبل — Urdu Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ur-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/urdu-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HMC9T1HF",
-				"paperback": "https://www.amazon.com/dp/B0HMCH74DN"
-			}
-		},
-		{
-			"group": "language",
-			"title": "Father’s Heart Bible — Kinh Thánh Tiếng Việt (Vietnamese) — Vietnamese Edition",
-			"display_title": "Kinh Thánh Tiếng Việt — Vietnamese Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-vi-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/vietnamese-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM33L8BD",
-				"paperback": "https://www.amazon.com/dp/B0HM3895RT"
 			}
 		},
 		{
@@ -994,10 +668,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/yoruba-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMJQCJ4B",
 				"paperback": "https://www.amazon.com/dp/B0HMK1RKTM"
@@ -1013,10 +684,7 @@
 			"h": 458,
 			"href": "https://fathersheartbible.com/bibles/zulu-bible/",
 			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMJWWNSF",
 				"paperback": "https://www.amazon.com/dp/B0HMJVCQ7W"
