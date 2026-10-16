@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 34,
+	"language": 36,
 	"editions": [
 		{
 			"group": "audience",
@@ -453,6 +453,19 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — Magyar Biblia (Hungarian) — Hungarian Edition",
+			"display_title": "Magyar Biblia — Hungarian Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-hu-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/hungarian-bible/",
+			"date": "2026-10-29",
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
+			"formats": {}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — Alkitab Indonesia (Indonesian) — Indonesian Edition",
 			"display_title": "Alkitab Indonesia — Indonesian Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -530,6 +543,19 @@
 				"hardback": "https://www.amazon.com/dp/B0HM6FDWVW",
 				"paperback": "https://www.amazon.com/dp/B0HM6HLXV6"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Ελληνική Βίβλος (Modern Greek) — Modern Greek Edition",
+			"display_title": "Ελληνική Βίβλος — Modern Greek Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-el-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/modern-greek-bible/",
+			"date": "2026-10-29",
+			"collections": ["Father's Heart Bible™ (FHB)", "Father's Heart Bible™ — Language Editions"],
+			"formats": {}
 		},
 		{
 			"group": "language",
