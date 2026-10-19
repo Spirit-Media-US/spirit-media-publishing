@@ -22,8 +22,8 @@ export default defineConfig({
     sitemap({
       // Assign crawl priority by page type
       customPages: [],
-      // Keep the private /partnership page out of the sitemap (also noindex'd).
-      filter: (page) => !page.includes('/partnership'),
+      // Keep noindex'd pages (/partnership, /thank-you) out of the sitemap: a sitemap lists only pages we want indexed.
+      filter: (page) => !page.includes('/partnership') && !page.includes('/thank-you'),
       serialize(item) {
         // Blog posts — highest priority, weekly refresh
         if (item.url.includes('/blog/') && item.url !== 'https://spiritmediapublishing.com/blog/') {

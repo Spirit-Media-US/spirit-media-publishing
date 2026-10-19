@@ -9,9 +9,11 @@ interface Props {
 	description?: string;
 	/** Absolute or root-relative path to the OG share image. Defaults to siteSettings.ogImage */
 	ogImage?: string;
+	/** robots meta; the ONLY robots tag on the page (pages must not add their own). */
+	robots?: string;
 }
 
-const { title, description = 'Spirit Media Publishing' } = Astro.props;
+const { title, description = 'Spirit Media Publishing', robots = 'index, follow' } = Astro.props;
 let ogImage = Astro.props.ogImage;
 let twitterHandle = '@spiritmediaus';
 let gaId = 'G-W3R21TNHTX';
@@ -218,7 +220,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Robots -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <meta name="author" content="Spirit Media Publishing" />
 
     <!-- Open Graph -->

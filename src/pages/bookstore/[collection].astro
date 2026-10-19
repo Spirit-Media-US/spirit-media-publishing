@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 const { collectionName } = Astro.props;
 const { collection: collectionSlug } = Astro.params;
 
-const canonicalUrl = `https://spiritmediapublishing.com/bookstore/${collectionSlug}`;
+const canonicalUrl = `https://spiritmediapublishing.com/bookstore/${collectionSlug}/`;
 const pageTitle = `${collectionName} — Spirit Media Bookstore`;
 const pageDescription = `Browse Spirit Media's ${collectionName} collection — short, transformative Christian reads published by Spirit Media Publishing.`;
 const heroTitleHtml = `<span class="text-red">${collectionName}</span>`;
@@ -43,8 +43,6 @@ const heroSubtitle = `${collectionName} from the Spirit Media Christian bookstor
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/e1274263f40d901cf33297ab4c8110e8ad9d9ca7-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
 >
 	<Fragment slot="head">
-		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={canonicalUrl} />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "CollectionPage",
