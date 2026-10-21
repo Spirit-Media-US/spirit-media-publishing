@@ -1,5 +1,6 @@
 ---
 import MailtoLink from '../components/MailtoLink.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
@@ -131,8 +132,8 @@ if (publishingServices.length === 0) {
 						<p class="mt-6 type-body-lg text-stone-700 max-w-xl">Your message deserves to reach the nations. We write, edit, publish, and market your book — in paperback, hardback, digital, and audiobook — everywhere books are sold worldwide.</p>
 						<p class="mt-3 type-body font-semibold text-ink-soft">Published in 5 months. Accelerated paperbacks in 14 days.</p>
 						<div class="mt-8 flex flex-wrap gap-4">
-							<a href="/contact" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Let's Connect →</a>
-							<a href="/marketing" class="rounded-md border-2 border-red-600 bg-stone-50 px-6 py-3 text-sm font-semibold text-red transition-colors hover:bg-red-wash">View Marketing Services</a>
+							<a href="/contact/" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Let's Connect →</a>
+							<a href="/marketing/" class="rounded-md border-2 border-red-600 bg-stone-50 px-6 py-3 text-sm font-semibold text-red transition-colors hover:bg-red-wash">View Marketing Services</a>
 						</div>
 					</div>
 					<div class="flex items-center justify-center order-first lg:order-last" data-animate="zoom-in">
@@ -189,7 +190,7 @@ if (publishingServices.length === 0) {
 									</li>
 								))}
 							</ul>
-							<a href="/contact" class="block w-full rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep text-center">Get Started with Angel Writing →</a>
+							<a href="/contact/" class="block w-full rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep text-center">Get Started with Angel Writing →</a>
 						</div>
 					</div>
 				</div>
@@ -348,8 +349,8 @@ if (publishingServices.length === 0) {
 					picture books &nbsp;·&nbsp; early readers &nbsp;·&nbsp; chapter books
 				</p>
 				<div class="mt-8 flex flex-wrap justify-center gap-4" data-animate="fade-up" data-delay="2">
-					<a href="/contact" class="rounded-md bg-red px-6 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Let's Connect →</a>
-					<a href="/marketing" class="rounded-md border-2 border-red bg-stone-50 px-6 py-3 font-semibold text-red transition-colors hover:bg-red-wash">View Marketing Services</a>
+					<a href="/contact/" class="rounded-md bg-red px-6 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Let's Connect →</a>
+					<a href="/marketing/" class="rounded-md border-2 border-red bg-stone-50 px-6 py-3 font-semibold text-red transition-colors hover:bg-red-wash">View Marketing Services</a>
 				</div>
 			</div>
 		</section>
@@ -377,7 +378,7 @@ if (publishingServices.length === 0) {
 						<img src="https://cdn.sanity.io/images/pmowd8uo/production/2b5510b1d565ec70f75d0de83ca8e1e6e6014782-3006x1366.jpg?w=800&fm=webp&q=80" alt="The Beetle Experience by Dana Morrison" class="w-full h-24 object-cover" />
 					</a>
 				</div>
-				<a href="/contact" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm" data-animate="fade-up" data-delay="6">Learn More About Funding →</a>
+				<a href="/contact/" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm" data-animate="fade-up" data-delay="6">Learn More About Funding →</a>
 			</div>
 		</section>
 
@@ -417,7 +418,7 @@ if (publishingServices.length === 0) {
 						</div>
 					))}
 				</div>
-				<a href="/marketing" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm" data-animate="fade-up" data-delay="4">See Our Full Marketing Services →</a>
+				<a href="/marketing/" class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm" data-animate="fade-up" data-delay="4">See Our Full Marketing Services →</a>
 			</div>
 		</section>
 
@@ -426,9 +427,10 @@ if (publishingServices.length === 0) {
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Ready to publish your message to the nations?</h2>
 				<p class="text-stone-200 type-body-lg mb-8" data-animate="fade-up" data-delay="1">Let's talk about your vision. Our team will walk you through every option and help you find the right path forward.</p>
-				<a href="/contact" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="2">Request a Free Consultation</a>
+				<a href="/contact/" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors" data-animate="fade-up" data-delay="2">Request a Free Consultation</a>
 			</div>
 		</section>
 
+		<RelatedPosts currentSlug="" currentTags={[]} heading="From the blog" slugs={["how-to-publish-a-christian-book", "back-cover-copy-book-sales-tool", "when-a-stranger-finds-your-book"]} />
 	</main>
 </Layout>

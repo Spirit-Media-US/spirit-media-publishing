@@ -29,22 +29,26 @@ try {
 const year = new Date().getFullYear();
 
 const companyLinks = [
-	{ href: '/about', label: 'About Us' },
-	{ href: '/publishing', label: 'Publishing' },
-	{ href: '/marketing', label: 'Marketing' },
-	{ href: '/contact', label: 'Contact' },
+	{ href: '/about/', label: 'About Us' },
+	{ href: '/publishing/', label: 'Publishing' },
+	{ href: '/marketing/', label: 'Marketing' },
+	{ href: '/contact/', label: 'Contact' },
 ];
 
 const resourceLinks = [
-	{ href: '/bookstore', label: 'Bookstore' },
-	{ href: '/blog', label: 'Blog' },
-	{ href: '/media-center', label: 'Media Center' },
-	{ href: '/portfolio', label: 'Portfolio' },
+	{ href: '/bookstore/', label: 'Bookstore' },
+	{ href: '/blog/', label: 'Blog' },
+	{ href: '/media-center/', label: 'Media Center' },
+	{ href: '/portfolio/', label: 'Portfolio' },
+	// Linked, not hidden (deploy ruling 2026-10-21 under Kevin's 10-19 indexing rule): nothing
+	// linked these two pages, so Google found them and never indexed them.
+	{ href: '/free-book/', label: 'Free Book' },
+	{ href: '/join/', label: 'Join the Network' },
 ];
 
 const legalLinks = [
-	{ href: '/privacy', label: 'Privacy Policy' },
-	{ href: '/terms', label: 'Terms of Service' },
+	{ href: '/privacy/', label: 'Privacy Policy' },
+	{ href: '/terms/', label: 'Terms of Service' },
 ];
 
 const socialLinks = [

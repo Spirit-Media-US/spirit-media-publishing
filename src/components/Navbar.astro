@@ -5,16 +5,16 @@ const pathname = new URL(Astro.request.url).pathname;
 
 const mainLinks = [
 	{ href: '/', label: 'Home' },
-	{ href: '/about', label: 'About' },
-	{ href: '/publishing', label: 'Publishing' },
-	{ href: '/marketing', label: 'Marketing' },
+	{ href: '/about/', label: 'About' },
+	{ href: '/publishing/', label: 'Publishing' },
+	{ href: '/marketing/', label: 'Marketing' },
 ] as const;
 
 const resourcesLinks = [
-	{ href: '/bookstore', label: 'Bookstore' },
-	{ href: '/blog', label: 'Blog' },
-	{ href: '/media-center', label: 'Media Center' },
-	{ href: '/portfolio', label: 'Portfolio' },
+	{ href: '/bookstore/', label: 'Bookstore' },
+	{ href: '/blog/', label: 'Blog' },
+	{ href: '/media-center/', label: 'Media Center' },
+	{ href: '/portfolio/', label: 'Portfolio' },
 ] as const;
 
 function isActive(href: string): boolean {
@@ -149,7 +149,7 @@ const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishin
       <!-- CTA + mobile menu button -->
       <div class="flex items-center gap-3">
         <a
-          href="/contact"
+          href="/contact/"
           class="hidden sm:inline-flex items-center rounded-md bg-red px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep"
         >
           Let's Connect
@@ -221,7 +221,7 @@ const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishin
 
       <!-- CTA in mobile menu -->
       <a
-        href="/contact"
+        href="/contact/"
         class="mt-4 block rounded-md bg-red px-4 py-2 text-center text-sm font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-red-deep"
       >
         Let's Connect
