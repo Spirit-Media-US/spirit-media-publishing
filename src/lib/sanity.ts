@@ -15,6 +15,19 @@ export const sanityClient = createClient({
 	apiVersion: '2024-01-01',
 });
 
+// Draft preview (same pattern as FHB's lib/sanity.ts). Used ONLY when the build sets
+// PUBLIC_PREVIEW_DRAFTS=1 (git pushd on dev / a branch preview). Production builds never
+// set it, so production renders published documents only. Without a token the drafts
+// perspective returns nothing extra, so a missing token degrades to published content.
+export const previewClient = createClient({
+	projectId: 'pmowd8uo',
+	dataset: 'production',
+	useCdn: false,
+	apiVersion: '2024-01-01',
+	token: process.env.SANITY_TOKEN || process.env.SANITY_API_TOKEN || '',
+	perspective: 'drafts',
+});
+
 const builder = createImageUrlBuilder(sanityClient);
 export function urlFor(source: any) {
 	return builder.image(source);
