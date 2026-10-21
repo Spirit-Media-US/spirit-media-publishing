@@ -1,4 +1,5 @@
 ---
+import RelatedPosts from '../components/RelatedPosts.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
@@ -514,6 +515,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 			</div>
 		</section>
 
+		<RelatedPosts currentSlug="" currentTags={[]} heading="From the blog" slugs={["why-we-start-with-heart", "ai-powered-ministry-infrastructure", "end-of-traditional-website-platforms"]} />
 	</main>
 
 	<!-- FREE BOOK MODAL -->

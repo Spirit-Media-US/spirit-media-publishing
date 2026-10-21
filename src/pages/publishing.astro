@@ -1,5 +1,6 @@
 ---
 import MailtoLink from '../components/MailtoLink.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
@@ -430,5 +431,6 @@ if (publishingServices.length === 0) {
 			</div>
 		</section>
 
+		<RelatedPosts currentSlug="" currentTags={[]} heading="From the blog" slugs={["how-to-publish-a-christian-book", "back-cover-copy-book-sales-tool", "when-a-stranger-finds-your-book"]} />
 	</main>
 </Layout>
