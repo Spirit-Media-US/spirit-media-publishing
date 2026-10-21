@@ -135,12 +135,28 @@ const pageDescription =
 			"parentOrganization": { "@type": "Organization", "name": "Spirit Media Inc." },
 			"url": "https://spiritmediapublishing.com",
 			"logo": "https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp",
+			// ONE sameAs list for this entity, identical on fathersheartbible.com (Layout.astro).
+			// Kevin 2026-10-21: handles are "spiritmediapublishing". Only accounts verified to exist
+			// are listed: YouTube @spiritmediapublishing = UCQh2m97udW1osliFysbWsOA; LinkedIn
+			// spiritmediapublishing = company 77053221; TikTok @spiritmediapublishing; Facebook page
+			// 104759452046057 ("Spirit Media Publishing"). Instagram/X wait on Kevin's verification.
 			"sameAs": [
 				"https://www.youtube.com/channel/UCQh2m97udW1osliFysbWsOA",
-				"https://www.facebook.com/spiritmediaus",
-				"https://www.instagram.com/spiritmediaus",
-				"https://www.linkedin.com/company/spiritmediaus"
+				"https://www.youtube.com/@spiritmediapublishing",
+				"https://www.linkedin.com/company/spiritmediapublishing",
+				"https://www.tiktok.com/@spiritmediapublishing",
+				"https://www.facebook.com/104759452046057"
 			],
+			// Kevin 2026-10-21: this address and this phone ONLY, everywhere.
+			"telephone": "+1-888-800-3744",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "205 S Academy Street, Unit 3251",
+				"addressLocality": "Cary",
+				"addressRegion": "NC",
+				"postalCode": "27519",
+				"addressCountry": "US"
+			},
 			// The sheet's approved publisher description (FHB General Edition metadata, verbatim).
 			"description": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. Born from holy conviction and built for global impact, Spirit Media Publishing offers full-service publishing in paperback, hardback, digital, and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. Spirit Media Publishing presents Father's Heart Bible™ translated from Hebrew, Aramaic, and Greek to reveal God as Father. Its Divine Voice Color™ edition is the first Bible in print to color each divine voice: Father in blue, Son in red, Spirit in purple — so every reader can hear their Father's voice.",
 			"founder": {
