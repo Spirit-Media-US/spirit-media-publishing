@@ -30,7 +30,12 @@ try {
 				urlFor(siteSettings.ogImage).width(1200).height(630).format('jpg').url() || undefined;
 		}
 		if (siteSettings.twitterHandle) twitterHandle = siteSettings.twitterHandle;
-		if (siteSettings.googleAnalyticsId) gaId = siteSettings.googleAnalyticsId;
+		// Only a real measurement ID may override the default. Sanity has held the
+		// placeholder "G-XXXXXXXXX" since 2026-03-15, and letting it win sent every
+		// pageview (and every AI-engine referral, AEO row E1) to a property that
+		// does not exist. Found 2026-10-21.
+		const sid = siteSettings.googleAnalyticsId;
+		if (typeof sid === 'string' && /^G-[A-Z0-9]{6,}$/.test(sid) && !/XXXX/.test(sid)) gaId = sid;
 	}
 } catch (e) {
 	console.error('Error fetching siteSettings:', e);

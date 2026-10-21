@@ -3,18 +3,26 @@ import BlogCTA from '../../components/BlogCTA.astro';
 import RelatedPosts from '../../components/RelatedPosts.astro';
 import ShareBar from '../../components/ShareBar.astro';
 import Layout from '../../layouts/Layout.astro';
-import { sanityClient, urlFor } from '../../lib/sanity.ts';
+import { previewClient, sanityClient, urlFor } from '../../lib/sanity.ts';
+
+// Draft preview: a PUBLIC_PREVIEW_DRAFTS=1 build (dev / branch preview only) renders
+// Sanity drafts at their own /blog/<slug>/ URL so a post can be reviewed and Gold-audited
+// before it is published. Production builds leave it unset → published posts only.
+const client = import.meta.env.PUBLIC_PREVIEW_DRAFTS === '1' ? previewClient : sanityClient;
 
 // Static site — pre-render all blog posts from Sanity at build time
 export async function getStaticPaths() {
-	const posts = await sanityClient.fetch(`*[_type == "blogPost"] { "slug": slug.current }`);
+	const c = import.meta.env.PUBLIC_PREVIEW_DRAFTS === '1' ? previewClient : sanityClient;
+	const posts = await c.fetch(
+		`*[_type == "blogPost" && defined(slug.current)] { "slug": slug.current }`,
+	);
 	return posts.map((p: any) => ({ params: { slug: p.slug } }));
 }
 
 const { slug } = Astro.params;
 
 // Fetch the full post
-const post = await sanityClient.fetch(`*[_type == "blogPost" && slug.current == $slug][0]`, {
+const post = await client.fetch(`*[_type == "blogPost" && slug.current == $slug][0]`, {
 	slug,
 });
 
@@ -123,7 +131,25 @@ const blogPostingSchema = {
 	headline: post.title,
 	description: post.excerpt || post.seoDescription || post.title,
 	image: heroImage,
-	author: { '@type': 'Person', name: author },
+	// Gold #31: one author entity across the web — the stable @id FHB also uses, and the
+	// same sameAs list as the Person on /about/ (keep the two in step).
+	author:
+		author === 'Kevin White'
+			? {
+					'@type': 'Person',
+					'@id': 'https://kevinwhite.us/#person',
+					name: author,
+					jobTitle: 'Founder & CEO, Spirit Media Publishing',
+					url: 'https://spiritmediapublishing.com/about/',
+					sameAs: [
+						'https://www.linkedin.com/in/kevinwhiteus/',
+						'https://www.youtube.com/@KevinWhiteus',
+						'https://kevinwhite.us',
+						'https://thekevinwhiteshow.podbean.com/',
+						'https://www.amazon.com/stores/author/B08LZYTR2B',
+					],
+				}
+			: { '@type': 'Person', name: author },
 	publisher: {
 		'@type': 'Organization',
 		'@id': 'https://spiritmediapublishing.com/#organization',
@@ -189,7 +215,7 @@ const jsonLd = [blogPostingSchema, faqSchema].filter(Boolean);
         <h1 class="type-hero text-ink-soft">{post.title}</h1>
         {post.excerpt && <p class="mt-3 type-body-lg text-stone-600 max-w-2xl">{post.excerpt}</p>}
         <div class="flex items-center gap-3 mt-4 pb-8 text-sm text-stone-500 border-b border-stone-200 flex-wrap">
-          <span>By <span class="font-semibold text-ink-soft">{author}</span></span>
+          <span>By {author === 'Kevin White' ? <a href="/about/" class="font-semibold text-ink-soft hover:text-red">{author}</a> : <span class="font-semibold text-ink-soft">{author}</span>}</span>
           <span>·</span>
           <span>{publishDate}</span>
           {modifiedDate && (
