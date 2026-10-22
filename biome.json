@@ -13,7 +13,8 @@
 			"**/*.jsx",
 			"**/*.json",
 			"**/*.css",
-			"**/*.astro"
+			"**/*.astro",
+			"!src/data/fhb-editions.json"
 		],
 		"ignoreUnknown": true
 	},
