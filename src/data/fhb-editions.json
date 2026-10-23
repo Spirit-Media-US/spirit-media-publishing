@@ -485,7 +485,9 @@
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HN982NMV"
+			}
 		},
 		{
 			"group": "language",
