@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 36,
+	"language": 39,
 	"editions": [
 		{
 			"group": "audience",
@@ -473,6 +473,24 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — Nederlandse Bijbel (Dutch) — Dutch Edition",
+			"display_title": "Nederlandse Bijbel — Dutch Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nl-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/dutch-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HN982NMV"
+			}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — Bibliyang Filipino (Filipino) — Filipino Edition",
 			"display_title": "Bibliyang Filipino — Filipino Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -680,6 +698,22 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — नेपाली बाइबल (Nepali) — Nepali Edition",
+			"display_title": "नेपाली बाइबल — Nepali Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ne-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/nepali-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — Naija Bible (Nigerian Pidgin) — Nigerian Pidgin Edition",
 			"display_title": "Naija Bible — Nigerian Pidgin Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -848,6 +882,22 @@
 				"hardback": "https://www.amazon.com/dp/B0HM1PD5LK",
 				"paperback": "https://www.amazon.com/dp/B0HM276R43"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Kitab Suci Sunda (Sundanese) — Sundanese Edition",
+			"display_title": "Kitab Suci Sunda — Sundanese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-su-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/sundanese-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
