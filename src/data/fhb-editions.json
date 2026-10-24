@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 38,
+	"language": 39,
 	"editions": [
 		{
 			"group": "audience",
@@ -882,6 +882,22 @@
 				"hardback": "https://www.amazon.com/dp/B0HM1PD5LK",
 				"paperback": "https://www.amazon.com/dp/B0HM276R43"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Kitab Suci Sunda (Sundanese) — Sundanese Edition",
+			"display_title": "Kitab Suci Sunda — Sundanese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-su-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/sundanese-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
