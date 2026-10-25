@@ -710,7 +710,9 @@
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HP14P1QF"
+			}
 		},
 		{
 			"group": "language",
@@ -897,7 +899,10 @@
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HP3VNY12",
+				"paperback": "https://www.amazon.com/dp/B0HP3N8YWB"
+			}
 		},
 		{
 			"group": "language",
