@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 39,
+	"language": 40,
 	"editions": [
 		{
 			"group": "audience",
@@ -710,7 +710,9 @@
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HP14P1QF"
+			}
 		},
 		{
 			"group": "language",
@@ -897,7 +899,10 @@
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {}
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HP3VNY12",
+				"paperback": "https://www.amazon.com/dp/B0HP3N8YWB"
+			}
 		},
 		{
 			"group": "language",
@@ -1050,6 +1055,22 @@
 				"hardback": "https://www.amazon.com/dp/B0HMC9T1HF",
 				"paperback": "https://www.amazon.com/dp/B0HMCH74DN"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Oʻzbekcha Muqaddas Kitob (Uzbek) — Uzbek Edition",
+			"display_title": "Oʻzbekcha Muqaddas Kitob — Uzbek Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-uz-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/uzbek-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
