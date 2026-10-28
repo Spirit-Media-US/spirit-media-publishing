@@ -1,0 +1,177 @@
+---
+import AnswerBlock from '../components/AnswerBlock.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Answer page for "christian ghostwriting services". Every fact here comes from
+// the Angel Writing section of /publishing/ (pricing, hours, timeline). Do not
+// add numbers that are not on that page.
+const answerUpdated = '2026-10-28';
+const answerText =
+	'Spirit Media Publishing offers Christian ghostwriting through Angel Writing. You meet with your Angel Writer by Zoom or phone for one hour a week, and your writer writes 3 to 4 hours a week in your own words. The book is outlined in the first month, and a finished manuscript can take as little as 90 days. It costs $1,500 per month, and you pay only for the months you need.';
+
+const steps = [
+	{
+		n: '1',
+		t: 'Weekly conversation',
+		d: 'One hour a week with your Angel Writer by Zoom or phone. You talk through your message, stories, and structure.',
+	},
+	{
+		n: '2',
+		t: 'Your writer writes',
+		d: 'Your Angel Writer writes 3 to 4 hours a week, in your voice and your own words.',
+	},
+	{
+		n: '3',
+		t: 'Outline in month one',
+		d: 'Within the first month the book is outlined, so you can see the shape before the chapters arrive.',
+	},
+	{
+		n: '4',
+		t: 'Manuscript in as little as 90 days',
+		d: 'Average completion is 3 months. You pay only for the months you need.',
+	},
+];
+
+const included = [
+	'Weekly Zoom or phone sessions',
+	'15 hours of writing per month',
+	'10,000 words per month',
+	'Book outlined in the first month',
+	'Average completion: 3 months',
+];
+
+const faqs = [
+	{
+		q: 'What is Christian ghostwriting?',
+		a: 'Christian ghostwriting means a professional writer writes your book in your voice, so the message and the name on the cover are yours. At Spirit Media this service is called Angel Writing, and the result is your book, written in your own words.',
+	},
+	{
+		q: 'How much does Christian ghostwriting cost at Spirit Media?',
+		a: 'Angel Writing is $1,500 per month. You pay only for the months you need. Each month includes weekly Zoom or phone sessions, 15 hours of writing, and 10,000 words.',
+	},
+	{
+		q: 'How long does it take to write a book with a ghostwriter?',
+		a: 'The book is outlined within the first month, a manuscript can be written in as little as 90 days, and the average completion time is 3 months.',
+	},
+	{
+		q: 'Do I still have to be involved?',
+		a: 'Yes, lightly. You meet with your Angel Writer for one hour per week by Zoom or phone. Your writer then spends 3 to 4 hours a week writing from that conversation.',
+	},
+	{
+		q: 'What happens after the manuscript is finished?',
+		a: 'Spirit Media editors polish the manuscript to the Chicago Manual of Style, and we can publish it in paperback, hardback, digital, and audiobook with global distribution through Amazon, IngramSpark, libraries, and eBook stores. Publishing includes a 50/50 royalty split.',
+	},
+	{
+		q: 'I have started a manuscript. Can you help me finish it?',
+		a: 'Yes. Angel Writing is for authors who need help starting or finishing. You can also email your manuscript to publisher@spiritmedia.us for a free 20-point review by our editors.',
+	},
+];
+---
+
+<Layout
+	title="Christian Ghostwriting Services — Angel Writing | Spirit Media"
+	description="Christian ghostwriting through Angel Writing: one hour a week with your writer, 10,000 words a month, a finished manuscript in as little as 90 days. $1,500 per month."
+>
+	<Fragment slot="head">
+		<meta name="keywords" content="Christian ghostwriting services, Christian ghostwriter, ghostwriting for pastors, ghostwriter for Christian authors, Angel Writing, write my book, Spirit Media Publishing" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "Christian Ghostwriting — Angel Writing",
+			"provider": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"serviceType": "Ghostwriting",
+			"description": "Angel Writing: weekly one-hour sessions, 15 hours of writing and 10,000 words per month, a finished manuscript in as little as 90 days.",
+			"url": "https://spiritmediapublishing.com/christian-ghostwriting/",
+			"areaServed": "Worldwide",
+			"offers": { "@type": "Offer", "price": "1500", "priceCurrency": "USD", "description": "Per month; pay only for the months you need" }
+		})}></script>
+	</Fragment>
+	<main id="main-content">
+
+		<section class="bg-stone-50 px-6 py-12 lg:py-24 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-3xl text-center">
+				<p class="eyebrow eyebrow-red mb-4">Angel Writing</p>
+				<h1 class="type-hero text-ink-soft">
+					Christian ghostwriting, <span class="text-red">in your own words</span>
+				</h1>
+				<p class="mt-6 type-body-lg text-stone-700 max-w-2xl mx-auto">
+					80% of adults want to write a book, but only 2% ever do. Angel Writing bridges the gap.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-4 justify-center">
+					<a href="/contact/" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Get Started with Angel Writing →</a>
+					<a href="/publishing/" class="rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-ink-soft transition-colors hover:bg-stone-100">All Publishing Services</a>
+				</div>
+			</div>
+		</section>
+
+		<AnswerBlock
+			url="/christian-ghostwriting/"
+			name="Christian Ghostwriting Services — Angel Writing"
+			question="Who offers Christian ghostwriting services?"
+			answer={answerText}
+			updated={answerUpdated}
+		/>
+
+		<section class="bg-stone-50 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-10">
+					<p class="eyebrow eyebrow-red mb-3">How It Works</p>
+					<h2 class="type-section-heading text-ink-soft">From your message to a finished manuscript</h2>
+				</div>
+				<div class="space-y-4">
+					{steps.map(({ n, t, d }) => (
+						<div class="flex items-start gap-4 bg-stone-100 rounded-xl p-5 border border-stone-200">
+							<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red text-white font-bold text-sm">{n}</span>
+							<div>
+								<h3 class="font-semibold text-ink-soft">{t}</h3>
+								<p class="type-body-sm text-stone-600 mt-0.5">{d}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-xl mx-auto">
+				<div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-8 text-center">
+					<p class="eyebrow eyebrow-red mb-2">Pricing</p>
+					<h2 class="font-serif text-4xl font-bold text-ink-soft mb-1">$1,500<span class="text-lg font-normal text-stone-500">/month</span></h2>
+					<p class="text-stone-500 text-sm mb-6">Pay only for the months you need</p>
+					<ul class="text-left space-y-3 mb-8">
+						{included.map((item) => (
+							<li class="flex items-start gap-3">
+								<svg class="h-5 w-5 shrink-0 text-red mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+								<span class="text-stone-700 text-sm">{item}</span>
+							</li>
+						))}
+					</ul>
+					<a href="/contact/" class="block w-full rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep text-center">Request a Free Consultation →</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-stone-50 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-3xl mx-auto">
+				<div class="text-center mb-8">
+					<p class="eyebrow eyebrow-red mb-3">After the Manuscript</p>
+					<h2 class="type-section-heading text-ink-soft">Edit, publish, and market the same book</h2>
+				</div>
+				<p class="text-stone-700 leading-relaxed mb-4">Spirit Media editors polish your manuscript to the Chicago Manual of Style. We then publish in paperback, hardback, digital, and audiobook with global distribution through Amazon, IngramSpark, libraries, and eBook stores worldwide, with a 50/50 royalty split. See <a href="/publishing/" class="text-red hover:underline">Christian book publishing services</a> for packages, or <a href="/marketing/" class="text-red hover:underline">book marketing services</a> for what comes next.</p>
+				<p class="text-stone-700 leading-relaxed">Already have pages written? Email your manuscript to <a href="mailto:publisher@spiritmedia.us" class="text-red hover:underline">publisher@spiritmedia.us</a> for a free 20-point review by our editors.</p>
+			</div>
+		</section>
+
+		<FaqSection heading="Christian ghostwriting, answered" faqs={faqs} />
+
+		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4">Ready to see your book written?</h2>
+				<p class="text-stone-200 type-body-lg mb-8">Tell us about your message and we will match you with an Angel Writer.</p>
+				<a href="/contact/" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors">Request a Free Consultation</a>
+			</div>
+		</section>
+
+	</main>
+</Layout>

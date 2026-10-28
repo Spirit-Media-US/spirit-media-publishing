@@ -1,0 +1,38 @@
+---
+/**
+ * Visible FAQ + FAQPage JSON-LD generated from the SAME array, so markup always
+ * matches the visible Q&A. Answers are plain text.
+ */
+interface Props {
+	heading: string;
+	faqs: { q: string; a: string }[];
+}
+const { heading, faqs } = Astro.props;
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqs.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+---
+
+<section class="bg-stone-50 py-12 lg:py-20 px-6 lg:px-8" aria-labelledby="faq-heading">
+	<div class="max-w-3xl mx-auto">
+		<div class="text-center mb-10">
+			<p class="eyebrow eyebrow-red mb-3">Questions</p>
+			<h2 id="faq-heading" class="type-section-heading text-ink-soft">{heading}</h2>
+		</div>
+		<div class="space-y-4">
+			{faqs.map(({ q, a }) => (
+				<details class="bg-stone-50 rounded-xl p-5 border border-stone-200">
+					<summary class="font-semibold text-ink-soft cursor-pointer">{q}</summary>
+					<p class="type-body-sm text-stone-700 mt-3">{a}</p>
+				</details>
+			))}
+		</div>
+	</div>
+	<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>
