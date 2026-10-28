@@ -6,13 +6,15 @@ import { createImageUrlBuilder } from '@sanity/image-url';
 // SANITY_USE_CDN=true to opt into the CDN for faster builds when freshness
 // isn't time-critical. deploy-live.sh sets SANITY_USE_CDN=false explicitly,
 // so prod deploys are always safe regardless of this default.
-const USE_CDN = process.env.SANITY_USE_CDN === 'true';
+// TEST (plan_limit_reached on api.sanity.io): CDN is default unless SANITY_USE_CDN=false.
+const USE_CDN = process.env.SANITY_USE_CDN !== 'false';
 
 export const sanityClient = createClient({
 	projectId: 'pmowd8uo',
 	dataset: 'production',
 	useCdn: USE_CDN,
 	apiVersion: '2024-01-01',
+	perspective: 'published',
 });
 
 // Draft preview (same pattern as FHB's lib/sanity.ts). Used ONLY when the build sets
