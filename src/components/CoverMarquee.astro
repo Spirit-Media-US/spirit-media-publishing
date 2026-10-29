@@ -93,7 +93,9 @@ const covers = [
 // bookstore build writes from the FHB repo's own edition data (BookstoreBody.astro), so the
 // languages, their built-cover cards (360px, as on FHB) and their pages are never retyped here.
 // Reverse order because the row travels left-to-right: covers then ARRIVE A→Z (as on FHB).
-const LANGUAGE_TOTAL = 33; // Kevin 2026-10-07: 31 live + Amharic and Zulu, coming soon (no card yet)
+// Counts come from the snapshot (Kevin 2026-10-29: marquees current); 80 = Kevin's full roster.
+const LANGUAGE_TOTAL = fhbEditions.language;
+const AUDIENCE_TOTAL = fhbEditions.audience;
 const langCovers = fhbEditions.editions
 	.filter((e) => e.group === 'language')
 	.reverse()
@@ -113,8 +115,8 @@ const langCovers = fhbEditions.editions
 // for any row length, both rows.
 const SECONDS_PER_COVER = 100 / 23;
 const rows = [
-	{ covers, reverse: false, label: '22 Audience Editions' },
-	{ covers: langCovers, reverse: true, label: `${LANGUAGE_TOTAL} Language Editions` },
+	{ covers, reverse: false, label: `${AUDIENCE_TOTAL} Audience Editions` },
+	{ covers: langCovers, reverse: true, label: `${LANGUAGE_TOTAL} Language Editions — Soon in 80 Languages` },
 ].filter((r) => r.covers.length > 0);
 ---
 
