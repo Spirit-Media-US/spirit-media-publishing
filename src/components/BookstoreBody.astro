@@ -64,7 +64,7 @@ async function deriveFhbEditions() {
 	const load = (f: string) => import(/* @vite-ignore */ pathToFileURL(path.join(FHB_DATA, f)).href);
 	const { cardUrl } = await load('card-art.ts');
 	const { dvcEditions } = await load('dvc-editions.ts');
-	const { languageEditions, langSlug } = await load('language-editions.ts');
+	const { rosterLanguages, langSlug } = await load('language-editions.ts');
 	const page = (slug: string) => {
 		const f = path.join(FHB_DATA, 'editions', `${slug}.json`);
 		return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
@@ -96,27 +96,31 @@ async function deriveFhbEditions() {
 			collections: [umbrella, audience],
 		});
 	}
-	for (const l of languageEditions) {
+	// Kevin 2026-10-30: "we know our 80 covers so please add all 80 to all marquees, bookstore, etc. Then
+	// we just make links go live as links go live." Every roster language that has its built-case card
+	// (rosterLanguages: language-roster.json, `fhb-chain.py edition-roster`; the registry wins for
+	// listed editions) is a bookstore card. It LINKS only once its /bibles/<slug>-bible/ page data
+	// exists (the old rule); until then `live: false` renders the cover with "Coming soon", no link.
+	// English is already on the shelf (the fhb-edition-* Sanity documents).
+	for (const l of rosterLanguages) {
+		if (l.code === 'en' || !l.card) continue;
 		const slug = langSlug(l);
 		const ed = page(slug);
-		if (!ed) {
-			left.push(`${l.code}: no /bibles page data (${slug}.json)`);
-			continue;
-		}
 		const english = l.english.replace(/\s*\(.*\)/, '');
 		// language cards come at 360x458 (card-art.ts)
 		rows.push({
 			group: 'language',
-			title: `${ed.title} — ${english} Edition`,
+			live: Boolean(ed),
+			title: `${ed?.title ?? `Father’s Heart Bible — ${l.name} (${english})`} — ${english} Edition`,
 			display_title: `${l.name} — ${english} Edition`,
 			author: AUTHOR,
 			img: cardUrl(`lang-${l.code}`, 360),
 			w: 360,
 			h: 458,
 			href: `${SITE}/bibles/${slug}-bible/`,
-			date: ed.datePublished ?? null,
+			date: ed?.datePublished ?? '2026-10-30',
 			collections: [umbrella, language],
-			formats: l.amazon ?? {},
+			formats: ed ? (l.amazon ?? {}) : {},
 		});
 	}
 	// A 5xx, a 429 or a timeout is the asset host failing, not a missing card: three tries, and a
@@ -179,6 +183,7 @@ for (const e of fhb.editions as any[]) {
 		continue;
 	}
 	const listed = Object.values(e.formats || {}).some(Boolean);
+	const soon = e.live === false; // roster language whose edition page is not built yet: cover only
 	rawBooks.push({
 		title: e.title,
 		display_title: e.display_title,
@@ -186,11 +191,12 @@ for (const e of fhb.editions as any[]) {
 		img: e.img,
 		w: e.w,
 		h: e.h,
-		amazon: e.href,
+		amazon: soon ? null : e.href,
+		soon,
 		date: e.date,
 		collections: e.collections,
 		// No Amazon listing yet: both bindings are ordered on the edition's own page.
-		formats: listed ? e.formats : { hardback: e.href, paperback: e.href },
+		formats: soon ? {} : listed ? e.formats : { hardback: e.href, paperback: e.href },
 	});
 }
 
@@ -273,6 +279,7 @@ const initialBooks = rawBooks
           <div class="p-3 flex flex-col gap-1">
             <a href={b.amazon || undefined} target={b.amazon ? '_blank' : undefined} rel={b.amazon ? 'noopener noreferrer' : undefined} class="text-xs font-semibold text-ink-soft leading-tight line-clamp-2 hover:text-red transition-colors">{b.display_title || b.title}</a>
             <p class="text-xs text-stone-500">{b.author}</p>
+            {b.soon && <p class="text-xs text-stone-500 italic">Coming soon</p>}
           </div>
         </div>
       ))}
@@ -447,7 +454,7 @@ const initialBooks = rawBooks
           <a ${buyAttrs} class="text-xs font-semibold text-ink-soft leading-tight line-clamp-2 hover:text-red transition-colors">${displayTitle}</a>
           <p class="text-xs text-stone-500">${b.author}</p>
           ${dateLabel ? `<p class="text-xs text-stone-400">${dateLabel}</p>` : ''}
-          ${renderFormats(b)}
+          ${b.soon ? '<p class="text-xs text-stone-500 italic" style="margin-top:6px;">Coming soon</p>' : renderFormats(b)}
         </div>
       </div>`;
     }).join('');

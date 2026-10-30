@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 40,
+	"language": 79,
 	"editions": [
 		{
 			"group": "audience",
@@ -378,6 +378,22 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — Afrikaanse Bybel (Afrikaans) — Afrikaans Edition",
+			"display_title": "Afrikaanse Bybel — Afrikaans Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-af-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/afrikaans-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — የአማርኛ መጽሐፍ ቅዱስ (Amharic) — Amharic Edition",
 			"display_title": "የአማርኛ መጽሐፍ ቅዱስ — Amharic Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -394,6 +410,23 @@
 				"hardback": "https://www.amazon.com/dp/B0HMJZNMJ7",
 				"paperback": "https://www.amazon.com/dp/B0HMJTVLKD"
 			}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Adisana Ñwed Anaang (Anaang) — Anaang Edition",
+			"display_title": "Adisana Ñwed Anaang — Anaang Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-anw-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/anaang-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -416,6 +449,22 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — تۆرکجه موقدس کتاب (South Azerbaijani) — South Azerbaijani Edition",
+			"display_title": "تۆرکجه موقدس کتاب — South Azerbaijani Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-azb-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/south-azerbaijani-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — বাংলা বাইবেল (Bengali) — Bengali Edition",
 			"display_title": "বাংলা বাইবেল — Bengali Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -431,25 +480,6 @@
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HM54D5N9",
 				"paperback": "https://www.amazon.com/dp/B0HM53PFTY"
-			}
-		},
-		{
-			"group": "language",
-			"title": "Father’s Heart Bible — 廣東話聖經 (Cantonese) — Cantonese Edition",
-			"display_title": "廣東話聖經 — Cantonese Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-yue-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/cantonese-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM57DD2C",
-				"paperback": "https://www.amazon.com/dp/B0HM53Q6ZG"
 			}
 		},
 		{
@@ -473,20 +503,77 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — Nederlandse Bijbel (Dutch) — Dutch Edition",
-			"display_title": "Nederlandse Bijbel — Dutch Edition",
+			"title": "Father’s Heart Bible — Deutsche Bibel (German) — German Edition",
+			"display_title": "Deutsche Bibel — German Edition",
 			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nl-360.webp",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-de-360.webp",
 			"w": 360,
 			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/dutch-bible/",
+			"href": "https://fathersheartbible.com/bibles/german-bible/",
+			"date": "2026-10-08",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM1YZLJB",
+				"paperback": "https://www.amazon.com/dp/B0HM2FS25B"
+			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Ελληνική Βίβλος (Modern Greek) — Modern Greek Edition",
+			"display_title": "Ελληνική Βίβλος — Modern Greek Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-el-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/modern-greek-bible/",
 			"date": "2026-10-29",
 			"collections": [
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
 			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HN982NMV"
+				"hardback": "https://www.amazon.com/dp/B0HN97S9TV"
+			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Biblia Española (Spanish) — Spanish Edition",
+			"display_title": "Biblia Española — Spanish Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-es-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/spanish-bible/",
+			"date": "2026-10-08",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM1PD5LK",
+				"paperback": "https://www.amazon.com/dp/B0HM276R43"
+			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — کتاب مقدس فارسی (Persian (Farsi)) — Persian Edition",
+			"display_title": "کتاب مقدس فارسی — Persian Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-fa-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/persian-bible/",
+			"date": "2026-10-08",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM4WRFQT",
+				"paperback": "https://www.amazon.com/dp/B0HM5DNX39"
 			}
 		},
 		{
@@ -529,22 +616,35 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — Deutsche Bibel (German) — German Edition",
-			"display_title": "Deutsche Bibel — German Edition",
+			"title": "Father’s Heart Bible — ગુજરાતી બાઇબલ (Gujarati) — Gujarati Edition",
+			"display_title": "ગુજરાતી બાઇબલ — Gujarati Edition",
 			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-de-360.webp",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-gu-360.webp",
 			"w": 360,
 			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/german-bible/",
-			"date": "2026-10-08",
+			"href": "https://fathersheartbible.com/bibles/gujarati-bible/",
+			"date": "2026-10-29",
 			"collections": [
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM1YZLJB",
-				"paperback": "https://www.amazon.com/dp/B0HM2FS25B"
-			}
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Littafi Mai Tsarki na Hausa (Hausa) — Hausa Edition",
+			"display_title": "Littafi Mai Tsarki na Hausa — Hausa Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ha-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/hausa-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -564,6 +664,38 @@
 				"hardback": "https://www.amazon.com/dp/B0HM69LYLQ",
 				"paperback": "https://www.amazon.com/dp/B0HM6GLGNS"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Hiligaynon nga Biblia (Hiligaynon) — Hiligaynon Edition",
+			"display_title": "Hiligaynon nga Biblia — Hiligaynon Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-hil-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/hiligaynon-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Bib Kreyòl Ayisyen (Haitian Creole) — Haitian Creole Edition",
+			"display_title": "Bib Kreyòl Ayisyen — Haitian Creole Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ht-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/haitian-creole-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -601,6 +733,55 @@
 				"hardback": "https://www.amazon.com/dp/B0HM1QR5NW",
 				"paperback": "https://www.amazon.com/dp/B0HM1P12LK"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Baịbụl Igbo (Igbo) — Igbo Edition",
+			"display_title": "Baịbụl Igbo — Igbo Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ig-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/igbo-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Izon Baibul (Izon) — Izon Edition",
+			"display_title": "Izon Baibul — Izon Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ijc-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/izon-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Biblia nga Ilokano (Ilocano) — Ilocano Edition",
+			"display_title": "Biblia nga Ilokano — Ilocano Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ilo-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/ilocano-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -642,6 +823,70 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — Kitab Suci Jawa (Javanese) — Javanese Edition",
+			"display_title": "Kitab Suci Jawa — Javanese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-jv-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/javanese-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Bibilia ya Gĩkũyũ (Kikuyu) — Kikuyu Edition",
+			"display_title": "Bibilia ya Gĩkũyũ — Kikuyu Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ki-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/kikuyu-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Kitêba Pîroz a Kurmancî (Kurmanji Kurdish) — Kurmanji Kurdish Edition",
+			"display_title": "Kitêba Pîroz a Kurmancî — Kurmanji Kurdish Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-kmr-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/kurmanji-kurdish-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — ಕನ್ನಡ ಬೈಬಲ್ (Kannada) — Kannada Edition",
+			"display_title": "ಕನ್ನಡ ಬೈಬಲ್ — Kannada Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-kn-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/kannada-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — 한국어 성경 (Korean) — Korean Edition",
 			"display_title": "한국어 성경 — Korean Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -658,6 +903,72 @@
 				"hardback": "https://www.amazon.com/dp/B0HM6VPTFX",
 				"paperback": "https://www.amazon.com/dp/B0HM5YJQPG"
 			}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Biblia ya Kituba (Kituba) — Kituba Edition",
+			"display_title": "Biblia ya Kituba — Kituba Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ktu-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/kituba-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Biblia Nemangbetu (Mangbetu) — Mangbetu Edition",
+			"display_title": "Biblia Nemangbetu — Mangbetu Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-mdj-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/mangbetu-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Baiboly Malagasy (Malagasy) — Malagasy Edition",
+			"display_title": "Baiboly Malagasy — Malagasy Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-mg-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/malagasy-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — മലയാളം ബൈബിൾ (Malayalam) — Malayalam Edition",
+			"display_title": "മലയാളം ബൈബിൾ — Malayalam Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ml-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/malayalam-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -680,21 +991,51 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — Ελληνική Βίβλος (Modern Greek) — Modern Greek Edition",
-			"display_title": "Ελληνική Βίβλος — Modern Greek Edition",
+			"title": "Father’s Heart Bible — Alkitab Melayu (Malay) — Malay Edition",
+			"display_title": "Alkitab Melayu — Malay Edition",
 			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-el-360.webp",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ms-360.webp",
 			"w": 360,
 			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/modern-greek-bible/",
+			"href": "https://fathersheartbible.com/bibles/malay-bible/",
 			"date": "2026-10-29",
 			"collections": [
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HN97S9TV"
-			}
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — မြန်မာ သမ္မာကျမ်းစာ (Burmese) — Burmese Edition",
+			"display_title": "မြန်မာ သမ္မာကျမ်းစာ — Burmese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-my-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/burmese-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Nagamese Pobitro Kitab (Nagamese) — Nagamese Edition",
+			"display_title": "Nagamese Pobitro Kitab — Nagamese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nag-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/nagamese-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -712,6 +1053,144 @@
 			],
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HP14P1QF"
+			}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Inpui Bathiangnu Chongdip (Inpui Naga) — Inpui Naga Edition",
+			"display_title": "Inpui Bathiangnu Chongdip — Inpui Naga Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nkf-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/inpui-naga-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Nederlandse Bijbel (Dutch) — Dutch Edition",
+			"display_title": "Nederlandse Bijbel — Dutch Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nl-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/dutch-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HN982NMV"
+			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Tangkhul Bible (Tangkhul) — Tangkhul Edition",
+			"display_title": "Tangkhul Bible — Tangkhul Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nmf-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/tangkhul-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM6VYQPD",
+				"paperback": "https://www.amazon.com/dp/B0HM63G3QJ"
+			}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Chokri Ketholesi (Chokri Naga) — Chokri Naga Edition",
+			"display_title": "Chokri Ketholesi — Chokri Naga Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nri-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/chokri-naga-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Baibulo la Chicheŵa (Chichewa) — Chichewa Edition",
+			"display_title": "Baibulo la Chicheŵa — Chichewa Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ny-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/chichewa-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Macaafa Qulqulluu Oromoo (Oromo) — Oromo Edition",
+			"display_title": "Macaafa Qulqulluu Oromoo — Oromo Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-om-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/oromo-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — ଓଡ଼ିଆ ବାଇବଲ (Odia) — Odia Edition",
+			"display_title": "ଓଡ଼ିଆ ବାଇବଲ — Odia Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-or-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/odia-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — ਪੰਜਾਬੀ ਬਾਈਬਲ (Punjabi) — Punjabi Edition",
+			"display_title": "ਪੰਜਾਬੀ ਬਾਈਬਲ — Punjabi Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-pa-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/punjabi-bible/",
+			"date": "2026-10-08",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM6HKNQ3",
+				"paperback": "https://www.amazon.com/dp/B0HM72KLJL"
 			}
 		},
 		{
@@ -735,25 +1214,6 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — کتاب مقدس فارسی (Persian (Farsi)) — Persian Edition",
-			"display_title": "کتاب مقدس فارسی — Persian Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-fa-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/persian-bible/",
-			"date": "2026-10-08",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM4WRFQT",
-				"paperback": "https://www.amazon.com/dp/B0HM5DNX39"
-			}
-		},
-		{
-			"group": "language",
 			"title": "Father’s Heart Bible — Polska Biblia (Polish) — Polish Edition",
 			"display_title": "Polska Biblia — Polish Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -770,6 +1230,22 @@
 				"hardback": "https://www.amazon.com/dp/B0HMFRWM9J",
 				"paperback": "https://www.amazon.com/dp/B0HMFL322D"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — د پښتو سپیڅلی کتاب (Pashto) — Pashto Edition",
+			"display_title": "د پښتو سپیڅلی کتاب — Pashto Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ps-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/pashto-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -792,22 +1268,19 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — ਪੰਜਾਬੀ ਬਾਈਬਲ (Punjabi) — Punjabi Edition",
-			"display_title": "ਪੰਜਾਬੀ ਬਾਈਬਲ — Punjabi Edition",
+			"title": "Father’s Heart Bible — Bibiliya y'Ikirundi (Kirundi) — Kirundi Edition",
+			"display_title": "Bibiliya y'Ikirundi — Kirundi Edition",
 			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-pa-360.webp",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-rn-360.webp",
 			"w": 360,
 			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/punjabi-bible/",
-			"date": "2026-10-08",
+			"href": "https://fathersheartbible.com/bibles/kirundi-bible/",
+			"date": "2026-10-29",
 			"collections": [
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM6HKNQ3",
-				"paperback": "https://www.amazon.com/dp/B0HM72KLJL"
-			}
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -849,41 +1322,100 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — 中文圣经 (Simplified Chinese) — Simplified Chinese Edition",
-			"display_title": "中文圣经 — Simplified Chinese Edition",
+			"title": "Father’s Heart Bible — Bibiliya y'Ikinyarwanda (Kinyarwanda) — Kinyarwanda Edition",
+			"display_title": "Bibiliya y'Ikinyarwanda — Kinyarwanda Edition",
 			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-zh-hans-360.webp",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-rw-360.webp",
 			"w": 360,
 			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/simplified-chinese-bible/",
+			"href": "https://fathersheartbible.com/bibles/kinyarwanda-bible/",
 			"date": "2026-10-29",
 			"collections": [
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HMG63M8M",
-				"paperback": "https://www.amazon.com/dp/B0HMFW8GMC"
-			}
+			"formats": {}
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — Biblia Española (Spanish) — Spanish Edition",
-			"display_title": "Biblia Española — Spanish Edition",
+			"title": "Father’s Heart Bible — سنڌي بائيبل (Sindhi) — Sindhi Edition",
+			"display_title": "سنڌي بائيبل — Sindhi Edition",
 			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-es-360.webp",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-sd-360.webp",
 			"w": 360,
 			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/spanish-bible/",
-			"date": "2026-10-08",
+			"href": "https://fathersheartbible.com/bibles/sindhi-bible/",
+			"date": "2026-10-29",
 			"collections": [
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM1PD5LK",
-				"paperback": "https://www.amazon.com/dp/B0HM276R43"
-			}
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Bukhu ya Mulungu ya Chisena (Sena) — Sena Edition",
+			"display_title": "Bukhu ya Mulungu ya Chisena — Sena Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-seh-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/sena-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Bukuit ne Tilil ab Kipsigis (Kipsigis) — Kipsigis Edition",
+			"display_title": "Bukuit ne Tilil ab Kipsigis — Kipsigis Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-sgc-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/kipsigis-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Bhaibheri rechiShona (Shona) — Shona Edition",
+			"display_title": "Bhaibheri rechiShona — Shona Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-sn-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/shona-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Kitaabka Quduuska ah ee Soomaaliga (Somali) — Somali Edition",
+			"display_title": "Kitaabka Quduuska ah ee Soomaaliga — Somali Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-so-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/somali-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -944,25 +1476,6 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — Tangkhul Bible (Tangkhul) — Tangkhul Edition",
-			"display_title": "Tangkhul Bible — Tangkhul Edition",
-			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nmf-360.webp",
-			"w": 360,
-			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/tangkhul-bible/",
-			"date": "2026-10-29",
-			"collections": [
-				"Father's Heart Bible™ (FHB)",
-				"Father's Heart Bible™ — Language Editions"
-			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM6VYQPD",
-				"paperback": "https://www.amazon.com/dp/B0HM63G3QJ"
-			}
-		},
-		{
-			"group": "language",
 			"title": "Father’s Heart Bible — తెలుగు బైబిల్ (Telugu) — Telugu Edition",
 			"display_title": "తెలుగు బైబిల్ — Telugu Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -982,22 +1495,35 @@
 		},
 		{
 			"group": "language",
-			"title": "Father’s Heart Bible — 中文聖經 (Traditional Chinese) — Traditional Chinese Edition",
-			"display_title": "中文聖經 — Traditional Chinese Edition",
+			"title": "Father’s Heart Bible — พระคัมภีร์​ไทย (Thai) — Thai Edition",
+			"display_title": "พระคัมภีร์​ไทย — Thai Edition",
 			"author": "Kevin White and Spirit Media Publishing",
-			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-zh-hant-360.webp",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-th-360.webp",
 			"w": 360,
 			"h": 458,
-			"href": "https://fathersheartbible.com/bibles/traditional-chinese-bible/",
-			"date": "2026-10-08",
+			"href": "https://fathersheartbible.com/bibles/thai-bible/",
+			"date": "2026-10-29",
 			"collections": [
 				"Father's Heart Bible™ (FHB)",
 				"Father's Heart Bible™ — Language Editions"
 			],
-			"formats": {
-				"hardback": "https://www.amazon.com/dp/B0HM636LBP",
-				"paperback": "https://www.amazon.com/dp/B0HM6CHG3Y"
-			}
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — ናይ ትግርኛ መጽሓፍ ቅዱስ (Tigrinya) — Tigrinya Edition",
+			"display_title": "ናይ ትግርኛ መጽሓፍ ቅዱስ — Tigrinya Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ti-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/tigrinya-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -1017,6 +1543,22 @@
 				"hardback": "https://www.amazon.com/dp/B0HM25FNDH",
 				"paperback": "https://www.amazon.com/dp/B0HM1HDN87"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Twi Twerɛ Kronkron (Twi) — Twi Edition",
+			"display_title": "Twi Twerɛ Kronkron — Twi Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ak-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/twi-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -1096,6 +1638,39 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — IBhayibhile yesiXhosa (Xhosa) — Xhosa Edition",
+			"display_title": "IBhayibhile yesiXhosa — Xhosa Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-xh-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/xhosa-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"live": false,
+			"title": "Father’s Heart Bible — Masonuku Matoma ma Kiyaka (Yaka) — Yaka Edition",
+			"display_title": "Masonuku Matoma ma Kiyaka — Yaka Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-yaf-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/yaka-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — Bíbélì Yorùbá (Yoruba) — Yoruba Edition",
 			"display_title": "Bíbélì Yorùbá — Yoruba Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -1111,6 +1686,63 @@
 			"formats": {
 				"hardback": "https://www.amazon.com/dp/B0HMJQCJ4B",
 				"paperback": "https://www.amazon.com/dp/B0HMK1RKTM"
+			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — 廣東話聖經 (Cantonese) — Cantonese Edition",
+			"display_title": "廣東話聖經 — Cantonese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v1/lang-yue-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/cantonese-bible/",
+			"date": "2026-10-08",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM57DD2C",
+				"paperback": "https://www.amazon.com/dp/B0HM53Q6ZG"
+			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — 中文圣经 (Simplified Chinese) — Simplified Chinese Edition",
+			"display_title": "中文圣经 — Simplified Chinese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-zh-hans-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/simplified-chinese-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HMG63M8M",
+				"paperback": "https://www.amazon.com/dp/B0HMFW8GMC"
+			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — 中文聖經 (Traditional Chinese) — Traditional Chinese Edition",
+			"display_title": "中文聖經 — Traditional Chinese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-zh-hant-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/traditional-chinese-bible/",
+			"date": "2026-10-08",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HM636LBP",
+				"paperback": "https://www.amazon.com/dp/B0HM6CHG3Y"
 			}
 		},
 		{

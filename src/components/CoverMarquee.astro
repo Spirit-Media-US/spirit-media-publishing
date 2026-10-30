@@ -93,21 +93,36 @@ const covers = [
 // bookstore build writes from the FHB repo's own edition data (BookstoreBody.astro), so the
 // languages, their built-cover cards (360px, as on FHB) and their pages are never retyped here.
 // Reverse order because the row travels left-to-right: covers then ARRIVE A→Z (as on FHB).
-const LANGUAGE_TOTAL = 33; // Kevin 2026-10-07: 31 live + Amharic and Zulu, coming soon (no card yet)
-const langCovers = fhbEditions.editions
-	.filter((e) => e.group === 'language')
-	.reverse()
-	.map((e) => {
-		const [name, ed] = e.display_title.split(' — ');
-		return {
-			key: e.href,
-			name: `${name} (${ed.replace(/ Edition$/, '')})`,
-			caption: ed.replace(/ Edition$/, ''),
-			href: e.href,
-			src: e.img,
-			h: H('lang'),
-		};
-	});
+// Kevin 2026-10-30: all 80 languages in every marquee ("Then we just make links go live as links go
+// live"). The snapshot rows now carry every roster language with a built card; `live: false` = its
+// FHB page is not built yet, so the cover shows "Coming soon" and is NOT a link. English is the 80th.
+const langRows = [
+	...fhbEditions.editions
+		.filter((e) => e.group === 'language')
+		.map((e) => {
+			const [name, ed] = e.display_title.split(' — ');
+			const english = ed.replace(/ Edition$/, '');
+			return {
+				key: e.href,
+				name: `${name} (${english})`,
+				caption: english,
+				href: 'live' in e && e.live === false ? null : e.href,
+				src: e.img,
+				h: H('lang'),
+			};
+		}),
+	{
+		key: `${FHB}/bibles/fathers-heart-bible/`,
+		name: 'English edition',
+		caption: 'English',
+		href: `${FHB}/bibles/fathers-heart-bible/`,
+		src: cardUrl('general-regular-charcoal'),
+		h: H('general-regular-charcoal'),
+	},
+];
+// Reverse order because the row travels left-to-right: covers then ARRIVE A→Z (as on FHB).
+const langCovers = langRows.sort((a, b) => b.caption.localeCompare(a.caption));
+const LANGUAGE_TOTAL = langCovers.length;
 
 // SPEED IS PER PIXEL, NOT PER LOOP: 100/23 s per cover keeps the 2026-09-24 on-screen speed
 // for any row length, both rows.
@@ -137,18 +152,33 @@ const rows = [
 					<ul class="fhbm-row" aria-hidden={copy === 1 ? 'true' : undefined}>
 						{row.covers.map((c) => (
 							<li>
-								<a href={c.href} tabindex={copy === 1 ? -1 : undefined}>
-									<img
-										src={c.src}
-										alt={copy === 1 ? '' : `Father's Heart Bible — ${c.name}`}
-										width={W}
-										height={c.h}
-										loading="lazy"
-										decoding="async"
-										fetchpriority="low"
-									/>
-									{'caption' in c && <span class="fhbm-cap">{c.caption}</span>}
-								</a>
+								{c.href ? (
+									<a href={c.href} tabindex={copy === 1 ? -1 : undefined}>
+										<img
+											src={c.src}
+											alt={copy === 1 ? '' : `Father's Heart Bible — ${c.name}`}
+											width={W}
+											height={c.h}
+											loading="lazy"
+											decoding="async"
+											fetchpriority="low"
+										/>
+										{'caption' in c && <span class="fhbm-cap">{c.caption}</span>}
+									</a>
+								) : (
+									<div class="fhbm-soon">
+										<img
+											src={c.src}
+											alt={copy === 1 ? '' : `Father's Heart Bible — ${c.name}`}
+											width={W}
+											height={c.h}
+											loading="lazy"
+											decoding="async"
+											fetchpriority="low"
+										/>
+										<span class="fhbm-cap">{'caption' in c ? c.caption : ''}<em>Coming soon</em></span>
+									</div>
+								)}
 							</li>
 						))}
 					</ul>
@@ -235,7 +265,10 @@ const rows = [
 		font-size: 0.8rem;
 		line-height: 1.3;
 	}
-	.fhbm-row a { display: block; text-decoration: none; }
+	.fhbm-row a, .fhbm-soon { display: block; text-decoration: none; }
+	/* two lines reserved so linked and coming-soon covers bottom-align and nothing shifts */
+	.fhbm-cap { min-height: 2.1rem; }
+	.fhbm-cap em { display: block; font-style: normal; font-size: 0.7rem; opacity: 0.8; }
 	@keyframes fhbm-scroll {
 		from { transform: translate3d(0, 0, 0); }
 		to { transform: translate3d(-50%, 0, 0); }
