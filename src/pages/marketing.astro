@@ -1,4 +1,6 @@
 ---
+import AnswerBlock from '../components/AnswerBlock.astro';
+import FaqSection from '../components/FaqSection.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
@@ -149,6 +151,36 @@ if (marketingSteps.length === 0) {
 		{ step: '7', title: 'Paid Digital Ads', desc: 'amplify what\u2019s already working' },
 	];
 }
+
+const answerUpdated = '2026-10-28';
+const answerText =
+	'Spirit Media Publishing offers Christian book marketing as done-for-you partnerships: Amazon review building, advance reader copies, paid digital ads, short-form video and reels, podcast and YouTube support, social media, email and SMS, press releases, a website or landing page, and monthly reporting. Most run six to twelve months. We start with your foundation, then amplify. Request a free consultation and we scope the mix to your book.';
+const marketingFaqs = [
+	{
+		q: 'What do book marketing services from Spirit Media include?',
+		a: 'Amazon review building, advance reader copies, paid digital ads, video production and reels, podcast production, YouTube channel optimization, social media management, email and SMS marketing, public relations, websites and landing pages, a GoHighLevel CRM platform, community platforms, and monthly analytics and reporting.',
+	},
+	{
+		q: 'How long do the marketing partnerships last?',
+		a: 'Amazon review building is a six-month partnership with a goal of 25 reviews per month. Paid digital ads, video production, YouTube optimization, social media management, email marketing and SMS marketing are twelve-month partnerships.',
+	},
+	{
+		q: 'How much does book marketing cost?',
+		a: 'Pricing depends on which services you combine, so we scope it on a free consultation. Advance reader copies are priced per copy, and that cost covers the mailing list, up to $5 toward printing, fulfillment, and postage.',
+	},
+	{
+		q: 'Where should a new author start with book marketing?',
+		a: 'Build from the ground up, because each layer amplifies the last: Amazon reviews first, then advance reader copies for bookstores, a landing page or website, a YouTube channel, a podcast show tour, your own podcast, and paid digital ads last, to amplify what is already working.',
+	},
+	{
+		q: 'Can you make reels and short-form video for my book?',
+		a: 'Yes. Our video production service covers eight hours of professional filming, story development, scripting, and full post-production, delivered as short-form feature videos and up to 20 reels per month for 12 months. See the Reels for Authors page for real examples.',
+	},
+	{
+		q: 'Is there free help with book marketing?',
+		a: 'Every Spirit Media author receives a free copy of The Ultimate Book Marketing Guide by Kevin White. Nonprofit authors can also use Google Ads grants of up to $10,000 per year for any 501(c)(3), which we manage for you.',
+	},
+];
 ---
 
 <Layout
@@ -215,6 +247,14 @@ if (marketingSteps.length === 0) {
 				</div>
 			</div>
 		</section>
+
+		<AnswerBlock
+			url="/marketing/"
+			name="Christian Book Marketing Services"
+			question="What book marketing services does Spirit Media Publishing offer?"
+			answer={answerText}
+			updated={answerUpdated}
+		/>
 
 		<!-- REELS SPOTLIGHT -->
 		<section class="bg-stone-50 px-6 pb-8 lg:px-8">
@@ -318,6 +358,8 @@ if (marketingSteps.length === 0) {
 				</div>
 			</div>
 		</section>
+
+		<FaqSection heading="Book marketing, answered" faqs={marketingFaqs} />
 
 		<!-- FINAL CTA -->
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">

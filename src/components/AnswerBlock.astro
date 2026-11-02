@@ -1,0 +1,55 @@
+---
+/**
+ * Direct-answer block for service/answer pages (AEO recipe: answer in the first
+ * ~150 words, visible author + updated date, matching WebPage schema).
+ * Visible text and JSON-LD come from the same props so they cannot drift.
+ */
+interface Props {
+	url: string; // canonical path with trailing slash, e.g. "/marketing/"
+	name: string; // page name for schema
+	question: string; // the question this page answers
+	answer: string; // plain-text direct answer (<= ~90 words)
+	updated: string; // ISO date, e.g. "2026-10-28"
+}
+const { url, name, question, answer, updated } = Astro.props;
+const updatedLabel = new Date(`${updated}T12:00:00Z`).toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'UTC',
+});
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	name,
+	url: `https://spiritmediapublishing.com${url}`,
+	dateModified: updated,
+	author: {
+		'@type': 'Person',
+		name: 'Kevin White',
+		jobTitle: 'Founder & CEO, Spirit Media Publishing',
+		url: 'https://spiritmediapublishing.com/about/',
+	},
+	publisher: {
+		'@type': 'Organization',
+		'@id': 'https://spiritmediapublishing.com/#organization',
+		name: 'Spirit Media Publishing',
+		url: 'https://spiritmediapublishing.com',
+	},
+	isPartOf: { '@id': 'https://spiritmediapublishing.com/#website' },
+};
+---
+
+<section class="bg-stone-100 px-6 py-10 lg:px-8" aria-labelledby="direct-answer-heading">
+	<div class="mx-auto max-w-3xl">
+		<div class="rounded-2xl border border-stone-200 bg-stone-50 p-6 lg:p-8 shadow-sm">
+			<p id="direct-answer-heading" class="eyebrow eyebrow-red mb-2">{question}</p>
+			<p class="type-body-lg text-ink-soft">{answer}</p>
+			<p class="mt-4 type-body-sm text-stone-500">
+				By <a href="/about/" class="text-red hover:underline">Kevin White</a>, Founder &amp; CEO,
+				Spirit Media Publishing · Updated <time datetime={updated}>{updatedLabel}</time>
+			</p>
+		</div>
+	</div>
+	<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>
