@@ -93,7 +93,9 @@ const covers = [
 // bookstore build writes from the FHB repo's own edition data (BookstoreBody.astro), so the
 // languages, their built-cover cards (360px, as on FHB) and their pages are never retyped here.
 // Reverse order because the row travels left-to-right: covers then ARRIVE A→Z (as on FHB).
-const LANGUAGE_TOTAL = 33; // Kevin 2026-10-07: 31 live + Amharic and Zulu, coming soon (no card yet)
+const LANGUAGE_TOTAL = 80; // Kevin 2026-11-06: "we have 80 languages not 33" (was 33 per Kevin 2026-10-07)
+// Our bible.com partner page: lists every Father's Heart Bible version on YouVersion.
+const YOUVERSION_URL = 'https://www.bible.com/organizations/89162c01-3892-4c7b-a462-239df0931522';
 const langCovers = fhbEditions.editions
 	.filter((e) => e.group === 'language')
 	.reverse()
@@ -113,7 +115,7 @@ const langCovers = fhbEditions.editions
 // for any row length, both rows.
 const SECONDS_PER_COVER = 100 / 23;
 const rows = [
-	{ covers, reverse: false, label: '22 Audience Editions' },
+	{ covers, reverse: false, label: '25 Audience Editions' }, // Kevin 2026-11-06: "we have 25 editions not 22"
 	{ covers: langCovers, reverse: true, label: `${LANGUAGE_TOTAL} Language Editions` },
 ].filter((r) => r.covers.length > 0);
 ---
@@ -121,6 +123,13 @@ const rows = [
 <section class="fhbm" aria-labelledby="fhbm-title">
 	<h2 id="fhbm-title" class="fhbm-title">Father&rsquo;s Heart Bible™ + Divine Voice™ Color is Here</h2>
 	<p class="fhbm-line type-body-lg text-stone-700">Where other Bibles use &ldquo;God&rdquo; to say what He is, the Father&rsquo;s Heart Bible™ uses &ldquo;our Father&rdquo; to show who He has been all along.</p>
+
+	<!-- YouVersion (Kevin 2026-11-06: "It needs to be with the FHB section. SMP is not on YouVersion
+	     rather Father's Heart Bible is"). Same small-caps style as the row labels, above them. -->
+	<a class="fhbm-label fhbm-yv" href={YOUVERSION_URL} target="_blank" rel="noopener">
+		<img src="https://assets.spiritmediapublishing.com/FHB/partners/youversion-icon-96.webp" alt="" width="16" height="16" decoding="async" loading="lazy" />
+		Now on YouVersion &mdash; read free in the Bible App <span aria-hidden="true">&rarr;</span>
+	</a>
 
 	<!-- The strip. The track holds the covers TWICE and travels exactly -50%, so the
 	     second copy is under the cursor at the moment the first wraps — that is what
@@ -225,6 +234,9 @@ const rows = [
 		margin: 0 1.5rem 0.75rem;
 	}
 	.fhbm-viewport + .fhbm-label { margin-top: 1.75rem; }
+	.fhbm-yv { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; color: #5b2b55; text-decoration: none; }
+	.fhbm-yv:hover { text-decoration: underline; }
+	.fhbm-yv img { width: 16px; height: 16px; border-radius: 3px; }
 	/* English name under each language cover, centred under the FRONT board (x 24..466 of
 	   every 600px language card), as on the FHB homepage. */
 	.fhbm-cap {
