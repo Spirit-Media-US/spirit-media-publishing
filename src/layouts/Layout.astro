@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import YouVersionBar from '../components/YouVersionBar.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
 interface Props {
@@ -280,7 +279,6 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
   </head>
   <body class="flex min-h-screen flex-col bg-stone-50 text-ink antialiased">
-    <YouVersionBar />
     <Navbar />
     <slot />
     <Footer />
