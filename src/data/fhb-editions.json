@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 40,
+	"language": 45,
 	"editions": [
 		{
 			"group": "audience",
@@ -435,6 +435,25 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — မြန်မာ သမ္မာကျမ်းစာ (Burmese) — Burmese Edition",
+			"display_title": "မြန်မာ သမ္မာကျမ်းစာ — Burmese Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-my-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/burmese-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {
+				"hardback": "https://www.amazon.com/dp/B0HPQTXCJW",
+				"paperback": "https://www.amazon.com/dp/B0HPQZY2G7"
+			}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — 廣東話聖經 (Cantonese) — Cantonese Edition",
 			"display_title": "廣東話聖經 — Cantonese Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -470,6 +489,22 @@
 				"hardback": "https://www.amazon.com/dp/B0HMFGBP9K",
 				"paperback": "https://www.amazon.com/dp/B0HMFWRW1Z"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Baibulo la Chicheŵa (Chichewa) — Chichewa Edition",
+			"display_title": "Baibulo la Chicheŵa — Chichewa Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ny-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/chichewa-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -545,6 +580,22 @@
 				"hardback": "https://www.amazon.com/dp/B0HM1YZLJB",
 				"paperback": "https://www.amazon.com/dp/B0HM2FS25B"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Littafi Mai Tsarki na Hausa (Hausa) — Hausa Edition",
+			"display_title": "Littafi Mai Tsarki na Hausa — Hausa Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-ha-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/hausa-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -846,6 +897,38 @@
 				"hardback": "https://www.amazon.com/dp/B0HM21ZRDD",
 				"paperback": "https://www.amazon.com/dp/B0HM259JBV"
 			}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Bukhu ya Mulungu ya Chisena (Sena) — Sena Edition",
+			"display_title": "Bukhu ya Mulungu ya Chisena — Sena Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-seh-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/sena-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Bhaibheri rechiShona (Shona) — Shona Edition",
+			"display_title": "Bhaibheri rechiShona — Shona Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-sn-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/shona-bible/",
+			"date": "2026-10-30",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
