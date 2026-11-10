@@ -1,4 +1,5 @@
 ---
+import AnswerBlock from '../components/AnswerBlock.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Generic-first, practical-intent page. Origin: an author (Luis, San Francisco)
@@ -28,6 +29,9 @@ const faqs = [
 		a: 'It is a partnership, not a one-off. Our video production engagement includes story development, scripting, a filming session, full post-production, and up to 20 reels per month. Request a call and we will scope it to your book, your budget, and the platforms your readers use.',
 	},
 ];
+
+// Direct answer reuses the page's own first FAQ answer (no new claims); date = last edit.
+const answerUpdated = '2026-10-29';
 
 const included = [
 	{
@@ -192,6 +196,14 @@ const moreWork = [
 				</div>
 			</div>
 		</section>
+
+		<AnswerBlock
+			url="/reels-for-authors/"
+			name="Reels for Authors: Short-Form Video for Your Book"
+			question="Who can help me make reels for my book on TikTok and Instagram?"
+			answer={faqs[0].a}
+			updated={answerUpdated}
+		/>
 
 		<!-- WHAT'S INCLUDED -->
 		<section id="included" class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
