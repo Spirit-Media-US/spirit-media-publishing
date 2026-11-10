@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro';
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f0cba808f17fcaeabd86cf4feb38536623b90483-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
 >
 	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://spiritmediapublishing.com/"},{"@type":"ListItem","position":2,"name":"Father's Heart Bible","item":"https://spiritmediapublishing.com/fathers-heart-bible/"}]})}></script>
 		<meta name="keywords" content="Father's Heart Bible, Christian Bible translation, Heavenly Father's love, fatherless generation, Spirit Media Publishing, Kevin White Bible, intimate Bible translation, Christian scripture, God's love Bible" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",

@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro';
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/91eff73d0166bac824bdf85f24744ce93fe49895-1536x1024.png?w=768&h=512&fit=crop&fm=jpg&q=85"
 >
 	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://spiritmediapublishing.com/"},{"@type":"ListItem","position":2,"name":"Express Books","item":"https://spiritmediapublishing.com/express-books/"}]})}></script>
 		<meta name="keywords" content="Christian book publishing, short Christian book, publish in 90 days, EXPRESS BOOKS, Spirit Media Publishing, self publish Christian book, Christian author, compact book publishing, ministry book, faith book publishing" />
 		<meta property="og:site_name" content="Spirit Media Publishing" />
 		<meta property="og:locale" content="en_US" />
