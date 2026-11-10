@@ -229,6 +229,16 @@ for (const doc of rawBooks as any[]) {
 		Object.entries(doc.formats || {}).map(([k, v]) => [k, v ? href : v]),
 	);
 }
+// Kevin's own "Father's Heart - Beloved Identity" (Kevin 2026-11-10: "point Beloved Identity to FHB
+// too"): the card and its paperback go to the FHB order page, fulfilled through Ingram. FHB sells
+// only the paperback, so the eBook and audiobook keep their store links.
+const BELOVED_ID = 'ybgI64RkWpWJOFkftSQjLA';
+const BELOVED_PAGE = `${FHB_SITE}/books/beloved-identity/`;
+for (const doc of rawBooks as any[]) {
+	if (doc._id !== BELOVED_ID) continue;
+	doc.amazon = BELOVED_PAGE;
+	doc.formats = { ...(doc.formats || {}), paperback: BELOVED_PAGE };
+}
 
 const BOOKS_JSON = JSON.stringify(rawBooks);
 
