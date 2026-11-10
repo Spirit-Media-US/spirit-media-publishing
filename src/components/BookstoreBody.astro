@@ -203,6 +203,31 @@ for (const e of fhb.editions as any[]) {
 	});
 }
 
+// The FHB documents that are not audience/language editions (General colours, Large Print, the
+// English eBook) link to fathersheartbible.com too (Kevin 2026-11-10 L1707: "all the link to FHB
+// should link to FHB for each edition and not to Amazon. This is only FHB and not our author's
+// books"). Any other fhb-* document falls back to /print/, so no FHB card can reach Amazon.
+const FHB_SITE = 'https://fathersheartbible.com';
+const fhbOwnPage: Record<string, string> = {
+	'fhb-general-charcoal': `${FHB_SITE}/print/`,
+	'fhb-general-plum': `${FHB_SITE}/print/`,
+	'fhb-general-white': `${FHB_SITE}/print/`,
+	'fhb-lp-set': `${FHB_SITE}/bibles/lp-set-bible/`,
+	'fhb-lp-vol1': `${FHB_SITE}/bibles/lp-vol1-bible/`,
+	'fhb-lp-vol2': `${FHB_SITE}/bibles/lp-vol2-bible/`,
+	'fhb-lp-vol3': `${FHB_SITE}/bibles/lp-vol3-bible/`,
+	// FHB does not sell the eBook itself; its Where to Find It page lists the eBook stores.
+	'fhb-ebook-intimate-translation': `${FHB_SITE}/where-to-buy/`,
+};
+for (const doc of rawBooks as any[]) {
+	if (!doc._id?.startsWith('fhb-') || doc.amazon?.startsWith(FHB_SITE)) continue;
+	const href = fhbOwnPage[doc._id] ?? `${FHB_SITE}/print/`;
+	doc.amazon = href;
+	doc.formats = Object.fromEntries(
+		Object.entries(doc.formats || {}).map(([k, v]) => [k, v ? href : v]),
+	);
+}
+
 const BOOKS_JSON = JSON.stringify(rawBooks);
 
 const allCollections = [
