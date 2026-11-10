@@ -262,7 +262,30 @@ const collectionHref = (c: string) =>
 const initialBooks = rawBooks
 	.filter((b: any) => !initialCollection || (b.collections || []).includes(initialCollection))
 	.sort((x: any, y: any) => (y.date || '').localeCompare(x.date || ''));
+// ItemList JSON-LD (unit 2qm): built from rawBooks, the SAME array that draws the cards, so
+// numberOfItems == itemListElement length == books shown. Index page only (collection pages
+// show a subset). No price/ISBN: Sanity holds none.
+const itemListLd =
+	initialCollection === ''
+		? JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'ItemList',
+				name: 'Spirit Media Christian Bookstore',
+				url: 'https://spiritmediapublishing.com/bookstore/',
+				numberOfItems: initialBooks.length,
+				itemListElement: initialBooks.map((b: any, i: number) => ({
+					'@type': 'ListItem',
+					position: i + 1,
+					name: b.display_title || b.title,
+					...(b.author ? { author: { '@type': 'Person', name: b.author } } : {}),
+					...(b.img ? { image: b.img } : {}),
+					...(b.amazon ? { url: b.amazon } : {}),
+				})),
+			})
+		: '';
 ---
+
+{itemListLd && <script type="application/ld+json" set:html={itemListLd}></script>}
 
 <!-- HERO -->
 <section class="bg-stone-50 px-6 py-5 lg:py-7 lg:px-8">
