@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro';
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f67376ca3cbad336ac9ed54977f72d3f9917397b-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
 >
 	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://spiritmediapublishing.com/"},{"@type":"ListItem","position":2,"name":"Schedule a Call with Kevin White","item":"https://spiritmediapublishing.com/kevin/"}]})}></script>
 		<meta name="keywords" content="Kevin White, schedule call, Spirit Media Publishing, book consultation, Christian publishing, free consultation" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",

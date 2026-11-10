@@ -173,7 +173,21 @@ const faqs = (Array.isArray(post.faqs) ? post.faqs : [])
 	.filter((f: any) => f?.question && f?.answer)
 	.map((f: any) => ({ q: f.question, a: f.answer }));
 
-const jsonLd = [blogPostingSchema].filter(Boolean);
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spiritmediapublishing.com/' },
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Blog',
+			item: 'https://spiritmediapublishing.com/blog/',
+		},
+		{ '@type': 'ListItem', position: 3, name: post.title, item: `${postUrl}/` },
+	],
+};
+const jsonLd = [blogPostingSchema, breadcrumbSchema].filter(Boolean);
 ---
 
 <Layout
