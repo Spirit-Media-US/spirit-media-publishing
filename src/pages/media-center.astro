@@ -1,4 +1,6 @@
 ---
+import AnswerBlock from '../components/AnswerBlock.astro';
+import FaqSection from '../components/FaqSection.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
@@ -150,6 +152,27 @@ const pressReleases =
 		? rawPressReleases.map((p) => ({ ...p, publishDate: formatPressDate(p.publishDate) }))
 		: FALLBACK_PRESS;
 const mediaVideos = rawVideos.length > 0 ? rawVideos : FALLBACK_VIDEOS;
+const answerUpdated = '2026-11-10';
+const answerText =
+	'The Spirit Media Publishing Media Center collects the company\u2019s press releases, media coverage, and videos in one place. It is for journalists, partners, and Christian authors who want to see how Spirit Media is described in the news and watch its videos on YouTube.';
+const mediaFaqs = [
+	{
+		q: 'What is the Spirit Media Media Center?',
+		a: 'It is the page for Spirit Media Publishing press releases, media coverage, and video resources, with a feed of recent videos from the Spirit Media YouTube channel.',
+	},
+	{
+		q: 'Where are Spirit Media press releases published?',
+		a: 'The releases listed here were published on PRNewswire, and each card links to the full release.',
+	},
+	{
+		q: 'Where can I watch Spirit Media videos?',
+		a: 'The videos on this page link to the Spirit Media YouTube channel, which you can visit from the button in the Watch section.',
+	},
+	{
+		q: 'How do I make a press or media inquiry?',
+		a: 'For interviews, partnerships, or press releases, use the contact page and request a free consult.',
+	},
+];
 ---
 
 <Layout
@@ -224,6 +247,14 @@ const mediaVideos = rawVideos.length > 0 ? rawVideos : FALLBACK_VIDEOS;
 			</div>
 		</section>
 
+		<AnswerBlock
+			url="/media-center/"
+			name="Media Center — Spirit Media Publishing"
+			question="What is the Spirit Media Publishing Media Center?"
+			answer={answerText}
+			updated={answerUpdated}
+		/>
+
 		<!-- PRESS RELEASES -->
 		<section class="bg-white py-12 lg:py-20 px-6 lg:px-8">
 			<div class="max-w-7xl mx-auto">
@@ -297,6 +328,8 @@ const mediaVideos = rawVideos.length > 0 ? rawVideos : FALLBACK_VIDEOS;
 				</div>
 			</div>
 		</section>
+
+		<FaqSection heading="The Media Center, answered" faqs={mediaFaqs} />
 
 		<!-- CTA -->
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
