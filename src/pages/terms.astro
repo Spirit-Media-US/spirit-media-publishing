@@ -23,6 +23,7 @@ try {
   description="Spirit Media Publishing's terms of service — the rules and guidelines that govern use of our website and services."
 >
   <Fragment slot="head">
+  	<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://spiritmediapublishing.com/"},{"@type":"ListItem","position":2,"name":"Terms of Service","item":"https://spiritmediapublishing.com/terms/"}]})}></script>
     <!-- Indexable: the A2P 10DLC campaign registry crawls this page to verify our
          SMS messaging terms. noindex here causes campaign rejection (30882). -->
   </Fragment>

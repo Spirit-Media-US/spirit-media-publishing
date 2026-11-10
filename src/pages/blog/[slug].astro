@@ -1,5 +1,6 @@
 ---
 import BlogCTA from '../../components/BlogCTA.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import RelatedPosts from '../../components/RelatedPosts.astro';
 import ShareBar from '../../components/ShareBar.astro';
 import Layout from '../../layouts/Layout.astro';
@@ -165,25 +166,28 @@ const blogPostingSchema = {
 	articleSection: tags[0] || undefined,
 };
 
-// FAQPage schema — only emitted when the post defines FAQ pairs in Sanity
-// (Gold-Level milestone #13). AI Overviews and Perplexity extract these verbatim.
-const faqs = Array.isArray(post.faqs) ? post.faqs : [];
-const faqSchema =
-	faqs.length > 0
-		? {
-				'@context': 'https://schema.org',
-				'@type': 'FAQPage',
-				mainEntity: faqs
-					.filter((f: any) => f?.question && f?.answer)
-					.map((f: any) => ({
-						'@type': 'Question',
-						name: f.question,
-						acceptedAnswer: { '@type': 'Answer', text: f.answer },
-					})),
-			}
-		: null;
+// FAQ pairs defined in Sanity (Gold-Level milestone #13). Rendered VISIBLY by <FaqSection>,
+// which emits the FAQPage JSON-LD from the SAME array so markup always matches the page
+// (schema with no visible Q&A is a structured-data policy violation; 2dk 10-29).
+const faqs = (Array.isArray(post.faqs) ? post.faqs : [])
+	.filter((f: any) => f?.question && f?.answer)
+	.map((f: any) => ({ q: f.question, a: f.answer }));
 
-const jsonLd = [blogPostingSchema, faqSchema].filter(Boolean);
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spiritmediapublishing.com/' },
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Blog',
+			item: 'https://spiritmediapublishing.com/blog/',
+		},
+		{ '@type': 'ListItem', position: 3, name: post.title, item: `${postUrl}/` },
+	],
+};
+const jsonLd = [blogPostingSchema, breadcrumbSchema].filter(Boolean);
 ---
 
 <Layout
@@ -250,6 +254,9 @@ const jsonLd = [blogPostingSchema, faqSchema].filter(Boolean);
         <BlogCTA />
       </div>
     </section>
+
+    <!-- FAQ (visible; schema generated from the same array) -->
+    {faqs.length > 0 && <FaqSection heading="Frequently asked questions" faqs={faqs} />}
 
     <!-- SHARE BAR -->
     <ShareBar title={post.title} url={`https://spiritmediapublishing.com/blog/${post.slug.current}`} />

@@ -1,0 +1,164 @@
+---
+import AnswerBlock from '../components/AnswerBlock.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Answer page for "author website". Every fact here comes from pages already
+// published on this site: /marketing/ (Websites with SEO, Landing Pages, the
+// marketing order) and /portfolio/ (websites and branding work). There is no
+// website price on the site, so none is stated here. Do not add numbers or
+// claims that are not on those pages.
+const answerUpdated = '2026-11-10';
+const answerText =
+	'An author website is a site built around your book and your message, and Spirit Media Publishing builds them for authors as part of our marketing work. Our Websites with SEO service is a high-performance, responsive site on the Astro + Tailwind + Claude stack with SSL, SEO, structured data, accessibility, lead gen forms, analytics, and AI-assisted updates in plain English. No technical skills needed.';
+
+const features = [
+	{ t: 'SSL', d: 'Your site is served securely over SSL.' },
+	{
+		t: 'SEO and structured data',
+		d: 'Built with SEO and structured data so search engines can understand your pages.',
+	},
+	{ t: 'Accessibility', d: 'Accessibility is part of the build, not an add-on.' },
+	{ t: 'Lead gen forms', d: 'Lead gen forms so visitors can reach you and join your list.' },
+	{
+		t: 'Analytics',
+		d: 'Analytics, plus monthly tracking of website traffic in our Analytics and Reporting service.',
+	},
+	{
+		t: 'AI-assisted updates',
+		d: 'Update your site in plain English with AI assistance. No technical skills needed.',
+	},
+];
+
+const faqs = [
+	{
+		q: 'Does Spirit Media build author websites?',
+		a: 'Yes. Websites with SEO is one of our marketing services: a high-performance, responsive website built on the Astro + Tailwind + Claude stack. Our portfolio shows websites and branding work we have done.',
+	},
+	{
+		q: 'What does an author website from Spirit Media include?',
+		a: 'SSL, SEO, structured data, accessibility, lead gen forms, analytics, and AI-assisted updates in plain English. No technical skills needed.',
+	},
+	{
+		q: 'Do I need a full website, or is a landing page enough?',
+		a: 'We offer both. Our marketing order puts a landing page or website as layer 3, after Amazon reviews and advance reader copies. A landing page is a high-converting, responsive page with an optimized headline, lead capture form, CTA, SSL, SEO, and AI-assisted updates. A website is the broader build.',
+	},
+	{
+		q: 'How much does an author website cost?',
+		a: 'We do not publish a website price. Pricing depends on which services you combine, so we scope it on a free consultation.',
+	},
+	{
+		q: 'Do I need technical skills to update my site?',
+		a: 'No. Updates are AI-assisted and done in plain English, so no technical skills are needed.',
+	},
+	{
+		q: 'Where does a website fit in my book marketing?',
+		a: 'Layer 3 of our marketing strategy: Amazon reviews first, then advance reader copies for bookstores, then a landing page or website, a YouTube channel, a podcast show tour, your own podcast, and paid digital ads last. We establish your foundation before amplifying your reach.',
+	},
+];
+---
+
+<Layout
+	title="Author Website for Christian Authors | Spirit Media"
+	description="Spirit Media builds author websites as part of its book marketing work: Astro + Tailwind + Claude stack with SSL, SEO, structured data, accessibility, lead gen forms, analytics, and plain-English updates."
+>
+	<Fragment slot="head">
+		<meta name="keywords" content="author website, Christian author website, author website design, website for authors, Spirit Media Publishing" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "Author Websites — Spirit Media Publishing",
+			"provider": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"serviceType": "Website design for authors",
+			"description": "High-performance, responsive author websites on the Astro + Tailwind + Claude stack, with SSL, SEO, structured data, accessibility, lead gen forms, analytics, and AI-assisted updates in plain English.",
+			"url": "https://spiritmediapublishing.com/author-website/",
+			"areaServed": "Worldwide"
+		})}></script>
+	</Fragment>
+	<main id="main-content">
+
+		<section class="bg-stone-50 px-6 py-12 lg:py-24 lg:px-8 overflow-hidden">
+			<div class="mx-auto max-w-3xl text-center">
+				<p class="eyebrow eyebrow-red mb-4">Author Website</p>
+				<h1 class="type-hero text-ink-soft">
+					Your author website, <span class="text-red">built for your book and your message</span>
+				</h1>
+				<p class="mt-6 type-body-lg text-stone-700 max-w-2xl mx-auto">
+					Spirit Media builds high-performance, responsive websites for authors, with SEO, structured data, lead gen forms, and updates you can make in plain English.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-4 justify-center">
+					<a href="/contact/" class="rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Request a Free Consultation →</a>
+					<a href="/marketing/" class="rounded-md border border-stone-400 px-6 py-3 text-sm font-semibold text-ink-soft transition-colors hover:bg-stone-100">All Marketing Services</a>
+				</div>
+			</div>
+		</section>
+
+		<AnswerBlock
+			url="/author-website/"
+			name="Author Website — Spirit Media Publishing"
+			question="Who builds author websites for Christian authors?"
+			answer={answerText}
+			updated={answerUpdated}
+		/>
+
+		<section class="bg-stone-50 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-3xl mx-auto">
+				<div class="text-center mb-8">
+					<p class="eyebrow eyebrow-red mb-3">What We Build</p>
+					<h2 class="type-section-heading text-ink-soft">Websites with SEO</h2>
+				</div>
+				<p class="text-stone-700 leading-relaxed mb-4">Websites with SEO is one of the services in our <a href="/marketing/" class="text-red hover:underline">book marketing</a> work. It is a high-performance, responsive website built on the Astro + Tailwind + Claude stack, so your book, your message, and a way to reach you live in one place you own.</p>
+				<p class="text-stone-700 leading-relaxed">If you need something smaller, we also build Landing Pages: a high-converting, responsive page with an optimized headline, lead capture form, CTA, SSL, SEO, and AI-assisted updates in plain English. No technical skills needed.</p>
+			</div>
+		</section>
+
+		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-10">
+					<p class="eyebrow eyebrow-red mb-3">What Is Included</p>
+					<h2 class="type-section-heading text-ink-soft">What our author websites include</h2>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					{features.map(({ t, d }) => (
+						<div class="bg-stone-50 rounded-xl p-6 border border-stone-200">
+							<h3 class="font-semibold text-ink-soft">{t}</h3>
+							<p class="type-body-sm text-stone-600 mt-1">{d}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-stone-50 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-3xl mx-auto">
+				<div class="text-center mb-8">
+					<p class="eyebrow eyebrow-red mb-3">Where It Fits</p>
+					<h2 class="type-section-heading text-ink-soft">Layer 3 of your marketing</h2>
+				</div>
+				<p class="text-stone-700 leading-relaxed mb-4">We build marketing from the ground up, and each layer amplifies the last. A landing page or website is layer 3, after increasing Amazon reviews and sharing advance reader copies with bookstores, and before a YouTube channel, a podcast show tour, your own podcast, and paid digital ads. We establish your foundation before amplifying your reach.</p>
+				<p class="text-stone-700 leading-relaxed">Our <a href="/portfolio/" class="text-red hover:underline">portfolio</a> shows websites and branding work. Need a cover for the book your site will feature? See <a href="/book-cover-design/" class="text-red hover:underline">book cover design</a>.</p>
+			</div>
+		</section>
+
+		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
+			<div class="max-w-3xl mx-auto">
+				<div class="text-center mb-8">
+					<p class="eyebrow eyebrow-red mb-3">Cost</p>
+					<h2 class="type-section-heading text-ink-soft">What the site states today</h2>
+				</div>
+				<p class="text-stone-700 leading-relaxed">We do not publish a website price. Pricing depends on which services you combine, so we scope it on a free consultation. <a href="/contact/" class="text-red hover:underline">Contact us</a> and tell us about your book.</p>
+			</div>
+		</section>
+
+		<FaqSection heading="Author websites, answered" faqs={faqs} />
+
+		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4">Ready for your author website?</h2>
+				<p class="text-stone-200 type-body-lg mb-8">Tell us about your book and we will scope the right mix with you.</p>
+				<a href="/contact/" class="inline-block bg-stone-50 text-red font-semibold px-8 py-3.5 rounded-md hover:bg-red-wash transition-colors">Request a Free Consultation</a>
+			</div>
+		</section>
+
+	</main>
+</Layout>

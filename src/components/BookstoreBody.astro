@@ -176,6 +176,12 @@ for (const e of fhb.editions as any[]) {
 	const doc = e.sanityId && byId.get(e.sanityId);
 	if (doc) {
 		doc.collections = [...new Set([...(doc.collections || []), ...e.collections])];
+		// FHB points buyers to itself (Kevin 2026-11-08; unit 2jd): fathersheartbible.com is the
+		// seller of every FHB edition, so these cards link to the edition's own page, never Amazon.
+		doc.amazon = e.href;
+		doc.formats = Object.fromEntries(
+			Object.entries(doc.formats || {}).map(([k, v]) => [k, v ? e.href : v]),
+		);
 		continue;
 	}
 	const listed = Object.values(e.formats || {}).some(Boolean);
@@ -189,9 +195,49 @@ for (const e of fhb.editions as any[]) {
 		amazon: e.href,
 		date: e.date,
 		collections: e.collections,
-		// No Amazon listing yet: both bindings are ordered on the edition's own page.
-		formats: listed ? e.formats : { hardback: e.href, paperback: e.href },
+		// FHB points buyers to itself (Kevin 2026-11-08; unit 2jd): every binding is ordered on the
+		// edition's own page on fathersheartbible.com, listed on Amazon or not.
+		formats: listed
+			? Object.fromEntries(Object.entries(e.formats || {}).map(([k, v]) => [k, v ? e.href : v]))
+			: { hardback: e.href, paperback: e.href },
 	});
+}
+
+// The FHB documents that are not audience/language editions (General colours, Large Print, the
+// English eBook) link to fathersheartbible.com too (Kevin 2026-11-10 L1707: "all the link to FHB
+// should link to FHB for each edition and not to Amazon. This is only FHB and not our author's
+// books"). Any other fhb-* document falls back to /print/, so no FHB card can reach Amazon.
+const FHB_SITE = 'https://fathersheartbible.com';
+const fhbOwnPage: Record<string, string> = {
+	'fhb-general-charcoal': `${FHB_SITE}/print/#general-regular-charcoal`,
+	'fhb-general-plum': `${FHB_SITE}/print/#general-regular-plum`,
+	'fhb-general-white': `${FHB_SITE}/print/#general-regular-white`,
+	'fhb-lp-set': `${FHB_SITE}/bibles/lp-set-bible/`,
+	'fhb-lp-vol1': `${FHB_SITE}/bibles/lp-vol1-bible/`,
+	'fhb-lp-vol2': `${FHB_SITE}/bibles/lp-vol2-bible/`,
+	'fhb-lp-vol3': `${FHB_SITE}/bibles/lp-vol3-bible/`,
+	// FHB does not sell the eBook itself; its Where to Find It page lists the eBook stores.
+	'fhb-ebook-intimate-translation': `${FHB_SITE}/where-to-buy/`,
+};
+for (const doc of rawBooks as any[]) {
+	if (!doc._id?.startsWith('fhb-')) continue;
+	// A mapped document always takes its own edition page (the LP set's Sanity link was /print/).
+	const href =
+		fhbOwnPage[doc._id] ?? (doc.amazon?.startsWith(FHB_SITE) ? doc.amazon : `${FHB_SITE}/print/`);
+	doc.amazon = href;
+	doc.formats = Object.fromEntries(
+		Object.entries(doc.formats || {}).map(([k, v]) => [k, v ? href : v]),
+	);
+}
+// Kevin's own "Father's Heart - Beloved Identity" (Kevin 2026-11-10: "point Beloved Identity to FHB
+// too"): the card and its paperback go to the FHB order page, fulfilled through Ingram. FHB sells
+// only the paperback, so the eBook and audiobook keep their store links.
+const BELOVED_ID = 'ybgI64RkWpWJOFkftSQjLA';
+const BELOVED_PAGE = `${FHB_SITE}/books/beloved-identity/`;
+for (const doc of rawBooks as any[]) {
+	if (doc._id !== BELOVED_ID) continue;
+	doc.amazon = BELOVED_PAGE;
+	doc.formats = { ...(doc.formats || {}), paperback: BELOVED_PAGE };
 }
 
 const BOOKS_JSON = JSON.stringify(rawBooks);

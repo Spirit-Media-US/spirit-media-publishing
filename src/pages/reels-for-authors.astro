@@ -1,4 +1,5 @@
 ---
+import AnswerBlock from '../components/AnswerBlock.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Generic-first, practical-intent page. Origin: an author (Luis, San Francisco)
@@ -28,6 +29,9 @@ const faqs = [
 		a: 'It is a partnership, not a one-off. Our video production engagement includes story development, scripting, a filming session, full post-production, and up to 20 reels per month. Request a call and we will scope it to your book, your budget, and the platforms your readers use.',
 	},
 ];
+
+// Direct answer reuses the page's own first FAQ answer (no new claims); date = last edit.
+const answerUpdated = '2026-10-29';
 
 const included = [
 	{
@@ -154,6 +158,7 @@ const moreWork = [
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/c8d6c169168afb24da775f4b69be02d5380c3975-800x360.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
 >
 	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://spiritmediapublishing.com/"},{"@type":"ListItem","position":2,"name":"Reels for Authors","item":"https://spiritmediapublishing.com/reels-for-authors/"}]})}></script>
 		<meta name="keywords" content="book reels, reels for authors, short-form video for authors, TikTok book marketing, Instagram reels for books, YouTube Shorts for authors, book trailer video, book promotion video, author video production, BookTok" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
@@ -192,6 +197,14 @@ const moreWork = [
 				</div>
 			</div>
 		</section>
+
+		<AnswerBlock
+			url="/reels-for-authors/"
+			name="Reels for Authors: Short-Form Video for Your Book"
+			question="Who can help me make reels for my book on TikTok and Instagram?"
+			answer={faqs[0].a}
+			updated={answerUpdated}
+		/>
 
 		<!-- WHAT'S INCLUDED -->
 		<section id="included" class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
@@ -272,7 +285,7 @@ const moreWork = [
 
 				<div class="mt-12 pt-8 border-t border-stone-200">
 					<h3 class="type-card-subheading text-ink-soft mb-1 text-center">More of our work</h3>
-					<p class="type-body-sm text-stone-600 text-center mb-6">See our full portfolio and the live author &amp; brand feeds we produce reels for.</p>
+					<p class="type-body-sm text-stone-600 text-center mb-6">See our full portfolio and the live author &amp; brand feeds we produce reels for. Still writing the book itself? Our <a href="/christian-ghostwriting/" class="text-red hover:underline">Christian ghostwriting</a> service takes it from idea to finished manuscript.</p>
 					<div class="flex flex-wrap justify-center gap-3">
 						{moreWork.map((m) => (
 							<a
