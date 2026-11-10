@@ -1,4 +1,6 @@
 ---
+import AnswerBlock from '../components/AnswerBlock.astro';
+import FaqSection from '../components/FaqSection.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
@@ -367,6 +369,31 @@ const FALLBACK_PORTFOLIO_VIDEOS = [
 ];
 const portfolioVideos =
 	rawPortfolioVideos.length > 0 ? rawPortfolioVideos : FALLBACK_PORTFOLIO_VIDEOS;
+const answerUpdated = '2026-11-10';
+const answerText =
+	'This is the Spirit Media Publishing portfolio: the publishing, branding, and marketing work behind more than 300 Kingdom authors, whose books reach readers across 195 nations. It is for Christian authors and ministry leaders deciding whether Spirit Media is the right partner for their book, and it shows client testimonials, brand design work, and reels and feature videos produced for clients.';
+const portfolioFaqs = [
+	{
+		q: 'What is the Spirit Media Publishing portfolio?',
+		a: 'It is a showcase of the work Spirit Media has done for more than 300 Kingdom authors: publishing, branding, and marketing, reaching readers across 195 nations. It includes client testimonial videos, brand design work, podcast samples, and social media reels and feature videos.',
+	},
+	{
+		q: 'What formats do Spirit Media titles come in?',
+		a: 'Spirit Media has published 300+ titles across paperback, hardback, digital, and audiobook formats.',
+	},
+	{
+		q: 'What marketing and branding work does Spirit Media show here?',
+		a: 'Marketing work includes websites, social media, video production, podcasts, and comprehensive marketing strategies. Branding work includes logo design, brand identity, and visual systems that communicate your Kingdom message.',
+	},
+	{
+		q: 'Does Spirit Media produce reels and short-form video for authors?',
+		a: 'Yes. This page shows reels and longer feature videos produced for author and client social campaigns, including work for Cori Close, Paul Weissenstein, John Vallely, and Jeri Wilson. The Reels for Authors page explains the service.',
+	},
+	{
+		q: 'How do I start a project with Spirit Media?',
+		a: 'Request a free consultation through the contact page and talk through your book with the Spirit Media team.',
+	},
+];
 ---
 
 <Layout
@@ -402,6 +429,14 @@ const portfolioVideos =
 				</div>
 			</div>
 		</section>
+
+		<AnswerBlock
+			url="/portfolio/"
+			name="Portfolio — 300+ Christian Books Published by Spirit Media"
+			question="What is the Spirit Media Publishing portfolio?"
+			answer={answerText}
+			updated={answerUpdated}
+		/>
 
 		<!-- SERVICES SHOWCASE -->
 		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
@@ -721,6 +756,8 @@ const portfolioVideos =
 				</div>
 			</div>
 		</section>
+
+		<FaqSection heading="The portfolio, answered" faqs={portfolioFaqs} />
 
 		<!-- CTA -->
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
