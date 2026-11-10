@@ -209,9 +209,9 @@ for (const e of fhb.editions as any[]) {
 // books"). Any other fhb-* document falls back to /print/, so no FHB card can reach Amazon.
 const FHB_SITE = 'https://fathersheartbible.com';
 const fhbOwnPage: Record<string, string> = {
-	'fhb-general-charcoal': `${FHB_SITE}/print/`,
-	'fhb-general-plum': `${FHB_SITE}/print/`,
-	'fhb-general-white': `${FHB_SITE}/print/`,
+	'fhb-general-charcoal': `${FHB_SITE}/print/#general-regular-charcoal`,
+	'fhb-general-plum': `${FHB_SITE}/print/#general-regular-plum`,
+	'fhb-general-white': `${FHB_SITE}/print/#general-regular-white`,
 	'fhb-lp-set': `${FHB_SITE}/bibles/lp-set-bible/`,
 	'fhb-lp-vol1': `${FHB_SITE}/bibles/lp-vol1-bible/`,
 	'fhb-lp-vol2': `${FHB_SITE}/bibles/lp-vol2-bible/`,
@@ -220,8 +220,10 @@ const fhbOwnPage: Record<string, string> = {
 	'fhb-ebook-intimate-translation': `${FHB_SITE}/where-to-buy/`,
 };
 for (const doc of rawBooks as any[]) {
-	if (!doc._id?.startsWith('fhb-') || doc.amazon?.startsWith(FHB_SITE)) continue;
-	const href = fhbOwnPage[doc._id] ?? `${FHB_SITE}/print/`;
+	if (!doc._id?.startsWith('fhb-')) continue;
+	// A mapped document always takes its own edition page (the LP set's Sanity link was /print/).
+	const href =
+		fhbOwnPage[doc._id] ?? (doc.amazon?.startsWith(FHB_SITE) ? doc.amazon : `${FHB_SITE}/print/`);
 	doc.amazon = href;
 	doc.formats = Object.fromEntries(
 		Object.entries(doc.formats || {}).map(([k, v]) => [k, v ? href : v]),
