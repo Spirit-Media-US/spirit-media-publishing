@@ -176,6 +176,12 @@ for (const e of fhb.editions as any[]) {
 	const doc = e.sanityId && byId.get(e.sanityId);
 	if (doc) {
 		doc.collections = [...new Set([...(doc.collections || []), ...e.collections])];
+		// FHB points buyers to itself (Kevin 2026-11-08; unit 2jd): fathersheartbible.com is the
+		// seller of every FHB edition, so these cards link to the edition's own page, never Amazon.
+		doc.amazon = e.href;
+		doc.formats = Object.fromEntries(
+			Object.entries(doc.formats || {}).map(([k, v]) => [k, v ? e.href : v]),
+		);
 		continue;
 	}
 	const listed = Object.values(e.formats || {}).some(Boolean);
@@ -189,8 +195,11 @@ for (const e of fhb.editions as any[]) {
 		amazon: e.href,
 		date: e.date,
 		collections: e.collections,
-		// No Amazon listing yet: both bindings are ordered on the edition's own page.
-		formats: listed ? e.formats : { hardback: e.href, paperback: e.href },
+		// FHB points buyers to itself (Kevin 2026-11-08; unit 2jd): every binding is ordered on the
+		// edition's own page on fathersheartbible.com, listed on Amazon or not.
+		formats: listed
+			? Object.fromEntries(Object.entries(e.formats || {}).map(([k, v]) => [k, v ? e.href : v]))
+			: { hardback: e.href, paperback: e.href },
 	});
 }
 
