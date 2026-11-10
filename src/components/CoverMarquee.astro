@@ -18,6 +18,9 @@
 // The images are the SAME R2 keys fathersheartbible.com/print serves. No new art is
 // rendered and nothing is uploaded — the marquee is a second consumer of what /print
 // already shows.
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import fhbEditions from '../data/fhb-editions.json';
 import VoiceChips from './VoiceChips.astro';
 
@@ -93,7 +96,6 @@ const covers = [
 // bookstore build writes from the FHB repo's own edition data (BookstoreBody.astro), so the
 // languages, their built-cover cards (360px, as on FHB) and their pages are never retyped here.
 // Reverse order because the row travels left-to-right: covers then ARRIVE A→Z (as on FHB).
-const LANGUAGE_TOTAL = 80; // Kevin 2026-11-06: "we have 80 languages not 33" (was 33 per Kevin 2026-10-07)
 
 // Our bible.com partner page: lists every Father's Heart Bible version on YouVersion.
 import yvStats from '../data/youversion-stats.json';
@@ -108,20 +110,73 @@ const yvItems = [
 	{ n: Math.round(yvStats.chapters / 100) * 100, label: 'chapters', key: 'chapters' },
 ];
 const YOUVERSION_URL = 'https://www.bible.com/organizations/89162c01-3892-4c7b-a462-239df0931522';
-const langCovers = fhbEditions.editions
-	.filter((e) => e.group === 'language')
-	.reverse()
-	.map((e) => {
-		const [name, ed] = e.display_title.split(' — ');
-		return {
-			key: e.href,
-			name: `${name} (${ed.replace(/ Edition$/, '')})`,
-			caption: ed.replace(/ Edition$/, ''),
-			href: e.href,
-			src: e.img,
-			h: H('lang'),
-		};
-	});
+// Kevin 2026-10-30: all 80 languages in every marquee ("Then we just make links go live as links go
+// live"). Derived at build time from the FHB repo's own registry/roster (the same source
+// BookstoreBody.astro uses), never retyped: every roster language with a BUILT case card gets a cover;
+// it LINKS only once its /bibles/<slug>-bible/ page data exists, else the cover shows "Coming soon"
+// and is not a link. English is the 80th (plum cover). Without the FHB repo (a Cloudflare build) the
+// committed snapshot is used and the count is whatever it holds.
+type LangRow = {
+	key: string;
+	name: string;
+	caption: string;
+	href: string | null;
+	src: string;
+	h: number;
+};
+async function deriveLangRows(): Promise<LangRow[]> {
+	const FHB_DATA = '/srv/sites/FHB/src/data';
+	const h = H('lang');
+	if (fs.existsSync(path.join(FHB_DATA, 'language-editions.ts'))) {
+		const load = (f: string) =>
+			import(/* @vite-ignore */ pathToFileURL(path.join(FHB_DATA, f)).href);
+		const { cardUrl: fhbCard } = await load('card-art.ts');
+		const { rosterLanguages, langSlug } = await load('language-editions.ts');
+		return (rosterLanguages as any[])
+			.filter((l) => l.code !== 'en' && l.card)
+			.map((l) => {
+				const slug = langSlug(l);
+				const built = fs.existsSync(path.join(FHB_DATA, 'editions', `${slug}.json`));
+				const english = l.english.replace(/\s*\(.*\)/, '');
+				return {
+					key: slug,
+					name: `${l.name} (${english})`,
+					caption: english,
+					href: built ? `${FHB}/bibles/${slug}-bible/` : null,
+					src: fhbCard(`lang-${l.code}`, 360),
+					h,
+				};
+			});
+	}
+	return fhbEditions.editions
+		.filter((e) => e.group === 'language')
+		.map((e) => {
+			const [name, ed] = e.display_title.split(' — ');
+			const english = ed.replace(/ Edition$/, '');
+			return {
+				key: e.href,
+				name: `${name} (${english})`,
+				caption: english,
+				href: e.href,
+				src: e.img,
+				h,
+			};
+		});
+}
+const langRows: LangRow[] = [
+	...(await deriveLangRows()),
+	{
+		key: `${FHB}/bibles/fathers-heart-bible/`,
+		name: 'English edition',
+		caption: 'English',
+		href: `${FHB}/bibles/fathers-heart-bible/`,
+		src: cardUrl('general-regular-plum'),
+		h: H('general-regular-plum'),
+	},
+];
+// Reverse A-Z because the row travels left-to-right: covers then ARRIVE A-Z (as on FHB).
+const langCovers = langRows.sort((x, y) => y.caption.localeCompare(x.caption));
+const LANGUAGE_TOTAL = langCovers.length;
 
 // SPEED IS PER PIXEL, NOT PER LOOP: 100/23 s per cover keeps the 2026-09-24 on-screen speed
 // for any row length, both rows.
@@ -166,7 +221,8 @@ const rows = [
 					<ul class="fhbm-row" aria-hidden={copy === 1 ? 'true' : undefined}>
 						{row.covers.map((c) => (
 							<li>
-								<a href={c.href} tabindex={copy === 1 ? -1 : undefined}>
+								{c.href ? (
+									<a href={c.href} tabindex={copy === 1 ? -1 : undefined}>
 									<img
 										src={c.src}
 										alt={copy === 1 ? '' : `Father's Heart Bible — ${c.name}`}
@@ -176,8 +232,22 @@ const rows = [
 										decoding="async"
 										fetchpriority="low"
 									/>
-									{'caption' in c && <span class="fhbm-cap">{c.caption}</span>}
-								</a>
+										{'caption' in c && <span class="fhbm-cap">{c.caption}</span>}
+									</a>
+								) : (
+									<div class="fhbm-soon">
+									<img
+										src={c.src}
+										alt={copy === 1 ? '' : `Father's Heart Bible — ${c.name}`}
+										width={W}
+										height={c.h}
+										loading="lazy"
+										decoding="async"
+										fetchpriority="low"
+									/>
+										<span class="fhbm-cap">{'caption' in c ? c.caption : ''}<em>Coming soon</em></span>
+									</div>
+								)}
 							</li>
 						))}
 					</ul>
@@ -285,7 +355,10 @@ const rows = [
 		font-size: 0.8rem;
 		line-height: 1.3;
 	}
-	.fhbm-row a { display: block; text-decoration: none; }
+	.fhbm-row a, .fhbm-soon { display: block; text-decoration: none; }
+	/* two lines reserved so linked and coming-soon covers bottom-align and nothing shifts */
+	.fhbm-cap { min-height: 2.1rem; }
+	.fhbm-cap em { display: block; font-style: normal; font-size: 0.7rem; opacity: 0.8; }
 	@keyframes fhbm-scroll {
 		from { transform: translate3d(0, 0, 0); }
 		to { transform: translate3d(-50%, 0, 0); }
