@@ -138,7 +138,8 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 			"name": "About Spirit Media Publishing",
 			"url": "https://spiritmediapublishing.com/about",
 			"description": "Spirit Media Publishing is a global Christian publishing and marketing company empowering Kingdom Messengers to share their message in all 195 nations.",
-			"publisher": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+			"publisher": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
+			"mainEntity": { "@id": "https://kevinwhite.us/#person" }
 		})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
@@ -151,6 +152,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Person",
+			"@id": "https://kevinwhite.us/#person",
 			"name": "Kevin White",
 			"jobTitle": "Founder & CEO, Spirit Media Publishing",
 			"description": "Kevin White is the founder of Spirit Media Publishing, a global Christian publishing and marketing company. He has helped Kingdom Messengers across 195 nations bring their books, podcasts, and ministries to market.",
@@ -252,6 +254,36 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 						</div>
 					</div>
 				</div>
+			</div>
+		</section>
+
+		<!-- TRACK RECORD (2of, 2026-11-10): facts-only; every line already published on SMP or FHB pages. Sources in aeo-state/smp-about-credentials-2of-20261110.json -->
+		<section id="track-record" class="bg-stone-100 py-12 lg:py-16 px-6 lg:px-8 border-t border-stone-200">
+			<div class="max-w-4xl mx-auto">
+				<p class="text-base font-semibold uppercase tracking-widest text-red mb-3">Track Record</p>
+				<h2 class="type-section-heading text-ink-soft mb-6">Kevin White: Credentials at a Glance</h2>
+				<dl class="grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-x-6 gap-y-4 type-body-lg text-stone-700">
+					<dt class="font-semibold text-ink-soft">Role</dt>
+					<dd>Founder &amp; CEO of Spirit Media Publishing. Author, speaker, and marketplace pastor who co-founded and leads Spirit Media and Father's Heart Bible™ with his wife, Shelly.</dd>
+					<dt class="font-semibold text-ink-soft">Experience</dt>
+					<dd>40+ years of leadership: planting churches, leading nonprofits, starting companies, and developing leaders worldwide.</dd>
+					<dt class="font-semibold text-ink-soft">Publishing</dt>
+					<dd>300+ titles published across paperback, hardback, digital, and audiobook formats, with 163 countries reached and a mission to all 195 nations.</dd>
+					<dt class="font-semibold text-ink-soft">Organizations</dt>
+					<dd>Spirit Media Publishing is the publishing imprint of Spirit Media Inc.</dd>
+					<dt class="font-semibold text-ink-soft">Father's Heart Bible™</dt>
+					<dd>An interpretive English translation of the original Hebrew, Aramaic, and Greek, published by Spirit Media Publishing with Kevin White as editor. See the <a href="/fathers-heart-bible/" class="text-red underline">Father's Heart Bible page</a>.</dd>
+					<dt class="font-semibold text-ink-soft">Free book</dt>
+					<dd>Father's Heart → Beloved Identity, a compact book from Spirit Media (get it free above).</dd>
+					<dt class="font-semibold text-ink-soft">Elsewhere</dt>
+					<dd>
+						<a href="https://www.linkedin.com/in/kevinwhiteus/" rel="me noopener" class="text-red underline">LinkedIn</a> ·
+						<a href="https://www.youtube.com/@KevinWhiteus" rel="me noopener" class="text-red underline">YouTube</a> ·
+						<a href="https://thekevinwhiteshow.podbean.com/" rel="me noopener" class="text-red underline">Podcast</a> ·
+						<a href="https://www.amazon.com/stores/author/B08LZYTR2B" rel="me noopener" class="text-red underline">Amazon author page</a> ·
+						<a href="https://kevinwhite.us" rel="me noopener" class="text-red underline">kevinwhite.us</a>
+					</dd>
+				</dl>
 			</div>
 		</section>
 
