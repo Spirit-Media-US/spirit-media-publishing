@@ -1,2 +1,5 @@
 # Vanity redirects
 /club https://spirit-media.mn.co/collections/3073128 301
+
+# 2dm: removed duplicate answer page (was live 2026-11-09/10); canonical is the blog post
+/christian-ghostwriting /blog/christian-ghostwriting-services/ 301
