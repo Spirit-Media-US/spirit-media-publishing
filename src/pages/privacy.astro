@@ -23,6 +23,7 @@ try {
   description="Spirit Media Publishing's privacy policy — how we collect, use, and protect your personal information."
 >
   <Fragment slot="head">
+  	<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://spiritmediapublishing.com/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://spiritmediapublishing.com/privacy/"}]})}></script>
     <!-- Indexable: the A2P 10DLC campaign registry crawls this page to verify our
          SMS privacy disclosures. noindex here causes campaign rejection (30908). -->
   </Fragment>
