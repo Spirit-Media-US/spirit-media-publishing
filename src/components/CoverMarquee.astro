@@ -176,7 +176,15 @@ const langRows: LangRow[] = [
 ];
 // Reverse A-Z because the row travels left-to-right: covers then ARRIVE A-Z (as on FHB).
 const langCovers = langRows.sort((x, y) => y.caption.localeCompare(x.caption));
-const LANGUAGE_TOTAL = langCovers.length;
+// The label is the COMMITMENT (the FHB roster, 80 — Kevin 2026-11-10 "We have committed to 80"),
+// not the number of covers drawn: a roster language whose case card is not built yet has no cover.
+async function rosterTotal(): Promise<number> {
+	const f = path.join('/srv/sites/FHB/src/data', 'language-editions.ts');
+	if (!fs.existsSync(f)) return langCovers.length;
+	const { rosterLanguages } = await import(/* @vite-ignore */ pathToFileURL(f).href);
+	return (rosterLanguages as unknown[]).length;
+}
+const LANGUAGE_TOTAL = await rosterTotal();
 
 // SPEED IS PER PIXEL, NOT PER LOOP: 100/23 s per cover keeps the 2026-09-24 on-screen speed
 // for any row length, both rows.
