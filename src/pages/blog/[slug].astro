@@ -238,7 +238,7 @@ const jsonLd = [blogPostingSchema, breadcrumbSchema].filter(Boolean);
         <div class="mx-auto max-w-3xl">
           <div class="flex flex-wrap gap-2">
             {tags.map((tag: string) => (
-              <a href={`/blog?tag=${encodeURIComponent(tag)}`} class="text-xs font-semibold text-stone-600 bg-stone-200 hover:bg-red hover:text-white rounded-full px-3 py-1 transition-colors">
+              <a href={`/blog/?tag=${encodeURIComponent(tag)}`} class="text-xs font-semibold text-stone-600 bg-stone-200 hover:bg-red hover:text-white rounded-full px-3 py-1 transition-colors">
                 {tag}
               </a>
             ))}
