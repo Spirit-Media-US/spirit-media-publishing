@@ -314,6 +314,21 @@ const isLightCover = (b: any) =>
 // ItemList JSON-LD (unit 2qm): built from rawBooks, the SAME array that draws the cards, so
 // numberOfItems == itemListElement length == books shown. Index page only (collection pages
 // show a subset). No price/ISBN: Sanity holds none.
+// 2vh: structured data only. Split combined author strings into separate entries; the publisher
+// is an Organization, not a Person. A part with no surname ("Julie and Mark Boone") is ambiguous:
+// the whole string is left exactly as-is rather than inventing a name.
+const authorLd = (raw: string) => {
+	const one = (n: string) =>
+		/^Spirit Media( Publishing)?$/.test(n)
+			? { '@type': 'Organization', name: n }
+			: { '@type': 'Person', name: n };
+	const parts = raw
+		.split(/\s+(?:and|&)\s+|,\s+(?!(?:Jr|Sr)\.?$|I{2,3}$|IV$)/)
+		.map((x) => x.trim())
+		.filter(Boolean);
+	if (parts.length < 2 || parts.some((x) => !/\s/.test(x))) return one(raw);
+	return parts.map(one);
+};
 const itemListLd =
 	initialCollection === ''
 		? JSON.stringify({
@@ -326,7 +341,8 @@ const itemListLd =
 					'@type': 'ListItem',
 					position: i + 1,
 					name: b.display_title || b.title,
-					...(b.author ? { author: { '@type': 'Person', name: b.author } } : {}),
+					...(b.author ? { author: authorLd(b.author) } : {}),
+					...(b.date && /^\d{4}-\d{2}-\d{2}$/.test(b.date) ? { datePublished: b.date } : {}),
 					...(b.img ? { image: b.img } : {}),
 					...(b.amazon ? { url: b.amazon } : {}),
 				})),
