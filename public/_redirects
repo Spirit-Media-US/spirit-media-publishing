@@ -1,2 +1,6 @@
 # Vanity redirects
 /club https://spirit-media.mn.co/collections/3073128 301
+
+# 2yc 2026-11-12: old "Request a call" CTA (GSC 404) -> contact page
+/request-a-call /contact/ 301
+/request-a-call/ /contact/ 301
