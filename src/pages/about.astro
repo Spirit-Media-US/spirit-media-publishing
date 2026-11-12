@@ -122,7 +122,28 @@ const FALLBACK_TEAM = [
 		objectPosition: 'center 25%',
 	},
 ];
-const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
+// 2uv: size Sanity CDN variants via ?w= params (performance-gate: pre-sized images, explicit dims).
+const sizedUrl = (u: string, w: number, ratio?: number) => {
+	const x = new URL(u);
+	x.searchParams.set('w', String(w));
+	if (ratio) x.searchParams.set('h', String(Math.round(w * ratio)));
+	else {
+		x.searchParams.delete('h');
+		x.searchParams.delete('fit');
+	}
+	x.searchParams.delete('auto');
+	x.searchParams.set('fm', 'webp');
+	x.searchParams.set('q', '75');
+	return x.toString();
+};
+const HERO_W = [480, 720, 1000];
+const heroSrcset = (u: string) => HERO_W.map((w) => `${sizedUrl(u, w, 0.91)} ${w}w`).join(', ');
+const HERO_SIZES = '(min-width: 1024px) 584px, calc(100vw - 3rem)';
+
+const teamMembers = (rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM).map((m: any) => ({
+	...m,
+	photo: m.photo ? sizedUrl(m.photo, 320) : m.photo,
+}));
 ---
 
 <Layout
@@ -130,6 +151,9 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 	description="Spirit Media Publishing is a global Christian publishing and marketing company empowering Kingdom Messengers to share their message in all 195 nations. Meet our team."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/02e9961fbe45d2e8dfc63a772f73719af79693f0-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
 >
+	<Fragment slot="head-early">
+		<link rel="preload" as="image" type="image/webp" href={sizedUrl(aboutHeroImage, 720, 0.91)} imagesrcset={heroSrcset(aboutHeroImage)} imagesizes={HERO_SIZES} fetchpriority="high" />
+	</Fragment>
 	<Fragment slot="head">
 		<meta name="keywords" content="Spirit Media Publishing, about Spirit Media, Christian publishing company, Kevin White publisher, Kingdom Messenger publishing, Christian book publisher, faith-based publishing company, global Christian publisher" />
 		<script type="application/ld+json" set:html={JSON.stringify({
@@ -200,7 +224,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 						</div>
 					</div>
 					<div class="flex items-start justify-center order-first lg:order-last lg:sticky lg:top-28" data-animate="zoom-in">
-						<img src={aboutHeroImage} alt={aboutHeroImageAlt} class="w-full rounded-2xl" />
+						<img src={sizedUrl(aboutHeroImage, 720, 0.91)} srcset={heroSrcset(aboutHeroImage)} sizes={HERO_SIZES} width="1000" height="910" fetchpriority="high" decoding="async" alt={aboutHeroImageAlt} class="w-full h-auto rounded-2xl" />
 					</div>
 				</div>
 			</div>
@@ -250,7 +274,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 						</div>
 						<!-- Right: photo (stacks first on mobile) -->
 						<div class="overflow-hidden min-h-80 lg:min-h-0 order-first lg:order-last" data-animate="slide-right">
-							<img src={kevinShellyImage} alt={kevinShellyImageAlt} class="w-full h-full object-cover" style="object-position: center 30%;" />
+							<img src={kevinShellyImage} width="800" height="1024" loading="lazy" decoding="async" alt={kevinShellyImageAlt} class="w-full h-full object-cover" style="object-position: center 30%;" />
 						</div>
 					</div>
 				</div>
@@ -294,7 +318,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 					<div class="grid grid-cols-1 lg:grid-cols-2 lg:items-stretch">
 						<!-- Left: book mockup photo — natural 2:3 ratio drives the card height -->
 						<div data-animate="slide-left">
-							<img src="https://cdn.sanity.io/images/pmowd8uo/production/917a1dde3704a12b0f29c784022d6abdcd97a981-1024x1536.png?w=800&h=1200&fit=crop&fm=webp&q=80" alt="Father's Heart → Beloved Identity by Kevin White" class="w-full block" />
+							<img src="https://cdn.sanity.io/images/pmowd8uo/production/917a1dde3704a12b0f29c784022d6abdcd97a981-1024x1536.png?w=800&h=1200&fit=crop&fm=webp&q=80" alt="Father's Heart → Beloved Identity by Kevin White" width="800" height="1200" loading="lazy" decoding="async" class="w-full h-auto block" />
 						</div>
 						<!-- Right: free book offer -->
 						<div class="p-10 lg:p-12 flex flex-col justify-center bg-stone-700" data-animate="slide-right">
@@ -310,7 +334,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 							</p>
 							<div>
 								<button
-									onclick="document.getElementById('fhb-modal').classList.remove('hidden')"
+									onclick="window.openFhbModal()"
 									class="inline-block bg-red text-white font-semibold px-6 py-3 rounded-md hover:bg-red-deep transition-colors text-sm cursor-pointer"
 								>
 									Get Your Free Book →
@@ -491,7 +515,7 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 								data-delay={String((i % 4) + 1)}
 							>
 								<div class="w-1/2 shrink-0 overflow-hidden">
-									<img src={photo} alt={name} class="w-full h-full object-cover" style={`object-position: ${objectPosition}; filter: sepia(15%) brightness(1.05) contrast(1.02);`} />
+									<img src={photo} width="320" height="192" loading="lazy" decoding="async" alt={name} class="w-full h-full object-cover" style={`object-position: ${objectPosition}; filter: sepia(15%) brightness(1.05) contrast(1.02);`} />
 								</div>
 								<div class="w-1/2 p-3 flex flex-col justify-center">
 									<p class="font-semibold text-sm text-ink-soft leading-snug">{name}</p>
@@ -575,14 +599,27 @@ const teamMembers = rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM;
 			<!-- Form -->
 			<div class="p-6">
 				<iframe
-					src="https://mail.spiritmediaone.com/widget/survey/UYe8vyLv7DZ5BuMRhEfv"
+					data-src="https://mail.spiritmediaone.com/widget/survey/UYe8vyLv7DZ5BuMRhEfv"
 					style="border:none;width:100%;min-height:320px;"
 					scrolling="no"
 					id="UYe8vyLv7DZ5BuMRhEfv"
 					title="Get Your Free Copy of Father's Heart → Beloved Identity"
 				></iframe>
-				<script is:inline src="https://mail.spiritmediaone.com/js/form_embed.js"></script>
 			</div>
 		</div>
 	</div>
+	<script is:inline>
+		// 2uv: third-party form JS + iframe load only when the visitor opens the modal (performance-gate trait 5).
+		window.openFhbModal = function () {
+			var m = document.getElementById('fhb-modal');
+			m.classList.remove('hidden');
+			var f = document.getElementById('UYe8vyLv7DZ5BuMRhEfv');
+			if (f && !f.getAttribute('src')) {
+				f.setAttribute('src', f.getAttribute('data-src'));
+				var sc = document.createElement('script');
+				sc.src = 'https://mail.spiritmediaone.com/js/form_embed.js';
+				document.body.appendChild(sc);
+			}
+		};
+	</script>
 </Layout>
