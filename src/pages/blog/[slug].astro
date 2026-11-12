@@ -22,6 +22,25 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
+// 2vc: max-image-preview:large (Discover/large-thumbnail eligibility), head-only. Posts inside a
+// pending readout/test (2dm 2od 2rr 2rs 2up) are excluded so their measurement stays clean.
+const LARGE_IMAGE_EXCLUDE = new Set([
+	'audiobook-production-services-for-authors',
+	'back-cover-copy-book-sales-tool',
+	'best-christian-book-publishers-for-new-authors',
+	'book-marketing-services',
+	'christian-author-platform-building',
+	'christian-book-publishing-company',
+	'christian-ghostwriting-services',
+	'christian-self-publishing-companies',
+	'end-of-traditional-website-platforms',
+	'how-to-promote-a-book-on-social-media',
+	'how-to-publish-a-christian-book',
+]);
+const postRobots = LARGE_IMAGE_EXCLUDE.has(String(slug))
+	? 'index, follow'
+	: 'index, follow, max-image-preview:large';
+
 // Fetch the full post
 const post = await client.fetch(`*[_type == "blogPost" && slug.current == $slug][0]`, {
 	slug,
@@ -194,6 +213,7 @@ const jsonLd = [blogPostingSchema, breadcrumbSchema].filter(Boolean);
   title={post.seoTitle || `${post.title} | Spirit Media Publishing Blog`}
   description={post.seoDescription || post.excerpt || 'Read this article on the Spirit Media Publishing blog'}
   ogImage={heroImage}
+  robots={postRobots}
 >
   <Fragment slot="head">
     <meta property="og:type" content="article" />
