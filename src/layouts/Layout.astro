@@ -169,19 +169,19 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         .py-1{padding-block:.25rem}.py-2{padding-block:.5rem}.py-3{padding-block:.75rem}.py-16{padding-block:4rem}
         .pt-4{padding-top:1rem}.pt-8{padding-top:2rem}.pt-14{padding-top:3.5rem}.pb-10{padding-bottom:2.5rem}.pb-12{padding-bottom:3rem}.pb-16{padding-bottom:4rem}
         /* 2uv: above-fold hero utilities missing from this set made the async Tailwind bundle reflow the hero (CLS) on /about, /publishing, /free-book */
-        .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.gap-5{gap:1.25rem}.aspect-\[2\/3\]{aspect-ratio:2/3}.p-3{padding:.75rem}.py-5{padding-block:1.25rem}.mb-3{margin-bottom:.75rem}.py-12{padding-block:3rem}.pt-12{padding-top:3rem}.mt-3{margin-top:.75rem}.mt-5{margin-top:1.25rem}.w-12{width:3rem}.w-64{width:16rem}.py-3\.5{padding-block:.875rem}.leading-relaxed{line-height:1.625}.rounded-2xl{border-radius:1rem}
+        .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.gap-5{gap:1.25rem}.aspect-\[2\/3\]{aspect-ratio:2/3}.line-clamp-2{-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.p-3{padding:.75rem}.py-5{padding-block:1.25rem}.mb-3{margin-bottom:.75rem}.py-12{padding-block:3rem}.pt-12{padding-top:3rem}.mt-3{margin-top:.75rem}.mt-5{margin-top:1.25rem}.w-12{width:3rem}.w-64{width:16rem}.py-3\.5{padding-block:.875rem}.leading-relaxed{--tw-leading:1.625;line-height:1.625}.rounded-2xl{border-radius:1rem}
         .border{border-width:1px}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f1ec}.border-stone-200{border-color:#ede7df}.border-stone-700{border-color:#574e45}
         .rounded{border-radius:.375rem}.rounded-md{border-radius:.5rem}.rounded-lg{border-radius:.75rem}.rounded-full{border-radius:9999px}
         .bg-stone-50{background-color:#faf8f5}.bg-stone-100{background-color:#f5f1ec}.bg-surface{background-color:#fff}.bg-white{background-color:#fff}
         .bg-red{background-color:#c0392b}.hover\:bg-red-deep:hover{background-color:#9b2d20}.hover\:bg-stone-50:hover{background-color:#faf8f5}.hover\:bg-stone-100:hover{background-color:#f5f1ec}
-        .text-xs{font-size:1rem}.text-sm{font-size:1rem}.text-base{font-size:1rem}.text-lg{font-size:1rem}
+        .text-xs{font-size:1rem;line-height:var(--tw-leading,1.3333)}.text-sm{font-size:1rem;line-height:var(--tw-leading,1.4286)}.text-base{font-size:1rem;line-height:var(--tw-leading,1.5)}.text-lg{font-size:1rem;line-height:var(--tw-leading,1.5556)}
         .text-white{color:#fff}.text-stone-300{color:#d9d0c4}.text-stone-400{color:#bfb4a4}.text-stone-500{color:#9e9285}.text-stone-600{color:#7a6e63}.text-stone-700{color:#574e45}
         .text-ink-soft{color:#2e2a26}.text-ink{color:#1a1714}.text-red{color:#c0392b}.text-red-soft{color:#d4544a}
         .hover\:text-ink:hover{color:#1a1714}.hover\:text-red-deep:hover{color:#9b2d20}
         .font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}
         .uppercase{text-transform:uppercase}.text-center{text-align:center}
         .tracking-\[0\.08em\]{letter-spacing:.08em}.tracking-widest{letter-spacing:.1em}
-        .leading-tight{line-height:1.25}
+        .leading-tight{--tw-leading:1.25;line-height:1.25}
         .object-contain{object-fit:contain}.object-cover{object-fit:cover}
         .overflow-hidden{overflow:hidden}
         .shadow-sm{box-shadow:0 1px 2px 0 rgba(26,23,20,.08)}
