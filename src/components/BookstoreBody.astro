@@ -68,10 +68,38 @@ async function deriveFhbEditions() {
 	const load = (f: string) => import(/* @vite-ignore */ pathToFileURL(path.join(FHB_DATA, f)).href);
 	const { cardUrl } = await load('card-art.ts');
 	const { dvcEditions } = await load('dvc-editions.ts');
-	const { languageEditions, langSlug } = await load('language-editions.ts');
+	const { languageEditions, langSlug, orderableLanguages, LANG_HB, LANG_PB } =
+		await load('language-editions.ts');
 	const page = (slug: string) => {
 		const f = path.join(FHB_DATA, 'editions', `${slug}.json`);
 		return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
+	};
+	// 2xz: ISBN + price come from the FHB data the product page sells from (editions/<slug>.json
+	// isbn, isbn-list.json to learn WHICH binding that ISBN is, and the SAME hb/pb prices
+	// print-catalog.ts builds its rows from: dvc-editions.ts for audience editions, LANG_HB/LANG_PB
+	// for orderable languages). print-catalog.ts itself is not importable from plain node (its
+	// imports are extensionless). No price is emitted where there is no such price.
+	const isbnPairs: any[] = (() => {
+		try {
+			const il = JSON.parse(fs.readFileSync(path.join(FHB_DATA, 'isbn-list.json'), 'utf8'));
+			return ['general', 'audience', 'journaling', 'largePrint', 'languages'].flatMap((k) =>
+				Array.isArray(il[k]) ? il[k] : il[k] ? [il[k]] : [],
+			);
+		} catch {
+			return [];
+		}
+	})();
+	const commerceOf = (ed: any, prices?: { hb: number; pb: number }) => {
+		const isbn = typeof ed.isbn === 'string' && /^97[89]-[\d-]{10,}$/.test(ed.isbn) ? ed.isbn : '';
+		if (!isbn) return {};
+		const pair = isbnPairs.find((p) => p.hb === isbn || p.pb === isbn);
+		const binding = pair ? (pair.hb === isbn ? 'hb' : 'pb') : '';
+		const price = prices && binding ? (prices as any)[binding] : undefined;
+		return {
+			isbn,
+			...(binding ? { binding } : {}),
+			...(typeof price === 'number' && price > 0 ? { price } : {}),
+		};
 	};
 	const { umbrella, audience, language } = fhbSnapshot.collections;
 	const AUTHOR = 'Kevin White and Spirit Media Publishing'; // as the Sanity fhb-edition-* docs carry it
@@ -98,6 +126,7 @@ async function deriveFhbEditions() {
 			href: `${SITE}/bibles/${e.slug}-bible/`,
 			date: ed.datePublished ?? null,
 			collections: [umbrella, audience],
+			...commerceOf(ed, { hb: e.hb, pb: e.pb }),
 		});
 	}
 	for (const l of languageEditions) {
@@ -121,6 +150,12 @@ async function deriveFhbEditions() {
 			date: ed.datePublished ?? null,
 			collections: [umbrella, language],
 			formats: l.amazon ?? {},
+			...commerceOf(
+				ed,
+				orderableLanguages.some((o: any) => o.code === l.code)
+					? { hb: LANG_HB, pb: LANG_PB }
+					: undefined,
+			),
 		});
 	}
 	// A 5xx, a 429 or a timeout is the asset host failing, not a missing card: three tries, and a
@@ -183,6 +218,12 @@ for (const e of fhb.editions as any[]) {
 		// FHB points buyers to itself (Kevin 2026-11-08; unit 2jd): fathersheartbible.com is the
 		// seller of every FHB edition, so these cards link to the edition's own page, never Amazon.
 		doc.amazon = e.href;
+		// 2xz: the ISBN/binding/price the FHB edition data holds (absent when it holds none)
+		if (e.isbn) {
+			doc.isbn = e.isbn;
+			if (e.binding) doc.binding = e.binding;
+			if (e.price) doc.price = e.price;
+		}
 		doc.formats = Object.fromEntries(
 			Object.entries(doc.formats || {}).map(([k, v]) => [k, v ? e.href : v]),
 		);
@@ -204,6 +245,10 @@ for (const e of fhb.editions as any[]) {
 		formats: listed
 			? Object.fromEntries(Object.entries(e.formats || {}).map(([k, v]) => [k, v ? e.href : v]))
 			: { hardback: e.href, paperback: e.href },
+		// 2xz: ISBN / binding / price from the FHB edition data (only where it holds them)
+		...(e.isbn ? { isbn: e.isbn } : {}),
+		...(e.isbn && e.binding ? { binding: e.binding } : {}),
+		...(e.isbn && e.price ? { price: e.price } : {}),
 	});
 }
 
@@ -318,10 +363,15 @@ const isLightCover = (b: any) =>
 	/White Edition/i.test(b.title || '') || /White Edition/i.test(b.display_title || b.title || '');
 // ItemList JSON-LD (unit 2qm): built from rawBooks, the SAME array that draws the cards, so
 // numberOfItems == itemListElement length == books shown. Index page only (collection pages
-// show a subset). No price/ISBN: Sanity holds none.
+// show a subset).
 // 2vh: structured data only. Split combined author strings into separate entries; the publisher
 // is an Organization, not a Person. A part with no surname ("Julie and Mark Boone") is ambiguous:
 // the whole string is left exactly as-is rather than inventing a name.
+// 2xz: every item is a Book (author Person/Organization, publisher = the site's Organization @id,
+// image, datePublished, url). `isbn` and `offers` appear ONLY where the data holds them: Sanity
+// book documents carry neither an ISBN nor a price, so the ~140 Sanity-only titles stay without
+// them; the FHB editions (read from the FHB repo's edition data, see deriveFhbEditions) carry the
+// ISBN of the binding they name and that binding's catalog price. Nothing is invented.
 const authorLd = (raw: string) => {
 	const one = (n: string) =>
 		/^Spirit Media( Publishing)?$/.test(n)
@@ -334,6 +384,38 @@ const authorLd = (raw: string) => {
 	if (parts.length < 2 || parts.some((x) => !/\s/.test(x))) return one(raw);
 	return parts.map(one);
 };
+const bookLd = (b: any) => ({
+	'@type': 'Book',
+	name: b.display_title || b.title,
+	...(b.author ? { author: authorLd(b.author) } : {}),
+	publisher: {
+		'@type': 'Organization',
+		'@id': 'https://spiritmediapublishing.com/#organization',
+		name: 'Spirit Media Publishing',
+	},
+	...(b.date && /^\d{4}-\d{2}-\d{2}$/.test(b.date) ? { datePublished: b.date } : {}),
+	...(b.img ? { image: b.img } : {}),
+	...(b.amazon ? { url: b.amazon } : {}),
+	...(b.isbn ? { isbn: b.isbn } : {}),
+	...(b.binding
+		? {
+				bookFormat:
+					b.binding === 'hb' ? 'https://schema.org/Hardcover' : 'https://schema.org/Paperback',
+			}
+		: {}),
+	...(b.price && b.amazon
+		? {
+				offers: {
+					'@type': 'Offer',
+					price: Number(b.price).toFixed(2),
+					priceCurrency: 'USD',
+					availability: 'https://schema.org/InStock',
+					itemCondition: 'https://schema.org/NewCondition',
+					url: b.amazon,
+				},
+			}
+		: {}),
+});
 const itemListLd =
 	initialCollection === ''
 		? JSON.stringify({
@@ -345,11 +427,7 @@ const itemListLd =
 				itemListElement: initialBooks.map((b: any, i: number) => ({
 					'@type': 'ListItem',
 					position: i + 1,
-					name: b.display_title || b.title,
-					...(b.author ? { author: authorLd(b.author) } : {}),
-					...(b.date && /^\d{4}-\d{2}-\d{2}$/.test(b.date) ? { datePublished: b.date } : {}),
-					...(b.img ? { image: b.img } : {}),
-					...(b.amazon ? { url: b.amazon } : {}),
+					item: bookLd(b),
 				})),
 			})
 		: '';
