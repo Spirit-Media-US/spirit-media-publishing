@@ -122,11 +122,6 @@ const FALLBACK_TEAM = [
 		objectPosition: 'center 25%',
 	},
 ];
-const teamMembers = (rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM).map((m: any) => ({
-	...m,
-	photo: m.photo ? sizedUrl(m.photo, 320) : m.photo,
-}));
-
 // 2uv: size Sanity CDN variants via ?w= params (performance-gate: pre-sized images, explicit dims).
 const sizedUrl = (u: string, w: number, ratio?: number) => {
 	const x = new URL(u);
@@ -144,6 +139,11 @@ const sizedUrl = (u: string, w: number, ratio?: number) => {
 const HERO_W = [480, 720, 1000];
 const heroSrcset = (u: string) => HERO_W.map((w) => `${sizedUrl(u, w, 0.91)} ${w}w`).join(', ');
 const HERO_SIZES = '(min-width: 1024px) 584px, calc(100vw - 3rem)';
+
+const teamMembers = (rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM).map((m: any) => ({
+	...m,
+	photo: m.photo ? sizedUrl(m.photo, 320) : m.photo,
+}));
 ---
 
 <Layout
