@@ -169,7 +169,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         .py-1{padding-block:.25rem}.py-2{padding-block:.5rem}.py-3{padding-block:.75rem}.py-16{padding-block:4rem}
         .pt-4{padding-top:1rem}.pt-8{padding-top:2rem}.pt-14{padding-top:3.5rem}.pb-10{padding-bottom:2.5rem}.pb-12{padding-bottom:3rem}.pb-16{padding-bottom:4rem}
         /* 2uv: above-fold hero utilities missing from this set made the async Tailwind bundle reflow the hero (CLS) on /about, /publishing, /free-book */
-        .py-12{padding-block:3rem}.pt-12{padding-top:3rem}.mt-3{margin-top:.75rem}.mt-5{margin-top:1.25rem}.w-12{width:3rem}.w-64{width:16rem}.py-3\.5{padding-block:.875rem}.leading-relaxed{line-height:1.625}.rounded-2xl{border-radius:1rem}
+        .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.gap-5{gap:1.25rem}.aspect-\[2\/3\]{aspect-ratio:2/3}.p-3{padding:.75rem}.py-5{padding-block:1.25rem}.mb-3{margin-bottom:.75rem}.py-12{padding-block:3rem}.pt-12{padding-top:3rem}.mt-3{margin-top:.75rem}.mt-5{margin-top:1.25rem}.w-12{width:3rem}.w-64{width:16rem}.py-3\.5{padding-block:.875rem}.leading-relaxed{line-height:1.625}.rounded-2xl{border-radius:1rem}
         .border{border-width:1px}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f1ec}.border-stone-200{border-color:#ede7df}.border-stone-700{border-color:#574e45}
         .rounded{border-radius:.375rem}.rounded-md{border-radius:.5rem}.rounded-lg{border-radius:.75rem}.rounded-full{border-radius:9999px}
         .bg-stone-50{background-color:#faf8f5}.bg-stone-100{background-color:#f5f1ec}.bg-surface{background-color:#fff}.bg-white{background-color:#fff}
@@ -193,16 +193,21 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         @media(min-width:640px){
           .sm\:px-6{padding-inline:1.5rem}
           .sm\:inline-flex{display:inline-flex}
+          .sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+          .sm\:flex-row{flex-direction:row}
+          .sm\:items-center{align-items:center}
           .sm\:max-w-\[325px\]{max-width:325px}
         }
         @media(min-width:768px){
           .md\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
           .md\:w-80{width:20rem}
+          .md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
         }
         @media(min-width:1024px){
           .lg\:block{display:block}
           .lg\:hidden{display:none}
           .lg\:py-20{padding-block:5rem}
+          .lg\:py-8{padding-block:2rem}
           .lg\:pt-14{padding-top:3.5rem}
           .lg\:pb-14{padding-bottom:3.5rem}
           .lg\:sticky{position:sticky}
@@ -221,6 +226,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
           .lg\:col-span-3{grid-column:span 3 / span 3}
           .lg\:order-last{order:9999}
           .lg\:max-h-\[600px\]{max-height:600px}
+        }
+        @media(min-width:1280px){
+          .xl\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}
         }
       }
 
