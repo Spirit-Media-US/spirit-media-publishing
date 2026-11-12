@@ -10,6 +10,9 @@ interface Props {
 	heroEyebrow?: string;
 	heroTitleHtml?: string;
 	heroSubtitle?: string;
+	// 2wg: unique intro for a collection page. `{n}` is replaced with the number of books the
+	// page lists (computed from the collection data at build, never typed). Index page: none.
+	introHtml?: string;
 }
 
 const {
@@ -17,6 +20,7 @@ const {
 	heroEyebrow = 'Bookstore',
 	heroTitleHtml = `Spirit Media's <span class="text-red">Bookstore</span>`,
 	heroSubtitle = 'Over 300 titles by Kingdom Messengers. New books added every week.',
+	introHtml = '',
 } = Astro.props;
 
 const rawBooks = await sanityClient.fetch(`
@@ -262,6 +266,7 @@ const collectionHref = (c: string) =>
 const initialBooks = rawBooks
 	.filter((b: any) => !initialCollection || (b.collections || []).includes(initialCollection))
 	.sort((x: any, y: any) => (y.date || '').localeCompare(x.date || ''));
+const introRendered = introHtml.replaceAll('{n}', String(initialBooks.length));
 // 2uv (CLS): the client script redraws the grid with date labels + format badges; the SSR cards
 // lacked them, so every card grew on load (desktop CLS 0.73). These helpers MIRROR the script's
 // renderFormats()/date label/coverBorder so the SSR card is byte-for-byte the same height. Keep in sync.
@@ -364,6 +369,15 @@ const itemListLd =
   </div>
 </section>
 
+
+{introRendered && (
+<!-- COLLECTION INTRO (2wg): server-rendered, static, sits above the grid so nothing shifts on load -->
+<section class="bg-white px-6 py-5 lg:px-8" data-collection-intro>
+  <div class="mx-auto max-w-7xl">
+    <p class="max-w-3xl text-sm leading-relaxed text-stone-600" set:html={introRendered}></p>
+  </div>
+</section>
+)}
 
 <!-- BOOKSTORE GRID -->
 <section class="bg-stone-100 py-5 lg:py-8 px-6 lg:px-8">

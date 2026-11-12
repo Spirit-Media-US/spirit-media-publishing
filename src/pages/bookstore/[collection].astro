@@ -35,6 +35,16 @@ const pageTitle = `${collectionName} — Spirit Media Bookstore`;
 const pageDescription = `Browse Spirit Media's ${collectionName} collection — short, transformative Christian reads published by Spirit Media Publishing.`;
 const heroTitleHtml = `<span class="text-red">${collectionName}</span>`;
 const heroSubtitle = `${collectionName} from the Spirit Media Christian bookstore. Browse the collection below.`;
+
+// 2wg: a short unique intro per thin collection page. Every sentence is taken from an existing
+// live page (sources in aeo-state/smp-collection-intros-2wg-20261112.json); counts come from
+// the collection data via {n}, never typed.
+const COLLECTION_INTROS: Record<string, string> = {
+	'Express Books': `EXPRESS BOOKS&trade; are Spirit Media's signature publishing format: intentionally compact books designed to be read in a single sitting, at roughly 80 pages and affordably priced for easy sharing. Every EXPRESS BOOK&trade; is published in three formats (paperback, eBook and downloadable PDF) with global distribution through Amazon, IngramSpark and eBook stores worldwide. This collection lists {n} titles. See how the format works on our <a href="/express-books/" class="text-red underline">Express Books page</a>.`,
+	"Father's Heart Bible™ — Audience Editions": `The Father's Heart Bible&trade; is an interpretive English translation edited by Kevin White, founder of Spirit Media Publishing. Where other Bibles use &ldquo;God&rdquo; to say what He is, it uses &ldquo;our Father&rdquo; to show who He has been all along. This collection lists {n} audience editions, each made for a particular reader; the Graduate's Bible, for example, is for high school, college, graduate school, trade school and GED graduates. Each edition has its own page on fathersheartbible.com. Read more on our <a href="/fathers-heart-bible/" class="text-red underline">Father's Heart Bible page</a>.`,
+	"Father's Heart Bible™ — Language Editions": `The Father's Heart Bible&trade; is an interpretive English translation edited by Kevin White, founder of Spirit Media Publishing. This collection lists {n} language editions, each made for readers who speak that language; the French edition, Bible Fran&ccedil;aise, for example, is made for beloved sons and daughters worldwide who speak French. Each edition has its own page on fathersheartbible.com, and the site shows the full list of languages on its <a href="https://fathersheartbible.com/" class="text-red underline">home page</a>.`,
+};
+const introHtml = COLLECTION_INTROS[collectionName] ?? '';
 ---
 
 <Layout
@@ -70,6 +80,7 @@ const heroSubtitle = `${collectionName} from the Spirit Media Christian bookstor
 			heroEyebrow="Collection"
 			heroTitleHtml={heroTitleHtml}
 			heroSubtitle={heroSubtitle}
+			introHtml={introHtml}
 		/>
 	</main>
 </Layout>
