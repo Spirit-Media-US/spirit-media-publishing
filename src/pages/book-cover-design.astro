@@ -82,6 +82,15 @@ const faqs = [
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="book cover design, Christian book cover design, book cover design for authors, cover design and interior layout, Spirit Media Publishing" />
+		{/* 2yw G1 (pmseoaeo 2026-11-12): BreadcrumbList as on /about/ */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com/" },
+				{ "@type": "ListItem", "position": 2, "name": "Book Cover Design", "item": "https://spiritmediapublishing.com/book-cover-design/" }
+			]
+		})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",

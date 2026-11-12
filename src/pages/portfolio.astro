@@ -403,6 +403,15 @@ const portfolioFaqs = [
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book portfolio, Spirit Media portfolio, Christian book covers, Christian author success stories, book marketing examples, Christian publishing results, Kingdom Messenger books, Spirit Media client work" />
+		{/* 2yw G1 (pmseoaeo 2026-11-12): BreadcrumbList as on /about/ */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com/" },
+				{ "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://spiritmediapublishing.com/portfolio/" }
+			]
+		})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "CollectionPage",

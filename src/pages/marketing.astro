@@ -190,6 +190,15 @@ const marketingFaqs = [
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book marketing, book marketing services, Amazon book reviews, Christian podcast production, YouTube book marketing, social media for authors, Christian author marketing, book launch marketing, paid ads for books, GoHighLevel CRM, Spirit Media Publishing" />
+		{/* 2yw G1 (pmseoaeo 2026-11-12): BreadcrumbList as on /about/ */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com/" },
+				{ "@type": "ListItem", "position": 2, "name": "Marketing", "item": "https://spiritmediapublishing.com/marketing/" }
+			]
+		})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",

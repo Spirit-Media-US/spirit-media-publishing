@@ -1,5 +1,30 @@
 ---
+import FaqSection from '../components/FaqSection.astro';
 import Layout from '../layouts/Layout.astro';
+
+// 2yw G3 (pmseoaeo 2026-11-12): FAQ built ONLY from sentences already on this page.
+const fhbFaqs = [
+	{
+		q: "What is the Father's Heart Bible™?",
+		a: "The Father's Heart Bible™ is an interpretive English translation that faithfully renders the original Hebrew, Aramaic, and Greek texts while clearly revealing God's identity as our Father — and His heart toward His children — throughout Scripture.",
+	},
+	{
+		q: "Who edits the Father's Heart Bible™?",
+		a: 'It is edited by Kevin White, founder of Spirit Media Publishing.',
+	},
+	{
+		q: "What makes the Father's Heart Bible™ different?",
+		a: "It fills a gap no other translation addresses. The Father's Heart Bible doesn't merely reveal the Father's name — it reveals His heart: a Father who pursues His children with relentless love, delights in them with singing and joy, grieves when they wander, runs to embrace them when they return, and invites them home with arms wide open.",
+	},
+	{
+		q: 'What is its message for every reader?',
+		a: 'One message for every reader: “Come home. You belong to Me. You are My beloved child.”',
+	},
+	{
+		q: "Where can I find the Father's Heart Bible™ editions?",
+		a: "Browse the Father's Heart Bible collection, the audience editions and the language editions in our bookstore.",
+	},
+];
 ---
 
 <Layout
@@ -89,6 +114,8 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<!-- CTA -->
+		<FaqSection heading="The Father's Heart Bible™, answered" faqs={fhbFaqs} />
+
 		<section class="bg-red px-6 py-12 lg:py-20 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="font-serif text-3xl font-bold text-white sm:text-4xl mb-4" data-animate="fade-up">Place His Word in the Nations</h2>
