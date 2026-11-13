@@ -325,6 +325,14 @@ const investAnchors: Record<number, string> = {
 				});
 				const out = await res.json();
 				if (res.ok && out.ok) {
+					// 3cp-2-B1 (pmseoaeo 2026-11-13): GA4 lead event on a CONFIRMED submit only, once per page
+					// (double-fire guard), no form data / PII in the event. window.gtag queues into dataLayer
+					// even before the deferred GA script loads (Layout.astro).
+					const w = window as unknown as { gtag?: (...a: unknown[]) => void; __amsLeadSent?: boolean };
+					if (!w.__amsLeadSent && typeof w.gtag === 'function') {
+						w.__amsLeadSent = true;
+						w.gtag('event', 'generate_lead', { form_id: 'ams-form' });
+					}
 					form.hidden = true;
 					(root.querySelector('.ams-progress') as HTMLElement).hidden = true;
 					count.hidden = true;
