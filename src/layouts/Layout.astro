@@ -12,6 +12,8 @@ interface Props {
 	ogImage?: string;
 	/** robots meta; the ONLY robots tag on the page (pages must not add their own). */
 	robots?: string;
+	/** absolute canonical URL when it is NOT this page (an SMP /books/<slug>/buy/ page points at the book page). */
+	canonical?: string;
 	/** 3bx: og:type — the ONLY og:type tag on the page ('article' on blog posts). */
 	ogType?: 'website' | 'article';
 }
@@ -20,6 +22,7 @@ const {
 	title,
 	description = 'Spirit Media Publishing',
 	robots = 'index, follow',
+	canonical,
 	ogType = 'website',
 } = Astro.props;
 let ogImage = Astro.props.ogImage;
@@ -56,7 +59,7 @@ if (!ogImage) {
 }
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
 ---
 
