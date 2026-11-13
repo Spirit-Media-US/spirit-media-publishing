@@ -120,27 +120,46 @@ test('/order shows a paid order read live from Stripe; a bad reference gets a 40
 	assert.equal(bad.status, 404);
 });
 
-// Books M4 (pmseoaeo 22:53Z; Kevin approved SMP book pages 11-13): one page per ship_ready title, and only those.
-test('book pages: every ready title built, nothing else; no Offer while unsellable; no Amazon button; calm; FAQ = visible', async () => {
+// Books M4 (pmseoaeo 22:53Z; Kevin approved SMP book pages 11-13) + ONE PAGE PER BOOK (Kevin via pmseoaeo 23:19Z: "All I
+// see is check out form? Where is the page?"; "Never render internal wording or TBD").
+const LEAK = /\b(the Doc\b|Doc (says|lists|calls|describes|names|files|suggests|audience|has)|per the Doc|\(Doc\b|sheet\.json|the sheet\b|the page (makes|attributes|does|publishes|names|claims)|makes no claim|the interior (has|mentions|names|is)|\d+ mentions\b|mentions? [\w' ]{1,24} \d+ times|TBD\b|OMIT\b|UNMEASURED|unconfirmed|pmpublish|pmprint|pmseoaeo|PROPOSED\b|lead term|search volume|unit \d[a-z]{2}\b)/i;
+const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
 	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-3fo.json', import.meta.url), 'utf8'));
+	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	assert.equal(set.titles.length, 30);
-	for (const t of set.titles) {
-		if (t.slug === 'jesus-had-a-little-lamb') continue;
-		const html = fs.readFileSync(new URL(`${t.slug}/index.html`, dist), 'utf8');
-		assert.match(html, new RegExp(`<h1[^>]*>${t.book.h1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, '(?:\'|&#39;)')}`), `${t.slug}: h1`);
-		assert.doesNotMatch(html, /"@type":"Offer"/, `${t.slug}: no Offer while no SKU sells`);
-		assert.match(html, /Available soon from our store\./, `${t.slug}: pending note`);
-		assert.doesNotMatch(html, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
-		const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+	const read = (slug) => fs.readFileSync(new URL(`${slug}/index.html`, dist), 'utf8');
+	const mainOf = (html) => html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+	for (const t of [...set.titles, { slug: 'jesus-had-a-little-lamb' }]) {
+		const html = read(t.slug);
+		const main = mainOf(html);
 		assert.ok(main.length > 500, `${t.slug}: <main> found`);
-		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body (site header/footer are global)`);
-		const faq = [...html.matchAll(/"@type":"Question","name":"([^"]+)"/g)].length;
-		const visible = [...html.matchAll(/<summary[^>]*>/g)].length;
-		assert.equal(faq, visible, `${t.slug}: FAQPage questions == visible questions`);
+		assert.match(main, /<h1[^>]*>/, `${t.slug}: h1`);
+		assert.doesNotMatch(html, /"@type":"Offer"/, `${t.slug}: no Offer while no SKU sells`);
+		assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
+		assert.match(main, /Available soon from our store\./, `${t.slug}: pending note`);
+		assert.doesNotMatch(main, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
+		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
+		const leak = textOf(main).match(LEAK);
+		assert.equal(leak, null, `${t.slug}: internal wording on the page: "${leak?.[0]}"`);
+		const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join(' ');
+		assert.equal(ld.match(LEAK), null, `${t.slug}: internal wording in JSON-LD`);
+		assert.doesNotMatch(main, /amazon/i, `${t.slug}: Amazon only in sameAs, never in page text`);
+		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
 	}
+	for (const b of sold) {
+		const main = mainOf(read(b.slug));
+		assert.match(main, /<form id="order"[^>]*data-status="live"/, `${b.slug}: order form on the book page`);
+		assert.match(main, /<h2[^>]*>About the book<\/h2>/, `${b.slug}: the full page, not just a checkout`);
+		for (const sku of b.formats) assert.match(main, new RegExp(`name="${sku}"`), `${b.slug}: ${sku} quantity`);
+		assert.equal(textOf(main).match(LEAK), null, `${b.slug}: internal wording`);
+		assert.ok(!fs.existsSync(new URL(`${b.slug}/buy/index.html`, dist)), `${b.slug}: no separate /buy/ page`);
+	}
+	const redirects = fs.readFileSync(new URL('../public/_redirects', import.meta.url), 'utf8');
+	assert.match(redirects, /^\/books\/:slug\/buy\/ \/books\/:slug\/#order 301$/m, '/buy/ 301s to #order');
 	const built = fs.readdirSync(dist).filter((d) => fs.existsSync(new URL(`${d}/index.html`, dist)));
-	const allowed = new Set([...set.titles.map((t) => t.slug), 'jesus-had-a-little-lamb']);
-	for (const d of built) assert.ok(allowed.has(d), `unexpected book page /books/${d}/ (not ship_ready)`);
+	const allowed = new Set([...set.titles.map((t) => t.slug), ...sold.map((b) => b.slug), 'jesus-had-a-little-lamb']);
+	for (const d of built) assert.ok(allowed.has(d), `unexpected book page /books/${d}/`);
 });

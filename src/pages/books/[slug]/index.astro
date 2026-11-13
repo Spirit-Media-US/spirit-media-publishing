@@ -1,18 +1,30 @@
 ---
-// /books/<slug>/ — one SMP page per book (Books M4; Kevin approved SMP book pages 2026-11-13; plan 3fb, contract 3fe).
-// pmseoaeo 22:53Z: "Build their SMP /books/<slug>/ pages on the feat-smp-store PREVIEW, ready titles only and best
-// sellers first; not-ready titles stay off ... Buy shows 'Available soon' where cost is unmeasured."
+// /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
+// is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
+// new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
 //
-// DATA: src/data/books/shipset-3fo.json, a verbatim copy of pmseoaeo's ship set (ship_ready titles only, sales order).
-// Every word on the page is that data's; nothing is written here. A value the data marks TBD/OMIT is left out.
-// Rules carried: no "Buy on Amazon" button (Amazon is a JSON-LD sameAs record only); no Offer in JSON-LD while no
-// SKU is sellable (Google reads an Offer as a promise to sell); calm colours (Kevin L1999: no bright red); built for
-// a 390px phone first (Kevin L1999 "most users use mobile"). A hand-built page (books/<slug>.astro) wins its slug.
+// TWO SOURCES, ONE PAGE SHAPE:
+//  · src/data/books/shipset-3fo.json — pmseoaeo's ship set, ship_ready titles only, sales order, verbatim. No SKU has a
+//    measured cost yet, so these show "Available soon from our store." (no form, no Offer).
+//  · src/store-engine/data/books.json + book-skus.json — the books the store SELLS today (Who Am I?, Beloved Identity),
+//    the same records the checkout prices. These carry the order form (#order). D1 open: their ranking page is
+//    fathersheartbible.com/books/<slug>/, so canonical points there.
+// Every word comes from that data. COPY GATE (pmseoaeo 23:19Z, Kevin: "Never render internal wording or TBD"): copy()
+// strips only a bare ", per the Doc" tail; a FAQ entry that still talks about our sources is dropped; body copy that
+// does FAILS THE BUILD by slug + field. The fix belongs in the data, never here.
+// Also carried: no "Buy on Amazon" button (Amazon = sameAs only); no Offer while nothing sells; calm ink, no red
+// (Kevin L1999); a 390px phone first. A hand-built page (src/pages/books/<slug>.astro) keeps its slug.
 import dims from '../../../data/books/cover-dims-3fo.json';
+import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
 import set from '../../../data/books/shipset-3fo.json';
 import Layout from '../../../layouts/Layout.astro';
+import bookSkus from '../../../store-engine/data/book-skus.json';
+import engineBooks from '../../../store-engine/data/books.json';
+import { BOOK_SKUS } from '../../../store-engine/lib/order-pricing.ts';
+import { LIVE_COUNTRIES } from '../../../store-engine/lib/shipCountries.ts';
 
-type Sku = {
+type Fmt = {
+	sku: string;
 	format: string;
 	schema_format: string;
 	isbn: string;
@@ -20,75 +32,246 @@ type Sku = {
 	list_cents: number | null;
 	pages: number | null;
 	trim: string | null;
-	sku_status: string;
-	us_cost_usd: unknown;
-	cost_key: unknown;
 };
-type Title = { slug: string; book: Record<string, any>; skus: Record<string, Sku> };
+type Page = {
+	slug: string;
+	title: string;
+	h1: string;
+	subtitle: string | null;
+	author: string;
+	credits: string | null;
+	page_title: string;
+	meta: string;
+	short: string;
+	about: string | null;
+	aboutHtml: string | null;
+	who_for: string[];
+	faq: { q: string; a: string }[];
+	faqDropped: number;
+	bio: string | null;
+	cover: { src: string; w: number; h: number; alt: string };
+	formats: Fmt[];
+	lccn: string | null;
+	sameAs: string[];
+	canonical: string | null;
+	orderable: boolean;
+};
 
 export function getStaticPaths() {
-	// a slug with its own hand-built page (src/pages/books/<slug>.astro) keeps it
-	const handBuilt = new Set(['jesus-had-a-little-lamb']);
-	return (set.titles as Title[])
-		.filter((t) => !handBuilt.has(t.slug))
-		.map((t) => ({ params: { slug: t.slug }, props: { t } }));
+	// ---- COPY GATE (inside getStaticPaths: Astro runs it in isolation) ----
+	// Internal wording a reader must never see (pmseoaeo QA 3ft list + ours). Narrow on purpose: "through the pages",
+	// "keywords for further research", "bring to the page", "first draft" are ordinary prose and pass.
+	const INTERNAL =
+		/\b(the Doc\b|Doc (says|lists|calls|describes|names|files|suggests|audience|has)|\(Doc\b|sheet\.json|the sheet\b|the page (makes|attributes|does|publishes|names|claims)|makes no claim|the interior (has|mentions|names|is)|\d+ mentions\b|mentions? [\w' ]{1,24} \d+ times|names? the [\w ]{1,30} \d+ times|TBD\b|OMIT\b|UNMEASURED|unconfirmed|pmpublish|pmprint|pmseoaeo|PROPOSED\b|lead term|search volume|unit \d[a-z]{2}\b)/i;
+	const strip = (s: string) => s.replace(/,?\s+per the Doc\b/gi, '');
+	const copy = (slug: string, field: string, s: unknown): string | null => {
+		if (s == null || s === '') return null;
+		const out = strip(String(s));
+		const m = out.match(INTERNAL);
+		if (m)
+			throw new Error(
+				`book copy leak: ${slug} ${field} contains internal wording "${m[0]}" — fix it in the ship set`,
+			);
+		return out;
+	};
+	// FAQ: an entry with internal wording, or naming Amazon (Amazon is a sameAs record only), is held back
+	const faqGate = (items: { q: string; a: string }[] | undefined) => {
+		const kept: { q: string; a: string }[] = [];
+		let dropped = 0;
+		for (const f of items ?? []) {
+			const q = strip(f.q ?? '');
+			const a = strip(f.a ?? '');
+			if (!q || !a || INTERNAL.test(`${q} ${a}`) || /amazon/i.test(`${q} ${a}`)) dropped++;
+			else kept.push({ q, a });
+		}
+		return { kept, dropped };
+	};
+	// a fact shows only when it is clean: LCCN = 10 digits, alone or "(Doc and sheet.json)" (both sources agree); trim
+	// = a measurement, alone or "(Doc)". "sheet.json only", "unconfirmed", "none", a conflict note -> omitted.
+	const lccnOf = (v: unknown) => {
+		const m = String(v ?? '').match(/^(\d{10})(\s+\(Doc and sheet\.json\))?$/);
+		return m ? m[1] : null;
+	};
+	const trimOf = (v: unknown) => {
+		const m = String(v ?? '').match(/^([\d.]+ x [\d.]+ in)(\s+\(Doc\))?$/);
+		return m ? m[1] : null;
+	};
+	const usable = (v: unknown) => v != null && v !== '' && !/^(TBD|OMIT)\b/i.test(String(v));
+	const SKUS = bookSkus.skus as Record<string, any>;
+	const pages: Page[] = [];
+
+	// the books the store sells today
+	for (const b of engineBooks.books as any[]) {
+		const f = faqGate(b.faq);
+		pages.push({
+			slug: b.slug,
+			title: b.title,
+			h1: b.title,
+			subtitle: copy(b.slug, 'subtitle', b.subtitle),
+			author: b.author.name,
+			credits: null,
+			page_title: copy(b.slug, 'page_title', b.page_title) as string,
+			meta: copy(b.slug, 'short', b.short) as string,
+			short: copy(b.slug, 'short', b.short) as string,
+			about: null,
+			aboutHtml: copy(b.slug, 'long_html', b.long_html),
+			who_for: (b.who_for ?? []).map(
+				(w: string, i: number) => copy(b.slug, `who_for[${i}]`, w) as string,
+			),
+			faq: f.kept,
+			faqDropped: f.dropped,
+			bio: copy(b.slug, 'author_bio', b.author_bio),
+			cover: {
+				src: b.cover.w600 ?? b.cover.jpg,
+				w: b.cover.width,
+				h: b.cover.height,
+				alt: b.cover.alt,
+			},
+			formats: (b.formats as string[]).map((sku) => ({ sku, ...SKUS[sku] })),
+			lccn: null,
+			sameAs: [],
+			canonical: `https://fathersheartbible.com/books/${b.slug}/`,
+			orderable: b.status === 'live',
+		});
+	}
+	const sold = new Set(pages.map((p) => p.slug));
+
+	// the ship set (sales order)
+	for (const t of set.titles as any[]) {
+		if (sold.has(t.slug)) continue;
+		const b = t.book;
+		const d = (dims as Record<string, { w: number; h: number }>)[t.slug];
+		const f = faqGate(b.faq);
+		const ld = b.jsonld?.book ?? {};
+		pages.push({
+			slug: t.slug,
+			title: b.title,
+			h1: copy(t.slug, 'h1', b.h1 || b.title) as string,
+			subtitle: usable(b.subtitle) ? copy(t.slug, 'subtitle', b.subtitle) : null,
+			author: b.author.name,
+			credits: usable(b.credits) ? copy(t.slug, 'credits', b.credits) : null,
+			page_title: copy(t.slug, 'page_title', b.page_title) as string,
+			meta: copy(t.slug, 'meta', b.meta) as string,
+			short: copy(t.slug, 'short', b.short) as string,
+			about: copy(t.slug, 'about', b.about),
+			aboutHtml: null,
+			who_for: (Array.isArray(b.who_for) ? b.who_for : []).map(
+				(w: string, i: number) => copy(t.slug, `who_for[${i}]`, w) as string,
+			),
+			faq: f.kept,
+			faqDropped: f.dropped,
+			bio: usable(b.bio) ? copy(t.slug, 'bio', b.bio) : null,
+			cover: { src: b.cover.jpg, w: d.w, h: d.h, alt: `Cover of ${b.title} by ${b.author.name}` },
+			formats: (b.formats as string[])
+				.map((sku: string) => ({ sku, ...t.skus[sku] }))
+				.filter((x: any) => usable(x.isbn))
+				.map((x: any) => ({
+					sku: x.sku,
+					format: x.format,
+					schema_format: x.schema_format,
+					isbn: x.isbn,
+					isbn_display: x.isbn_display,
+					list_cents: Number.isInteger(x.list_cents) ? x.list_cents : null,
+					pages: Number.isInteger(x.pages) ? x.pages : null,
+					trim: trimOf(x.trim),
+				})),
+			lccn: lccnOf(b.lccn),
+			sameAs: (Array.isArray(ld.sameAs) ? ld.sameAs : []).filter((u: unknown) =>
+				/^https:\/\/\S+$/.test(String(u)),
+			),
+			canonical: null,
+			orderable: false,
+		});
+	}
+	// Lamb (Kevin L1971 pilot; pmseoaeo QA 3ft #6: same template). Sourced facts only (src/data/books/<slug>.json): no
+	// price, no ISBN-to-format, no description yet, so the page carries what is known and "Available soon".
+	if (!pages.some((p) => p.slug === lamb.slug)) {
+		const desc = `${lamb.title}, a book by ${lamb.author}, published by ${lamb.publisher}.`;
+		pages.push({
+			slug: lamb.slug,
+			title: lamb.title,
+			h1: lamb.title,
+			subtitle: null,
+			author: lamb.author,
+			credits: null,
+			page_title: `${lamb.title} by ${lamb.author}`,
+			meta: desc,
+			short: desc,
+			about: null,
+			aboutHtml: null,
+			who_for: [],
+			faq: [],
+			faqDropped: 0,
+			bio: null,
+			cover: {
+				src: `${lamb.cover.src}?w=600&fm=webp&q=80`,
+				w: 600,
+				h: Math.round((600 * lamb.cover.height) / lamb.cover.width),
+				alt: lamb.cover.alt,
+			},
+			formats: lamb.formats.map((f: { format: string; schema_format: string }) => ({
+				sku: '',
+				format: f.format,
+				schema_format: f.schema_format,
+				isbn: '',
+				isbn_display: '',
+				list_cents: null,
+				pages: null,
+				trim: null,
+			})),
+			lccn: null,
+			sameAs: (lamb.same_as ?? []).filter((u: string) => /^https:\/\/\S+$/.test(u)),
+			canonical: null,
+			orderable: false,
+		});
+	}
+	return pages.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
 
-const { t } = Astro.props as { t: Title };
-const b = t.book;
+const { p } = Astro.props as { p: Page };
 const SITE = 'https://spiritmediapublishing.com';
-const url = `${SITE}/books/${t.slug}/`;
-const usable = (v: unknown) => v != null && v !== '' && !/^(TBD|OMIT)\b/i.test(String(v));
+const url = `${SITE}/books/${p.slug}/`;
 const money = (c: number) => `$${(c / 100).toFixed(2)}`;
-const formats = (b.formats as string[])
-	.map((sku) => ({ sku, ...t.skus[sku] }))
-	.filter((f) => f && usable(f.isbn));
-// a SKU sells only when the store has measured its cost; none has yet, so every page says "Available soon"
-const sellable = formats.filter(
-	(f) => f.sku_status === 'live' && usable(f.us_cost_usd) && usable(f.cost_key),
-);
-const cover = (dims as Record<string, { w: number; h: number }>)[t.slug];
-const subtitle = usable(b.subtitle) ? (b.subtitle as string) : null;
-const credits = usable(b.credits) ? (b.credits as string) : null;
-const bio = usable(b.bio) ? (b.bio as string) : null;
-const faq = ((b.faq ?? []) as { q: string; a: string }[]).filter((f) => usable(f.q) && usable(f.a));
-const whoFor = (Array.isArray(b.who_for) ? b.who_for : []) as string[];
-const lccn = usable(b.lccn) ? (b.lccn as string) : null;
-const ldBook = (b.jsonld?.book ?? {}) as Record<string, unknown>;
-const sameAs = (Array.isArray(ldBook.sameAs) ? ldBook.sameAs : []).filter((u: unknown) =>
-	/^https:\/\/\S+$/.test(String(u)),
-);
-const alt = `Cover of ${b.title} by ${b.author.name}`;
+// ship-to: the US, plus every live country with a measured landed cost for ALL this book's formats
+const countries = p.orderable
+	? LIVE_COUNTRIES.filter(
+			(c) =>
+				c.code === 'US' ||
+				p.formats.every((f) => (c.landed_cost_usd as any)?.[BOOK_SKUS[f.sku]?.costKey] != null),
+		).map((c) => ({ code: c.code, name: c.name }))
+	: [];
 
 const ld = {
 	'@context': 'https://schema.org',
 	'@type': 'Book',
 	'@id': `${url}#book`,
-	name: b.title,
-	...(subtitle ? { alternativeHeadline: subtitle } : {}),
+	name: p.title,
+	...(p.subtitle ? { alternativeHeadline: p.subtitle } : {}),
 	url,
-	description: b.short,
-	author: { '@type': 'Person', name: b.author.name },
+	description: p.short,
+	author: { '@type': 'Person', name: p.author },
 	publisher: {
 		'@type': 'Organization',
 		'@id': `${SITE}/#organization`,
-		name: b.publisher || 'Spirit Media Publishing',
+		name: 'Spirit Media Publishing',
 	},
-	inLanguage: b.language || 'en',
-	image: b.cover.jpg,
-	...(sameAs.length ? { sameAs } : {}),
-	workExample: formats.map((f) => ({
-		'@type': 'Book',
-		bookFormat: f.schema_format,
-		isbn: f.isbn,
-		...(f.pages ? { numberOfPages: f.pages } : {}),
-	})),
+	inLanguage: 'en',
+	image: p.cover.src,
+	...(p.sameAs.length ? { sameAs: p.sameAs } : {}),
+	workExample: p.formats
+		.filter((f) => f.isbn)
+		.map((f) => ({
+			'@type': 'Book',
+			bookFormat: f.schema_format,
+			isbn: f.isbn,
+			...(f.pages ? { numberOfPages: f.pages } : {}),
+		})),
 };
-const faqLd = faq.length
+const faqLd = p.faq.length
 	? {
 			'@context': 'https://schema.org',
 			'@type': 'FAQPage',
-			mainEntity: faq.map((f) => ({
+			mainEntity: p.faq.map((f) => ({
 				'@type': 'Question',
 				name: f.q,
 				acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -101,16 +284,16 @@ const crumbs = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
 		{ '@type': 'ListItem', position: 2, name: 'Bookstore', item: `${SITE}/bookstore/` },
-		{ '@type': 'ListItem', position: 3, name: b.title, item: url },
+		{ '@type': 'ListItem', position: 3, name: p.title, item: url },
 	],
 };
 ---
 
-<Layout title={b.page_title} description={b.meta} ogImage={b.cover.jpg}>
+<Layout title={p.page_title} description={p.meta} ogImage={p.cover.src} canonical={p.canonical ?? undefined}>
 	<Fragment slot="head">
-		<link rel="preload" as="image" href={b.cover.jpg} fetchpriority="high" />
-		<script type="application/ld+json" set:html={JSON.stringify(ld)}></script>
-		{faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>}
+		<link rel="preload" as="image" href={p.cover.src} fetchpriority="high" />
+		{!p.canonical && <script type="application/ld+json" set:html={JSON.stringify(ld)}></script>}
+		{!p.canonical && faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>}
 		<script type="application/ld+json" set:html={JSON.stringify(crumbs)}></script>
 	</Fragment>
 	<main id="main-content">
@@ -119,40 +302,60 @@ const crumbs = {
 				<nav aria-label="Breadcrumb" class="mb-5 text-sm text-stone-600">
 					<a href="/" class="text-stone-600 underline-offset-2 hover:underline">Home</a> /
 					<a href="/bookstore/" class="text-stone-600 underline-offset-2 hover:underline">Bookstore</a> /
-					<span aria-current="page">{b.title}</span>
+					<span aria-current="page">{p.title}</span>
 				</nav>
 				<div class="grid items-start gap-8 md:grid-cols-[280px_1fr] md:gap-10">
 					<img
-						src={b.cover.jpg}
-						width={cover.w}
-						height={cover.h}
-						alt={alt}
+						src={p.cover.src}
+						width={p.cover.w}
+						height={p.cover.h}
+						alt={p.cover.alt}
 						fetchpriority="high"
 						decoding="async"
 						class="mx-auto h-auto w-full max-w-[240px] rounded shadow-lg md:max-w-[280px]"
 					/>
 					<div>
-						<h1 class="text-3xl font-bold leading-tight text-ink lg:text-4xl">{b.h1 || b.title}</h1>
-						{subtitle && <p class="mt-2 text-lg leading-snug text-ink-muted">{subtitle}</p>}
-						<p class="mt-3 text-base text-stone-700">by {b.author.name}{credits && <span> · {credits}</span>}</p>
+						<h1 class="text-3xl font-bold leading-tight text-ink lg:text-4xl">{p.h1}</h1>
+						{p.subtitle && <p class="mt-2 text-lg leading-snug text-ink-muted">{p.subtitle}</p>}
+						<p class="mt-3 text-base text-stone-700">by {p.author}{p.credits && <span> · {p.credits}</span>}</p>
 
-						<div class="mt-6 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-status={sellable.length ? 'live' : 'pending'}>
-							<ul class="space-y-1.5">
-								{formats.map((f) => (
-									<li class="flex items-baseline justify-between gap-4 text-lg">
-										<span class="font-semibold text-ink">{f.format}</span>
-										{f.list_cents != null && <span class="font-bold text-ink">{money(f.list_cents)}</span>}
-									</li>
-								))}
-							</ul>
-							{sellable.length ? (
-								<a href={`/books/${t.slug}/buy/`} class="mt-4 flex min-h-12 w-full items-center justify-center rounded-full bg-ink-soft px-4 py-3 font-semibold text-white hover:bg-ink">Order</a>
-							) : (
+						{p.orderable ? (
+							<form id="order" class="mt-6 scroll-mt-28 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-slug={p.slug} data-status="live">
+								<p class="text-xs font-bold uppercase tracking-widest text-stone-500">Order direct · free US shipping</p>
+								<h2 class="mt-1 text-xl font-bold text-ink">Order {p.title}</h2>
+								<div class="mt-4 space-y-3">
+									{p.formats.map((f) => (
+										<label class="flex items-center justify-between gap-4 rounded-lg border border-stone-300 p-3">
+											<span class="flex flex-col"><span class="font-semibold text-ink">{f.format}</span>{f.list_cents != null && <span class="text-lg font-bold text-ink">{money(f.list_cents)}</span>}</span>
+											<input type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={p.formats.length === 1 ? 1 : 0} class="h-11 w-20 rounded border border-stone-300 px-2 text-center text-base" aria-label={`${f.format} quantity`} />
+										</label>
+									))}
+								</div>
+								<label class="mt-4 block">
+									<span class="text-sm font-semibold text-ink">Ship to</span>
+									<select name="country" class="mt-1 h-11 w-full rounded border border-stone-300 bg-white px-2 text-base">
+										{countries.map((c) => <option value={c.code} selected={c.code === 'US'}>{c.name}</option>)}
+									</select>
+								</label>
+								<button type="submit" class="mt-4 min-h-12 w-full rounded-full bg-ink-soft px-4 py-3 font-semibold text-white hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-soft">Checkout →</button>
+								<p id="buy-msg" role="status" class="mt-2 text-sm text-stone-700"></p>
+								<p class="mt-2 text-sm text-stone-600">Free shipping in the US. <a href="https://fathersheartbible.com/returns/" class="text-ink-soft underline">30-day returns</a>.</p>
+							</form>
+						) : (
+							<div id="order" class="mt-6 scroll-mt-28 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-status="pending">
+								<ul class="space-y-1.5">
+									{p.formats.map((f) => (
+										<li class="flex items-baseline justify-between gap-4 text-lg">
+											<span class="font-semibold text-ink">{f.format}</span>
+											{f.list_cents != null && <span class="font-bold text-ink">{money(f.list_cents)}</span>}
+										</li>
+									))}
+								</ul>
 								<p class="mt-4 border-t border-stone-200 pt-3 text-stone-700">Available soon from our store.</p>
-							)}
-						</div>
+							</div>
+						)}
 
-						<p class="mt-6 text-base leading-relaxed text-stone-800">{b.short}</p>
+						<p class="mt-6 text-base leading-relaxed text-stone-800">{p.short}</p>
 					</div>
 				</div>
 			</div>
@@ -160,41 +363,43 @@ const crumbs = {
 
 		<section class="px-4 py-10 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-3xl space-y-10 text-stone-800">
-				{whoFor.length > 0 && (
+				{p.who_for.length > 0 && (
 					<div>
 						<h2 class="text-2xl font-bold text-ink">Who this book is for</h2>
-						<ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed">{whoFor.map((w) => <li>{w}</li>)}</ul>
+						<ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed">{p.who_for.map((w) => <li>{w}</li>)}</ul>
 					</div>
 				)}
-				<div>
-					<h2 class="text-2xl font-bold text-ink">About the book</h2>
-					<p class="mt-4 leading-relaxed">{b.about}</p>
-				</div>
-				{bio && (
+				{(p.aboutHtml || p.about) && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">About the book</h2>
+						{p.aboutHtml ? <div class="book-about mt-4 space-y-3 leading-relaxed" set:html={p.aboutHtml} /> : <p class="mt-4 leading-relaxed">{p.about}</p>}
+					</div>
+				)}
+				{p.bio && (
 					<div>
 						<h2 class="text-2xl font-bold text-ink">About the author</h2>
-						<p class="mt-4 leading-relaxed">{bio}</p>
+						<p class="mt-4 leading-relaxed">{p.bio}</p>
 					</div>
 				)}
 				<div>
 					<h2 class="text-2xl font-bold text-ink">Book details</h2>
 					<dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[0.95rem]">
-						<dt class="font-semibold">Publisher</dt><dd>{b.publisher || 'Spirit Media Publishing'}</dd>
+						<dt class="font-semibold">Publisher</dt><dd>Spirit Media Publishing</dd>
 						<dt class="font-semibold">Language</dt><dd>English</dd>
-						{formats.map((f) => (
+						{p.formats.map((f) => (
 							<>
 								<dt class="font-semibold">{f.format}</dt>
-								<dd>ISBN {f.isbn_display}{f.pages ? ` · ${f.pages} pages` : ''}{f.trim ? ` · ${f.trim}` : ''}</dd>
+								<dd>{[f.isbn_display && `ISBN ${f.isbn_display}`, f.pages && `${f.pages} pages`, f.trim].filter(Boolean).join(' · ') || '—'}</dd>
 							</>
 						))}
-						{lccn && (<><dt class="font-semibold">LCCN</dt><dd>{lccn}</dd></>)}
+						{p.lccn && (<><dt class="font-semibold">LCCN</dt><dd>{p.lccn}</dd></>)}
 					</dl>
 				</div>
-				{faq.length > 0 && (
+				{p.faq.length > 0 && (
 					<div>
 						<h2 class="text-2xl font-bold text-ink">Questions</h2>
-						<div class="mt-4 divide-y divide-stone-200 rounded-lg border border-stone-300 bg-white">
-							{faq.map((f) => (
+						<div class="mt-4 divide-y divide-stone-200 rounded-lg border border-stone-300 bg-white" data-faq-dropped={p.faqDropped}>
+							{p.faq.map((f) => (
 								<details class="group p-4">
 									<summary class="cursor-pointer list-none font-semibold text-ink">{f.q}</summary>
 									<p class="mt-2 leading-relaxed">{f.a}</p>
@@ -208,3 +413,48 @@ const crumbs = {
 		</section>
 	</main>
 </Layout>
+
+<style>
+	.book-about :global(p) { margin: 0 0 0.75rem; }
+	.book-about :global(strong) { color: var(--color-ink); }
+</style>
+
+<script>
+	const form = document.getElementById('order') as HTMLFormElement | null;
+	if (form?.tagName === 'FORM') {
+		form.addEventListener('submit', async (ev) => {
+			ev.preventDefault();
+			const msg = document.getElementById('buy-msg') as HTMLElement;
+			const counts: Record<string, number> = {};
+			for (const i of form.querySelectorAll<HTMLInputElement>('input[type=number]')) counts[i.name] = Math.max(0, Math.floor(Number(i.value) || 0));
+			if (!Object.values(counts).some((n) => n > 0)) {
+				msg.textContent = 'Choose at least one copy.';
+				return;
+			}
+			const q = new URLSearchParams(location.search);
+			const utm = Object.fromEntries(['source', 'medium', 'campaign', 'content'].map((k) => [k, q.get(`utm_${k}`) ?? '']).filter(([, v]) => v));
+			const site = ({ 'fathersheartbible.com': 'fhb', 'vaneure.com': 'vaneure' } as Record<string, string>)[utm.source ?? ''] ?? 'smp';
+			const country = (form.querySelector('select[name=country]') as HTMLSelectElement).value;
+			(window as any).gtag?.('event', 'begin_checkout', { currency: 'USD', items: Object.entries(counts).filter(([, n]) => n > 0).map(([id, n]) => ({ item_id: id, quantity: n })) });
+			msg.textContent = '';
+			const btn = form.querySelector('button') as HTMLButtonElement;
+			btn.disabled = true;
+			try {
+				const r = await fetch('/store-checkout', {
+					method: 'POST',
+					headers: { 'content-type': 'application/json' },
+					body: JSON.stringify({ counts, country, returnPath: `/books/${form.dataset.slug}/`, site, utm }),
+				});
+				const j = await r.json();
+				if (j.url) {
+					location.href = j.url;
+					return;
+				}
+				msg.textContent = j.message || (j.disabled ? 'Checkout is not open yet.' : 'Something went wrong. Please try again.');
+			} catch {
+				msg.textContent = 'Something went wrong. Please try again.';
+			}
+			btn.disabled = false;
+		});
+	}
+</script>

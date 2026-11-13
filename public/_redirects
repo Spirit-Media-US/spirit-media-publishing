@@ -4,3 +4,7 @@
 # 2yc 2026-11-12: old "Request a call" CTA (GSC 404) -> contact page
 /request-a-call /contact/ 301
 /request-a-call/ /contact/ 301
+
+# Kevin 2026-11-13 (pmseoaeo 23:19Z): ONE page per book, order form ON it. The old checkout pages go to its #order.
+/books/:slug/buy/ /books/:slug/#order 301
+/books/:slug/buy /books/:slug/#order 301
