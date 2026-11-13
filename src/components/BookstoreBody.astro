@@ -335,7 +335,11 @@ const badgeStyle =
 	'display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;';
 const formatsHtml = (b: any): string => {
 	const fmts = b.formats || {};
-	const keys = Object.keys(fmts).filter((k) => FMT_LABELS[k] && fmts[k]);
+	// 3aj: a format may be a URL or a bare flag (true) — a flag links to the book's own listing,
+	// never to href="true" (was a 404 on SOAR To Success). No URL to give = no badge.
+	const fmtHref = (k: string) =>
+		typeof fmts[k] === 'string' ? fmts[k] : fmts[k] === true && b.amazon ? b.amazon : '';
+	const keys = Object.keys(fmts).filter((k) => FMT_LABELS[k] && fmtHref(k));
 	if (!keys.length) {
 		if (!b.amazon) return '';
 		const asin = (b.amazon.match(/\/dp\/([A-Z0-9]+)/) || [])[1] || '';
@@ -346,7 +350,7 @@ const formatsHtml = (b: any): string => {
 	const badges = keys
 		.map(
 			(k) =>
-				`<a href="${fmts[k]}" target="_blank" rel="noopener noreferrer" style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}</a>`,
+				`<a href="${fmtHref(k)}" target="_blank" rel="noopener noreferrer" style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}</a>`,
 		)
 		.join('');
 	return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">${badges}</div>`;
@@ -623,7 +627,9 @@ const itemListLd =
 
   function renderFormats(b) {
     const fmts = b.formats || {};
-    let keys = Object.keys(fmts).filter(k => FORMAT_LABELS[k] && fmts[k]);
+    // 3aj: a bare flag (true) links to the book's own listing; no URL = no badge (a bare flag is never used as the link).
+    const fmtHref = k => (typeof fmts[k] === 'string' ? fmts[k] : (fmts[k] === true && b.amazon ? b.amazon : ''));
+    let keys = Object.keys(fmts).filter(k => FORMAT_LABELS[k] && fmtHref(k));
     // If no formats defined, fall back to amazon link — detect type by ASIN
     if (!keys.length) {
       // No formats AND no listing: nothing to badge. Reading .match() off null threw here.
@@ -640,7 +646,7 @@ const itemListLd =
       </div>`;
     }
     const badges = keys.map(k =>
-      `<a href="${fmts[k]}" target="_blank" rel="noopener noreferrer"
+      `<a href="${fmtHref(k)}" target="_blank" rel="noopener noreferrer"
         style="display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;${FORMAT_STYLES[k]}"
         onclick="event.stopPropagation()">
         ${FORMAT_LABELS[k]}
