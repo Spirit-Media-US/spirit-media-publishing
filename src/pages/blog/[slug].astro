@@ -136,6 +136,9 @@ const modifiedDate =
 const heroImage = post.heroImage
 	? urlFor(post.heroImage).width(1200).format('webp').url()
 	: '/blog-default.jpg';
+// 3ce: 640w for phones + the existing 1200w, preloaded with fetchpriority=high (LCP element).
+const heroImage640 = post.heroImage ? urlFor(post.heroImage).width(640).format('webp').url() : '';
+const heroSrcset = post.heroImage ? `${heroImage640} 640w, ${heroImage} 1200w` : undefined;
 const author = post.author || 'Kevin White';
 const tags = post.tags || [];
 
@@ -216,6 +219,7 @@ const jsonLd = [blogPostingSchema, breadcrumbSchema].filter(Boolean);
   ogType="article"
 >
   <Fragment slot="head">
+    {heroSrcset && <link rel="preload" as="image" imagesrcset={heroSrcset} imagesizes="100vw" fetchpriority="high" />}
     <meta property="article:author" content={author} />
     <meta property="article:published_time" content={post.publishDate} />
     <meta property="article:modified_time" content={dateModified} />
@@ -228,7 +232,7 @@ const jsonLd = [blogPostingSchema, breadcrumbSchema].filter(Boolean);
   <main id="main-content">
     <!-- HERO IMAGE -->
     <div class="w-full">
-      <img src={heroImage} alt={post.heroImage?.alt || post.title} class="w-full h-72 lg:h-[600px] object-cover" />
+      <img src={heroImage} srcset={heroSrcset} sizes="100vw" width="1200" height="675" fetchpriority="high" decoding="async" alt={post.heroImage?.alt || post.title} class="w-full h-72 lg:h-[600px] object-cover" />
     </div>
 
     <!-- POST HEADER -->
