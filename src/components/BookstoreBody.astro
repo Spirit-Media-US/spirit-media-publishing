@@ -290,6 +290,27 @@ for (const doc of rawBooks as any[]) {
 }
 
 const BOOKS_JSON = JSON.stringify(rawBooks);
+// 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
+// browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
+// Titles". The script animates up to these same values on scroll (one computation, not two).
+// "Published Titles" counts EVERY FORMAT EDITION (Kevin 2026-08-28); Kingdom Messengers = PEOPLE (co-authors split,
+// Spirit Media itself and name suffixes like "Jr." dropped); years counted from June 2022.
+const STAT_PUBLISHER = /^spirit media(\s+publishing)?$/i;
+const STAT_SUFFIX = /^(jr|sr|ii|iii|iv|v|md|phd|dds|esq)\.?$/i;
+const STAT_TITLES = rawBooks.reduce(
+	(sum: number, b: any) => sum + Object.values(b.formats || {}).filter((v) => v).length,
+	0,
+);
+const STAT_AUTHORS = new Set(
+	rawBooks.flatMap((b: any) =>
+		String(b.author || '')
+			.split(/,| and /i)
+			.map((n: string) => n.trim())
+			.filter((n: string) => n && !STAT_PUBLISHER.test(n) && !STAT_SUFFIX.test(n)),
+	),
+).size;
+const statYearsNow = new Date();
+const STAT_YEARS = statYearsNow.getFullYear() - 2022 - (statYearsNow.getMonth() < 5 ? 1 : 0);
 
 const allCollections = [
 	...new Set(rawBooks.flatMap((b: any) => b.collections || []).filter(Boolean)),
@@ -519,15 +540,15 @@ const itemListLd =
   <div class="mx-auto max-w-7xl">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="flex flex-col items-center text-center py-2">
-        <span id="stat-titles" class="font-serif text-3xl font-bold text-ink-soft">0</span>
+        <span id="stat-titles" class="font-serif text-3xl font-bold text-ink-soft">{STAT_TITLES}</span>
         <span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Published Titles</span>
       </div>
       <div class="flex flex-col items-center text-center py-2">
-        <span id="stat-authors" class="font-serif text-3xl font-bold text-ink-soft">0</span>
+        <span id="stat-authors" class="font-serif text-3xl font-bold text-ink-soft">{STAT_AUTHORS}</span>
         <span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Kingdom Messengers</span>
       </div>
       <div class="flex flex-col items-center text-center py-2">
-        <span id="stat-years" class="font-serif text-3xl font-bold text-red">0</span>
+        <span id="stat-years" class="font-serif text-3xl font-bold text-red">{STAT_YEARS}</span>
         <span class="text-xs font-semibold uppercase tracking-widest text-stone-600 mt-1">Years of Publishing</span>
       </div>
     </div>
@@ -543,7 +564,7 @@ const itemListLd =
   </div>
 </section>
 
-<script define:vars={{ BOOKS_JSON, initialCollection }}>
+<script define:vars={{ BOOKS_JSON, initialCollection, STAT_TITLES, STAT_AUTHORS }}>
   const BOOKS = JSON.parse(BOOKS_JSON);
   BOOKS.forEach(b => { if (!b.formats) b.formats = {}; });
 
@@ -555,24 +576,9 @@ const itemListLd =
     // paperback, hardback and ebook is three titles on the shelf. Kevin
     // 2026-08-28. The unique-book count is still shown under the grid as
     // "Showing N of M titles".
-    const totalTitles = BOOKS.reduce((sum, b) => sum + Object.values(b.formats || {}).filter(v => v).length, 0);
-
-    // Kingdom Messengers = PEOPLE, so split co-author strings and drop Spirit
-    // Media itself (it's the publisher of the FHB editions and Your Time, not
-    // a messenger).
-    const PUBLISHER = /^spirit media(\s+publishing)?$/i;
-    // A generational/credential suffix is part of the name before it, not a
-    // second person — "John A. Wilson, Jr." is one man.
-    const SUFFIX = /^(jr|sr|ii|iii|iv|v|md|phd|dds|esq)\.?$/i;
-    const people = new Set();
-    BOOKS.forEach(b => {
-      (b.author || '')
-        .split(/,| and /i)
-        .map(n => n.trim())
-        .filter(n => n && !PUBLISHER.test(n) && !SUFFIX.test(n))
-        .forEach(n => people.add(n));
-    });
-    const uniqueAuthors = people.size;
+    // 3au: same values the served HTML already shows (computed at build from these BOOKS).
+    const totalTitles = STAT_TITLES;
+    const uniqueAuthors = STAT_AUTHORS;
 
     // Years of publishing, counted from June 2022 — computed so it never goes
     // stale (it was hardcoded to 3 and sat wrong).
