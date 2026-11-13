@@ -1,0 +1,210 @@
+---
+// /books/<slug>/ — one SMP page per book (Books M4; Kevin approved SMP book pages 2026-11-13; plan 3fb, contract 3fe).
+// pmseoaeo 22:53Z: "Build their SMP /books/<slug>/ pages on the feat-smp-store PREVIEW, ready titles only and best
+// sellers first; not-ready titles stay off ... Buy shows 'Available soon' where cost is unmeasured."
+//
+// DATA: src/data/books/shipset-3fo.json, a verbatim copy of pmseoaeo's ship set (ship_ready titles only, sales order).
+// Every word on the page is that data's; nothing is written here. A value the data marks TBD/OMIT is left out.
+// Rules carried: no "Buy on Amazon" button (Amazon is a JSON-LD sameAs record only); no Offer in JSON-LD while no
+// SKU is sellable (Google reads an Offer as a promise to sell); calm colours (Kevin L1999: no bright red); built for
+// a 390px phone first (Kevin L1999 "most users use mobile"). A hand-built page (books/<slug>.astro) wins its slug.
+import dims from '../../../data/books/cover-dims-3fo.json';
+import set from '../../../data/books/shipset-3fo.json';
+import Layout from '../../../layouts/Layout.astro';
+
+type Sku = {
+	format: string;
+	schema_format: string;
+	isbn: string;
+	isbn_display: string;
+	list_cents: number | null;
+	pages: number | null;
+	trim: string | null;
+	sku_status: string;
+	us_cost_usd: unknown;
+	cost_key: unknown;
+};
+type Title = { slug: string; book: Record<string, any>; skus: Record<string, Sku> };
+
+export function getStaticPaths() {
+	// a slug with its own hand-built page (src/pages/books/<slug>.astro) keeps it
+	const handBuilt = new Set(['jesus-had-a-little-lamb']);
+	return (set.titles as Title[])
+		.filter((t) => !handBuilt.has(t.slug))
+		.map((t) => ({ params: { slug: t.slug }, props: { t } }));
+}
+
+const { t } = Astro.props as { t: Title };
+const b = t.book;
+const SITE = 'https://spiritmediapublishing.com';
+const url = `${SITE}/books/${t.slug}/`;
+const usable = (v: unknown) => v != null && v !== '' && !/^(TBD|OMIT)\b/i.test(String(v));
+const money = (c: number) => `$${(c / 100).toFixed(2)}`;
+const formats = (b.formats as string[])
+	.map((sku) => ({ sku, ...t.skus[sku] }))
+	.filter((f) => f && usable(f.isbn));
+// a SKU sells only when the store has measured its cost; none has yet, so every page says "Available soon"
+const sellable = formats.filter(
+	(f) => f.sku_status === 'live' && usable(f.us_cost_usd) && usable(f.cost_key),
+);
+const cover = (dims as Record<string, { w: number; h: number }>)[t.slug];
+const subtitle = usable(b.subtitle) ? (b.subtitle as string) : null;
+const credits = usable(b.credits) ? (b.credits as string) : null;
+const bio = usable(b.bio) ? (b.bio as string) : null;
+const faq = ((b.faq ?? []) as { q: string; a: string }[]).filter((f) => usable(f.q) && usable(f.a));
+const whoFor = (Array.isArray(b.who_for) ? b.who_for : []) as string[];
+const lccn = usable(b.lccn) ? (b.lccn as string) : null;
+const ldBook = (b.jsonld?.book ?? {}) as Record<string, unknown>;
+const sameAs = (Array.isArray(ldBook.sameAs) ? ldBook.sameAs : []).filter((u: unknown) =>
+	/^https:\/\/\S+$/.test(String(u)),
+);
+const alt = `Cover of ${b.title} by ${b.author.name}`;
+
+const ld = {
+	'@context': 'https://schema.org',
+	'@type': 'Book',
+	'@id': `${url}#book`,
+	name: b.title,
+	...(subtitle ? { alternativeHeadline: subtitle } : {}),
+	url,
+	description: b.short,
+	author: { '@type': 'Person', name: b.author.name },
+	publisher: {
+		'@type': 'Organization',
+		'@id': `${SITE}/#organization`,
+		name: b.publisher || 'Spirit Media Publishing',
+	},
+	inLanguage: b.language || 'en',
+	image: b.cover.jpg,
+	...(sameAs.length ? { sameAs } : {}),
+	workExample: formats.map((f) => ({
+		'@type': 'Book',
+		bookFormat: f.schema_format,
+		isbn: f.isbn,
+		...(f.pages ? { numberOfPages: f.pages } : {}),
+	})),
+};
+const faqLd = faq.length
+	? {
+			'@context': 'https://schema.org',
+			'@type': 'FAQPage',
+			mainEntity: faq.map((f) => ({
+				'@type': 'Question',
+				name: f.q,
+				acceptedAnswer: { '@type': 'Answer', text: f.a },
+			})),
+		}
+	: null;
+const crumbs = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+		{ '@type': 'ListItem', position: 2, name: 'Bookstore', item: `${SITE}/bookstore/` },
+		{ '@type': 'ListItem', position: 3, name: b.title, item: url },
+	],
+};
+---
+
+<Layout title={b.page_title} description={b.meta} ogImage={b.cover.jpg}>
+	<Fragment slot="head">
+		<link rel="preload" as="image" href={b.cover.jpg} fetchpriority="high" />
+		<script type="application/ld+json" set:html={JSON.stringify(ld)}></script>
+		{faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>}
+		<script type="application/ld+json" set:html={JSON.stringify(crumbs)}></script>
+	</Fragment>
+	<main id="main-content">
+		<section class="bg-stone-50 px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
+			<div class="mx-auto max-w-5xl">
+				<nav aria-label="Breadcrumb" class="mb-5 text-sm text-stone-600">
+					<a href="/" class="underline-offset-2 hover:underline">Home</a> /
+					<a href="/bookstore/" class="underline-offset-2 hover:underline">Bookstore</a> /
+					<span aria-current="page">{b.title}</span>
+				</nav>
+				<div class="grid items-start gap-8 md:grid-cols-[280px_1fr] md:gap-10">
+					<img
+						src={b.cover.jpg}
+						width={cover.w}
+						height={cover.h}
+						alt={alt}
+						fetchpriority="high"
+						decoding="async"
+						class="mx-auto h-auto w-full max-w-[240px] rounded shadow-lg md:max-w-[280px]"
+					/>
+					<div>
+						<h1 class="text-3xl font-bold leading-tight text-ink lg:text-4xl">{b.h1 || b.title}</h1>
+						{subtitle && <p class="mt-2 text-lg leading-snug text-ink-muted">{subtitle}</p>}
+						<p class="mt-3 text-base text-stone-700">by {b.author.name}{credits && <span> · {credits}</span>}</p>
+
+						<div class="mt-6 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-status={sellable.length ? 'live' : 'pending'}>
+							<ul class="space-y-1.5">
+								{formats.map((f) => (
+									<li class="flex items-baseline justify-between gap-4 text-lg">
+										<span class="font-semibold text-ink">{f.format}</span>
+										{f.list_cents != null && <span class="font-bold text-ink">{money(f.list_cents)}</span>}
+									</li>
+								))}
+							</ul>
+							{sellable.length ? (
+								<a href={`/books/${t.slug}/buy/`} class="mt-4 flex min-h-12 w-full items-center justify-center rounded-full bg-ink-soft px-4 py-3 font-semibold text-white hover:bg-ink">Order</a>
+							) : (
+								<p class="mt-4 border-t border-stone-200 pt-3 text-stone-700">Available soon from our store.</p>
+							)}
+						</div>
+
+						<p class="mt-6 text-base leading-relaxed text-stone-800">{b.short}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="px-4 py-10 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl space-y-10 text-stone-800">
+				{whoFor.length > 0 && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">Who this book is for</h2>
+						<ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed">{whoFor.map((w) => <li>{w}</li>)}</ul>
+					</div>
+				)}
+				<div>
+					<h2 class="text-2xl font-bold text-ink">About the book</h2>
+					<p class="mt-4 leading-relaxed">{b.about}</p>
+				</div>
+				{bio && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">About the author</h2>
+						<p class="mt-4 leading-relaxed">{bio}</p>
+					</div>
+				)}
+				<div>
+					<h2 class="text-2xl font-bold text-ink">Book details</h2>
+					<dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[0.95rem]">
+						<dt class="font-semibold">Publisher</dt><dd>{b.publisher || 'Spirit Media Publishing'}</dd>
+						<dt class="font-semibold">Language</dt><dd>English</dd>
+						{formats.map((f) => (
+							<>
+								<dt class="font-semibold">{f.format}</dt>
+								<dd>ISBN {f.isbn_display}{f.pages ? ` · ${f.pages} pages` : ''}{f.trim ? ` · ${f.trim}` : ''}</dd>
+							</>
+						))}
+						{lccn && (<><dt class="font-semibold">LCCN</dt><dd>{lccn}</dd></>)}
+					</dl>
+				</div>
+				{faq.length > 0 && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">Questions</h2>
+						<div class="mt-4 divide-y divide-stone-200 rounded-lg border border-stone-300 bg-white">
+							{faq.map((f) => (
+								<details class="group p-4">
+									<summary class="cursor-pointer list-none font-semibold text-ink">{f.q}</summary>
+									<p class="mt-2 leading-relaxed">{f.a}</p>
+								</details>
+							))}
+						</div>
+					</div>
+				)}
+				<p><a href="/bookstore/" class="font-semibold text-ink-soft underline underline-offset-2">Browse all Spirit Media books</a></p>
+			</div>
+		</section>
+	</main>
+</Layout>

@@ -119,3 +119,28 @@ test('/order shows a paid order read live from Stripe; a bad reference gets a 40
 	const bad = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/order?s=x"><script>'), env: { STRIPE_STORE_SECRET_KEY: 'k' } });
 	assert.equal(bad.status, 404);
 });
+
+// Books M4 (pmseoaeo 22:53Z; Kevin approved SMP book pages 11-13): one page per ship_ready title, and only those.
+test('book pages: every ready title built, nothing else; no Offer while unsellable; no Amazon button; calm; FAQ = visible', async () => {
+	const fs = await import('node:fs');
+	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-3fo.json', import.meta.url), 'utf8'));
+	const dist = new URL('../dist/books/', import.meta.url);
+	assert.equal(set.titles.length, 30);
+	for (const t of set.titles) {
+		if (t.slug === 'jesus-had-a-little-lamb') continue;
+		const html = fs.readFileSync(new URL(`${t.slug}/index.html`, dist), 'utf8');
+		assert.match(html, new RegExp(`<h1[^>]*>${t.book.h1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, '(?:\'|&#39;)')}`), `${t.slug}: h1`);
+		assert.doesNotMatch(html, /"@type":"Offer"/, `${t.slug}: no Offer while no SKU sells`);
+		assert.match(html, /Available soon from our store\./, `${t.slug}: pending note`);
+		assert.doesNotMatch(html, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
+		const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+		assert.ok(main.length > 500, `${t.slug}: <main> found`);
+		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body (site header/footer are global)`);
+		const faq = [...html.matchAll(/"@type":"Question","name":"([^"]+)"/g)].length;
+		const visible = [...html.matchAll(/<summary[^>]*>/g)].length;
+		assert.equal(faq, visible, `${t.slug}: FAQPage questions == visible questions`);
+	}
+	const built = fs.readdirSync(dist).filter((d) => fs.existsSync(new URL(`${d}/index.html`, dist)));
+	const allowed = new Set([...set.titles.map((t) => t.slug), 'jesus-had-a-little-lamb']);
+	for (const d of built) assert.ok(allowed.has(d), `unexpected book page /books/${d}/ (not ship_ready)`);
+});
