@@ -30,6 +30,28 @@ export const SITES: Record<string, { utm_source: string }> = {
 	fhb: { utm_source: 'fathersheartbible.com' },
 	vaneure: { utm_source: 'vaneure.com' },
 };
+/**
+ * Cross-origin order forms (Kevin 2026-11-13 ~22:53Z, L1999: FHB /books/who-am-i/ "put the order form on the page").
+ * A Father Heart book's FHB page carries the order form itself and posts here (contract 3fe: site derived from Origin,
+ * return_origins allowlist). ONLY these origins may call cross-origin; anything else gets no CORS headers and a 403.
+ * The production Pages host is rewritten to the .com by the engine; previews (dev.… / <hash>.…) return to themselves.
+ */
+export const RETURN_ORIGINS: Record<string, RegExp> = {
+	fhb: /^https:\/\/((www\.)?fathersheartbible\.com|([a-z0-9-]+\.)?fathersheartbible\.pages\.dev)$/,
+};
+/** The site a cross-origin caller belongs to, or null when the Origin is not allowlisted. */
+export function siteForOrigin(origin: string | null): string | null {
+	if (!origin) return null;
+	for (const [site, re] of Object.entries(RETURN_ORIGINS)) if (re.test(origin)) return site;
+	return null;
+}
+const corsHeaders = (origin: string): Record<string, string> => ({
+	'access-control-allow-origin': origin,
+	'access-control-allow-methods': 'POST, OPTIONS',
+	'access-control-allow-headers': 'content-type',
+	'access-control-max-age': '86400',
+	vary: 'Origin',
+});
 const STRIPE_META_KEYS_MAX = 50;
 const clip = (v: unknown) =>
 	String(v ?? '')
@@ -65,9 +87,27 @@ export async function smpCheckoutForm(
 	return r;
 }
 
+export const onRequestOptions: PagesFunction<Env> = async ({ request }) => {
+	const origin = request.headers.get('origin');
+	return siteForOrigin(origin)
+		? new Response(null, { status: 204, headers: corsHeaders(origin as string) })
+		: new Response(null, { status: 403 });
+};
+
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+	const origin = request.headers.get('origin');
+	const self = new URL(request.url).origin;
+	const crossSite = origin && origin !== self ? siteForOrigin(origin) : null;
 	const json = (body: unknown, status = 200) =>
-		new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
+		new Response(JSON.stringify(body), {
+			status,
+			headers: {
+				'content-type': 'application/json',
+				...(crossSite ? corsHeaders(origin as string) : {}),
+			},
+		});
+	// a foreign Origin that is not allowlisted: refused before anything is read (no CORS headers, so no browser reads it)
+	if (origin && origin !== self && !crossSite) return json({ error: 'origin_not_allowed' }, 403);
 	let payload: OrderPayload & { site?: string; utm?: Record<string, string> };
 	try {
 		payload = await request.json();
@@ -76,9 +116,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	}
 	// The first-order 15% is for Bibles only (Kevin 11-10); books never take it, so there is nothing to look up.
 	if (payload.firstOrderCheck) return json({ status: 'unknown' });
+	// contract 3fe: the server derives the site from Origin. A cross-origin form returns its buyer (success + cancel)
+	// to ITS OWN origin; the engine accepts /books/<slug>/ there only for a slug in its catalogue (no open redirect).
+	if (crossSite) payload = { ...payload, site: crossSite };
+	const engineUrl = crossSite ? `${origin}/store-checkout` : request.url;
 	let r: Awaited<ReturnType<typeof smpCheckoutForm>>;
 	try {
-		r = await smpCheckoutForm(payload, request.url, env.STRIPE_STORE_SECRET_KEY);
+		r = await smpCheckoutForm(payload, engineUrl, env.STRIPE_STORE_SECRET_KEY);
 	} catch (e) {
 		console.error('store-checkout threw', e);
 		return json({ error: 'exception' }, 500);

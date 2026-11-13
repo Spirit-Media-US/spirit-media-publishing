@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 const A = 'https://spiritmediapublishing.com/store-checkout';
-async function post(payload, { key = 'sk_test' } = {}) {
+async function post(payload, { key = 'sk_test', origin } = {}) {
 	const calls = [];
 	let body = '';
 	globalThis.fetch = async (url, init) => {
@@ -16,11 +16,47 @@ async function post(payload, { key = 'sk_test' } = {}) {
 	};
 	const { onRequestPost } = await import('../functions/store-checkout.ts');
 	const res = await onRequestPost({
-		request: new Request(A, { method: 'POST', body: JSON.stringify(payload) }),
+		request: new Request(A, { method: 'POST', body: JSON.stringify(payload), headers: origin ? { origin } : {} }),
 		env: key ? { STRIPE_STORE_SECRET_KEY: key } : {},
 	});
-	return { status: res.status, json: await res.json(), form: new URLSearchParams(body), calls };
+	return { status: res.status, json: await res.json(), form: new URLSearchParams(body), calls, headers: res.headers };
 }
+
+test('an order form ON the FHB book page (Kevin L1999): CORS for FHB only, site=fhb, buyer returns to FHB', async () => {
+	const r = await post(
+		{ counts: { 'who-am-i-hb': 1 }, country: 'US', returnPath: '/books/who-am-i/', site: 'smp' },
+		{ origin: 'https://fathersheartbible.com' },
+	);
+	assert.equal(r.status, 200);
+	assert.equal(r.headers.get('access-control-allow-origin'), 'https://fathersheartbible.com');
+	assert.equal(r.form.get('metadata[site]'), 'fhb', 'site derived from Origin, not the payload');
+	assert.equal(r.form.get('success_url'), 'https://fathersheartbible.com/order?s={CHECKOUT_SESSION_ID}');
+	assert.equal(r.form.get('cancel_url'), 'https://fathersheartbible.com/books/who-am-i/?order=canceled#order');
+	// a preview of FHB returns to itself; the production Pages host is rewritten to the .com
+	const p = await post({ counts: { 'who-am-i-pb': 1 }, country: 'US', returnPath: '/books/who-am-i/' }, { origin: 'https://dev.fathersheartbible.pages.dev' });
+	assert.equal(p.form.get('cancel_url'), 'https://dev.fathersheartbible.pages.dev/books/who-am-i/?order=canceled#order');
+	const prod = await post({ counts: { 'who-am-i-pb': 1 }, country: 'US', returnPath: '/books/who-am-i/' }, { origin: 'https://fathersheartbible.pages.dev' });
+	assert.equal(prod.form.get('success_url'), 'https://fathersheartbible.com/order?s={CHECKOUT_SESSION_ID}');
+});
+
+test('a foreign Origin is refused with no CORS header and nothing sent to Stripe; preflight only for FHB', async () => {
+	for (const origin of ['https://evil.example', 'https://fathersheartbible.com.evil.example', 'http://fathersheartbible.com']) {
+		const r = await post({ counts: { 'who-am-i-pb': 1 }, country: 'US' }, { origin });
+		assert.equal(r.status, 403, origin);
+		assert.equal(r.headers.get('access-control-allow-origin'), null);
+		assert.equal(r.calls.length, 0);
+	}
+	const { onRequestOptions } = await import('../functions/store-checkout.ts');
+	const ok = await onRequestOptions({ request: new Request(A, { method: 'OPTIONS', headers: { origin: 'https://fathersheartbible.com' } }) });
+	assert.equal(ok.status, 204);
+	assert.equal(ok.headers.get('access-control-allow-origin'), 'https://fathersheartbible.com');
+	const no = await onRequestOptions({ request: new Request(A, { method: 'OPTIONS', headers: { origin: 'https://evil.example' } }) });
+	assert.equal(no.status, 403);
+	// same-origin (the SMP buy page) carries an Origin equal to itself: still served, no CORS header needed
+	const same = await post({ counts: { 'who-am-i-pb': 1 }, country: 'US', returnPath: '/books/who-am-i/buy/' }, { origin: 'https://spiritmediapublishing.com' });
+	assert.equal(same.status, 200);
+	assert.equal(same.form.get('metadata[site]'), 'smp');
+});
 
 test('a US book order becomes the engine session, returned to SMP, recorded per site + utm', async () => {
 	const r = await post({

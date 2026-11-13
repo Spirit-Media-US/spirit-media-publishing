@@ -75,24 +75,26 @@ const usd = (c: number) => `$${(c / 100).toFixed(2)}`;
 						<form id="buy" class="mt-6 space-y-4" data-slug={book.slug}>
 							{book.formats.map((f) => (
 								<label class="flex items-center justify-between gap-4 rounded border border-stone-300 bg-white p-3">
-									<span class="font-semibold">{f.format} <span class="font-normal text-stone-600">{usd(f.cents)}</span></span>
-									<input type="number" name={f.sku} min="0" max="999" value={book.formats.length === 1 ? 1 : 0} class="w-20 rounded border border-stone-300 p-1 text-right" aria-label={`${f.format} quantity`} />
+									<span class="flex flex-col"><span class="font-semibold text-ink">{f.format}</span><span class="text-lg font-bold text-ink">{usd(f.cents)}</span></span>
+									<input type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={book.formats.length === 1 ? 1 : 0} class="h-11 w-20 rounded border border-stone-300 px-2 text-center text-base" aria-label={`${f.format} quantity`} />
 								</label>
 							))}
 							<label class="block">
 								<span class="text-sm font-semibold">Ship to</span>
-								<select name="country" class="mt-1 w-full rounded border border-stone-300 p-2">
+								<select name="country" class="mt-1 h-11 w-full rounded border border-stone-300 bg-white px-2 text-base">
 									{countries.map((c) => <option value={c.code} selected={c.code === 'US'}>{c.name}</option>)}
 								</select>
 							</label>
-							<button type="submit" class="w-full rounded bg-red-700 px-4 py-3 font-semibold text-white hover:bg-red-800">Checkout</button>
-							<p id="buy-msg" role="alert" class="text-sm text-red-700"></p>
+							{/* Kevin 2026-11-13 ~22:53Z (L1999): "don't use bright red buttons - looks alarming, buying requires calm
+							    NOT alarm." Checkout is the brand's warm ink, never red; no red anywhere on this page. */}
+							<button type="submit" class="w-full min-h-12 rounded-full bg-ink-soft px-4 py-3 font-semibold text-white hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-soft">Checkout →</button>
+							<p id="buy-msg" role="status" class="text-sm text-stone-700"></p>
 							<p class="text-sm text-stone-600">Free shipping in the US. <a href="https://fathersheartbible.com/returns/" class="underline">30-day returns</a>.</p>
 						</form>
 					) : (
 						<p class="mt-6 rounded border border-stone-300 bg-white p-4" data-status="pending">Available soon from our store.</p>
 					)}
-					<p class="mt-8 text-sm"><a href="/bookstore/" class="text-red-700 underline">Browse all Spirit Media books</a></p>
+					<p class="mt-8 text-sm"><a href="/bookstore/" class="text-ink-soft underline">Browse all Spirit Media books</a></p>
 				</div>
 			</div>
 		</section>
