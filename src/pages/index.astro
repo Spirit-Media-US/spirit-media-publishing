@@ -132,9 +132,13 @@ const pageDescription =
 			"@id": "https://spiritmediapublishing.com/#organization",
 			"name": "Spirit Media Publishing",
 			"alternateName": "SMP",
+			// 3ab: Spirit Media Inc. = the legal company (Kevin 2026-07-13/10-25); same field the FHB node carries.
+			"legalName": "Spirit Media Inc.",
 			"parentOrganization": { "@type": "Organization", "name": "Spirit Media Inc." },
 			"url": "https://spiritmediapublishing.com",
-			"logo": "https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp",
+			// 3ab: Google wants a logo >=112x112; the 440x44 wordmark failed. Square = the flame mark,
+			// cropped from logo.png on R2 (no redraw). Kept identical on fathersheartbible.com.
+			"logo": "https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo-square-512.png",
 			// ONE sameAs list for this entity, identical on fathersheartbible.com (Layout.astro).
 			// Kevin 2026-10-21: handles are "spiritmediapublishing". Only accounts verified to exist
 			// are listed: YouTube @spiritmediapublishing = UCQh2m97udW1osliFysbWsOA; LinkedIn
@@ -178,6 +182,7 @@ const pageDescription =
 			"@id": "https://spiritmediapublishing.com/#website",
 			"url": "https://spiritmediapublishing.com",
 			"name": "Spirit Media Publishing",
+			"alternateName": "SMP",
 			"description": "Christian book publishing and marketing for Kingdom authors",
 			"potentialAction": {
 				"@type": "SearchAction",
