@@ -16,7 +16,25 @@ import Layout from '../layouts/Layout.astro';
 			"name": "Schedule a Call with Kevin White",
 			"description": "Book a free consultation with Kevin White, CEO of Spirit Media Publishing.",
 			"url": "https://spiritmediapublishing.com/kevin",
+			"about": { "@id": "https://kevinwhite.us/#person" },
 			"publisher": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}></script>
+		{/* 3by: the same Kevin White node as the homepage founder (one @id across both sites). */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"@id": "https://kevinwhite.us/#person",
+			"name": "Kevin White",
+			"url": "https://kevinwhite.us",
+			"jobTitle": "Founder & CEO, Spirit Media Publishing",
+			"worksFor": { "@id": "https://spiritmediapublishing.com/#organization" },
+			"sameAs": [
+				"https://kevinwhite.us",
+				"https://kevinwhite.us/about/",
+				"https://www.linkedin.com/in/kevinwhiteus/",
+				"https://www.youtube.com/@KevinWhiteus",
+				"https://www.amazon.com/stores/author/B08LZYTR2B"
+			]
 		})}></script>
 	</Fragment>
 
