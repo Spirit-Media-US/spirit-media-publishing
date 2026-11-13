@@ -1,0 +1,18 @@
+{
+	"_about": "LAMB PILOT (Kevin L1971; plan 3fb option B, pmseoaeo 2026-11-13 17:55Z): standalone SMP book page, status pending (no Buy) until the store engine sells it (Phase 4). SOURCED values only, from aeo-state/lamb-book-data-draft-3fa.json; everything not here is in that file's _missing (no description, price, page count, ISBN-to-format, age). datePublished is OMITTED: 2025-01-24 (tracker/bookstore) conflicts with 2024-10-01 (LoC) until pmpublish confirms.",
+	"slug": "jesus-had-a-little-lamb",
+	"status": "pending",
+	"title": "Jesus Had a Little Lamb",
+	"author": "Dana House",
+	"publisher": "Spirit Media Publishing",
+	"language": "en",
+	"sanity_id": "NDqZYriAeiGP8AQhVCdVVT",
+	"cover": {
+		"src": "https://cdn.sanity.io/images/pmowd8uo/production/e19e57f8aa6501f329d7e35704ca61af7d78b324-2545x2612.jpg",
+		"width": 2545,
+		"height": 2612,
+		"alt": "Cover of Jesus Had a Little Lamb by Dana House"
+	},
+	"formats": [{ "format": "Paperback", "schema_format": "https://schema.org/Paperback" }],
+	"same_as": ["https://www.amazon.com/dp/B0DV4V34R1"]
+}

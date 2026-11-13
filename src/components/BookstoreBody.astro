@@ -289,6 +289,15 @@ for (const doc of rawBooks as any[]) {
 	doc.formats = { ...(doc.formats || {}), paperback: BELOVED_PAGE };
 }
 
+// LAMB PILOT (Kevin L1971; plan 3fb B): the card for Jesus Had a Little Lamb opens our own book page (one card, no
+// duplicate). Its format links keep their store listings until our store sells the book (plan 3fb Phase 4: no
+// dead ends before checkout is live).
+const LAMB_ID = 'NDqZYriAeiGP8AQhVCdVVT';
+for (const doc of rawBooks as any[]) {
+	if (doc._id === LAMB_ID)
+		doc.amazon = 'https://spiritmediapublishing.com/books/jesus-had-a-little-lamb/';
+}
+
 const BOOKS_JSON = JSON.stringify(rawBooks);
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
 // browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
