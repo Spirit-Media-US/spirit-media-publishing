@@ -1,4 +1,5 @@
 ---
+import { clampDescription } from '../lib/clamp-description';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
@@ -240,7 +241,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 
     <!-- Primary SEO -->
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={clampDescription(description)} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" type="application/rss+xml" title="Spirit Media Publishing Blog" href="/rss.xml" />
 
