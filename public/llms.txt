@@ -36,6 +36,15 @@ Kevin White is the founder of Spirit Media Publishing. Forty years of pastoral m
 - /book-cover-design/ — book cover design and interior layout for Christian authors
 - /author-website/ — author websites for Christian authors
 - /contact/ — get in touch
+- /bookstore/express-books/ — Express Books
+- /bookstore/fathers-heart-bible-audience-editions/ — Father's Heart Bible™ — Audience Editions
+- /bookstore/fathers-heart-bible-fhb/ — Father's Heart Bible™ (FHB)
+- /bookstore/fathers-heart-bible-language-editions/ — Father's Heart Bible™ — Language Editions
+- /free-book/ — Receive Your FREE Copy — Father's Heart → Beloved Identity
+- /join/ — Join the Spirit Media Network — Community for Christian Authors & Leaders
+- /media-center/ — Media Center — Spirit Media Publishing in the News
+- /privacy/ — Privacy Policy
+- /terms/ — Terms of Service
 
 ## Guides
 
@@ -50,6 +59,19 @@ Answers to the questions authors ask most (Spirit Media blog):
 - /blog/book-marketing-services/ — Book Marketing Services: What to Pay For and What to Skip
 - /blog/how-to-promote-a-book-on-social-media/ — How to Promote a Book on Social Media: A 2026 Plan
 - /blog/book-trailer-video-service/ — Book Trailer Video Service: What You Get and What It Costs
+
+## More from the blog
+
+- /blog/ai-powered-ministry-infrastructure/ — AI-Powered Ministry Infrastructure: The Next Reach Era
+- /blog/back-cover-copy-book-sales-tool/ — Why Your Book's Back Cover Is a Critical Sales Tool
+- /blog/christian-author-platform-building/ — How to Build an Author Platform for Christian Authors
+- /blog/end-of-traditional-website-platforms/ — The End of Traditional Website Platforms (WordPress, Wix)
+- /blog/how-to-publish-a-christian-book/ — How to Publish a Book in 2026 — Christian Author's Guide
+- /blog/marketing-a-christian-nonfiction-book/ — How to Market a Book — Christian Nonfiction Authors
+- /blog/master-youtube-without-it-mastering-you/ — How to Master YouTube Without It Mastering You — A Real System
+- /blog/revive-youtube-channel/ — How to Revive a Dead YouTube Channel and Grow to 10K
+- /blog/when-a-stranger-finds-your-book/ — When a Stranger Finds Your Book: The Real Author Ripple
+- /blog/why-we-start-with-heart/ — Why We Start with Heart — Leadership That Truly Lasts
 
 ## Contact
 
