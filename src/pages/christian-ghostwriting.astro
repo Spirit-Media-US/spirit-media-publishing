@@ -1,6 +1,7 @@
 ---
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Answer page for "christian ghostwriting services". Every fact here comes from
@@ -174,5 +175,8 @@ const faqs = [
 			</div>
 		</section>
 
+		{/* 3bz (pmseoaeo 2026-11-13, aeo-state/smp-citations-3bz-20261113.json): link the matching posts; anchor = each
+		    post's own title (Sanity), same pattern as /publishing/ (2yv P1). No new prose. */}
+		<RelatedPosts currentSlug="" currentTags={[]} heading="Related guides" slugs={["christian-ghostwriting-services"]} />
 	</main>
 </Layout>
