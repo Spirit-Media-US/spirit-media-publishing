@@ -48,6 +48,7 @@ const SANITY_POSTS_JSON = JSON.stringify(sanityPostsFormatted);
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian publishing blog, Christian author tips, how to publish a Christian book, Kingdom Messenger blog, book marketing tips, Christian writing advice, Spirit Media blog, Christian author resources" />
+		<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://spiritmediapublishing.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://spiritmediapublishing.com/blog/"}]})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Blog",
