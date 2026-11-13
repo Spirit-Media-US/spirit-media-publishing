@@ -328,12 +328,13 @@ const pageDescription =
 							<a href="/contact/" class="btn btn-primary">Let's Connect</a>
 						</div>
 					</div>
-					<!-- `<source media>` gates the preload scanner by viewport. On mobile
-					     no source matches, falling through to the `<img>` — which is
+					{/* `source media` gates the preload scanner by viewport. On mobile
+					     no source matches, falling through to the img — which is
 					     loading="lazy" so Chrome's preload scanner skips it entirely.
 					     Without these guards, PSI mobile downloads hero-desktop.avif
 					     (139KB) because the preload scanner evaluates srcset BEFORE CSS
-					     computes display:none on the hidden parent. -->
+					     computes display:none on the hidden parent.
+					     3cs-1: an Astro comment, not an HTML one, so no literal img tag reaches the HTML. */}
 					<picture>
 						<source
 							type="image/avif"
