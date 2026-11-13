@@ -144,7 +144,7 @@ const tags = post.tags || [];
 
 const bodyHtml = renderPortableText(post.body);
 
-const postUrl = `https://spiritmediapublishing.com/blog/${post.slug.current}`;
+const postUrl = `https://spiritmediapublishing.com/blog/${post.slug.current}/`; // 3ex-1: == canonical (trailing slash)
 const dateModified = post.dateModified || post.publishDate;
 
 // BlogPosting schema: now carries dateModified (Gold-Level milestone #14).
@@ -205,7 +205,7 @@ const breadcrumbSchema = {
 			name: 'Blog',
 			item: 'https://spiritmediapublishing.com/blog/',
 		},
-		{ '@type': 'ListItem', position: 3, name: post.title, item: `${postUrl}/` },
+		{ '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
 	],
 };
 const jsonLd = [blogPostingSchema, breadcrumbSchema].filter(Boolean);
