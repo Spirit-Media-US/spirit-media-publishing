@@ -106,6 +106,16 @@ const credits = [
 	[L.published, g.publisher?.name || SMP],
 ] as [string, string][];
 const H2 = 'text-2xl font-bold leading-snug text-ink sm:text-3xl';
+// An answer written as a series ("They are, in order: A; B; ...; and Z. After.") shows as a numbered list
+// (Kevin 2026-11-14 "Please put this in list order so it shows 1-12"). The words are unchanged, so the FAQ schema text still matches.
+const asList = (a: string) => {
+	const m = a.match(/^(.*?:)\s+(.+?)\.(?:\s+(.*))?$/s);
+	if (!m) return null;
+	const items = m[2]
+		.split(/;\s*/)
+		.map((x, i, all) => (i === all.length - 1 ? x.replace(/^and\s+/, '') : x).trim());
+	return items.length >= 3 ? { lead: m[1], items, after: m[3] ?? '' } : null;
+};
 ---
 
 {g.audience && has(g.audience.headline) && (
@@ -309,7 +319,18 @@ const H2 = 'text-2xl font-bold leading-snug text-ink sm:text-3xl';
 						{faq.map((f) => (
 							<details class="overflow-hidden rounded-2xl border border-[#c4c4cc] bg-white">
 								<summary class="cursor-pointer list-none px-5 py-4 font-semibold text-stone-700">{f.q}</summary>
-								<p class="-mt-1 px-5 pb-5 leading-relaxed text-stone-600">{f.a}</p>
+								{(() => {
+									const l = asList(f.a);
+									return l ? (
+										<div class="-mt-1 px-5 pb-5 leading-relaxed text-stone-600">
+											<p>{l.lead}</p>
+											<ol class="mt-2 list-decimal space-y-1 pl-6">{l.items.map((x) => <li>{x}</li>)}</ol>
+											{l.after && <p class="mt-2">{l.after}</p>}
+										</div>
+									) : (
+										<p class="-mt-1 px-5 pb-5 leading-relaxed text-stone-600">{f.a}</p>
+									);
+								})()}
 							</details>
 						))}
 					</div>
