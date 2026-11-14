@@ -19672,7 +19672,11 @@
 					],
 					"audience": {
 						"headline": "The woman who has led the Angus Barn since 1988 opens her memoir stuck under a bathroom stall door, and then shows how the restaurant is run.",
-						"body": "For restaurant owners and managers, business and team leaders in any field, anyone who serves people for a living, and readers who love a funny, honest family memoir with a Southern voice. Van Eure tells how two former college football players with no restaurant training opened a steakhouse on Highway 70 in Raleigh, North Carolina, in 1960, and how the 12 Commandments her team has worked by for over twenty-five years grew out of real people and real mistakes. Ken Blanchard wrote the foreword. A note on subjects: the book is warm and funny, and it is written for adults. It uses some strong language, including a few swear words, and the opening story is a body-humor scene in a restroom. It also touches on a father and daughter who struggled to know each other, on the death of a parent, and on mental illness research. It is a memoir and a leadership book, not a how-to for starting a restaurant."
+						"body": "For restaurant owners and managers, business and team leaders in any field, anyone who serves people for a living, and readers who love a funny, honest family memoir with a Southern voice. Van Eure tells how two former college football players with no restaurant training opened a steakhouse on Highway 70 in Raleigh, North Carolina, in 1960, and how the 12 Commandments her team has worked by for over twenty-five years grew out of real people and real mistakes. Ken Blanchard wrote the foreword. A note on subjects: the book is warm and funny, and it is written for adults. It uses some strong language, including a few swear words, and the opening story is a body-humor scene in a restroom. It also touches on a father and daughter who struggled to know each other, on the death of a parent, and on mental illness research. It is a memoir and a leadership book, not a how-to for starting a restaurant.",
+						"quote": {
+							"text": "“Sometimes you think you can fit, and sometimes you absolutely cannot.”",
+							"cite": "Raised in a Barn, the prologue: OK . . . Buckle Up: The Bathroom Rescue"
+						}
 					},
 					"what_makes": {
 						"title": "What makes this book for people who serve people",
@@ -19866,6 +19870,20 @@
 							"q": "Does the book contain strong language?",
 							"a": "A little. A few swear words appear in the stories, starting with the bathroom rescue, and the tone is conversational and humorous. Readers who prefer none should know that before they begin."
 						}
+					],
+					"hero": {
+						"eyebrow": "By Van Eure · Foreword by Ken Blanchard",
+						"audience_line": "For restaurant owners and managers, business and team leaders in any field, anyone who serves people for a living, and readers who love a funny, honest family memoir with a Southern voice.",
+						"tagline": "Angus Barn leader Van Eure shares the funny, heartfelt stories and 12 Commandments behind one of the highest-grossing independent restaurants in the United States.",
+						"chips": [
+							"Integrity",
+							"Teamwork",
+							"Excellence"
+						]
+					},
+					"more": [
+						"humble-influence",
+						"too-stubborn-to-die"
 					]
 				},
 				"page_source": "aeo-state/3gf-raised-in-a-barn.md (pmseoaeo, reader copy verbatim)"

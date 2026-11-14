@@ -18,6 +18,10 @@ interface Props {
 	ogType?: 'website' | 'article';
 	/** the page's language (html lang); 'en' unless a page says otherwise (SMP Spanish book page, 3ge). */
 	lang?: string;
+	/** the share image's real size + type when it is not a 1200x630 card; 0 = size unknown, the tag is omitted. */
+	ogImageWidth?: number;
+	ogImageHeight?: number;
+	ogImageType?: string;
 }
 
 const {
@@ -27,6 +31,8 @@ const {
 	canonical,
 	ogType = 'website',
 	lang = 'en',
+	ogImageWidth = 1200,
+	ogImageHeight = 630,
 } = Astro.props;
 let ogImage = Astro.props.ogImage;
 let twitterHandle = '@spiritmediaus';
@@ -64,6 +70,16 @@ if (!ogImage) {
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
+// og:image:type from the prop, else from the file extension (Sanity URLs carry fm=jpg); omitted when unknown.
+const ogImageType =
+	Astro.props.ogImageType ??
+	(/\.(jpe?g)(\?|$)|[?&]fm=jpg/i.test(ogImageUrl)
+		? 'image/jpeg'
+		: /\.png(\?|$)|[?&]fm=png/i.test(ogImageUrl)
+			? 'image/png'
+			: /\.webp(\?|$)|[?&]fm=webp/i.test(ogImageUrl)
+				? 'image/webp'
+				: undefined);
 ---
 
 <!doctype html>
@@ -274,8 +290,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    {ogImageWidth > 0 && <meta property="og:image:width" content={String(ogImageWidth)} />}
+    {ogImageHeight > 0 && <meta property="og:image:height" content={String(ogImageHeight)} />}
+    {ogImageType && <meta property="og:image:type" content={ogImageType} />}
     <meta property="og:image:alt" content={title} />
 
     <!-- Twitter Card -->

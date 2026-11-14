@@ -138,7 +138,11 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		const main = mainOf(html);
 		assert.ok(main.length > 500, `${t.slug}: <main> found`);
 		assert.match(main, /<h1[^>]*>/, `${t.slug}: h1`);
-		assert.doesNotMatch(html, /"@type":"Offer"/, `${t.slug}: no Offer while no SKU sells`);
+		// Offers only where the store sells (Book+Product per format, riab-pilot 2026-11-14), each at the registry's list
+		// price; a page that sells nothing declares none.
+		const offers = [...html.matchAll(/"@type":"Offer","price":"([\d.]+)".*?"sku":"([^"]+)"/g)];
+		if (!(t.skus && Object.keys(t.skus).some((k) => REG[k]))) assert.equal(offers.length, 0, `${t.slug}: no Offer while no SKU sells`);
+		for (const [, price, sku] of offers) assert.equal(Math.round(Number(price) * 100), REG[sku]?.list_cents, `${t.slug}: Offer ${sku} = list price`);
 		// pmseoaeo #4 "B": a title whose SKUs are in the store registry carries the US-only order form at #order
 		if (t.skus && Object.keys(t.skus).some((k) => REG[k])) {
 			assert.match(main, /<form id="order"[^>]*data-status="live"/, `${t.slug}: order form ON the page`);
@@ -171,7 +175,10 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		// A book's own words may name it (SM's Guide contents: "Chapter 9: Respect King Amazon"), so the bare word is allowed.
 		assert.doesNotMatch(main, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
 		assert.doesNotMatch(textOf(main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
-		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
+		// the order box's choices are <summary data-choice>, not questions
+		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary(?![^>]*data-choice)[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
+		// support is a Contact us BUTTON, never a printed address (Kevin 2026-11-15)
+		assert.doesNotMatch(textOf(main), /[\w.+-]+@[\w-]+\.[\w.]+/, `${t.slug}: an email address printed on the page`);
 	}
 	for (const b of []) { // 3gh: FHB books have no SMP page (301 to FHB, asserted below)
 		const main = mainOf(read(b.slug));

@@ -1,0 +1,11 @@
+{
+	"_note": "Book title colour = its cover colour (the FHB edition-page method, FHB src/data/cover-colors.json _note, Kevin 2026-11-14 '1A'). MEASURED from the book's cover image (PIL median-cut, 8 colours, share of the cover face). title = the dominant cover colour when it passes WCAG AA 4.5:1 on white (order box) AND on the page's stone-50 #faf8f5 (hero); else deepened (HLS lightness, <=0.15) when the hue stays recognisable; else the true colour with a thin dark outline (W3C G18), outline: true. No entry = ink. Re-measure when a cover changes.",
+	"raised-in-a-barn": {
+		"cover": "#5b7a4b",
+		"title": "#5b7a4b",
+		"outline": false,
+		"contrast_white": 4.85,
+		"contrast_page": 4.57,
+		"measured": "2026-11-14 from covers/raised-in-a-barn-600.webp: greens cover ~65% of the face (largest single cluster #5b7a4b 17.1%); the cover's red title lettering #a71d2d (12.2%, 6.93:1 on the page) is the alternative if the title should match the lettering instead"
+	}
+}

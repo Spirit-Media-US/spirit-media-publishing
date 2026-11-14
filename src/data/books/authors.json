@@ -1,0 +1,11 @@
+{
+	"_note": "Author headshots for the book pages, keyed by the author name exactly as the ship set writes it (book.author.name). Web version only: a NEW file on R2 under spirit-media-publishing/authors/, ~600px WebP, cropped/resized with PIL from the author's own photo (never generative AI on a photo of a person). No entry = no headshot. Add an author = add a row.",
+	"Van Eure": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/van-eure-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1e9MMxNdzSISM8JLnM6lhqIy16l-MkDtT (Van Eure.jpeg 1194x1003), PIL crop (225,20,985,780) -> 600x600 WebP q82, 2026-11-14"
+		}
+	}
+}
