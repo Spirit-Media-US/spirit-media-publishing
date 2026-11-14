@@ -147,14 +147,10 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		if (t.skus && Object.keys(t.skus).some((k) => REG[k])) {
 			assert.match(main, /<form id="order"[^>]*data-status="live"/, `${t.slug}: order form ON the page`);
 			const es = t.book?.language === 'es'; // 3ge: a Spanish page carries its chrome in Spanish
-			const abroad = Object.keys(t.skus).filter((k) => REG[k]).every((k) => REG[k].cost_key); // pmpublish-measured
-			if (abroad) {
-				assert.match(main, /<option value="GB"[^>]*>/, `${t.slug}: ships abroad (measured landed cost)`);
-				assert.doesNotMatch(main, /Ships to more countries soon\.|Pronto enviaremos|Bientôt livré/, `${t.slug}: no 'soon' note when it ships abroad`);
-			} else {
-			assert.match(main, new RegExp(`<option value="US" selected[^>]*>${{ es: 'Estados Unidos', fr: 'États-Unis' }[t.book?.language] ?? 'United States'}<\\/option>\\s*<\\/select>`), `${t.slug}: US only`);
-			assert.match(main, { es: /Pronto enviaremos a más países\./, fr: /Bientôt livré dans d(?:'|&#39;)autres pays\./ }[t.book?.language] ?? /Ships to more countries soon\./, `${t.slug}: non-US note`);
-			}
+			// ONE ENGINE (Kevin 2026-11-15): every sellable book ships wherever the engine ships (own measured cost, else
+			// the country's Bible cost for the same binding), so every order form offers the engine's countries.
+			assert.match(main, /<option value="GB"[^>]*>/, `${t.slug}: ships abroad (one engine)`);
+			assert.doesNotMatch(main, /Ships to more countries soon\.|Pronto enviaremos|Bientôt livré/, `${t.slug}: no 'soon' note`);
 			if (es) {
 				assert.match(html, /<html lang="es"/, `${t.slug}: html lang es`);
 				assert.match(html, /"inLanguage":"es"/, `${t.slug}: Book inLanguage es`);
@@ -202,7 +198,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 });
 
 // pmseoaeo 23:26Z #4 "B" (plan D5): an SMP ship-set book sells US-only at list price; its margin is recorded unmeasured.
-test('SMP book SKU: US at list with measured net; abroad at break-even handling where pmpublish measured it; refused where not', async () => {
+test('SMP book SKU: US at list with measured net; abroad at break-even handling; an unmeasured book sells abroad on the one-engine fallback', async () => {
 	const fs = await import('node:fs');
 	const { handlingFeeCents, netPerItemUsd } = await import('../src/store-engine/lib/marginGuard.ts');
 	const { LIVE_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts');
@@ -227,10 +223,13 @@ test('SMP book SKU: US at list with measured net; abroad at break-even handling 
 		// shortfall rounded up to the next x.99 (net under \$1); where list covers it, no fee and the book keeps its margin
 		assert.ok(n >= 0 && (fee === 0 || n < 1.0), `${code}: fee ${fee}, net ${n}`);
 	}
-	// a book pmpublish has not measured stays US-only: refused abroad, nothing sent to Stripe
+	// ONE ENGINE (Kevin 2026-11-15): a book pmpublish has not measured sells abroad, sized on the Bible cost
 	const gb = await post({ counts: { 'the-forgotten-witness-pb': 1 }, country: 'GB', returnPath: '/books/the-forgotten-witness/' });
-	assert.equal(gb.status, 400);
-	assert.equal(gb.calls.filter((u) => u.includes('checkout/sessions')).length, 0);
+	assert.equal(gb.status, 200);
+	// FAILURE PATH: an unknown country is still refused before Stripe
+	const zz = await post({ counts: { 'the-forgotten-witness-pb': 1 }, country: 'ZZ', returnPath: '/books/the-forgotten-witness/' });
+	assert.equal(zz.status, 400);
+	assert.equal(zz.calls.filter((u) => u.includes('checkout/sessions')).length, 0);
 });
 
 // pmseoaeo QA 3fx (2026-11-14): SMP orders return under SMP's OWN promise page, never FHB's (which names fathersheartbible.com).
