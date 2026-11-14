@@ -288,6 +288,48 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/home-300.webp",
 			"width": 600,
 			"height": 900
+		},
+		"the-fairies-quest": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-fairies-quest-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-fairies-quest-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-fairies-quest-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"my-perfect-daddy": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-perfect-daddy-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-perfect-daddy-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-perfect-daddy-300.webp",
+			"width": 600,
+			"height": 776
+		},
+		"the-seers-journey": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seers-journey-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seers-journey-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seers-journey-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"too-stubborn-to-die": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/too-stubborn-to-die-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/too-stubborn-to-die-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/too-stubborn-to-die-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"hope-that-anchors-the-soul": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hope-that-anchors-the-soul-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hope-that-anchors-the-soul-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hope-that-anchors-the-soul-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"sabes-que": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sabes-que-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sabes-que-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sabes-que-300.webp",
+			"width": 600,
+			"height": 600
 		}
 	}
 }

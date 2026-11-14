@@ -13198,7 +13198,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304204",
 					"isbn_display": "978-1-958304-20-4",
-					"list_cents": 1600,
+					"list_cents": null,
 					"price_note": "16.00 (Doc: live, kept)",
 					"price_flags": [],
 					"pages": 112,
@@ -13227,14 +13227,15 @@
 					"royalty_hold": false,
 					"author_key": "Leivon Canary Kom",
 					"sku_tbd": [],
-					"sku_ready": true
+					"sku_ready": true,
+					"held_list_cents": 1600
 				},
 				"a-shepherds-story-hb": {
 					"format": "Hardback",
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304211",
 					"isbn_display": "978-1-958304-21-1",
-					"list_cents": 1999,
+					"list_cents": null,
 					"price_note": "19.99 (Doc: live, kept)",
 					"price_flags": [],
 					"pages": null,
@@ -13265,7 +13266,8 @@
 					"sku_tbd": [
 						"pages (hardback count not stated)"
 					],
-					"sku_ready": true
+					"sku_ready": true,
+					"held_list_cents": 1999
 				}
 			}
 		},
@@ -15792,7 +15794,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781737775881",
 					"isbn_display": "978-1-7377-7588-1",
-					"list_cents": 1699,
+					"list_cents": null,
 					"price_note": "16.99 (Doc: live, kept)",
 					"price_flags": [],
 					"pages": 226,
@@ -15821,14 +15823,15 @@
 					"royalty_hold": false,
 					"author_key": "Elisha Chowtapalli",
 					"sku_tbd": [],
-					"sku_ready": true
+					"sku_ready": true,
+					"held_list_cents": 1699
 				},
 				"gods-dream-hb": {
 					"format": "Hardback",
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304891",
 					"isbn_display": "978-1-958304-89-1",
-					"list_cents": 2499,
+					"list_cents": null,
 					"price_note": "24.99 (Doc: live, kept)",
 					"price_flags": [],
 					"pages": null,
@@ -15859,7 +15862,8 @@
 					"sku_tbd": [
 						"pages (hardback count not stated)"
 					],
-					"sku_ready": true
+					"sku_ready": true,
+					"held_list_cents": 2499
 				}
 			}
 		},
