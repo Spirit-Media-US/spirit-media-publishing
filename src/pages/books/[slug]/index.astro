@@ -24,6 +24,7 @@ import authors from '../../../data/books/authors.json';
 import coverColors from '../../../data/books/cover-colors.json';
 import dims from '../../../data/books/cover-dims.json';
 import sized from '../../../data/books/cover-sized.json';
+import fhbBookPages from '../../../data/books/fhb-book-pages.json';
 import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
 import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
@@ -145,10 +146,15 @@ export async function getStaticPaths() {
 	// FHB's own books (Who Am I?, Beloved Identity) live on fathersheartbible.com: no SMP /books/ page for them, the
 	// SMP URL 301s there (public/_redirects; pmseoaeo 3gh #4 owner call, scope Doc). The Lamb pilot is unlisted until
 	// its price is set (3gh #3). Flip either constant to bring a page back.
-	const SMP_HOSTS_FHB_BOOKS = false;
+	// Kevin 2026-11-14: "prioritize adding Who and I and Beloved Identity on SMP and FHB - they will be the same content
+	// but on 2 different sites". Same page object on both (src/data/books/fhb-book-pages.json); canonical stays on FHB.
+	const SMP_HOSTS_FHB_BOOKS = true;
 	const LAMB_LISTED = false;
 	for (const b of (SMP_HOSTS_FHB_BOOKS ? engineBooks.books : []) as any[]) {
-		const f = faqGate(b.faq);
+		const fp = (fhbBookPages as Record<string, any>)[b.slug] ?? null;
+		const f = faqGate(fp?.faq ?? b.faq);
+		const sz = (sized as Record<string, any>).covers[b.slug];
+		const c3 = sz ? (sz.hero3d ?? sz) : null;
 		pages.push({
 			slug: b.slug,
 			title: b.title,
@@ -167,18 +173,28 @@ export async function getStaticPaths() {
 			faq: f.kept,
 			faqDropped: f.dropped,
 			bio: copy(b.slug, 'author_bio', b.author_bio),
-			cover: {
-				src: b.cover.w600 ?? b.cover.jpg,
-				w: b.cover.width,
-				h: b.cover.height,
-				alt: b.cover.alt,
-			},
+			cover: c3
+				? {
+						src: c3.w600,
+						w300: c3.w300,
+						og: sz.jpg1200,
+						w: c3.width,
+						h: c3.height,
+						is3d: Boolean(sz.hero3d),
+						alt: b.cover.alt,
+					}
+				: {
+						src: b.cover.w600 ?? b.cover.jpg,
+						w: b.cover.width,
+						h: b.cover.height,
+						alt: b.cover.alt,
+					},
 			formats: (b.formats as string[]).map((sku) => ({ sku, ...SKUS[sku] })),
 			lccn: null,
 			sameAs: [],
 			canonical: `https://fathersheartbible.com/books/${b.slug}/`,
 			orderable: b.status === 'live',
-			page: null,
+			page: fp ? deep(b.slug, 'page', fp) : null,
 			served: [],
 		});
 	}
@@ -471,7 +487,13 @@ const titleStyle = cc
 const smallTitleColor = cc && !cc.outline ? cc.title : undefined;
 // More SMP books (FHB "More editions"): the page.more slugs that have a page in the ship set, in the copy's order.
 const more = ((p.page?.more ?? []) as string[])
-	.map((slug) => (set.titles as any[]).find((t) => t.slug === slug))
+	.map(
+		(slug) =>
+			(set.titles as any[]).find((t) => t.slug === slug) ??
+			((engineBooks.books as any[]).some((b) => b.slug === slug)
+				? { slug, book: (engineBooks.books as any[]).find((b) => b.slug === slug) }
+				: null),
+	)
 	.filter(Boolean)
 	.map((t: any) => ({ slug: t.slug as string, title: t.book.title as string }));
 // AUTHOR HEADSHOT by author name (src/data/books/authors.json); none = no photo.
