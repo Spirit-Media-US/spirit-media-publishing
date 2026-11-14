@@ -1,0 +1,81 @@
+---
+// /returns/ — the SMP store's return promise (pmseoaeo QA 3fx 2026-11-14: the book order forms linked to
+// fathersheartbible.com/returns/, which speaks of orders placed on fathersheartbible.com; SMP had no returns page).
+// SOURCE: fathersheartbible.com/returns/ (FHB src/pages/returns.astro, "Last updated: November 9, 2026"), the same
+// promise of the same company and the same Stripe store account (contract 3fe). Its sentences are kept; only the site
+// name and the scope ("print books" for "print Bibles") are SMP's. The day count and the delivery wording come from the
+// store engine (src/store-engine, a checked copy of FHB's), never retyped. Visible copy: Kevin reviews it at preview.
+import Layout from '../layouts/Layout.astro';
+import { EXPEDITED_DISCLAIMER } from '../store-engine/lib/order-pricing.ts';
+
+const RETURN_DAYS = 30; // = FHB src/lib/merchantReturnPolicy.ts RETURN_DAYS (the same promise)
+const crumbs = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spiritmediapublishing.com/' },
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Return Policy',
+			item: 'https://spiritmediapublishing.com/returns/',
+		},
+	],
+};
+---
+
+<Layout
+	title="Our Promise | Return Policy | Spirit Media Publishing"
+	description={`Our promise: your Spirit Media Publishing book purchase is guaranteed. If anything isn't right, tell us within ${RETURN_DAYS} days of delivery and we will make it right.`}
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(crumbs)}></script>
+	</Fragment>
+	<main id="main-content">
+		<section class="bg-stone-50 px-4 py-12 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl text-stone-800">
+				<h1 class="text-3xl font-bold leading-tight text-ink sm:text-4xl">Your Purchase Is Guaranteed</h1>
+				<p class="mt-3 text-sm text-stone-600">Last updated: November 14, 2026</p>
+				<div class="mt-8 space-y-8 leading-relaxed">
+					<div>
+						<h2 class="text-xl font-bold text-ink">Our Promise</h2>
+						<p class="mt-3">If anything isn't right with your order, for any reason, let us know within <strong>{RETURN_DAYS} days of delivery</strong> and we will make it right. Email <strong>hello@spiritmediapublishing.com</strong> with your order number and a few words about what happened.</p>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-ink">What Happens Next</h2>
+						<p class="mt-3">We will review your request and reply with the resolution: a replacement, a refund, or another fix. Please don't send anything back until we have replied; we will tell you exactly what to do. Refunds go to your original payment method, and your bank typically posts them within 5 to 10 business days.</p>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-ink">Order Number Required</h2>
+						<p class="mt-3">Refunds are made only against an order placed on spiritmediapublishing.com. Please have your order number ready, as it is in your confirmation email.</p>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-ink">Fair Use of This Promise</h2>
+						<p class="mt-3">We may decline repeated or abusive claims, so that we can keep this promise generous for everyone.</p>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-ink">How to Reach Us</h2>
+						<ol class="mt-3 list-decimal space-y-2 pl-6">
+							<li>Email <strong>hello@spiritmediapublishing.com</strong> with your order number and the book you ordered.</li>
+							<li>Tell us what is wrong. For a damaged or misprinted copy, a photo helps.</li>
+							<li>We reply by email with your resolution and any next steps.</li>
+						</ol>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-ink">Delivery Times and Expedited Delivery</h2>
+						<p class="mt-3">{EXPEDITED_DISCLAIMER} Estimated delivery ranges are shown at checkout for your country.</p>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-ink">What This Covers</h2>
+						<p class="mt-3">This policy covers print books bought directly from spiritmediapublishing.com. Copies bought elsewhere follow the seller's return policy.</p>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-ink">Contact</h2>
+						<p class="mt-3">Questions? Email <strong>hello@spiritmediapublishing.com</strong> or write to:</p>
+						<p class="mt-2">Spirit Media Publishing<br />205 Academy Street #3251<br />Cary, NC 27519<br />United States</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>

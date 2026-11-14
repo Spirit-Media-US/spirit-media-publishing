@@ -1,0 +1,41 @@
+{
+	"_about": "Pre-sized covers on R2 (pmprint 2026-11-14 01:19Z, 200 + md5 measured by pmprint; dimensions measured here). A title listed here renders srcset 300/600 webp and uses the 1200 jpg for og:image.",
+	"covers": {
+		"the-pyramid-principle": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-pyramid-principle-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-pyramid-principle-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-pyramid-principle-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-1200.jpg": [1200, 1800],
+				"-600.webp": [600, 900],
+				"-300.webp": [300, 450]
+			}
+		},
+		"clowning-from-the-heart": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/clowning-from-the-heart-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/clowning-from-the-heart-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/clowning-from-the-heart-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-1200.jpg": [1200, 1855],
+				"-600.webp": [600, 927],
+				"-300.webp": [300, 464]
+			}
+		},
+		"invisible-wounds": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/invisible-wounds-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/invisible-wounds-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/invisible-wounds-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-1200.jpg": [1200, 1801],
+				"-600.webp": [600, 900],
+				"-300.webp": [300, 450]
+			}
+		}
+	}
+}

@@ -185,3 +185,21 @@ test('SMP book SKU: US order at list price, net_usd unmeasured; a non-US order i
 	assert.equal(gb.status, 400);
 	assert.equal(gb.calls.filter((u) => u.includes('checkout/sessions')).length, 0);
 });
+
+// pmseoaeo QA 3fx (2026-11-14): SMP orders return under SMP's OWN promise page, never FHB's (which names fathersheartbible.com).
+test('returns: SMP has /returns/ with the 30-day promise and every book order form links to it', async () => {
+	const fs = await import('node:fs');
+	const page = fs.readFileSync(new URL('../dist/returns/index.html', import.meta.url), 'utf8');
+	assert.match(page, /30 days of delivery/);
+	assert.match(page, /placed on spiritmediapublishing\.com/);
+	assert.doesNotMatch(page, /placed on fathersheartbible\.com/);
+	const dist = new URL('../dist/books/', import.meta.url);
+	for (const d of fs.readdirSync(dist)) {
+		const f = new URL(`${d}/index.html`, dist);
+		if (!fs.existsSync(f)) continue;
+		const html = fs.readFileSync(f, 'utf8');
+		if (!html.includes('<form id="order"')) continue;
+		assert.match(html, /href="\/returns\/"/, `${d}: returns link`);
+		assert.doesNotMatch(html, /fathersheartbible\.com\/returns/, `${d}: never FHB's returns page`);
+	}
+});
