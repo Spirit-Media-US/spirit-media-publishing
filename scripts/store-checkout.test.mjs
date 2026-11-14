@@ -146,10 +146,10 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 			const abroad = Object.keys(t.skus).filter((k) => REG[k]).every((k) => REG[k].cost_key); // pmpublish-measured
 			if (abroad) {
 				assert.match(main, /<option value="GB"[^>]*>/, `${t.slug}: ships abroad (measured landed cost)`);
-				assert.doesNotMatch(main, /Ships to more countries soon\.|Pronto enviaremos/, `${t.slug}: no 'soon' note when it ships abroad`);
+				assert.doesNotMatch(main, /Ships to more countries soon\.|Pronto enviaremos|Bientôt livré/, `${t.slug}: no 'soon' note when it ships abroad`);
 			} else {
-			assert.match(main, es ? /<option value="US" selected[^>]*>Estados Unidos<\/option>\s*<\/select>/ : /<option value="US" selected[^>]*>United States<\/option>\s*<\/select>/, `${t.slug}: US only`);
-			assert.match(main, es ? /Pronto enviaremos a más países\./ : /Ships to more countries soon\./, `${t.slug}: non-US note`);
+			assert.match(main, new RegExp(`<option value="US" selected[^>]*>${{ es: 'Estados Unidos', fr: 'États-Unis' }[t.book?.language] ?? 'United States'}<\\/option>\\s*<\\/select>`), `${t.slug}: US only`);
+			assert.match(main, { es: /Pronto enviaremos a más países\./, fr: /Bientôt livré dans d(?:'|&#39;)autres pays\./ }[t.book?.language] ?? /Ships to more countries soon\./, `${t.slug}: non-US note`);
 			}
 			if (es) {
 				assert.match(html, /<html lang="es"/, `${t.slug}: html lang es`);

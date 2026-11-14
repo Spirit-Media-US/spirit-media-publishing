@@ -23760,7 +23760,7 @@
 				"language": "fr",
 				"publisher": "Spirit Media Publishing",
 				"pub_date": null,
-				"_source": "pmseoaeo 3gq copy + 3gs ship gate; pmseoaeo 3gs 10:58Z: price HELD until pmprint confirms from the top table (came from Amazon selling price)",
+				"_source": "pmseoaeo 3gq copy + 3gs ship gate; price = pmpublish KDP pricing tab 11:24Z (US list 15.00)",
 				"page": {
 					"sections": [
 						{
@@ -24027,7 +24027,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893072464",
 					"isbn_display": "979-8-89307-246-4",
-					"list_cents": null,
+					"list_cents": 1500,
 					"pages": 178,
 					"trim": "5.5 x 8.5 in",
 					"binding": "Perfect bound",
