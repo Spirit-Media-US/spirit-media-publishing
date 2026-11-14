@@ -251,6 +251,19 @@
 						]
 					},
 					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication to the author's son Eric, an introduction, and a table of contents of 22 chapters. Chapter 1, \"The Journey Begins,\" opens like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This incredible journey all started with a dream, a ball, and the sweet sound of a one-dribble pull-up and a basketball swishing through a hoop. It is a sound that is so pure, so soothing, a satisfying reward for executing the perfect shot: no rim, no backboard, nothing but net. The ultimate dream would be executing the ideal shot for the legendary Coach John Wooden and the Blue and Gold of UCLA.",
+									"In 1935, my father bought a bayfront property for $7,000 in the Southern California town of Newport Beach. He built bedrooms for my sister and me then hung a backboard up on the garage. Initially, my family complained about the constant sound of the ball bouncing off the basket. After years of dedication, my shot was so smooth that the noise could only be described as calming. Even my dribbling sounded rhythmic. Whether it was on the alleyway asphalt or the hardwood floor, that sound would change my life and one day lead to hope. During those years, I would spend hours upon hours in the alley shooting baskets, intoxicated by the sound and relentless in my efforts to hear it again and again."
+								]
+							}
+						],
 						"intro": [
 							"Every copy opens with a dedication to the author's son Eric, an introduction, and a table of contents of 22 chapters. Chapter 1, \"The Journey Begins,\" opens like this:"
 						],
@@ -669,12 +682,27 @@
 						]
 					},
 					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication, a short letter to the audience, an epigraph, a preface on why the book is told this way, a guide called \"How to Read This Book,\" and a definition of the word \"Beetle.\" The first story begins with a section called \"Created for Joy\":"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"In the beginning, God created the heavens and the earth.\nThen He made Beetle.\nScripture tells us in Proverbs 17:22 that 'A cheerful heart is good medicine.'\nIn Stephen Bailey, God created a medicine man — and one highly proficient in his work."
+								]
+							},
+							{
+								"type": "p",
+								"text": "From the letter to the audience: \"Whether you knew Beetle or not, I hope that you will receive the blessing of laughter and be inspired to finish well in the race in which you find yourself.\""
+							}
+						],
 						"intro": [
 							"Every copy opens with a dedication, a short letter to the audience, an epigraph, a preface on why the book is told this way, a guide called \"How to Read This Book,\" and a definition of the word \"Beetle.\" The first story begins with a section called \"Created for Joy\":"
 						],
 						"excerpt": [
-							"In the beginning, God created the heavens and the earth.\nThen He made Beetle.\nScripture tells us in Proverbs 17:22 that 'A cheerful heart is good medicine.'\nIn Stephen Bailey, God created a medicine man — and one highly proficient in his work.",
-							"From the letter to the audience: \"Whether you knew Beetle or not, I hope that you will receive the blessing of laughter and be inspired to finish well in the race in which you find yourself."
+							"In the beginning, God created the heavens and the earth.\nThen He made Beetle.\nScripture tells us in Proverbs 17:22 that 'A cheerful heart is good medicine.'\nIn Stephen Bailey, God created a medicine man — and one highly proficient in his work."
 						],
 						"contents": [
 							"Act I, The Pre-Beetle Days: Getting Warmed Up; Let the Pranks Begin; OIH, Operation Indian House; Warning, Don't Try This at Home; Dave Buys a New Truck; Dave Learns Stephen's Kryptonite",
@@ -1056,12 +1084,27 @@
 						]
 					},
 					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication to Cindy's children and grandchildren, a Foreword called \"Who Is Sparkle?\", twenty-seven chapters, Sparkle's Tool Box, a reference page and acknowledgments. The Foreword begins:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Hi, my name is Sparkle, and I am a clown. You see, I'm not just any clown, I am a gospel clown. Many of you might wonder, 'What is a gospel clown?' To me, a gospel clown is a clown who loves the Lord with all of his or her heart and loves all people as well."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1 opens: \"With a chance for my family to win a free trip to the sandy shores of a tropical island, my sisters and I became very interested in our town's first-ever clown contest.\""
+							}
+						],
 						"intro": [
 							"Every copy opens with a dedication to Cindy's children and grandchildren, a Foreword called \"Who Is Sparkle?\", twenty-seven chapters, Sparkle's Tool Box, a reference page and acknowledgments. The Foreword begins:"
 						],
 						"excerpt": [
-							"Hi, my name is Sparkle, and I am a clown. You see, I'm not just any clown, I am a gospel clown. Many of you might wonder, 'What is a gospel clown?' To me, a gospel clown is a clown who loves the Lord with all of his or her heart and loves all people as well.",
-							"Chapter 1 opens: \"With a chance for my family to win a free trip to the sandy shores of a tropical island, my sisters and I became very interested in our town's first-ever clown contest."
+							"Hi, my name is Sparkle, and I am a clown. You see, I'm not just any clown, I am a gospel clown. Many of you might wonder, 'What is a gospel clown?' To me, a gospel clown is a clown who loves the Lord with all of his or her heart and loves all people as well."
 						],
 						"contents": [
 							"The Clown Contest",
@@ -1459,6 +1502,18 @@
 						]
 					},
 					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication, a table of contents, and an introduction that begins:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"If you're holding this book, I want to start by telling you something I wish someone would have told me a long time ago:\nYou're not crazy.\nYou're not weak.\nYou're not broken.\nYou're not failing at being a human being.\nYou're hurting.\nAnd if you're hurting, I want you to know you are in the right place."
+								]
+							}
+						],
 						"intro": [
 							"Every copy opens with a dedication, a table of contents, and an introduction that begins:"
 						],
@@ -1793,7 +1848,184 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For parents and grandparents who read aloud",
+							"paras": [
+								"If you love bedtime stories with a point worth talking about, this one gives you plenty to stop for. The scenes are short, the dialogue is lively, and the brothers are easy to voice. Ima's line about sharing comes back twice, once from Asher and once at the very end, so a child can hear it, see it happen and say it back."
+							]
+						},
+						{
+							"h2": "For Sunday school teachers and children's ministry leaders",
+							"paras": [
+								"A feeding-of-the-five-thousand lesson needs a way in for the youngest children, and this gives you one. The Note to Parents, Teachers, and Ministry Leaders lists values to explore, namely generosity, obedience, curiosity and faith, and it suggests reading John 6:1-14 together afterward to talk about how Jesus multiplied the loaves and fish and what that shows about faith and compassion."
+							]
+						},
+						{
+							"h2": "For kids who ask big questions",
+							"paras": [
+								"Asher is the boy who asks why the sky turns orange before sunrise, and he is also the boy who asks what would happen if they gave away their lunch. The other brothers doubt him, grumble about being hungry and wonder how anything could be enough. The book lets those feelings be real, and then it lets the miracle happen."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A small lunch. A crowd too big to count. A miracle four brothers saw up close.",
+						"body": "For parents, grandparents and teachers who want a warm way to tell a child the story of the loaves and fishes. Four brothers stop on their way to school, find a hillside full of hungry people, and Asher asks a question that changes the day: what if we gave them our lunch?",
+						"quote": {
+							"text": "But David, remember how Ima always says that when we share what we have, even if it's just a little, God can use it to bless many?",
+							"cite": "Asher, on page 19"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for children who are learning that a small gift can matter",
+						"paras": [
+							"A picture-book retelling of Jesus feeding the five thousand, seen through the eyes of children. It begins at a kitchen table with pancakes and ends back at that same home, with a mother who has one more thing to say about sharing.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is told through four brothers. Asher is full of questions, Elijah rushes in tying his shoes, Samuel is the careful one who checks the weather, and David hums quietly and pulls out chairs for everyone. Children often find themselves in one of them.",
+							"It keeps the Bible event clear. The author's note says the miracle is drawn from the Bible while the characters and some events are fictional, and it reminds readers that \"the Bible tells the true account.\" The note to parents points to John 6:1-14 so the two can be read side by side.",
+							"It puts a child at the center of the miracle. The basket holds five loaves of bread and two fish, and it is Asher, not a grown-up, who walks over and offers it.",
+							"It is made for reading aloud. There are 40 pages, 8 x 10 inches, in color, with short scenes of two or three lines that are easy to pause on and talk about.",
+							"It gives you the questions to ask. A closing note for parents, teachers and ministry leaders suggests ways to read with expression and to talk afterward, including \"What would you have done if you were Asher?\""
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a copyright page and a Note from the Author, and then the story begins on page 6. The note reads:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This story, The Brothers and Their Lunch Basket, is a creative retelling of the miracle of Jesus feeding the 5,000. While the miracle is drawn from the Bible, the characters and some events are fictional, designed to help young readers engage with the story in a fun and imaginative way.",
+									"We encourage readers to remember that the Bible tells the true account, and this story adds creative elements to help children understand and enjoy the message more deeply."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The story opens like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"The morning sun peeked through the window as the smell of pancakes filled the kitchen. Ima was already up, cooking breakfast like she always did.",
+									"Asher was the first to bounce in, eyes wide with curiosity. \"Ima, why does the sky turn orange before the sun comes up?\" he asked.",
+									"Elijah burst in right behind him, still tying his shoes, ready for whatever adventure the day might bring. Samuel followed slowly, his brow furrowed as he checked the weather through the window—always the careful one. And last came David, quietly humming a tune, gently pulling out chairs for his brothers. He liked when everyone got along."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The book closes with a Note to Parents, Teachers, and Ministry Leaders and a short \"How to Use This Book\" list."
+							}
+						],
+						"intro": [
+							"Every copy opens with a copyright page and a Note from the Author, and then the story begins on page 6. The note reads:"
+						],
+						"excerpt": [
+							"This story, The Brothers and Their Lunch Basket, is a creative retelling of the miracle of Jesus feeding the 5,000. While the miracle is drawn from the Bible, the characters and some events are fictional, designed to help young readers engage with the story in a fun and imaginative way.",
+							"We encourage readers to remember that the Bible tells the true account, and this story adds creative elements to help children understand and enjoy the message more deeply.",
+							"The morning sun peeked through the window as the smell of pancakes filled the kitchen. Ima was already up, cooking breakfast like she always did.",
+							"Asher was the first to bounce in, eyes wide with curiosity. \"Ima, why does the sky turn orange before the sun comes up?\" he asked.",
+							"Elijah burst in right behind him, still tying his shoes, ready for whatever adventure the day might bring. Samuel followed slowly, his brow furrowed as he checked the weather through the window—always the careful one. And last came David, quietly humming a tune, gently pulling out chairs for his brothers. He liked when everyone got along."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A retelling of Jesus feeding the five thousand, told through four brothers and their mother, Ima",
+						"A Note from the Author at the front, and a Note to Parents, Teachers, and Ministry Leaders at the back",
+						"Three read-aloud prompts and a pointer to John 6:1-14 for reading the Bible account together",
+						"Paperback, 8 x 10 inches, 40 pages, full color"
+					],
+					"details": {
+						"Title": "The Brothers and Their Lunch Basket",
+						"Author": "Nicole Bran Clark",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "40",
+						"Trim size": "8 x 10 inches",
+						"Binding": "Paperback (perfect bound), color interior",
+						"Reading level": "ages 4 to 8, early readers and read-aloud",
+						"Paperback ISBN": "979-8-89307-186-3",
+						"eBook ISBN": "979-8-89307-173-3",
+						"Library of Congress Control Number": "2026902881"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "Too many people to count",
+							"paras": [
+								"On the way to school, the brothers hear a commotion, and Elijah decides they should look. \"Oh, who cares if we're late!\" he says, running toward the crowd. They find a huge gathering of men, women and children talking, laughing and playing, \"and even babies were there!\" David notices a smaller group of men standing aside with worried faces. The brothers creep up behind a tree to listen, and hear a man ask Philip where they are to buy bread so these people can eat. Philip's answer is honest: there are too many people, and they do not have enough money."
+							]
+						},
+						{
+							"h2": "What if we gave them our lunch?",
+							"paras": [
+								"Asher looks at the basket and thinks of all those hungry faces. \"I know it's not much—just five loaves of bread and two fish—but I can't stop thinking about all those hungry faces. Maybe it could help.\" David pushes back: \"Then we will be hungry and without any food for our lunch.\" Asher reminds him what Ima always says, and David gives in: \"You're right Asher, they do need our help. We'll be okay.\" Asher walks up to the man with brown eyes and says, \"It's not much, but... you can have our lunch.\""
+							]
+						},
+						{
+							"h2": "The longest day of school",
+							"paras": [
+								"After the crowd has been fed, the brothers realize they are late, and school is hard. Asher stares at his lunch cubby, wondering if it still holds a miracle. David doodles loaves and fish all over his worksheet. Elijah fiddles with his pencil during read-aloud time. Samuel raises his hand to answer a math question and forgets what he was going to say. When they get home, Ima asks only, \"Did you boys remember to be kind today?\" and David blurts out, \"We shared our lunch,\" and then, \"And somehow... it fed everyone!\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Nicole Bran Clark wrote The Brothers and Their Lunch Basket as a creative retelling of the miracle of Jesus feeding the 5,000, with the aim of helping young readers engage with the story in a fun and imaginative way. In her note at the front of the book she explains that the characters and some events are fictional and that the Bible tells the true account. Her book comes with a note for the adults who read it with children."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Nicole Bran Clark's story for young readers."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The closing note says the book \"was written to help children imagine themselves as part of one of Jesus' most famous miracles—the feeding of the five thousand.\" It describes the four brothers as having \"unique personalities\" so that children can explore \"important values like generosity, obedience, curiosity, and faith.\"",
+							"The note offers the story as \"a springboard for deeper conversations about how God can use even small offerings in big ways when we choose to share and trust Him.\" Its final hope is that children will believe \"that God can use them—just as they are—to make a difference in the world.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is The Brothers and Their Lunch Basket about?",
+							"a": "It is a retelling of Jesus feeding a crowd with five loaves and two fish, told through four brothers, one of whom, Asher, offers the family's lunch basket."
+						},
+						{
+							"q": "Is this the loaves and fishes story?",
+							"a": "Yes. The basket holds five loaves of bread and two fish, Asher gives it to Philip, and Jesus feeds the crowd. The brothers and their mother are story characters; the miracle is the Bible event."
+						},
+						{
+							"q": "What does the book teach children about sharing?",
+							"a": "Asher remembers what his mother says: when we share what we have, even if it is just a little, God can use it to bless many. The book is about sharing and trusting God with something small."
+						},
+						{
+							"q": "What ages is it for?",
+							"a": "It is made for early readers and read-aloud, ages 4 to 8. It is 40 pages, 8 x 10 inches, in color."
+						},
+						{
+							"q": "Can it be used in Sunday school or children's ministry?",
+							"a": "Yes. It suits Sunday school lessons and children's ministry, and it is also suited to read-aloud time with parents and grandparents."
+						},
+						{
+							"q": "Are the brothers in the Bible?",
+							"a": "No. The author's note says the characters and some events are fictional and that the Bible tells the true account. The feeding of the five thousand is found in John 6:1-14, and the book's closing note suggests reading it together."
+						},
+						{
+							"q": "Does it include questions to talk about afterward?",
+							"a": "Yes. The closing note suggests pausing to ask questions such as \"Which brother do you relate to most and why?\" and \"Have you ever shared something and watched God bless it?\" It also lists ways to affirm a child's God-given traits."
+						},
+						{
+							"q": "Is it a read-aloud picture book?",
+							"a": "Yes. It has short scenes, lively dialogue and full-color pages, and the closing note recommends reading aloud with expression to help young listeners engage with the story."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fx-brothers-lunch-basket.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"brothers-lunch-basket-pb": {
@@ -2003,7 +2235,171 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For readers of faith-based suspense and family drama",
+							"paras": [
+								"If you like a story where the stakes are personal, this one starts at a breakfast table and stays close to the people at it. Phil, his mother, his friend George and George's wife Marge laugh together over bacon and eggs in the first chapter, and the book makes sure you know them before it begins to turn. There is a crime in this story and the book does not look away from it."
+							]
+						},
+						{
+							"h2": "For readers who enjoy a clear spiritual message",
+							"paras": [
+								"The faith in this book is not a coat of paint. Phil listens to a Christian radio station, reads the Bible every day and prays for his brother's repentance. On the morning he buys the ticket, the passages he reads puzzle him, and the novel tells us why: he \"didn't realize that by buying the lottery ticket he had compromised what he believed.\" Scripture, judgement and mercy run through the plot."
+							]
+						},
+						{
+							"h2": "For Christian fiction readers who like a warm hero and a villain with a history",
+							"paras": [
+								"Marge's resentment is not random. The book gives her an old wound, and then shows what she makes of it. George, who is easily led, is caught between his friend and his wife. If you enjoy characters who are neither all good nor all bad, and a story that is willing to ask whether anyone is beyond forgiveness, you will find them here."
+							]
+						}
+					],
+					"audience": {
+						"headline": "One lottery ticket. One hundred seventy-nine million dollars. One choice that cost more than he knew.",
+						"body": "For readers of faith-based suspense and family drama. Phil Gunn is a born-again mill worker in the small town of Kamish, Idaho, who reads his Bible every day and gives what little he has to his family. Then he buys a lottery ticket he knows he should not buy, and wins. His best friend's wife has never liked him, and she has already begun to scheme.",
+						"quote": {
+							"text": "If he didn't win, it wouldn't matter. If he did, everyone would think it was a good idea. He had told himself that if he won, he would share the wealth. So the thought became a plan, and the plan became reality.",
+							"cite": "From Chapter 1"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who want a Christian novel with a real hero and a real villain",
+						"paras": [
+							"A Christian novel about what happens when a good man compromises what he believes. It runs from a trailer by the river and a breakfast café to a long night drive toward the lottery office in Boise, and it keeps asking what one small choice can set in motion.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It starts with a hero who is easy to like. Phil is six foot two, strong as a bull, sings only in the shower where nobody can hear, and orders the same breakfast at the café where the waitress knows it by heart.",
+							"It takes the temptation seriously. Phil knows his pastor preaches against gambling. The book lets him argue with himself (\"Besides, what could one ticket hurt? Who would know anyway?\") and shows the dread that settles in afterward.",
+							"It gives the villain a history. Marge has never liked Phil, and the book tells you why, so her scheming is not cartoonish.",
+							"It is a family story. Phil sends money to his sister Jeannie, who is away at medical school, meets his mother for breakfast and prays for a brother lost to the streets of Oakland.",
+							"It names its theme in the title. Of Judgement and Of Mercy is about temptation, greed and envy, and the hope that God's mercy reaches further than our mistakes."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication, \"To DeeDee, Anna, Steve, and Janet—your faith and encouragement helped bring this story to life. May God bless you all.\" It goes straight into Chapter 1, \"The Ticket and the Trap,\" which opens like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Phil Gunn lived in a small trailer park right next to the river, where he could fish or swim at his leisure.",
+									"The alarm clock rang, and with one eye open, Phil rolled over sleepily to shut it off.",
+									"Phil was long and lanky, standing about six foot two and weighing around two hundred ten pounds. He was strong as a bull, though not quite as big. He didn't mind working the afternoon shift because when he got up at six-thirty in the morning, he still had all day ahead of him before he had to go to work at four in the afternoon."
+								]
+							}
+						],
+						"intro": [
+							"Every copy opens with a dedication, \"To DeeDee, Anna, Steve, and Janet—your faith and encouragement helped bring this story to life. May God bless you all.\" It goes straight into Chapter 1, \"The Ticket and the Trap,\" which opens like this:"
+						],
+						"excerpt": [
+							"Phil Gunn lived in a small trailer park right next to the river, where he could fish or swim at his leisure.",
+							"The alarm clock rang, and with one eye open, Phil rolled over sleepily to shut it off.",
+							"Phil was long and lanky, standing about six foot two and weighing around two hundred ten pounds. He was strong as a bull, though not quite as big. He didn't mind working the afternoon shift because when he got up at six-thirty in the morning, he still had all day ahead of him before he had to go to work at four in the afternoon."
+						],
+						"contents": [
+							"Chapters 1 to 10: The Ticket and the Trap; Midnight Feast, Quiet Con; The Devil's Whisper; Fire in the Ravine; Echoes from the Ravine; The Faces They Wear; Night of No Return; Paper Souls; The Knock at the Door; The Ball of Fire and the Dove",
+							"Chapters 11 to 20: Grace on the Road; The Yellow Gas Cap; The Fax from Idaho; Making Arrangements; The Lead from Third Street; Fifth Street and Fallout; The Note in the Trailer; Neighbors and Leads; Tracks and Warrants; The Wetzels' House",
+							"Chapters 21 to 30: The Witness; Farewell and Watchful Eyes; Check, Cameras, Consequences; The Flight Out; The Long Way Home; Something Rotten in Denmark; Beyond the Sunset; Pawn of the Queen; Powder and Company; The Morning After",
+							"Chapters 31 to 42: The Crochet Unravels; The Angels of Deceit; Cutting Ties; The Hidden Room at 2555; Powdered Promises; The Wages of Sin; Reckoning Fire; The Dove on the Stern; Mercy in Chains; Blueprint for Evil; When God Caught Up; Mercy in Open Court"
+						],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A Christian novel in 42 chapters, set in small-town Idaho and the roads toward Boise",
+						"A story that moves from temptation to suspense, and from there to a courtroom",
+						"Bible passages that Phil reads and prays over, quoted in the text",
+						"Paperback, 5.5 x 8.5 inches, 299 pages"
+					],
+					"details": {
+						"Title": "Of Judgement and Of Mercy",
+						"Author": "Roy Roberts",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "299",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound), cream paper, black and white interior",
+						"Paperback ISBN": "979-8-89307-187-0",
+						"eBook ISBN": "979-8-89307-188-7",
+						"Library of Congress Control Number": "2025916862"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "What could one ticket hurt?",
+							"paras": [
+								"Phil feels a yearning to buy a lottery ticket and tells himself it would be wrong. He buys one anyway, with a few snacks so he will not look conspicuous. \"All the time, he felt guilty but overrode it with what if?\" That night he reads three Bible passages, including the story of Samson and Delilah, and cannot find the meaning he usually finds. After his shift he scribbles the numbers on a scrap of paper, races home, checks his ticket twice and whispers, \"I won,\" and then, \"I can't believe it.\""
+							]
+						},
+						{
+							"h2": "A midnight feast and a quiet plan",
+							"paras": [
+								"Phil calls his friends in the middle of the night and the three set off to celebrate. Over the long drive Marge starts to put a plan together. \"Well, let's not tell anyone else about the money until after you get it,\" she says, and she offers to drive Phil to Boise, where he must go to the lottery headquarters to collect. \"All she needed was to convince George that it was the only thing to do—and she would.\""
+							]
+						},
+						{
+							"h2": "The devil's whisper",
+							"paras": [
+								"Chapter 3 begins with Phil asleep and George and Marge awake. Marge tells George a story about what happened at the restaurant, and when he starts to storm out, she asks: \"What would hurt him more—your beating him up, or him losing his money?\" At first, the narrator tells us, her plan did not include getting rid of Phil. \"But the more she thought about it—and the more she told George about it—the more certain she became that it would be necessary.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Roy Roberts is the author of Of Judgement and Of Mercy, a Christian novel of temptation, greed and envy and the consequences of a single choice. His dedication thanks DeeDee, Anna, Steve and Janet, whose faith and encouragement, he writes, helped bring the story to life."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Roy Roberts's novel."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The book is a story, and it lets the story speak. It is built on two verses that Pastor Whittington's congregation heard on a hot August morning and that George remembers late in the book: \"For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord,\" and \"For the love of money is the root of all evil.\"",
+							"Those verses are the book's questions. What does one compromise cost? What do envy and greed do to a friendship? And, in the final chapters, what does mercy look like when it is offered to someone who has not earned it? The novel holds out the hope that God's mercy reaches further than our mistakes."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Of Judgement and Of Mercy about?",
+							"a": "It is a Christian novel about Phil Gunn, a born-again mill worker who buys a lottery ticket against his convictions, wins one hundred seventy-nine million dollars, and learns what one compromise can cost."
+						},
+						{
+							"q": "Is it Christian fiction?",
+							"a": "Yes. It is a Christian novel for readers who enjoy faith-based suspense, family drama and stories with a clear spiritual message."
+						},
+						{
+							"q": "What happens with the winning lottery ticket?",
+							"a": "Phil checks the numbers after his shift and has won one hundred seventy-nine million dollars. He calls his best friend in the middle of the night, and his friend's wife, who has never liked Phil, begins to scheme."
+						},
+						{
+							"q": "Is there family drama in the story?",
+							"a": "Yes. Phil supports his mother and sister and mourns a brother lost to the streets of Oakland, and the story moves between small-town diners, family obligations and long night drives toward Boise."
+						},
+						{
+							"q": "Does the book deal with forgiveness?",
+							"a": "Yes. It explores temptation, greed and envy and asks whether mercy can still find us after judgement; it holds out the hope that God's mercy reaches further than our mistakes."
+						},
+						{
+							"q": "Where is it set?",
+							"a": "In and around the small town of Kamish, Idaho, with scenes at a local café, a mill, a trailer park by the river and the roads toward the lottery office in Boise."
+						},
+						{
+							"q": "Is it a suspense novel?",
+							"a": "Yes, in part. It begins as a story of temptation and turns into a story of crime and consequence. The book has a Christian outlook throughout."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Readers of faith-based suspense and family drama, readers who enjoy stories with a clear spiritual message, and Christian fiction readers who like a warm, human hero and a villain with a history."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fx-of-judgement-and-of-mercy.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"of-judgement-and-of-mercy-pb": {
@@ -2215,7 +2611,185 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For anyone facing a serious illness",
+							"paras": [
+								"If you have just heard hard news, you may want to read one person's account before you decide what you think. Dan writes about the first diagnosis, the day it changed to a neuroendocrine tumor, the surgery, the long recovery and the years of chemotherapy. It is a personal account, not a medical guide, and it does not give treatment advice."
+							]
+						},
+						{
+							"h2": "For the spouses, families and friends who walk beside someone who is ill",
+							"paras": [
+								"Part IV may be the part you need. Kay writes about being away from home for a month, about the hospital vigil and the email updates, and about the fourteen blessings and answered prayers she and Dan listed, from a diagnosis that changed, to the fragrance of roses in the pre-op waiting room. Dan says he cannot imagine what her journey was like. If you are the one keeping watch, there is company here."
+							]
+						},
+						{
+							"h2": "For readers of Christian testimony and memoir",
+							"paras": [
+								"This is a first-person account of faith, prayer and trusting God through suffering, written by a man with a business, a marriage and children he adored, who says he has been \"blessed throughout my life with visits from Jesus.\" He writes about what he saw and heard and what he believes, and he says plainly that God's work is \"personal, sovereign, and often mysterious.\""
+							]
+						}
+					],
+					"audience": {
+						"headline": "Eight months to live. Sixteen years later, a biopsy that came back benign.",
+						"body": "For anyone facing a serious diagnosis, and for the family walking beside them. Daniel Zebarth tells, in his own words, what happened after a pancreatic cancer diagnosis in July 2009: a neuroendocrine tumor, a hard surgery at Mayo, Stage IV spread to his liver, years of chemotherapy, and what he believes God did through it all. His wife, Kay, tells the same story from her side.",
+						"quote": {
+							"text": "I do not believe healing follows a formula or that faith guarantees a specific outcome. God's work in our lives is personal, sovereign, and often mysterious.",
+							"cite": "From the Faith & Testimony Statement at the front of the book"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who need honest hope in a hard season",
+						"paras": [
+							"A true account that does not hide the fear. It began as a testimony written for his family, and friends who walked with them encouraged him to share it with others facing illness.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is told by two people. Dan writes Part III, his cancer journey, in eleven chapters. In Part IV, Kay tells it in her own words, drawing on the emails she sent to family during the weeks he was in the hospital.",
+							"It is plain about the numbers. The foreword notes the statistics Dan shares, \"over 66,000 Americans diagnosed annually and a mortality rate hovering near 78 percent,\" and calls the book \"a beacon of hope\" rather than \"a tale of despair.\"",
+							"It says what it is not. A medical disclaimer at the front states that the book \"is not intended as medical advice\" and that treatment decisions \"should never be made based solely on personal stories or spiritual testimony.\"",
+							"It gives you the practical pages too. The back of the book includes a guide to navigating a cancer journey with faith and courage, a collection of patterns of God's interventions, family letters and supporting medical documentation.",
+							"It took a decade to write. Dan began in 2011, paused in 2012, and in 2021 felt, he writes, \"clearly led by the Holy Spirit to finish it.\""
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a note called Before You Begin, a foreword by George Pardos, acknowledgements, and Dan's opening remarks. Before You Begin reads:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This book began as a personal testimony written for my family, a record of God's faithfulness during my journey through cancer. Friends who walked alongside us encouraged me to share it more broadly, in the hope that others facing illness might find comfort, perspective, and faith along their own journey."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1, \"Preparing for the Big News,\" opens like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"By 2009, I was 57 years old. I had built a successful life: a thriving business, a marriage, and children I adored. I had survived my parents' early deaths, a painful divorce, and the loss of our infant son. I thought I had faced the worst life could throw at me.",
+									"I was wrong.",
+									"I was about to be ambushed by one of the deadliest forms of cancer. Thankfully, the career changes I made the year before my diagnosis helped me survive what came next."
+								]
+							}
+						],
+						"intro": [
+							"Every copy opens with a note called Before You Begin, a foreword by George Pardos, acknowledgements, and Dan's opening remarks. Before You Begin reads:"
+						],
+						"excerpt": [
+							"This book began as a personal testimony written for my family, a record of God's faithfulness during my journey through cancer. Friends who walked alongside us encouraged me to share it more broadly, in the hope that others facing illness might find comfort, perspective, and faith along their own journey.",
+							"By 2009, I was 57 years old. I had built a successful life: a thriving business, a marriage, and children I adored. I had survived my parents' early deaths, a painful divorce, and the loss of our infant son. I thought I had faced the worst life could throw at me.",
+							"I was wrong.",
+							"I was about to be ambushed by one of the deadliest forms of cancer. Thankfully, the career changes I made the year before my diagnosis helped me survive what came next."
+						],
+						"contents": [
+							"Part I, Excerpts",
+							"Part II, Biographical Highlights",
+							"Part III, Cancer, My Journey: Preparing for the Big News; Telling Kay My Cataclysmic News; Understanding and Sharing My News; Mayo, Thoughts and My Life Verse; Mayo, Surgery, and Hospitalization; The Visitation, Post-Recovery, and Home; Stage IV: The Second Battle Begins; Very Aggressive: The Darkest Times; The Long Obedience; The Healing; Living After Being Healed",
+							"Part IV, Kay's Perspective: Foundations of Faith; The Diagnosis; Preparing for Surgery; The Day of Surgery; Hospital Vigil and Email Updates; Fourteen Blessings and Answered Prayers; The Long Journey; The Final Miracle; Reflections on Faith and Marriage; A Love Letter",
+							"Appendices: Navigating Your Cancer Journey with Faith and Courage; Patterns of God's Interventions; Book's Naming; Family Letters; Supporting Medical Documentation",
+							"References and Resources; Healings Continue"
+						],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A true story told by the man who lived it, and by his wife",
+						"Four parts, 21 chapters and five appendices",
+						"Dan's life story, his cancer journey, and Kay's account of the same months",
+						"A medical disclaimer and a faith and testimony statement at the front",
+						"Paperback, 6 x 9 inches, 308 pages"
+					],
+					"details": {
+						"Title": "In The Hands of Our Heavenly Father: A True Story of Faith, Prayer, and Miraculous Healing from Stage IV Cancer",
+						"Author": "Daniel Zebarth",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "308",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound), cream paper, black and white interior",
+						"Paperback ISBN": "979-8-89307-222-8",
+						"eBook ISBN": "979-8-89307-216-7",
+						"Library of Congress Control Number": "2026902259"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "A sermon, and a life verse",
+							"paras": [
+								"On August 30, 2009, just weeks after the diagnosis, Dan watched a sermon at the family cabin. The message was on Isaiah 41:10, and he writes that it \"changed my life.\" The verse became his Life Verse: \"So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand.\" It came two weeks before surgery, \"exactly when I would need it most,\" and he still prays it before major tests."
+							]
+						},
+						{
+							"h2": "One in the morning, day eleven",
+							"paras": [
+								"Ten days after surgery, Dan was not improving. On Saturday, September 26, 2009, he could not sleep for pain. He writes that he turned his head and saw Jesus by his left shoulder, with a woman beside Him he later understood to be Mother Mary. He was in St. Mary's Hospital. According to Dan, Jesus said, \"Today you will have a very rough day, but you will get better.\" That afternoon he vomited blood and lost consciousness, and Kay ran into the corridor calling for help. He writes that the visit \"dramatically changed the level of my faith and trust in Him.\""
+							]
+						},
+						{
+							"h2": "The message at the supper table",
+							"paras": [
+								"Years of chemotherapy had passed when Dan, at a July 2021 appointment, asked his doctor, \"How would I know if I still have cancer?\" A liver biopsy followed on July 29. Two days later his family was together at a restaurant when his phone chirped with the pathology report. The lesion was benign. \"I have been healed; I am cancer free!\" he told the table. He also records that his children were skeptical at first, and that they shared a wonderful meal and believed, at the very least, that their dad would be around much longer."
+							]
+						}
+					],
+					"author": {
+						"bio": "Daniel Zebarth grew up in Augusta, Wisconsin, where his father ran a gas station, tended the town's two cemeteries and served eight years as mayor. In July 2009 he was diagnosed with pancreatic cancer, which later spread to his liver as Stage IV. After years of chemotherapy, a biopsy came back benign, and he writes that he has been cancer-free for sixteen years. He began this book in 2011 and finished it in 2021."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Daniel Zebarth's testimony."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"Dan did not set out to write a book. \"At the time, I had no desire to write a book and doubted that I had the ability to do so,\" he says of 2011, when it began. In 2021, he writes, \"I felt clearly led by the Holy Spirit to finish it. This is truly His book, a testimony of miraculous healing from Stage IV pancreatic cancer.\"",
+							"His reason for sharing it is simple: \"I am simply a vessel God has used to share that He is alive, faithful, and still working miracles today.\" Nothing in these pages is offered as a formula. It is one man's true story, with the records at the back, told so that others facing illness might find comfort, perspective and faith along their own journey."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is In the Hands of Our Heavenly Father about?",
+							"a": "It is Daniel Zebarth's true account of a pancreatic cancer diagnosis in July 2009 that became a pancreatic neuroendocrine tumor, spread to his liver as Stage IV, and, after years of chemotherapy, ended with a biopsy that came back benign."
+						},
+						{
+							"q": "What was the diagnosis and the surgery?",
+							"a": "The first diagnosis was pancreatic cancer, and days later it became a pancreatic neuroendocrine tumor. The book describes his surgery at Mayo, which was extremely difficult and painful, and the hospital recovery that followed."
+						},
+						{
+							"q": "Does the book describe Whipple surgery and recovery?",
+							"a": "Yes. Part III follows his cancer journey chapter by chapter, from the first news and the surgery through the darkest times to the healing. It is a personal account, not a medical guide, and it does not give treatment advice."
+						},
+						{
+							"q": "Does the book promise healing?",
+							"a": "No. The author writes plainly about the statistics and the fear and does not promise that healing follows a formula; he offers his story as a testimony that God is alive and faithful."
+						},
+						{
+							"q": "Who else tells the story?",
+							"a": "In Part IV the author's wife tells the same story from her side: the vigil, the email updates to family, fourteen blessings and answered prayers, and reflections on faith and marriage."
+						},
+						{
+							"q": "Is it a medical book?",
+							"a": "No. A medical disclaimer at the front says the author's experience is personal and unique and that readers should consult qualified medical professionals before making healthcare decisions."
+						},
+						{
+							"q": "Does it include medical documents?",
+							"a": "Yes. Appendix E collects supporting medical documentation, and the chapters point to specific documents, such as the pathology report that came back benign."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Anyone facing a serious illness who wants to read one man's account of faith and prayer, the families, friends and spouses who walk beside someone who is ill, and readers of Christian testimony and memoir."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fx-in-the-hands-of-our-heavenly-father.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"in-the-hands-of-our-heavenly-father-pb": {
@@ -2450,7 +3024,172 @@
 						"jsonld.person.url": "https://www.amazon.com/Julie-Boone/e/B0C9NGCQGX (Author Central, sameAs only after pmprint approves)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For adult Sunday school classes and small groups",
+							"paras": [
+								"Each chapter gives a class what it needs in one sitting: a stretch of history to read, discussion questions to talk through, a Bible passage and a personal response. The questions ask things like what you would say to a person of another faith about the value of the meetings at your church, and what your church does with the money it collects."
+							]
+						},
+						{
+							"h2": "For believers who have found history dull",
+							"paras": [
+								"If school made church history feel like names and dates, this is a different kind of book. You will meet Origen, whose mother hid his clothes to keep him from rushing out to be martyred, and Augustine, who first went to church to study a preacher's speaking style. Alexander the Great bows to a high priest in the prologue. The details are the point."
+							]
+						},
+						{
+							"h2": "For readers who want real stories of martyrs, monks, scholars, crusaders and missionaries",
+							"paras": [
+								"The chapters range from the early church and its persecutions to the Nicene Creed, from monasteries to the Crusades, from the plague and the mystics to the Reformation and the missionaries who went to the far corners of the world. A long chapter on \"Amazing Grace\" follows John Newton, William Wilberforce and John Woolman, and the closing chapters bring the story into the iPhone century."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Two thousand years of church history, told through the people who lived it.",
+						"body": "For adult Sunday school classes, small groups and any believer who has found history dull. Julie Boone walks from Pentecost to the iPhone century in twenty-four chapters, with martyrs, monks, scholars, reformers and missionaries, and every chapter ends with Bible study and questions you can talk through together.",
+						"quote": {
+							"text": "History can be eye-opening, as when we realize that only 1 in 10 people living in Rome in Jesus' lifetime knew how to read, and that books (including the Bible itself) have been widely available to nurture faith for less than six hundred years.",
+							"cite": "From the introduction"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who want church history they can actually enjoy",
+						"paras": [
+							"A church history that reads like stories, and a study guide that sends you back to Scripture. It begins in the world of the Bible, which the introduction says is \"geographically a good bit larger than the typical Holy Land tourist imagines,\" and it keeps going until now.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is told through people. Each chapter details a period of church history \"and the people who were notable in it,\" from Origen and Augustine to John Newton, William Wilberforce and John Woolman.",
+							"It is honest about failure. The introduction calls church history \"a story of great faith lived out in challenges, of great fears overcome by faith, and sometimes – when we're honest -- of great failures by those who thought they were trying to do God's will.\"",
+							"It ends every chapter with something to do. Questions for thought and discussion, a Bible passage to study, questions for your response, and internet keywords to search if you want to go further.",
+							"It is built for a group. The questions compare the historic issues in the chapter with issues \"that may be experienced in the contemporary church,\" which makes it easy to use in a class or small group.",
+							"It is a mother's life work. Julie Boone spent much of her life developing the text, and her son, Mark Boone, saw it into print after she passed into glory."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a table of contents, an introduction, a short guide called How to Use This Book, and a prologue that sets the stage with Alexander the Great and the Jews of Jerusalem. The introduction begins:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"In the 21st century world, many of us live as if the only history that matters is the one we've seen personally. That can narrow our frame of reference dangerously when it's time to consider how best to live as people of faith in our own time.",
+									"By providing insight into church history, Julie Boone demonstrates that the people of God have always faced concerns that are often similar to those we experience today. Readers will see ways that people in different times have sought to enact their similar desires to honor God and live according to God's will, and their responses – whether wise or not – can illuminate our responses to church and world today."
+								]
+							}
+						],
+						"intro": [
+							"Every copy opens with a table of contents, an introduction, a short guide called How to Use This Book, and a prologue that sets the stage with Alexander the Great and the Jews of Jerusalem. The introduction begins:"
+						],
+						"excerpt": [
+							"In the 21st century world, many of us live as if the only history that matters is the one we've seen personally. That can narrow our frame of reference dangerously when it's time to consider how best to live as people of faith in our own time.",
+							"By providing insight into church history, Julie Boone demonstrates that the people of God have always faced concerns that are often similar to those we experience today. Readers will see ways that people in different times have sought to enact their similar desires to honor God and live according to God's will, and their responses – whether wise or not – can illuminate our responses to church and world today."
+						],
+						"contents": [
+							"Introduction; How to Use this Book; Prologue",
+							"One: The Genesis of the Church; Two: Rumors, Relics, and Defenses; Three: From Persecution to Power; Four: Monks and Monasteries; Five: Barbarians and Scholars; Six: Calendars and Rules",
+							"Seven: The Far Corner of the World; Eight: Islam and Icons; Nine: Great Days and Dark Days; Ten: A New Millennium; Eleven: The Crusades; Twelve: Winds of Change",
+							"Thirteen: From Plague to Mysticism; Fourteen: The Fabulous Sixteenth; Fifteen: Fountains of Change; Sixteen: The Far Corners of the World; Seventeen: A Way with Words; Eighteen: Across a Treacherous Sea",
+							"Nineteen: When it Becomes Necessary; Twenty: Amazing Grace; Twenty-one: Ideas in Action; Twenty-Two: Questions and Successes; Twenty-Three: A Hall of Fame; Twenty-Four: Into the iPhone Century",
+							"Conclusion; Index"
+						],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A storyteller's timeline of the Christian church, from Pentecost to the iPhone century",
+						"A prologue and 24 chapters, each ending with questions, a Bible passage and research keywords",
+						"Short biographies throughout, and an index of names and topics",
+						"Paperback and hardback editions, 6 x 9 inches, 388 pages"
+					],
+					"details": {
+						"Title": "From Jesus 'til Now: A Timeline of Captivating Stories That Lead You Inside Church History",
+						"Author": "Julie Boone, in cooperation with Mark Boone",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "388",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound) and hardback",
+						"Paperback ISBN": "978-1-958304-43-3",
+						"Hardback ISBN": "978-1-958304-44-0",
+						"eBook ISBN": "978-1-958304-45-7",
+						"Library of Congress Control Number": "2023900212"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "The king who bowed to a priest",
+							"paras": [
+								"When Alexander the Great reached Jerusalem, the high priest was frantic with fear that he would destroy the city. That night he saw in a dream the gates open, the people in white and the priests in their robes, and he asked everyone to recreate the scene. Alexander stopped his army, rode up alone, dismounted and bowed. Asked by an officer why he, before whom people showed adoration, would honor a priest, he replied that he honored, not the priest, but the God the priest worshiped. Jerusalem was not attacked."
+							]
+						},
+						{
+							"h2": "Origen's mother hid his clothes",
+							"paras": [
+								"Origen was born in Egypt around A.D. 185 and tutored by his father, and he learned to quote long passages from the Bible when he was only a boy. He asked so many questions that his father reproved him for being too inquisitive, yet \"secretly thanked God for such a child.\" When Origen was seventeen, his father was arrested and killed because of his faith. The youth tried to join his father in death, but his mother kept him home by hiding his clothes. He went on to head a Christian school in Alexandria and to compile the Hexapla, a massive book of Bible translations set in parallel columns."
+							]
+						},
+						{
+							"h2": "The son of those tears",
+							"paras": [
+								"Augustine preferred the theater to church, and his mother, Monica, prayed and wept almost continuously for him. She asked a priest to talk with him, and he answered, \"Leave me and go in peace. It cannot be that the son of those tears should be lost.\" In Milan, Augustine began attending Ambrose's church only to study his eloquence, then found he could not ignore the meaning. The book prints Augustine's own account of weeping beneath a fig tree: \"How long shall I go on saying 'tomorrow, tomorrow'? Why not now?\" Then a child's voice nearby chanted, \"Take it and read, take it and read.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Julie Boone spent much of her life developing From Jesus 'til Now, a storyteller's timeline of the Christian church written to help believers learn its history and draw lessons for church life today. The book was completed in cooperation with her son, Mark Boone, who saw it through to publication after she passed into glory."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Julie Boone's life work."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The book exists so that readers can \"both learn about the history of God's church and discover lessons from church history for church life today.\" In his introduction, Mark Boone writes that \"helping you to find, reflect on, and make good use of those lessons is a primary goal of this book.\"",
+							"The conclusion is humble about it. \"People usually think the time in which they live has unique challenges never before overcome,\" it begins, and it adds that monasteries, the Reformation and revivals \"solved some problems and created others.\" Its closing hope is: \"By God's grace, may each of us live closer to God's purposes for our own times.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is From Jesus 'til Now about?",
+							"a": "A guided walk through two thousand years of the Christian church, from Pentecost to the iPhone century, told through real people in twenty-four chapters."
+						},
+						{
+							"q": "Is it a Bible study?",
+							"a": "It is church history with study tools: every chapter ends with questions for discussion, a Bible passage to study, personal-response questions and research keywords. It is classed under Study Guides as well as Church History."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Adult Sunday school classes, small groups, church study groups and any believer who has found history dull."
+						},
+						{
+							"q": "Does it cover the Reformation and the Crusades?",
+							"a": "Yes, among its twenty-four chapters, including the Crusades and the Reformation."
+						},
+						{
+							"q": "Is it only about the United States?",
+							"a": "No. It covers world church history and, after the settlement of what is now the United States, focuses on Christian activity there for its US readers."
+						},
+						{
+							"q": "Does it include Augustine and the Nicene Creed?",
+							"a": "Yes. Chapter Three covers the Nicene Creed and the decisions made at Nicaea, and Chapter Five tells Augustine's story, including his conversion in Milan."
+						},
+						{
+							"q": "How is each chapter organized?",
+							"a": "Each chapter tells the history of a period and its notable people, then offers questions for thought and discussion, a Bible study passage, questions for your response and internet keywords to search for further study."
+						},
+						{
+							"q": "Is it available in hardback?",
+							"a": "Yes. It is published in paperback and hardback, 6 x 9 inches, 388 pages."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fx-from-jesus-til-now.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"from-jesus-til-now-pb": {
