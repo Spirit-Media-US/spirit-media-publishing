@@ -130,7 +130,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 49); // 30 ship-set (3fu) + 8 cover-blocked (3gc) + 6 (3ge) + 5 (3gf)
+	assert.equal(set.titles.length, 50); // 30 ship-set (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi)
 	const read = (slug) => fs.readFileSync(new URL(`${slug}/index.html`, dist), 'utf8');
 	const mainOf = (html) => html.slice(html.indexOf('<main'), html.indexOf('</main>'));
 	for (const t of set.titles) {
@@ -167,7 +167,10 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		assert.equal(leak, null, `${t.slug}: internal wording on the page: "${leak?.[0]}"`);
 		const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join(' ');
 		assert.equal(ld.match(LEAK), null, `${t.slug}: internal wording in JSON-LD`);
-		assert.doesNotMatch(main, /amazon/i, `${t.slug}: Amazon only in sameAs, never in page text`);
+		// Amazon is never a buy option on our page (Kevin 11-13 L1973): no link to it, no 'buy/order/available on Amazon'.
+		// A book's own words may name it (SM's Guide contents: "Chapter 9: Respect King Amazon"), so the bare word is allowed.
+		assert.doesNotMatch(main, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
+		assert.doesNotMatch(textOf(main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
 		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
 	}
 	for (const b of []) { // 3gh: FHB books have no SMP page (301 to FHB, asserted below)

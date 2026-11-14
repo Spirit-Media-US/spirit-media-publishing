@@ -21293,6 +21293,282 @@
 					"sku_ready": true
 				}
 			}
+		},
+		{
+			"slug": "sms-ultimate-book-marketing-guide",
+			"units_12m": 1,
+			"book": {
+				"slug": "sms-ultimate-book-marketing-guide",
+				"status": "pending",
+				"title": "SM's Ultimate Book Marketing Guide",
+				"subtitle": "Book Promotion Tactics Guaranteed to Increase Sales",
+				"full_title": "SM's Ultimate Book Marketing Guide: Book Promotion Tactics Guaranteed to Increase Sales",
+				"author": {
+					"name": "Kevin White"
+				},
+				"credits": null,
+				"page_title": "SM's Ultimate Book Marketing Guide by Kevin White",
+				"h1": "SM's Ultimate Book Marketing Guide",
+				"meta": "SM's Ultimate Book Marketing Guide by Kevin White: a publisher's 120-page playbook for the author whose book is published but not selling.",
+				"short": "A publisher's 120-page playbook for the author whose book is published but not selling.",
+				"about": null,
+				"who_for": [],
+				"faq": [
+					{
+						"q": "What is the Ultimate Book Marketing Guide about?",
+						"a": "It is a 120-page guide by Kevin White that teaches authors how to market a book, covering your brand, email list, launch team, web page, social media, the largest online bookstore, paid ads, reviews, awards, book clubs, podcasts and influencers."
+					},
+					{
+						"q": "Is it a good book on book marketing for beginners?",
+						"a": "It is written for beginners and for authors with a book already out. The chapters are short, each one is built around a single tactic, and the introduction explains why most books go unfound. It is a practical overview, not a technical manual for every platform."
+					},
+					{
+						"q": "Is it for self-published authors?",
+						"a": "Yes. The book is written for independent authors and for authors who have used a publisher. It lists the many tasks of publishing and selling a book and says one reason Spirit Media was created was to have a team that could help authors through them."
+					},
+					{
+						"q": "Does it cover the largest online bookstore?",
+						"a": "Yes. Chapter 9 says that bookstore is the number one seller of books in the world, and it names four strategies: a strong listing, fulfillment, protecting your work and paid ads. It also says the listing either sells or fails."
+					},
+					{
+						"q": "Is it a Christian marketing book?",
+						"a": "It has a Christian perspective throughout, and Scripture supports its argument for taking a message to the nations. The tactics themselves, such as email, reviews, awards and podcasts, apply to any author."
+					},
+					{
+						"q": "Can it help me get reviews, awards and podcast interviews?",
+						"a": "Chapters 11, 12 and 14 cover each of those. Chapter 11 explains why editorial and customer reviews matter and how a launch team can help, Chapter 12 offers a list of book award sites, and Chapter 14 shows how to prepare a portfolio, an offer and a vision to get booked as a podcast guest."
+					},
+					{
+						"q": "Does the book guarantee my sales?",
+						"a": "The subtitle uses the word guaranteed, and the book prints its guarantee terms near the front. No book can promise a result for every author, so read the terms and follow the steps you can."
+					}
+				],
+				"bio": null,
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sms-ultimate-book-marketing-guide-1200.jpg",
+					"source": "pmprint R2 sized set (3gi)"
+				},
+				"formats": [
+					"sms-ultimate-book-marketing-guide-pb"
+				],
+				"lccn": "2023900356",
+				"language": "en",
+				"publisher": null,
+				"pub_date": "2023-01-27",
+				"_source": "pmseoaeo 3gi + specsheet/sheet.json (Record), Doc price 24.99",
+				"page": {
+					"sections": [
+						{
+							"h2": "For authors with a book that is not selling",
+							"paras": [
+								"If your book has been out for months with few sales, the first chapter is for you. It says a book is not set in stone and explains the changes that made a difference for one author: a new title built around what readers search for, a new description and bio, a table of contents and a fresh layout."
+							]
+						},
+						{
+							"h2": "For authors who have not published yet",
+							"paras": [
+								"The book says the best time for an author to take responsibility for marketing is while writing. If you are still writing, use the early chapters to plan your brand, your email list and your launch team before the release date."
+							]
+						},
+						{
+							"h2": "For Christian and independent authors",
+							"paras": [
+								"The guide is written for authors who feel a message from God for the nations. It reminds you that Psalm 96:3 says to publish His glorious deeds among the nations, and it argues for publishing in every format everywhere. It is also useful if your message is not religious, because the tactics are practical."
+							]
+						},
+						{
+							"h2": "For authors who dislike marketing",
+							"paras": [
+								"The conclusion speaks to authors who hate marketing and says plainly that some authors refuse to do it. It offers a choice: follow the steps yourself, or let a publisher partner with you. You decide which fits your book."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A publisher's 120-page playbook for the author whose book is published but not selling, with fifteen short chapters from the first launch team to the first podcast interview.",
+						"body": "For independent and Christian authors who have put a book on the market and are waiting for readers to find it, and for authors who have not published yet and want to plan their marketing before they do. Kevin White, CEO of Spirit Media, draws on the lessons his team learned marketing his own books and those of Spirit Media authors. He treats marketing as part of the writing calling, and the book is full of steps you can act on. A note on the book: it is a practical guide with a Christian perspective, and Scripture appears throughout. It is also written by a publishing company, and its conclusion invites authors to partner with Spirit Media. Many of the statistics in the book come from third-party sources named in the text and listed in its reference pages."
+					},
+					"what_makes": {
+						"title": "What makes this book for authors who want their book to be found",
+						"paras": [
+							"The book opens with a hard fact: it says most independent authors' books sell fewer than 250 copies, and it names a cause: they were put on the market but never marketed. Here is what sets the guide apart:"
+						],
+						"list": [
+							"It starts before you publish. Chapter 1 says to begin marketing while you are still writing, and it also tells authors with a published book that a makeover is still possible.",
+							"It is built from real makeovers. The opening chapter walks through how a book was retitled, redescribed and relaid out to become easier to find.",
+							"It covers the whole map. Fifteen chapters run from your brand and email list to launch teams, a web page, social media, the world's largest online bookstore, paid ads, reviews, awards, book clubs, podcasts and influencers.",
+							"It is generous. One chapter treats giving books away as a marketing strategy, with the author's own numbers.",
+							"It is short enough to use. At 120 pages in a large 8.5 x 11 inch format, with callouts and numbered steps, it is meant to be worked through with a pen."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a page of thanks to the team that tested each tactic with the author, followed by client testimonials and an introduction that sets out the stakes:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Thank you for entering the test lab with me and helping me prove every tactic in this book."
+								]
+							},
+							{
+								"type": "p",
+								"text": "A callout in the first chapter says:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"It is never too late or too early to consider a book makeover."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1 also states a principle in one line:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"When marketing stops, sales stop"
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 3 begins with a restaurant that holds a private opening for guests before the grand opening, and it names the idea:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Generosity marketing can quickly go viral."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The chapters are:"
+							},
+							{
+								"type": "p",
+								"text": "- Chapter 1: Start Marketing While Writing\n- Chapter 2: Publish to the Nations\n- Chapter 3: Generosity Marketing\n- Chapter 4: Back it with Your Brand\n- Chapter 5: Grow Your Contact List\n- Chapter 6: Recruit a Promo Team\n- Chapter 7: Build a Web Page\n- Chapter 8: Get People Talking on Social Media\n- Chapter 9: Respect King Amazon\n- Chapter 10: Using Paid Ads\n- Chapter 11: Collect Book Reviews\n- Chapter 12: Add Book Awards\n- Chapter 13: Leverage Book Clubs\n- Chapter 14: Get Podcast Interviews and Features\n- Chapter 15: Reach Out to Influencers\n- Conclusion, a reference list, a page on Spirit Media One and more books from Spirit Media and Kevin White"
+							}
+						],
+						"intro": [
+							"Every copy opens with a page of thanks to the team that tested each tactic with the author, followed by client testimonials and an introduction that sets out the stakes:"
+						],
+						"excerpt": [
+							"Thank you for entering the test lab with me and helping me prove every tactic in this book.",
+							"It is never too late or too early to consider a book makeover.",
+							"When marketing stops, sales stop",
+							"Generosity marketing can quickly go viral."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A page of acknowledgements and four client testimonials about working with Spirit Media",
+						"An introduction on why most books never get found and what a prepared author does",
+						"Fifteen short chapters, each focused on one tactic with practical steps",
+						"Worked examples, from a book retitled around a keyword to a bulk print run of 2,000 copies",
+						"A list of book award sites compiled for you, a section on launch teams and a section on podcast pitches",
+						"A conclusion that encourages authors to market, with a short list of services from Spirit Media",
+						"A paperback of 120 pages in a large format"
+					],
+					"details": {
+						"Subtitle": "Book Promotion Tactics Guaranteed to Increase Sales",
+						"Author": "Kevin White",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "120",
+						"Trim size": "8.5 x 11 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "978-1-958304-51-8",
+						"eBook ISBN": "978-1-958304-52-5",
+						"Audiobook ISBN": "978-1-958304-53-2",
+						"Library of Congress Control Number": "2023900356"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "A book retitled around its reader",
+							"paras": [
+								"In Chapter 1, an author with four decades as a minister and marriage counselor, who had published with a well-known Christian publisher in 2019, asks the team to look at a book that was not selling. They found three reasons: it was put on the market but never marketed, it was not published with marketing in mind, and the cover did a poor job of showing what was inside. They retitled it Escaping Anxiety, wrote a new description and author bio around the words readers search for, added a table of contents and gave it a fresh layout. The team's summary of the lesson:",
+								"\"You need to do whatever it takes for your book to be found.\""
+							]
+						},
+						{
+							"h2": "Giving books away",
+							"paras": [
+								"Chapter 3 tells how the author decided to give away thousands of copies in order to sell millions. In June 2021 he arranged a bulk print of 2,000 paperbacks and cut the cost from over eight dollars a copy to under three. He reports that more than $150,000 was donated to a missions charity by people who had received one or both of his books as thank-you gifts, and he draws one conclusion:",
+								"\"One of the best marketing strategies in the world is generosity.\""
+							]
+						},
+						{
+							"h2": "The surfer who is not ready",
+							"paras": [
+								"In the introduction, the book compares publishing to surfing. The best surfers know that anyone wanting the next big wave must be ready, and that without preparation it ends in a wipeout. The book carries the picture into Chapter 6, where it says that authors who sell more than 250 books have carefully implemented smart strategies and that the first step is a launch team of people who volunteer to help promote the book."
+							]
+						}
+					],
+					"author": {
+						"bio": "Kevin White is the CEO of Spirit Media. He says Spirit Media was born in November 2021 when his second book, Get to the Point, was published in paperback, hardback, eBook and audiobook at the same time, everywhere, worldwide. He is the author of Audacious Generosity, Get to the Point and What's Your Word, and he served as Executive Director of Global Hope India, writing of two decades focused on missions in India. He invites readers to write to him if they have a tactic that is not in the book."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to share what we have learned from marketing our authors' books."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"Kevin White writes that the book represents years of research with his team at Spirit Media, who tested each tactic in the field. He says one reason he created Spirit Media was to have a team that could help authors work through the many tasks of publishing and selling, and that he wants more authors to take their message to the nations. The conclusion closes on a promise he takes from his own experience:",
+							"\"Where God guides He provides.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is the Ultimate Book Marketing Guide about?",
+							"a": "It is a 120-page guide by Kevin White that teaches authors how to market a book, covering your brand, email list, launch team, web page, social media, the largest online bookstore, paid ads, reviews, awards, book clubs, podcasts and influencers."
+						},
+						{
+							"q": "Is it a good book on book marketing for beginners?",
+							"a": "It is written for beginners and for authors with a book already out. The chapters are short, each one is built around a single tactic, and the introduction explains why most books go unfound. It is a practical overview, not a technical manual for every platform."
+						},
+						{
+							"q": "Is it for self-published authors?",
+							"a": "Yes. The book is written for independent authors and for authors who have used a publisher. It lists the many tasks of publishing and selling a book and says one reason Spirit Media was created was to have a team that could help authors through them."
+						},
+						{
+							"q": "Does it cover the largest online bookstore?",
+							"a": "Yes. Chapter 9 says that bookstore is the number one seller of books in the world, and it names four strategies: a strong listing, fulfillment, protecting your work and paid ads. It also says the listing either sells or fails."
+						},
+						{
+							"q": "Is it a Christian marketing book?",
+							"a": "It has a Christian perspective throughout, and Scripture supports its argument for taking a message to the nations. The tactics themselves, such as email, reviews, awards and podcasts, apply to any author."
+						},
+						{
+							"q": "Can it help me get reviews, awards and podcast interviews?",
+							"a": "Chapters 11, 12 and 14 cover each of those. Chapter 11 explains why editorial and customer reviews matter and how a launch team can help, Chapter 12 offers a list of book award sites, and Chapter 14 shows how to prepare a portfolio, an offer and a vision to get booked as a podcast guest."
+						},
+						{
+							"q": "Does the book guarantee my sales?",
+							"a": "The subtitle uses the word guaranteed, and the book prints its guarantee terms near the front. No book can promise a result for every author, so read the terms and follow the steps you can."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gi-sms.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"sms-ultimate-book-marketing-guide-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304518",
+					"isbn_display": "978-1-958304-51-8",
+					"list_cents": 2499,
+					"pages": 120,
+					"trim": "8.5 x 11 in",
+					"binding": "Perfect bound",
+					"book": "sms-ultimate-book-marketing-guide"
+				}
+			}
 		}
 	]
 }

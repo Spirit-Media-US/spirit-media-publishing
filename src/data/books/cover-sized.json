@@ -246,6 +246,13 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-forgotten-witness-300.webp",
 			"width": 600,
 			"height": 960
+		},
+		"sms-ultimate-book-marketing-guide": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sms-ultimate-book-marketing-guide-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sms-ultimate-book-marketing-guide-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sms-ultimate-book-marketing-guide-300.webp",
+			"width": 600,
+			"height": 776
 		}
 	}
 }
