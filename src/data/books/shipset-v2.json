@@ -206,7 +206,173 @@
 						"jsonld.person.url": "https://www.amazon.com/John-Vallely/e/B0DLX33G9R (Author Central, sameAs only after pmprint approves)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For sports fans who want the story behind the jersey",
+							"paras": [
+								"If you love basketball memoir, this is the view from inside Coach Wooden's program. John was named captain of a UCLA team the press wrote off as \"The Team Without,\" after key players left for the NBA. He writes about the Bruins' routines, Wooden's lessons, teammates such as Kareem, and the road from Orange Coast College to Westwood. It ends with his induction into the UCLA Hall of Fame."
+							]
+						},
+						{
+							"h2": "For families walking through childhood cancer",
+							"paras": [
+								"Erin was nine when she was diagnosed and twelve when she died. John writes about the treatments, the hospital, the wig that floated off in a hotel pool, and her determination to go to a Father and Daughter Valentine's Dance. It is told as one father's testimony, not a manual. If you are in that hospital hallway now, you will find company in these pages, and you should also know it does not hide how much it hurts."
+							]
+						},
+						{
+							"h2": "For survivors, and anyone fighting a battle they did not choose",
+							"paras": [
+								"John fought Non-Hodgkin's Lymphoma twice, and the book carries you through the diagnosis, the transplant and the rematch. Along the way he fought a long lawsuit against a bank with only a small legal team beside him. Whatever your battle is, the question he keeps returning to is the same: what does it mean to have done your best?"
+							]
+						}
+					],
+					"audience": {
+						"headline": "A boy too small and too slow. A dream of UCLA. Then the fight of his life.",
+						"body": "For anyone who loves an underdog story, and for anyone facing a battle they did not choose. John Vallely was undersized, overlooked and told he was too slow, and he still played for Coach John Wooden at UCLA and in the NBA. Then he faced a daughter's cancer, a courtroom, and his own lymphoma, and he turned to what Coach Wooden taught him.",
+						"quote": {
+							"text": "Success is a peace of mind which is a direct result of self-satisfaction in knowing you did your best to become the best that you were capable of becoming.",
+							"cite": "Coach John Wooden, as printed at the opening of Chapter 4"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who need hope in a hard season",
+						"paras": [
+							"A basketball memoir that does not stay on the court. The Pyramid Principle is the true story of John Vallely, a former UCLA basketball player, NBA first-round pick and Houston Rocket. It moves from a boy shooting in an alley to the hardest opponents of his life.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It starts in a stem cell transplant room. The book opens at Houston's MD Anderson Cancer Center, where a pint of stem cells flown in from Germany drips into his bloodstream while his blood count stands at zero, then goes back to the beginning to show how he got there.",
+							"It is built on a teacher's wisdom. John calls Coach John Wooden the greatest teacher of his time, and the book returns to Wooden's Pyramid of Success, with a quotation from Wooden opening several chapters.",
+							"It tells the loss honestly. His daughter Erin was diagnosed with cancer at nine and the family lost her at twelve. John writes that the earthly pain of loss is as great as ever, and he writes of the comfort of heaven in the same pages.",
+							"It refuses a shallow idea of winning. Success, he says in his Hall of Fame speech, is not wealth, power or position as the world defines it, but the peace of mind of knowing you did your best.",
+							"It is a family story. His son Eric told him, \"Dad, we are still a family,\" and the book is dedicated to Eric."
+						]
+					},
+					"look_inside_text": {
+						"intro": [
+							"Every copy opens with a dedication to the author's son Eric, an introduction, and a table of contents of 22 chapters. Chapter 1, \"The Journey Begins,\" opens like this:"
+						],
+						"excerpt": [
+							"This incredible journey all started with a dream, a ball, and the sweet sound of a one-dribble pull-up and a basketball swishing through a hoop. It is a sound that is so pure, so soothing, a satisfying reward for executing the perfect shot: no rim, no backboard, nothing but net. The ultimate dream would be executing the ideal shot for the legendary Coach John Wooden and the Blue and Gold of UCLA.",
+							"In 1935, my father bought a bayfront property for $7,000 in the Southern California town of Newport Beach. He built bedrooms for my sister and me then hung a backboard up on the garage. Initially, my family complained about the constant sound of the ball bouncing off the basket. After years of dedication, my shot was so smooth that the noise could only be described as calming. Even my dribbling sounded rhythmic. Whether it was on the alleyway asphalt or the hardwood floor, that sound would change my life and one day lead to hope. During those years, I would spend hours upon hours in the alley shooting baskets, intoxicated by the sound and relentless in my efforts to hear it again and again."
+						],
+						"contents": [
+							"The Journey Begins",
+							"Meeting the Perfect Teammate",
+							"Preparation",
+							"The Foundation",
+							"Off-Season",
+							"\"The Team Without\"",
+							"\"You Marry that Girl\"",
+							"Playing in the Real World",
+							"All In",
+							"More to Life",
+							"Erin's Battle Begins",
+							"Last Dance",
+							"A Sign of God's Faithfulness",
+							"Battle with a Banking Behemoth",
+							"A Fight for my Life Begins",
+							"Formidable Opponent",
+							"Rematch with Lymphoma",
+							"Hall of Fame Induction",
+							"Love",
+							"The Gift of Life",
+							"\"Dribble for Victory Over Cancer\"",
+							"Faith"
+						]
+					},
+					"whats_inside": [
+						"A true story told by the man who lived it, with Paul Weissenstein",
+						"22 chapters, 234 pages",
+						"A dedication, an introduction by the author and a chapter-opening quotation from Coach Wooden, John Vallely or Karen Lindroth that sets up each chapter",
+						"Paperback and hardback editions, 6 x 9 inches"
+					],
+					"details": {
+						"Title": "The Pyramid Principle: A Battle-Tested Hall-of-Famer Discovers UCLA Coach John Wooden's True Meaning of Success",
+						"Author": "John Vallely, with Paul Weissenstein",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "234",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound) and hardback",
+						"Paperback ISBN": "979-8-89307-115-3",
+						"Hardback ISBN": "979-8-89307-116-0",
+						"eBook ISBN": "979-8-89307-117-7",
+						"Library of Congress Control Number": "2024918727"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "The boy who was too slow",
+							"paras": [
+								"At Corona del Mar High School John was 5 feet 3 inches and 104 pounds, undersized even for a guard. Years of shooting in the alley made him a great shooter, and he grew six inches in his sophomore year. By his senior year he was 6 feet 2 inches and leading his team in scoring. His own mom, he says, told him he was too slow. A letter of interest from UCLA, signed by Coach Wooden, then arrived, with a catch: he needed a 3.0 GPA, and his was 2.9. Karen, who would become his wife, told him, \"You can do this, John.\""
+							]
+						},
+						{
+							"h2": "Nine hundred people for one little girl",
+							"paras": [
+								"After Erin died, nine hundred people came to her memorial service at Saint Andrews Presbyterian Church in Newport Beach: nurses, doctors, teachers, friends and children from the community. John knew he had to speak and did not know if he could hold it together. He writes that as the choir sang \"Amazing Grace,\" it felt like heaven came down to the church. Years later, the family joined the \"Dribble for Victory Over Cancer\" event, where Erin was the honorary captain and every athlete pinned the name of someone they loved to their shirt."
+							]
+						},
+						{
+							"h2": "A fight in a downtown tower",
+							"paras": [
+								"John's legal case against a bank was, in his words, \"going uphill and sideways.\" He found a one-man law office in Costa Mesa and a lawyer who greeted him with, \"I was a big fan of your days at UCLA.\" The chapter is named for the question Coach Wooden asked: \"Are you right?\""
+							]
+						}
+					],
+					"author": {
+						"bio": "John Vallely grew up on Balboa Island in Newport Beach, California. Undersized at Corona del Mar High School, he began his college career at Orange Coast College before playing basketball for Coach John Wooden at UCLA. He went on to the NBA as a first-round pick and a Houston Rocket, and is a UCLA Hall of Famer. He has battled Non-Hodgkin's Lymphoma twice. The book was written with Paul Weissenstein."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish John Vallely's story."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"John writes that while he lay in that transplant room, in despair, he needed a way to hold on to hope in the face of uncertainty. \"As I wrestled to find God's strength for my weakness in this battle, my only recourse was to turn to the same source of guidance and wisdom I have used for every critical struggle in my own life: the words and teachings of John Wooden, my UCLA basketball coach and a man I consider the greatest teacher of his time.\"",
+							"So the book is a record of what he learned and where it led. In the final chapter he writes, \"I know in my head and from my experience that heaven is real,\" and \"I still struggle and question. I'm still learning and growing.\" It is honest about faith in the way the best testimonies are: no tidy answers, only a man still choosing joy each day."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is The Pyramid Principle about?",
+							"a": "The true story of John Vallely, a former UCLA basketball player and NBA first-round pick, and how he drew on Coach John Wooden's teaching to face his daughter's cancer, a courtroom battle and his own lymphoma."
+						},
+						{
+							"q": "Is it a basketball memoir?",
+							"a": "It starts there. The book follows him from a small boy shooting in an alley to playing for Coach Wooden at UCLA and in the NBA, then moves past the court to loss and illness."
+						},
+						{
+							"q": "Is it an underdog story?",
+							"a": "Yes. John was undersized, a junior college player who was overlooked and still picked to start for Coach Wooden, and later he took on a bank with a small legal team."
+						},
+						{
+							"q": "Is it the same as Minto's The Pyramid Principle?",
+							"a": "No. That is a different book on business writing. This is a sports memoir named for Coach Wooden's Pyramid of Success."
+						},
+						{
+							"q": "Does the book describe a stem cell transplant?",
+							"a": "Yes. It opens in the transplant room at MD Anderson Cancer Center and returns to the treatment later as John's lymphoma comes back."
+						},
+						{
+							"q": "Does it talk about heaven?",
+							"a": "Yes. The final chapter, \"Faith,\" is John's personal testimony about heaven, grief and joy."
+						},
+						{
+							"q": "Is it a good book for a Christian athlete?",
+							"a": "It is a faith memoir by a former college and NBA player. It shows a believer carrying Coach Wooden's teaching and his trust in God through loss and illness."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Sports fans, families walking through childhood cancer, cancer survivors, and anyone who has leaned on a mentor's wisdom in a hard season."
+						}
+					]
+				},
+				"page_source": "aeo-state/smp-book-page-pilot-pyramid-20261114.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"the-pyramid-principle-pb": {
