@@ -58,6 +58,7 @@ type Page = {
 	formats: Fmt[];
 	lccn: string | null;
 	sameAs: string[];
+	publisher?: string | null;
 	canonical: string | null;
 	orderable: boolean;
 	/** mirrored FHB-edition-page copy (Kevin 11-14 L2006), or null -> the compact layout */
@@ -209,6 +210,8 @@ export function getStaticPaths() {
 			sameAs: (Array.isArray(ld.sameAs) ? ld.sameAs : []).filter((u: unknown) =>
 				/^https:\/\/\S+$/.test(String(u)),
 			),
+			// publisher of record when it is not SMP (Say Yes to God = Vector Reach, author-owned ISBNs; pmseoaeo 11-14 02:49Z)
+			publisher: usable(b.publisher) ? (b.publisher as string) : null,
 			canonical: null,
 			orderable: (b.formats as string[]).some((sku) => BOOK_SKUS[sku]?.isbn),
 			page: b.page ? deep(t.slug, 'page', b.page) : null,
@@ -284,11 +287,14 @@ const ld = {
 	url,
 	description: p.short,
 	author: { '@type': 'Person', name: p.author },
-	publisher: {
-		'@type': 'Organization',
-		'@id': `${SITE}/#organization`,
-		name: 'Spirit Media Publishing',
-	},
+	publisher:
+		p.publisher && p.publisher !== 'Spirit Media Publishing'
+			? { '@type': 'Organization', name: p.publisher }
+			: {
+					'@type': 'Organization',
+					'@id': `${SITE}/#organization`,
+					name: 'Spirit Media Publishing',
+				},
 	inLanguage: 'en',
 	image: p.cover.og ?? p.cover.src,
 	...(p.sameAs.length ? { sameAs: p.sameAs } : {}),

@@ -11844,7 +11844,7 @@
 				},
 				"formats": ["say-yes-to-god-pb", "say-yes-to-god-hb"],
 				"language": "en",
-				"publisher": null,
+				"publisher": "Vector Reach",
 				"lccn": null,
 				"pub_date": "2024-10",
 				"lead_term": {
@@ -12006,6 +12006,7 @@
 						"Title": "Say Yes to God",
 						"Subtitle": "The Story of an Ordinary Life of Extraordinary Adventure",
 						"Author": "Michael J. Gaetke",
+						"Publisher": "Vector Reach",
 						"Language": "English",
 						"Pages": "124 (paperback)",
 						"Trim size": "5.5 x 8.5 inches",
