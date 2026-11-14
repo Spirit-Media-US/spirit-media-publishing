@@ -1,6 +1,12 @@
 {
-	"source": "aeo-state/smp-books-shipset-3fo-20261114.json (pmseoaeo 3fo; copied verbatim, ship_ready only, sales order)",
-	"unit": "3fo",
+	"source": "aeo-state/smp-books-shipset-v2-3fu-20261114.json (pmseoaeo 3fu; ready titles, sales order; slugs cleaned per pmseoaeo #5)",
+	"unit": "3fu",
+	"renames": {
+		"a-shepherd-s-story": "a-shepherds-story",
+		"god-s-dream": "gods-dream",
+		"potter-s-child": "potters-child",
+		"what-s-your-word": "whats-your-word"
+	},
 	"titles": [
 		{
 			"slug": "the-pyramid-principle",
@@ -33,15 +39,15 @@
 					},
 					{
 						"q": "Is it a basketball book?",
-						"a": "It starts there: the Doc follows him from a small boy shooting in an alley to playing for Coach Wooden at UCLA and in the NBA, then moves past the court to loss and illness."
+						"a": "It starts there: the book follows him from a small boy shooting in an alley to playing for Coach Wooden at UCLA and in the NBA, then moves past the court to loss and illness."
 					},
 					{
 						"q": "Is it the same as Minto's The Pyramid Principle?",
-						"a": "No. That is a different book on business writing. This is a sports memoir named for Coach Wooden's Pyramid of Success; the page makes no claim about the other book."
+						"a": "No. That is a different book on business writing. This is a sports memoir named for Coach Wooden's Pyramid of Success."
 					},
 					{
 						"q": "Does it deal with cancer?",
-						"a": "Yes: the author's daughter's cancer and his own lymphoma, told as personal testimony. The page makes no medical or treatment claim."
+						"a": "Yes: the author's daughter's cancer and his own lymphoma, told as personal testimony."
 					},
 					{
 						"q": "Who is it for?",
@@ -57,22 +63,43 @@
 						"isbn": "9798893071153 (paperback); workExample hardback 9798893071160, eBook 9798893071177",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 234,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2024-09-27, Amazon October 9, 2024)",
+						"datePublished": null,
 						"audience": "Adult readers of sports memoir and faith memoir",
 						"about": ["basketball memoir", "John Wooden", "faith through illness", "perseverance"],
 						"sameAs": ["https://www.amazon.com/dp/B0DGX5YWDC"],
 						"@id": "https://spiritmediapublishing.com/books/the-pyramid-principle/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "John Vallely",
-						"description": "bio above",
-						"url": "https://www.amazon.com/John-Vallely/e/B0DLX33G9R (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "John Vallely grew up on Balboa Island in Newport Beach, California. Undersized at Corona del Mar High School, he began his college career at Orange Coast College before playing basketball for Coach John Wooden at UCLA. He went on to the NBA as a first-round pick and a Houston Rocket, and is a UCLA Hall of Famer. He has battled Non-Hodgkin's Lymphoma twice.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/the-pyramid-principle/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is The Pyramid Principle about?",
+							"a": "The true story of John Vallely, a former UCLA basketball player and NBA first-round pick, and how he drew on Coach John Wooden's teaching to face his daughter's cancer, a courtroom battle and his own lymphoma."
+						},
+						{
+							"q": "Is it a basketball book?",
+							"a": "It starts there: the book follows him from a small boy shooting in an alley to playing for Coach Wooden at UCLA and in the NBA, then moves past the court to loss and illness."
+						},
+						{
+							"q": "Is it the same as Minto's The Pyramid Principle?",
+							"a": "No. That is a different book on business writing. This is a sports memoir named for Coach Wooden's Pyramid of Success."
+						},
+						{
+							"q": "Does it deal with cancer?",
+							"a": "Yes: the author's daughter's cancer and his own lymphoma, told as personal testimony."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Sports fans, families walking through childhood cancer, cancer survivors and anyone who has leaned on a mentor's wisdom in a hard season."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > The Pyramid Principle"
 				},
 				"internal_links": [
@@ -171,7 +198,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/the-pyramid-principle/",
 				"buy_url": "https://spiritmediapublishing.com/books/the-pyramid-principle/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-pyramid-principle (draft unit 3fm); sources: Drive metadata Doc 1n9TN-tF1QdlZn1XMJ0h-rTKg7YbUWrEbf9oPepd6RPo (THE PYRAMID PRINCIPLE — Metadata (2026-10-12)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-pyramid-principle (draft unit 3fm); sources: Drive metadata Doc 1n9TN-tF1QdlZn1XMJ0h-rTKg7YbUWrEbf9oPepd6RPo (THE PYRAMID PRINCIPLE — Metadata (2026-10-12)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2024-09-27, Amazon October 9, 2024)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/John-Vallely/e/B0DLX33G9R (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"the-pyramid-principle-pb": {
@@ -279,7 +314,7 @@
 					},
 					{
 						"q": "Is it a memoir or a stage play?",
-						"a": "Both and neither. The Doc calls it a memoir-play hybrid, with prose memories, dramatic scenes, stage directions, tableaux, monologues and vignettes that can be read, remembered, performed or passed along."
+						"a": "Both and neither. It is a memoir-play hybrid, with prose memories, dramatic scenes, stage directions, tableaux, monologues and vignettes that can be read, remembered, performed or passed along."
 					},
 					{
 						"q": "Is it about friendship and loss?",
@@ -287,7 +322,7 @@
 					},
 					{
 						"q": "Is it funny?",
-						"a": "Yes. The Doc describes pranks, tall tales, treasure hunting and a man who made everyone laugh. It is rooted in Proverbs 17:22, A cheerful heart is good medicine."
+						"a": "Yes. It tells of pranks, tall tales, treasure hunting and a man who made everyone laugh, and it is rooted in Proverbs 17:22, A cheerful heart is good medicine."
 					},
 					{
 						"q": "Who is it for?",
@@ -303,22 +338,43 @@
 						"isbn": "9798893071900 (paperback); workExample eBook 9798893071917",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 202,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-11-14, Amazon November 14, 2025)",
+						"datePublished": null,
 						"audience": "Christian adult readers",
 						"about": ["memoir-play", "friendship", "laughter and faith", "grief"],
 						"sameAs": ["https://www.amazon.com/dp/B0G2SKTDC9"],
 						"@id": "https://spiritmediapublishing.com/books/the-beetle-experience/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 13.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Dana Morrison",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Dana Morrison was the best friend of Stephen Michael Bailey, known to nearly everyone as Beetle. Their friendship ran from teenage pranks and campfire years through hardship, time apart, treasure hunting and Beetle's final days. Dana wrote The Beetle Experience, shaping these memories into a memoir-play hybrid meant to be read, remembered, performed or passed along.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/the-beetle-experience/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is The Beetle Experience about?",
+							"a": "It is the story of Stephen Michael Bailey, known as Beetle, told by his best friend, Dana Morrison, as a memoir-play hybrid in six acts: a laughter-generating, treasure-hunting, churchgoing bundle of joy and the friends and family around him."
+						},
+						{
+							"q": "Is it a memoir or a stage play?",
+							"a": "Both and neither. It is a memoir-play hybrid, with prose memories, dramatic scenes, stage directions, tableaux, monologues and vignettes that can be read, remembered, performed or passed along."
+						},
+						{
+							"q": "Is it about friendship and loss?",
+							"a": "Yes. It follows a friendship from teenage pranks and campfire years through hardship and time apart to Beetle's final days and homecoming, and it asks readers to be inspired to finish well."
+						},
+						{
+							"q": "Is it funny?",
+							"a": "Yes. It tells of pranks, tall tales, treasure hunting and a man who made everyone laugh, and it is rooted in Proverbs 17:22, A cheerful heart is good medicine."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "It is written for anyone who knew Beetle and anyone who did not, and for readers who want laughter and faith to walk together."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > The Beetle Experience"
 				},
 				"internal_links": [
@@ -392,7 +448,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/the-beetle-experience/",
 				"buy_url": "https://spiritmediapublishing.com/books/the-beetle-experience/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-beetle-experience (draft unit 3fl); sources: Drive metadata Doc 1s0Uaf4_l32rjPUxCYCnqljL0KPDSu1lk-p63EphxPNw (The Beetle Experience — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-beetle-experience (draft unit 3fl); sources: Drive metadata Doc 1s0Uaf4_l32rjPUxCYCnqljL0KPDSu1lk-p63EphxPNw (The Beetle Experience — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-11-14, Amazon November 14, 2025)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 13.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"the-beetle-experience-pb": {
@@ -464,7 +528,7 @@
 					},
 					{
 						"q": "Is it a book about a message of love?",
-						"a": "The Doc says one conviction runs through it: everyone needs to be heard and to know how loved and valued they are. Sparkle listens to the lonely, the sick, the frightened and the grieving and points them to the love of the Lord."
+						"a": "One conviction runs through it: everyone needs to be heard and to know how loved and valued they are. Sparkle listens to the lonely, the sick, the frightened and the grieving and points them to the love of the Lord."
 					},
 					{
 						"q": "Does it teach clowning, makeup and balloon animals?",
@@ -476,7 +540,7 @@
 					},
 					{
 						"q": "Is the audiobook available?",
-						"a": "The sheet lists an audiobook on Amazon, but the Doc has no audiobook ISBN or price yet, so the store page lists the paperback and eBook only."
+						"a": "Not from us yet. We currently offer the paperback and eBook only."
 					}
 				],
 				"bio": "Cindy Love grew up in California City, a small retirement town in the Mojave Desert. In her late twenties, while working in the billing department of a hospital in Walla Walla, Washington, she first put on clown makeup to visit patients. In 1989 she began clowning in earnest, and for thirty-five years she served as Sparkle, a gospel clown, at hospitals, nursing homes, schools, churches, parks and community events.",
@@ -488,22 +552,43 @@
 						"isbn": "9798893072242 (paperback); workExample eBook 9798893072259",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 196,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2026-02-11, Amazon February 11, 2026)",
+						"datePublished": null,
 						"audience": "Christian adult readers",
 						"about": ["clown ministry", "gospel clown", "hospital visits", "message of love"],
 						"sameAs": ["https://www.amazon.com/dp/B0GN8JGRPM"],
 						"@id": "https://spiritmediapublishing.com/books/clowning-from-the-heart/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 17.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Cindy Love",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Cindy Love grew up in California City, a small retirement town in the Mojave Desert. In her late twenties, while working in the billing department of a hospital in Walla Walla, Washington, she first put on clown makeup to visit patients. In 1989 she began clowning in earnest, and for thirty-five years she served as Sparkle, a gospel clown, at hospitals, nursing homes, schools, churches, parks and community events.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/clowning-from-the-heart/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Clowning From The Heart about?",
+							"a": "It is Cindy Love's true story of becoming Sparkle, a gospel clown, and of thirty-five years of clown ministry in hospitals, nursing homes, schools, churches and parades, told in twenty-seven short chapters."
+						},
+						{
+							"q": "Is it a book about a message of love?",
+							"a": "One conviction runs through it: everyone needs to be heard and to know how loved and valued they are. Sparkle listens to the lonely, the sick, the frightened and the grieving and points them to the love of the Lord."
+						},
+						{
+							"q": "Does it teach clowning, makeup and balloon animals?",
+							"a": "It tells how the author learned makeup, balloon animals and sleight-of-hand magic, and it closes with Sparkle's Tool Box and a reference page on the types of clowns. It is a memoir, not a how-to manual."
+						},
+						{
+							"q": "Does the book take place in hospitals?",
+							"a": "Many chapters do. The first came when she and a friend put on clown makeup to visit patients at the hospital where she worked; the book also covers nursing homes, a rehab center, schools, churches and parades."
+						},
+						{
+							"q": "Is the audiobook available?",
+							"a": "Not from us yet. We currently offer the paperback and eBook only."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Clowning From The Heart"
 				},
 				"internal_links": [
@@ -598,7 +683,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/clowning-from-the-heart/",
 				"buy_url": "https://spiritmediapublishing.com/books/clowning-from-the-heart/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#clowning-from-the-heart (draft unit 3fl); sources: Drive metadata Doc 1RRXo4w9gS-RlIpeMY87g80SBacPpQD6584rCQ99mSaI (Clowning From The Heart — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#clowning-from-the-heart (draft unit 3fl); sources: Drive metadata Doc 1RRXo4w9gS-RlIpeMY87g80SBacPpQD6584rCQ99mSaI (Clowning From The Heart — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-02-11, Amazon February 11, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 17.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"clowning-from-the-heart-pb": {
@@ -666,7 +759,7 @@
 				"faq": [
 					{
 						"q": "What is Invisible Wounds about?",
-						"a": "It is John Boyle's account of living nearly four decades with Complex PTSD he could not name, and a four-part guide to understanding it and walking the road to healing. The Doc subtitle is Understanding and Healing from Complex PTSD."
+						"a": "It is John Boyle's account of living nearly four decades with Complex PTSD he could not name, and a four-part guide to understanding it and walking the road to healing. The subtitle is Understanding and Healing from Complex PTSD."
 					},
 					{
 						"q": "What does the book say about hypervigilance and fight, flight, freeze?",
@@ -694,22 +787,43 @@
 						"isbn": "9798893072181 (paperback); workExample eBook 9798893072198",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 132,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2026-03-10, Amazon February 27, 2026)",
+						"datePublished": null,
 						"audience": "Adult survivors of childhood trauma, faith-friendly",
 						"about": ["complex PTSD", "childhood trauma", "trauma recovery", "faith and healing"],
 						"sameAs": ["https://www.amazon.com/dp/B0GS46XD1G"],
 						"@id": "https://spiritmediapublishing.com/books/invisible-wounds/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 12.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "John Boyle",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "John P. Boyle grew up in a small town in the mountains of West Virginia. He went on to boarding school and Harvard and built a career as a business leader while living for nearly four decades with Complex PTSD he could not name.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/invisible-wounds/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Invisible Wounds about?",
+							"a": "It is John Boyle's account of living nearly four decades with Complex PTSD he could not name, and a four-part guide to understanding it and walking the road to healing. The subtitle is Understanding and Healing from Complex PTSD."
+						},
+						{
+							"q": "What does the book say about hypervigilance and fight, flight, freeze?",
+							"a": "Part two shows how trauma lives in the body and rewires a child's brain for fight, flight, freeze or fawn. Hypervigilance, startle responses and panic are among the experiences the author describes in his own life."
+						},
+						{
+							"q": "Is it written for men?",
+							"a": "It is written for anyone, and it speaks directly to male survivors, who are taught to push through alone."
+						},
+						{
+							"q": "Does it include exercises?",
+							"a": "Yes, Survivor Insight exercises for naming pain and replacing self-blame with accuracy."
+						},
+						{
+							"q": "Is it a clinical or medical book?",
+							"a": "No. The author explains what is happening without diagnosing and without overwhelming; it is a personal and faith-friendly account, not medical advice or a treatment guide."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Invisible Wounds"
 				},
 				"internal_links": [
@@ -796,7 +910,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/invisible-wounds/",
 				"buy_url": "https://spiritmediapublishing.com/books/invisible-wounds/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#invisible-wounds (draft unit 3fl); sources: Drive metadata Doc 1Isn7JWlgHyiXXEFkibwNtSsClx0dc16IbINC0LkhXG8 (Invisible Wounds — Metadata (2026-10-12)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#invisible-wounds (draft unit 3fl); sources: Drive metadata Doc 1Isn7JWlgHyiXXEFkibwNtSsClx0dc16IbINC0LkhXG8 (Invisible Wounds — Metadata (2026-10-12)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-03-10, Amazon February 27, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 12.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"invisible-wounds-pb": {
@@ -876,11 +998,11 @@
 					},
 					{
 						"q": "What ages is it for?",
-						"a": "The sheet lists it for early readers and read-aloud, ages 4 to 8 (the Amazon reading-age field says 5 to 10). It is 40 pages in the Doc, 8 x 10 inches, in color."
+						"a": "It is made for early readers and read-aloud, ages 4 to 8. It is 40 pages, 8 x 10 inches, in color."
 					},
 					{
 						"q": "Can it be used in Sunday school or children's ministry?",
-						"a": "Yes. The Doc lists Sunday school lessons and children's ministry among its uses, and it is also suited to read-aloud time with parents and grandparents."
+						"a": "Yes. It suits Sunday school lessons and children's ministry, and it is also suited to read-aloud time with parents and grandparents."
 					}
 				],
 				"bio": null,
@@ -892,7 +1014,7 @@
 						"isbn": "9798893071863 (paperback); workExample eBook 9798893071733",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 40,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2026-02-16, Amazon March 6, 2026)",
+						"datePublished": null,
 						"audience": "Children ages 4-8, early readers and read-aloud families",
 						"about": [
 							"feeding of the five thousand",
@@ -904,15 +1026,36 @@
 						"@id": "https://spiritmediapublishing.com/books/the-brothers-and-their-lunch-basket/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Nicole Bran Clark",
-						"description": "OMIT (no bio supplied)",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": null,
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/the-brothers-and-their-lunch-basket/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is The Brothers and Their Lunch Basket about?",
+							"a": "It is a retelling of Jesus feeding a crowd with five loaves and two fish, told through four brothers, one of whom, Asher, offers the family's lunch basket."
+						},
+						{
+							"q": "Is this the loaves and fishes story?",
+							"a": "Yes. The basket holds five loaves of bread and two fish, Asher gives it to Philip, and Jesus feeds the crowd. The brothers and their mother are story characters; the miracle is the Bible event."
+						},
+						{
+							"q": "What does the book teach children about sharing?",
+							"a": "Asher remembers what his mother says: when we share what we have, even if it is just a little, God can use it to bless many. The book is about sharing and trusting God with something small."
+						},
+						{
+							"q": "What ages is it for?",
+							"a": "It is made for early readers and read-aloud, ages 4 to 8. It is 40 pages, 8 x 10 inches, in color."
+						},
+						{
+							"q": "Can it be used in Sunday school or children's ministry?",
+							"a": "Yes. It suits Sunday school lessons and children's ministry, and it is also suited to read-aloud time with parents and grandparents."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > The Brothers and Their Lunch Basket"
 				},
 				"internal_links": [
@@ -991,7 +1134,16 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/brothers-lunch-basket/",
 				"buy_url": "https://spiritmediapublishing.com/books/brothers-lunch-basket/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#brothers-lunch-basket (draft unit 3fl); sources: Drive metadata Doc 1uP-MBTesErFwJT-ODV6tGlfiVrgzB1ze90jT6uLZv9k (The Brothers and Their Lunch Basket — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#brothers-lunch-basket (draft unit 3fl); sources: Drive metadata Doc 1uP-MBTesErFwJT-ODV6tGlfiVrgzB1ze90jT6uLZv9k (The Brothers and Their Lunch Basket — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-02-16, Amazon March 6, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.description": "OMIT (no bio supplied)",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"brothers-lunch-basket-pb": {
@@ -1063,7 +1215,7 @@
 					},
 					{
 						"q": "Is it Christian fiction?",
-						"a": "Yes. The Doc describes it as a Christian novel for readers who enjoy faith-based suspense, family drama and stories with a clear spiritual message."
+						"a": "Yes. It is a Christian novel for readers who enjoy faith-based suspense, family drama and stories with a clear spiritual message."
 					},
 					{
 						"q": "What happens with the winning lottery ticket?",
@@ -1075,7 +1227,7 @@
 					},
 					{
 						"q": "Does the book deal with forgiveness?",
-						"a": "Yes. It explores temptation, greed and envy and asks whether mercy can still find us after judgement; the Doc says it holds out the hope that God's mercy reaches further than our mistakes."
+						"a": "Yes. It explores temptation, greed and envy and asks whether mercy can still find us after judgement; it holds out the hope that God's mercy reaches further than our mistakes."
 					}
 				],
 				"bio": null,
@@ -1087,22 +1239,43 @@
 						"isbn": "9798893071870 (paperback); workExample eBook 9798893071887",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 299,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-11-19, Amazon November 19, 2025)",
+						"datePublished": null,
 						"audience": "Adult readers of Christian fiction",
 						"about": ["Christian fiction", "temptation", "mercy and forgiveness", "family drama"],
 						"sameAs": ["https://www.amazon.com/dp/B0G34HJF47"],
 						"@id": "https://spiritmediapublishing.com/books/of-judgement-and-of-mercy/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 16.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Roy Roberts",
-						"description": "OMIT (no bio supplied)",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": null,
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/of-judgement-and-of-mercy/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Of Judgement and Of Mercy about?",
+							"a": "It is a Christian novel about Phil Gunn, a born-again mill worker who buys a lottery ticket against his convictions, wins one hundred seventy-nine million dollars, and learns what one compromise can cost."
+						},
+						{
+							"q": "Is it Christian fiction?",
+							"a": "Yes. It is a Christian novel for readers who enjoy faith-based suspense, family drama and stories with a clear spiritual message."
+						},
+						{
+							"q": "What happens with the winning lottery ticket?",
+							"a": "Phil checks the numbers after his shift and has won one hundred seventy-nine million dollars. He calls his best friend in the middle of the night, and his friend's wife, who has never liked Phil, begins to scheme."
+						},
+						{
+							"q": "Is there family drama in the story?",
+							"a": "Yes. Phil supports his mother and sister and mourns a brother lost to the streets of Oakland, and the story moves between small-town diners, family obligations and long night drives toward Boise."
+						},
+						{
+							"q": "Does the book deal with forgiveness?",
+							"a": "Yes. It explores temptation, greed and envy and asks whether mercy can still find us after judgement; it holds out the hope that God's mercy reaches further than our mistakes."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Of Judgement and Of Mercy"
 				},
 				"internal_links": [
@@ -1171,7 +1344,16 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/of-judgement-and-of-mercy/",
 				"buy_url": "https://spiritmediapublishing.com/books/of-judgement-and-of-mercy/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#of-judgement-and-of-mercy (draft unit 3fl); sources: Drive metadata Doc 107Z_Akl9Socu_Vc4g4Xph4UqOrG5Xbp9j6CaZ9JQd4g (Of Judgement and Of Mercy — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#of-judgement-and-of-mercy (draft unit 3fl); sources: Drive metadata Doc 107Z_Akl9Socu_Vc4g4Xph4UqOrG5Xbp9j6CaZ9JQd4g (Of Judgement and Of Mercy — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-11-19, Amazon November 19, 2025)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 16.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.description": "OMIT (no bio supplied)",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"of-judgement-and-of-mercy-pb": {
@@ -1229,7 +1411,7 @@
 				"h1": "In The Hands of Our Heavenly Father",
 				"meta": "In the Hands of Our Heavenly Father by Daniel Zebarth: a true account of a pancreatic neuroendocrine tumor, Stage IV cancer and healing.",
 				"short": "Daniel Zebarth's true account of a pancreatic neuroendocrine tumor, Stage IV cancer, years of chemotherapy and a biopsy that came back benign, with his wife's telling of the same story.",
-				"about": "In July 2009 Dan Zebarth heard the words he had dreaded since childhood: pancreatic cancer. Days later the diagnosis changed to a pancreatic neuroendocrine tumor, but the surgery that followed was extremely difficult and he was given eight months to live. The book is his true account of what came next: during his hospital recovery he saw and heard Jesus; when the cancer spread to his liver and became Stage IV, he writes that the Holy Spirit promised to work on healing him; after years of chemotherapy he asked his doctor whether the cancer was still present, and the biopsy came back benign. Sixteen years after diagnosis he is cancer-free, per the Doc. The book opens with his early life in Augusta, Wisconsin, follows his cancer journey chapter by chapter, and in Part IV his wife tells the story from her side. Appendices offer guidance for navigating a cancer journey with faith and courage, patterns of God's interventions, family letters and supporting medical documentation. He writes plainly about the statistics and the fear, and does not promise that healing follows a formula.",
+				"about": "In July 2009 Dan Zebarth heard the words he had dreaded since childhood: pancreatic cancer. Days later the diagnosis changed to a pancreatic neuroendocrine tumor, but the surgery that followed was extremely difficult and he was given eight months to live. The book is his true account of what came next: during his hospital recovery he saw and heard Jesus; when the cancer spread to his liver and became Stage IV, he writes that the Holy Spirit promised to work on healing him; after years of chemotherapy he asked his doctor whether the cancer was still present, and the biopsy came back benign. Sixteen years after diagnosis he is cancer-free, he writes. The book opens with his early life in Augusta, Wisconsin, follows his cancer journey chapter by chapter, and in Part IV his wife tells the story from her side. Appendices offer guidance for navigating a cancer journey with faith and courage, patterns of God's interventions, family letters and supporting medical documentation. He writes plainly about the statistics and the fear, and does not promise that healing follows a formula.",
 				"who_for": [
 					"Anyone facing a serious illness who wants to read one man's account of faith and prayer",
 					"The families, friends and spouses who walk beside someone who is ill",
@@ -1243,7 +1425,7 @@
 					},
 					{
 						"q": "What was the diagnosis and the surgery?",
-						"a": "The Doc says the first diagnosis was pancreatic cancer and days later it became a pancreatic neuroendocrine tumor. The book describes his surgery at Mayo, which the Doc calls extremely difficult and painful, and the hospital recovery that followed."
+						"a": "The first diagnosis was pancreatic cancer, and days later it became a pancreatic neuroendocrine tumor. The book describes his surgery at Mayo, which was extremely difficult and painful, and the hospital recovery that followed."
 					},
 					{
 						"q": "Does the book describe Whipple surgery and recovery?",
@@ -1251,7 +1433,7 @@
 					},
 					{
 						"q": "Does the book promise healing?",
-						"a": "No. The Doc says the author writes plainly about the statistics and the fear and does not promise that healing follows a formula; he offers his story as a testimony that God is alive and faithful."
+						"a": "No. The author writes plainly about the statistics and the fear and does not promise that healing follows a formula; he offers his story as a testimony that God is alive and faithful."
 					},
 					{
 						"q": "Who else tells the story?",
@@ -1267,7 +1449,7 @@
 						"isbn": "9798893072228 (paperback); workExample eBook 9798893072167",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 308,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2026-03-30, Amazon April 8, 2026)",
+						"datePublished": null,
 						"audience": "Readers facing serious illness, and their families and friends",
 						"about": [
 							"cancer testimony",
@@ -1279,15 +1461,36 @@
 						"@id": "https://spiritmediapublishing.com/books/in-the-hands-of-our-heavenly-father/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Daniel Zebarth",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Daniel Zebarth grew up in Augusta, Wisconsin, where his father ran a gas station, tended the town's two cemeteries and served eight years as mayor. In July 2009 he was diagnosed with pancreatic cancer, which later spread to his liver as Stage IV. After years of chemotherapy, a biopsy came back benign, and he has been cancer-free for sixteen years.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/in-the-hands-of-our-heavenly-father/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is In the Hands of Our Heavenly Father about?",
+							"a": "It is Daniel Zebarth's true account of a pancreatic cancer diagnosis in July 2009 that became a pancreatic neuroendocrine tumor, spread to his liver as Stage IV, and, after years of chemotherapy, ended with a biopsy that came back benign."
+						},
+						{
+							"q": "What was the diagnosis and the surgery?",
+							"a": "The first diagnosis was pancreatic cancer, and days later it became a pancreatic neuroendocrine tumor. The book describes his surgery at Mayo, which was extremely difficult and painful, and the hospital recovery that followed."
+						},
+						{
+							"q": "Does the book describe Whipple surgery and recovery?",
+							"a": "Part III follows his cancer journey chapter by chapter, from the first news and the surgery through the darkest times to the healing. It is a personal account, not a medical guide, and it does not give treatment advice."
+						},
+						{
+							"q": "Does the book promise healing?",
+							"a": "No. The author writes plainly about the statistics and the fear and does not promise that healing follows a formula; he offers his story as a testimony that God is alive and faithful."
+						},
+						{
+							"q": "Who else tells the story?",
+							"a": "In Part IV the author's wife tells the same story from her side: the vigil, the email updates to family, fourteen blessings and answered prayers, and reflections on faith and marriage."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > In The Hands of Our Heavenly Father"
 				},
 				"internal_links": [
@@ -1354,7 +1557,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/in-the-hands-of-our-heavenly-father/",
 				"buy_url": "https://spiritmediapublishing.com/books/in-the-hands-of-our-heavenly-father/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#in-the-hands-of-our-heavenly-father (draft unit 3fl); sources: Drive metadata Doc 1LB5498d3Y43q0mEgV7naq0eitgsjGsBKuUAOwG8mSxk (In The Hands of Our Heavenly Father — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#in-the-hands-of-our-heavenly-father (draft unit 3fl); sources: Drive metadata Doc 1LB5498d3Y43q0mEgV7naq0eitgsjGsBKuUAOwG8mSxk (In The Hands of Our Heavenly Father — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-03-30, Amazon April 8, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"in-the-hands-of-our-heavenly-father-pb": {
@@ -1426,7 +1637,7 @@
 					},
 					{
 						"q": "Is it a Bible study?",
-						"a": "It is church history with study tools: every chapter ends with questions for discussion, a Bible passage to study, personal-response questions and research keywords. The Doc files it under Study Guides as well as Church History."
+						"a": "It is church history with study tools: every chapter ends with questions for discussion, a Bible passage to study, personal-response questions and research keywords. It is classed under Study Guides as well as Church History."
 					},
 					{
 						"q": "Who is it for?",
@@ -1434,7 +1645,7 @@
 					},
 					{
 						"q": "Does it cover the Reformation and the Crusades?",
-						"a": "Yes, among its twenty-four chapters; the interior mentions the Crusades 38 times and the Reformation 22 times."
+						"a": "Yes, among its twenty-four chapters, including the Crusades and the Reformation."
 					},
 					{
 						"q": "Is it only about the United States?",
@@ -1450,22 +1661,43 @@
 						"isbn": "9781958304433 (paperback); workExample hardback 9781958304440, eBook 9781958304457",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 388,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2023-01-27, Amazon January 27, 2023)",
+						"datePublished": null,
 						"audience": "Adult Christian readers, church classes and small groups",
 						"about": ["church history", "Christian history", "Bible study", "the early church"],
 						"sameAs": ["https://www.amazon.com/dp/1958304433"],
 						"@id": "https://spiritmediapublishing.com/books/from-jesus-til-now/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 18.00 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Julie Boone",
-						"description": "bio above",
-						"url": "https://www.amazon.com/Julie-Boone/e/B0C9NGCQGX (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "Julie Boone spent much of her life developing From Jesus 'til Now, a storyteller's timeline of the Christian church written to help believers learn its history and draw lessons for church life today. The book was completed in cooperation with her son, who saw it through to publication after she passed into glory.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/from-jesus-til-now/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is From Jesus 'til Now about?",
+							"a": "A guided walk through two thousand years of the Christian church, from Pentecost to the iPhone century, told through real people in twenty-four chapters."
+						},
+						{
+							"q": "Is it a Bible study?",
+							"a": "It is church history with study tools: every chapter ends with questions for discussion, a Bible passage to study, personal-response questions and research keywords. It is classed under Study Guides as well as Church History."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Adult Sunday school classes, small groups, church study groups and any believer who has found history dull."
+						},
+						{
+							"q": "Does it cover the Reformation and the Crusades?",
+							"a": "Yes, among its twenty-four chapters, including the Crusades and the Reformation."
+						},
+						{
+							"q": "Is it only about the United States?",
+							"a": "No. It covers world church history and, after the settlement of what is now the United States, focuses on Christian activity there for its US readers."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > From Jesus 'til Now"
 				},
 				"internal_links": [
@@ -1560,7 +1792,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/from-jesus-til-now/",
 				"buy_url": "https://spiritmediapublishing.com/books/from-jesus-til-now/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#from-jesus-til-now (draft unit 3fm); sources: Drive metadata Doc 1rE6yBkzU64eyUdbp3qy9PlZwMS9tK5ZttjlakUNYseo (From Jesus 'til Now — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#from-jesus-til-now (draft unit 3fm); sources: Drive metadata Doc 1rE6yBkzU64eyUdbp3qy9PlZwMS9tK5ZttjlakUNYseo (From Jesus 'til Now — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2023-01-27, Amazon January 27, 2023)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 18.00 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Julie-Boone/e/B0C9NGCQGX (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"from-jesus-til-now-pb": {
@@ -1668,11 +1908,11 @@
 					},
 					{
 						"q": "Is it a book about biblical humility?",
-						"a": "Humility is central: the Doc lists it first among the traits followership demands, and the book closes with Jesus Christ as the greatest follower, whose obedience to the Father became the path to ultimate leadership."
+						"a": "Humility is central: it is the first trait the book says followership demands, and the book closes with Jesus Christ as the greatest follower, whose obedience to the Father became the path to ultimate leadership."
 					},
 					{
 						"q": "Is it about servant leadership?",
-						"a": "It is about following rather than leading. It touches on service and on Jesus as a servant, but its subject is the strength of true followership; the Doc lists servant leadership among its keywords and categories."
+						"a": "It is about following rather than leading. It touches on service and on Jesus as a servant, but its subject is the strength of true followership."
 					},
 					{
 						"q": "What Bible examples does it use?",
@@ -1692,22 +1932,43 @@
 						"isbn": "9798893071443 (paperback); workExample hardback 9798893071504, eBook 9798893071481",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 174,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-06-06, Amazon June 6, 2025)",
+						"datePublished": null,
 						"audience": "Christian readers, professionals and team members",
 						"about": ["followership", "biblical humility", "teamwork", "servant leadership"],
 						"sameAs": ["https://www.amazon.com/dp/B0F9WJFTSJ"],
 						"@id": "https://spiritmediapublishing.com/books/humble-influence/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 15.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Jim Matuga",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Over a 36-year business career, Jim Matuga has talked with thousands of business leaders. Since 2017 he has interviewed hundreds of business owners and leaders on his weekly podcast, Positively West Virginia, asking each about leadership. The idea for Humble Influence was planted at a 2007 leadership conference at West Virginia University and took eighteen years to bring to the page.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/humble-influence/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Humble Influence about?",
+							"a": "It is a faith-grounded guide to followership, written for people who do vital work without holding the top title. Jim Matuga argues that followership is an active, intentional skill that demands humility, courage, loyalty, critical thinking and initiative."
+						},
+						{
+							"q": "Is it a book about biblical humility?",
+							"a": "Humility is central: it is the first trait the book says followership demands, and the book closes with Jesus Christ as the greatest follower, whose obedience to the Father became the path to ultimate leadership."
+						},
+						{
+							"q": "Is it about servant leadership?",
+							"a": "It is about following rather than leading. It touches on service and on Jesus as a servant, but its subject is the strength of true followership."
+						},
+						{
+							"q": "What Bible examples does it use?",
+							"a": "Joshua serving under Moses for forty years, Ruth following Naomi and Peter following Jesus, among others."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "It is written for quiet contributors, team players and behind-the-scenes problem-solvers, and for anyone who wants to lead well by first learning to follow faithfully. There are fourteen chapters and a Humble Influence Roadmap."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Humble Influence"
 				},
 				"internal_links": [
@@ -1786,7 +2047,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/humble-influence/",
 				"buy_url": "https://spiritmediapublishing.com/books/humble-influence/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#humble-influence (draft unit 3fl); sources: Drive metadata Doc 13J_M_7LTg61vyHC6cSE23FuUe0-W3-eA-XcXuR3-ftw (Humble Influence — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#humble-influence (draft unit 3fl); sources: Drive metadata Doc 13J_M_7LTg61vyHC6cSE23FuUe0-W3-eA-XcXuR3-ftw (Humble Influence — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-06-06, Amazon June 6, 2025)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 15.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"humble-influence-pb": {
@@ -1902,11 +2171,11 @@
 					},
 					{
 						"q": "Does it justify divorce?",
-						"a": "No. The Doc says it is not a book that justifies divorce; it points to the healing power of Jesus despite our choices."
+						"a": "No. It is not a book that justifies divorce; it points to the healing power of Jesus despite our choices."
 					},
 					{
 						"q": "Can it be used in a small group?",
-						"a": "Yes. The Doc says it is suited to personal study or small group discussion, and each chapter ends with discussion and journaling questions."
+						"a": "Yes. It is suited to personal study or small group discussion, and each chapter ends with discussion and journaling questions."
 					}
 				],
 				"bio": "Carol Renee Gitthens is a pastor's daughter who was raised in a Christian home. A mother of five who has walked through three marriages and the divorces that followed, she writes with candor about guilt, shame and the grace of God. At her father's bedside in April 2023 she promised him she would carry the torch of his ministry by sharing the gospel and speaking the truth in love, and to finish this book.",
@@ -1918,7 +2187,7 @@
 						"isbn": "9798893071757 (paperback); workExample eBook 9798893071627",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 118,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-06-27)",
+						"datePublished": null,
 						"audience": "Christian readers healing from divorce and broken relationships",
 						"about": [
 							"divorce recovery",
@@ -1926,19 +2195,40 @@
 							"woman at the well",
 							"forgiveness and healing"
 						],
-						"sameAs": "TBD (no Amazon page read)",
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/lessons-from-the-well/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Carol Renee Gitthens",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Carol Renee Gitthens is a pastor's daughter who was raised in a Christian home. A mother of five who has walked through three marriages and the divorces that followed, she writes with candor about guilt, shame and the grace of God. At her father's bedside in April 2023 she promised him she would carry the torch of his ministry by sharing the gospel and speaking the truth in love, and to finish this book.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/lessons-from-the-well/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Lessons from the Well about?",
+							"a": "It is a devotional for the divorced and relationship impaired by Carol Renee Gitthens, a pastor's daughter and mother of five who has been through three marriages and divorces. Its anthem is that God will restore."
+						},
+						{
+							"q": "Does the book use Scripture?",
+							"a": "Yes. Each chapter closes with Reflections: questions to discuss or journal, Scripture from the New King James and New American Standard Bibles, and a prayer."
+						},
+						{
+							"q": "What is the woman at the well chapter about?",
+							"a": "At the heart of the book is the woman at the well and the Living Water Jesus offered her. Later chapters turn to overcoming, the question of judgment in the church, and moving forward."
+						},
+						{
+							"q": "Does it justify divorce?",
+							"a": "No. It is not a book that justifies divorce; it points to the healing power of Jesus despite our choices."
+						},
+						{
+							"q": "Can it be used in a small group?",
+							"a": "Yes. It is suited to personal study or small group discussion, and each chapter ends with discussion and journaling questions."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Lessons from the Well"
 				},
 				"internal_links": [
@@ -2022,7 +2312,16 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/lessons-from-the-well/",
 				"buy_url": "https://spiritmediapublishing.com/books/lessons-from-the-well/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#lessons-from-the-well (draft unit 3fl); sources: Drive metadata Doc 1qg_GL6Vuu79PuPsZkwz_X1EVJjYBpyRVAQg33ey0Jn8 (Lessons from the Well — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#lessons-from-the-well (draft unit 3fl); sources: Drive metadata Doc 1qg_GL6Vuu79PuPsZkwz_X1EVJjYBpyRVAQg33ey0Jn8 (Lessons from the Well — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-06-27)",
+						"jsonld.book.sameAs": "TBD (no Amazon page read)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"lessons-from-the-well-pb": {
@@ -2098,15 +2397,15 @@
 					},
 					{
 						"q": "Is it a beginner cookbook?",
-						"a": "Yes. The Doc audience is beginner and home cooks, many recipes carry time-saving tips and cooking-for-one tips, and a glossary of cooking terms is included."
+						"a": "Yes. It is written for beginner and home cooks, many recipes carry time-saving tips and cooking-for-one tips, and a glossary of cooking terms is included."
 					},
 					{
 						"q": "Is it a Christian cookbook?",
-						"a": "It is rooted in the conviction that cooking is a love language and that God cares to feed all the people He loves; the Doc lists Christian cookbook as a keyword."
+						"a": "Yes. It is rooted in the conviction that cooking is a love language and that God cares to feed all the people He loves."
 					},
 					{
 						"q": "Does it cover soups and chicken?",
-						"a": "Yes. The interior has chicken dishes (144 mentions of chicken) and soups and stews; it is a general home-cooking book, not a single-category one."
+						"a": "Yes. It has many chicken dishes and soups and stews; it is a general home-cooking book, not a single-category one."
 					}
 				],
 				"bio": "Toni R. Young-Huber grew up on a farm watching her grandmother cook three big meals a day; in her culture feeding family is a point of pride and a love language. She has worked as a traveling nurse in North Carolina, where she spent many Sunday afternoons teaching a coworker how to cook American foods and break the fast-food habit. For Toni, cooking is therapeutic, and she encourages every cook to give themselves grace.",
@@ -2118,7 +2417,7 @@
 						"isbn": "9798893070309 (paperback); workExample hardback 9798893070316, eBook 9798893070293",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 319,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2024-04-02, Amazon April 2, 2024)",
+						"datePublished": null,
 						"audience": "Beginner and home cooks",
 						"about": [
 							"family dinner recipes",
@@ -2130,15 +2429,36 @@
 						"@id": "https://spiritmediapublishing.com/books/get-out-of-the-fast-food-lane/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 39.99 USD (re-confirm, see price gap), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Toni R. Young-Huber",
-						"description": "bio above, first three sentences",
-						"url": "https://www.amazon.com/Toni-R-Young-Huber/e/B0D235MXR9 (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "Toni R. Young-Huber grew up on a farm watching her grandmother cook three big meals a day; in her culture feeding family is a point of pride and a love language. She has worked as a traveling nurse in North Carolina, where she spent many Sunday afternoons teaching a coworker how to cook American foods and break the fast-food habit.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/get-out-of-the-fast-food-lane/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Get Out of the Fast (Food) Lane! about?",
+							"a": "A warm, practical cookbook of simple, inexpensive recipes with only a few steps, written to help busy people and beginners cook at home instead of using the drive-through."
+						},
+						{
+							"q": "What kinds of recipes does it have?",
+							"a": "Main dishes, casseroles, Southern favorites, pasta, egg dishes, soups and stews, sides, sourdough bread and biscuits, sweets, and appetizers and dips."
+						},
+						{
+							"q": "Is it a beginner cookbook?",
+							"a": "Yes. It is written for beginner and home cooks, many recipes carry time-saving tips and cooking-for-one tips, and a glossary of cooking terms is included."
+						},
+						{
+							"q": "Is it a Christian cookbook?",
+							"a": "Yes. It is rooted in the conviction that cooking is a love language and that God cares to feed all the people He loves."
+						},
+						{
+							"q": "Does it cover soups and chicken?",
+							"a": "Yes. It has many chicken dishes and soups and stews; it is a general home-cooking book, not a single-category one."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Get Out of the Fast (Food) Lane!"
 				},
 				"internal_links": [
@@ -2251,7 +2571,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/get-out-of-the-fast/",
 				"buy_url": "https://spiritmediapublishing.com/books/get-out-of-the-fast/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#get-out-of-the-fast (draft unit 3fm); sources: Drive metadata Doc 1YnJ1rhqfJIhVVGdUItp4WO2IbILSoATk4DveKn3hs0s (Get Out of the Fast (Food) Lane! — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#get-out-of-the-fast (draft unit 3fm); sources: Drive metadata Doc 1YnJ1rhqfJIhVVGdUItp4WO2IbILSoATk4DveKn3hs0s (Get Out of the Fast (Food) Lane! — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2024-04-02, Amazon April 2, 2024)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 39.99 USD (re-confirm, see price gap), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Toni-R-Young-Huber/e/B0D235MXR9 (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"get-out-of-the-fast-pb": {
@@ -2371,7 +2699,7 @@
 					},
 					{
 						"q": "Does the book cover the plan of salvation?",
-						"a": "Salvation is the issue that opens the book, and the born again chapter asks what it means. It is the author's study, not a denominational statement; the page attributes its claims to him."
+						"a": "Salvation is the issue that opens the book, and the born again chapter asks what it means. It is the author's own study, not a denominational statement."
 					}
 				],
 				"bio": "Philip Guenaga grew up in a deeply religious household and moved through several denominations, where he noticed that the teaching on salvation differed sharply from church to church. As a young man he had an experience with God that carried him through difficult times. While stationed at Fort Leonard Wood, Missouri, he came to Rolla in 1986. He wrote this short study of Scripture at the encouragement of friends.",
@@ -2383,22 +2711,43 @@
 						"isbn": "9798893072044 (paperback); workExample eBook 9798893072051",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 50,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-11-06, Amazon November 6, 2025)",
+						"datePublished": null,
 						"audience": "Christian readers, Bible study groups",
 						"about": ["Bible study", "salvation", "Genesis", "relationship with God"],
 						"sameAs": ["https://www.amazon.com/dp/B0G1GXBRPH"],
 						"@id": "https://spiritmediapublishing.com/books/in-church-for-40-years-and-not-knowing-god/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 9.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Philip Guenaga",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Philip Guenaga grew up in a deeply religious household and moved through several denominations, where he noticed that the teaching on salvation differed sharply from church to church. As a young man he had an experience with God that carried him through difficult times. While stationed at Fort Leonard Wood, Missouri, he came to Rolla in 1986.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/in-church-for-40-years-and-not-knowing-god/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is In Church for 40 Years and Not Knowing God about?",
+							"a": "It is a short Bible study in which Philip Guenaga asks readers to set aside inherited assumptions and examine familiar passages with fresh eyes, moving from knowing about God to a genuine relationship with Him through Jesus Christ."
+						},
+						{
+							"q": "What topics does the book cover?",
+							"a": "It covers questions about Adam and Eve and the Garden of Eden, the image of God, the fall, Cain's wife, Job's children, the seals of Revelation, what it means to be born again, and the author's testimony, plus a bonus chapter on dinosaurs and creation."
+						},
+						{
+							"q": "Does it discuss salvation, baptism and speaking in tongues?",
+							"a": "The author's starting point is that teaching on salvation changes from church to church, with some stressing baptism and others dismissing it, some requiring speaking in tongues and others calling it unnecessary. These are his questions and his reading of Scripture."
+						},
+						{
+							"q": "Is it good for a small group or personal study?",
+							"a": "Yes. Each chapter closes with reflection questions and lined pages for notes, which suits personal study, small groups and Bible classes."
+						},
+						{
+							"q": "Does the book cover the plan of salvation?",
+							"a": "Salvation is the issue that opens the book, and the born again chapter asks what it means. It is the author's own study, not a denominational statement."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > In Church for 40 Years and Not Knowing God"
 				},
 				"internal_links": [
@@ -2515,7 +2864,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/in-church-for-40-years-and-not-knowing-god/",
 				"buy_url": "https://spiritmediapublishing.com/books/in-church-for-40-years-and-not-knowing-god/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#in-church-for-40-years-and-not-knowing-god (draft unit 3fl); sources: Drive metadata Doc 1WfrEyCBD8oH-jN_81YKqg_G6QWeflDHDBJaVNxCkts4 (In Church for 40 Years and Not Knowing God — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#in-church-for-40-years-and-not-knowing-god (draft unit 3fl); sources: Drive metadata Doc 1WfrEyCBD8oH-jN_81YKqg_G6QWeflDHDBJaVNxCkts4 (In Church for 40 Years and Not Knowing God — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-11-06, Amazon November 6, 2025)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 9.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"in-church-for-40-years-and-not-knowing-god-pb": {
@@ -2591,7 +2948,7 @@
 					},
 					{
 						"q": "Is Jesus Whispers a memoir?",
-						"a": "It reads as a Christian memoir told in short chapters, from marriage at nineteen and raising four children to a back-porch encounter and a Walmart aisle. The Doc files it under Christian biographies and spiritual growth."
+						"a": "It reads as a Christian memoir told in short chapters, from marriage at nineteen and raising four children to a back-porch encounter and a Walmart aisle. It is classed as a Christian biography and a book on spiritual growth."
 					},
 					{
 						"q": "Does it talk about salvation and prayer?",
@@ -2611,22 +2968,43 @@
 						"isbn": "9798893072013 (paperback); workExample eBook 9798893071993",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 178,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2026-03-27, Amazon March 27, 2026)",
+						"datePublished": null,
 						"audience": "Christian adult readers",
 						"about": ["hearing God's voice", "Christian memoir", "Scripture", "answered prayer"],
 						"sameAs": ["https://www.amazon.com/dp/B0GV7P7SM7"],
 						"@id": "https://spiritmediapublishing.com/books/jesus-whispers/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Michele Wilson",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Michele Wilson was raised in West Columbia, South Carolina, by Christian parents who took their four children to church almost every time the doors were open. She accepted Jesus at about age twelve and married at nineteen, and she and her husband raised four children. In 1995 a friend showed her how God speaks through the Bible, a discovery that changed her life.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/jesus-whispers/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Jesus Whispers about?",
+							"a": "It is Michele Wilson's collection of thirty-four short true stories in which she says God answered prayer, gave direction and drew near through Scripture, a vision in the night, dreams and quiet nudges she learned to recognize as His voice."
+						},
+						{
+							"q": "Does the book use the Bible?",
+							"a": "Yes. Each story is anchored in Scripture, with passages quoted so readers can see how God used His Word at the moment it was needed."
+						},
+						{
+							"q": "Is Jesus Whispers a memoir?",
+							"a": "It reads as a Christian memoir told in short chapters, from marriage at nineteen and raising four children to a back-porch encounter and a Walmart aisle. It is classed as a Christian biography and a book on spiritual growth."
+						},
+						{
+							"q": "Does it talk about salvation and prayer?",
+							"a": "Yes. She explains that salvation is a gift received by grace through faith and invites readers to settle that decision, and many chapters are about answered prayer, including a ten-year prayer finally answered."
+						},
+						{
+							"q": "Does it deal with mental health?",
+							"a": "Two chapters touch on her own experiences, a diagnosis of obsessive compulsive disorder and a season of deep depression, told as personal testimony. The book is not medical advice and makes no treatment claims."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Jesus Whispers"
 				},
 				"internal_links": [
@@ -2720,7 +3098,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/jesus-whispers/",
 				"buy_url": "https://spiritmediapublishing.com/books/jesus-whispers/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#jesus-whispers (draft unit 3fl); sources: Drive metadata Doc 14qTz-Dbk_-Mk-zIM6EU0vtf57Xs3F40BeDw8X3jc1Wo (Jesus Whispers — Metadata (2026-10-29)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#jesus-whispers (draft unit 3fl); sources: Drive metadata Doc 14qTz-Dbk_-Mk-zIM6EU0vtf57Xs3F40BeDw8X3jc1Wo (Jesus Whispers — Metadata (2026-10-29)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-03-27, Amazon March 27, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"jesus-whispers-pb": {
@@ -2800,11 +3186,11 @@
 					},
 					{
 						"q": "Does it cover the armor of God?",
-						"a": "Yes, as one of the truths in the Warrior's Mindset section; the interior mentions armor 17 times. It is one theme among forty days, not the whole book."
+						"a": "Yes, as one of the truths in the Warrior's Mindset section. It is one theme among forty days, not the whole book."
 					},
 					{
 						"q": "Is it a prophecy book?",
-						"a": "The Doc calls it a devotional and a roadmap to be ready for the Lord's return; it does not set dates and the page makes none."
+						"a": "It is a devotional and a roadmap to be ready for the Lord's return; it does not set dates."
 					}
 				],
 				"bio": "Patricia A. Daniel grew up as a child of military parents and saw firsthand the discipline, order and commitment of those who served. God later used that upbringing to shape her understanding of serving under the command of the Lord Jesus Christ. A poem she wrote, Marching Orders, about being prepared to serve faithfully in the end-times, became the inspiration for the 40-day devotional.",
@@ -2816,7 +3202,7 @@
 						"isbn": "9798893071535 (paperback); workExample eBook 9798893071542",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 254,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-06-15, Amazon June 15, 2025)",
+						"datePublished": null,
 						"audience": "Adult Christian readers",
 						"about": [
 							"40-day devotional",
@@ -2828,15 +3214,36 @@
 						"@id": "https://spiritmediapublishing.com/books/the-end-times-warrior/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 15.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Patricia Daniel",
-						"description": "bio above",
-						"url": "https://www.amazon.com/Patricia-A-Daniel/e/B0FH5QYJNL (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "Patricia A. Daniel grew up as a child of military parents and saw firsthand the discipline, order and commitment of those who served. God later used that upbringing to shape her understanding of serving under the command of the Lord Jesus Christ. A poem she wrote, Marching Orders, about being prepared to serve faithfully in the end-times, became the inspiration for the 40-day devotional.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/the-end-times-warrior/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is The End-Times Warrior?",
+							"a": "A 40-day devotional by Patricia A. Daniel that helps believers prepare to serve Christ as surrendered, fearless warriors and be ready for His return."
+						},
+						{
+							"q": "How is each day built?",
+							"a": "New King James Scripture and affirmations, a biblical truth, a reflection, ways to apply it, a prayer and journal pages."
+						},
+						{
+							"q": "What are the four sections?",
+							"a": "The Lord, Our Commander; The Warrior's Identity in Christ; The Warrior's Special Training; and The Warrior's Mindset, which spans thirty-three days."
+						},
+						{
+							"q": "Does it cover the armor of God?",
+							"a": "Yes, as one of the truths in the Warrior's Mindset section. It is one theme among forty days, not the whole book."
+						},
+						{
+							"q": "Is it a prophecy book?",
+							"a": "It is a devotional and a roadmap to be ready for the Lord's return; it does not set dates."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > The End-Times Warrior"
 				},
 				"internal_links": [
@@ -2852,7 +3259,7 @@
 				"formats": ["the-end-times-warrior-pb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "2025912364 (sheet.json only; the Doc has none)",
+				"lccn": "2025912364",
 				"pub_date": null,
 				"lead_term": {
 					"term": "prayers for strength",
@@ -2917,7 +3324,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/the-end-times-warrior/",
 				"buy_url": "https://spiritmediapublishing.com/books/the-end-times-warrior/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-end-times-warrior (draft unit 3fm); sources: Drive metadata Doc 13nZ3qkfjqgB9ikoz6mOzwTkiIS9kBdIpE6wdyKXG2Uc (The End-Times Warrior — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-end-times-warrior (draft unit 3fm); sources: Drive metadata Doc 13nZ3qkfjqgB9ikoz6mOzwTkiIS9kBdIpE6wdyKXG2Uc (The End-Times Warrior — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-06-15, Amazon June 15, 2025)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 15.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Patricia-A-Daniel/e/B0FH5QYJNL (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"the-end-times-warrior-pb": {
@@ -2993,7 +3408,7 @@
 					},
 					{
 						"q": "Is it tied to Lent?",
-						"a": "No. The Doc says the days are not tied to a liturgical season, though they echo Lent's call to reflection, repentance and renewal."
+						"a": "No. The days are not tied to a liturgical season, though they echo Lent's call to reflection, repentance and renewal."
 					},
 					{
 						"q": "What does it pray about?",
@@ -3001,7 +3416,7 @@
 					},
 					{
 						"q": "Can groups use it?",
-						"a": "Yes. The Doc suggests a personal season of renewal, a daily quiet time or a small group."
+						"a": "Yes. It suits a personal season of renewal, a daily quiet time or a small group."
 					}
 				],
 				"bio": "Pastor Andre d'Arden is the author of Forty Days of Prayer and Reflection: Strengthening Your Bond with God, published in 2025. The book grew directly from his prayer life, and he grounds the devotional in Scripture, opening each day with a passage from the New King James Version. His hope is that these prayers will be a blessing to many others.",
@@ -3013,22 +3428,43 @@
 						"isbn": "9798893071856 (paperback); workExample eBook 9798893071832",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 174,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-08-13, Amazon August 13, 2025)",
+						"datePublished": null,
 						"audience": "Adult Christian readers and small groups",
 						"about": ["prayer", "Scripture", "devotional journal", "forty days"],
 						"sameAs": ["https://www.amazon.com/dp/B0FMQ3J6B1"],
 						"@id": "https://spiritmediapublishing.com/books/forty-days-of-prayer-and-reflection/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Pastor Andre d'Arden",
-						"description": "bio above",
-						"url": "https://www.amazon.com/Pastor-Andre-dArden/e/B0FP72T8QR (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "Pastor Andre d'Arden is the author of Forty Days of Prayer and Reflection: Strengthening Your Bond with God, published in 2025. The book grew directly from his prayer life, and he grounds the devotional in Scripture, opening each day with a passage from the New King James Version. His hope is that these prayers will be a blessing to many others.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/forty-days-of-prayer-and-reflection/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Forty Days of Prayer and Reflection?",
+							"a": "A guided devotional journal by Pastor Andre d'Arden: forty days, each with NKJV Scripture, a prayer, a short reflection and questions with lined space to write."
+						},
+						{
+							"q": "Why forty days?",
+							"a": "The introduction notes that forty marks a threshold in Scripture: Moses on Sinai, Israel in the wilderness, Elijah's journey to Horeb and Jesus fasting in the wilderness."
+						},
+						{
+							"q": "Is it tied to Lent?",
+							"a": "No. The days are not tied to a liturgical season, though they echo Lent's call to reflection, repentance and renewal."
+						},
+						{
+							"q": "What does it pray about?",
+							"a": "Healing and wholeness of mind, body and soul, overcoming obstacles, fear, feeling insignificant, recovery and enduring pain, among other days. It makes no medical claims."
+						},
+						{
+							"q": "Can groups use it?",
+							"a": "Yes. It suits a personal season of renewal, a daily quiet time or a small group."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Forty Days of Prayer and Reflection"
 				},
 				"internal_links": [
@@ -3104,7 +3540,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/forty-days-of-prayer-and-reflection/",
 				"buy_url": "https://spiritmediapublishing.com/books/forty-days-of-prayer-and-reflection/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#forty-days-of-prayer-and-reflection (draft unit 3fm); sources: Drive metadata Doc 1_DN8DInxtAoO5HinvC2N1BC4XQB7ucid20SgYrC_0lY (Forty Days of Prayer and Reflection — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#forty-days-of-prayer-and-reflection (draft unit 3fm); sources: Drive metadata Doc 1_DN8DInxtAoO5HinvC2N1BC4XQB7ucid20SgYrC_0lY (Forty Days of Prayer and Reflection — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-08-13, Amazon August 13, 2025)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Pastor-Andre-dArden/e/B0FP72T8QR (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"forty-days-of-prayer-and-reflection-pb": {
@@ -3201,7 +3645,7 @@
 						"isbn": "9798893072303 (paperback); workExample eBook 9798893072297",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 67,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2026-02-25, Amazon March 9, 2026)",
+						"datePublished": null,
 						"audience": "Christian professionals, church and workplace small groups",
 						"about": [
 							"faith at work",
@@ -3213,15 +3657,36 @@
 						"@id": "https://spiritmediapublishing.com/books/bringing-jesus-to-work/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 9.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Mark Thompson",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": "Mark Thompson is a business coach and Chief Revenue Officer. He grew up in a small town, where his faith was shaped by his mother's devotion to God and Jesus Christ, yet for years that faith stayed compartmentalized. After he and his wife moved to North Carolina and joined a church, small groups helped them weave God into their daily rhythms.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/bringing-jesus-to-work/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Bringing Jesus to Work?",
+							"a": "It is a ten-week study for Christian professionals. Each weekly session has a biblical theme, Scripture focus, discussion questions, an at-work challenge, a midweek message and a closing prayer."
+						},
+						{
+							"q": "What topics do the ten weeks cover?",
+							"a": "Authentic relationships at work, wisdom in decisions, integrity and ethics in business, hard work and diligence, communication and listening, resilience, financial responsibility and generosity, mentorship and discipleship, handling stress, burnout and temptation, and leaving a legacy of impact."
+						},
+						{
+							"q": "Is it good for workplace relationships and communication?",
+							"a": "Yes. It includes an eight-step communication framework, from being curious about someone else's story to asking about their faith history, and the Four Spaces of Belonging, which show how relationships move from public to social to personal to intimate."
+						},
+						{
+							"q": "Who can lead a group with it?",
+							"a": "Facilitators need no seminary degree, only a willing heart. Sessions run about sixty minutes in a church, a workplace lunchroom, a virtual group or a living room."
+						},
+						{
+							"q": "Is there anything for pastors and ministry leaders?",
+							"a": "Yes. Dedicated sections equip pastors and ministry leaders to disciple staff, volunteers and high-capacity leaders, and equip marketplace leaders to launch and multiply groups in their own offices."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Bringing Jesus to Work"
 				},
 				"internal_links": [
@@ -3304,7 +3769,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/bringing-jesus-to-work/",
 				"buy_url": "https://spiritmediapublishing.com/books/bringing-jesus-to-work/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#bringing-jesus-to-work (draft unit 3fl); sources: Drive metadata Doc 1dvM0L4RKKj4L1VTlmyV7H1ttR5HJxfkyfNmXSKdLcg8 (Bringing Jesus to Work — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#bringing-jesus-to-work (draft unit 3fl); sources: Drive metadata Doc 1dvM0L4RKKj4L1VTlmyV7H1ttR5HJxfkyfNmXSKdLcg8 (Bringing Jesus to Work — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-02-25, Amazon March 9, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 9.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"bringing-jesus-to-work-pb": {
@@ -3376,7 +3849,7 @@
 					},
 					{
 						"q": "Is it a true story?",
-						"a": "It is a work of fiction inspired by real events, much of it drawn from the life-and-death experiences of the founder of Son-Shine, per the Doc."
+						"a": "It is a work of fiction inspired by real events, much of it drawn from the life-and-death experiences of the founder of Son-Shine."
 					},
 					{
 						"q": "Does it explain the caste system?",
@@ -3384,11 +3857,11 @@
 					},
 					{
 						"q": "Is it a Christian book?",
-						"a": "It is filed under Christian Books and Bibles literature and fiction as well as Indian world literature, and it follows a faith-based refuge, but the Doc does not label it devotional."
+						"a": "It follows a faith-based refuge and is classed as Christian literature and fiction as well as Indian world literature, but it is not labeled devotional."
 					},
 					{
 						"q": "What does Broadway have to do with it?",
-						"a": "The subtitle From Beatings To Broadway reflects the boy's journey; the interior has Broadway and ballet scenes, and the Doc describes the arc without spoilers."
+						"a": "The subtitle From Beatings To Broadway reflects the boy's journey; the book has Broadway and ballet scenes, and the arc is left unspoiled here."
 					}
 				],
 				"bio": "Richard Convery is an Australian author whose novel Untouchable: From Beatings To Broadway is a work of fiction inspired by real events. In 2009 he first met the founder of Son-Shine, an orphanage and school in India that has rescued, housed and educated many thousands of Dalit children since 2006, and he relied on him for insight into the lives of India's Dalits while researching the book.",
@@ -3400,22 +3873,43 @@
 						"isbn": "9781958304358 (paperback); workExample hardback 9781958304815, eBook 9781958304372",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 478,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2023-05-02, Amazon May 2, 2023)",
+						"datePublished": null,
 						"audience": "Adult readers of Christian and world fiction",
 						"about": ["Dalits in India", "caste", "orphans", "faith-based fiction"],
 						"sameAs": ["https://www.amazon.com/dp/1958304352"],
 						"@id": "https://spiritmediapublishing.com/books/untouchable/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Richard Convery",
-						"description": "bio above",
-						"url": "https://www.amazon.com/Richard-Convery/e/B0C9NJWHS8 (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "Richard Convery is an Australian author whose novel Untouchable: From Beatings To Broadway is a work of fiction inspired by real events. In 2009 he first met the founder of Son-Shine, an orphanage and school in India that has rescued, housed and educated many thousands of Dalit children since 2006, and he relied on him for insight into the lives of India's Dalits while researching the book.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/untouchable/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Untouchable about?",
+							"a": "A novel inspired by real events: Naggya, a five-year-old Dalit orphan in rural India, flees a violent father and searches for survival while a young man named Elijah builds a refuge and school for Dalit children."
+						},
+						{
+							"q": "Is it a true story?",
+							"a": "It is a work of fiction inspired by real events, much of it drawn from the life-and-death experiences of the founder of Son-Shine."
+						},
+						{
+							"q": "Does it explain the caste system?",
+							"a": "It opens a window on India's Dalits, the people at the bottom of the traditional caste hierarchy, through a story. It is a novel, not a history or guide to caste."
+						},
+						{
+							"q": "Is it a Christian book?",
+							"a": "It follows a faith-based refuge and is classed as Christian literature and fiction as well as Indian world literature, but it is not labeled devotional."
+						},
+						{
+							"q": "What does Broadway have to do with it?",
+							"a": "The subtitle From Beatings To Broadway reflects the boy's journey; the book has Broadway and ballet scenes, and the arc is left unspoiled here."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Untouchable"
 				},
 				"internal_links": [
@@ -3491,7 +3985,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/untouchable/",
 				"buy_url": "https://spiritmediapublishing.com/books/untouchable/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#untouchable (draft unit 3fm); sources: Drive metadata Doc 18xX0Z4UQunTt7Jh0LG0vyZk5RJpKnlpAQ3s0vhCCwZo (Untouchable — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#untouchable (draft unit 3fm); sources: Drive metadata Doc 18xX0Z4UQunTt7Jh0LG0vyZk5RJpKnlpAQ3s0vhCCwZo (Untouchable — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2023-05-02, Amazon May 2, 2023)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Richard-Convery/e/B0C9NJWHS8 (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"untouchable-pb": {
@@ -3599,7 +4101,7 @@
 					},
 					{
 						"q": "Can I write a book if I am not a writer?",
-						"a": "The Doc says so plainly: you do not need to be a professional, you need a bridge to build. The book shows where to find words you have already written, words you find and save, and words you create fresh."
+						"a": "Yes: you do not need to be a professional, you need a bridge to build. The book shows where to find words you have already written, words you find and save, and words you create fresh."
 					},
 					{
 						"q": "How do I start a book or a memoir?",
@@ -3607,7 +4109,7 @@
 					},
 					{
 						"q": "Is this a book about self-publishing?",
-						"a": "No. It is about why and how to start writing. Publishing steps are not the subject (the interior mentions publishing only on the copyright page and in a publisher's closing note)."
+						"a": "No. It is about why and how to start writing; publishing steps are not the subject."
 					},
 					{
 						"q": "Who is it for?",
@@ -3623,7 +4125,7 @@
 						"isbn": "Paperback 9798893070330; eBook 9798893070323",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 83,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2024-02-21, Amazon February 21, 2024)",
+						"datePublished": null,
 						"audience": "Adult Christian readers and first-time authors",
 						"about": [
 							"writing a book",
@@ -3635,15 +4137,36 @@
 						"@id": "https://spiritmediapublishing.com/books/write-before-coffee/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live Paperback 17.99 USD, eBook 4.99 USD (re-confirm at go-live), InStock, New",
+					"offer": null,
 					"person": {
 						"name": "Carlene Hill Byron",
 						"description": "Carlene Hill Byron has worked more than 40 years as a professional writer and editor. Her career has spanned a daily newspaper, a tech startup, a large engineering company, two regional faith-based nonprofits, a company that supported SEO for an online global marketplace, and a regional disability nonprofit.",
-						"url": "https://www.amazon.com/Carlene-Hill-Byron/e/B093JJBSWL (Author Central, as sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/write-before-coffee/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Write Before Coffee about?",
+							"a": "It is a short guide by writer and editor Carlene Hill Byron for people who believe they are not writers: why your story matters, where the words for a book come from, how to collect them and how to start."
+						},
+						{
+							"q": "Can I write a book if I am not a writer?",
+							"a": "Yes: you do not need to be a professional, you need a bridge to build. The book shows where to find words you have already written, words you find and save, and words you create fresh."
+						},
+						{
+							"q": "How do I start a book or a memoir?",
+							"a": "The guide covers facing the blank page, with two secrets from a long-time professional writer, and simple ways to save ideas by subtopic with folders, journals, 3x5 cards and tools such as OneNote or Scrivener."
+						},
+						{
+							"q": "Is this a book about self-publishing?",
+							"a": "No. It is about why and how to start writing; publishing steps are not the subject."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Adult Christian readers and first-time authors, including pastors and ministry leaders who already write sermons, devotionals or talks but have never written a book."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Write Before Coffee"
 				},
 				"internal_links": [
@@ -3659,7 +4182,7 @@
 				"formats": ["write-before-coffee-pb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "2024903555 (Doc and sheet.json)",
+				"lccn": "2024903555",
 				"pub_date": null,
 				"lead_term": {
 					"term": "write a book",
@@ -3725,7 +4248,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/write-before-coffee/",
 				"buy_url": "https://spiritmediapublishing.com/books/write-before-coffee/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#write-before-coffee (draft unit 3fn); sources: Drive metadata Doc 12tAb2LCG8kQlCUqBx-NvZXSUfyjJaFWK_olEr3VPreI (Write Before Coffee — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#write-before-coffee (draft unit 3fn); sources: Drive metadata Doc 12tAb2LCG8kQlCUqBx-NvZXSUfyjJaFWK_olEr3VPreI (Write Before Coffee — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2024-02-21, Amazon February 21, 2024)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 17.99 USD, eBook 4.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.url": "https://www.amazon.com/Carlene-Hill-Byron/e/B093JJBSWL (Author Central, as sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"write-before-coffee-pb": {
@@ -3767,10 +4298,10 @@
 			}
 		},
 		{
-			"slug": "a-shepherd-s-story",
+			"slug": "a-shepherds-story",
 			"units_12m": 3,
 			"book": {
-				"slug": "a-shepherd-s-story",
+				"slug": "a-shepherds-story",
 				"status": "pending",
 				"title": "A Shepherd's Story",
 				"subtitle": "Shadows of Death to God's Glory",
@@ -3797,7 +4328,7 @@
 					},
 					{
 						"q": "Is the author a pastor?",
-						"a": "The Doc says he is not a pastor but a daily bread earner who has shared God's love and plan of salvation in different parts of India since 2000."
+						"a": "No. He is not a pastor but a daily bread earner who has shared God's love and plan of salvation in different parts of India since 2000."
 					},
 					{
 						"q": "What does it say about politics and religion?",
@@ -3821,22 +4352,43 @@
 						"isbn": "9781958304204 (paperback); workExample hardback 9781958304211, eBook 9781958304228",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 112,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2023-01-27, Amazon January 27, 2023)",
+						"datePublished": null,
 						"audience": "Adult Christian readers",
 						"about": ["Christian testimony", "Manipur, India", "miracles", "trusting God"],
 						"sameAs": ["https://www.amazon.com/dp/1958304204"],
 						"@id": "https://spiritmediapublishing.com/books/a-shepherds-story/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 16.00 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Leivon \"Canary\" Kom",
-						"description": "bio above, first three sentences",
-						"url": "https://www.amazon.com/Leivon-Canary-Kom/e/B0BX735JJC (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "Leivon Canary Kom grew up in Manipur, India, the fifth of seven children in a nominally Christian family, in a small, underprivileged village, the son of daily wage laborers. The first book he fell in love with was the King James Bible, introduced to him by his grandfather. Since 2000 he has worked in different parts of India, not as a pastor but as a daily bread earner, sharing God's love and plan of salvation through his teaching and Bible ministry.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/a-shepherds-story/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is A Shepherd's Story about?",
+							"a": "Leivon Canary Kom's testimony of God's love from a poor village in Manipur, India: miracles, early education, Bible ministry, regrets, and the six sayings his mother repeated to her children."
+						},
+						{
+							"q": "Is the author a pastor?",
+							"a": "No. He is not a pastor but a daily bread earner who has shared God's love and plan of salvation in different parts of India since 2000."
+						},
+						{
+							"q": "What does it say about politics and religion?",
+							"a": "The later chapters speak about social, political and religious systems, preconceived ideas, Satan, nepotism, selfishness, suicide and scams, and where true peace and security are found."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Anyone suffering physically or spiritually who needs to hear that God is good, and poor people the author wants to encourage."
+						},
+						{
+							"q": "Does it include other voices?",
+							"a": "Yes. The book closes with testimonies narrated by members of his family and a friend."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > A Shepherd's Story"
 				},
 				"internal_links": [
@@ -3849,7 +4401,7 @@
 					"source": "SMP books-data.json (feat-smp-store) card: A Shepherd’s Story",
 					"http_check_2026-11-13": "200 image/jpeg"
 				},
-				"formats": ["a-shepherd-s-story-pb", "a-shepherd-s-story-hb"],
+				"formats": ["a-shepherds-story-pb", "a-shepherds-story-hb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
 				"lccn": "2023900754",
@@ -3925,10 +4477,18 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/a-shepherd-s-story/",
 				"buy_url": "https://spiritmediapublishing.com/books/a-shepherd-s-story/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#a-shepherd-s-story (draft unit 3fm); sources: Drive metadata Doc 1dvnRJlnaEzccer74MDCo4lcOV1AvprovClCdvruhhRo (A Shepherd's Story — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#a-shepherd-s-story (draft unit 3fm); sources: Drive metadata Doc 1dvnRJlnaEzccer74MDCo4lcOV1AvprovClCdvruhhRo (A Shepherd's Story — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2023-01-27, Amazon January 27, 2023)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 16.00 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Leivon-Canary-Kom/e/B0BX735JJC (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
-				"a-shepherd-s-story-pb": {
+				"a-shepherds-story-pb": {
 					"format": "Paperback",
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304204",
@@ -3964,7 +4524,7 @@
 					"sku_tbd": [],
 					"sku_ready": true
 				},
-				"a-shepherd-s-story-hb": {
+				"a-shepherds-story-hb": {
 					"format": "Hardback",
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304211",
@@ -4037,11 +4597,11 @@
 					},
 					{
 						"q": "Is it about pressure to give?",
-						"a": "No. The Doc says it is not about beating you up for not giving, pressuring you to give what you can produce, or giving for personal gain. God is the Giver and giving means releasing what He puts in your hands."
+						"a": "No. It is not about beating you up for not giving, pressuring you to give what you can produce, or giving for personal gain. God is the Giver and giving means releasing what He puts in your hands."
 					},
 					{
 						"q": "What does the book say about fear and courage?",
-						"a": "Courage and fear run through the book (courage appears about 258 times and fear about 117). It teaches why you need courage, how to take it, and how to move from fear to freedom."
+						"a": "Courage and fear run through the book. It teaches why you need courage, how to take it, and how to move from fear to freedom."
 					},
 					{
 						"q": "What is the link to India?",
@@ -4057,22 +4617,43 @@
 						"isbn": "Paperback 9798893070989; Hardback 9798893070996; eBook 9798893071009",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 266,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2020-11-06, Amazon July 22, 2024)",
+						"datePublished": null,
 						"audience": "Adult Christian readers",
 						"about": ["generosity", "faith over fear", "giving", "courage"],
 						"sameAs": ["https://www.amazon.com/dp/B0D9WV3DYL"],
 						"@id": "https://spiritmediapublishing.com/books/audacious-generosity/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live Paperback 16.99 USD, Hardback 21.99 USD, eBook 9.99 USD (re-confirm at go-live), InStock, New",
+					"offer": null,
 					"person": {
 						"name": "Kevin White",
 						"description": "Kevin White gave his life to Christ at ten years old. Twenty years later, after being fired from a church as an insecure workaholic for God, a trip to India changed his life and he committed to pursue the presence of God.",
-						"url": "https://www.amazon.com/Kevin-White/e/B08LZYTR2B (Author Central, as sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/audacious-generosity/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Audacious Generosity about?",
+							"a": "It is Kevin White's story of a prayer for food that others might eat, which grew into a ministry feeding 500 families a month, and a three-step guide to live with bold, openhanded generosity."
+						},
+						{
+							"q": "What are the three steps?",
+							"a": "Set God Free, to live recklessly, ask God for more and find courage; Set Yourself Free, to receive more and move from fear to freedom; and Set Others Free."
+						},
+						{
+							"q": "Is it about pressure to give?",
+							"a": "No. It is not about beating you up for not giving, pressuring you to give what you can produce, or giving for personal gain. God is the Giver and giving means releasing what He puts in your hands."
+						},
+						{
+							"q": "What does the book say about fear and courage?",
+							"a": "Courage and fear run through the book. It teaches why you need courage, how to take it, and how to move from fear to freedom."
+						},
+						{
+							"q": "What is the link to India?",
+							"a": "After being fired from a church, the author went to India, and on the plane ride home committed to pursue the presence of God. The book and his ministry carry a burden for India (the interior names the Great Commission 30 times)."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Audacious Generosity"
 				},
 				"internal_links": [
@@ -4088,7 +4669,7 @@
 				"formats": ["audacious-generosity-pb", "audacious-generosity-hb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "none in the Doc or sheet.json",
+				"lccn": null,
 				"pub_date": null,
 				"lead_term": {
 					"term": "faith over fear",
@@ -4154,7 +4735,18 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/audacious-generosity/",
 				"buy_url": "https://spiritmediapublishing.com/books/audacious-generosity/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#audacious-generosity (draft unit 3fn); sources: Drive metadata Doc 1WmBsUF4JGbQSyZdEIZwcrfpKiMnMGFFCa4ZxoPYEMOk (Audacious Generosity — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#audacious-generosity (draft unit 3fn); sources: Drive metadata Doc 1WmBsUF4JGbQSyZdEIZwcrfpKiMnMGFFCa4ZxoPYEMOk (Audacious Generosity — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"lccn": "none in the Doc or sheet.json"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2020-11-06, Amazon July 22, 2024)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 16.99 USD, Hardback 21.99 USD, eBook 9.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.url": "https://www.amazon.com/Kevin-White/e/B08LZYTR2B (Author Central, as sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"audacious-generosity-pb": {
@@ -4271,11 +4863,11 @@
 					},
 					{
 						"q": "What ages is it for?",
-						"a": "The sheet lists it as a read-aloud picture book for ages 3 to 8 (the Amazon reading-age field says 4 to 11). It is 30 pages, 8.5 x 8.25 inches, in color."
+						"a": "It is a read-aloud picture book for ages 3 to 8. It is 30 pages, 8.5 x 8.25 inches, in color."
 					},
 					{
 						"q": "Is it good for bedtime, Sunday school or a gift?",
-						"a": "Yes. The Doc lists bedtime read-alouds, Sunday school and children's ministry, family devotion time, homeschool faith lessons and gifts for birthdays, Easter, Christmas, baptisms and dedications."
+						"a": "Yes. It suits bedtime read-alouds, Sunday school and children's ministry, family devotion time, homeschool faith lessons and gifts for birthdays, Easter, Christmas, baptisms and dedications."
 					}
 				],
 				"bio": null,
@@ -4287,22 +4879,43 @@
 						"isbn": "9798893071566 (paperback); workExample eBook 9798893071573",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 30,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-07-07, Amazon July 7, 2025)",
+						"datePublished": null,
 						"audience": "Children ages 3-8 and the adults who read aloud with them",
 						"about": ["who God is", "God's love", "Jesus", "Holy Spirit"],
 						"sameAs": ["https://www.amazon.com/dp/B0FH7BZ4GX"],
 						"@id": "https://spiritmediapublishing.com/books/do-you-know/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 13.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Katherine Robinson",
-						"description": "OMIT (no bio supplied)",
-						"url": "TBD (none in sources)",
-						"sameAs": "TBD (none approved)",
+						"description": null,
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/do-you-know/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Do You Know? about?",
+							"a": "It is a read-aloud picture book that introduces young children to who God is and how deeply He loves them, asking one simple question again and again so little listeners can discover the answer."
+						},
+						{
+							"q": "Does it tell children who God is?",
+							"a": "Yes. Children learn that God is the creator of the heavens and the earth, that He was there in the beginning, that He is all holy, all sovereign and all mighty, and that He is our heavenly Father."
+						},
+						{
+							"q": "Does the book talk about Jesus and why He came?",
+							"a": "Yes. It explains that everyone struggles with sin and needs help making godly choices, and that this is why God sent His Son, Jesus Christ, to save us. When Jesus returned to Heaven He left His Holy Spirit."
+						},
+						{
+							"q": "What ages is it for?",
+							"a": "It is a read-aloud picture book for ages 3 to 8. It is 30 pages, 8.5 x 8.25 inches, in color."
+						},
+						{
+							"q": "Is it good for bedtime, Sunday school or a gift?",
+							"a": "Yes. It suits bedtime read-alouds, Sunday school and children's ministry, family devotion time, homeschool faith lessons and gifts for birthdays, Easter, Christmas, baptisms and dedications."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Do You Know?"
 				},
 				"internal_links": [
@@ -4320,7 +4933,7 @@
 				"formats": ["do-you-know-pb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "not in the Doc; sheet.json carries 2025913072 (unconfirmed)",
+				"lccn": null,
 				"pub_date": "2025-07-07",
 				"lead_term": {
 					"term": "who is god",
@@ -4379,7 +4992,19 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/do-you-know/",
 				"buy_url": "https://spiritmediapublishing.com/books/do-you-know/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#do-you-know (draft unit 3fl); sources: Drive metadata Doc 1UL99CYu4XjCSHW4R9urQqqGVTIOiUjObp5DBT-rkWNo (Do You Know? — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#do-you-know (draft unit 3fl); sources: Drive metadata Doc 1UL99CYu4XjCSHW4R9urQqqGVTIOiUjObp5DBT-rkWNo (Do You Know? — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"lccn": "not in the Doc; sheet.json carries 2025913072 (unconfirmed)"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-07-07, Amazon July 7, 2025)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 13.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.description": "OMIT (no bio supplied)",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"do-you-know-pb": {
@@ -4451,7 +5076,7 @@
 					},
 					{
 						"q": "Does it cover sudden loss?",
-						"a": "Yes. The Doc says it addresses anticipated deaths after a long illness and sudden tragedies, including accidents, suicide and murder."
+						"a": "Yes. It addresses anticipated deaths after a long illness and sudden tragedies, including accidents, suicide and murder."
 					},
 					{
 						"q": "Is it a Christian book?",
@@ -4459,11 +5084,11 @@
 					},
 					{
 						"q": "Is it a workbook?",
-						"a": "The Doc calls it a guide arranged as lessons with key takeaways. It does not call it a workbook, and the sheet slot 'widows workbook' returned no data."
+						"a": "It is a guide arranged as lessons with key takeaways, not a workbook."
 					},
 					{
 						"q": "Is it therapy or medical advice?",
-						"a": "No. It is one counselor's guide and personal account; the page makes no treatment claim."
+						"a": "No. It is one counselor's guide and personal account."
 					}
 				],
 				"bio": "Annie Brown has been involved in grief counseling and ministry for more than fifteen years and has known grief intimately for almost thirty-four. Before that season she taught Sunday School, sang in the choir and taught Bible studies. Out of her darkest season her ministry was born, and she now leads grief groups and classes for hurting people.",
@@ -4475,22 +5100,43 @@
 						"isbn": "9798893071474 (paperback)",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 52,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2025-05-28, Amazon none read)",
+						"datePublished": null,
 						"audience": "Grieving readers, Christian readers, grief support groups",
 						"about": ["grief", "bereavement", "loss of a loved one", "faith"],
 						"sameAs": [],
 						"@id": "https://spiritmediapublishing.com/books/a-journey-through-grief/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 10.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Annie Brown",
-						"description": "bio above",
-						"url": "TBD (none in sources; no Author Central page)",
-						"sameAs": "TBD (none approved)",
+						"description": "Annie Brown has been involved in grief counseling and ministry for more than fifteen years and has known grief intimately for almost thirty-four. Before that season she taught Sunday School, sang in the choir and taught Bible studies. Out of her darkest season her ministry was born, and she now leads grief groups and classes for hurting people.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/a-journey-through-grief/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is A Journey Through Grief about?",
+							"a": "A short guide for anyone who has lost someone they love, from a grief counselor who was widowed in her mid-thirties: lessons on what grief looks and feels like, each ending with key takeaways."
+						},
+						{
+							"q": "Does it cover sudden loss?",
+							"a": "Yes. It addresses anticipated deaths after a long illness and sudden tragedies, including accidents, suicide and murder."
+						},
+						{
+							"q": "Is it a Christian book?",
+							"a": "It is rooted in Scripture, including Psalm 23 and Deuteronomy 31:8, and holds that faith sustains us through tragedy."
+						},
+						{
+							"q": "Is it a workbook?",
+							"a": "It is a guide arranged as lessons with key takeaways, not a workbook."
+						},
+						{
+							"q": "Is it therapy or medical advice?",
+							"a": "No. It is one counselor's guide and personal account."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > A Journey Through Grief"
 				},
 				"internal_links": [
@@ -4506,7 +5152,7 @@
 				"formats": ["a-journey-through-grief-pb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "2025910530 (sheet.json only; the Doc has none)",
+				"lccn": "2025910530",
 				"pub_date": null,
 				"lead_term": {
 					"term": "grieving process",
@@ -4566,7 +5212,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/a-journey-through-grief/",
 				"buy_url": "https://spiritmediapublishing.com/books/a-journey-through-grief/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#a-journey-through-grief (draft unit 3fm); sources: Drive metadata Doc 1H6WtUr1ulznYhOcx9BI_5CYeFRwIlhK_kkP2tWNKOLQ (A Journey Through Grief — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#a-journey-through-grief (draft unit 3fm); sources: Drive metadata Doc 1H6WtUr1ulznYhOcx9BI_5CYeFRwIlhK_kkP2tWNKOLQ (A Journey Through Grief — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2025-05-28, Amazon none read)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 10.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources; no Author Central page)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"a-journey-through-grief-pb": {
@@ -4638,11 +5292,11 @@
 					},
 					{
 						"q": "Is it medical or therapy advice?",
-						"a": "No. It is a collection of readings from one counselor's experience and Scripture; the page makes no treatment or outcome claim."
+						"a": "No. It is a collection of readings from one counselor's experience and Scripture."
 					},
 					{
 						"q": "What Bible version does it use?",
-						"a": "Scripture is quoted mainly from the Holman Christian Standard Bible, per the Doc."
+						"a": "Scripture is quoted mainly from the Holman Christian Standard Bible."
 					},
 					{
 						"q": "How is it organised?",
@@ -4650,7 +5304,7 @@
 					},
 					{
 						"q": "Can it be used in a group?",
-						"a": "Yes. Each reading is short enough for a morning devotion or a small-group discussion, per the Doc."
+						"a": "Yes. Each reading is short enough for a morning devotion or a small-group discussion."
 					}
 				],
 				"bio": "James E. Kilgore, Ph.D., has served as a marriage and family therapist and a pastor for more than sixty-five years. Across six decades in the counseling office he has listened to couples and individuals wrestle with anxiety, bitterness, grief and the search for identity, and has watched forgiveness open the way to happiness.",
@@ -4662,22 +5316,43 @@
 						"isbn": "9781958304082 (paperback); workExample hardback 9781958304099, eBook 9781958304112",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 252,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2022-11-14, Amazon November 14, 2022)",
+						"datePublished": null,
 						"audience": "Adult Christian readers, couples, families and small groups",
 						"about": ["anxiety", "faith over fear", "Christian encouragement", "forgiveness"],
 						"sameAs": ["https://www.amazon.com/dp/1958304085"],
 						"@id": "https://spiritmediapublishing.com/books/escaping-anxiety/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 15.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "James Kilgore",
-						"description": "bio above",
-						"url": "https://www.amazon.com/Dr-James-E-Kilgore/e/B0C9591D3D (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "James E. Kilgore, Ph.D., has served as a marriage and family therapist and a pastor for more than sixty-five years. Across six decades in the counseling office he has listened to couples and individuals wrestle with anxiety, bitterness, grief and the search for identity, and has watched forgiveness open the way to happiness.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/escaping-anxiety/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Escaping Anxiety about?",
+							"a": "Short, practical readings from a marriage and family therapist and pastor, each a power idea for turning anxious thinking into a calmer, more hopeful life through faith and grace."
+						},
+						{
+							"q": "Is it medical or therapy advice?",
+							"a": "No. It is a collection of readings from one counselor's experience and Scripture."
+						},
+						{
+							"q": "What Bible version does it use?",
+							"a": "Scripture is quoted mainly from the Holman Christian Standard Bible."
+						},
+						{
+							"q": "How is it organised?",
+							"a": "Five sections: escaping anxiety, positive wholeness, seasonal lessons, family and marriage, and transforming the mundane to the magnificent."
+						},
+						{
+							"q": "Can it be used in a group?",
+							"a": "Yes. Each reading is short enough for a morning devotion or a small-group discussion."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Escaping Anxiety"
 				},
 				"internal_links": [
@@ -4759,7 +5434,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/escaping-anxiety/",
 				"buy_url": "https://spiritmediapublishing.com/books/escaping-anxiety/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#escaping-anxiety (draft unit 3fm); sources: Drive metadata Doc 1KDHwEGV6NZV3GKGa-b-x3MtYz17pjSqddE3YFtfvHcM (Escaping Anxiety — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#escaping-anxiety (draft unit 3fm); sources: Drive metadata Doc 1KDHwEGV6NZV3GKGa-b-x3MtYz17pjSqddE3YFtfvHcM (Escaping Anxiety — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2022-11-14, Amazon November 14, 2022)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 15.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Dr-James-E-Kilgore/e/B0C9591D3D (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"escaping-anxiety-pb": {
@@ -4837,10 +5520,10 @@
 			}
 		},
 		{
-			"slug": "god-s-dream",
+			"slug": "gods-dream",
 			"units_12m": 1,
 			"book": {
-				"slug": "god-s-dream",
+				"slug": "gods-dream",
 				"status": "pending",
 				"title": "God's Dream",
 				"subtitle": "The Miracles of God Out of Empty Hands",
@@ -4871,7 +5554,7 @@
 					},
 					{
 						"q": "What is LIGHT?",
-						"a": "The Doc describes LIGHT Home for orphaned and needy children, an English medium school, tailoring training, feeding the hungry, Light Bible School, church planting and rural healthcare growing toward a hospital for at-risk mothers."
+						"a": "LIGHT Home cares for orphaned and needy children, alongside an English medium school, tailoring training, feeding the hungry, Light Bible School, church planting and rural healthcare growing toward a hospital for at-risk mothers."
 					},
 					{
 						"q": "Does the book explain the caste system?",
@@ -4879,7 +5562,7 @@
 					},
 					{
 						"q": "Can readers help?",
-						"a": "The Doc says the book closes with a sponsorship plan and invites readers to take action; the page does not publish sponsorship terms."
+						"a": "Yes. The book closes with a sponsorship plan and invites readers to take action."
 					}
 				],
 				"bio": "Elisha Chowtapalli was born into an impoverished Dalit Christian family in a remote village in Andhra Pradesh, South India, and was the first in his family to go to school. He followed God's call to serve the orphaned, poor and needy children of India. He is the founder and president of LIGHT Society, pastors a church and is building a hospital where at-risk mothers can safely deliver their babies.",
@@ -4891,22 +5574,43 @@
 						"isbn": "9781737775881 (paperback); workExample hardback 9781958304891, eBook 9781958304884",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 228,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2023-05-12, Amazon May 12, 2023)",
+						"datePublished": null,
 						"audience": "Adult Christian readers and supporters of mission work in India",
 						"about": ["Dalit children", "South India", "orphan care", "answered prayer"],
 						"sameAs": ["https://www.amazon.com/dp/1737775883"],
 						"@id": "https://spiritmediapublishing.com/books/gods-dream/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 16.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Elisha Chowtapalli",
-						"description": "bio above",
-						"url": "https://www.amazon.com/Elisha-Chowtapalli/e/B0C8ZF291Q (Author Central, sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"description": "Elisha Chowtapalli was born into an impoverished Dalit Christian family in a remote village in Andhra Pradesh, South India, and was the first in his family to go to school. He followed God's call to serve the orphaned, poor and needy children of India. He is the founder and president of LIGHT Society, pastors a church and is building a hospital where at-risk mothers can safely deliver their babies.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/gods-dream/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is God's Dream about?",
+							"a": "Elisha Chowtapalli's own account of a life that began in a poor Dalit village in South India and how, he says, God used it to build a children's home, schools, churches and a hospital."
+						},
+						{
+							"q": "Who is Elisha Chowtapalli?",
+							"a": "The author, founder and president of LIGHT Society, who was born into a Dalit Christian family in Andhra Pradesh and was the first in his family to attend school."
+						},
+						{
+							"q": "What is LIGHT?",
+							"a": "LIGHT Home cares for orphaned and needy children, alongside an English medium school, tailoring training, feeding the hungry, Light Bible School, church planting and rural healthcare growing toward a hospital for at-risk mothers."
+						},
+						{
+							"q": "Does the book explain the caste system?",
+							"a": "It tells one man's life among the people India once called untouchable and how education is changing the future of Dalit children. It is a memoir, not a history of caste."
+						},
+						{
+							"q": "Can readers help?",
+							"a": "Yes. The book closes with a sponsorship plan and invites readers to take action."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > God's Dream"
 				},
 				"internal_links": [
@@ -4919,10 +5623,10 @@
 					"source": "SMP books-data.json (feat-smp-store) card: God’s Dream",
 					"http_check_2026-11-13": "200 image/jpeg"
 				},
-				"formats": ["god-s-dream-pb", "god-s-dream-hb"],
+				"formats": ["gods-dream-pb", "gods-dream-hb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "none in the Doc or sheet.json",
+				"lccn": null,
 				"pub_date": null,
 				"lead_term": {
 					"term": "caste system india",
@@ -4982,10 +5686,21 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/god-s-dream/",
 				"buy_url": "https://spiritmediapublishing.com/books/god-s-dream/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#god-s-dream (draft unit 3fm); sources: Drive metadata Doc 1iCkMdJlukGtGel9TvLPbWyDrOHtZppaxjjvOaPwJvEI (God's Dream — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#god-s-dream (draft unit 3fm); sources: Drive metadata Doc 1iCkMdJlukGtGel9TvLPbWyDrOHtZppaxjjvOaPwJvEI (God's Dream — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"lccn": "none in the Doc or sheet.json"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2023-05-12, Amazon May 12, 2023)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 16.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "https://www.amazon.com/Elisha-Chowtapalli/e/B0C8ZF291Q (Author Central, sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
-				"god-s-dream-pb": {
+				"gods-dream-pb": {
 					"format": "Paperback",
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781737775881",
@@ -5021,7 +5736,7 @@
 					"sku_tbd": [],
 					"sku_ready": true
 				},
-				"god-s-dream-hb": {
+				"gods-dream-hb": {
 					"format": "Hardback",
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304891",
@@ -5115,24 +5830,43 @@
 						"isbn": "9781958304549 (paperback); workExample hardback 9781958304303, eBook 9781958304310",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 244,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2023-01-27, Amazon 2023-01-30)",
+						"datePublished": null,
 						"audience": "Pastors, church leaders and lay leaders",
 						"about": ["pastoral ministry", "church leadership", "church health", "worship"],
 						"sameAs": ["https://www.amazon.com/dp/1958304549"],
 						"@id": "https://spiritmediapublishing.com/books/monday-morning-preacher/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+					"offer": null,
 					"person": {
 						"name": "Roger Loomis",
-						"description": "bio above, trimmed to the first three sentences",
-						"url": "TBD (none in sources)",
-						"sameAs": [
-							"https://www.amazon.com/Roger-Loomis/e/B0C8P1LPP6 (Author Central, per Doc; add only with author OK)"
-						],
+						"description": "Roger Loomis has served in pastoral ministry for more than four decades, leading six churches in three states. He came to faith in 1970 and took Bible classes at Evangel University, though he credits much of his training to what he calls God's School of Hard Knocks. In 2012 he resigned from pastoral ministry to become a hospice chaplain, and in 2017 he and his wife planted a church in a village in rural northeastern Ohio.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/monday-morning-preacher/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Monday Morning Preacher about?",
+							"a": "It is Roger Loomis's look at why people leave the local church and what pastors can do about it. Drawing on forty-three years of pastoral ministry, he identifies forty issues that arise in contemporary evangelical churches and pairs each with biblical principles."
+						},
+						{
+							"q": "Does the book have a chapter on the heart of worship?",
+							"a": "Yes. The Heart of Worship is one of the book's chapters; the table of contents also lists chapters such as Pastors Are People Too, Virtual Church, Pastor or Hireling?, No-Drama Zone and Church Hoppers."
+						},
+						{
+							"q": "Is Monday Morning Preacher a book about church leadership?",
+							"a": "Yes. It is written for pastors, church planters, staff, elders and lay leaders, and covers pastoral and church-leadership issues such as conflict, critics, unreasonable leaders and money, from the point of view of a fellow pastor."
+						},
+						{
+							"q": "Why is it called Monday Morning Preacher?",
+							"a": "Like Monday morning quarterbacks who review the game, pastors are invited to revisit their Sunday service on Monday, to celebrate their wins and to identify the in-house issues that need wise and righteous attention."
+						},
+						{
+							"q": "Is there anything in the book for former pastors?",
+							"a": "Yes. A closing word speaks to people now in the secular marketplace who fight rejection, anger or a sense of failure, telling them they are not alone, not second-class Christians, and that purposeful life and kingdom productivity exist beyond formal ministry."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Monday Morning Preacher"
 				},
 				"internal_links": [
@@ -5151,7 +5885,7 @@
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
 				"lccn": "2022922353",
-				"pub_date": "2023-01-27 (Doc); Amazon shows January 30, 2023 (see gaps)",
+				"pub_date": "2023-01-27",
 				"lead_term": {
 					"term": "church leadership",
 					"volume": 2900
@@ -5184,7 +5918,17 @@
 				"home": "SMP (no source marks it Father Heart)",
 				"url": "https://spiritmediapublishing.com/books/monday-morning-preacher/",
 				"buy_url": "https://spiritmediapublishing.com/books/monday-morning-preacher/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#monday-morning-preacher (draft unit 3fk); sources: Drive metadata Doc 13GEsbPHCfA8db3_qQAlkYpZ8Q93VrD7Oh3KR-YLhKpc (Monday Morning Preacher - Metadata 2026-10-15) + specsheet/sheet.json (2026-10-15) + interior booktext + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#monday-morning-preacher (draft unit 3fk); sources: Drive metadata Doc 13GEsbPHCfA8db3_qQAlkYpZ8Q93VrD7Oh3KR-YLhKpc (Monday Morning Preacher - Metadata 2026-10-15) + specsheet/sheet.json (2026-10-15) + interior booktext + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2023-01-27, Amazon 2023-01-30)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 18.99 USD (re-confirm), InStock, New, url = /buy/ page",
+						"jsonld.person.url": "TBD (none in sources)",
+						"jsonld.person.sameAs": [
+							"https://www.amazon.com/Roger-Loomis/e/B0C8P1LPP6 (Author Central, per Doc; add only with author OK)"
+						]
+					}
+				}
 			},
 			"skus": {
 				"monday-morning-preacher-pb": {
@@ -5317,23 +6061,44 @@
 						"inLanguage": "en",
 						"isbn": "9781737775805 (paperback); workExample hardback 9781737775812, eBook 9781737775836",
 						"bookFormat": "https://schema.org/Paperback",
-						"numberOfPages": "168 (Doc; Amazon 166)",
-						"datePublished": "OMIT until pmpublish confirms (Doc and Amazon agree 2021-11-09)",
+						"numberOfPages": 168,
+						"datePublished": "2021-11-09",
 						"audience": "Christian readers, pastors and ministry leaders",
 						"about": ["God's presence", "purpose of life", "intimacy with God", "prayer"],
 						"sameAs": ["https://www.amazon.com/dp/1737775808"],
 						"@id": "https://spiritmediapublishing.com/books/get-to-the-point/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 16.99 USD (re-confirm), InStock, New",
+					"offer": null,
 					"person": {
 						"name": "Kevin White",
-						"description": "bio above, trimmed",
-						"url": "TBD (Kevin decides)",
-						"sameAs": "TBD (Kevin decides)",
+						"description": "Kevin White is a pastor who gave his life to Jesus at age ten and answered God's call into Christian ministry during his senior year of high school. After college he served at three churches before helping to start a new church in Cary, North Carolina.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/get-to-the-point/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Get to the Point about?",
+							"a": "It makes one case from Scripture: the whole point of life is to live moment by moment in the presence of God, and in His presence you will find every guidance and provision you will ever need, today."
+						},
+						{
+							"q": "What does the book say is the purpose of life?",
+							"a": "Living moment by moment in the presence of God. The book says everything in the Christian faith serves this one purpose, and that the point determines your why, your what and your how."
+						},
+						{
+							"q": "Is Get to the Point a book for pastors and church leaders?",
+							"a": "Yes among others. Kevin White wrote it as a pastor who was dismissed from a church he helped plant, and it is written for pastors who want to help their congregations get to the point, as well as for longtime believers, parents, couples and students."
+						},
+						{
+							"q": "Why does the book say salvation is not the point?",
+							"a": "One chapter, Why salvation is not the point, argues that salvation serves the point of living in God's presence. The author writes that God could have given you a gift, but He filled you with the Giver instead."
+						},
+						{
+							"q": "What happened in India?",
+							"a": "Two months after the church dismissed him, a ten-day mission trip to India, more than 8,000 miles away, was where Kevin White says he first saw the point, taught by the pastors and churches there to pursue God's presence."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Get to the Point"
 				},
 				"internal_links": [
@@ -5351,8 +6116,8 @@
 				"formats": ["get-to-the-point-pb", "get-to-the-point-hb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "none in Doc or sheet",
-				"pub_date": "2021-11-09 (Doc and Amazon agree)",
+				"lccn": null,
+				"pub_date": "2021-11-09",
 				"lead_term": {
 					"term": "purpose of life",
 					"volume": 4400
@@ -5385,7 +6150,17 @@
 				"home": "SMP (no source marks it Father Heart; the author is Kevin White, the owner: Kevin to approve his own page copy)",
 				"url": "https://spiritmediapublishing.com/books/get-to-the-point/",
 				"buy_url": "https://spiritmediapublishing.com/books/get-to-the-point/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#get-to-the-point (draft unit 3fk); sources: Drive metadata Doc 16ApdGHCgDiGzyLf8BLbylMSv9Pswsl55__7WhNBxvyA (Get to the Point - Metadata 2026-10-15) + specsheet/sheet.json (2026-10-15) + interior booktext + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#get-to-the-point (draft unit 3fk); sources: Drive metadata Doc 16ApdGHCgDiGzyLf8BLbylMSv9Pswsl55__7WhNBxvyA (Get to the Point - Metadata 2026-10-15) + specsheet/sheet.json (2026-10-15) + interior booktext + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"lccn": "none in Doc or sheet"
+					},
+					"jsonld_withheld": {
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 16.99 USD (re-confirm), InStock, New",
+						"jsonld.person.url": "TBD (Kevin decides)",
+						"jsonld.person.sameAs": "TBD (Kevin decides)"
+					}
+				}
 			},
 			"skus": {
 				"get-to-the-point-pb": {
@@ -5493,11 +6268,11 @@
 					},
 					{
 						"q": "Does the book teach that God will give us whatever we ask?",
-						"a": "The Doc says it is not about controlling God or chasing material things. A genuine gift is undeserved with no strings attached, and sometimes the true gift is trusting God enough to ask, whether or not we receive."
+						"a": "No. It is not about controlling God or chasing material things. A genuine gift is undeserved with no strings attached, and sometimes the true gift is trusting God enough to ask, whether or not we receive."
 					},
 					{
 						"q": "Which Bible translation does it quote?",
-						"a": "The Doc names the New Living Translation, with every scripture highlighted so readers can see the Word for themselves."
+						"a": "The New Living Translation, with every scripture highlighted so readers can see the Word for themselves."
 					},
 					{
 						"q": "What are the three discoveries?",
@@ -5505,7 +6280,7 @@
 					},
 					{
 						"q": "How is it different from a devotional?",
-						"a": "It is organized as a list of Scripture promises by category, not as daily readings (the Doc does not describe it as a devotional)."
+						"a": "It is organized as a list of Scripture promises by category, not as daily readings."
 					}
 				],
 				"bio": "Kevin White leads Spirit Media, a publishing company he has trusted God to sustain since its cash-strapped first year. He has made over fifty trips to India over twenty-five years, and his first trip to Nepal came while teaching the message of his fifth book, Only God Works. His first book is Audacious Generosity. On mission he speaks multiple times a day in the hills of Northeast India and Nepal, praying with leaders over human need. GIFTS grew from God's instruction to him to write down everything His Word promises to give.",
@@ -5517,22 +6292,43 @@
 						"isbn": "Paperback 9798893070491; Hardback 9798893070514; eBook 9798893070507",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 138,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2024-05-14, Amazon May 14, 2024)",
+						"datePublished": null,
 						"audience": "Adult Christian readers",
 						"about": ["God's blessings", "God's promises", "Bible promises", "giving"],
 						"sameAs": ["https://www.amazon.com/dp/B0D4VHG3NG"],
 						"@id": "https://spiritmediapublishing.com/books/gifts/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live Paperback 12.99 USD, Hardback 12.18 USD, eBook 9.99 USD (re-confirm at go-live), InStock, New",
+					"offer": null,
 					"person": {
 						"name": "Kevin White",
 						"description": "Kevin White leads Spirit Media, a publishing company he has trusted God to sustain since its cash-strapped first year. He has made over fifty trips to India over twenty-five years, and his first trip to Nepal came while teaching the message of his fifth book, Only God Works.",
-						"url": "https://www.amazon.com/Kevin-White/e/B08LZYTR2B (Author Central, as sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/gifts/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is GIFTS about?",
+							"a": "It is a book by Kevin White that publishes every Bible verse where God promises to give, organized into land, life, family, increase, empowerment and everything, with chapters on You, Ask and Depend."
+						},
+						{
+							"q": "Does the book teach that God will give us whatever we ask?",
+							"a": "No. It is not about controlling God or chasing material things. A genuine gift is undeserved with no strings attached, and sometimes the true gift is trusting God enough to ask, whether or not we receive."
+						},
+						{
+							"q": "Which Bible translation does it quote?",
+							"a": "The New Living Translation, with every scripture highlighted so readers can see the Word for themselves."
+						},
+						{
+							"q": "What are the three discoveries?",
+							"a": "There are more verses about God giving land than anything else, the word YOU runs through God's gifts, and the word ASK appears alongside them."
+						},
+						{
+							"q": "How is it different from a devotional?",
+							"a": "It is organized as a list of Scripture promises by category, not as daily readings."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > GIFTS"
 				},
 				"internal_links": [
@@ -5548,7 +6344,7 @@
 				"formats": ["gifts-pb", "gifts-hb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "2024909819 (Doc and sheet.json)",
+				"lccn": "2024909819",
 				"pub_date": null,
 				"lead_term": {
 					"term": "gods blessings",
@@ -5629,7 +6425,15 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/gifts/",
 				"buy_url": "https://spiritmediapublishing.com/books/gifts/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#gifts (draft unit 3fn); sources: Drive metadata Doc 1waXohZppn-fiBX5uaSs9T3lo6Ll3m5hKuY6FvZ7oIt4 (GIFTS — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#gifts (draft unit 3fn); sources: Drive metadata Doc 1waXohZppn-fiBX5uaSs9T3lo6Ll3m5hKuY6FvZ7oIt4 (GIFTS — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2024-05-14, Amazon May 14, 2024)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 12.99 USD, Hardback 12.18 USD, eBook 9.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.url": "https://www.amazon.com/Kevin-White/e/B08LZYTR2B (Author Central, as sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
 				"gifts-pb": {
@@ -5710,10 +6514,10 @@
 			}
 		},
 		{
-			"slug": "potter-s-child",
+			"slug": "potters-child",
 			"units_12m": 0,
 			"book": {
-				"slug": "potter-s-child",
+				"slug": "potters-child",
 				"status": "pending",
 				"title": "Potter's Child",
 				"subtitle": "10 Habits to Shape and Mold Outstanding Children",
@@ -5749,7 +6553,7 @@
 					},
 					{
 						"q": "Is it only for parents of young children?",
-						"a": "No. The Doc says it is for parents of babies, toddlers and teenagers, for grandparents and caregivers, and for any adult who wants better habits, since the same practices grow out of what we experience."
+						"a": "No. It is for parents of babies, toddlers and teenagers, for grandparents and caregivers, and for any adult who wants better habits, since the same practices grow out of what we experience."
 					},
 					{
 						"q": "Why is it called Potter's Child?",
@@ -5764,27 +6568,44 @@
 						"inLanguage": "en",
 						"isbn": "9781958304341 (paperback); workExample hardback 9781958304334, eBook 9781958304174",
 						"bookFormat": "https://schema.org/Paperback",
-						"numberOfPages": "292 (conflict with Amazon 266; use 292 per Doc until pmprint confirms)",
-						"datePublished": "OMIT until pmpublish confirms (Doc and Amazon agree 2022-11-18)",
+						"numberOfPages": 292,
+						"datePublished": "2022-11-18",
 						"audience": "Parents, grandparents and caregivers",
 						"about": ["parenting", "habits for children", "prayer", "faith"],
-						"sameAs": [
-							"https://www.amazon.com/dp/1958304344 (paperback ASIN, matches the ISBN-10; sheet listing.asin field shows 1958304328, a mismatch)"
-						],
+						"sameAs": ["https://www.amazon.com/dp/1958304344"],
 						"@id": "https://spiritmediapublishing.com/books/potters-child/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New",
+					"offer": null,
 					"person": {
 						"name": "Stephanie Mathews",
-						"description": "bio above, trimmed",
-						"url": "TBD",
-						"sameAs": [
-							"https://www.amazon.com/Stephanie-Mathews/e/B0C8P21BH9 (Author Central, per sheet findability; add only with author OK)"
-						],
+						"description": "Stephanie Mathews is a mother, wife and small business owner who believes she is a Potter's Child, clay shaped by God's hands. After years of prayer for a baby, she and her husband welcomed premature twins.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/potters-child/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Potter's Child about?",
+							"a": "It is a parenting book by Stephanie Mathews that offers ten habits parents can instill in their children, drawn from Scripture, her own life as a mother and true stories from pastors, physicians and parents."
+						},
+						{
+							"q": "Does the book cover the habit of making your bed?",
+							"a": "Yes. Making your bed and getting the job done is one of the everyday habits the book teaches, alongside pitching in with chores at home and building character that lasts."
+						},
+						{
+							"q": "Is Potter's Child about the power of prayer?",
+							"a": "Prayer is central. The book tells honest stories of faith, struggle and answered prayer, and explores the power of prayer and how God uses His children to bless one another."
+						},
+						{
+							"q": "Is it only for parents of young children?",
+							"a": "No. It is for parents of babies, toddlers and teenagers, for grandparents and caregivers, and for any adult who wants better habits, since the same practices grow out of what we experience."
+						},
+						{
+							"q": "Why is it called Potter's Child?",
+							"a": "The author believes we are clay in the Potter's hands, and so are our children. She invites parents to let God shape their homes, teach by example and remind their children every day whose child they are."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Potter's Child"
 				},
 				"internal_links": [
@@ -5799,7 +6620,7 @@
 					"source": "SMP books-data.json (feat-smp-store) card: Potter’s Child",
 					"http_check_2026-11-13": "200 image/jpeg"
 				},
-				"formats": ["potter-s-child-pb", "potter-s-child-hb"],
+				"formats": ["potters-child-pb", "potters-child-hb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
 				"lccn": "2022921294",
@@ -5844,10 +6665,19 @@
 				"home": "SMP (no source marks it Father Heart)",
 				"url": "https://spiritmediapublishing.com/books/potter-s-child/",
 				"buy_url": "https://spiritmediapublishing.com/books/potter-s-child/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#potter-s-child (draft unit 3fk); sources: Drive metadata Doc 1pSZr5cjwVHX825NK0qGLM8i_J4EBaagWJ7tk8QwDzmE (Potter's Child - Metadata 2026-10-15) + specsheet/sheet.json (2026-10-15) + interior booktext + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#potter-s-child (draft unit 3fk); sources: Drive metadata Doc 1pSZr5cjwVHX825NK0qGLM8i_J4EBaagWJ7tk8QwDzmE (Potter's Child - Metadata 2026-10-15) + specsheet/sheet.json (2026-10-15) + interior booktext + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New",
+						"jsonld.person.url": "TBD",
+						"jsonld.person.sameAs": [
+							"https://www.amazon.com/Stephanie-Mathews/e/B0C8P21BH9 (Author Central, per sheet findability; add only with author OK)"
+						]
+					}
+				}
 			},
 			"skus": {
-				"potter-s-child-pb": {
+				"potters-child-pb": {
 					"format": "Paperback",
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304341",
@@ -5883,7 +6713,7 @@
 					"sku_tbd": [],
 					"sku_ready": true
 				},
-				"potter-s-child-hb": {
+				"potters-child-hb": {
 					"format": "Hardback",
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304334",
@@ -5953,7 +6783,7 @@
 					},
 					{
 						"q": "Is Say Yes to God a Christian memoir?",
-						"a": "Yes. The Doc describes it as a warm, humble Christian memoir about how saying yes to God carried an ordinary businessman into a life of Kingdom service in his own city and around the world."
+						"a": "Yes. It is a warm, humble Christian memoir about how saying yes to God carried an ordinary businessman into a life of Kingdom service in his own city and around the world."
 					},
 					{
 						"q": "What adventures are in the book?",
@@ -5977,7 +6807,7 @@
 						"isbn": "9798991314510 (paperback); workExample hardback 9798991314503, eBook 9798991314527",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 124,
-						"datePublished": "OMIT (Doc: TBD)",
+						"datePublished": null,
 						"audience": "Christian readers, small groups and mission teams",
 						"about": [
 							"calling",
@@ -5987,19 +6817,40 @@
 							"Africa Servant Leader",
 							"memoir"
 						],
-						"sameAs": "TBD (no Amazon listing in sources)",
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/say-yes-to-god/#book",
-						"publisher": "TBD: Doc says Vector Reach Publishing; template points at the SMP organization @id"
+						"publisher": null
 					},
-					"offer": "OMIT; pub date TBD, hardback price TBD, nothing live",
+					"offer": null,
 					"person": {
 						"name": "Michael J. Gaetke",
-						"description": "bio above, trimmed",
-						"url": "TBD",
-						"sameAs": "TBD",
+						"description": "Michael J. Gaetke grew up in a church-going family that prayed nightly for missionaries, and his grandfather was a pastor in Los Angeles.",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/say-yes-to-god/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is Say Yes to God about?",
+							"a": "It is Michael J. Gaetke's true story of answering God's calling: a Christian memoir of mission work from Costa Rica to Kenya and the birth of Africa Servant Leader, told in twenty-two short chapters."
+						},
+						{
+							"q": "Is Say Yes to God a Christian memoir?",
+							"a": "Yes. It is a warm, humble Christian memoir about how saying yes to God carried an ordinary businessman into a life of Kingdom service in his own city and around the world."
+						},
+						{
+							"q": "What adventures are in the book?",
+							"a": "The book opens in the jungle of Papua New Guinea at a three-in-the-morning feast, and includes mission work in Costa Rica and Kenya, his first day in prison, church planting, and ministry in a gas station and a movie theatre."
+						},
+						{
+							"q": "What is Africa Servant Leader?",
+							"a": "Africa Servant Leader is the ministry whose birth the book tells (Chapter 9); the author has taught and spoken with it in Kenya, at a graduation dinner for people who completed its course."
+						},
+						{
+							"q": "What does 'start with yes' mean?",
+							"a": "It is the author's principle: when God provides an opportunity, start with yes until God gives you a compelling no. The book says it is not about being someone special, but about serving a special God with a willing and yielded heart."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > Say Yes to God"
 				},
 				"internal_links": [
@@ -6016,9 +6867,9 @@
 				},
 				"formats": ["say-yes-to-god-pb", "say-yes-to-god-hb"],
 				"language": "en",
-				"publisher": "Vector Reach Publishing (Doc imprint field; conflicts with the SMP page template, see gaps)",
-				"lccn": "none in Doc or sheet",
-				"pub_date": "2024-10 (live on Amazon since Oct 2024; exact day not recorded)",
+				"publisher": null,
+				"lccn": null,
+				"pub_date": "2024-10",
 				"lead_term": {
 					"term": "calling",
 					"volume": 368000
@@ -6050,7 +6901,21 @@
 				"home": "SMP (no source marks it Father Heart); PUBLISHER CONFLICT: Doc says Vector Reach Publishing",
 				"url": "https://spiritmediapublishing.com/books/say-yes-to-god/",
 				"buy_url": "https://spiritmediapublishing.com/books/say-yes-to-god/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#say-yes-to-god (draft unit 3fk); sources: Drive metadata Doc 1qoq8dN-8Q__aUtBQPOlVb77K5LhA_mQLrrIyvg1QQnA (Say Yes to God - Metadata 2026-11-10) + specsheet/sheet.json (2026-11-10) + interior booktext + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#say-yes-to-god (draft unit 3fk); sources: Drive metadata Doc 1qoq8dN-8Q__aUtBQPOlVb77K5LhA_mQLrrIyvg1QQnA (Say Yes to God - Metadata 2026-11-10) + specsheet/sheet.json (2026-11-10) + interior booktext + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"lccn": "none in Doc or sheet",
+						"publisher": "Vector Reach Publishing (Doc imprint field; conflicts with the SMP page template, see gaps)"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT (Doc: TBD)",
+						"jsonld.book.publisher": "TBD: Doc says Vector Reach Publishing; template points at the SMP organization @id",
+						"jsonld.book.sameAs": "TBD (no Amazon listing in sources)",
+						"jsonld.offer": "OMIT; pub date TBD, hardback price TBD, nothing live",
+						"jsonld.person.url": "TBD",
+						"jsonld.person.sameAs": "TBD"
+					}
+				}
 			},
 			"skus": {
 				"say-yes-to-god-pb": {
@@ -6128,10 +6993,10 @@
 			}
 		},
 		{
-			"slug": "what-s-your-word",
+			"slug": "whats-your-word",
 			"units_12m": 0,
 			"book": {
-				"slug": "what-s-your-word",
+				"slug": "whats-your-word",
 				"status": "pending",
 				"title": "What's Your Word?",
 				"subtitle": "Choosing Your Path One Word at a Time",
@@ -6170,7 +7035,7 @@
 					},
 					{
 						"q": "Who is it for?",
-						"a": "The Doc describes it for every believer who wants to hear God clearly, whether or not they already seek a word from God each year, and for readers in family, business, church and nonprofit life."
+						"a": "Every believer who wants to hear God clearly, whether or not they already seek a word from God each year, and readers in family, business, church and nonprofit life."
 					}
 				],
 				"bio": "Kevin White has served in full-time Christian ministry as a pastor, entrepreneur and church planter and holds a degree in theology. A life-changing trip to India in 1998 led him to pursue God's presence every day. He is the founder and executive director of Global Hope India, which empowers pastors in India through short-term missions, and he has traveled to India over fifty times, taking 1,000 people on short-term mission trips. He is the author of Audacious Generosity and Get to the Point, and in November 2021 he launched Spirit Media to reinvent Christian publishing.",
@@ -6182,22 +7047,43 @@
 						"isbn": "Paperback 9781958304129; Hardback 9781958304136; eBook 9781958304068",
 						"bookFormat": "https://schema.org/Paperback",
 						"numberOfPages": 242,
-						"datePublished": "OMIT until pmpublish confirms (Doc 2022-11-29, Amazon November 29, 2022)",
+						"datePublished": null,
 						"audience": "Adult Christian readers",
 						"about": ["choosing life", "hearing God's voice", "Deuteronomy 30", "presence of God"],
 						"sameAs": ["https://www.amazon.com/dp/1958304123"],
 						"@id": "https://spiritmediapublishing.com/books/whats-your-word/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
-					"offer": "OMIT while no sku_status live; at go-live Paperback 14.99 USD, Hardback 19.99 USD, eBook 9.99 USD (re-confirm at go-live), InStock, New",
+					"offer": null,
 					"person": {
 						"name": "Kevin White",
 						"description": "Kevin White has served in full-time Christian ministry as a pastor, entrepreneur and church planter and holds a degree in theology. A life-changing trip to India in 1998 led him to pursue God's presence every day.",
-						"url": "https://www.amazon.com/Kevin-White/e/B08LZYTR2B (Author Central, as sameAs only after pmprint approves)",
-						"sameAs": "TBD (none approved)",
+						"url": null,
+						"sameAs": null,
 						"@id": "https://spiritmediapublishing.com/books/whats-your-word/#author"
 					},
-					"faqpage": "the 5 Q/A above, identical to visible copy",
+					"faqpage": [
+						{
+							"q": "What is What's Your Word? about?",
+							"a": "It is a book by pastor and missions leader Kevin White on how one word from God can redirect a life. Ten one-word chapters, from ONE to WORD, begin at Deuteronomy 30 and teach readers to notice, ask for and act on their own word."
+						},
+						{
+							"q": "What does choose life mean in this book?",
+							"a": "The book starts where God sets before His people a choice between life and death, prosperity and disaster, and asks them to choose life. The author shows that we choose our path one word at a time."
+						},
+						{
+							"q": "Is this a book about prosperity?",
+							"a": "Two of the ten word chapters are DISASTER and PROSPERITY, framed by Deuteronomy 30. The book sets the words that lead to disaster against the words that lead to prosperity and says God pleads with us to choose life."
+						},
+						{
+							"q": "What was the author's own word?",
+							"a": "On his first trip to India in 1998 the word was PRESENCE: he committed to pursue God's presence every day. Later words were COURAGE, CATCH and FILL."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Every believer who wants to hear God clearly, whether or not they already seek a word from God each year, and readers in family, business, church and nonprofit life."
+						}
+					],
 					"breadcrumb": "Home > Bookstore > What's Your Word?"
 				},
 				"internal_links": [
@@ -6210,10 +7096,10 @@
 					"source": "SMP books-data.json (feat-smp-store) card: What’s Your Word",
 					"http_check_2026-11-13": "200 image/webp"
 				},
-				"formats": ["what-s-your-word-pb", "what-s-your-word-hb"],
+				"formats": ["whats-your-word-pb", "whats-your-word-hb"],
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
-				"lccn": "2022917722 (Doc and sheet.json)",
+				"lccn": "2022917722",
 				"pub_date": null,
 				"lead_term": {
 					"term": "choose life",
@@ -6282,10 +7168,18 @@
 				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
 				"url": "https://spiritmediapublishing.com/books/what-s-your-word/",
 				"buy_url": "https://spiritmediapublishing.com/books/what-s-your-word/buy/",
-				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#what-s-your-word (draft unit 3fn); sources: Drive metadata Doc 1NqQTDnTNNoE3LsF_kyAbMFY2nciC52cJh5-dITKH6bI (What's Your Word? — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords"
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#what-s-your-word (draft unit 3fn); sources: Drive metadata Doc 1NqQTDnTNNoE3LsF_kyAbMFY2nciC52cJh5-dITKH6bI (What's Your Word? — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2022-11-29, Amazon November 29, 2022)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 14.99 USD, Hardback 19.99 USD, eBook 9.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.url": "https://www.amazon.com/Kevin-White/e/B08LZYTR2B (Author Central, as sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				}
 			},
 			"skus": {
-				"what-s-your-word-pb": {
+				"whats-your-word-pb": {
 					"format": "Paperback",
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304129",
@@ -6321,7 +7215,7 @@
 					"sku_tbd": [],
 					"sku_ready": true
 				},
-				"what-s-your-word-hb": {
+				"whats-your-word-hb": {
 					"format": "Hardback",
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304136",

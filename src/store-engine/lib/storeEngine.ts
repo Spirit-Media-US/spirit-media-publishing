@@ -1338,24 +1338,32 @@ const BOOK_EDITIONS: Record<
 	string,
 	{ title: string; retail: number; img: string; books: number; name: string; desc: string }
 > = Object.fromEntries(
-	(booksCatalog.books as { status: string; formats: string[] }[])
-		.filter((b) => b.status === 'live')
-		.flatMap((b) =>
-			b.formats.map((sku) => {
-				const f = (bookSkus.skus as Record<string, Record<string, unknown>>)[sku];
-				return [
-					sku,
-					{
-						title: f.checkout_title as string,
-						name: f.checkout_name as string,
-						desc: f.checkout_desc as string,
-						retail: f.list_cents as number,
-						books: 0,
-						img: f.checkout_img as string,
-					},
-				];
-			}),
-		),
+	// Sold SKUs: every format of a LIVE book on this site's catalogue (books.json), plus every registry row another site
+	// owns (owner_site 'smp': SMP's book pages carry their own copy; pmseoaeo 2026-11-13 23:26Z #4 "B", plan D5). Such a
+	// row with no measured cost_key sells US-only: checkoutForm refuses any country without its landed cost.
+	[
+		...(booksCatalog.books as { status: string; formats: string[] }[])
+			.filter((b) => b.status === 'live')
+			.map((b) => b.formats),
+		Object.entries(bookSkus.skus as Record<string, { owner_site?: string }>)
+			.filter(([, f]) => f.owner_site && f.owner_site !== 'fhb')
+			.map(([sku]) => sku),
+	].flatMap((formats) =>
+		formats.map((sku) => {
+			const f = (bookSkus.skus as Record<string, Record<string, unknown>>)[sku];
+			return [
+				sku,
+				{
+					title: f.checkout_title as string,
+					name: f.checkout_name as string,
+					desc: f.checkout_desc as string,
+					retail: f.list_cents as number,
+					books: 0,
+					img: f.checkout_img as string,
+				},
+			];
+		}),
+	),
 );
 for (const [sku, e] of Object.entries(BOOK_EDITIONS)) EDITIONS[sku] = e;
 
@@ -1661,11 +1669,15 @@ export async function checkoutForm(
 			: payload.returnPath === '/print/order/'
 				? `${origin}/print/order/?order=canceled`
 				: /^\/books\/[a-z0-9-]+\/(buy\/)?$/.test(String(payload.returnPath ?? '')) &&
-						(booksCatalog.books as { slug: string }[]).some(
+						[
+							...(booksCatalog.books as { slug: string }[]).map((b) => b.slug),
+							// a book the registry sells for another site (owner_site smp) returns to its own book page
+							...Object.values(BOOK_SKUS).map((b) => b.bookSlug),
+						].some(
 							// the book page, or its SMP checkout page /books/<slug>/buy/ (plan 3fb Phase 3)
-							(b) =>
-								payload.returnPath === `/books/${b.slug}/` ||
-								payload.returnPath === `/books/${b.slug}/buy/`,
+							(slug) =>
+								payload.returnPath === `/books/${slug}/` ||
+								payload.returnPath === `/books/${slug}/buy/`,
 						)
 					? `${origin}${payload.returnPath}?order=canceled#order`
 					: `${origin}/print/?order=canceled#bulk-order`,

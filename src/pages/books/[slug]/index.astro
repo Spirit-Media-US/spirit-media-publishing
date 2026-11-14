@@ -4,8 +4,11 @@
 // new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
 //
 // TWO SOURCES, ONE PAGE SHAPE:
-//  · src/data/books/shipset-3fo.json — pmseoaeo's ship set, ship_ready titles only, sales order, verbatim. No SKU has a
-//    measured cost yet, so these show "Available soon from our store." (no form, no Offer).
+//  · src/data/books/shipset-v2.json — pmseoaeo's ship set v2 (3fu, clean copy), ship_ready titles only, sales order,
+//    verbatim apart from clean slugs ('-s-' -> 's-', pmseoaeo #5; old spellings 301 in public/_redirects). pmseoaeo
+//    23:26Z #4 "B": US checkout at list price, free US shipping, on every page whose SKU has an ISBN + price (the rows
+//    are in the store registry, FHB src/data/book-skus.json owner_site smp); non-US "Ships to more countries soon"
+//    until costs are measured (plan D5); the sale records net_usd unmeasured.
 //  · src/store-engine/data/books.json + book-skus.json — the books the store SELLS today (Who Am I?, Beloved Identity),
 //    the same records the checkout prices. These carry the order form (#order). D1 open: their ranking page is
 //    fathersheartbible.com/books/<slug>/, so canonical points there.
@@ -14,9 +17,9 @@
 // does FAILS THE BUILD by slug + field. The fix belongs in the data, never here.
 // Also carried: no "Buy on Amazon" button (Amazon = sameAs only); no Offer while nothing sells; calm ink, no red
 // (Kevin L1999); a 390px phone first. A hand-built page (src/pages/books/<slug>.astro) keeps its slug.
-import dims from '../../../data/books/cover-dims-3fo.json';
+import dims from '../../../data/books/cover-dims.json';
 import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
-import set from '../../../data/books/shipset-3fo.json';
+import set from '../../../data/books/shipset-v2.json';
 import Layout from '../../../layouts/Layout.astro';
 import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
@@ -180,7 +183,7 @@ export function getStaticPaths() {
 				/^https:\/\/\S+$/.test(String(u)),
 			),
 			canonical: null,
-			orderable: false,
+			orderable: (b.formats as string[]).some((sku) => BOOK_SKUS[sku]?.isbn),
 		});
 	}
 	// Lamb (Kevin L1971 pilot; pmseoaeo QA 3ft #6: same template). Sourced facts only (src/data/books/<slug>.json): no
@@ -233,11 +236,13 @@ const SITE = 'https://spiritmediapublishing.com';
 const url = `${SITE}/books/${p.slug}/`;
 const money = (c: number) => `$${(c / 100).toFixed(2)}`;
 // ship-to: the US, plus every live country with a measured landed cost for ALL this book's formats
+// the formats the store sells (in its registry, with a price); the rest show in Book details only
+const sellFormats = p.formats.filter((f) => f.list_cents != null && BOOK_SKUS[f.sku]);
 const countries = p.orderable
 	? LIVE_COUNTRIES.filter(
 			(c) =>
 				c.code === 'US' ||
-				p.formats.every((f) => (c.landed_cost_usd as any)?.[BOOK_SKUS[f.sku]?.costKey] != null),
+				sellFormats.every((f) => (c.landed_cost_usd as any)?.[BOOK_SKUS[f.sku]?.costKey] != null),
 		).map((c) => ({ code: c.code, name: c.name }))
 	: [];
 
@@ -324,10 +329,10 @@ const crumbs = {
 								<p class="text-xs font-bold uppercase tracking-widest text-stone-500">Order direct · free US shipping</p>
 								<h2 class="mt-1 text-xl font-bold text-ink">Order {p.title}</h2>
 								<div class="mt-4 space-y-3">
-									{p.formats.map((f) => (
+									{sellFormats.map((f) => (
 										<label class="flex items-center justify-between gap-4 rounded-lg border border-stone-300 p-3">
 											<span class="flex flex-col"><span class="font-semibold text-ink">{f.format}</span>{f.list_cents != null && <span class="text-lg font-bold text-ink">{money(f.list_cents)}</span>}</span>
-											<input type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={p.formats.length === 1 ? 1 : 0} class="h-11 w-20 rounded border border-stone-300 px-2 text-center text-base" aria-label={`${f.format} quantity`} />
+											<input type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={sellFormats.length === 1 ? 1 : 0} class="h-11 w-20 rounded border border-stone-300 px-2 text-center text-base" aria-label={`${f.format} quantity`} />
 										</label>
 									))}
 								</div>
@@ -337,6 +342,7 @@ const crumbs = {
 										{countries.map((c) => <option value={c.code} selected={c.code === 'US'}>{c.name}</option>)}
 									</select>
 								</label>
+								{countries.length === 1 && <p class="mt-1 text-sm text-stone-600">Ships to more countries soon.</p>}
 								<button type="submit" class="mt-4 min-h-12 w-full rounded-full bg-ink-soft px-4 py-3 font-semibold text-white hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-soft">Checkout →</button>
 								<p id="buy-msg" role="status" class="mt-2 text-sm text-stone-700"></p>
 								<p class="mt-2 text-sm text-stone-600">Free shipping in the US. <a href="https://fathersheartbible.com/returns/" class="text-ink-soft underline">30-day returns</a>.</p>
@@ -386,10 +392,10 @@ const crumbs = {
 					<dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[0.95rem]">
 						<dt class="font-semibold">Publisher</dt><dd>Spirit Media Publishing</dd>
 						<dt class="font-semibold">Language</dt><dd>English</dd>
-						{p.formats.map((f) => (
+						{p.formats.filter((f) => f.isbn_display || f.pages || f.trim).map((f) => (
 							<>
 								<dt class="font-semibold">{f.format}</dt>
-								<dd>{[f.isbn_display && `ISBN ${f.isbn_display}`, f.pages && `${f.pages} pages`, f.trim].filter(Boolean).join(' · ') || '—'}</dd>
+								<dd>{[f.isbn_display && `ISBN ${f.isbn_display}`, f.pages && `${f.pages} pages`, f.trim].filter(Boolean).join(' · ')}</dd>
 							</>
 						))}
 						{p.lccn && (<><dt class="font-semibold">LCCN</dt><dd>{p.lccn}</dd></>)}

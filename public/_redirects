@@ -8,3 +8,11 @@
 # Kevin 2026-11-13 (pmseoaeo 23:19Z): ONE page per book, order form ON it. The old checkout pages go to its #order.
 /books/:slug/buy/ /books/:slug/#order 301
 /books/:slug/buy /books/:slug/#order 301
+
+# pmseoaeo #5 (2026-11-13 23:26Z): canonical = the clean slug. Old ship-set spellings and QA 3ft spellings land on it.
+/books/a-shepherd-s-story/ /books/a-shepherds-story/ 301
+/books/god-s-dream/ /books/gods-dream/ 301
+/books/potter-s-child/ /books/potters-child/ 301
+/books/what-s-your-word/ /books/whats-your-word/ 301
+/books/get-out-of-the-fast-food-lane/ /books/get-out-of-the-fast/ 301
+/books/the-brothers-and-their-lunch-basket/ /books/brothers-lunch-basket/ 301

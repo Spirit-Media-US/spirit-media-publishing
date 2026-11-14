@@ -126,9 +126,10 @@ const LEAK = /\b(the Doc\b|Doc (says|lists|calls|describes|names|files|suggests|
 const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
-	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-3fo.json', import.meta.url), 'utf8'));
+	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-v2.json', import.meta.url), 'utf8'));
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
+	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
 	assert.equal(set.titles.length, 30);
 	const read = (slug) => fs.readFileSync(new URL(`${slug}/index.html`, dist), 'utf8');
 	const mainOf = (html) => html.slice(html.indexOf('<main'), html.indexOf('</main>'));
@@ -138,8 +139,16 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		assert.ok(main.length > 500, `${t.slug}: <main> found`);
 		assert.match(main, /<h1[^>]*>/, `${t.slug}: h1`);
 		assert.doesNotMatch(html, /"@type":"Offer"/, `${t.slug}: no Offer while no SKU sells`);
-		assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
-		assert.match(main, /Available soon from our store\./, `${t.slug}: pending note`);
+		// pmseoaeo #4 "B": a title whose SKUs are in the store registry carries the US-only order form at #order
+		if (t.skus && Object.keys(t.skus).some((k) => REG[k])) {
+			assert.match(main, /<form id="order"[^>]*data-status="live"/, `${t.slug}: order form ON the page`);
+			assert.match(main, /<option value="US" selected[^>]*>United States<\/option>\s*<\/select>/, `${t.slug}: US only`);
+			assert.match(main, /Ships to more countries soon\./, `${t.slug}: non-US note`);
+			for (const k of Object.keys(t.skus)) if (REG[k]) assert.match(main, new RegExp(`name="${k}"`), `${t.slug}: ${k} quantity`);
+		} else {
+			assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
+			assert.match(main, /Available soon from our store\./, `${t.slug}: pending note`);
+		}
 		assert.doesNotMatch(main, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
 		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
 		const leak = textOf(main).match(LEAK);
@@ -162,4 +171,17 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const built = fs.readdirSync(dist).filter((d) => fs.existsSync(new URL(`${d}/index.html`, dist)));
 	const allowed = new Set([...set.titles.map((t) => t.slug), ...sold.map((b) => b.slug), 'jesus-had-a-little-lamb']);
 	for (const d of built) assert.ok(allowed.has(d), `unexpected book page /books/${d}/`);
+});
+
+// pmseoaeo 23:26Z #4 "B" (plan D5): an SMP ship-set book sells US-only at list price; its margin is recorded unmeasured.
+test('SMP book SKU: US order at list price, net_usd unmeasured; a non-US order is refused, nothing sent', async () => {
+	const us = await post({ counts: { 'the-pyramid-principle-pb': 2 }, country: 'US', returnPath: '/books/the-pyramid-principle/' });
+	assert.equal(us.status, 200);
+	assert.equal(us.form.get('line_items[0][price_data][unit_amount]'), '1899');
+	assert.equal(us.form.get('line_items[0][quantity]'), '2');
+	assert.match(us.form.get('metadata[book_1]'), /isbn=9798893071153\|format=Paperback\|qty=2\|unit_cents=1899\|.*net_usd=unmeasured/);
+	assert.equal(us.form.get('cancel_url'), 'https://spiritmediapublishing.com/books/the-pyramid-principle/?order=canceled#order');
+	const gb = await post({ counts: { 'the-pyramid-principle-pb': 1 }, country: 'GB', returnPath: '/books/the-pyramid-principle/' });
+	assert.equal(gb.status, 400);
+	assert.equal(gb.calls.filter((u) => u.includes('checkout/sessions')).length, 0);
 });
