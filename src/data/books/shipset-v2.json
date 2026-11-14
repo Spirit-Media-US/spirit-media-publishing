@@ -23146,7 +23146,7 @@
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
 				"pub_date": null,
-				"_source": "pmseoaeo 3gq copy + 3gs ship gate; pmseoaeo 3gs 10:58Z: price HELD until pmprint confirms from the top table (came from Amazon selling price)",
+				"_source": "pmseoaeo 3gq copy + 3gs ship gate; price = pmprint top table 11:00Z section G",
 				"page": {
 					"sections": [
 						{
@@ -23389,7 +23389,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893072365",
 					"isbn_display": "979-8-89307-236-5",
-					"list_cents": null,
+					"list_cents": 1199,
 					"pages": 142,
 					"trim": "5 x 7 in",
 					"binding": "Perfect bound",
@@ -23450,7 +23450,7 @@
 				"language": "en",
 				"publisher": "Spirit Media Publishing",
 				"pub_date": null,
-				"_source": "pmseoaeo 3gq copy + 3gs ship gate; pmseoaeo 3gs 10:58Z: price HELD until pmprint confirms from the top table (came from Amazon selling price)",
+				"_source": "pmseoaeo 3gq copy + 3gs ship gate; price = pmprint top table 11:00Z section G",
 				"page": {
 					"sections": [
 						{
@@ -23699,7 +23699,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893073614",
 					"isbn_display": "979-8-89307-361-4",
-					"list_cents": null,
+					"list_cents": 1499,
 					"pages": 132,
 					"trim": "6 x 9 in",
 					"binding": "Perfect bound",
