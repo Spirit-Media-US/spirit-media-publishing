@@ -21569,6 +21569,907 @@
 					"book": "sms-ultimate-book-marketing-guide"
 				}
 			}
+		},
+		{
+			"slug": "mended",
+			"units_12m": 0,
+			"book": {
+				"slug": "mended",
+				"status": "pending",
+				"title": "Mended",
+				"subtitle": "Emotional Healing Through Faith and Understanding",
+				"full_title": "Mended: Emotional Healing Through Faith and Understanding",
+				"author": {
+					"name": "Kami Tahyi, MS, LPCC"
+				},
+				"credits": null,
+				"page_title": "Mended: Emotional Healing Through Faith and Understanding",
+				"h1": "Mended",
+				"meta": "Mended by Kami Tahyi, MS, LPCC: a Christian Bible study workbook for believers who have been forgiven and still feel stuck.",
+				"short": "A Christian Bible study workbook for believers who have been forgiven and still feel stuck.",
+				"about": null,
+				"who_for": [],
+				"faq": [
+					{
+						"q": "What is Mended?",
+						"a": "It is a 48-page Christian workbook by Kami Tahyi, MS, LPCC, in six sessions. Each one pairs teaching with Scripture to write out and questions to answer."
+					},
+					{
+						"q": "Is it a replacement for counseling?",
+						"a": "No. It is a Christian workbook and Bible study. It says that if issues are more significant than a Bible study can handle, a leader should refer the participant to a pastor or counselor. Anyone in crisis should reach out to medical or crisis help as well."
+					},
+					{
+						"q": "Can I use it on my own?",
+						"a": "Yes. The writing prompts can be answered alone, and the Leader Ideas show how to use the sessions in a small group."
+					},
+					{
+						"q": "Does it come with videos?",
+						"a": "The Leader Ideas say a session is designed to begin with a DVD video. The printed book does not include one, so check what your group will use before you begin."
+					},
+					{
+						"q": "What is in the Resources section?",
+						"a": "The Adverse Childhood Experience (ACE) questionnaire, a short guide to the Miracle Morning routine adapted for believers, Leader Ideas, Group Rules and a bibliography."
+					},
+					{
+						"q": "How many sessions are there?",
+						"a": "Six: Feelings, Wounds, Trees, Choices, Unity and Intimacy."
+					},
+					{
+						"q": "What Bible translation does it use?",
+						"a": "The book quotes Scripture throughout and does not print a translation notice, so check the verse you write out against the Bible you use."
+					}
+				],
+				"bio": null,
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mended-1200.jpg",
+					"source": "pmprint R2 sized set (3gk)"
+				},
+				"formats": [
+					"mended-pb"
+				],
+				"lccn": "2024917977",
+				"language": "en",
+				"publisher": null,
+				"pub_date": "2024-11-15",
+				"_source": "pmseoaeo 3gk + specsheet/sheet.json (Record), price 10.99 live (pmprint 06:19Z)",
+				"page": {
+					"sections": [
+						{
+							"h2": "For believers who feel forgiven and still feel stuck",
+							"paras": [
+								"The Introduction gives the problem a voice: guilt and shame from the lack of healing, doubts about whether Jesus is enough to cure what plagues us. The sessions go after those doubts with Scripture and with plain explanations of how thoughts, feelings and the brain work."
+							]
+						},
+						{
+							"h2": "For small groups and recovery ministries",
+							"paras": [
+								"The book is written to be used in a group. The Leader Ideas say to start on time, share group rules on the first night, pray, read the assigned passage and share answers, and the Group Rules ask for trust, attentive listening, confidence and no cross-talk."
+							]
+						},
+						{
+							"h2": "For people healing from childhood wounds",
+							"paras": [
+								"Session Two walks through adverse childhood experiences and the idea of toxic stress, then moves to how God designed the brain to heal, and the church's part in that. It lists principles for healing damaged emotions, including accepting responsibility, asking whether you want to be healed, and forgiving others and yourself."
+							]
+						},
+						{
+							"h2": "For counselors, pastors and church leaders",
+							"paras": [
+								"Pastors and lay counselors who want a faith-based way to talk about emotions with a congregation will find a short, structured plan. The book says that, if issues are more significant than what a Bible study can handle, a leader should refer the person to a pastor or a counselor."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A Christian Bible study workbook for believers who have been forgiven and still feel stuck, from a licensed counselor who joins God's Word with what research says about the mind and the body.",
+						"body": "For anyone who has come to God, received His forgiveness and still asks why they feel depressed, why they return to the things that hurt them, or whether the blood of Christ is enough for what they have done. Kami Tahyi, MS, LPCC, writes from the counseling office and the church pew. Mended is six short sessions of plain teaching, Scripture to write out and honest questions to answer, so you do the work of healing and not only the reading."
+					},
+					"what_makes": {
+						"title": "What makes this book for people who want healing they can work through",
+						"paras": [
+							"Many books on emotional healing are read once and shelved. This one is designed to be written in, talked over in a small group and returned to. Here is what sets it apart:"
+						],
+						"list": [
+							"It is a working book. Most sessions ask you to write out a verse, list your own thoughts or describe a time you felt something.",
+							"It joins faith and research. The author cites Paul Ekman's six basic emotions, the Centers for Disease Control research on adverse childhood experiences, and teachers such as David Seamands, Larry Crabb and Bessel van der Kolk, and she keeps each tied to Scripture.",
+							"It names the church's part. Session Two says the church can supply protective factors for people who were wounded, including caring adults, a sense of purpose and social connection.",
+							"It treats feelings as information. She says that feelings are not wrong, that we should avoid telling anyone not to feel a certain way, and that our thoughts shape what we feel.",
+							"It is built for groups. The back of the book has leader ideas, a set of group rules, and a questionnaire and a morning routine to use alongside the sessions."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The Introduction names the questions many believers ask quietly:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Why do I still feel depressed?"
+								]
+							},
+							{
+								"type": "p",
+								"text": "It continues with the one underneath the others:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Why do I return to the things and actions that hurt me?"
+								]
+							},
+							{
+								"type": "p",
+								"text": "In Session One, the author explains why she wants you to doubt your feelings a little:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Does all of this make you doubt your feelings?"
+								]
+							},
+							{
+								"type": "p",
+								"text": "Session Two brings a note of good news to people who have been wounded:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"The good news is that God created our brains to heal."
+								]
+							},
+							{
+								"type": "p",
+								"text": "And she cautions that healing is not instant:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"The Lord wants us to have progress more than perfection"
+								]
+							},
+							{
+								"type": "p",
+								"text": "The six sessions are:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"Session 1, Feelings: the six basic emotions, with a prompt for each, and an exercise to rewrite your ten most unhealthy thoughts",
+									"Session 2, Wounds: trauma, adverse childhood experiences and principles for healing damaged emotions",
+									"Session 3, Trees: Scripture on trees, and the story of trees that fell over in a controlled environment because there was no wind",
+									"Session 4, Choices: needs, choice theory and the gift of free will",
+									"Session 5, Unity: what you are united with, and six principles of happiness",
+									"Session 6, Intimacy: our God-given need to know and be known, and the pull of the limbic brain",
+									"Resources: the Adverse Childhood Experience questionnaire, a morning routine, leader ideas and group rules"
+								]
+							}
+						],
+						"intro": [
+							"The Introduction names the questions many believers ask quietly:"
+						],
+						"excerpt": [
+							"Why do I still feel depressed?",
+							"Why do I return to the things and actions that hurt me?",
+							"Does all of this make you doubt your feelings?",
+							"The good news is that God created our brains to heal.",
+							"The Lord wants us to have progress more than perfection"
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"content_note": {
+						"title": "Content note",
+						"paras": [
+							"This workbook discusses trauma, childhood abuse and neglect, depression, anxiety, lust and shame. The ACE questionnaire in the Resources asks direct questions about abuse, including sexual abuse, in childhood. Answer it only when you feel safe, and bring it to a counselor or pastor if you need support. It is a Christian workbook, not a treatment program."
+						]
+					},
+					"whats_inside": [
+						"Six sessions, each with Scripture to write out and questions to answer",
+						"Writing prompts such as \"Write out Philippians 4:6-7:\" and a ten-line thought exercise",
+						"A page on Paul Ekman's six basic emotions: sadness, happiness, fear, anger, surprise and disgust",
+						"A summary of the adverse childhood experiences research and the protective factors a church can offer",
+						"The Lower Room and the Upper Room, a contrast the author takes from Larry Crabb's The Safest Place on Earth",
+						"The Adverse Childhood Experience (ACE) questionnaire, a ten-question survey, in the Resources",
+						"A morning routine, Leader Ideas, and Group Rules",
+						"A bibliography of the books and sources the author cites",
+						"An 8.5 x 11 inch paperback of 48 pages"
+					],
+					"details": {
+						"Title": "Mended",
+						"Subtitle": "Emotional Healing Through Faith and Understanding",
+						"Author": "Kami Tahyi, MS, LPCC",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "48",
+						"Trim size": "8.5 x 11 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "979-8-89307-106-1",
+						"Library of Congress Control Number": "2024917977"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The wind and the trees",
+							"paras": [
+								"In Session Three, the author tells of a huge glass dome built in the desert in the early 1980s, with purified air and water, to see whether people, plants and animals could thrive. Everything did well except the trees, which fell over as they grew. Scientists realized the one thing they had forgotten was wind. The wind, she writes, makes roots grow deeper, and she asks the reader to share about a time when a struggle helped them grow stronger roots."
+							]
+						},
+						{
+							"h2": "Can I forgive myself?",
+							"paras": [
+								"In Session Two, the author says many people she has worked with know that God has forgiven them and still cannot forgive themselves. She calls that a theology we create and asks one direct question:",
+								"\"Is the blood of Christ enough for your sins?\""
+							]
+						},
+						{
+							"h2": "Six principles of happiness",
+							"paras": [
+								"In Session Five the author draws on a film about happiness that she says she has watched with clients 75 times or more. Its first principle is that happiness is not based on circumstances. She notes that the researchers do not share her faith but have some good things to say, and she pairs the principle with Paul's lines on contentment from Philippians 4."
+							]
+						}
+					],
+					"author": {
+						"bio": "Kami Tahyi, MS, LPCC, is a licensed counselor. After painful life experiences, she found a church home at a church plant's first service on Easter Sunday 2009. In the years since, she has attended college, become a licensed counselor and worked as a counselor at a women's residential treatment facility. She writes that the more she studies, the more she knows God's Word has all the answers, and that her education, license and position let her bring together God's natural healing and what research has uncovered."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to publish a workbook that asks you to pick up a pen."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author writes that healing begins when we admit our need for help, and that we are often kept from the wholeness the Lord provides by our own experiences, strong beliefs and unhealthy coping mechanisms. The book is her answer to that gap, a place where Scripture and counseling meet. A line from Session Six says what she wants you to hold onto:",
+							"\"We are God-created beings that are not defined by our desires and thoughts.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Mended?",
+							"a": "It is a 48-page Christian workbook by Kami Tahyi, MS, LPCC, in six sessions. Each one pairs teaching with Scripture to write out and questions to answer."
+						},
+						{
+							"q": "Is it a replacement for counseling?",
+							"a": "No. It is a Christian workbook and Bible study. It says that if issues are more significant than a Bible study can handle, a leader should refer the participant to a pastor or counselor. Anyone in crisis should reach out to medical or crisis help as well."
+						},
+						{
+							"q": "Can I use it on my own?",
+							"a": "Yes. The writing prompts can be answered alone, and the Leader Ideas show how to use the sessions in a small group."
+						},
+						{
+							"q": "Does it come with videos?",
+							"a": "The Leader Ideas say a session is designed to begin with a DVD video. The printed book does not include one, so check what your group will use before you begin."
+						},
+						{
+							"q": "What is in the Resources section?",
+							"a": "The Adverse Childhood Experience (ACE) questionnaire, a short guide to the Miracle Morning routine adapted for believers, Leader Ideas, Group Rules and a bibliography."
+						},
+						{
+							"q": "How many sessions are there?",
+							"a": "Six: Feelings, Wounds, Trees, Choices, Unity and Intimacy."
+						},
+						{
+							"q": "What Bible translation does it use?",
+							"a": "The book quotes Scripture throughout and does not print a translation notice, so check the verse you write out against the Bible you use."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gk-mended.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"mended-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071061",
+					"isbn_display": "979-8-89307-106-1",
+					"list_cents": 1099,
+					"pages": 48,
+					"trim": "8.5 x 11 in",
+					"binding": "Perfect bound",
+					"book": "mended"
+				}
+			}
+		},
+		{
+			"slug": "your-time-first-responders",
+			"units_12m": 0,
+			"book": {
+				"slug": "your-time-first-responders",
+				"status": "pending",
+				"title": "Your Time (Special Edition for First Responders)",
+				"subtitle": "The Greatest Gift You Receive and Give",
+				"full_title": "Your Time (Special Edition for First Responders): The Greatest Gift You Receive and Give",
+				"author": {
+					"name": "Daniel W. Evans"
+				},
+				"credits": null,
+				"page_title": "Your Time (Special Edition for First Responders) by Daniel W. Evans",
+				"h1": "Your Time (Special Edition for First Responders)",
+				"meta": "Your Time (Special Edition for First Responders) by Daniel W. Evans: a short Christian book on time management that puts God first and others next.",
+				"short": "A short Christian book on time management that puts God first and others next.",
+				"about": null,
+				"who_for": [],
+				"faq": [
+					{
+						"q": "What is the Special Edition for First Responders?",
+						"a": "It is Your Time: The Greatest Gift You Receive and Give, by Daniel W. Evans, with a cover and edition name made for first responders. The text inside is the same as in the Special Edition for Work Staff."
+					},
+					{
+						"q": "Is the content about first responders?",
+						"a": "No. The book is a general Christian look at time, priorities and giving. It does not describe emergency work. The edition name tells you who the cover was prepared for."
+					},
+					{
+						"q": "What is the book about?",
+						"a": "Time as a gift from God that we cannot control, the order of our priorities, giving time to others and investing it well."
+					},
+					{
+						"q": "Which Bible translations does it use?",
+						"a": "The copyright page lists the NIV and the Amplified Bible, and the text also cites the AMPC. The author capitalizes He, His and Him when referring to God, Jesus and the Holy Spirit."
+					},
+					{
+						"q": "How long is it?",
+						"a": "It is a 60-page, 4 x 6 inch paperback, a booklet that can be read in an evening."
+					},
+					{
+						"q": "Does it have questions to answer?",
+						"a": "Yes. Each chapter ends with a Take a Moment to Focus question and space to write, such as Is God included in your daily routines of managing your schedules?"
+					},
+					{
+						"q": "Does it include a prayer?",
+						"a": "Yes. Setting Your Time Straight invites you to pray a printed prayer aloud, asking God's forgiveness for wasted time and help to invest it in Him and in others."
+					}
+				],
+				"bio": null,
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-1200.jpg",
+					"source": "pmprint R2 sized set (3gk)"
+				},
+				"formats": [
+					"your-time-first-responders-pb"
+				],
+				"lccn": "2023902959",
+				"language": "en",
+				"publisher": null,
+				"pub_date": null,
+				"_source": "pmseoaeo 3gk (cleared 06:39Z) product details; price 12.99 (Doc, live page read by pmprint)",
+				"page": {
+					"sections": [
+						{
+							"h2": "For first responders who give their time to others every day",
+							"paras": [
+								"The book does not mention first responders by name. Its Gifts of Time chapter, though, is about the people who stop what they are doing for someone else, from Jesus pausing to bless the children to Cornelius sending for Peter at once. If your work is to show up when others need you, those pages speak to the way you already spend your hours."
+							]
+						},
+						{
+							"h2": "For people who come home tired and want to give their families more",
+							"paras": [
+								"The author says that God, family and others are the most important things, and that the rest of the schedule should be planned around them. One of his Take a Moment to Focus questions asks whether you are spending enough time with your family, friends and others."
+							]
+						},
+						{
+							"h2": "For chaplains, peer supporters and departments choosing a gift",
+							"paras": [
+								"A short book with a prayer in it is easy to hand to a colleague. It does not claim to be counseling, and it does not replace help for anyone who is struggling. It is a short Christian reflection on time."
+							]
+						},
+						{
+							"h2": "For anyone who wants a quick reset on priorities",
+							"paras": [
+								"The chapter on idioms looks at seven phrases we say without thinking, such as killing time and give me a second, and asks how they cost us and the people around us. It is a few minutes that may change what you say next."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A short Christian book on time management that puts God first and others next, in the Special Edition for First Responders.",
+						"body": "For people whose days are given away to others, and for the families who wait for them to come home. Daniel W. Evans looks at time from a biblical point of view in nine short chapters: God as the One who controls it, the tools we use to measure it, how to put God, family and others ahead of the to-do list, and how to invest the hours we are given. Each chapter ends with an honest question to write about."
+					},
+					"what_makes": {
+						"title": "What makes this edition for first responders",
+						"paras": [
+							"This is the Special Edition for First Responders of a book about time. The words inside are the same as in the Work Staff edition, and the book itself is general. It does not describe the work of any one profession. What it offers is a short, plain look at limited time and at giving it away, a subject anyone whose work is serving others will recognize. Here is what sets it apart:"
+						],
+						"list": [
+							"It is short enough for a break room. At 60 pages in a 4 x 6 inch size, it fits a duty bag or a pocket, and each chapter is a few pages.",
+							"It starts with limits. The author says we cannot control time, only monitor it and trust God with the time we try to manage each day.",
+							"It deals with interruptions. The Time-Management chapter says unforeseen situations can bombard us on any given day, including a health issue or an emergency with a family member or friend.",
+							"It treats giving time as a gift. The book argues that we are meant to give some of our time to others as Jesus did, and that doing so is one of the greatest ways to please God.",
+							"It asks you to check your priorities. The author hopes that by the last page you can honestly say you need to check yours, and he closes with a prayer."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The book begins by setting the facts of time next to the God who made it:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Every movement of the second hand on the clock brings us closer to eternity."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Early on, the author says we are the best managers of our own time, and then turns to what comes first on the list:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"The top priority in our time management to-do list must be to give Him time each day."
+								]
+							},
+							{
+								"type": "p",
+								"text": "In the chapter on giving time, he asks a question to take seriously:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Are our schedules so tight that we cannot stop for a divine appointment?"
+								]
+							},
+							{
+								"type": "p",
+								"text": "On investing time, he says why it matters to invest it well:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Unlike wasted money that may be replaceable, we only have one shot at time."
+								]
+							},
+							{
+								"type": "p",
+								"text": "And near the end, he brings it all down to one sentence:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Helping people by giving them your time is the best gift you can give."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The chapters are:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"Time-Control, on God as the One who sets time in motion",
+									"Tools to Monitor Time, on calendars, clocks and trusting God with a scheduled future",
+									"Time-Management, on putting God, family and others first",
+									"Time and Priorities, on God as the first priority and the limit of our days",
+									"Gifts of Time, on Jesus and the children, and on Cornelius and Peter",
+									"Time Management Misconceptions, on the idea that church is the only place to give time",
+									"Proper Investment of Time, on the ABC's of investing time",
+									"Time Idioms, on seven common sayings that quietly waste time",
+									"Setting Your Time Straight, with a prayer to pray aloud",
+									"More from Daniel Evans, about two other offerings from the author"
+								]
+							}
+						],
+						"intro": [
+							"The book begins by setting the facts of time next to the God who made it:"
+						],
+						"excerpt": [
+							"Every movement of the second hand on the clock brings us closer to eternity.",
+							"The top priority in our time management to-do list must be to give Him time each day.",
+							"Are our schedules so tight that we cannot stop for a divine appointment?",
+							"Unlike wasted money that may be replaceable, we only have one shot at time.",
+							"Helping people by giving them your time is the best gift you can give."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Nine short chapters, each closing with a Take a Moment to Focus question and room to write what comes to mind",
+						"A quotation to open each section, from figures such as William Penn, Benjamin Franklin, Steve Jobs and Carl Sandburg",
+						"Bible passages on time, including Isaiah 38, Daniel 6, Luke 18 and Acts 10, in the NIV and the AMP",
+						"The ABC's of investing time: Acknowledge, Become aware and Change",
+						"A list of seven time idioms, such as better late than never, killing time and give me a second",
+						"A prayer to pray aloud to be a better steward of your time",
+						"A short note on two other offerings from the author",
+						"A 4 x 6 inch paperback of 60 pages, small enough for a pocket, a locker or a desk drawer"
+					],
+					"details": {
+						"Title": "Your Time",
+						"Subtitle": "The Greatest Gift You Receive and Give",
+						"Edition": "Special Edition for First Responders",
+						"Author": "Daniel W. Evans",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "60",
+						"Trim size": "4 x 6 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "978-1-961614-01-7",
+						"Library of Congress Control Number": "2023902959"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The sundial of Ahaz",
+							"paras": [
+								"In the first chapter the author points to Isaiah 38, where God turned the shadow on the sundial of Ahaz backward ten degrees because Hezekiah asked. He notes that there are several theories about how it happened, and warns that attempting to explain it can lead some to doubt God. He puts it simply, that faith requires no explanation, and then asks the reader whether they have faith that God can help with their time, even in supernatural ways."
+							]
+						},
+						{
+							"h2": "A divine appointment",
+							"paras": [
+								"In Gifts of Time, the author looks at Jesus stopping on the way to Jerusalem to bless children, and at Cornelius, who did not check his schedule or put off sending for Peter. He says God speaks for one of two reasons, to make us a blessing to someone or to give us a blessing, and he wonders whether our schedules are so tight that we would miss it."
+							]
+						},
+						{
+							"h2": "The ABC's of investing time",
+							"paras": [
+								"In Proper Investment of Time, he asks whether you are investing your time in the right people, and gives three steps. The first is to acknowledge that time is limited:",
+								"\"Acknowledge that not only your money and energy, but also your time is a finite resource.\"",
+								"The second is to become aware of where it goes, since, as he puts it, your calendar will reveal the truth. The third is to change what needs to change, including activities that are unproductive or unhealthy."
+							]
+						}
+					],
+					"author": {
+						"bio": "Daniel W. Evans is a Christian author who says that he has traveled through the states as an evangelist and listened to many pastors talk about church growth. In Your Time he writes from that experience and from his home church in Durham, North Carolina, where he counted how many members give their time as volunteers and found the figure to be 36 percent. He uses Scripture and personal observation to urge readers to put God first and to steward every hour well. The back of the book describes two other offerings from him: a one-day process in five steps, and A Commitment to Unleash Your Leader Potential, a program for the leader in each of us."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author's stated hope is simple. He wants you to see that your time is precious, that no one can replace it, and that God belongs at the top of the list. He puts it as a prayer:",
+							"\"My prayer is that this booklet will help you recognize and realize that you are a potential success.\"",
+							"It is short on purpose, so that a reader finishes it, answers the questions and starts to make changes."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is the Special Edition for First Responders?",
+							"a": "It is Your Time: The Greatest Gift You Receive and Give, by Daniel W. Evans, with a cover and edition name made for first responders. The text inside is the same as in the Special Edition for Work Staff."
+						},
+						{
+							"q": "Is the content about first responders?",
+							"a": "No. The book is a general Christian look at time, priorities and giving. It does not describe emergency work. The edition name tells you who the cover was prepared for."
+						},
+						{
+							"q": "What is the book about?",
+							"a": "Time as a gift from God that we cannot control, the order of our priorities, giving time to others and investing it well."
+						},
+						{
+							"q": "Which Bible translations does it use?",
+							"a": "The copyright page lists the NIV and the Amplified Bible, and the text also cites the AMPC. The author capitalizes He, His and Him when referring to God, Jesus and the Holy Spirit."
+						},
+						{
+							"q": "How long is it?",
+							"a": "It is a 60-page, 4 x 6 inch paperback, a booklet that can be read in an evening."
+						},
+						{
+							"q": "Does it have questions to answer?",
+							"a": "Yes. Each chapter ends with a Take a Moment to Focus question and space to write, such as Is God included in your daily routines of managing your schedules?"
+						},
+						{
+							"q": "Does it include a prayer?",
+							"a": "Yes. Setting Your Time Straight invites you to pray a printed prayer aloud, asking God's forgiveness for wasted time and help to invest it in Him and in others."
+						}
+					],
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish John Vallely's story."
+					}
+				},
+				"page_source": "aeo-state/3gk-your-time-first-responders.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"your-time-first-responders-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614017",
+					"isbn_display": "978-1-961614-01-7",
+					"list_cents": 1299,
+					"pages": 60,
+					"trim": "4 x 6 in",
+					"binding": "Perfect bound",
+					"book": "your-time-first-responders"
+				}
+			}
+		},
+		{
+			"slug": "your-time-work-staff",
+			"units_12m": 0,
+			"book": {
+				"slug": "your-time-work-staff",
+				"status": "pending",
+				"title": "Your Time (Special Edition for Work Staff)",
+				"subtitle": "The Greatest Gift You Receive and Give",
+				"full_title": "Your Time (Special Edition for Work Staff): The Greatest Gift You Receive and Give",
+				"author": {
+					"name": "Daniel W. Evans"
+				},
+				"credits": null,
+				"page_title": "Your Time (Special Edition for Work Staff) by Daniel W. Evans",
+				"h1": "Your Time (Special Edition for Work Staff)",
+				"meta": "Your Time (Special Edition for Work Staff) by Daniel W. Evans: a short Christian book on time management built around what matters most.",
+				"short": "A short Christian book on time management built around what matters most.",
+				"about": null,
+				"who_for": [],
+				"faq": [
+					{
+						"q": "What is the Special Edition for Work Staff?",
+						"a": "It is Your Time: The Greatest Gift You Receive and Give, by Daniel W. Evans, with a cover and edition name made for staff at work. The text inside is the same as in the Special Edition for First Responders."
+					},
+					{
+						"q": "Is the content about the workplace?",
+						"a": "Only in part. The book is a general Christian look at time, priorities and giving, with a few pages on employees, leaders and business owners. The edition name tells you who the cover was prepared for."
+					},
+					{
+						"q": "What is the book about?",
+						"a": "Time as a gift from God that we cannot control, the order of our priorities, giving time to others and investing it well."
+					},
+					{
+						"q": "Which Bible translations does it use?",
+						"a": "The copyright page lists the NIV and the Amplified Bible, and the text also cites the AMPC. The author capitalizes He, His and Him when referring to God, Jesus and the Holy Spirit."
+					},
+					{
+						"q": "How long is it?",
+						"a": "It is a 60-page, 4 x 6 inch paperback, a booklet that can be read in an evening."
+					},
+					{
+						"q": "Does it have questions to answer?",
+						"a": "Yes. Each chapter ends with a Take a Moment to Focus question and space to write, such as Is God included in your daily routines of managing your schedules?"
+					},
+					{
+						"q": "Does it include a prayer?",
+						"a": "Yes. Setting Your Time Straight invites you to pray a printed prayer aloud, asking God's forgiveness for wasted time and help to invest it in Him and in others."
+					}
+				],
+				"bio": null,
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-special-edition-for-work-staff-1200.jpg",
+					"source": "pmprint R2 sized set (3gk)"
+				},
+				"formats": [
+					"your-time-work-staff-pb"
+				],
+				"lccn": "2023902959",
+				"language": "en",
+				"publisher": null,
+				"pub_date": null,
+				"_source": "pmseoaeo 3gk (cleared 06:39Z) product details; price 12.99 (Doc, live page read by pmprint)",
+				"page": {
+					"sections": [
+						{
+							"h2": "For employees who want to be better stewards of the workday",
+							"paras": [
+								"The book treats a schedule as something to be offered to God. Its early chapters say that we are the best managers of our own time, that we still have trouble, and that the answer is to put the most important things first."
+							]
+						},
+						{
+							"h2": "For team leads and managers",
+							"paras": [
+								"The chapter on proper investment of time notes that many business owners give their attention to under-performing employees, and that continued training for their best workers would likely make them better and more efficient. It also asks whether you are being mentored and whether you are mentoring others."
+							]
+						},
+						{
+							"h2": "For workplace Bible studies and chaplains",
+							"paras": [
+								"The nine short chapters each end with a question that can be talked over, and a prayer near the end invites readers to pray aloud. A group can read a chapter and use the question as a starting point."
+							]
+						},
+						{
+							"h2": "For anyone who feels their days are slipping by",
+							"paras": [
+								"The chapter on idioms looks at seven phrases we say without thinking, such as killing time, time flies and give me a second. The author says the point is not to find fault but to bring awareness that we waste time more than we realize."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A short Christian book on time management built around what matters most, in the Special Edition for Work Staff.",
+						"body": "For people at work who want to spend their hours well. Daniel W. Evans looks at time from a biblical point of view in nine short chapters: God as the One who controls it, the calendars and clocks we use to manage it, how to put God, family and others ahead of the to-do list, and how to invest the hours we are given. Each chapter ends with an honest question to write about."
+					},
+					"what_makes": {
+						"title": "What makes this edition for work staff",
+						"paras": [
+							"This is the Special Edition for Work Staff of a book about time. The words inside are the same as in the First Responders edition, and the book itself is general. It does not describe any particular workplace. What it offers is a short, plain look at managing a schedule, and a few pages about work and people at work. Here is what sets it apart:"
+						],
+						"list": [
+							"It is short enough for a lunch hour. At 60 pages in a 4 x 6 inch size, it fits a desk drawer or a bag, and each chapter is a few pages.",
+							"It starts from the calendar. The author notes that we leave for work and school, set appointments and plan vacations with calendars and clocks, and that our goal-setting is marked on them too.",
+							"It speaks to the unplanned day. Whether at work, school, home, church or traveling, unforeseen situations can bombard us, from a flat tire to a cavity to a health issue.",
+							"It asks who you invest in. One chapter looks at business owners who spend most of their time on under-performing employees and little on their best, and at pastors who burn out ministering to the broken.",
+							"It gives a plan. The ABC's of investing time are to acknowledge that time is limited, become aware of where it goes, and change what is unproductive."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The book begins by setting the facts of time next to the God who made it:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Every movement of the second hand on the clock brings us closer to eternity."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Early on, the author says we are the best managers of our own time, and then turns to what comes first on the list:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"The top priority in our time management to-do list must be to give Him time each day."
+								]
+							},
+							{
+								"type": "p",
+								"text": "In the chapter on giving time, he asks a question to take seriously:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Are our schedules so tight that we cannot stop for a divine appointment?"
+								]
+							},
+							{
+								"type": "p",
+								"text": "On investing time, he says why it matters to invest it well:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Unlike wasted money that may be replaceable, we only have one shot at time."
+								]
+							},
+							{
+								"type": "p",
+								"text": "And near the end, he brings it all down to one sentence:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Helping people by giving them your time is the best gift you can give."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The chapters are:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"Time-Control, on God as the One who sets time in motion",
+									"Tools to Monitor Time, on calendars, clocks and trusting God with a scheduled future",
+									"Time-Management, on putting God, family and others first",
+									"Time and Priorities, on God as the first priority and the limit of our days",
+									"Gifts of Time, on Jesus and the children, and on Cornelius and Peter",
+									"Time Management Misconceptions, on the idea that church is the only place to give time",
+									"Proper Investment of Time, on the ABC's of investing time",
+									"Time Idioms, on seven common sayings that quietly waste time",
+									"Setting Your Time Straight, with a prayer to pray aloud",
+									"More from Daniel Evans, about two other offerings from the author"
+								]
+							}
+						],
+						"intro": [
+							"The book begins by setting the facts of time next to the God who made it:"
+						],
+						"excerpt": [
+							"Every movement of the second hand on the clock brings us closer to eternity.",
+							"The top priority in our time management to-do list must be to give Him time each day.",
+							"Are our schedules so tight that we cannot stop for a divine appointment?",
+							"Unlike wasted money that may be replaceable, we only have one shot at time.",
+							"Helping people by giving them your time is the best gift you can give."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Nine short chapters, each closing with a Take a Moment to Focus question and room to write what comes to mind",
+						"A quotation to open each section, from figures such as William Penn, Benjamin Franklin, Steve Jobs and Carl Sandburg",
+						"Bible passages on time, including Isaiah 38, Daniel 6, Luke 18 and Acts 10, in the NIV and the AMP",
+						"The ABC's of investing time: Acknowledge, Become aware and Change",
+						"A list of seven time idioms, such as better late than never, killing time and give me a second",
+						"A prayer to pray aloud to be a better steward of your time",
+						"A short note on two other offerings from the author",
+						"A 4 x 6 inch paperback of 60 pages, small enough for a pocket, a locker or a desk drawer"
+					],
+					"details": {
+						"Title": "Your Time",
+						"Subtitle": "The Greatest Gift You Receive and Give",
+						"Edition": "Special Edition for Work Staff",
+						"Author": "Daniel W. Evans",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "60",
+						"Trim size": "4 x 6 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "978-1-961614-87-1",
+						"Library of Congress Control Number": "2023902959"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The sundial of Ahaz",
+							"paras": [
+								"In the first chapter the author points to Isaiah 38, where God turned the shadow on the sundial of Ahaz backward ten degrees because Hezekiah asked. He notes that there are several theories about how it happened, and warns that attempting to explain it can lead some to doubt God. He puts it simply, that faith requires no explanation, and then asks the reader whether they have faith that God can help with their time, even in supernatural ways."
+							]
+						},
+						{
+							"h2": "A divine appointment",
+							"paras": [
+								"In Gifts of Time, the author looks at Jesus stopping on the way to Jerusalem to bless children, and at Cornelius, who did not check his schedule or put off sending for Peter. He says God speaks for one of two reasons, to make us a blessing to someone or to give us a blessing, and he wonders whether our schedules are so tight that we would miss it."
+							]
+						},
+						{
+							"h2": "The ABC's of investing time",
+							"paras": [
+								"In Proper Investment of Time, he asks whether you are investing your time in the right people, and gives three steps. The first is to acknowledge that time is limited:",
+								"\"Acknowledge that not only your money and energy, but also your time is a finite resource.\"",
+								"The second is to become aware of where it goes, since, as he puts it, your calendar will reveal the truth. The third is to change what needs to change, including activities that are unproductive or unhealthy."
+							]
+						}
+					],
+					"author": {
+						"bio": "Daniel W. Evans is a Christian author who says that he has traveled through the states as an evangelist and listened to many pastors talk about church growth. In Your Time he writes from that experience and from his home church in Durham, North Carolina, where he counted how many members give their time as volunteers and found the figure to be 36 percent. He uses Scripture and personal observation to urge readers to put God first and to steward every hour well. The back of the book describes two other offerings from him: a one-day process in five steps, and A Commitment to Unleash Your Leader Potential, a program for the leader in each of us."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author's stated hope is simple. He wants you to see that your time is precious, that no one can replace it, and that God belongs at the top of the list. He puts it as a prayer:",
+							"\"My prayer is that this booklet will help you recognize and realize that you are a potential success.\"",
+							"It is short on purpose, so that a reader finishes it, answers the questions and starts to make changes."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is the Special Edition for Work Staff?",
+							"a": "It is Your Time: The Greatest Gift You Receive and Give, by Daniel W. Evans, with a cover and edition name made for staff at work. The text inside is the same as in the Special Edition for First Responders."
+						},
+						{
+							"q": "Is the content about the workplace?",
+							"a": "Only in part. The book is a general Christian look at time, priorities and giving, with a few pages on employees, leaders and business owners. The edition name tells you who the cover was prepared for."
+						},
+						{
+							"q": "What is the book about?",
+							"a": "Time as a gift from God that we cannot control, the order of our priorities, giving time to others and investing it well."
+						},
+						{
+							"q": "Which Bible translations does it use?",
+							"a": "The copyright page lists the NIV and the Amplified Bible, and the text also cites the AMPC. The author capitalizes He, His and Him when referring to God, Jesus and the Holy Spirit."
+						},
+						{
+							"q": "How long is it?",
+							"a": "It is a 60-page, 4 x 6 inch paperback, a booklet that can be read in an evening."
+						},
+						{
+							"q": "Does it have questions to answer?",
+							"a": "Yes. Each chapter ends with a Take a Moment to Focus question and space to write, such as Is God included in your daily routines of managing your schedules?"
+						},
+						{
+							"q": "Does it include a prayer?",
+							"a": "Yes. Setting Your Time Straight invites you to pray a printed prayer aloud, asking God's forgiveness for wasted time and help to invest it in Him and in others."
+						}
+					],
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish John Vallely's story."
+					}
+				},
+				"page_source": "aeo-state/3gk-your-time-work-staff.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"your-time-work-staff-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614871",
+					"isbn_display": "978-1-961614-87-1",
+					"list_cents": 1299,
+					"pages": 60,
+					"trim": "4 x 6 in",
+					"binding": "Perfect bound",
+					"book": "your-time-work-staff"
+				}
+			}
 		}
 	]
 }

@@ -140,6 +140,12 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 					</dl>
 				</>
 			)}
+			{g.content_note && has(g.content_note.paras) && (
+				<div class="mt-8 rounded-lg border border-stone-300 bg-stone-50 p-4">
+					<h3 class="text-lg font-bold text-ink">{g.content_note.title}</h3>
+					{g.content_note.paras.map((x: string) => <p class="mt-2 leading-relaxed">{x}</p>)}
+				</div>
+			)}
 		</div>
 	</section>
 )}

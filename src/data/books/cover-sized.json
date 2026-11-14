@@ -253,6 +253,27 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sms-ultimate-book-marketing-guide-300.webp",
 			"width": 600,
 			"height": 776
+		},
+		"mended": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mended-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mended-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mended-300.webp",
+			"width": 600,
+			"height": 776
+		},
+		"your-time-first-responders": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"your-time-work-staff": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-special-edition-for-work-staff-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-special-edition-for-work-staff-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-special-edition-for-work-staff-300.webp",
+			"width": 600,
+			"height": 900
 		}
 	}
 }
