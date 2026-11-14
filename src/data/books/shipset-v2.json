@@ -19020,6 +19020,2279 @@
 					"sku_ready": true
 				}
 			}
+		},
+		{
+			"slug": "el-gran-sueno-de-la-yiayia-voula",
+			"units_12m": 0,
+			"book": {
+				"slug": "el-gran-sueno-de-la-yiayia-voula",
+				"status": "pending",
+				"title": "El Gran Sueño de la YiaYia Voula",
+				"subtitle": "Una historia real de no rendirse nunca",
+				"full_title": "El Gran Sueño de la YiaYia Voula: Una historia real de no rendirse nunca",
+				"author": {
+					"name": "Tyler Stavlas"
+				},
+				"credits": "Author Tyler Stavlas; Illustrator Salman Bhatti; Translator Spirit Media Publishing; Editor (Spanish edition) Paulette Schulte; original title YiaYia Voula's Big Dream: A True Story of Never Giving Up; related English ISBNs 979-8-89307-997-5 hardcover, -998-2 paperback, -996-8 eBook",
+				"page_title": "El Gran Sueño de la YiaYia Voula: Cuento Infantil Real",
+				"h1": "El Gran Sueño de la YiaYia Voula",
+				"meta": "El Gran Sueño de la YiaYia Voula, de Tyler Stavlas: cuento infantil ilustrado y real sobre una chef griega, la fe y no rendirse. Para niños de 5 a 8 años.",
+				"short": "De un pueblo de Grecia a los supermercados de Estados Unidos: un cuento infantil basado en una historia real que enseña que la fe, la familia, el trabajo duro y la esperanza pueden sostener un gran sueño hasta hacerlo realidad.",
+				"about": "De niña, en un pequeño pueblo de Grecia, a Voula le encanta cocinar, hornear e inventar recetas nuevas. Sueña con ser chef. Cuando otros se ríen y le dicen que su sueño es imposible, se promete seguir creyendo. Voula se muda con su familia a Estados Unidos en busca de un futuro mejor: no habla el idioma, no puede leer el nuevo alfabeto y la rechazan una y otra vez. Tiene que criar sola a sus tres hijos. Cuando una enfermedad grave la deja en coma, su familia se queda a su lado, orando y confiando en Dios. Voula se recupera y, con su familia, empieza a llevar su salsa tzatziki especial a los supermercados. Es un cuento infantil ilustrado, basado en una historia real, para leer en voz alta en familia, como cuento para dormir, en el aula, en bibliotecas e iglesias.",
+				"who_for": [
+					"Niños de 5 a 8 años",
+					"Familias hispanohablantes",
+					"Padres que leen en voz alta",
+					"Abuelos que comparten sus raíces",
+					"Familias cristianas",
+					"Familias inmigrantes",
+					"Maestros de kínder a tercer grado",
+					"Aulas bilingües"
+				],
+				"who_for_status": "RANKED (sheet 'fors', 17 items, Spanish, derived); top 8 shown",
+				"faq": [
+					{
+						"q": "¿De qué trata El Gran Sueño de la YiaYia Voula?",
+						"a": "Es un cuento infantil ilustrado, basado en una historia real, sobre una niña de un pequeño pueblo de Grecia que sueña con ser chef. Voula se muda a Estados Unidos, enfrenta puertas cerradas, cría sola a sus tres hijos y sigue creyendo hasta que su salsa tzatziki llega a los supermercados."
+					},
+					{
+						"q": "¿Es una historia real?",
+						"a": "Sí. El libro está basado en la historia real de la YiaYia Voula, la abuela griega del autor, Tyler Stavlas, quien creció ayudándola a preparar su famoso tzatziki."
+					},
+					{
+						"q": "¿Para qué edades es este libro?",
+						"a": "Para niños de 5 a 8 años, según la hoja de datos del libro."
+					},
+					{
+						"q": "¿Sirve como cuento infantil para dormir o para leer en voz alta?",
+						"a": "Sí. La descripción lo presenta como ideal para leer en voz alta en familia, como cuento para dormir, en el aula, en bibliotecas e iglesias."
+					},
+					{
+						"q": "¿Es un libro infantil en español sobre fe, inmigración y perseverancia?",
+						"a": "Sí. Trata de la perseverancia, la herencia griega, la inmigración, la fe cristiana, la familia, el emprendimiento y la esperanza, y es la edición en español del libro en inglés YiaYia Voula's Big Dream."
+					}
+				],
+				"bio": "Tyler Stavlas creció en la cocina con su YiaYia, su abuela griega, ayudándola a preparar su famoso tzatziki mientras escuchaba las historias de las dificultades que enfrentó y de cómo nunca se rindió. Escribió este libro para compartir su mensaje con los niños de todas partes: sueña en grande y no te rindas nunca. Hoy es director de producto de YiaYia Voula's Foods y fundó, con un amigo, Squeegee Clean NC. Da charlas sobre perseverancia, emprendimiento y liderazgo de servicio, y fundó Hunger for Change, una organización sin fines de lucro.",
+				"jsonld": {
+					"book": {
+						"name": "El Gran Sueño de la YiaYia Voula",
+						"alternativeHeadline": "Una historia real de no rendirse nunca",
+						"inLanguage": "es",
+						"translator": "Spirit Media Publishing",
+						"illustrator": "Salman Bhatti",
+						"isbn": null,
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": null,
+						"datePublished": null,
+						"audience": "Niños de 5 a 8 años y familias hispanohablantes",
+						"about": [
+							"perseverancia",
+							"herencia griega",
+							"inmigración",
+							"fe cristiana"
+						],
+						"workTranslationOf": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/el-gran-sueno-de-la-yiayia-voula/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Tyler Stavlas",
+						"description": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/el-gran-sueno-de-la-yiayia-voula/#author"
+					},
+					"faqpage": [
+						{
+							"q": "¿De qué trata El Gran Sueño de la YiaYia Voula?",
+							"a": "Es un cuento infantil ilustrado, basado en una historia real, sobre una niña de un pequeño pueblo de Grecia que sueña con ser chef. Voula se muda a Estados Unidos, enfrenta puertas cerradas, cría sola a sus tres hijos y sigue creyendo hasta que su salsa tzatziki llega a los supermercados."
+						},
+						{
+							"q": "¿Es una historia real?",
+							"a": "Sí. El libro está basado en la historia real de la YiaYia Voula, la abuela griega del autor, Tyler Stavlas, quien creció ayudándola a preparar su famoso tzatziki."
+						},
+						{
+							"q": "¿Para qué edades es este libro?",
+							"a": "Para niños de 5 a 8 años, según la hoja de datos del libro."
+						},
+						{
+							"q": "¿Sirve como cuento infantil para dormir o para leer en voz alta?",
+							"a": "Sí. La descripción lo presenta como ideal para leer en voz alta en familia, como cuento para dormir, en el aula, en bibliotecas e iglesias."
+						},
+						{
+							"q": "¿Es un libro infantil en español sobre fe, inmigración y perseverancia?",
+							"a": "Sí. Trata de la perseverancia, la herencia griega, la inmigración, la fe cristiana, la familia, el emprendimiento y la esperanza, y es la edición en español del libro en inglés YiaYia Voula's Big Dream."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > El Gran Sueño de la YiaYia Voula"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"English edition page: YiaYia Voula's Big Dream (once it exists; reciprocal link)",
+					"More like this (children's, pages first): Robie the Ghost, The Brothers and Their Lunch Basket, Mario and Jimmy",
+					"/returns/ when Buy goes live"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/el-gran-sueno-de-la-yiayia-voula-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": [
+					"el-gran-sueno-de-la-yiayia-voula-pb",
+					"el-gran-sueno-de-la-yiayia-voula-hb"
+				],
+				"language": "es",
+				"publisher": "Spirit Media Publishing (co-publisher: EPIC Publishing)",
+				"lccn": "Applied for / en trámite",
+				"pub_date": "2026-11-10",
+				"lead_term": {
+					"term": "cuentos infantiles",
+					"volume": 3600,
+					"note": "normalised from the 3fi batch-1 shape (final/final_volume, 3fj ruling applied)"
+				},
+				"target_queries": [
+					{
+						"term": "cuentos infantiles",
+						"volume": 3600,
+						"role": "LEAD (kept)"
+					},
+					{
+						"term": "cuentos infantiles para dormir",
+						"volume": 2400
+					},
+					{
+						"term": "libros infantiles en español",
+						"volume": 390
+					},
+					{
+						"term": "historias de inmigrantes",
+						"volume": 70
+					},
+					{
+						"term": "superar obstáculos",
+						"volume": 30
+					}
+				],
+				"beside_larger_than_lead": null,
+				"home": "SMP (no source marks it Father Heart)",
+				"url": "https://spiritmediapublishing.com/books/el-gran-sueno-de-la-yiayia-voula/",
+				"buy_url": "https://spiritmediapublishing.com/books/el-gran-sueno-de-la-yiayia-voula/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#el-gran-sueno-de-la-yiayia-voula (draft unit 3fi); sources: Drive metadata Doc 1jcOHGkoNN_hq7-Om8X6hR5hZ96JlIZeq3O5bR9Au_2E (2026-11-06) + sheet.json (11-06) + 3fg keywords (es, US market)",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT",
+						"jsonld.book.isbn": "OMIT until Doc confirms (sheet.json: 9798893075564 paperback, workExample hardback 9798893075571, eBook 9798893075588)",
+						"jsonld.book.workTranslationOf": "TBD (English edition page URL once it exists)",
+						"jsonld.book.numberOfPages": "OMIT",
+						"jsonld.book.sameAs": "TBD",
+						"jsonld.offer": "OMIT (not live; ISBNs unconfirmed)",
+						"jsonld.person.description": "bio above (confirm minor-safe)",
+						"jsonld.person.sameAs": "TBD; www.yiayiavoulas.com if approved"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "Para familias hispanohablantes que buscan cuentos infantiles con valores",
+							"paras": [
+								"Si busca un libro en español que hable de esfuerzo, de familia y de fe sin dejar de ser un cuento, este lo hace. Es corto, tiene una heroína con nombre y apellido de familia, y cada página avanza un paso en su vida."
+							]
+						},
+						{
+							"h2": "Para abuelos y nietos",
+							"paras": [
+								"El libro nace en una cocina, entre un nieto y su abuela. Si usted es abuelo o abuela, puede leerlo y luego contarle a su nieto cómo fueron sus propios comienzos. La pregunta del final sirve para eso: ¿cuál es tu sueño?"
+							]
+						},
+						{
+							"h2": "Para maestros y bibliotecas",
+							"paras": [
+								"Es una lectura breve para el aula, con una historia clara, un personaje que se levanta después de cada no y una pregunta para conversar. Según la nota del autor, se dona un ejemplar de este libro a cada biblioteca pública de su condado."
+							]
+						},
+						{
+							"h2": "Para niños que tienen un sueño y miedo de que se rían",
+							"paras": [
+								"La primera dificultad de Voula no es el idioma ni el dinero. Es que otros se ríen de ella siendo niña. El libro muestra qué hace: llora, se aleja, respira hondo y decide seguir. Es una escena corta que un niño reconoce de inmediato."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Una niña de un pueblo pequeño de Grecia sueña con ser chef, algunos se ríen de ella, y ella decide seguir creyendo.",
+						"body": "Para niños de 5 a 8 años, para las familias hispanohablantes que leen juntas en voz alta y para los abuelos que quieren contar de dónde vienen. Tyler Stavlas cuenta la historia real de su abuela griega, YiaYia Voula: una cocinera que llega a Estados Unidos sin hablar el idioma, que oye \"no\" en cada puerta, que cría sola a sus tres hijos y que confía en Dios hasta ver su tzatziki en los supermercados. Una nota sobre los temas: es un cuento ilustrado, breve y con final esperanzador. En él la protagonista pasa por la pobreza, por noches sin un lugar donde dormir, por tres trabajos a la vez y por una enfermedad grave que la deja en coma. El texto lo cuenta con sencillez, y su familia ora a su lado. Si un niño a su cargo ha vivido una pérdida o una enfermedad en casa, conviene leerlo juntos y dejarlo hacer preguntas."
+					},
+					"what_makes": {
+						"title": "Qué hace especial este libro para niños que sueñan en grande",
+						"paras": [
+							"Es la historia de una persona real, contada por su nieto. Desde la primera página, un niño sabe que Voula existió y que su sueño de ser chef se cumplió. Lo que cuenta el libro es todo lo que pasó entre una cosa y la otra.",
+							"Cinco cosas lo distinguen:"
+						],
+						"list": [
+							"Es una historia real. El subtítulo lo dice: una historia real de no rendirse nunca. La primera página explica cómo se pronuncia YiaYia Voula (YA-ya VÚ-la) y que el nombre significa abuela Voula.",
+							"Muestra el \"no\" sin esconderlo. Cuando Voula pide trabajo en Estados Unidos, el libro dice que lo intentó \"una y otra vez\" y que en cada trabajo le decían que no, hasta que un hotel la contrata como chef.",
+							"Pone la fe en los momentos más difíciles. Voula ora al mudarse y la familia sigue orando mientras ella está enferma. El libro no presenta la fe como un adorno al final, sino como lo que sostiene a la familia.",
+							"Está escrito para leerse en voz alta. Las frases son cortas, y casi cada página cierra con una acción: ella respira hondo, estudia, prueba, sonríe, sigue.",
+							"Termina con dos preguntas para el niño: \"¿Cuál es tu sueño?\" y \"¿Qué lograrás si nunca te rindes?\". Después de ellas, el libro cuenta qué fue de la marca de la familia, YiaYia Voula's Foods, que según el libro nació en 2024 y hoy está en más de 300 tiendas."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "El libro empieza con una invitación a quien lo abre:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"puedes confiar en Dios, seguir soñando y no rendirte nunca"
+								]
+							},
+							{
+								"type": "p",
+								"text": "Esa frase aparece al principio, después de explicar el nombre YiaYia Voula, y vuelve al final. La historia arranca con esta línea:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"En un pequeño pueblo de Grecia vivía una niña llamada Voula que tenía un sueño muy grande."
+								]
+							},
+							{
+								"type": "p",
+								"text": "En la siguiente página, la niña dice en voz alta lo que quiere ser:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"¡Algún día seré chef y todas mis recetas se compartirán en todo el mundo!"
+								]
+							},
+							{
+								"type": "p",
+								"text": "La historia sigue estos pasos:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"Una niña de un pueblo de Grecia que sueña con cocinar",
+									"Las risas de los demás y la decisión de seguir creyendo",
+									"Los años de estudio, trabajo y recetas nuevas",
+									"La mudanza a Estados Unidos, sin el idioma ni el alfabeto",
+									"Los noes, el trabajo de chef en un hotel y los tres hijos a su cargo",
+									"Los tres trabajos, la fe y los corazones generosos",
+									"La enfermedad, el coma y la familia que ora",
+									"La recuperación y el plan para llevar su salsa a los supermercados",
+									"El dueño de una tienda que prueba el tzatziki",
+									"La pregunta final para el lector"
+								]
+							}
+						],
+						"intro": [
+							"El libro empieza con una invitación a quien lo abre:"
+						],
+						"excerpt": [
+							"puedes confiar en Dios, seguir soñando y no rendirte nunca",
+							"En un pequeño pueblo de Grecia vivía una niña llamada Voula que tenía un sueño muy grande.",
+							"¡Algún día seré chef y todas mis recetas se compartirán en todo el mundo!"
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Un cuento ilustrado de 54 páginas en español, basado en una historia real",
+						"Una invitación inicial y una pregunta doble al final para que el niño piense en su propio sueño",
+						"Una nota sobre YiaYia Voula's Foods, la marca de comida griega casera con sede en Raleigh, Carolina del Norte",
+						"Una página sobre el autor, Tyler Stavlas, y sobre la organización sin fines de lucro que fundó",
+						"Los datos de la edición original en inglés, YiaYia Voula's Big Dream: A True Story of Never Giving Up",
+						"Tapa blanda de 8.5 x 8.5 pulgadas"
+					],
+					"details": {
+						"Título": "El Gran Sueño de la YiaYia Voula",
+						"Subtítulo": "Una historia real de no rendirse nunca",
+						"Autor": "Tyler Stavlas",
+						"Ilustrador": "Salman Bhatti",
+						"Traducción": "Spirit Media Publishing",
+						"Editorial": "Spirit Media Publishing",
+						"Idioma": "español",
+						"Edad de lectura": "5 a 8 años",
+						"Páginas": "54 (tapa blanda)",
+						"Tamaño": "8.5 x 8.5 pulgadas",
+						"Encuadernación": "tapa blanda (encuadernación rústica)",
+						"ISBN de tapa blanda": "979-8-89307-556-4",
+						"ISBN de tapa dura": "979-8-89307-557-1",
+						"ISBN de libro electrónico": "979-8-89307-558-8",
+						"Edición original en inglés, tapa blanda": "979-8-89307-998-2"
+					},
+					"stories_title": "Tres momentos del libro",
+					"stories": [
+						{
+							"h2": "Las risas y la decisión",
+							"paras": [
+								"Poco después del comienzo, algunos oyen a Voula decir que será chef y se ríen: ¿cómo va a ser una gran chef una niña pobre de un pueblo pequeño? A Voula le corren las lágrimas por la cara. Entonces se aleja, respira hondo y toma una decisión. Es la decisión que sostiene el resto del libro y la que el niño recordará."
+							]
+						},
+						{
+							"h2": "Tres trabajos y un techo prestado",
+							"paras": [
+								"Ya en Estados Unidos, Voula se queda sola a cargo de sus tres hijos. Acepta tres trabajos: en una pescadería muy fría, de mesera y de chef. El libro dice que su fe en Dios le daba fuerzas. Y dice algo más: \"Algunas noches, Voula y sus hijos no tenían dónde dormir.\" Pero corazones generosos les abrieron sus puertas, y poco a poco la esperanza volvió a encontrarlos."
+							]
+						},
+						{
+							"h2": "De la cama del hospital al supermercado",
+							"paras": [
+								"Cuando Voula enferma gravemente, la familia no se aparta de su lado. Ahí viene la pregunta que el libro deja flotando: \"¿Se recuperaría Voula? ¿Llegaría a ver su sueño hecho realidad?\" Ella abre los ojos, los médicos quedan asombrados y la familia da gracias a Dios. Después empiezan a llevar su tzatziki a las tiendas. Unas dicen que no hay espacio. En una, el dueño lo prueba y exclama que esa salsa tiene que estar en todas sus tiendas."
+							]
+						}
+					],
+					"author": {
+						"bio": "Tyler Stavlas creció en la cocina con su YiaYia, su abuela griega, ayudándola a preparar su famoso tzatziki y escuchando las historias de las dificultades que enfrentó y de cómo nunca se rindió. Hoy es director de producto de YiaYia Voula's Foods. Fundó Hunger for Change, una organización sin fines de lucro que, según el libro, ha donado 750 libras de tzatziki sin vender a bancos de alimentos locales. Da charlas sobre perseverancia, emprendimiento y liderazgo de servicio."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing es una empresa cristiana de publicación y mercadeo con la visión de revelar el corazón de nuestro Padre a todas las naciones. Ofrece la creación y publicación completa de libros en tapa blanda, tapa dura, formato digital y audiolibro, además de libros infantiles, Express Books compactos, diseño de sitios web y SEO, y producción de pódcast y video. Nos alegra publicar la edición en español de una historia real que invita a los niños a no rendirse."
+					},
+					"why": {
+						"title": "Por qué existe este libro",
+						"paras": [
+							"La página sobre el autor lo dice con sus propias palabras: él \"escribió este libro para compartir su mensaje con los niños de todas partes: sueña en grande y no te rindas nunca\".",
+							"El libro cierra con el mismo mensaje, dicho de otra forma. \"El mayor regalo de YiaYia Voula no fueron solo sus recetas: fue mostrarle al mundo que, aunque la vida sea difícil, puedes confiar en Dios, seguir intentándolo y nunca renunciar a tus sueños.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "¿De qué trata El Gran Sueño de la YiaYia Voula?",
+							"a": "Es un cuento infantil ilustrado, basado en una historia real, sobre una niña de un pequeño pueblo de Grecia que sueña con ser chef. Voula se muda a Estados Unidos, enfrenta puertas cerradas, cría sola a sus tres hijos y sigue creyendo hasta que su salsa tzatziki llega a los supermercados."
+						},
+						{
+							"q": "¿Es uno de esos cuentos infantiles que son reales o inventados?",
+							"a": "Es real. Según el libro, cuenta la historia de la abuela griega del autor. La expresión cuento infantil es nuestra descripción: el texto de las páginas no la usa, y lo que se lee es una historia contada en tercera persona, en frases cortas."
+						},
+						{
+							"q": "¿Sirve como cuento infantil para dormir?",
+							"a": "Sí, para leer en voz alta en familia. Es corto y termina bien, con una pregunta tranquila para el niño. Pero tiene una escena de enfermedad grave y coma, así que algunos padres lo preferirán de día o junto a una conversación. La palabra dormir aparece una sola vez en el texto, y no es para describir el libro."
+						},
+						{
+							"q": "¿Es un libro infantil en español o una traducción?",
+							"a": "Es la edición en español de YiaYia Voula's Big Dream: A True Story of Never Giving Up. La traducción es de Spirit Media Publishing, según la página de datos del libro."
+						},
+						{
+							"q": "¿Es una historia de inmigrantes?",
+							"a": "Cuenta cómo la familia de Voula deja Grecia para mudarse a Estados Unidos con la esperanza de un hogar nuevo. La palabra inmigrante no aparece, pero el libro dice que no hablaba el idioma, que no podía leer el nuevo alfabeto y que cada día traía un nuevo desafío."
+						},
+						{
+							"q": "¿Enseña a superar obstáculos?",
+							"a": "Sí, mediante la historia y no con una lista de consejos. Voula supera el rechazo, la falta de dinero, el cansancio de tres trabajos y una enfermedad grave. La frase superar obstáculos no aparece en el libro, y su lección más clara es la que está en la última página."
+						},
+						{
+							"q": "¿Para qué edades es este libro?",
+							"a": "Para niños de 5 a 8 años, según los datos del libro. Un niño menor puede disfrutarlo en voz alta, y un lector de ocho años puede leerlo solo."
+						},
+						{
+							"q": "¿Habla de Dios?",
+							"a": "Sí. Voula ora al mudarse a Estados Unidos, su fe le da fuerzas durante los tres trabajos, y su familia ora y confía en Dios mientras ella está enferma. Es una historia cristiana contada sin sermones."
+						}
+					],
+					"labels": {
+						"look_inside": "Un vistazo por dentro",
+						"whats_inside": "Qué trae el libro",
+						"details": "Datos del libro",
+						"author": "Sobre el autor",
+						"faq": "Preguntas"
+					}
+				},
+				"page_source": "aeo-state/3gf-el-gran-sueno-de-la-yiayia-voula.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"el-gran-sueno-de-la-yiayia-voula-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893075564",
+					"isbn_display": "979-8-89307-556-4",
+					"list_cents": 1599,
+					"price_note": "15.99",
+					"price_flags": [],
+					"pages": 54,
+					"pages_note": "54",
+					"trim": "8.5 x 8.5 in",
+					"binding": "Perfect bound",
+					"checkout_title": "El Gran Sueño de la YiaYia Voula — Paperback",
+					"checkout_name": "El Gran Sueño de la YiaYia Voula: Una historia real de no rendirse nunca",
+					"checkout_desc": "Paperback · 54 pages · by Tyler Stavlas · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "el-gran-sueno-de-la-yiayia-voula",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/el-gran-sueno-de-la-yiayia-voula/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Tyler Stavlas",
+					"sku_tbd": [],
+					"sku_ready": true
+				},
+				"el-gran-sueno-de-la-yiayia-voula-hb": {
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893075571",
+					"isbn_display": "979-8-89307-557-1",
+					"list_cents": 2299,
+					"price_note": "22.99",
+					"price_flags": [],
+					"pages": null,
+					"pages_note": null,
+					"trim": "8.5 x 8.5 in",
+					"binding": "Case laminate",
+					"checkout_title": "El Gran Sueño de la YiaYia Voula — Hardback",
+					"checkout_name": "El Gran Sueño de la YiaYia Voula: Una historia real de no rendirse nunca",
+					"checkout_desc": "TBD",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "el-gran-sueno-de-la-yiayia-voula",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/el-gran-sueno-de-la-yiayia-voula/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Tyler Stavlas",
+					"sku_tbd": [
+						"pages (hardback count not stated)"
+					],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "raised-in-a-barn",
+			"units_12m": 0,
+			"book": {
+				"slug": "raised-in-a-barn",
+				"status": "pending",
+				"title": "Raised in a Barn",
+				"subtitle": "A Memoir of Family, Hospitality, and the 12 Commandments of the Angus Barn",
+				"full_title": "Raised in a Barn: A Memoir of Family, Hospitality, and the 12 Commandments of the Angus Barn",
+				"author": {
+					"name": "Van Eure"
+				},
+				"credits": null,
+				"page_title": "Raised in a Barn: An Angus Barn Memoir by Van Eure",
+				"h1": "Raised in a Barn",
+				"meta": "Raised in a Barn is Van Eure's memoir of the Angus Barn in Raleigh: the family story and the 12 Commandments of hospitality her team works by.",
+				"short": "Angus Barn leader Van Eure shares the funny, heartfelt stories and 12 Commandments behind one of the highest-grossing independent restaurants in the United States.",
+				"about": "When a guest gets stuck in a bathroom stall, Van Eure tries to slide under the door to help, and gets stuck herself. That story opens Raised in a Barn, a warm, funny and candid memoir from the woman who has run the Angus Barn in Raleigh, North Carolina, for more than forty years. The Angus Barn opened in 1960, founded by Van's father and his partner Charles Winston, two former college football players with no restaurant training. Van tells the story of the Barn's founding, of the father she finally came to know and love, and of how she came to lead the family business. She then lays out the 12 Commandments every member of her team has worked by for over twenty years, resting on three values: Integrity, Teamwork and Excellence. The book has a foreword by Ken Blanchard and a scrapbook of photos.",
+				"who_for": [
+					"Restaurant owners and managers",
+					"Business leaders and team leaders in any industry",
+					"Anyone who serves people (hospitality, customer-facing work)",
+					"Readers of memoirs and family-business stories, including North Carolina readers"
+				],
+				"who_for_status": "PROPOSED (sheet has no ranked For list; derived from the sheet Audience row 'Trade / General adult' and the description's closing paragraph)",
+				"faq": [
+					{
+						"q": "What is Raised in a Barn about?",
+						"a": "It is a memoir by Van Eure, who has run the Angus Barn restaurant in Raleigh, North Carolina, for more than forty years. She tells the story of the Barn's founding in 1960, the father she finally came to know and love, how she came to lead the family business, and the 12 Commandments her team works by."
+					},
+					{
+						"q": "What are the 12 Commandments of the Angus Barn?",
+						"a": "You Are Who You Hire; Serve Your Team; We Before Me; the 20-Foot Rule; Just OK Is Not OK; The Customer Is Always the Paying Customer; Serving Is a Privilege; It's Not the Mistake, It's the Recovery; Never Stop Learning; Be There; Keep the Main Thing the Main Thing; and Lend a Helping Hand. All rest on three values: Integrity, Teamwork and Excellence."
+					},
+					{
+						"q": "Is Raised in a Barn a book for restaurant owners and hospitality leaders?",
+						"a": "Yes. The description says it is for restaurant owners, managers, business leaders and anyone who serves people, offering practical, people-first lessons told through stories of chaos, celebration, mistakes and recovery."
+					},
+					{
+						"q": "What is the Angus Barn?",
+						"a": "The Angus Barn opened in 1960 on Highway 70 in Raleigh, North Carolina, founded by Van Eure's father and his partner Charles Winston. According to the book's description it employs more than five hundred people, serves over 350,000 guests a year and has received the Wine Spectator Grand Award every year since 1989."
+					},
+					{
+						"q": "Does the book cover customer service and servant leadership?",
+						"a": "The 12 Commandments include Serve Your Team, Serving Is a Privilege and The Customer Is Always the Paying Customer, and each gets its own chapter built on a real story. The book has a foreword by Ken Blanchard."
+					}
+				],
+				"bio": "Van Eure has run the Angus Barn in Raleigh, North Carolina, for more than forty years. The restaurant was founded in 1960 by her father and his partner, Charles Winston, and operates from a single location on Highway 70. Under her leadership it employs more than five hundred people, serves over 350,000 guests a year, and ranks among the ten highest-grossing independently owned restaurants in the United States. Its wine cellar has received the Wine Spectator Grand Award every year since 1989. Van counts Ken Blanchard as her mentor and friend.",
+				"jsonld": {
+					"book": {
+						"name": "Raised in a Barn",
+						"alternativeHeadline": "A Memoir of Family, Hospitality, and the 12 Commandments of the Angus Barn",
+						"inLanguage": "en",
+						"isbn": "9798893073027 (paperback); workExample hardback 9798893073034, eBook 9798893073041",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 292,
+						"datePublished": null,
+						"audience": "Readers of memoirs and restaurant, hospitality and leadership stories",
+						"about": [
+							"Angus Barn",
+							"hospitality",
+							"servant leadership",
+							"North Carolina"
+						],
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/raised-in-a-barn/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Van Eure",
+						"description": "Van Eure has run the Angus Barn in Raleigh, North Carolina, for more than forty years. The restaurant was founded in 1960 by her father and his partner, Charles Winston, and operates from a single location on Highway 70.",
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/raised-in-a-barn/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Raised in a Barn about?",
+							"a": "It is a memoir by Van Eure, who has run the Angus Barn restaurant in Raleigh, North Carolina, for more than forty years. She tells the story of the Barn's founding in 1960, the father she finally came to know and love, how she came to lead the family business, and the 12 Commandments her team works by."
+						},
+						{
+							"q": "What are the 12 Commandments of the Angus Barn?",
+							"a": "You Are Who You Hire; Serve Your Team; We Before Me; the 20-Foot Rule; Just OK Is Not OK; The Customer Is Always the Paying Customer; Serving Is a Privilege; It's Not the Mistake, It's the Recovery; Never Stop Learning; Be There; Keep the Main Thing the Main Thing; and Lend a Helping Hand. All rest on three values: Integrity, Teamwork and Excellence."
+						},
+						{
+							"q": "Is Raised in a Barn a book for restaurant owners and hospitality leaders?",
+							"a": "Yes. The description says it is for restaurant owners, managers, business leaders and anyone who serves people, offering practical, people-first lessons told through stories of chaos, celebration, mistakes and recovery."
+						},
+						{
+							"q": "What is the Angus Barn?",
+							"a": "The Angus Barn opened in 1960 on Highway 70 in Raleigh, North Carolina, founded by Van Eure's father and his partner Charles Winston. According to the book's description it employs more than five hundred people, serves over 350,000 guests a year and has received the Wine Spectator Grand Award every year since 1989."
+						},
+						{
+							"q": "Does the book cover customer service and servant leadership?",
+							"a": "The 12 Commandments include Serve Your Team, Serving Is a Privilege and The Customer Is Always the Paying Customer, and each gets its own chapter built on a real story. The book has a foreword by Ken Blanchard."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Raised in a Barn"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"Raised in a Barn author: no other SMP book in sources",
+					"Business / memoir same-group titles for 'More like this' (pages must exist first): Hope That Anchors the Soul?, Too Stubborn to Die (memoir), Humble Influence (leadership)",
+					"/returns/ when Buy goes live"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": [
+					"raised-in-a-barn-pb",
+					"raised-in-a-barn-hb"
+				],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026917991",
+				"pub_date": null,
+				"lead_term": {
+					"term": "angus barn",
+					"volume": 74000,
+					"note": "normalised from the 3fi batch-1 shape (final/final_volume, 3fj ruling applied)"
+				},
+				"target_queries": [
+					{
+						"term": "angus barn",
+						"volume": 74000,
+						"role": "LEAD (entity, navigational)"
+					},
+					{
+						"term": "memoir books",
+						"volume": 2900
+					},
+					{
+						"term": "hospitality books",
+						"volume": 1900
+					},
+					{
+						"term": "north carolina history",
+						"volume": 1900
+					},
+					{
+						"term": "restaurant books",
+						"volume": 1600
+					}
+				],
+				"beside_larger_than_lead": null,
+				"home": "SMP (no source marks it Father Heart)",
+				"url": "https://spiritmediapublishing.com/books/raised-in-a-barn/",
+				"buy_url": "https://spiritmediapublishing.com/books/raised-in-a-barn/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#raised-in-a-barn (draft unit 3fi); sources: Drive metadata Doc 1Xbd5zrIBwrhqlbwFRnoVqn-MaBxnjOpYNVQ3d6srD_Y (edited 2026-11-12, master) + specsheet/sheet.json (2026-11-04, older) + 3fg keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"pub_date": "2026-11-25 (target, not released; no datePublished until released)"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT",
+						"jsonld.book.sameAs": "TBD (no Amazon URL in sheet; findability page_asin null)",
+						"jsonld.offer": "OMIT while pending; at go-live paperback 19.99 USD (re-confirm), InStock, New",
+						"jsonld.person.url": "TBD (vaneure.com not approved)",
+						"jsonld.person.sameAs": "TBD"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For restaurant owners and managers",
+							"paras": [
+								"If you run a place where people eat, you will recognize the nights the book describes: everything goes right, or everything falls apart in thirty seconds. Van says plainly that you will never reach perfection in this business, and that what counts is what you do next. Each commandment is a habit you can bring to a pre-shift meeting."
+							]
+						},
+						{
+							"h2": "For business and team leaders in any field",
+							"paras": [
+								"The stories happen in a steakhouse, and the lessons travel. Ask the person closest to the problem. Put \"we\" before \"me.\" Keep learning. Take care of your people. The foreword calls the best leaders servant leaders, and the book gives examples from the kitchen, the front desk and the parking lot."
+							]
+						},
+						{
+							"h2": "For readers who love a family memoir",
+							"paras": [
+								"The first chapters are a family story: a founding in 1960, a grandfather who put his house up as collateral, a father who coached little league like it was the NFL and a daughter who finally got to know him. It is funny, and it is also tender."
+							]
+						},
+						{
+							"h2": "For anyone in a job that serves others",
+							"paras": [
+								"You do not need a dining room, a title or a uniform. Van writes that you just need the awareness to notice when someone needs help and the willingness to step in. That fits a nurse, a teacher, a pastor, a hotel clerk or a volunteer."
+							]
+						}
+					],
+					"audience": {
+						"headline": "The woman who has led the Angus Barn since 1988 opens her memoir stuck under a bathroom stall door, and then shows how the restaurant is run.",
+						"body": "For restaurant owners and managers, business and team leaders in any field, anyone who serves people for a living, and readers who love a funny, honest family memoir with a Southern voice. Van Eure tells how two former college football players with no restaurant training opened a steakhouse on Highway 70 in Raleigh, North Carolina, in 1960, and how the 12 Commandments her team has worked by for over twenty-five years grew out of real people and real mistakes. Ken Blanchard wrote the foreword. A note on subjects: the book is warm and funny, and it is written for adults. It uses some strong language, including a few swear words, and the opening story is a body-humor scene in a restroom. It also touches on a father and daughter who struggled to know each other, on the death of a parent, and on mental illness research. It is a memoir and a leadership book, not a how-to for starting a restaurant."
+					},
+					"what_makes": {
+						"title": "What makes this book for people who serve people",
+						"paras": [
+							"The book opens with a woman stuck in a restaurant restroom and the owner, Van, who tries to help and gets stuck herself. A server named Debbie arrives and slides under the door like it is no big deal. That story sets the tone for everything that follows: hospitality is not polish, it is what you do when things go wrong.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is a memoir and a leadership book at once. The first three chapters tell the family story: the founding, a speech her father gave in 1986, and how she came to lead the Barn. Chapters 4 through 15 take one commandment at a time.",
+							"Every commandment comes with a story. The 20-Foot Rule is a seafood station and a cook named Raymond. The recovery chapter starts with a five-pound lobster that did not arrive.",
+							"It is built on three values: Integrity, Teamwork and Excellence. The book says these are woven into the commandments, the stories and the whole culture of the Barn.",
+							"It has real numbers. One location, more than five hundred people, over 350,000 guests every year, a wine cellar of more than 28,000 bottles, and the Wine Spectator Grand Award every year since 1989.",
+							"It ends with the Barn's own mission and with the people who carry it forward, with a scrapbook of family and team photos at the back."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with advance praise, a foreword by Ken Blanchard, a dedication, an author's note and a short word of thanks. The author's note is plain about how the book was written:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"The events are told as I remember them."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The prologue, OK . . . Buckle Up: The Bathroom Rescue, begins:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"There's a woman stuck in the bathroom."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The introduction redefines a word the book comes back to:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Chaos doesn't mean things are broken. It means you're open, alive, and dealing with human beings."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1, The Foundation, tells how the Barn began. Van's father and his partner, Charles Winston, had no idea how to run a restaurant. When the architect kept drawing something that looked like a barn trying to appear as a restaurant, they drove him out to a family farm and pointed."
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"That. We want that."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The chapters are:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"The Foundation",
+									"The Greatest Speech Ever",
+									"How I Got Here",
+									"You Are Who You Hire",
+									"Serve Your Team",
+									"We Before Me",
+									"The 20-Foot Rule",
+									"Just OK Is Not OK",
+									"The Customer Is Always the Paying Customer",
+									"Serving Is a Privilege",
+									"It's Not the Mistake, It's the Recovery",
+									"Never Stop Learning",
+									"Be There",
+									"Keep the Main Thing the Main Thing",
+									"Reach Out & Lift Up",
+									"The Secret Sauce"
+								]
+							}
+						],
+						"intro": [
+							"Every copy opens with advance praise, a foreword by Ken Blanchard, a dedication, an author's note and a short word of thanks. The author's note is plain about how the book was written:"
+						],
+						"excerpt": [
+							"The events are told as I remember them.",
+							"There's a woman stuck in the bathroom.",
+							"Chaos doesn't mean things are broken. It means you're open, alive, and dealing with human beings.",
+							"That. We want that."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A prologue, an introduction, sixteen chapters and a conclusion, The Story Continues as It's Carried Forward",
+						"The 12 Commandments, from You Are Who You Hire to Reach Out & Lift Up, each with its own chapter and a real story",
+						"A foreword by Ken Blanchard, coauthor of The One Minute Manager and Raving Fans",
+						"Advance praise from a television news leader, a former ambassador, a theater founder, a country music star, a bestselling author and a medical school dean",
+						"An About the Author page and scrapbook photos, from the Barn's early years to the present",
+						"A paperback with a memoir voice and stories you can read one at a time"
+					],
+					"details": {
+						"Title": "Raised in a Barn",
+						"Subtitle": "A Memoir of Family, Hospitality and the 12 Commandments of the Angus Barn",
+						"Author": "Van Eure",
+						"Foreword": "Ken Blanchard",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "979-8-89307-302-7",
+						"Hardback ISBN": "979-8-89307-303-4",
+						"eBook ISBN": "979-8-89307-304-1",
+						"Audiobook ISBN": "979-8-89307-305-8",
+						"Library of Congress Control Number": "2026917991"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The bathroom rescue",
+							"paras": [
+								"A guest with a hip replacement cannot get off the toilet in a restroom stall. Her granddaughter finds Van, who thinks she can slide under the door and help. She cannot. Now two people are stuck. Van calls for Debbie, a server who is \"teeny,\" who slides under the door, helps the woman up, and then helps Van get free. The lesson she takes from it is not about restrooms:",
+								"\"Sometimes you think you can fit, and sometimes you absolutely cannot.\""
+							]
+						},
+						{
+							"h2": "The seafood station",
+							"paras": [
+								"In Chapter 7, Van is apologizing to a private group of twenty because the seafood did not come out with the rest of the entrees. The menu had grown over the years, but one person still handled all the seafood. She sits down with the sauté cook, the line cooks and the servers. They think they are in trouble.",
+								"\"Nobody is in trouble. I need your help.\"",
+								"Raymond, one of the cooks, answers with an idea: a seafood station at each grill. It cost $60,000 and fixed the problem. The rule is not a measurement. It means asking the people who work closest to the problem. The chapter adds a story about consultant Tom Peters, who walked down four flights of stairs and asked one person why people did not stay."
+							]
+						},
+						{
+							"h2": "The lobster that did not arrive",
+							"paras": [
+								"Chapter 11 tells of a couple who had come to the Barn for thirty years to celebrate, always ordering a five-pound lobster a week ahead. One year the host got the date wrong. The kitchen plated five one-pound lobsters, and a chef explained exactly what happened. They were still unhappy, so Van learned they were leaving for Jamaica the next day. When they came back, the Barn met them at the airport and brought them straight to the restaurant, where a chef cooked the five-pound lobster. The book states the principle:",
+								"\"What you do in the next thirty seconds is where character lives.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Van Eure has led the Angus Barn in Raleigh since her father's death in 1988, and she began working there at the age of seven. After a mountain-climbing trip to Kenya, she stayed for five years teaching school before returning home. Under her leadership the Barn has become one of the highest-grossing independent restaurants in the United States, and the book says its turnover rate of 16.5 percent leads some to joke that \"it's easier to get a job with the FBI.\" Her honors include the National Restaurant Association's Industry Legends Award in 2019, and she chairs Walk for Hope, which has helped raise more than $150 million for mental health research. Raised in a Barn is her first book."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to publish the story of a family restaurant and the people who keep it going."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The seed was planted years ago. In A Word of Thanks, Van writes that one of her managers, Jefferson Napier, \"wrote a whole manuscript about our 12 Commandments\" twenty-five years earlier, believing a book about the way they do things would help other businesses. She did not take it further then. Now she writes:",
+							"\"I do see the value in sharing these basic principles.\"",
+							"The prologue says what she wants the reader to take from it:",
+							"\"Most of what I know didn't come from a book. It came from moments like this.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Raised in a Barn about?",
+							"a": "It is a memoir by Van Eure, who has led the Angus Barn restaurant in Raleigh, North Carolina, since 1988. She tells the story of the Barn's founding in 1960, the father she finally came to know and love, how she came to lead the family business, and the 12 Commandments her team works by."
+						},
+						{
+							"q": "What is the Angus Barn?",
+							"a": "The Angus Barn opened in 1960 on Highway 70 in Raleigh and still operates from that one location. The book says it employs more than five hundred people, serves over 350,000 guests every year and has received the Wine Spectator Grand Award every year since 1989. It was founded by Van's father and his partner, Charles Winston, who had no restaurant training."
+						},
+						{
+							"q": "What are the 12 Commandments of the Angus Barn?",
+							"a": "They are, in order: You Are Who You Hire; Serve Your Team; We Before Me; The 20-Foot Rule; Just OK Is Not OK; The Customer Is Always the Paying Customer; Serving Is a Privilege; It's Not the Mistake, It's the Recovery; Never Stop Learning; Be There; Keep the Main Thing the Main Thing; and Reach Out & Lift Up. Each has its own chapter, from 4 to 15."
+						},
+						{
+							"q": "Is it one of the good memoir books for people in business?",
+							"a": "Yes. It is a personal story with a business lesson on nearly every page, and the author says plainly that these are \"lessons carved out of real experience.\" The word memoir appears on the cover, and the stories come from family, staff and guests."
+						},
+						{
+							"q": "Is it one of the hospitality books worth reading for restaurant owners?",
+							"a": "It is written by a restaurant leader for people who serve customers. Hospitality is the central idea, and the book defines it as what shows up when things go wrong. It is a book of stories and principles, not a start-up guide."
+						},
+						{
+							"q": "Does it cover North Carolina history?",
+							"a": "Some of it. The opening chapters describe Raleigh and Highway 70 when it was a two-way country road, and Van's grandfather Thad Eure Sr. served as North Carolina's Secretary of State for fifty-three years. It is a family and restaurant story first, not a history of the state."
+						},
+						{
+							"q": "Does the book cover customer service and servant leadership?",
+							"a": "Yes. Serve Your Team, Serving Is a Privilege and The Customer Is Always the Paying Customer each have a chapter. Ken Blanchard, who wrote the foreword, writes that the best leaders are servant leaders."
+						},
+						{
+							"q": "Does the book contain strong language?",
+							"a": "A little. A few swear words appear in the stories, starting with the bathroom rescue, and the tone is conversational and humorous. Readers who prefer none should know that before they begin."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gf-raised-in-a-barn.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"raised-in-a-barn-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893073027",
+					"isbn_display": "979-8-89307-302-7",
+					"list_cents": 1999,
+					"price_note": "19.99 (Doc, set by Kevin 2026-11-12)",
+					"price_flags": [],
+					"pages": 292,
+					"pages_note": "292 (paperback and hardback)",
+					"trim": "5.5 x 8.5 in",
+					"binding": "Perfect bound with duplexing (IngramSpark only)",
+					"checkout_title": "Raised in a Barn — Paperback",
+					"checkout_name": "Raised in a Barn: A Memoir of Family, Hospitality, and the 12 Commandments of the Angus Barn",
+					"checkout_desc": "Paperback · 292 pages · by Van Eure · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "raised-in-a-barn",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/raised-in-a-barn/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Van Eure",
+					"sku_tbd": [],
+					"sku_ready": true
+				},
+				"raised-in-a-barn-hb": {
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893073034",
+					"isbn_display": "979-8-89307-303-4",
+					"list_cents": 2999,
+					"price_note": "29.99 (Doc: live, kept)",
+					"price_flags": [],
+					"pages": 292,
+					"pages_note": "292 (paperback and hardback)",
+					"trim": "5.5 x 8.5 in",
+					"binding": "Jacketed case laminate",
+					"checkout_title": "Raised in a Barn — Hardback",
+					"checkout_name": "Raised in a Barn: A Memoir of Family, Hospitality, and the 12 Commandments of the Angus Barn",
+					"checkout_desc": "Hardback · 292 pages · by Van Eure · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "raised-in-a-barn",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/raised-in-a-barn/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Van Eure",
+					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "silas-and-woolly-the-mammoth",
+			"units_12m": 0,
+			"book": {
+				"slug": "silas-and-woolly-the-mammoth",
+				"status": "pending",
+				"title": "Silas and Woolly the Mammoth",
+				"subtitle": "A Dream Adventure with a Gentle Giant",
+				"full_title": "Silas and Woolly the Mammoth: A Dream Adventure with a Gentle Giant",
+				"author": {
+					"name": "Kenneth W. Pullin"
+				},
+				"credits": null,
+				"page_title": "Silas and Woolly the Mammoth: Woolly Mammoth Bedtime Story",
+				"h1": "Silas and Woolly the Mammoth",
+				"meta": "Silas and Woolly the Mammoth by Kenneth W. Pullin: a woolly mammoth bedtime story for ages 4-7 on first-day jitters and courage, plus mammoth facts.",
+				"short": "An ice age bedtime story: on the night before kindergarten, a nervous boy named Silas wakes in a prehistoric land and must find his way home with a little mouse and a gentle woolly mammoth. Ends with real woolly mammoth facts.",
+				"about": "It is the night before Silas starts kindergarten, and he is excited but a little nervous. After pancakes, a bath, teeth and prayers with his mom, he drifts off to a story and, aw-da-sudden, finds himself in a land he does not know. He follows a little mouse he names Whiskers until he is lost, cold and hungry. In the morning the hill begins to shake: he has been sleeping on a real woolly mammoth. Woolly knows the land well and carries Silas on his head across a deep river. Kenneth W. Pullin's warm read-aloud story turns first-day jitters into a journey about courage, trust and the friends who help us find our way.",
+				"who_for": [
+					"Children ages 4 to 7 (read-aloud picture book)",
+					"Kids about to start kindergarten or school",
+					"Children worried about making new friends",
+					"Parents and grandparents choosing a bedtime or read-aloud book"
+				],
+				"who_for_status": "PROPOSED (sheet has no ranked For list; derived from the Audience row 'Ages 4-7 read-aloud picture book' and the description)",
+				"faq": [
+					{
+						"q": "What is Silas and Woolly the Mammoth about?",
+						"a": "It is a woolly mammoth bedtime story by Kenneth W. Pullin. On the night before kindergarten, a nervous boy named Silas falls asleep, wakes in a prehistoric land and finds his way home with a little mouse named Whiskers and a gentle woolly mammoth named Woolly. It ends with real woolly mammoth facts."
+					},
+					{
+						"q": "What age is it for, and is it a good read-aloud for kindergarten?",
+						"a": "It is a read-aloud picture book for ages 4-7. It is aimed at young listeners who are about to start school or who are worried about making new friends."
+					},
+					{
+						"q": "Is it a good bedtime story for kids?",
+						"a": "It is framed as a bedtime story: Silas says his prayers, drifts off while his mom reads, and the adventure is his dream. The warm read-aloud style turns first-day jitters into a story about courage, trust and friends."
+					},
+					{
+						"q": "Does the book have real woolly mammoth facts?",
+						"a": "Yes. The story ends with real woolly mammoth facts."
+					},
+					{
+						"q": "Who wrote it, and how long is it?",
+						"a": "Kenneth W. Pullin, a lifelong Virginian, father of six and grandfather of twelve, wrote it after his grandson Silas. It is 42 full-color pages in an 8.5 x 8.5 in format."
+					}
+				],
+				"bio": "Kenneth W. Pullin is a devoted husband to Trish, a proud father of six and grandfather of twelve, and a lifelong Virginian. His love of writing began in high school, and for years he has written poems to mark the milestones in his children's lives. Today those poems have grown into books. The Chess Nut and Little Bird brought his family's stories to young readers, and The Pitted Nail shared his own true story of God's grace on the Chesapeake Bay. Silas and Woolly the Mammoth was inspired by his grandson Silas.",
+				"jsonld": {
+					"book": {
+						"name": "Silas and Woolly the Mammoth",
+						"alternativeHeadline": "A Dream Adventure with a Gentle Giant",
+						"inLanguage": "en",
+						"isbn": "9798893075403 (paperback); workExample hardback 9798893075410, eBook 9798893075427",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 42,
+						"datePublished": null,
+						"audience": "Children ages 4-7",
+						"about": [
+							"bedtime story",
+							"starting kindergarten",
+							"friendship",
+							"woolly mammoth",
+							"courage"
+						],
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/silas-and-woolly-the-mammoth/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Kenneth W. Pullin",
+						"description": "Kenneth W. Pullin is a devoted husband to Trish, a proud father of six and grandfather of twelve, and a lifelong Virginian. His love of writing began in high school, and for years he has written poems to mark the milestones in his children's lives. Today those poems have grown into books. The Chess Nut and Little Bird brought his family's stories to young readers, and The Pitted Nail shared his own true story of God's grace on the Chesapeake Bay. Silas and Woolly the Mammoth was inspired by his grandson Silas.",
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/silas-and-woolly-the-mammoth/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Silas and Woolly the Mammoth about?",
+							"a": "It is a woolly mammoth bedtime story by Kenneth W. Pullin. On the night before kindergarten, a nervous boy named Silas falls asleep, wakes in a prehistoric land and finds his way home with a little mouse named Whiskers and a gentle woolly mammoth named Woolly. It ends with real woolly mammoth facts."
+						},
+						{
+							"q": "What age is it for, and is it a good read-aloud for kindergarten?",
+							"a": "It is a read-aloud picture book for ages 4-7. It is aimed at young listeners who are about to start school or who are worried about making new friends."
+						},
+						{
+							"q": "Is it a good bedtime story for kids?",
+							"a": "It is framed as a bedtime story: Silas says his prayers, drifts off while his mom reads, and the adventure is his dream. The warm read-aloud style turns first-day jitters into a story about courage, trust and friends."
+						},
+						{
+							"q": "Does the book have real woolly mammoth facts?",
+							"a": "Yes. The story ends with real woolly mammoth facts."
+						},
+						{
+							"q": "Who wrote it, and how long is it?",
+							"a": "Kenneth W. Pullin, a lifelong Virginian, father of six and grandfather of twelve, wrote it after his grandson Silas. It is 42 full-color pages in an 8.5 x 8.5 in format."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Silas and Woolly the Mammoth"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"Kenneth Pullin's other SMP book: The Pitted Nail (bookstore card; page must exist first; the Chess Nut and Little Bird is not in the bookstore list)",
+					"More like this (children's, pages first): Robie the Ghost, My Perfect Daddy, The Fairies and the Elf King",
+					"/returns/ when Buy goes live"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/silas-and-woolly-the-mammoth-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": [
+					"silas-and-woolly-the-mammoth-pb",
+					"silas-and-woolly-the-mammoth-hb"
+				],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026928472",
+				"pub_date": null,
+				"lead_term": {
+					"term": "woolly mammoth",
+					"volume": 135000,
+					"note": "normalised from the 3fi batch-1 shape (final/final_volume, 3fj ruling applied)"
+				},
+				"target_queries": [
+					{
+						"term": "woolly mammoth",
+						"volume": 135000,
+						"role": "LEAD (restored: title word, hero is a woolly mammoth, ends with real woolly mammoth facts)"
+					},
+					{
+						"term": "bedtime stories for kids",
+						"volume": 33100,
+						"role": "beside: framed as a bedtime dream story"
+					},
+					{
+						"term": "read aloud kindergarten",
+						"volume": 4400
+					},
+					{
+						"term": "books for 4 year olds",
+						"volume": 2900
+					},
+					{
+						"term": "kindergarten read aloud books",
+						"volume": 1600
+					},
+					{
+						"term": "woolly mammoth book",
+						"volume": 110
+					}
+				],
+				"beside_larger_than_lead": null,
+				"home": "SMP (no source marks it Father Heart)",
+				"url": "https://spiritmediapublishing.com/books/silas-and-woolly-the-mammoth/",
+				"buy_url": "https://spiritmediapublishing.com/books/silas-and-woolly-the-mammoth/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#silas-and-woolly-the-mammoth (draft unit 3fi); sources: Drive metadata Doc 15gonsMkgoVyLuVL7BMsCz33eee8KUMrbIRGbjioKEIU (2026-10-27) + sheet.json (11-04) + 3fg keywords (cache slug woolly-the-mammoth)",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"pub_date": "OMIT (sheet 2026-11-01; confirm with pmpublish)"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT",
+						"jsonld.book.sameAs": "TBD",
+						"jsonld.offer": "OMIT (not live)",
+						"jsonld.person.sameAs": "TBD"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For children about to start kindergarten",
+							"paras": [
+								"If your child is counting down to the first day, this gives the nerves a story. Silas is brave in the end, but he is scared on the way, and he is lost for most of the book. The ending says he was not nervous anymore, and that he was excited for his new adventure."
+							]
+						},
+						{
+							"h2": "For parents and grandparents who read at bedtime",
+							"paras": [
+								"The book is built for the end of the day. It begins with pancakes and a bath, moves into prayers and a story, and finishes with a morning. The sentences are short, the pages turn quickly and the sound words, such as aw-da-sudden, are fun to say out loud."
+							]
+						},
+						{
+							"h2": "For kids who love woolly mammoths",
+							"paras": [
+								"The mammoth is not a side character. He has a name, a voice and a sense of humor, and he knows the land. At the back of the book, the facts page tells a young reader how tall mammoths stood, what the tusks were used for, and where scientists have found them frozen in ice and mud."
+							]
+						},
+						{
+							"h2": "For families who want a gentle story about making friends",
+							"paras": [
+								"Silas worries about friends at the start and finds two before breakfast. The book does not lecture. It shows a boy who follows a mouse, trusts a mammoth, and discovers that new friends can turn up in unexpected places."
+							]
+						}
+					],
+					"audience": {
+						"headline": "On the night before kindergarten, a nervous boy falls asleep, wakes up in the Ice Age, and rides home on a woolly mammoth.",
+						"body": "For children ages 4 to 7 who are about to start school or worried about making new friends, and for the parents and grandparents who read to them at bedtime. Kenneth W. Pullin sends Silas from a dinner of pancakes in Niceville to a land of gray boulders, cave people, a little mouse named Whiskers and a gentle giant named Woolly, then back to a morning that is not quite what he expects. A note on subjects: this is a gentle bedtime adventure. Silas gets lost, cold and hungry, the sun starts to set, and a hill shakes and rises under him before he finds out it is a mammoth. A deep river has to be crossed. Everything ends warmly, with a hug, a dance and a surprise in a bookbag."
+					},
+					"what_makes": {
+						"title": "What makes this book for children who are nervous about a first day",
+						"paras": [
+							"Silas is excited about school, but he is also \"a little nervous,\" and the book says why: he wonders if it will be hard to make new friends. Then the story gives that worry somewhere to go. By morning he is excited about kindergarten, and he has made a friend who is eleven feet tall.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It starts with a real bedtime. Dinner is pancakes, then a bath, teeth, prayers with his mom, and a story. The adventure begins as his eyes close.",
+							"It names the worry out loud. A child hears that being excited and being nervous can happen on the same night.",
+							"The hero is a mammoth. Woolly is big, strong and kind. He carries Silas across a deep river and bounces him back up his head whenever he slides.",
+							"The mouse stays with him. Whiskers curls up beside Silas when he is scared, and the book finishes with a question about him.",
+							"It ends with real mammoth facts. After The End, a full page tells how tall they stood, how much they weighed, how long their tusks grew and how scientists know how old they were."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication and then the first line of the story, which sets the scene:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"It was a long day in Niceville, and Silas played hard until it was dark outside."
+								]
+							},
+							{
+								"type": "p",
+								"text": "On the next page the worry shows up:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"He was ready for school, but he was also a little nervous."
+								]
+							},
+							{
+								"type": "p",
+								"text": "When Silas first meets the mammoth, the two of them startle each other. Silas shouts \"Hey!\" and Woolly speaks first:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Wait! Don't hurt me!"
+								]
+							},
+							{
+								"type": "p",
+								"text": "At the end, after the dancing, Silas asks why Woolly has a tear in his eye, and Woolly answers:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"I'm happy that you're my new friend."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The story moves through these pages:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"Dinner, a first-day-of-school worry, prayers and a bedtime story",
+									"A strange land, cave people watching from far off, and a little mouse",
+									"Lost, cold and hungry as the sun goes down",
+									"A night on top of a warm hill, with the mouse curled up beside him",
+									"A shaking hill, a real woolly mammoth, and a first conversation",
+									"A deep river, a strong current and a loyal mouse",
+									"A steep climb, a happy return and a dance",
+									"Wake-up, breakfast, a hug and a bookbag that moves",
+									"The Woolly Mammoth: a page of facts"
+								]
+							}
+						],
+						"intro": [
+							"Every copy opens with a dedication and then the first line of the story, which sets the scene:"
+						],
+						"excerpt": [
+							"It was a long day in Niceville, and Silas played hard until it was dark outside.",
+							"He was ready for school, but he was also a little nervous.",
+							"Wait! Don't hurt me!",
+							"I'm happy that you're my new friend."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A story told across 42 full-colour pages, from dinner to the school door",
+						"A cast of three: Silas, Whiskers the mouse and Woolly the mammoth, with cave people dancing at the end",
+						"A full page of woolly mammoth facts: size, fur, ears, tusks, diet, how they are related to elephants today and when they disappeared",
+						"A short dedication that explains where the story came from",
+						"A square 8.5 x 8.5 inch paperback"
+					],
+					"details": {
+						"Title": "Silas and Woolly the Mammoth",
+						"Subtitle": "A Dream Adventure with a Gentle Giant",
+						"Author": "Kenneth W. Pullin",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Reading age": "4 to 7",
+						"Pages": "42 (paperback)",
+						"Trim size": "8.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound), full-colour interior",
+						"Paperback ISBN": "979-8-89307-540-3",
+						"Hardback ISBN": "979-8-89307-541-0",
+						"eBook ISBN": "979-8-89307-542-7",
+						"Library of Congress Control Number": "2026928472"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The hill that moves",
+							"paras": [
+								"Silas wakes up alone. Whiskers is gone, and he feels alone and sad. Then the hill begins to shake. It rises so high he almost falls off, and he holds tight to some brush. When the hill starts to move forward with big back-and-forth motions, \"like a boat on the ocean,\" he realizes the truth: he is on top of a real woolly mammoth. He screams so loud that Woolly stops moving, and Silas slides down his head to the ground."
+							]
+						},
+						{
+							"h2": "The river",
+							"paras": [
+								"Woolly knows where to go, but the river is deep, so Silas has to ride on his head. Whiskers squeaks and joins them. Woolly asks if Silas can swim, and Silas says he has a pool in his backyard where he practices all the time. The water is calm at first, then the current grows stronger. Woolly is so big that it does not bother him, and Whiskers stays right beside Silas the whole way."
+							]
+						},
+						{
+							"h2": "The bookbag",
+							"paras": [
+								"Silas wakes up in his own bed, eats breakfast and hugs his mom and dad. As he heads out the door, something moves inside his bookbag. Out pops Whiskers. Then comes the last question of the book, left open for the child:",
+								"\"Or was it really a dream?\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Kenneth W. Pullin is a lifelong Virginian whose love of writing began in high school. For years he has written poems to mark the milestones in his children's lives, and those poems have grown into books. The Chess Nut and Little Bird brought his family's stories to young readers, and The Pitted Nail shared his own true story of God's grace on the Chesapeake Bay. Silas and Woolly the Mammoth was inspired by his grandson Silas."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to publish a bedtime story about a boy, a mouse and a mammoth."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The idea started with small things a child said. The dedication remembers a little girl running into a room to ask:",
+							"\"Mama, how do you spell aw-da-sudden?\"",
+							"That word became the sound of the story, and it turns up each time Silas is whisked somewhere new. The same dedication adds the line that explains the hero:",
+							"\"And Silas is the inspiration for the main character.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Silas and Woolly the Mammoth about?",
+							"a": "It is a woolly mammoth bedtime story by Kenneth W. Pullin. On the night before kindergarten, a nervous boy named Silas falls asleep, wakes in a prehistoric land and finds his way home with a little mouse named Whiskers and a gentle woolly mammoth named Woolly. It ends with real woolly mammoth facts."
+						},
+						{
+							"q": "Does it have real woolly mammoth facts?",
+							"a": "Yes. After The End, a full page called The Woolly Mammoth says they stood up to eleven feet tall and weighed over 6 tons, had two layers of fur, and were more closely related to Asian elephants than to African elephants. It also says remains have been found frozen in ice and mud in Siberia. The phrase woolly mammoth book is our description, and it fits a story with a facts page at the back."
+						},
+						{
+							"q": "Is it a good bedtime story for kids?",
+							"a": "It is framed as one: Silas eats dinner, takes a bath, says his prayers and falls asleep while his mom reads. The adventure is his dream, and he wakes to his mom's voice. The word bedtime is not printed in the book, and the bedtime routine is what makes the framing."
+						},
+						{
+							"q": "Is it a good read aloud for kindergarten?",
+							"a": "It is a short read-aloud with a kindergarten morning at the center. The word kindergarten appears twice, on the night before the first day and in the closing pages, when Silas says he is excited for his new adventure. It has 42 pages, short sentences and a question at the end for a class to talk about."
+						},
+						{
+							"q": "Is it one of the books for 4 year olds?",
+							"a": "It is written for ages 4 to 7. Younger listeners will follow it by the pictures and the funny sound of aw-da-sudden, and early readers can try the short lines on their own."
+						},
+						{
+							"q": "Is the book about starting school?",
+							"a": "It is about the night before. The school day itself is only the last page. What the book gives a child is a way to talk about the worry, with a boy who thinks he may not make friends and ends up with two."
+						},
+						{
+							"q": "Is there prayer in it?",
+							"a": "Yes, briefly. Silas says his prayers before bed, and he says them with his mom. The story is not a Bible story, and it is a bedtime book that begins the way many family bedtimes do."
+						},
+						{
+							"q": "Who wrote it?",
+							"a": "Kenneth W. Pullin, a lifelong Virginian who writes poems for the milestones in his children's lives. This story was inspired by his grandson Silas."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gf-silas-and-woolly-the-mammoth.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"silas-and-woolly-the-mammoth-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893075403",
+					"isbn_display": "979-8-89307-540-3",
+					"list_cents": 1599,
+					"price_note": "15.99",
+					"price_flags": [],
+					"pages": 42,
+					"pages_note": "42",
+					"trim": "8.5 x 8.5 in",
+					"binding": "Perfect bound",
+					"checkout_title": "Silas and Woolly the Mammoth — Paperback",
+					"checkout_name": "Silas and Woolly the Mammoth: A Dream Adventure with a Gentle Giant",
+					"checkout_desc": "Paperback · 42 pages · by Kenneth W. Pullin · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "silas-and-woolly-the-mammoth",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/silas-and-woolly-the-mammoth/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Kenneth W. Pullin",
+					"sku_tbd": [],
+					"sku_ready": true
+				},
+				"silas-and-woolly-the-mammoth-hb": {
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893075410",
+					"isbn_display": "979-8-89307-541-0",
+					"list_cents": 2199,
+					"price_note": "21.99",
+					"price_flags": [],
+					"pages": null,
+					"pages_note": null,
+					"trim": "8.5 x 8.5 in",
+					"binding": "TBD",
+					"checkout_title": "Silas and Woolly the Mammoth — Hardback",
+					"checkout_name": "Silas and Woolly the Mammoth: A Dream Adventure with a Gentle Giant",
+					"checkout_desc": "TBD",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "silas-and-woolly-the-mammoth",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/silas-and-woolly-the-mammoth/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Kenneth W. Pullin",
+					"sku_tbd": [
+						"pages (hardback count not stated)"
+					],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "the-fairies-and-the-elf-king",
+			"units_12m": 0,
+			"book": {
+				"slug": "the-fairies-and-the-elf-king",
+				"status": "pending",
+				"title": "The Fairies and the Elf King",
+				"subtitle": "A Story of Faith, Fire, and Courage",
+				"full_title": "The Fairies and the Elf King: A Story of Faith, Fire, and Courage",
+				"author": {
+					"name": "Jenna Kris"
+				},
+				"credits": null,
+				"page_title": "The Fairies and the Elf King: Christian Bedtime Fairy Book",
+				"h1": "The Fairies and the Elf King",
+				"meta": "The Fairies and the Elf King by Jenna Kris: a Christian fairy fantasy for ages 7-10, a bedtime read-aloud in 14 chapters about courage and prayer.",
+				"short": "A Christian fantasy chapter book for young readers: when elves capture their families, a timid fire fairy and his friends turn to prayer and Bible stories of Jericho and the fiery furnace to find the courage to bring them home.",
+				"about": "In the world of Fantasy, a fire fairy named Ember sets out from the land of Whimsy with his parents and the families of his friends Rose Petal and Raindrop to help the Nymphs of Moonlight. The road leads through Shadow Valley and on to the glowing Hills of Moonlight, where small elves attack and carry off every parent. Ember hides behind a tree and cannot make himself move. Far away in the Questing Woods, a young fairy named Dickens cannot shake an anxious feeling about his friends, prays, and is told to go to the Hills of Moonlight. Together the four fairies turn to the stories of the Battle of Jericho, King Nebuchadnezzar and the fiery furnace, and King David. The story unfolds over fourteen chapters and shows that God walks with His people even in the scariest places.",
+				"who_for": [
+					"Christian kids ages 8 to 12",
+					"Middle grade readers",
+					"Early chapter book readers",
+					"Young fantasy fans",
+					"Fairy story lovers",
+					"Christian homeschool families",
+					"Families reading aloud together",
+					"Sunday school teachers"
+				],
+				"who_for_status": "RANKED (sheet 'fors', 17 items, derived); top 8 shown",
+				"faq": [
+					{
+						"q": "What is The Fairies and the Elf King about?",
+						"a": "It is a Christian fantasy chapter book and family read-aloud by Jenna Kris, in fourteen chapters that suit bedtime reading. A fire fairy named Ember and his friends, Rose Petal and Raindrop, are left alone when small elves carry off every parent. With help from a praying fairy named Dickens, they turn to Bible stories to find the courage to bring their families home."
+					},
+					{
+						"q": "What age is The Fairies and the Elf King for?",
+						"a": "It is an early chapter book for ages 7-10, and a family read-aloud. It has fourteen chapters."
+					},
+					{
+						"q": "Which Bible stories are in the book?",
+						"a": "The fairies read about the Battle of Jericho, King Nebuchadnezzar and the fiery furnace, and King David, found in the mushroom libraries of the Questing Woods."
+					},
+					{
+						"q": "Is it a Christian fantasy book for read-alouds, homeschool and Sunday school?",
+						"a": "Yes. The book description calls it a gentle, hopeful adventure for children who sometimes feel afraid and a natural fit for family read-alouds, homeschool reading and Sunday school."
+					},
+					{
+						"q": "Who wrote it, and is it part of a series?",
+						"a": "Jenna Kris is a Christian fantasy author from Central Virginia and the author of The Fairies' Quest series."
+					}
+				],
+				"bio": "Jenna Kris is a Christian fantasy author and storyteller from Central Virginia with a passion for creating wholesome, faith-filled fiction for young readers and families. She began writing short stories as a teenager after feeling called by God to pursue writing as part of her purpose. As the author of The Fairies' Quest series, she blends clean fantasy, heartfelt friendship and biblical themes into uplifting adventures for children and middle-grade readers. Outside of writing, Jenna is a baker, crafter, gardener and artist who sings in her church choir.",
+				"jsonld": {
+					"book": {
+						"name": "The Fairies and the Elf King",
+						"alternativeHeadline": "A Story of Faith, Fire, and Courage",
+						"inLanguage": "en",
+						"isbn": "9798893075434 (paperback); workExample hardback 9798893075441, eBook 9798893075458",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": null,
+						"datePublished": null,
+						"audience": "Children ages 7-10, families, Sunday school and homeschool",
+						"about": [
+							"Christian fantasy",
+							"fairies",
+							"courage",
+							"prayer",
+							"Bible stories"
+						],
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/the-fairies-and-the-elf-king/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Jenna Kris",
+						"description": "Jenna Kris is a Christian fantasy author and storyteller from Central Virginia with a passion for creating wholesome, faith-filled fiction for young readers and families. She began writing short stories as a teenager after feeling called by God to pursue writing as part of her purpose. As the author of The Fairies' Quest series, she blends clean fantasy, heartfelt friendship and biblical themes into uplifting adventures for children and middle-grade readers. Outside of writing, Jenna is a baker, crafter, gardener and artist who sings in her church choir.",
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/the-fairies-and-the-elf-king/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is The Fairies and the Elf King about?",
+							"a": "It is a Christian fantasy chapter book and family read-aloud by Jenna Kris, in fourteen chapters that suit bedtime reading. A fire fairy named Ember and his friends, Rose Petal and Raindrop, are left alone when small elves carry off every parent. With help from a praying fairy named Dickens, they turn to Bible stories to find the courage to bring their families home."
+						},
+						{
+							"q": "What age is The Fairies and the Elf King for?",
+							"a": "It is an early chapter book for ages 7-10, and a family read-aloud. It has fourteen chapters."
+						},
+						{
+							"q": "Which Bible stories are in the book?",
+							"a": "The fairies read about the Battle of Jericho, King Nebuchadnezzar and the fiery furnace, and King David, found in the mushroom libraries of the Questing Woods."
+						},
+						{
+							"q": "Is it a Christian fantasy book for read-alouds, homeschool and Sunday school?",
+							"a": "Yes. The book description calls it a gentle, hopeful adventure for children who sometimes feel afraid and a natural fit for family read-alouds, homeschool reading and Sunday school."
+						},
+						{
+							"q": "Who wrote it, and is it part of a series?",
+							"a": "Jenna Kris is a Christian fantasy author from Central Virginia and the author of The Fairies' Quest series."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > The Fairies and the Elf King"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"Jenna Kris's other SMP book: The Fairies Quest (bookstore card; its page must exist first)",
+					"More like this (children's, pages first): Robie the Ghost, The Brothers and Their Lunch Basket, Silas and Woolly the Mammoth",
+					"/returns/ when Buy goes live"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-fairies-and-the-elf-king-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": [
+					"the-fairies-and-the-elf-king-pb",
+					"the-fairies-and-the-elf-king-hb"
+				],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026928671",
+				"pub_date": null,
+				"lead_term": {
+					"term": "bedtime stories",
+					"volume": 135000,
+					"note": "normalised from the 3fi batch-1 shape (final/final_volume, 3fj ruling applied)"
+				},
+				"target_queries": [
+					{
+						"term": "bedtime stories",
+						"volume": 135000,
+						"role": "LEAD (restored: 14-chapter family read-aloud, a chapter a night)"
+					},
+					{
+						"term": "fairy books",
+						"volume": 6600,
+						"role": "beside: fairies are the main characters"
+					},
+					{
+						"term": "christian fantasy books",
+						"volume": 1300
+					},
+					{
+						"term": "christian fantasy",
+						"volume": 720
+					},
+					{
+						"term": "chapter books for 7 year olds",
+						"volume": 590
+					},
+					{
+						"term": "fiery furnace",
+						"volume": 8100,
+						"role": "support: FAQ only, searchers want the Bible story"
+					}
+				],
+				"beside_larger_than_lead": null,
+				"home": "SMP (no source marks it Father Heart)",
+				"url": "https://spiritmediapublishing.com/books/the-fairies-and-the-elf-king/",
+				"buy_url": "https://spiritmediapublishing.com/books/the-fairies-and-the-elf-king/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-fairies-and-the-elf-king (draft unit 3fi); sources: sheet.json (2026-11-06; NO new-standard Drive metadata Doc exists, the sheet's gdoc id is the manuscript) + 3fg keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"pub_date": "TBD (sheet 2026-11-25 is a target)"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT",
+						"jsonld.book.numberOfPages": "OMIT",
+						"jsonld.book.sameAs": "TBD",
+						"jsonld.offer": "OMIT (not live)",
+						"jsonld.person.sameAs": "TBD"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For young readers who love fairies and fantasy",
+							"paras": [
+								"If your child likes tiny creatures with big feelings, this book is full of them. A fire fairy can make sparks with a snap of his fingers and hear fire crackle and breathe. A snail named Quickie speaks very slowly and gives very good advice. A tall, thin library grows out of the side of a pine tree. The Nymphs of Moonlight have hair the color of moonlight."
+							]
+						},
+						{
+							"h2": "For families who read aloud together",
+							"paras": [
+								"The chapters are short enough for a night at a time, and each one ends on a turn: a noise, an arrow, a prayer, a plan. The dialogue is simple and the story moves, so it is easy to read out loud. A family can read a chapter and then use the Discovery Questions for that chapter to talk about it."
+							]
+						},
+						{
+							"h2": "For homeschool families and Sunday school teachers",
+							"paras": [
+								"The Bible stories in the book are the ones children often hear in class: Jericho, the furnace and David. The fairies read them in a library and then act on them. The Discovery Questions point back to the Scripture, ask what children think, and end with a prompt such as when they were brave even though they were scared."
+							]
+						},
+						{
+							"h2": "For children who get anxious",
+							"paras": [
+								"When Dickens feels anxious, he has already tried reading, and it does not help. Quickie tells him to talk to God about it. The book does not promise that worry will vanish. It shows a child praying, listening and finding peace, and then doing the next thing."
+							]
+						}
+					],
+					"audience": {
+						"headline": "When small elves carry off every parent, a timid fire fairy and his friends turn to prayer and Bible stories to find the courage to bring their families home.",
+						"body": "For young readers who love fairies and fantasy, and for the families, homeschool groups and Sunday school teachers who read aloud together. Jenna Kris sends Ember, Rose Petal and Raindrop from the land of Whimsy through Shadow Valley and the Hills of Moonlight to the mushroom libraries of the Questing Woods, where a fairy named Dickens helps them read about Jericho, the fiery furnace and David. A note on subjects: this is a gentle fantasy with some real fear in it. A dark valley with growls in the cracks, an ambush with flying arrows, parents carried away, a fire that spreads in a market, and a king who clings to his throne. The families are reunited at the end. The book presents prayer and trust in God as what gives its characters courage."
+					},
+					"what_makes": {
+						"title": "What makes this book for children who feel afraid",
+						"paras": [
+							"It begins with a family trip and ends with the story of why you can be brave when you are scared. In between, a fairy who freezes behind a tree becomes the one who runs toward the fire.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"The hero is the timid one. Ember hides when his family is taken. His hands go cold and spark-less. He is not told to be brave. He finds out what courage looks like.",
+							"Friends hold on. When the families are gone, Rose Petal takes one of Ember's hands and Raindrop takes the other, and the three of them \"held on tight and didn't let go.\"",
+							"Prayer is part of the plot. Dickens feels anxious about his friends, prays, and is told to go to the Hills of Moonlight. Ember prays the night before the rescue.",
+							"Three Bible stories carry the plan. The fairies read about the Battle of Jericho, King Nebuchadnezzar with the fiery furnace, and King David, and they use what they learn.",
+							"It has a gentle structure for reading together. Fourteen short chapters, Discovery Questions grouped by chapter, and a glossary of fairy words at the back."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication, a table of contents of fourteen chapters and a first chapter called The Beginning. It starts like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"In the world of Fantasy from the land of Whimsy, a fire fairy named Ember was on a quest with his family and friends to help the Nymphs of Moonlight."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The second chapter sets the mood:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Shadow Valley was just like its name."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The third chapter turns the story:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"One by one, they were taken."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The fourteen chapters are:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"The Beginning",
+									"Shadow Valley",
+									"Attack",
+									"Dickens and the Prayer",
+									"The Questing Woods",
+									"The Battle of the Wall",
+									"Of Kings and Statues",
+									"David's Faith",
+									"The Nymphs of Moonlight",
+									"The Warrior Elf",
+									"Joshua",
+									"The Rescue",
+									"The New King",
+									"Heading Home"
+								]
+							}
+						],
+						"intro": [
+							"Every copy opens with a dedication, a table of contents of fourteen chapters and a first chapter called The Beginning. It starts like this:"
+						],
+						"excerpt": [
+							"In the world of Fantasy from the land of Whimsy, a fire fairy named Ember was on a quest with his family and friends to help the Nymphs of Moonlight.",
+							"Shadow Valley was just like its name.",
+							"One by one, they were taken."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Fourteen chapters, from a buggy pulled by a chipmunk to the ride home on a blue bird named Indigo",
+						"A cast of fairies, elves and Nymphs: Ember, Rose Petal, Raindrop, Dickens, Quickie the snail, Joshua the warrior elf and the Nymphs of Moonlight",
+						"Retellings of the Battle of Jericho, the fiery furnace and David and Goliath, woven into the plan",
+						"Discovery Questions at the back, grouped by chapter, with Bible references such as Joshua 6, Daniel 3 and 1 Samuel 16:7",
+						"A glossary of places and creatures, from Shadow Valley to the Elf Kingdom Gate",
+						"A 5.5 x 8.5 inch paperback"
+					],
+					"details": {
+						"Title": "The Fairies and the Elf King",
+						"Subtitle": "A Story of Faith, Fire, and Courage",
+						"Author": "Jenna Kris",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "90 (paperback)",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "979-8-89307-543-4",
+						"Hardcover ISBN": "979-8-89307-544-1",
+						"eBook ISBN": "979-8-89307-545-8",
+						"Library of Congress Control Number": "2026928671"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "Dickens and the prayer",
+							"paras": [
+								"Far away in the Questing Woods, a young fairy named Dickens cannot shake an anxious feeling about his friends. He asks Quickie what to do. Quickie says to talk to God. Dickens flies to the roof of a mushroom and prays:",
+								"\"Dear God, I feel anxious and scared, and I don't know why.\"",
+								"He sits and listens. Nothing comes except a peace he did not have before. That night God tells him to go to the Hills of Moonlight, so he packs a bag, tells Quickie goodbye and flies out into the night."
+							]
+						},
+						{
+							"h2": "The libraries of the Questing Woods",
+							"paras": [
+								"In Chapter 6, the four fairies reach the Questing Woods and Quickie sends them to the war and battle library, number three. It is a tall, thin mushroom sticking out of the side of a pine tree, with a flat blue roof and a door carved with shields, swords and horses. They look for the Battle of Jericho, King Nebuchadnezzar and King David, and the first thing Ember says about Jericho is:",
+								"\"A wall? How do you battle a wall?\"",
+								"The next chapters are the answers: Joshua and the people march and obey, three men trust God in a furnace, and a shepherd boy faces a giant."
+							]
+						},
+						{
+							"h2": "The fire in the market",
+							"paras": [
+								"In Chapter 12, Ember stands in the Elf Kingdom market, bigger than he has ever been. His job is to distract the crowd. He juggles fireballs, then one wobbles and sails into a vendor's booth. The canvas catches and the fire spreads. His first instinct is to run.",
+								"\"Ember didn't think. He ran toward the fire, not away from it.\"",
+								"He calls the flames back into the center of the square, away from an elf mother and her children, and puts them out with a clap of his hands. The book says what he knows about fire fairies: \"Fire never hurts a fire fairy.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Jenna Kris is a Christian fantasy author from Central Virginia who writes wholesome adventure stories filled with faith, courage and wonder. Inspired by her love of storytelling, she brings imaginative worlds to life through heartfelt characters and meaningful lessons. She enjoys baking gluten-free treats, gardening, crocheting and singing in her church choir. The book's author note calls her the author of The Fairies' Quest series. Her other book from Spirit Media Publishing is The Fairies Quest, and several characters, including Rose Petal, Raindrop, Dickens, Quickie and Indigo the blue bird, appear in both."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to publish a fairy story about courage and prayer."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The dedication says it first:",
+							"\"This book is dedicated to the Lord. May this book bring Him honor and glory.\"",
+							"The ending says what the author hopes a young reader carries away, after Ember thinks back over the Bible stories he has read:",
+							"\"four little fairies got their families back because they listened to God and followed where He led, even when they were scared.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is The Fairies and the Elf King about?",
+							"a": "It is a Christian fantasy chapter book and family read-aloud by Jenna Kris, in fourteen chapters. A fire fairy named Ember and his friends, Rose Petal and Raindrop, are left alone when small elves carry off every parent. With help from a praying fairy named Dickens, they turn to Bible stories to find the courage to bring their families home."
+						},
+						{
+							"q": "Is it a good book for bedtime stories?",
+							"a": "It is written in fourteen short chapters, so a family can read one a night. The word bedtime does not appear in the book, and the description fits how many families read it. There is some fear in the first half, and the ending is peaceful, with the families going home."
+						},
+						{
+							"q": "Are there fairy books for kids with a Christian message?",
+							"a": "This is one. The main characters are fairies, and the faith is part of the plot: prayer, listening to God, and Bible stories as guides. The book is a fantasy first, and it does not use Scripture as a sermon."
+						},
+						{
+							"q": "Is this a Christian fantasy book?",
+							"a": "Yes. The book is set in a made-up world of fairies, elves and Nymphs, and its Bible content is told inside the story. The Discovery Questions at the back include references such as Joshua 6, Daniel 3 and 1 Samuel 16:7."
+						},
+						{
+							"q": "Is it one of the chapter books for 7 year olds?",
+							"a": "It is a 90-page chapter book with fourteen short chapters, for young readers who are ready for chapters, and younger children will enjoy it read aloud."
+						},
+						{
+							"q": "Is the fiery furnace in the book?",
+							"a": "Yes. In Chapter 7, Of Kings and Statues, the fairies read about King Nebuchadnezzar's gold statue and the three men who would not bow. Ember thinks of that story again the night before the rescue and again when the elf king's golden statue is left standing in the empty square."
+						},
+						{
+							"q": "Is it connected to The Fairies Quest?",
+							"a": "Some characters appear in both books, and the author note calls her the author of The Fairies' Quest series. Each book tells its own story."
+						},
+						{
+							"q": "Where does the story take place?",
+							"a": "In the world of Fantasy, in the land of Whimsy and beyond: Shadow Valley, the Hills of Moonlight, the Questing Woods, Moonlit Ridge and the Elf Kingdom."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gf-the-fairies-and-the-elf-king.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"the-fairies-and-the-elf-king-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893075434",
+					"isbn_display": "979-8-89307-543-4",
+					"list_cents": 1599,
+					"price_note": "15.99",
+					"price_flags": [],
+					"pages": null,
+					"pages_note": null,
+					"trim": "5.5 x 8.5 in",
+					"binding": "Perfect bound",
+					"checkout_title": "The Fairies and the Elf King — Paperback",
+					"checkout_name": "The Fairies and the Elf King: A Story of Faith, Fire, and Courage",
+					"checkout_desc": "TBD",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "the-fairies-and-the-elf-king",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/the-fairies-and-the-elf-king/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Jenna Kris",
+					"sku_tbd": [
+						"pages (hardback count not stated)"
+					],
+					"sku_ready": true
+				},
+				"the-fairies-and-the-elf-king-hb": {
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893075441",
+					"isbn_display": "979-8-89307-544-1",
+					"list_cents": 2499,
+					"price_note": "24.99",
+					"price_flags": [],
+					"pages": null,
+					"pages_note": null,
+					"trim": "5.5 x 8.5 in",
+					"binding": "TBD",
+					"checkout_title": "The Fairies and the Elf King — Hardback",
+					"checkout_name": "The Fairies and the Elf King: A Story of Faith, Fire, and Courage",
+					"checkout_desc": "TBD",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "the-fairies-and-the-elf-king",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/the-fairies-and-the-elf-king/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Jenna Kris",
+					"sku_tbd": [
+						"pages (hardback count not stated)"
+					],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "the-forgotten-witness",
+			"units_12m": 0,
+			"book": {
+				"slug": "the-forgotten-witness",
+				"status": "pending",
+				"title": "The Forgotten Witness",
+				"subtitle": "Following Jesus and Living Your Faith at Work in the Marketplace",
+				"full_title": "The Forgotten Witness: Following Jesus and Living Your Faith at Work in the Marketplace",
+				"author": {
+					"name": "Justin Creasman"
+				},
+				"credits": null,
+				"page_title": "The Forgotten Witness: Holy Spirit and Faith at Work",
+				"h1": "The Forgotten Witness",
+				"meta": "The Forgotten Witness by Justin Creasman: a Christian living guide to faith at work, making room for the Holy Spirit. 12 chapters, group questions.",
+				"short": "A Christian guide to faith at work that reconnects your career with your calling and shows how integrity on the job can move you from a forgotten witness to a known witness of Jesus Christ.",
+				"about": "Many followers of Jesus spend more than two thousand hours a year at work, yet it is easy to compartmentalize faith. The Forgotten Witness is an invitation to reconnect professional life with spiritual calling. Justin Creasman writes as a working professional, not a pastor, drawing on his own years in the marketplace. Across twelve chapters and an epilogue, each built around one theme, the book explores what it means to practice the way of Jesus on the job: endurance, surrender, rhythm, boldness, community, workmanship, prayer, Scripture, service, witness, solitude and crafting a rule of life. Every chapter closes with Reflection questions and a Reach Practice. A practical chapter gives a plain-language overview of religious protections in Title VII of the Civil Rights Act of 1964, as general information, not legal advice.",
+				"who_for": [
+					"Working Christians in any job (the description names a barista, a manager, a business owner, between jobs, a recent graduate)",
+					"Business owners and marketplace leaders",
+					"Small groups, working lunch groups and banding groups of believers",
+					"Readers looking for Christian living books on faith and work"
+				],
+				"who_for_status": "PROPOSED (sheet has no ranked For list; derived from the Audience row 'working Christians and business owners' and the description)",
+				"faq": [
+					{
+						"q": "What is The Forgotten Witness about?",
+						"a": "It is a Christian living guide to faith at work. Justin Creasman, a working professional and not a pastor, invites readers to reconnect professional life with spiritual calling, to see the workplace as a mission field and to make room for the Holy Spirit to guide, convict and empower, across twelve chapters and an epilogue."
+					},
+					{
+						"q": "What does the book say about faith at work and Title VII?",
+						"a": "One practical chapter gives a general, plain-language overview of the religious protections in Title VII of the Civil Rights Act of 1964 so readers in the United States can live out their faith respectfully and boldly within the law. It is general information, not legal advice."
+					},
+					{
+						"q": "What topics do the twelve chapters cover?",
+						"a": "Endurance, surrender, rhythm, boldness, community, workmanship, prayer, Scripture, service, witness, solitude and crafting a rule of life, each built around a single theme."
+					},
+					{
+						"q": "Can small groups or a working lunch group use it?",
+						"a": "Yes. Every chapter closes with Reflection questions and a Reach Practice, which makes the book well suited to personal study, working lunch groups or small banding groups of believers."
+					},
+					{
+						"q": "Who is Justin Creasman?",
+						"a": "Justin Creasman is a marketplace leader from Winston-Salem, North Carolina, who has started prayer groups, Bible studies and discipleship bands at work and helped plant City Movement Church in the Raleigh-Durham area."
+					}
+				],
+				"bio": "Justin Creasman is a follower of Jesus and a leader in the marketplace who has spent his career building formational communities in the workplace. Born and raised in Winston-Salem, North Carolina, he entered North Carolina Central University in 2007 intending to become a neurosurgeon, took a semester away to work at a fast-food restaurant, then finished his biology degree. At work he has started prayer groups, Bible studies and discipleship bands, including an onsite prayer group that grew into a site-wide Bible study, and he helped plant City Movement Church in the Raleigh-Durham area. He lives in Youngsville, North Carolina, with his wife, Yvonne, and their three children.",
+				"jsonld": {
+					"book": {
+						"name": "The Forgotten Witness",
+						"alternativeHeadline": "Following Jesus and Living Your Faith at Work in the Marketplace",
+						"inLanguage": "en",
+						"isbn": null,
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 110,
+						"datePublished": null,
+						"audience": "Working Christians and business owners",
+						"about": [
+							"faith at work",
+							"marketplace ministry",
+							"workplace discipleship",
+							"Title VII religious protections"
+						],
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/the-forgotten-witness/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Justin Creasman",
+						"description": "Justin Creasman is a follower of Jesus and a leader in the marketplace who has spent his career building formational communities in the workplace. Born and raised in Winston-Salem, North Carolina, he entered North Carolina Central University in 2007 intending to become a neurosurgeon, took a semester away to work at a fast-food restaurant, then finished his biology degree. At work he has started prayer groups, Bible studies and discipleship bands, including an onsite prayer group that grew into a site-wide Bible study, and he helped plant City Movement Church in the Raleigh-Durham area. He lives in Youngsville, North Carolina, with his wife, Yvonne, and their three children.",
+						"alumniOf": "North Carolina Central University",
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/the-forgotten-witness/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is The Forgotten Witness about?",
+							"a": "It is a Christian living guide to faith at work. Justin Creasman, a working professional and not a pastor, invites readers to reconnect professional life with spiritual calling, to see the workplace as a mission field and to make room for the Holy Spirit to guide, convict and empower, across twelve chapters and an epilogue."
+						},
+						{
+							"q": "What does the book say about faith at work and Title VII?",
+							"a": "One practical chapter gives a general, plain-language overview of the religious protections in Title VII of the Civil Rights Act of 1964 so readers in the United States can live out their faith respectfully and boldly within the law. It is general information, not legal advice."
+						},
+						{
+							"q": "What topics do the twelve chapters cover?",
+							"a": "Endurance, surrender, rhythm, boldness, community, workmanship, prayer, Scripture, service, witness, solitude and crafting a rule of life, each built around a single theme."
+						},
+						{
+							"q": "Can small groups or a working lunch group use it?",
+							"a": "Yes. Every chapter closes with Reflection questions and a Reach Practice, which makes the book well suited to personal study, working lunch groups or small banding groups of believers."
+						},
+						{
+							"q": "Who is Justin Creasman?",
+							"a": "Justin Creasman is a marketplace leader from Winston-Salem, North Carolina, who has started prayer groups, Bible studies and discipleship bands at work and helped plant City Movement Church in the Raleigh-Durham area."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > The Forgotten Witness"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"More like this (work and faith, pages first): Bringing Jesus to Work, Humble Influence, Make Me Feel Important",
+					"/returns/ when Buy goes live"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-forgotten-witness-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": [
+					"the-forgotten-witness-pb",
+					"the-forgotten-witness-hb"
+				],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026928669",
+				"pub_date": "2026-11-10",
+				"lead_term": {
+					"term": "holy spirit",
+					"volume": 49500,
+					"note": "normalised from the 3fi batch-1 shape (final/final_volume, 3fj ruling applied)"
+				},
+				"target_queries": [
+					{
+						"term": "holy spirit",
+						"volume": 49500,
+						"role": "LEAD (restored: Doc description says making room for the Holy Spirit to guide, convict and empower; sheet keyword)"
+					},
+					{
+						"term": "christian living books",
+						"volume": 1600,
+						"role": "beside: the book's BISAC class"
+					},
+					{
+						"term": "christian leadership books",
+						"volume": 880
+					},
+					{
+						"term": "marketplace ministry",
+						"volume": 480
+					},
+					{
+						"term": "evangelism books",
+						"volume": 320
+					},
+					{
+						"term": "faith at work",
+						"volume": 110,
+						"role": "exact subject"
+					}
+				],
+				"beside_larger_than_lead": null,
+				"home": "SMP (no source marks it Father Heart)",
+				"url": "https://spiritmediapublishing.com/books/the-forgotten-witness/",
+				"buy_url": "https://spiritmediapublishing.com/books/the-forgotten-witness/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#the-forgotten-witness (draft unit 3fi); sources: Drive metadata Doc 1bMAvTYVkG5QdO7zfSzsLAe5YBmocw9nVIjx_14dVJWo (2026-11-12) + sheet.json (11-10) + 3fg keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT",
+						"jsonld.book.isbn": "OMIT until Bowker ISBNs are in the sheet",
+						"jsonld.book.sameAs": "TBD",
+						"jsonld.offer": "OMIT (not live)",
+						"jsonld.person.sameAs": "TBD"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For working Christians in any job",
+							"paras": [
+								"If you have felt that your faith lives on Sunday and your career lives the rest of the week, this book names that split and offers small steps to close it. The preface pictures a face across a coffee counter, a coworker at the next desk, a law enforcement officer and a small business partner as the congregation you already have."
+							]
+						},
+						{
+							"h2": "For business owners and marketplace leaders",
+							"paras": [
+								"The book is written by someone who has managed people. It asks what you do when the trash is overflowing and you are hungry, how you treat people with less authority, and whether your team can tell what you believe from how you work. Two readers with marketplace leadership roles contributed advance praise."
+							]
+						},
+						{
+							"h2": "For small groups and working lunch groups",
+							"paras": [
+								"Each chapter ends with questions for discussion and a practice to try before you meet again. The author has led prayer groups, Bible studies and discipleship bands at work, and the book is written with that kind of group in mind."
+							]
+						},
+						{
+							"h2": "For readers who want to share their faith without being pushy",
+							"paras": [
+								"The book keeps returning to consistency over volume. The epilogue says a Known Witness is not a louder Christian but a consistent one. Evangelism here means a prayer before a meeting, the truth told when a lie would be easier, and a trash bag changed when no one is watching."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Most of us spend 2,080 hours a year at work. This book asks whether the person three feet away knows you follow Jesus.",
+						"body": "For working Christians in any job: at a desk, behind a counter, on a shop floor, in a classroom or running a small business. Justin Creasman writes as a working professional, not a pastor, with twelve chapters and an epilogue on endurance, surrender, rhythm, boldness, community, workmanship, prayer, Scripture, service, witness, solitude and a rule of life, each with Reflection questions and a Reach Practice. A note on subjects: the book is a Christian living guide for adults. One chapter gives a general overview of religious protections under United States employment law, and it says plainly that this is general information and encouragement, not legal advice. The author also names stories from his own work without naming people or companies."
+					},
+					"what_makes": {
+						"title": "What makes this book for people who want to live their faith at work",
+						"paras": [
+							"It starts with a plain question, \"Do you feel purposeful in your career?\", and it keeps its feet on the ground. The author says up front that this is not a book about perfect Christians at work. It is about a faith that shows up in the small things.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is written by a working professional. Justin Creasman has spent his career in the marketplace, starting prayer groups, Bible studies and discipleship bands at work.",
+							"It gives each chapter two tools. At the end you find questions for Reflection and a Reach Practice, an action to try that week.",
+							"It talks about the law without pretending to be a lawyer. The chapter on laws and policies explains Title VII of the Civil Rights Act of 1964 in general terms, names its limits, and tells the reader to consult an attorney for their own situation.",
+							"It is honest that not everyone has the same freedom. The author's note acknowledges readers in places where speaking about faith costs far more.",
+							"It ends with a clear picture of the goal: moving from a Forgotten Witness, present and faithful but unknown, to a Known Witness of Jesus."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with advance praise, a dedication, an author's note and a preface. The author's note explains a choice:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Due to the sensitivity and confidentiality of my career, I have chosen to leave out names of individuals as well as company information."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The preface says what the book is for:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This is not a book about becoming perfect Christians at work"
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1 begins with a question and a number:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Do you feel purposeful in your career?"
+								]
+							},
+							{
+								"type": "p",
+								"text": "The twelve chapters and the epilogue are:"
+							},
+							{
+								"type": "p",
+								"text": "1. The Beauty of Longevity: Endurance\n2. A Life Laid Down: Surrender\n3. The Simplicity of Consistency: Rhythm\n4. Laws and Policies: Boldness\n5. The Joy of Community: Community\n6. The Importance of Workmanship: Workmanship\n7. A Foundation of Prayer: Prayer\n8. Studying the Scriptures: Scripture\n9. Curiosity and Compassion: Service\n10. Living in Countenance: Witness\n11. The Misconception of Work-Life Balance: Solitude\n12. Creating a Rule of Life: The Rule of Life\nEpilogue. Your Mission Field Awaits: Sending"
+							}
+						],
+						"intro": [
+							"Every copy opens with advance praise, a dedication, an author's note and a preface. The author's note explains a choice:"
+						],
+						"excerpt": [
+							"Due to the sensitivity and confidentiality of my career, I have chosen to leave out names of individuals as well as company information.",
+							"This is not a book about becoming perfect Christians at work",
+							"Do you feel purposeful in your career?"
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Twelve chapters and an epilogue, each built around one practice of a life with Jesus at work",
+						"Reflection questions and a Reach Practice at the end of every chapter, which suit personal study, a working lunch group or a small band of believers",
+						"A plain-language chapter on religious protections under Title VII, with a clear note that it is not legal advice",
+						"A Rule of Life chapter that helps a reader choose which practice to begin",
+						"A meditation on countenance, a bibliography, and an About the Author page",
+						"A 5 x 8 inch paperback"
+					],
+					"details": {
+						"Title": "The Forgotten Witness",
+						"Subtitle": "Following Jesus and Living Your Faith at Work in the Marketplace",
+						"Author": "Justin Creasman",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "110 (paperback)",
+						"Trim size": "5 x 8 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "979-8-89307-363-8",
+						"Hardback ISBN": "979-8-89307-364-5",
+						"eBook ISBN": "979-8-89307-365-2",
+						"Audiobook ISBN": "979-8-89307-535-9",
+						"Library of Congress Control Number": "2026928669"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "A semester at a fast-food restaurant",
+							"paras": [
+								"In Chapter 1, the author tells how he entered college in 2007 meaning to become a neurosurgeon. Two years in, he burned out. He took a semester away to work at a fast-food restaurant, and he now calls that one of the best decisions of his life. It is the book's first lesson about endurance, and it comes with a line that fits any season:",
+								"\"Your failures and miscalculations are building blocks for your future successes.\""
+							]
+						},
+						{
+							"h2": "The overflowing trash",
+							"paras": [
+								"In Chapter 6, a shift has run long, the leftover food in the break room is calling, and the trash in the manufacturing area is overflowing. As a manager he could delegate. Instead he serves.",
+								"\"I replaced the trash with a new bag and discarded the old one.\"",
+								"The food tastes the same fifteen minutes later, and another manager who saw it takes the same road next time. The chapter ties it to Mark 10:45."
+							]
+						},
+						{
+							"h2": "What am I actually allowed to do here?",
+							"paras": [
+								"Chapter 4 turns to a practical question that sits under every workplace witness:",
+								"\"what am I actually allowed to do here?\"",
+								"The author describes Title VII in general terms, names its limits, and stops to say it protects him in ways it will not protect every reader. What carries across every border, he writes, is how you work and how you treat people."
+							]
+						}
+					],
+					"author": {
+						"bio": "Justin Creasman is a marketplace leader who has spent his career building formational communities in the workplace. Born and raised in Winston-Salem, North Carolina, he holds a bachelor's degree in biology from North Carolina Central University and is pursuing graduate studies with Antioch School. At work he has started prayer groups, Bible studies and discipleship bands, and he helped plant City Movement Church in the Raleigh-Durham area. His website is justincreasman.com."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to publish a book that sends believers back to their desks with a purpose."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The preface gives the author's hope in his own words:",
+							"\"you move from a Forgotten Witness in your vocation to a Known Witness of Jesus\"",
+							"He adds that he hopes the book brings readers closer to Christ and opens their hearts to the people they work beside. The last pages say it simply:",
+							"\"Friend, you are already in the room. Be known.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is The Forgotten Witness about?",
+							"a": "It is a Christian living guide to faith at work. Justin Creasman, a working professional and not a pastor, invites readers to reconnect professional life with spiritual calling, to see the workplace as a mission field and to make room for the Holy Spirit to guide, convict and strengthen, across twelve chapters and an epilogue."
+						},
+						{
+							"q": "What does the book say about the Holy Spirit?",
+							"a": "It treats the Holy Spirit as the guide of a believer's workday. The book asks readers to let the Holy Spirit examine their hearts, to listen for the Spirit's leading, and to speak up when the Spirit prompts. The term appears about thirty times across the book."
+						},
+						{
+							"q": "Is it one of the good Christian living books for working people?",
+							"a": "It is written for people who spend most of their week at work. Its chapters are practices, such as prayer, Scripture, service and solitude, not theology lectures, and each ends with Reflection and a Reach Practice."
+						},
+						{
+							"q": "Is it a Christian leadership book?",
+							"a": "It is a faith-at-work guide that includes leadership. The author writes as a manager who stopped to change a trash bag and as someone who started groups at work, and several stories come from his own time as a manager."
+						},
+						{
+							"q": "What is marketplace ministry, and does the book teach it?",
+							"a": "Marketplace ministry is living out your calling inside a job, not only at church. The book calls it vocational ministry and says the workplace can be a mission field. Two readers who lead in the marketplace wrote the advance praise."
+						},
+						{
+							"q": "Is it an evangelism book?",
+							"a": "It is about being a witness, not about giving a sales pitch. It says consistency, workmanship and compassion speak before you open your mouth. Evangelism appears a few times in the book, and the practices are quiet and daily."
+						},
+						{
+							"q": "What does the book say about faith at work and the law?",
+							"a": "One chapter offers a general overview of Title VII of the Civil Rights Act of 1964 and the religious protections it provides in the United States. It is general information and not legal advice, and it tells readers to consult an attorney licensed where they work."
+						},
+						{
+							"q": "Can a small group use it?",
+							"a": "Yes. Every chapter closes with Reflection questions and a Reach Practice, which makes the book suited to personal study, a working lunch group or a small band of believers."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gf-the-forgotten-witness.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"the-forgotten-witness-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893073638",
+					"isbn_display": "979-8-89307-363-8",
+					"list_cents": 1599,
+					"price_note": "15.99",
+					"price_flags": [],
+					"pages": 110,
+					"pages_note": "110",
+					"trim": "5.0 x 8.0 in",
+					"binding": "Perfect bound",
+					"checkout_title": "The Forgotten Witness — Paperback",
+					"checkout_name": "The Forgotten Witness: Following Jesus and Living Your Faith at Work in the Marketplace",
+					"checkout_desc": "Paperback · 110 pages · by Justin Creasman · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "the-forgotten-witness",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/the-forgotten-witness/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Justin Creasman",
+					"sku_tbd": [],
+					"sku_ready": true
+				},
+				"the-forgotten-witness-hb": {
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893073645",
+					"isbn_display": "979-8-89307-364-5",
+					"list_cents": 2499,
+					"price_note": "24.99",
+					"price_flags": [],
+					"pages": null,
+					"pages_note": null,
+					"trim": "5.0 x 8.0 in",
+					"binding": "Case laminate, no jacket",
+					"checkout_title": "The Forgotten Witness — Hardback",
+					"checkout_name": "The Forgotten Witness: Following Jesus and Living Your Faith at Work in the Marketplace",
+					"checkout_desc": "TBD",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "the-forgotten-witness",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/the-forgotten-witness/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Justin Creasman",
+					"sku_tbd": [
+						"pages (hardback count not stated)"
+					],
+					"sku_ready": true
+				}
+			}
 		}
 	]
 }

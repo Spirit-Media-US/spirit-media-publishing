@@ -211,6 +211,41 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-your-word-300.webp",
 			"width": 600,
 			"height": 927
+		},
+		"el-gran-sueno-de-la-yiayia-voula": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/el-gran-sueno-de-la-yiayia-voula-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/el-gran-sueno-de-la-yiayia-voula-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/el-gran-sueno-de-la-yiayia-voula-300.webp",
+			"width": 600,
+			"height": 600
+		},
+		"raised-in-a-barn": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"silas-and-woolly-the-mammoth": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/silas-and-woolly-the-mammoth-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/silas-and-woolly-the-mammoth-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/silas-and-woolly-the-mammoth-300.webp",
+			"width": 600,
+			"height": 600
+		},
+		"the-fairies-and-the-elf-king": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-fairies-and-the-elf-king-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-fairies-and-the-elf-king-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-fairies-and-the-elf-king-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"the-forgotten-witness": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-forgotten-witness-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-forgotten-witness-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-forgotten-witness-300.webp",
+			"width": 600,
+			"height": 960
 		}
 	}
 }
