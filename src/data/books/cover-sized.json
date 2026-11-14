@@ -92,6 +92,125 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/robie-the-ghost-300.webp",
 			"width": 600,
 			"height": 900
+		},
+		"brothers-lunch-basket": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/brothers-lunch-basket-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/brothers-lunch-basket-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/brothers-lunch-basket-300.webp",
+			"width": 600,
+			"height": 750
+		},
+		"in-the-hands-of-our-heavenly-father": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-hands-of-our-heavenly-father-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-hands-of-our-heavenly-father-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-hands-of-our-heavenly-father-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"from-jesus-til-now": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/from-jesus-til-now-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/from-jesus-til-now-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/from-jesus-til-now-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"get-out-of-the-fast": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/get-out-of-the-fast-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/get-out-of-the-fast-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/get-out-of-the-fast-300.webp",
+			"width": 600,
+			"height": 800
+		},
+		"bringing-jesus-to-work": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/bringing-jesus-to-work-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/bringing-jesus-to-work-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/bringing-jesus-to-work-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"untouchable": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/untouchable-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/untouchable-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/untouchable-300.webp",
+			"width": 600,
+			"height": 840
+		},
+		"write-before-coffee": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/write-before-coffee-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/write-before-coffee-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/write-before-coffee-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"a-shepherds-story": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/a-shepherds-story-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/a-shepherds-story-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/a-shepherds-story-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"audacious-generosity": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/audacious-generosity-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/audacious-generosity-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/audacious-generosity-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"escaping-anxiety": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/escaping-anxiety-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/escaping-anxiety-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/escaping-anxiety-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"gods-dream": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/gods-dream-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/gods-dream-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/gods-dream-300.webp",
+			"width": 600,
+			"height": 840
+		},
+		"monday-morning-preacher": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/monday-morning-preacher-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/monday-morning-preacher-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/monday-morning-preacher-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"get-to-the-point": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/get-to-the-point-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/get-to-the-point-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/get-to-the-point-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"gifts": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/gifts-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/gifts-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/gifts-300.webp",
+			"width": 600,
+			"height": 840
+		},
+		"potters-child": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/potters-child-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/potters-child-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/potters-child-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"say-yes-to-god": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/say-yes-to-god-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/say-yes-to-god-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/say-yes-to-god-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"whats-your-word": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-your-word-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-your-word-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-your-word-300.webp",
+			"width": 600,
+			"height": 927
 		}
 	}
 }

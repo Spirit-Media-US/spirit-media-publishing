@@ -10,8 +10,34 @@ interface Props {
 	page: Record<string, any>;
 	title: string;
 	faq: { q: string; a: string }[];
+	lang?: string;
 }
-const { page: g, title, faq } = Astro.props;
+const { page: g, title, faq, lang = 'en' } = Astro.props;
+// Section labels: the page's own heading when its copy names one (a Spanish page, 3ge), else the house label in its
+// language. Nothing is invented: es strings are the plain labels the Spanish copy itself uses.
+const HOUSE: Record<string, Record<string, string>> = {
+	en: {
+		look_inside: 'Look inside',
+		contents: 'Contents',
+		whats_inside: "What's inside",
+		details: 'Product details',
+		author: 'About the author',
+		faq: 'Questions',
+		why: 'Why this book exists',
+		browse: 'Browse all Spirit Media books',
+	},
+	es: {
+		look_inside: 'Un vistazo por dentro',
+		contents: 'Contenido',
+		whats_inside: 'Qué trae el libro',
+		details: 'Datos del libro',
+		author: 'Sobre la autora',
+		faq: 'Preguntas',
+		why: 'Por qué existe este libro',
+		browse: 'Ver todos los libros de Spirit Media',
+	},
+};
+const L = { ...(HOUSE[lang] ?? HOUSE.en), ...(g.labels ?? {}) };
 const bands = ['bg-white', 'bg-stone-50'];
 let band = 0;
 const next = () => bands[band++ % 2];
@@ -50,19 +76,21 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 {g.look_inside_text && has(g.look_inside_text.blocks) && (
 	<section class={`${next()} px-4 py-12 sm:px-6 lg:px-8`} id="look-inside">
 		<div class="mx-auto max-w-3xl text-stone-800">
-			<h2 class="text-2xl font-bold text-ink sm:text-3xl">Look inside</h2>
+			<h2 class="text-2xl font-bold text-ink sm:text-3xl">{L.look_inside}</h2>
 			{(g.look_inside_text.blocks ?? [{ type: 'p', text: '' }]).map((b: any) =>
 				b.type === 'quote' ? (
 					<figure class="mt-5 rounded-2xl border border-stone-300 bg-white p-6">
 						{b.paras.map((t: string) => <p class="font-serif text-lg leading-relaxed text-ink [&+p]:mt-4">{t}</p>)}
 					</figure>
+				) : b.type === 'list' ? (
+					<ol class="mt-4 list-decimal space-y-2 pl-6 leading-relaxed marker:font-bold marker:text-ink">{b.items.map((t: string) => <li>{t}</li>)}</ol>
 				) : (
 					b.text && <p class="mt-4 leading-relaxed">{b.text}</p>
 				),
 			)}
 			{has(g.look_inside_text.contents) && (
 				<div class="mt-6">
-					<h3 class="text-lg font-bold text-ink">Contents</h3>
+					<h3 class="text-lg font-bold text-ink">{L.contents}</h3>
 					{g.look_inside_text.numbered === false ? (
 						<ul class="mt-3 list-disc space-y-2 pl-6">{g.look_inside_text.contents.map((t: string) => <li>{t}</li>)}</ul>
 					) : (
@@ -80,7 +108,7 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 {look.length > 0 && !g.look_inside_text && (
 	<section class={`${next()} px-4 py-12 sm:px-6 lg:px-8`} id="look-inside">
 		<div class="mx-auto max-w-5xl">
-			<h2 class="text-2xl font-bold text-ink sm:text-3xl">Look inside</h2>
+			<h2 class="text-2xl font-bold text-ink sm:text-3xl">{L.look_inside}</h2>
 			<div class="mt-6 flex snap-x gap-4 overflow-x-auto pb-2">
 				{look.map((p: any, i: number) => (
 					<img src={p.src} alt={p.alt || `${title}, page ${i + 1}`} width={p.w || 600} height={p.h || 900} loading="lazy" decoding="async" class="h-auto w-[78%] max-w-[320px] shrink-0 snap-start rounded border border-stone-200 shadow sm:w-[300px]" />
@@ -95,13 +123,13 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 		<div class="mx-auto max-w-3xl text-stone-800">
 			{has(g.whats_inside) && (
 				<>
-					<h2 class="text-2xl font-bold text-ink sm:text-3xl">What's inside</h2>
+					<h2 class="text-2xl font-bold text-ink sm:text-3xl">{L.whats_inside}</h2>
 					<ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed">{g.whats_inside.map((t: string) => <li>{t}</li>)}</ul>
 				</>
 			)}
 			{details.length > 0 && (
 				<>
-					<h3 class="mt-8 text-xl font-bold text-ink">Product details</h3>
+					<h3 class="mt-8 text-xl font-bold text-ink">{L.details}</h3>
 					<dl class="mt-3 divide-y divide-stone-200 rounded-lg border border-stone-300 bg-white">
 						{details.map(([k, v]) => (
 							<div class="flex flex-col gap-0.5 px-4 py-2.5 sm:flex-row sm:gap-4">
@@ -146,7 +174,7 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 		<div class="mx-auto max-w-3xl space-y-6 leading-relaxed text-stone-800">
 			{g.author?.bio && (
 				<div>
-					<h2 class="text-2xl font-bold text-ink sm:text-3xl">About the author</h2>
+					<h2 class="text-2xl font-bold text-ink sm:text-3xl">{L.author}</h2>
 					{g.author.name && <h3 class="mt-3 text-lg font-bold text-ink">{g.author.name}</h3>}
 					<p class="mt-2">{g.author.bio}</p>
 				</div>
@@ -164,7 +192,7 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 {g.why && has(g.why.paras) && (
 	<section class={`${next()} px-4 py-12 sm:px-6 lg:px-8`}>
 		<div class="mx-auto max-w-3xl space-y-4 leading-relaxed text-stone-800">
-			<h2 class="text-2xl font-bold text-ink sm:text-3xl">{g.why.title || 'Why this book exists'}</h2>
+			<h2 class="text-2xl font-bold text-ink sm:text-3xl">{g.why.title || L.why}</h2>
 			{g.why.paras.map((t: string) => <p>{t}</p>)}
 		</div>
 	</section>
@@ -173,7 +201,7 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 {faq.length > 0 && (
 	<section class={`${next()} px-4 py-12 sm:px-6 lg:px-8`}>
 		<div class="mx-auto max-w-3xl">
-			<h2 class="text-2xl font-bold text-ink sm:text-3xl">Questions</h2>
+			<h2 class="text-2xl font-bold text-ink sm:text-3xl">{L.faq}</h2>
 			<div class="mt-5 divide-y divide-stone-200 rounded-lg border border-stone-300 bg-white">
 				{faq.map((f) => (
 					<details class="p-4">
@@ -182,7 +210,7 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 					</details>
 				))}
 			</div>
-			<p class="mt-6"><a href="/bookstore/" class="font-semibold text-ink-soft underline underline-offset-2">Browse all Spirit Media books</a></p>
+			<p class="mt-6"><a href="/bookstore/" class="font-semibold text-ink-soft underline underline-offset-2">{L.browse}</a></p>
 		</div>
 	</section>
 )}

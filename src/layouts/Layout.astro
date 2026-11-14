@@ -16,6 +16,8 @@ interface Props {
 	canonical?: string;
 	/** 3bx: og:type — the ONLY og:type tag on the page ('article' on blog posts). */
 	ogType?: 'website' | 'article';
+	/** the page's language (html lang); 'en' unless a page says otherwise (SMP Spanish book page, 3ge). */
+	lang?: string;
 }
 
 const {
@@ -24,6 +26,7 @@ const {
 	robots = 'index, follow',
 	canonical,
 	ogType = 'website',
+	lang = 'en',
 } = Astro.props;
 let ogImage = Astro.props.ogImage;
 let twitterHandle = '@spiritmediaus';
@@ -64,7 +67,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

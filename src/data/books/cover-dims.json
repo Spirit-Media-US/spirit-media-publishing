@@ -118,5 +118,29 @@
 	"whats-your-word": {
 		"w": 300,
 		"h": 400
+	},
+	"the-fairies-quest": {
+		"w": 800,
+		"h": 1236
+	},
+	"my-perfect-daddy": {
+		"w": 403,
+		"h": 522
+	},
+	"the-seers-journey": {
+		"w": 348,
+		"h": 522
+	},
+	"too-stubborn-to-die": {
+		"w": 348,
+		"h": 522
+	},
+	"hope-that-anchors-the-soul": {
+		"w": 800,
+		"h": 1200
+	},
+	"sabes-que": {
+		"w": 522,
+		"h": 522
 	}
 }

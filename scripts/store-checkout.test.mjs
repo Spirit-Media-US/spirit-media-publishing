@@ -122,7 +122,7 @@ test('/order shows a paid order read live from Stripe; a bad reference gets a 40
 
 // Books M4 (pmseoaeo 22:53Z; Kevin approved SMP book pages 11-13) + ONE PAGE PER BOOK (Kevin via pmseoaeo 23:19Z: "All I
 // see is check out form? Where is the page?"; "Never render internal wording or TBD").
-const LEAK = /\b(the Doc\b|Doc (says|lists|calls|describes|names|files|suggests|audience|has)|per the Doc|\(Doc\b|sheet\.json|the sheet\b|the page (makes|attributes|does|publishes|names|claims)|makes no claim|the interior (has|mentions|names|is)|\d+ mentions\b|mentions? [\w' ]{1,24} \d+ times|TBD\b|OMIT\b|UNMEASURED|unconfirmed|pmpublish|pmprint|pmseoaeo|PROPOSED\b|lead term|search volume|unit \d[a-z]{2}\b)/i;
+const LEAK = /\b(the Doc\b|Doc (says|lists|calls|describes|names|files|suggests|audience|has)|per the Doc|\(Doc\b|sheet\.json|the sheet\b|the page (makes|attributes|does|publishes|names|claims)|makes no claim|the interior (has|mentions|names|is)|\d+ mentions\b|mentions? [\w' ]{1,24} \d+ times|TBD\b|OMIT\b|UNMEASURED|unconfirmed|pmpublish|pmprint|pmseoaeo|PROPOSED\b|lead term|search volume|unit \d[a-z]{2}\b|no subtitle|live listing|the Record\b|printed on the interior)/i; // 3ge: a Record 'subtitle' of '(no subtitle)' rendered under the h1
 const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
@@ -130,7 +130,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 38); // 30 ship-set (3fu) + 8 cover-blocked titles once pmprint's covers landed (3gc)
+	assert.equal(set.titles.length, 44); // 30 ship-set (3fu) + 8 cover-blocked (3gc) + 6 with R2 covers (3ge)
 	const read = (slug) => fs.readFileSync(new URL(`${slug}/index.html`, dist), 'utf8');
 	const mainOf = (html) => html.slice(html.indexOf('<main'), html.indexOf('</main>'));
 	for (const t of [...set.titles, { slug: 'jesus-had-a-little-lamb' }]) {
@@ -142,12 +142,18 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		// pmseoaeo #4 "B": a title whose SKUs are in the store registry carries the US-only order form at #order
 		if (t.skus && Object.keys(t.skus).some((k) => REG[k])) {
 			assert.match(main, /<form id="order"[^>]*data-status="live"/, `${t.slug}: order form ON the page`);
-			assert.match(main, /<option value="US" selected[^>]*>United States<\/option>\s*<\/select>/, `${t.slug}: US only`);
-			assert.match(main, /Ships to more countries soon\./, `${t.slug}: non-US note`);
+			const es = t.book?.language === 'es'; // 3ge: a Spanish page carries its chrome in Spanish
+			assert.match(main, es ? /<option value="US" selected[^>]*>Estados Unidos<\/option>\s*<\/select>/ : /<option value="US" selected[^>]*>United States<\/option>\s*<\/select>/, `${t.slug}: US only`);
+			assert.match(main, es ? /Pronto enviaremos a más países\./ : /Ships to more countries soon\./, `${t.slug}: non-US note`);
+			if (es) {
+				assert.match(html, /<html lang="es"/, `${t.slug}: html lang es`);
+				assert.match(html, /"inLanguage":"es"/, `${t.slug}: Book inLanguage es`);
+				assert.doesNotMatch(main, />(Look inside|Questions|Product details|Checkout →)</, `${t.slug}: no English chrome`);
+			}
 			for (const k of Object.keys(t.skus)) if (REG[k]) assert.match(main, new RegExp(`name="${k}"`), `${t.slug}: ${k} quantity`);
 		} else {
 			assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
-			assert.match(main, /Available soon from our store\./, `${t.slug}: pending note`);
+			assert.match(main, t.book?.language === 'es' ? /Pronto disponible en nuestra tienda\./ : /Available soon from our store\./, `${t.slug}: pending note`);
 		}
 		assert.doesNotMatch(main, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
 		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
