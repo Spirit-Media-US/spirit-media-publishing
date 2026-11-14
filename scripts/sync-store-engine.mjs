@@ -19,6 +19,7 @@ export const FILES = [
 	'src/lib/order-pricing.ts',
 	'src/lib/shipCountries.ts',
 	'src/data/book-skus.json',
+	'src/data/book-us-costs.json', // server-only measured US costs (FHB 894075c moved them out of book-skus.json)
 	'src/data/books.json',
 	'src/data/isbn-list.json',
 	'src/data/ship-countries.json',

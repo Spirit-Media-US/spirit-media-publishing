@@ -143,8 +143,14 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		if (t.skus && Object.keys(t.skus).some((k) => REG[k])) {
 			assert.match(main, /<form id="order"[^>]*data-status="live"/, `${t.slug}: order form ON the page`);
 			const es = t.book?.language === 'es'; // 3ge: a Spanish page carries its chrome in Spanish
+			const abroad = Object.keys(t.skus).filter((k) => REG[k]).every((k) => REG[k].cost_key); // pmpublish-measured
+			if (abroad) {
+				assert.match(main, /<option value="GB"[^>]*>/, `${t.slug}: ships abroad (measured landed cost)`);
+				assert.doesNotMatch(main, /Ships to more countries soon\.|Pronto enviaremos/, `${t.slug}: no 'soon' note when it ships abroad`);
+			} else {
 			assert.match(main, es ? /<option value="US" selected[^>]*>Estados Unidos<\/option>\s*<\/select>/ : /<option value="US" selected[^>]*>United States<\/option>\s*<\/select>/, `${t.slug}: US only`);
 			assert.match(main, es ? /Pronto enviaremos a más países\./ : /Ships to more countries soon\./, `${t.slug}: non-US note`);
+			}
 			if (es) {
 				assert.match(html, /<html lang="es"/, `${t.slug}: html lang es`);
 				assert.match(html, /"inLanguage":"es"/, `${t.slug}: Book inLanguage es`);
@@ -180,14 +186,33 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 });
 
 // pmseoaeo 23:26Z #4 "B" (plan D5): an SMP ship-set book sells US-only at list price; its margin is recorded unmeasured.
-test('SMP book SKU: US order at list price, net_usd unmeasured; a non-US order is refused, nothing sent', async () => {
+test('SMP book SKU: US at list with measured net; abroad at break-even handling where pmpublish measured it; refused where not', async () => {
+	const fs = await import('node:fs');
+	const { handlingFeeCents, netPerItemUsd } = await import('../src/store-engine/lib/marginGuard.ts');
+	const { LIVE_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts');
+	const usCost = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-us-costs.json', import.meta.url), 'utf8')).usd;
 	const us = await post({ counts: { 'the-pyramid-principle-pb': 2 }, country: 'US', returnPath: '/books/the-pyramid-principle/' });
 	assert.equal(us.status, 200);
 	assert.equal(us.form.get('line_items[0][price_data][unit_amount]'), '1899');
 	assert.equal(us.form.get('line_items[0][quantity]'), '2');
-	assert.match(us.form.get('metadata[book_1]'), /isbn=9798893071153\|format=Paperback\|qty=2\|unit_cents=1899\|.*net_usd=unmeasured/);
+	// US net = list - Stripe US card fee - the MEASURED US landed cost (pmpublish smp-books-landed-20261113), x qty
+	const net = ((18.99 - 18.99 * 0.029 - 0.3 - usCost['the-pyramid-principle-pb']) * 2).toFixed(2);
+	assert.match(us.form.get('metadata[book_1]'), new RegExp(`isbn=9798893071153\\|format=Paperback\\|qty=2\\|unit_cents=1899\\|.*net_usd=${net}$`));
 	assert.equal(us.form.get('cancel_url'), 'https://spiritmediapublishing.com/books/the-pyramid-principle/?order=canceled#order');
-	const gb = await post({ counts: { 'the-pyramid-principle-pb': 1 }, country: 'GB', returnPath: '/books/the-pyramid-principle/' });
+	// abroad: the handling line is exactly marginGuard's break-even fee (floor 0, Kevin 11-10), never more
+	for (const code of ['GB', 'AU', 'JP']) {
+		const dest = LIVE_COUNTRIES.find((c) => c.code === code);
+		const fee = handlingFeeCents('the-pyramid-principle-pb', 1899, dest);
+		const r = await post({ counts: { 'the-pyramid-principle-pb': 1 }, country: code, returnPath: '/books/the-pyramid-principle/' });
+		assert.equal(r.status, 200, code);
+		assert.equal(Number(r.form.get('metadata[handling_cents]')), fee, `${code} handling`);
+		const n = netPerItemUsd('the-pyramid-principle-pb', 1899, dest, fee);
+		// break-even SHIPPING: a fee only when list price does not cover the landed cost, and then never more than the
+		// shortfall rounded up to the next x.99 (net under \$1); where list covers it, no fee and the book keeps its margin
+		assert.ok(n >= 0 && (fee === 0 || n < 1.0), `${code}: fee ${fee}, net ${n}`);
+	}
+	// a book pmpublish has not measured stays US-only: refused abroad, nothing sent to Stripe
+	const gb = await post({ counts: { 'the-forgotten-witness-pb': 1 }, country: 'GB', returnPath: '/books/the-forgotten-witness/' });
 	assert.equal(gb.status, 400);
 	assert.equal(gb.calls.filter((u) => u.includes('checkout/sessions')).length, 0);
 });

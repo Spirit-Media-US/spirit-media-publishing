@@ -25,6 +25,7 @@ import set from '../../../data/books/shipset-v2.json';
 import Layout from '../../../layouts/Layout.astro';
 import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
+import { handlingFeeCents } from '../../../store-engine/lib/marginGuard.ts';
 import { BOOK_SKUS } from '../../../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../../../store-engine/lib/shipCountries.ts';
 
@@ -279,6 +280,27 @@ const countries = p.orderable
 				sellFormats.every((f) => (c.landed_cost_usd as any)?.[BOOK_SKUS[f.sku]?.costKey] != null),
 		).map((c) => ({ code: c.code, name: c.name }))
 	: [];
+// The per-copy handling fee each country pays, sized at BUILD time by the same marginGuard the checkout charges
+// with (break-even, floor 0). Only the resulting fees reach the page, never a cost (pmseoaeo 3gh #5: total line).
+const feeCfg = JSON.stringify({
+	list: Object.fromEntries(sellFormats.map((f) => [f.sku, f.list_cents])),
+	fee: Object.fromEntries(
+		countries
+			.filter((c) => c.code !== 'US')
+			.map((c) => {
+				const row = LIVE_COUNTRIES.find((x) => x.code === c.code);
+				return [
+					c.code,
+					Object.fromEntries(
+						sellFormats.map((f) => [
+							f.sku,
+							row ? handlingFeeCents(f.sku, f.list_cents as number, row) : 0,
+						]),
+					),
+				];
+			}),
+	),
+});
 
 // Page chrome in the book's language (3ge: the Spanish title ¿Sabes Qué?). en is the house text, unchanged.
 const T = (
@@ -298,6 +320,9 @@ const T = (
 			returns: '30-day returns',
 			soon: 'Available soon from our store.',
 			qty: 'quantity',
+			subtotal: 'Subtotal',
+			handling: 'Shipping & handling',
+			total: 'Total',
 			formats: {} as Record<string, string>,
 			countries: {} as Record<string, string>,
 		},
@@ -316,6 +341,9 @@ const T = (
 			returns: 'Devoluciones en 30 días',
 			soon: 'Pronto disponible en nuestra tienda.',
 			qty: 'cantidad',
+			subtotal: 'Subtotal',
+			handling: 'Envío y manejo',
+			total: 'Total',
 			formats: {
 				Paperback: 'Tapa blanda',
 				Hardback: 'Tapa dura',
@@ -428,7 +456,7 @@ const crumbs = {
 				</div>
 				<div class="mx-auto mt-10 max-w-xl">
 						{p.orderable ? (
-							<form id="order" class="scroll-mt-28 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-slug={p.slug} data-status="live">
+							<form id="order" class="scroll-mt-28 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-slug={p.slug} data-status="live" data-fees={feeCfg}>
 								<p class="text-xs font-bold uppercase tracking-widest text-stone-500">{T.direct}</p>
 								<h2 class="mt-1 text-xl font-bold text-ink">{T.orderTitle} {p.title}</h2>
 								<div class="mt-4 space-y-3">
@@ -446,6 +474,11 @@ const crumbs = {
 									</select>
 								</label>
 								{countries.length === 1 && <p class="mt-1 text-sm text-stone-600">{T.more}</p>}
+								<dl class="mt-4 space-y-1 border-t border-stone-200 pt-3 text-sm text-stone-700">
+									<div class="flex justify-between"><dt>{T.subtotal}</dt><dd data-sub>{money(sellFormats.length === 1 ? (sellFormats[0].list_cents as number) : 0)}</dd></div>
+									<div class="flex justify-between" data-fee-line hidden><dt>{T.handling}</dt><dd data-fee>$0.00</dd></div>
+									<div class="flex justify-between text-base font-bold text-ink"><dt>{T.total}</dt><dd data-total>{money(sellFormats.length === 1 ? (sellFormats[0].list_cents as number) : 0)}</dd></div>
+								</dl>
 								<button type="submit" class="mt-4 min-h-12 w-full rounded-full bg-ink-soft px-4 py-3 font-semibold text-white hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-soft">{T.checkout}</button>
 								<p id="buy-msg" role="status" class="mt-2 text-sm text-stone-700"></p>
 								<p class="mt-2 text-sm text-stone-600">{T.free} <a href="/returns/" class="text-ink-soft underline">{T.returns}</a>.</p>
@@ -531,6 +564,26 @@ const crumbs = {
 <script>
 	const form = document.getElementById('order') as HTMLFormElement | null;
 	if (form?.tagName === 'FORM') {
+		// the same arithmetic the server charges: list x qty + the country's per-copy handling fee x qty
+		const cfg = JSON.parse(form.dataset.fees || '{"list":{},"fee":{}}') as { list: Record<string, number>; fee: Record<string, Record<string, number>> };
+		const cents = (c: number) => '$' + (c / 100).toFixed(2);
+		const sel = form.querySelector('select[name=country]') as HTMLSelectElement;
+		const render = () => {
+			let sub = 0;
+			let fees = 0;
+			for (const i of form.querySelectorAll<HTMLInputElement>('input[type=number]')) {
+				const q = Math.max(0, Math.floor(Number(i.value) || 0));
+				sub += q * (cfg.list[i.name] ?? 0);
+				fees += q * (cfg.fee[sel.value]?.[i.name] ?? 0);
+			}
+			(form.querySelector('[data-sub]') as HTMLElement).textContent = cents(sub);
+			(form.querySelector('[data-fee]') as HTMLElement).textContent = cents(fees);
+			(form.querySelector('[data-fee-line]') as HTMLElement).hidden = fees <= 0;
+			(form.querySelector('[data-total]') as HTMLElement).textContent = cents(sub + fees);
+		};
+		form.addEventListener('input', render);
+		sel.addEventListener('change', render);
+		render();
 		form.addEventListener('submit', async (ev) => {
 			ev.preventDefault();
 			const msg = document.getElementById('buy-msg') as HTMLElement;
