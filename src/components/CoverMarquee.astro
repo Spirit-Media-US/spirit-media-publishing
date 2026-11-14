@@ -215,7 +215,7 @@ const rows = [
 
 	<!-- The strip. The track holds the covers TWICE and travels exactly -50%, so the
 	     second copy is under the cursor at the moment the first wraps — that is what
-	     makes the loop seamless without any JS. aria-hidden on the duplicate so a
+	     makes the loop seamless without any JS. aria-hidden on the duplicate (which carries the same real alt — 2yo: Bing flags the minified empty `alt`) so a
 	     screen reader hears each cover once. -->
 	{rows.map((row) => (
 		<>
@@ -233,7 +233,7 @@ const rows = [
 									<a href={c.href} tabindex={copy === 1 ? -1 : undefined}>
 									<img
 										src={c.src}
-										alt={copy === 1 ? '' : `Father's Heart Bible — ${c.name}`}
+										alt={`Father's Heart Bible — ${c.name}`}
 										width={W}
 										height={c.h}
 										loading="lazy"
@@ -246,7 +246,7 @@ const rows = [
 									<div class="fhbm-soon">
 									<img
 										src={c.src}
-										alt={copy === 1 ? '' : `Father's Heart Bible — ${c.name}`}
+										alt={`Father's Heart Bible — ${c.name}`}
 										width={W}
 										height={c.h}
 										loading="lazy"

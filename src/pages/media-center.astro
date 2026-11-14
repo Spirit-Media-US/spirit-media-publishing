@@ -182,11 +182,20 @@ const mediaFaqs = [
 >
 	<Fragment slot="head">
 		<meta name="keywords" content="Spirit Media Publishing news, Christian publishing press releases, Spirit Media YouTube, Christian publishing media coverage, Spirit Media in the news, PRNewswire Christian publishing, Kingdom Messenger news" />
+		{/* 2yw G1 (pmseoaeo 2026-11-12): BreadcrumbList as on /about/ */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com/" },
+				{ "@type": "ListItem", "position": 2, "name": "Media Center", "item": "https://spiritmediapublishing.com/media-center/" }
+			]
+		})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "CollectionPage",
 			"name": "Media Center — Spirit Media Publishing",
-			"url": "https://spiritmediapublishing.com/media-center",
+			"url": "https://spiritmediapublishing.com/media-center/",
 			"description": "Spirit Media Publishing press releases, YouTube videos, and media coverage.",
 			"publisher": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
 		})}></script>

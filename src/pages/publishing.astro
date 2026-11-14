@@ -162,6 +162,15 @@ const publishingFaqs = [
 	</Fragment>
 	<Fragment slot="head">
 		<meta name="keywords" content="Christian book publishing services, publish a Christian book, Christian ghostwriting, book editing services, book cover design, ISBN registration, global book distribution, audiobook production, self publish Christian book, faith-based book publisher, Spirit Media Publishing" />
+		{/* 2yw G1 (pmseoaeo 2026-11-12): BreadcrumbList as on /about/ */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spiritmediapublishing.com/" },
+				{ "@type": "ListItem", "position": 2, "name": "Publishing", "item": "https://spiritmediapublishing.com/publishing/" }
+			]
+		})}></script>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",
@@ -169,7 +178,7 @@ const publishingFaqs = [
 			"provider": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" },
 			"serviceType": "Book Publishing",
 			"description": "Full-service Christian book publishing including ghostwriting, editing, cover design, ISBN, global distribution, and audiobook production.",
-			"url": "https://spiritmediapublishing.com/publishing",
+			"url": "https://spiritmediapublishing.com/publishing/",
 			"areaServed": "Worldwide"
 		})}></script>
 	</Fragment>
@@ -519,6 +528,9 @@ const publishingFaqs = [
 			</div>
 		</section>
 
+		{/* 2yv P1 (pmseoaeo 2026-11-12, aeo-state/smp-quality-2yv-20261112.json): the 6 publishing-intent Oct-21 posts had
+		    ZERO links from core pages; /publishing/ names them. Anchor = each post's own title (Sanity). */}
+		<RelatedPosts currentSlug="" currentTags={[]} heading="Related guides" slugs={["best-christian-book-publishers-for-new-authors", "christian-book-publishing-company", "christian-self-publishing-companies", "who-can-help-me-self-publish-my-book", "christian-ghostwriting-services", "audiobook-production-services-for-authors"]} />
 		<RelatedPosts currentSlug="" currentTags={[]} heading="From the blog" slugs={["how-to-publish-a-christian-book", "back-cover-copy-book-sales-tool", "when-a-stranger-finds-your-book"]} />
 	</main>
 </Layout>

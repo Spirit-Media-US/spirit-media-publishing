@@ -15,8 +15,26 @@ import Layout from '../layouts/Layout.astro';
 			"@type": "WebPage",
 			"name": "Schedule a Call with Kevin White",
 			"description": "Book a free consultation with Kevin White, CEO of Spirit Media Publishing.",
-			"url": "https://spiritmediapublishing.com/kevin",
+			"url": "https://spiritmediapublishing.com/kevin/",
+			"about": { "@id": "https://kevinwhite.us/#person" },
 			"publisher": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com" }
+		})}></script>
+		{/* 3by: the same Kevin White node as the homepage founder (one @id across both sites). */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"@id": "https://kevinwhite.us/#person",
+			"name": "Kevin White",
+			"url": "https://kevinwhite.us",
+			"jobTitle": "Founder & CEO, Spirit Media Publishing",
+			"worksFor": { "@id": "https://spiritmediapublishing.com/#organization" },
+			"sameAs": [
+				"https://kevinwhite.us",
+				"https://kevinwhite.us/about/",
+				"https://www.linkedin.com/in/kevinwhiteus/",
+				"https://www.youtube.com/@KevinWhiteus",
+				"https://www.amazon.com/stores/author/B08LZYTR2B"
+			]
 		})}></script>
 	</Fragment>
 
@@ -24,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- CALENDAR EMBED -->
 		<section class="bg-white px-6 py-12 lg:py-16 lg:px-8">
 			<div class="mx-auto max-w-4xl">
-				<h1 class="sr-only">Schedule a Call with Kevin White</h1>
+				<h1 class="mb-4 text-center text-3xl font-bold tracking-tight text-ink-soft sm:text-4xl">Schedule a Call with Kevin White</h1>
 				<p class="mb-8 text-center text-lg text-gray-700">Book a free consultation with Kevin White, CEO of Spirit Media Publishing. Let's talk about your book, your message, and your next step.</p>
 				<iframe
 					src="https://mail.spiritmediaone.com/widget/booking/JBJZYruuU5JsL9bbL6xv"

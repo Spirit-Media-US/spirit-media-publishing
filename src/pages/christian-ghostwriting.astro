@@ -1,6 +1,7 @@
 ---
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Answer page for "christian ghostwriting services". Every fact here comes from
@@ -159,7 +160,7 @@ const faqs = [
 					<p class="eyebrow eyebrow-red mb-3">After the Manuscript</p>
 					<h2 class="type-section-heading text-ink-soft">Edit, publish, and market the same book</h2>
 				</div>
-				<p class="text-stone-700 leading-relaxed mb-4">Spirit Media editors polish your manuscript to the Chicago Manual of Style. We then publish in paperback, hardback, digital, and audiobook with global distribution through Amazon, IngramSpark, libraries, and eBook stores worldwide, with a 50/50 royalty split. See <a href="/publishing/" class="text-red hover:underline">Christian book publishing services</a> for packages, or <a href="/marketing/" class="text-red hover:underline">book marketing services</a> for what comes next. Need a cover too? See our <a href="/book-cover-design/" class="text-red hover:underline">book cover design</a>.</p>
+				<p class="text-stone-700 leading-relaxed mb-4">Spirit Media editors polish your manuscript to the Chicago Manual of Style. We then publish in paperback, hardback, digital, and audiobook with global distribution through Amazon, IngramSpark, libraries, and eBook stores worldwide, with a 50/50 royalty split. See <a href="/publishing/" class="text-red hover:underline">Christian book publishing services</a> for packages, or <a href="/marketing/" class="text-red hover:underline">book marketing services</a> for what comes next. Read <a href="/blog/marketing-a-christian-nonfiction-book/" class="text-red hover:underline">how Christian book release marketing works</a>. Need a cover too? See our <a href="/book-cover-design/" class="text-red hover:underline">book cover design</a>.</p>
 				<p class="text-stone-700 leading-relaxed">Already have pages written? Email your manuscript to <a href="mailto:publisher@spiritmedia.us" class="text-red hover:underline">publisher@spiritmedia.us</a> for a free 20-point review by our editors.</p>
 			</div>
 		</section>
@@ -174,5 +175,8 @@ const faqs = [
 			</div>
 		</section>
 
+		{/* 3bz (pmseoaeo 2026-11-13, aeo-state/smp-citations-3bz-20261113.json): link the matching posts; anchor = each
+		    post's own title (Sanity), same pattern as /publishing/ (2yv P1). No new prose. */}
+		<RelatedPosts currentSlug="" currentTags={[]} heading="Related guides" slugs={["christian-ghostwriting-services"]} />
 	</main>
 </Layout>

@@ -86,7 +86,8 @@ const testimonials = FALLBACK_TESTIMONIALS;
 // short description on the FHB General Edition metadata sheet (Google Doc
 // 11UaTB4cKiy2BTWc8tpTlaXLnn6UDQM2CO5nFpa900g4), so it matches the back-cover copy
 // on the page. 154 chars — keep under ~160 so it is not truncated.
-const pageTitle = "Spirit Media Publishing | Home of the Father's Heart Bible™";
+// 3af (pmseoaeo, metadata-keyword-reach): lead with the searched term; GSC 619 impr/90d at pos 7.9, 0 clicks.
+const pageTitle = 'Christian Publishing Company | Spirit Media Publishing';
 const pageDescription =
 	"Father's Heart Bible™ is the first Bible in print where you can see who is speaking: our Father's words in blue, the Son's in red, the Spirit's in purple.";
 ---
@@ -132,9 +133,13 @@ const pageDescription =
 			"@id": "https://spiritmediapublishing.com/#organization",
 			"name": "Spirit Media Publishing",
 			"alternateName": "SMP",
-			"parentOrganization": { "@type": "Organization", "name": "Spirit Media Inc." },
+			// 3ab: Spirit Media Inc. = the legal company (Kevin 2026-07-13/10-25); same field the FHB node carries.
+			"legalName": "Spirit Media Inc.",
+			"parentOrganization": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#parent-organization", "name": "Spirit Media Inc.", "legalName": "Spirit Media Inc." },
 			"url": "https://spiritmediapublishing.com",
-			"logo": "https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo.webp",
+			// 3ab: Google wants a logo >=112x112; the 440x44 wordmark failed. Square = the flame mark,
+			// cropped from logo.png on R2 (no redraw). Kept identical on fathersheartbible.com.
+			"logo": "https://assets.spiritmediapublishing.com/spirit-media-publishing/smp-logo-square-512.png",
 			// ONE sameAs list for this entity, identical on fathersheartbible.com (Layout.astro).
 			// Kevin 2026-10-21: handles are "spiritmediapublishing". Only accounts verified to exist
 			// are listed: YouTube @spiritmediapublishing = UCQh2m97udW1osliFysbWsOA; LinkedIn
@@ -160,11 +165,18 @@ const pageDescription =
 			},
 			// The sheet's approved publisher description (FHB General Edition metadata, verbatim).
 			"description": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. Born from holy conviction and built for global impact, Spirit Media Publishing offers full-service publishing in paperback, hardback, digital, and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. Spirit Media Publishing presents Father's Heart Bible™ translated from Hebrew, Aramaic, and Greek to reveal God as Father. Its Divine Voice™ Color edition is the first Bible in print to color each divine voice: Father in blue, Son in red, Spirit in purple — so every reader can hear their Father's voice.",
+			// 3by: ONE Person entity across both sites (@id kevinwhite.us/#person, as on fathersheartbible.com
+			// and /about/, /kevin/ here).
 			"founder": {
 				"@type": "Person",
+				"@id": "https://kevinwhite.us/#person",
 				"name": "Kevin White",
+				"url": "https://kevinwhite.us",
 				"sameAs": [
+					"https://kevinwhite.us",
+					"https://kevinwhite.us/about/",
 					"https://www.linkedin.com/in/kevinwhiteus/",
+					"https://www.youtube.com/@KevinWhiteus",
 					"https://www.amazon.com/stores/author/B08LZYTR2B"
 				]
 			},
@@ -178,6 +190,7 @@ const pageDescription =
 			"@id": "https://spiritmediapublishing.com/#website",
 			"url": "https://spiritmediapublishing.com",
 			"name": "Spirit Media Publishing",
+			"alternateName": "SMP",
 			"description": "Christian book publishing and marketing for Kingdom authors",
 			"potentialAction": {
 				"@type": "SearchAction",
@@ -185,22 +198,9 @@ const pageDescription =
 				"query-input": "required name=search_term_string"
 			}
 		})}></script>
-		{/* REFERENCE ONLY — do not redefine the work here.
-		    The canonical Book node for https://fathersheartbible.com/#book is defined on
-		    fathersheartbible.com/the-fathers-heart-bible (all nine ISBNs via workExample,
-		    editor Kevin White, copyrightHolder, datePublished). This page previously emitted
-		    a SECOND, thinner definition of the same @id with conflicting values — inLanguage
-		    "en" vs "en-US", a different description, an unlinked inline author, and an offers
-		    block — which is exactly the kind of contradiction that breaks entity resolution.
-		    Identity fields only below; every descriptive property stays on the canonical node. */}
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Book",
-			"@id": "https://fathersheartbible.com/#book",
-			"name": "Father's Heart Bible",
-			"url": "https://fathersheartbible.com",
-			"publisher": { "@id": "https://spiritmediapublishing.com/#organization" }
-		})}></script>
+		{/* 3by: no Book node here. The canonical Book (@id https://fathersheartbible.com/#book) lives on
+		    fathersheartbible.com/the-fathers-heart-bible/; a thinner copy of the same @id here carried a
+		    conflicting name. The WebPage below points at it by @id only. */}
 		{/* The homepage itself: says what the page is ABOUT by pointing at the Book @id,
 		    never by restating the book's facts (those live on the canonical node on fathersheartbible.com). */}
 		<script type="application/ld+json" set:html={JSON.stringify({
@@ -328,12 +328,13 @@ const pageDescription =
 							<a href="/contact/" class="btn btn-primary">Let's Connect</a>
 						</div>
 					</div>
-					<!-- `<source media>` gates the preload scanner by viewport. On mobile
-					     no source matches, falling through to the `<img>` — which is
+					{/* `source media` gates the preload scanner by viewport. On mobile
+					     no source matches, falling through to the img — which is
 					     loading="lazy" so Chrome's preload scanner skips it entirely.
 					     Without these guards, PSI mobile downloads hero-desktop.avif
 					     (139KB) because the preload scanner evaluates srcset BEFORE CSS
-					     computes display:none on the hidden parent. -->
+					     computes display:none on the hidden parent.
+					     3cs-1: an Astro comment, not an HTML one, so no literal img tag reaches the HTML. */}
 					<picture>
 						<source
 							type="image/avif"
