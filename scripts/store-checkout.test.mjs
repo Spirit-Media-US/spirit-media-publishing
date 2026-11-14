@@ -130,7 +130,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 53); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk)
+	assert.equal(set.titles.length, 55); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl)
 	const read = (slug) => fs.readFileSync(new URL(`${slug}/index.html`, dist), 'utf8');
 	const mainOf = (html) => html.slice(html.indexOf('<main'), html.indexOf('</main>'));
 	for (const t of set.titles) {

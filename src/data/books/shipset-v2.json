@@ -22470,6 +22470,620 @@
 					"book": "your-time-work-staff"
 				}
 			}
+		},
+		{
+			"slug": "pure-and-simple",
+			"units_12m": 0,
+			"book": {
+				"slug": "pure-and-simple",
+				"status": "pending",
+				"title": "Pure and Simple",
+				"subtitle": "Advice on Worship from Young People",
+				"full_title": "Pure and Simple: Advice on Worship from Young People",
+				"author": {
+					"name": "Ron King"
+				},
+				"credits": null,
+				"page_title": "Pure and Simple: Advice on Worship from Young People",
+				"h1": "Pure and Simple",
+				"meta": "Pure and Simple by Ron King: handwritten stories from children and teenagers, ages 6 to 16, for everyone who plans or leads worship.",
+				"short": "Handwritten stories from children and teenagers, ages 6 to 16, for everyone who plans or leads worship.",
+				"about": null,
+				"who_for": [],
+				"faq": [
+					{
+						"q": "What is Pure and Simple?",
+						"a": "It is a 74-page book of 31 stories about worship by children and teenagers ages 6 to 16, each with a reflection and a question for people who plan worship."
+					},
+					{
+						"q": "Is it a children's book?",
+						"a": "It looks like one, and children can read it, but the introduction says it is not. It is written by children for the benefit of those who design and lead worship."
+					},
+					{
+						"q": "Who wrote the stories?",
+						"a": "Young people ages 6 to 16 wrote and drew them as part of the \"Listen to the Kids!\" storytelling project. They are printed in the children's own handwriting, spelling and drawings."
+					},
+					{
+						"q": "What does each story follow?",
+						"a": "A story map with three points: a possibility, a hurdle and a discovery. The reflection and question come after."
+					},
+					{
+						"q": "Which kinds of churches is it for?",
+						"a": "The book does not say which churches the children attend. Their stories mention spirituals, the Bible, singing, silent prayer, kneeling, dancing, a children's play on Pilgrim's Progress and a church camp, and each reflection asks leaders to adapt what they take from it."
+					},
+					{
+						"q": "Can a small group or a worship team use it?",
+						"a": "Yes. The introduction says the questions are written to launch a conversation about how a service, or worship outside of church, might look."
+					},
+					{
+						"q": "Is it full color?",
+						"a": "The paperback is printed in full color, so the children's artwork appears in color."
+					}
+				],
+				"bio": null,
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pure-and-simple-1200.jpg",
+					"source": "pmprint R2 sized set (3gl)"
+				},
+				"formats": [
+					"pure-and-simple-pb"
+				],
+				"lccn": "2024918431",
+				"language": "en",
+				"publisher": null,
+				"pub_date": "2024-10-21",
+				"_source": "pmseoaeo 3gl; children's quoted notes removed (owner call 07:01Z); price held for pmprint",
+				"page": {
+					"sections": [
+						{
+							"h2": "For worship pastors and worship planning teams",
+							"paras": [
+								"Each reflection ends with a question you can take straight to a planning meeting. The introduction says the questions are designed to \"launch a conversation about how a church service\" might look if you used your own initiative and courage to try new ways to worship."
+							]
+						},
+						{
+							"h2": "For children's ministry leaders, parents and grandparents",
+							"paras": [
+								"The stories show what children actually notice in a service. If you have wondered why a child fidgets, dances, goes quiet or asks about a word in a song, there is likely a story here that sounds like them."
+							]
+						},
+						{
+							"h2": "For small groups and church staff",
+							"paras": [
+								"Each story and reflection is short enough to read one at a time. The reflections can open a discussion about distraction, belonging, music, prayer or the Bible, and the introduction says the stories do not dismantle time-tested patterns of worship but inspire additional practices that seek to revitalize it."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Thirty-one young worshipers say what gets in the way of meeting God, and what helped them find Him anyway.",
+						"body": "For pastors, worship leaders, parents and anyone who plans or sits through a service. Pure and Simple: Advice on Worship from Young People gathers the handwritten stories of children and teenagers, ages 6 to 16, each paired with a short reflection and one question to bring back to your own church. As the introduction puts it, \"This may look like a children's book, but it is not.\""
+					},
+					"what_makes": {
+						"title": "What makes this book for people who want worship that welcomes every age",
+						"paras": [
+							"Most books about worship are written by adults for adults. This one lets the children speak first. Here is what sets it apart:"
+						],
+						"list": [
+							"The stories are in the young people's own words and drawings. Each one is a handwritten, illustrated storyboard that follows three points: a possibility, a hurdle and a discovery.",
+							"The hurdles are real and familiar. Boredom, distraction, a noisy home, sore feet, a voice that feels too small and kids who give funny looks all show up, and so do the ways the young storytellers found to press on.",
+							"Every story has a reflection and a question. A short note draws out what the story teaches, and each ends with a question for the people who design worship to take back to their own congregation.",
+							"It covers a wide range of ages. The storytellers are 6 to 16 years old, and their stories reach from a six-year-old who felt happy singing with the music to a sixteen-year-old who chose to bow down when the songs pushed feelings.",
+							"It makes no demands on you. The introduction says the stories are not strategies for radical practices but keys that can open doors, when we are willing to look at our habits with fresh eyes."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The introduction states the book's surprise right away:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This may look like a children's book, but it is not."
+								]
+							},
+							{
+								"type": "p",
+								"text": "It says who the stories are for:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"It is written by children for the benefit of those who design and lead corporate worship."
+								]
+							},
+							{
+								"type": "p",
+								"text": "It asks the reader to do something simple and hard:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"For a moment, let's stop teaching, guiding, helping or leading our children."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Every story is followed by the same question for leaders:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"What story, action, prayer, observation, Scripture, question, image, music, or other artistic expression can be brought into worship"
+								]
+							},
+							{
+								"type": "p",
+								"text": "The book is organized like this:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"An epigraph and an introduction that explains the storytelling project and how to use the book",
+									"Thirty-one storyboards, each on its own page, each followed by a reflection and a question on the facing page",
+									"A back page that sums up the \"Listen to the Kids!\" project"
+								]
+							}
+						],
+						"intro": [
+							"The introduction states the book's surprise right away:"
+						],
+						"excerpt": [
+							"This may look like a children's book, but it is not.",
+							"It is written by children for the benefit of those who design and lead corporate worship.",
+							"For a moment, let's stop teaching, guiding, helping or leading our children.",
+							"What story, action, prayer, observation, Scripture, question, image, music, or other artistic expression can be brought into worship"
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"content_note": {
+						"title": "Content note",
+						"paras": [
+							"The stories are children's own words, and a few mention hard things at home, the loss of a friend's parent, or a health condition. It is for adults who lead or plan worship, though it is easy for a child to read alongside you."
+						]
+					},
+					"whats_inside": [
+						"31 stories by young people ages 6 to 16, in their own handwriting, spelling and drawings",
+						"A short reflection after each story, titled by the worship theme it raises, such as release, authenticity, fear, belonging, joy and mystery",
+						"One question for worship planners after every reflection",
+						"An introduction on the \"PHD\" story map of a possibility, a hurdle and a discovery",
+						"Children's artwork, in a paperback printed in full color",
+						"An 11 x 8.5 inch paperback of 74 pages, wider than it is tall"
+					],
+					"details": {
+						"Title": "Pure and Simple",
+						"Subtitle": "Advice on Worship from Young People",
+						"Author": "Ron King",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "74",
+						"Trim size": "11 x 8.5 inches",
+						"Binding": "Paperback (perfect bound)",
+						"Paperback ISBN": "979-8-89307-110-8",
+						"Library of Congress Control Number": "2024918431"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "A lantern going up to God",
+							"paras": [
+								"A ten-year-old thinks of prayers as lanterns rising to God. She says that YouTube and other media are addicting and keep her from worshiping, and that she feels God's comforting presence when she prays. The reflection compares her lanterns to incense in ancient worship, and notes that returning to prayer breaks through whatever stands in the way."
+							]
+						},
+						{
+							"h2": "A choice deeper than feeling",
+							"paras": [
+								"A sixteen-year-old goes into worship hoping to praise God for His glory and faithfulness. The songs seem to push him toward his feelings, so he ignores them and chooses to bow down in reverence. The reflection says worship includes the whole person, and that choosing to worship can set us free from our worries."
+							]
+						},
+						{
+							"h2": "Singing with a small voice",
+							"paras": [
+								"A twelve-year-old hoped to sing to the Lord but did not like the sound of their own voice.",
+								"The reflection says that God receives worship from any voice that speaks or sings His praise, and that there is more to worship than singing songs."
+							]
+						}
+					],
+					"author": {
+						"bio": ""
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to publish a book that hands the microphone to the children."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The introduction says the stories grew out of \"Listen to the Kids!\", a storytelling project that asked children ages 6 to 16, without teaching, directing or guiding them, to tell what they know about worshiping God. It says that \"It turns out that kids know a lot.\" The book is meant to lead everyone into a deeper relationship with God through worship, and the closing page says the hurdles children face lead them to out-of-the-box discoveries that challenge us all. The program was made possible by a grant from the Calvin Institute of Christian Worship, with funds from Lilly Endowment."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Pure and Simple?",
+							"a": "It is a 74-page book of 31 stories about worship by children and teenagers ages 6 to 16, each with a reflection and a question for people who plan worship."
+						},
+						{
+							"q": "Is it a children's book?",
+							"a": "It looks like one, and children can read it, but the introduction says it is not. It is written by children for the benefit of those who design and lead worship."
+						},
+						{
+							"q": "Who wrote the stories?",
+							"a": "Young people ages 6 to 16 wrote and drew them as part of the \"Listen to the Kids!\" storytelling project. They are printed in the children's own handwriting, spelling and drawings."
+						},
+						{
+							"q": "What does each story follow?",
+							"a": "A story map with three points: a possibility, a hurdle and a discovery. The reflection and question come after."
+						},
+						{
+							"q": "Which kinds of churches is it for?",
+							"a": "The book does not say which churches the children attend. Their stories mention spirituals, the Bible, singing, silent prayer, kneeling, dancing, a children's play on Pilgrim's Progress and a church camp, and each reflection asks leaders to adapt what they take from it."
+						},
+						{
+							"q": "Can a small group or a worship team use it?",
+							"a": "Yes. The introduction says the questions are written to launch a conversation about how a service, or worship outside of church, might look."
+						},
+						{
+							"q": "Is it full color?",
+							"a": "The paperback is printed in full color, so the children's artwork appears in color."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gl-pure-and-simple.nokids.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"pure-and-simple-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071108",
+					"isbn_display": "979-8-89307-110-8",
+					"list_cents": null,
+					"pages": null,
+					"trim": null,
+					"binding": "Perfect bound",
+					"book": "pure-and-simple"
+				}
+			}
+		},
+		{
+			"slug": "home",
+			"units_12m": 0,
+			"book": {
+				"slug": "home",
+				"status": "pending",
+				"title": "Home",
+				"subtitle": "Sacred Search for Belonging",
+				"full_title": "Home: Sacred Search for Belonging",
+				"author": {
+					"name": "Aleksa Aishpur"
+				},
+				"credits": null,
+				"page_title": "Home: Sacred Search for Belonging",
+				"h1": "Home",
+				"meta": "Home by Aleksa Aishpur: a Christian memoir in pictures and prayer for anyone searching for a place to belong.",
+				"short": "A Christian memoir in pictures and prayer for anyone searching for a place to belong.",
+				"about": null,
+				"who_for": [],
+				"faq": [
+					{
+						"q": "What is Home?",
+						"a": "It is a 108-page spiritual memoir by Aleksa Aishpur. It describes visions of a heavenly house, with Scripture and reflection questions for each room."
+					},
+					{
+						"q": "Is it a story about the war in Ukraine?",
+						"a": "It is shaped by the war, and the author writes about the Donbas region in 2014 and about leaving in 2022. But it is not a news account. It is a faith memoir about belonging, loss and finding rest."
+					},
+					{
+						"q": "Are the visions presented as fact?",
+						"a": "The author writes that she believes they are from God, and she shares them as her own experience. She also ties each one to Bible passages, so readers can weigh it for themselves."
+					},
+					{
+						"q": "What does each chapter contain?",
+						"a": "A vision or story, usually a Bible Scriptures section, and a short set of questions for you to answer."
+					},
+					{
+						"q": "Is there a workbook or writing space?",
+						"a": "The questions are printed in the book. The chapter called Yours says you can write or draw your own room on paper, on a device or in the book itself."
+					},
+					{
+						"q": "Which Bible translations does it use?",
+						"a": "The copyright page lists the NIV and the ESV."
+					},
+					{
+						"q": "Which edition should I choose?",
+						"a": "The text and the 108 pages are the same in all four. The Colored editions are printed in color and cost more; the Black and White editions are printed in black and white and cost less. Choose a hardback for a gift or a shelf, and a paperback for carrying and writing in."
+					},
+					{
+						"q": "Is it for Christians only?",
+						"a": "It is written from a Christian point of view and quotes the Bible throughout. A reader who is curious about faith but has lost their sense of home may still find it a quiet companion."
+					}
+				],
+				"bio": null,
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/home-1200.jpg",
+					"source": "pmprint R2 sized set (3gl)"
+				},
+				"formats": [
+					"home-pb-color",
+					"home-hb-color",
+					"home-pb-bw",
+					"home-hb-bw"
+				],
+				"lccn": "2023919694",
+				"language": "en",
+				"publisher": null,
+				"pub_date": null,
+				"_source": "pmseoaeo 3gl (one page, 4 live editions, Kevin 11-09 L1601); prices = Amazon live 2026-11-14 (D1)",
+				"page": {
+					"sections": [
+						{
+							"h2": "For readers who have moved a lot and wonder where they belong",
+							"paras": [
+								"The author moved six times in a year as a child. She says that for a long time she looked into other people's windows and fell into unhealthy relationships, searching for home. If that sounds like you, her story will feel familiar."
+							]
+						},
+						{
+							"h2": "For people who have lost a home, a country or someone they love",
+							"paras": [
+								"She writes about ruins, shelling and people fighting over a loaf of bread, and about the grief that follows. She asks hard questions of God and does not hurry the answer. She is clear that she is one of millions who lost a physical home in 2022."
+							]
+						},
+						{
+							"h2": "For readers who think in pictures and prayer",
+							"paras": [
+								"The book is made of visions, colors and rooms, and it asks you to imagine along with her. It may suit someone who prays with their eyes closed, or who keeps a journal, or who simply wants a slow book with room to think."
+							]
+						},
+						{
+							"h2": "For small groups, counselors and coaches",
+							"paras": [
+								"Each chapter closes with questions that can be answered alone or together. The author is herself a coach who helps people find joy in their work and life, and she invites readers to send their stories to her website."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A spiritual memoir told as a walk through the rooms of a heavenly house, asking where home really is when you have lost the one you had.",
+						"body": "For readers who have been searching for a place to belong. Aleksa Aishpur grew up in Ukraine in the lawless years after the Soviet Union fell apart, moved from house to house as a child, and did not know what it was to call a place home until she was thirty. Home pairs the visions she believes came from God with Scripture and with questions for you to answer, and it asks whether home might be something you carry inside."
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who feel they have no place of their own",
+						"paras": [
+							"Most books about belonging tell you how to find a house or a community. This one starts from the other direction. It is short, quiet and visual, and it invites you to write the ending yourself. Here is what sets it apart:"
+						],
+						"list": [
+							"It is told as a house with rooms. The author is led through a castle of light, and each room, from Gifts and Foundation to War, Past, Storm, Seasons, Mirror, Inheritance and Changes, shows her something about herself and God.",
+							"It comes out of real loss. She writes about growing up without a father, about delivering bread to people near the fighting in eastern Ukraine, and about fleeing on the first day of the full-scale war in 2022.",
+							"It ties nearly every vision to the Bible. Most chapters have a Bible Scriptures section, so the reader can test what she saw against the Word.",
+							"It asks you to answer. Every room ends with four to six questions, and one chapter, Yours, asks you to close your eyes and find your own room.",
+							"It is honest about what she did not understand. She says she nearly left out the last room, because it took years before it made sense to her."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The book opens with a friendly greeting from the author:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Hi, it's nice to meet you!"
+								]
+							},
+							{
+								"type": "p",
+								"text": "She tells you plainly what she was looking for as a girl and as a young woman:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"I would not know what it was like to call a place home until the age of thirty."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Her answer comes in the Introduction, and the rest of the book unpacks it:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"HOME is not a physical place and not people around me, but HOME is me, myself."
+								]
+							},
+							{
+								"type": "p",
+								"text": "In the room called Storm, she walks on water with Jesus as the sea rises, lies down in the waves without fear, and draws a lesson about panic:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Calm down, wait for the storm to end, and then make a decision."
+								]
+							},
+							{
+								"type": "p",
+								"text": "And the last page ends with an invitation:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This eternal house, your HOME, is already inside you."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The book is built like this:"
+							},
+							{
+								"type": "list",
+								"items": [
+									"Introduction, where she tells her story and states her question",
+									"Ground Floor, Gifts, the room of acceptance",
+									"Second Floor, Foundation, the hall of red stones",
+									"Nine rooms: Live Sound, War, Past, Storm, Seasons, Yours, Mirror, Inheritance and Changes",
+									"Questions after every chapter, an invitation to send your own story to the author's website, and her biography"
+								]
+							}
+						],
+						"intro": [
+							"The book opens with a friendly greeting from the author:"
+						],
+						"excerpt": [
+							"Hi, it's nice to meet you!",
+							"I would not know what it was like to call a place home until the age of thirty.",
+							"HOME is not a physical place and not people around me, but HOME is me, myself.",
+							"Calm down, wait for the storm to end, and then make a decision.",
+							"This eternal house, your HOME, is already inside you."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"content_note": {
+						"title": "Content note",
+						"paras": [
+							"This is a memoir about war, grief and loss, and the author describes visions she believes came from God. It also mentions addiction, patterns of abuse and fear. It is for adult readers."
+						]
+					},
+					"whats_inside": [
+						"An Introduction, two floors and nine rooms, eleven chapters in all",
+						"A Bible Scriptures section in most chapters, quoted in the NIV and the ESV",
+						"Four to six reflection questions to end each floor and room",
+						"A chapter, Yours, that asks you to imagine and write down your own room",
+						"An invitation to readers to send in their own story",
+						"The same 108 pages in four print editions: paperback or hardback, in color or in black and white"
+					],
+					"details": {
+						"Title": "Home",
+						"Subtitle": "Sacred Search for Belonging",
+						"Author": "Aleksa Aishpur",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "108 (the same text and page count in every edition)",
+						"Library of Congress Control Number": "2023919694",
+						"Paperback trim size": "6 x 9 inches"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The room of red stones",
+							"paras": [
+								"On the second floor, the author finds a hall covered in rubies, with red sofas, chandeliers and a carpet that runs the length of the hall. She falls asleep on a velvet sofa, and when she wakes she sees from the window that she is inside a castle, high on a mountain above the clouds. She reads the red as the power of the blood of Jesus, and she searches the Bible and finds rubies in Isaiah 54 and in the city of Revelation."
+							]
+						},
+						{
+							"h2": "A book of wars",
+							"paras": [
+								"In the second room, the author finds a small black-and-white room with a thick book of every war in history. She writes about delivering bread near the front line in 2014, and about two men fighting over a loaf. She writes that she hates war, that hatred rose in her heart in that room, and that she felt God with her, understanding all of it."
+							]
+						},
+						{
+							"h2": "The dark room",
+							"paras": [
+								"The last room is absolute darkness. She screamed into it to measure the space, and learned that it was a small room with a floor, walls and a ceiling:",
+								"\"What I don't see doesn't mean danger.\"",
+								"It took her years to understand this room. She decides, in the end, that when we are close to God His light can blind us for a while, and that only later do we see how close He was."
+							]
+						}
+					],
+					"author": {
+						"bio": "Aleksa Aishpur is from Kyiv, Ukraine. She holds a bachelor's degree from the National University of Kyiv-Mohyla Academy, co-founded a crowdfunding platform in Ukraine, and co-founded a church. As a teenager she volunteered with young people in prison, children with cancer and people with disabilities, and in 2022 she worked on humanitarian efforts across the United States, Ukraine and Romania. She works as a coach in personal development, business and career, and says that she wants to help people find joy in their work and in their lives. She began writing Home in 2017."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are glad to publish a book that asks where home really is."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author says she began writing Home in 2017, after war began in eastern Ukraine, and that the pain around her raised the question of where our home is when a house can be destroyed. She believes that home is inner rest, peace and joy, a place to be your real self without masks. She hopes each reader will find their own rooms, and she writes that the book has no ending, so that those who read it can create their own."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Home?",
+							"a": "It is a 108-page spiritual memoir by Aleksa Aishpur. It describes visions of a heavenly house, with Scripture and reflection questions for each room."
+						},
+						{
+							"q": "Is it a story about the war in Ukraine?",
+							"a": "It is shaped by the war, and the author writes about the Donbas region in 2014 and about leaving in 2022. But it is not a news account. It is a faith memoir about belonging, loss and finding rest."
+						},
+						{
+							"q": "Are the visions presented as fact?",
+							"a": "The author writes that she believes they are from God, and she shares them as her own experience. She also ties each one to Bible passages, so readers can weigh it for themselves."
+						},
+						{
+							"q": "What does each chapter contain?",
+							"a": "A vision or story, usually a Bible Scriptures section, and a short set of questions for you to answer."
+						},
+						{
+							"q": "Is there a workbook or writing space?",
+							"a": "The questions are printed in the book. The chapter called Yours says you can write or draw your own room on paper, on a device or in the book itself."
+						},
+						{
+							"q": "Which Bible translations does it use?",
+							"a": "The copyright page lists the NIV and the ESV."
+						},
+						{
+							"q": "Which edition should I choose?",
+							"a": "The text and the 108 pages are the same in all four. The Colored editions are printed in color and cost more; the Black and White editions are printed in black and white and cost less. Choose a hardback for a gift or a shelf, and a paperback for carrying and writing in."
+						},
+						{
+							"q": "Is it for Christians only?",
+							"a": "It is written from a Christian point of view and quotes the Bible throughout. A reader who is curious about faith but has lost their sense of home may still find it a quiet companion."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gl-home.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"home-pb-color": {
+					"format": "Paperback, Colored",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070088",
+					"isbn_display": "979-8-89307-008-8",
+					"list_cents": 2999,
+					"pages": 108,
+					"trim": "6 x 9 in",
+					"binding": "Perfect bound",
+					"book": "home"
+				},
+				"home-hb-color": {
+					"format": "Hardback, Colored",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614857",
+					"isbn_display": "978-1-961614-85-7",
+					"list_cents": 3699,
+					"pages": 108,
+					"trim": null,
+					"binding": "Case laminate",
+					"book": "home"
+				},
+				"home-pb-bw": {
+					"format": "Paperback, Black and White",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614925",
+					"isbn_display": "978-1-961614-92-5",
+					"list_cents": 1499,
+					"pages": 108,
+					"trim": "6 x 9 in",
+					"binding": "Perfect bound",
+					"book": "home"
+				},
+				"home-hb-bw": {
+					"format": "Hardback, Black and White",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614918",
+					"isbn_display": "978-1-961614-91-8",
+					"list_cents": 2799,
+					"pages": 108,
+					"trim": null,
+					"binding": "Case laminate",
+					"book": "home"
+				}
+			}
 		}
 	]
 }

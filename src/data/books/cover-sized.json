@@ -274,6 +274,20 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-special-edition-for-work-staff-300.webp",
 			"width": 600,
 			"height": 900
+		},
+		"pure-and-simple": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pure-and-simple-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pure-and-simple-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pure-and-simple-300.webp",
+			"width": 600,
+			"height": 464
+		},
+		"home": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/home-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/home-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/home-300.webp",
+			"width": 600,
+			"height": 900
 		}
 	}
 }
