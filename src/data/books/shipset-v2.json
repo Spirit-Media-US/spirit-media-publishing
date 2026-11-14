@@ -3444,7 +3444,185 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For team players and quiet contributors",
+							"paras": [
+								"If you are the one who makes the plan work while someone else gets named in the meeting, this book says your role is not second place. The author calls it \"the quiet strength of followers\" and shows how listening, contributing ideas and staying teachable build trust with a leader and with a team. It gives you words for what you already do well."
+							]
+						},
+						{
+							"h2": "For anyone who serves at work, at home, in a church or on a team",
+							"paras": [
+								"Followership is not limited to an org chart. The stories include a trainee, an engineer and a team leader, and the Bible examples are about families, nations and a small band of disciples. If you serve on a church committee, volunteer in your community or keep a household moving, the chapters on connecting, empowerment and credit apply to you too."
+							]
+						},
+						{
+							"h2": "For anyone who wants to lead well by first learning to follow",
+							"paras": [
+								"Maybe you hope to lead one day. The book argues that these years are not a waiting room. Joshua spent forty years beside Moses, and the author's own mentor told him that \"Great leaders don't just appear.\" Reading this first means you will step into leadership already knowing what it costs and what your team needs from you."
+							]
+						}
+					],
+					"audience": {
+						"headline": "You are not in the shadows. You are the reason the mission gets done.",
+						"body": "For quiet contributors, team players and behind-the-scenes problem-solvers who do vital work without holding the top title. Jim Matuga shows that following is an active, intentional skill, one that asks for humility, courage, loyalty and initiative, and that Scripture treats as preparation for greatness.",
+						"quote": {
+							"text": "Followership is a skill, a mindset, and a powerful force.",
+							"cite": "Jim Matuga, in the opening pages"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for people who do great work without the top title",
+						"paras": [
+							"A faith-grounded guide to followership in fourteen chapters, a closing epilogue and a practical roadmap. It began at a leadership conference in 2007 and was shaped by a 36-year business career and hundreds of conversations with leaders.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It speaks to the person leadership books skip. The author asks why we celebrate leaders so often \"yet rarely acknowledge the followers who make their success possible,\" and then writes for those followers.",
+							"It treats humility as a working skill. Humility to serve without seeking the spotlight comes first among the traits he names, beside courage to speak up respectfully, loyalty to the mission, and initiative.",
+							"It is rooted in Scripture. Joshua serving under Moses for forty years, Ruth following Naomi, John the Baptist stepping aside, and Peter following Jesus all appear, and the final chapter closes on Jesus Christ as the greatest follower.",
+							"It is full of people you will recognize. Short stories follow a new trainee, a software engineer, a team leader who shares credit, and a friend who spent fifteen years learning beside a demanding chief executive.",
+							"It ends with a tool you can use. An epilogue on following from within and a Humble Influence Roadmap give you a way to put each chapter to work on Monday morning."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with an acknowledgements page, a short \"Why I wrote this book\" and \"What this book is about,\" and then Chapter 1 begins. Chapter 1 opens like this:"
+							},
+							{
+								"type": "quote",
+								"paras": ["Before you can lead, you must learn to follow."]
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"One of my mentors, Mr. Doug, said these words to me during my early days as a budding entrepreneur. At the time, I dismissed the idea, believing leadership was about charisma, vision, and authority—not about following someone else's direction.",
+									"Then one day, he handed me a Bible and opened it to the book of Joshua.",
+									"Joshua is celebrated as one of the greatest leaders in history. He led the Israelites into the Promised Land, brought down the walls of Jericho, and secured a legacy of courage and faith. But Joshua's leadership journey didn't begin with a command. It began with obedience, patience, and years of followership. For 40 years, Joshua served under Moses, a towering figure who spoke with God and led the Israelites out of Egypt."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The book is organized in these chapters:"
+							},
+							{
+								"type": "p",
+								"text": "1. The Importance of Following\n2. The Law of Following\n3. The Often Overlooked Power of Followers\n4. Understanding the Why\n5. Breaking the Myth of Intuitive Followership\n6. Many communicate – few connect\n7. How Close Should You Get?\n8. Focus on Them, Not You\n9. How to Gain Substantial Empowerment\n10. To Judge or Not to Judge\n11. Who Cares Who Gets the Credit?\n12. It's OK to Be You\n13. Working with All Your Heart\n14. Conclusion: The Greatest Follower: Jesus Christ's Path to Ultimate Leadership"
+							},
+							{
+								"type": "p",
+								"text": "Then come an Epilogue, \"Following from Within,\" and Additional Resources, including the Humble Influence Roadmap to becoming an effective follower."
+							}
+						],
+						"intro": [
+							"Every copy opens with an acknowledgements page, a short \"Why I wrote this book\" and \"What this book is about,\" and then Chapter 1 begins. Chapter 1 opens like this:"
+						],
+						"excerpt": [
+							"Before you can lead, you must learn to follow.",
+							"One of my mentors, Mr. Doug, said these words to me during my early days as a budding entrepreneur. At the time, I dismissed the idea, believing leadership was about charisma, vision, and authority—not about following someone else's direction.",
+							"Then one day, he handed me a Bible and opened it to the book of Joshua.",
+							"Joshua is celebrated as one of the greatest leaders in history. He led the Israelites into the Promised Land, brought down the walls of Jericho, and secured a legacy of courage and faith. But Joshua's leadership journey didn't begin with a command. It began with obedience, patience, and years of followership. For 40 years, Joshua served under Moses, a towering figure who spoke with God and led the Israelites out of Egypt."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Fourteen chapters on why following is not intuitive, how to connect rather than merely communicate, how close to get to a leader, how to gain real empowerment, when to hold back judgment, and why it does not matter who gets the credit",
+						"Humble Influence Stories that show each idea at work in everyday jobs",
+						"Bible examples from Joshua and Moses, Ruth and Naomi, John the Baptist and Jesus",
+						"An epilogue, \"Following from Within,\" and a Humble Influence Roadmap",
+						"Paperback and hardback, 174 pages"
+					],
+					"details": {
+						"Title": "Humble Influence: The Strength of True Followership",
+						"Author": "Jim Matuga",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "174",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound) and hardback (case laminate), black and white interior on cream paper",
+						"Paperback ISBN": "979-8-89307-144-3",
+						"Hardback ISBN": "979-8-89307-150-4",
+						"eBook ISBN": "979-8-89307-148-1",
+						"Library of Congress Control Number": "2025909799"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "Forty years beside Moses",
+							"paras": [
+								"In the opening chapter, a mentor named Mr. Doug hands the young author a Bible open to Joshua. Joshua led battles, carried out Moses' instructions and watched, up close, what leadership cost, including the day twelve spies went out and only two came back with faith. When Moses died, God chose Joshua. The author draws one conclusion: the mantle was not handed over by chance, it was earned through years of faithful service. A friend named Angela shows the same pattern in a modern office. She spent fifteen years under a demanding chief executive, studied how he decided, supported his vision, and was the natural choice to succeed him."
+							]
+						},
+						{
+							"h2": "Lisa's trainee year",
+							"paras": [
+								"Lisa has an MBA and big plans, and a trainee program that has her shadowing department heads and compiling reports. She grumbles, \"I didn't endure years of case studies and late-night group projects just to follow others around.\" Then a senior executive, Mr. Reed, tells her where he started and says, \"Leadership isn't just about making decisions—it's about making informed decisions.\" Lisa begins asking questions in marketing and operations, and three years later she is asked to manage a struggling department, which she turns around within a year. Looking back, she decides her time as a follower \"wasn't a detour—it was a masterclass in leadership.\""
+							]
+						},
+						{
+							"h2": "Who cares who gets the credit?",
+							"paras": [
+								"Chapter 11 opens in a marketing agency. A team leader named Lisa, in the middle of a client pitch, pauses to say that the concept would not exist without a colleague's creativity on the visuals. The room responds with admiration, and her team sees what kind of leader she is. The chapter pairs that scene with John the Baptist, who drew a large following and still said of Jesus, \"He must increase, but I must decrease.\" The author's point is that great followers care more about the success of the mission than about their own recognition."
+							]
+						}
+					],
+					"author": {
+						"bio": "Jim Matuga has spent a 36-year business career talking with thousands of business leaders. Since 2017 he has interviewed hundreds of business owners and leaders on his weekly podcast, \"Positively West Virginia,\" and he asks each one about leadership. He writes that he has worked with extraordinary leaders and mentors, among them Milan Puskar, founder of Mylan Laboratories, Doug Leech, founder of Centra Bank, and John Maxwell. The idea for this book was planted on April 17, 2007, when he heard author James Kouzes speak at a leadership conference at West Virginia University. It took eighteen years of experience, conversation and study before he found the courage to put it on the page."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Jim Matuga's guide for followers."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author traces the book to a coffee shop in New York City, where a young professional named Michael told him, \"Everyone talks about leadership, but what about people like me?\" That conversation was the spark. He writes that \"Over the years, I've met countless individuals who feel overshadowed by the leadership narrative.\"",
+							"He also saw a gap: \"Surprisingly, resources for followers are scarce.\" His answer is a book that is not about stepping out of the shadows but about understanding the role you already play. In his words, \"This book is a celebration of followership.\" It is meant for \"the quiet contributors, the team players, and the behind-the-scenes problem-solvers who know that their work matters just as much—if not more—than the person at the top.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Humble Influence about?",
+							"a": "It is a faith-grounded guide to followership for people who do vital work without holding the top title. Jim Matuga argues that following is an active, intentional skill, not blind obedience."
+						},
+						{
+							"q": "Is it a book about biblical humility?",
+							"a": "Humility is central. The author names humility to serve without seeking the spotlight as the first trait of great followership, and the book closes with Jesus Christ as the greatest follower, whose submission to the Father's will became the path to ultimate leadership."
+						},
+						{
+							"q": "Is it about servant leadership?",
+							"a": "It is about following rather than leading. Chapter 14 does look at Jesus as a servant who \"did not come to be served,\" but the subject of the book is the strength of true followership."
+						},
+						{
+							"q": "What does it say about Joshua and Moses?",
+							"a": "Joshua served under Moses for forty years before leading the Israelites into the Promised Land. The author uses that story to show that following prepares a person to lead, because Joshua learned discipline, empathy and humility along the way."
+						},
+						{
+							"q": "Does it cover Ruth and Naomi?",
+							"a": "Yes. In chapter 5 Ruth chooses to follow Naomi back to Bethlehem. The author quotes her words, \"Where you go, I will go, and where you stay, I will stay,\" and points to her gleaning in the fields as proof that she followed with initiative, not passively."
+						},
+						{
+							"q": "Is it about leading without authority or leading from the middle?",
+							"a": "In spirit, yes. The book is for people who want to lead \"from the middle,\" to serve quietly and to influence with humility without a formal leadership role."
+						},
+						{
+							"q": "Is it a Christian leadership book?",
+							"a": "It is a Christian book about the other half of leadership. It draws on Scripture, including Joshua, Ruth, John the Baptist, Peter and Jesus, alongside history and real-world examples."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Quiet contributors, team players and behind-the-scenes problem-solvers, and anyone who wants to lead well by first learning to follow faithfully. It has fourteen chapters, an epilogue and a Humble Influence Roadmap."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fy-humble-influence.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"humble-influence-pb": {
@@ -3710,7 +3888,183 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For readers healing from divorce and broken relationships",
+							"paras": [
+								"If you are tired of explaining yourself, this book does not ask you to. It asks you to sit down at the well. The author tells her own failures without excuses and then shows, chapter by chapter, where she found grace. You can read one chapter at a time, write your answers on the questions at the end, and pray the prayer when you are ready."
+							]
+						},
+						{
+							"h2": "For anyone who has asked what a loss did to their worth",
+							"paras": [
+								"The author writes about a belief that took hold after her first heartbreak: that she was \"unworthy of anything better than what I had lost.\" If that sentence sounds like something you have thought, you will find company here, and you will find the story of a woman in John 4 who was treated the same way and was met by Jesus anyway."
+							]
+						},
+						{
+							"h2": "For personal study and small groups",
+							"paras": [
+								"Each chapter lists its Scripture passages up front and closes with questions that suit a quiet morning or a circle of women or men. The discussion questions are honest, for example asking how a breakup or divorce affected your outlook on love and on your sense of self-worth. Groups that want to talk about shame, forgiveness and judgment will find plenty to open up."
+							]
+						}
+					],
+					"audience": {
+						"headline": "After the breakup, the divorce and the shame, Jesus is still waiting at the well.",
+						"body": "For readers healing from divorce and broken relationships, and for anyone who has asked how a loss changed their sense of worth. Carol Renee Gitthens, a pastor's daughter, tells the truth about her own failures and about the grace that met her on the other side. Each chapter closes with Scripture for healing, questions to journal and a prayer. A note on subjects: this devotional speaks openly about divorce, shame, grief and a season of depression, and about the author's own mistakes. Nothing is described in graphic detail. It is a personal testimony and a book of Scripture and prayer, not counseling or medical advice.",
+						"quote": {
+							"text": "Virtue was a sanctuary; the well was my heart.",
+							"cite": "Carol Renee Gitthens, Chapter One"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers healing from divorce and broken relationships",
+						"paras": [
+							"A devotional in nine chapters, built from one woman's story and from Scripture. It opens with an allegory of a place called Virtue, moves through shame and failure, sits for a long chapter with the woman at the well, and ends with steps toward moving forward.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It does not excuse and it does not condemn. The foreword says the book does not praise or justify one of the most divisive subjects in the church, and that \"it points to the healing power of Jesus, despite our choices in life.\"",
+							"It is told by someone who has been there. The author writes that after \"Thirty years, three marriages, and five kids,\" she had failed herself, her father and God, and she says so plainly.",
+							"It stays close to Scripture. Chapters draw on Genesis, John 4, the Psalms, Isaiah, Romans, Paul's letters and more, quoted from the New King James and New American Standard Bibles, with the references listed at the start of each chapter.",
+							"It is built for journaling and groups. Every chapter ends with Reflections: questions to discuss or journal, then a prayer.",
+							"It centers on the woman at the well. At the heart of the book, a close reading of John 4 shows Jesus choosing to meet one outcast woman, and the author shows how that same love reaches readers today."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication to the author's father, a foreword by Stephanie Hensley, the contents, and then Chapter One, A Place Once Known as Virtue, subtitled An Allegory of First Love and Loss of Innocence. It begins like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Virtue was mine. It was a landscape adorned with the beauty of innocence, unspoiled, and blooming with endless possibilities. Nothing was dead or brittle. Every plant flourished in youthful anticipation, and every fruit and flower thrived with hope. The meadow was clothed with wild flowers of many vibrant colors, descending gracefully to the clear, babbling stream. Near the stream was a well encircled with large stones, and the water from it was as clean and pure as a young girl's heart. Virtue was a sanctuary; the well was my heart."
+								]
+							},
+							{
+								"type": "p",
+								"text": "A few lines later the story turns:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"But with all the love I had shown him, he slowly grew distant. More often, I walked to the well alone. At times, I would find him at the bluff, his eyes fixed on the horizon. His heart seemed a thousand miles from me."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The nine chapters are:"
+							},
+							{
+								"type": "p",
+								"text": "1. A Place Once Known as Virtue\n2. The Struggle Didn't Start with Divorce\n3. From Pie in the Sky to Fly in the Soup\n4. Who Told You That You Were Naked?\n5. Lessons from the Well\n6. A Closer Look\n7. Victim or Victor: Steps to Overcoming\n8. To Judge, or not to Judge, that is the Question\n9. Moving Forward"
+							}
+						],
+						"intro": [
+							"Every copy opens with a dedication to the author's father, a foreword by Stephanie Hensley, the contents, and then Chapter One, A Place Once Known as Virtue, subtitled An Allegory of First Love and Loss of Innocence. It begins like this:"
+						],
+						"excerpt": [
+							"Virtue was mine. It was a landscape adorned with the beauty of innocence, unspoiled, and blooming with endless possibilities. Nothing was dead or brittle. Every plant flourished in youthful anticipation, and every fruit and flower thrived with hope. The meadow was clothed with wild flowers of many vibrant colors, descending gracefully to the clear, babbling stream. Near the stream was a well encircled with large stones, and the water from it was as clean and pure as a young girl's heart. Virtue was a sanctuary; the well was my heart.",
+							"But with all the love I had shown him, he slowly grew distant. More often, I walked to the well alone. At times, I would find him at the bluff, his eyes fixed on the horizon. His heart seemed a thousand miles from me."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"An allegory of first love and loss, followed by eight chapters drawn from the author's life and from Scripture",
+						"A long central chapter on the woman at the well and the Living Water Jesus offered her",
+						"A chapter on how Scripture speaks to divorce, remarriage and grace, and a plea to Christ followers on the question of judging",
+						"Reflections at the end of every chapter: questions to discuss or journal, Scripture and a prayer",
+						"A dedication to the author's father and a foreword by Stephanie Hensley",
+						"Paperback, 118 pages"
+					],
+					"details": {
+						"Title": "Lessons from the Well: A Devotional for the Divorced and Relationship Impaired",
+						"Author": "Carol Renee Gitthens",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "118",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound), black and white interior on cream paper",
+						"Paperback ISBN": "979-8-89307-175-7",
+						"eBook ISBN": "979-8-89307-162-7",
+						"Library of Congress Control Number": "2025912064"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "A well walled in with stones",
+							"paras": [
+								"The allegory begins in a sanctuary of meadows and a clear stream, with a well as pure as a young girl's heart. A young man draws close and then slowly pulls away, and a storm follows. Years later, after much loss, the author describes herself as guarding her heart so fiercely that \"I encapsulated the well with thick, impenetrable walls, built up with stones of fear and distrust.\" At the gate she staked a sign with a new name, \"Vulnerable, population: one.\" The chapter ends with questions that ask readers where they see themselves in the picture."
+							]
+						},
+						{
+							"h2": "Jesus sat by the well, and He waited for her",
+							"paras": [
+								"In Chapter Five the author looks hard at John 4. The Samaritan woman came to draw water alone at noon, when the other women were gone. The author writes, \"She was an outcast among outcasts.\" Then comes the line the chapter turns on: \"But Jesus, being weary from His journey, sat by the well, and He waited for her.\" The author admits she once shut people out, did not answer the door or the phone, and that in her aloneness Jesus came to her well too, through His Word and through prayer."
+							]
+						},
+						{
+							"h2": "The radio, the roadside and the fear",
+							"paras": [
+								"In Chapter Four the author remembers being seventeen and driving a big maroon car her friends nicknamed \"The Tank.\" A wave of fear hit her while she listened to pop music, so she switched off the radio, pulled over and prayed to be forgiven. Looking back she writes, \"As a true believer, I should never have been so afraid.\" The chapter uses that memory to ask, with Genesis in view, who told us we were naked, and what fear was handed to us long before we made our own mistakes. In Chapter Seven her father's question comes back: \"Are you a victim or a victor?\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Carol Renee Gitthens is a pastor's daughter who grew up in a Christian home. She is the mother of five children and has been through three marriages and the divorces that followed, and she writes about guilt, shame and the grace of God without hiding any of it. The book is dedicated to her father, Bishop and Pastor Ronald Keith Gitthens. At his bedside in April 2023 she made him two promises, to carry the torch of his ministry and to finish this book. Stephanie Hensley, author of When the Lilacs Bloom, wrote the foreword."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Carol Renee Gitthens' devotional."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author's dedication explains it. \"First, I promised my dad that I would carry the torch of his ministry.\" \"Second, I promised him I would finish my book.\" She found a Father's Day letter to him folded in his Bible, written after their first reconciliation, which thanked him for pointing her to God.",
+							"Of the mistakes she mentions there, she writes, \"It was through my divorces and, as a result, the ups and downs of our father-daughter relationship, that we both came to a fuller understanding of the grace of God.\" The book is her way of passing on what that grace taught her. Its purpose, in the foreword's words, is to point readers to \"the healing power of Jesus.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Lessons from the Well about?",
+							"a": "It is a devotional for the divorced and relationship impaired by Carol Renee Gitthens, a pastor's daughter and mother of five who has been through three marriages and divorces. It combines her story, Scripture and prayer."
+						},
+						{
+							"q": "Does the book include Bible verses for healing?",
+							"a": "Yes. Each chapter lists its Scripture at the start, and chapters quote passages such as \"He heals the brokenhearted and binds up their wounds\" (Psalm 147:3). The Scripture is from the New King James and New American Standard Bibles."
+						},
+						{
+							"q": "What is the woman at the well chapter about?",
+							"a": "Chapter Five, \"Lessons from the Well,\" is the longest in the book. It looks at John 4, where Jesus waits for a woman the town had pushed to the edges, and it shows what He offered her: Living Water, and a love with no boundaries."
+						},
+						{
+							"q": "Does it justify divorce?",
+							"a": "No. The foreword says it is not a book that praises or justifies one of the most divisive topics in the church. It points to the healing power of Jesus, despite our choices."
+						},
+						{
+							"q": "Is it a devotional I can use as a journal?",
+							"a": "Yes. Every chapter closes with Reflections: questions to discuss or journal, lined space to write, Scripture and a prayer."
+						},
+						{
+							"q": "Does it speak to the fear of being abandoned or to feeling worthless after a breakup?",
+							"a": "The author writes honestly about both. She describes believing she was unworthy after her first heartbreak, and she shows how the woman at the well, and later her own Bible and prayer, answered that belief."
+						},
+						{
+							"q": "Does it speak to being judged by other Christians?",
+							"a": "Yes. Chapter Eight, \"To Judge, or not to Judge, that is the Question,\" is subtitled \"A Plea to Christ Followers.\" In it she asks, \"Why did I feel like I had to make excuses for myself?\""
+						},
+						{
+							"q": "Can I use it in a small group or a women's Bible study?",
+							"a": "Yes. It suits personal study or small group discussion, with questions at the end of each chapter. It is written for women and men who are healing from broken relationships."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fy-lessons-from-the-well.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"lessons-from-the-well-pb": {
@@ -3968,7 +4322,172 @@
 						"jsonld.person.url": "https://www.amazon.com/Toni-R-Young-Huber/e/B0D235MXR9 (Author Central, sameAs only after pmprint approves)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For busy people who say \"I don't have time to cook\"",
+							"paras": [
+								"The author has an answer for you, and it is arithmetic. \"The process of preparing and eating a meal takes the same amount of time whether you cook it yourself, wait in a drive through, or go out to eat.\" Her advice is to choose one dish to master and fill in the rest with store-bought sides, and she shows you how little a good weeknight dinner needs."
+							]
+						},
+						{
+							"h2": "For beginners and self-described kitchen failures",
+							"paras": [
+								"If your dinner has never looked like the photo, this book is on your side. The author defines \"failure\" in a way that lets you off the hook, then points you to simple recipes you can make from the start. The glossary, the equipment tips and the notes on prepping fruits, vegetables and meats are written for people just beginning to expand their cooking skills."
+							]
+						},
+						{
+							"h2": "For home cooks who want easy recipes for weeknights and company",
+							"paras": [
+								"Weekend guests who arrive on Friday after work, kids who bring friends home for dinner, or a table planned for four that ends up serving eight: the author has fed all of them. You will find casseroles, soups, Southern mains and a large chapter of appetizers and dips, plus tips for keeping food fresh, using leftovers on purpose and throwing away less."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Dinner at home, with a few steps, a short grocery list and no kitchen experience required.",
+						"body": "For busy people who say \"I don't have time to cook,\" for beginners who think they are kitchen failures, and for anyone who wants easy family dinner ideas and a table that welcomes company. Toni R. Young-Huber, a farm-raised cook and traveling nurse, gives you simple recipes, plain-spoken encouragement and one big idea: cooking is a love language.",
+						"quote": {
+							"text": "Be encouraged. Start today and never give up!",
+							"cite": "Toni R. Young-Huber, Author's Introduction"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for busy people and beginner cooks",
+						"paras": [
+							"A 319-page, full-color cookbook of everyday recipes that \"are simple and have only a few steps,\" with ingredients that are \"inexpensive and easy to buy.\" It is as much a cooking teacher as a recipe book.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It starts where beginners start. Two short chapters answer \"But I've Always Been a Kitchen Failure!\" and \"But I Don't Have Time to Cook!\" before a single recipe appears, and a glossary of cooking terms waits at the back.",
+							"It covers the whole week. Main dishes, casseroles, Southern favorites, pasta, egg dishes, soups and stews, sides, breads, candies, cookies, cakes, pies and cobblers, and a long chapter of appetizers and dips.",
+							"It gives you ways to bend each recipe. Many recipes carry time-saving tips, cooking-for-one tips and variations, and a section teaches you to create your own recipe variations by testing an idea on a single portion.",
+							"It plans for company. There is a section on how to stretch dinner for unexpected guests and how to enhance a boxed cake mix, drawn from years of feeding a full house.",
+							"It is rooted in faith and love. The author reminds you that Jesus cooked fish on a fire to feed His followers, and that \"God cares to feed all the people He loves.\""
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with the Author's Introduction, followed by \"But I've Always Been a Kitchen Failure!\", \"But I Don't Have Time to Cook!\", \"Creating Your Own Recipe Variations\" and \"Feed People with Love,\" and then the recipes begin with Main Dishes. The introduction starts like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This cookbook grew out of the many Sunday afternoons I spent teaching a coworker from India how to cook American foods. We were both working as traveling nurses in North Carolina. Terrence was looking for a way to break the fast-food habit and feed himself. Once he discovered Southern foods, we were off to the races! I let him know: If he would tell me what he wanted to make, we would make it together. He'd do all the work, but I would help him succeed. And succeed he did!"
+								]
+							},
+							{
+								"type": "p",
+								"text": "The recipe sections are:"
+							},
+							{
+								"type": "p",
+								"text": "1. Main Dishes, from Chicken and Dumplings and Baked Salmon to Chicken Piccata and Meatloaf\n2. Main Dish Casseroles, including Five-Ingredient Chicken Pot Pie, Ground Beef and Ravioli Casserole and Pizza Casserole\n3. Southern Main Dishes: Fried Catfish, Southern Fried Chicken and Chicken Fried Steak\n4. Pasta Main Dishes, from Cacio e Pepe to Lasagna and Spaghetti alla Carbonara\n5. Egg Main Dishes, including No-Crust Quiche, Omelets and Huevos Rancheros\n6. Soups and Stews, including Guinness Beef Stew, Beef Stroganoff, French Onion Soup, Creamy Tomato Soup and New England Clam Chowder\n7. Side Dishes, from Potatoes Au Gratin and Original Green Bean Casserole to Cheesy Grits\n8. Breads and Quick Breads, including Sourdough Bread and Buttermilk Biscuits\n9. Candies, Cookies, Cakes and Cheesecakes, and Pies and Cobblers\n10. Appetizers and Party Snacks, with Crackers and Dips\n11. Helpful Tips, Converting Measurements, and An Alphabetical Glossary of Cooking Terms"
+							}
+						],
+						"intro": [
+							"Every copy opens with the Author's Introduction, followed by \"But I've Always Been a Kitchen Failure!\", \"But I Don't Have Time to Cook!\", \"Creating Your Own Recipe Variations\" and \"Feed People with Love,\" and then the recipes begin with Main Dishes. The introduction starts like this:"
+						],
+						"excerpt": [
+							"This cookbook grew out of the many Sunday afternoons I spent teaching a coworker from India how to cook American foods. We were both working as traveling nurses in North Carolina. Terrence was looking for a way to break the fast-food habit and feed himself. Once he discovered Southern foods, we were off to the races! I let him know: If he would tell me what he wanted to make, we would make it together. He'd do all the work, but I would help him succeed. And succeed he did!"
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Recipes for main dishes, casseroles, Southern favorites, pasta, egg dishes, soups and stews, sides, breads, sweets and party snacks",
+						"Equipment tips, getting started, prepping fruits and vegetables, preparing meats, leftovers and food rescue tips",
+						"Easy substitutions, how to stretch dinner for unexpected guests, and how to enhance a boxed cake mix",
+						"Abbreviations, liquid and dry measurement conversions, and a glossary of cooking terms",
+						"Paperback and hardback, 319 pages, full color"
+					],
+					"details": {
+						"Title": "Get Out of the Fast (Food) Lane!: Easy Meals for Worry-Free Weeknights and Effortless Hospitality",
+						"Author": "Toni R. Young-Huber",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "319",
+						"Trim size": "8.25 x 11 inches",
+						"Binding": "Paperback (perfect bound) and hardback, color interior",
+						"Paperback ISBN": "979-8-89307-030-9",
+						"Hardback ISBN": "979-8-89307-031-6",
+						"eBook ISBN": "979-8-89307-029-3",
+						"Library of Congress Control Number": "2024903664"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "Sunday afternoons with a coworker",
+							"paras": [
+								"The cookbook began when the author, then a traveling nurse in North Carolina, taught a coworker how to cook. He wanted to break the fast-food habit, so he told her what he wanted to make and they made it together. He did all the work and she helped him succeed. When he mastered a baked-salmon main course, she told him, \"Go buy some frozen peas and Uncle Ben's ninety-second rice, and that's your dinner!\" It is the book's whole philosophy in one line: master one dish, then buy the rest."
+							]
+						},
+						{
+							"h2": "A dish that does not look like the picture",
+							"paras": [
+								"The chapter for self-described kitchen failures begins by asking whether your dish failed if it does not look like the one in a cooking magazine. \"No way!\" is the author's answer. She tells readers that \"Perfection is elusive and appearances are just that—appearances,\" and she makes her point with a tomato: \"Not every tomato is worthy of a picture on the cover of a magazine, but every tomato adds flavor to tomato sauce.\" The lesson is to give yourself grace, learn a few terms and techniques, and grow as you go."
+							]
+						},
+						{
+							"h2": "Chicken and dumplings, and cooking for one",
+							"paras": [
+								"Chicken and Dumplings is the first recipe in the book, a simple stew for cold fall days that the author likes to make from scratch. When she taught a friend, Cathy Vau, the hardest part was recognizing when the noodle dough was the right texture. Once you have felt it, the author says, \"you'll never forget how to make this dough perfectly.\" A time-saving tip shows how to use the cooked chicken three ways in one week, and a cooking-for-one tip says that if you make a full pot, \"your coworkers will love you.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Toni R. Young-Huber grew up on a farm watching her grandmother cook three big meals a day. In her culture, she writes, feeding family is a point of pride and a love language, so cooking for and with other people comes naturally to her. She has worked as a traveling nurse in North Carolina, where she spent many Sunday afternoons teaching a coworker to cook American foods. She lived for a time in the foothills above Denver, where weekend and weeknight guests were common and she learned to stretch a meal. For her, cooking can be therapeutic, and she encourages every cook to give themselves grace when they make mistakes."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Toni R. Young-Huber's cookbook."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author wrote it for people who think cooking is out of reach. \"If you're telling me you don't have time to cook, I'm thinking you're intimidated. That's why I wrote this book—to let you know how easy it can be to make meals for yourself, your family, and your friends.\"",
+							"She also wrote it because feeding people is an act of love. \"When you go to cook, you're speaking a love language,\" she writes, and \"When we share food we offer friendship, hospitality, and love.\" Her invitation to every reader, seasoned or new, is this: \"You can feed yourself tonight and sustain yourself until tomorrow.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Get Out of the Fast (Food) Lane! about?",
+							"a": "It is a warm, practical cookbook of simple, inexpensive recipes with only a few steps, written to help busy people and beginners cook at home instead of using the drive-through."
+						},
+						{
+							"q": "Does it have family dinner ideas?",
+							"a": "Yes. It offers main dishes such as Chicken and Dumplings, Baked Salmon, Meatloaf and Chicken Piccata, casseroles like Five-Ingredient Chicken Pot Pie, Southern favorites, pasta and more, and a section on stretching dinner for unexpected guests."
+						},
+						{
+							"q": "Does it have beef stew and chicken recipes?",
+							"a": "Yes. The Soups and Stews section includes Guinness Beef Stew and Beef Stroganoff, and the book has many chicken dishes, among them Chicken and Dumplings, Chicken Piccata, Baked Chicken with Gravy, Southern Fried Chicken, Chicken Noodle Soup and Chicken Tortilla Soup. It is a general home-cooking book, not a single-category one."
+						},
+						{
+							"q": "Are there soup recipes, such as French onion or tomato?",
+							"a": "Yes. Soups and Stews has fourteen recipes, including French Onion Soup, Creamy Tomato Soup, New England Clam Chowder, Roasted Broccoli Soup and Chicken and Wild Rice Soup."
+						},
+						{
+							"q": "Does it include casserole and quiche recipes?",
+							"a": "Yes. There is a Main Dish Casseroles section with Five-Ingredient Chicken Pot Pie, Ground Beef and Ravioli Casserole, Pizza Casserole and Ham and Beans, and an Egg Main Dishes section with No-Crust Quiche and a Breakfast Vegetable Tart."
+						},
+						{
+							"q": "Is it a beginner cookbook?",
+							"a": "Yes. It is written for beginner and home cooks, many recipes carry time-saving tips and cooking-for-one tips, and a glossary of cooking terms is included."
+						},
+						{
+							"q": "Is it a Christian cookbook?",
+							"a": "Yes. It is rooted in the conviction that cooking is a love language and that God cares to feed all the people He loves."
+						},
+						{
+							"q": "Can I make the recipes my own?",
+							"a": "Yes. A section called \"Creating Your Own Recipe Variations\" encourages you to scoop a single portion into a bowl and test an idea there, so you do not risk the whole dish, and many recipes list suggested variations."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fy-get-out-of-the-fast.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"get-out-of-the-fast-pb": {
@@ -4261,7 +4780,183 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For believers who want more than religion",
+							"paras": [
+								"If you have attended church for years and still sense a gap between what you know and Who you know, this book speaks to you. The author says that \"genuine relationship with Him often remains elusive\" for people raised in religious traditions, and he writes the whole study to move you from knowing about God toward knowing Him. His own testimony in Chapter 8 ends with this conviction: \"That's why the relationship matters more than religious knowledge.\""
+							]
+						},
+						{
+							"h2": "For personal Bible study, small groups and Bible classes",
+							"paras": [
+								"Each chapter is short enough to read in one sitting and ends with questions you can answer alone or with others. One asks what other familiar Bible facts might benefit from closer examination of the original text. A group can take a chapter a week, compare the passages, and use the notes pages to record where members agree and where they would like to keep digging."
+							]
+						},
+						{
+							"h2": "For readers who still wonder whether there is more",
+							"paras": [
+								"Some readers have sat through sermons on Adam and Eve, Job and Revelation for decades and never been asked to read the verses themselves. This book is for you. It assumes you can read Scripture carefully, and it invites you to weigh what the author finds. He is open that these are his questions and his reading of the text, and he asks you to test them for yourself."
+							]
+						}
+					],
+					"audience": {
+						"headline": "What if you know a great deal about God and still wonder whether there is more?",
+						"body": "For believers who want a relationship with God, not just religion, and for Bible study groups ready to look at familiar passages with fresh eyes. Philip Guenaga grew up in a deeply religious household, moved through several denominations, and noticed that the Bible stories stayed the same while the teaching on salvation changed. This short study invites you to open Scripture and ask your own questions. A note on subjects: the author's personal testimony in Chapter 8 briefly mentions an abusive childhood and a time of despair. It is told without graphic detail and ends in hope. The rest of the book is Bible study, offered as one man's reading of Scripture, not as the statement of any church or denomination.",
+						"quote": {
+							"text": "There's a profound difference between knowing about God and truly knowing Him.",
+							"cite": "Philip Guenaga, Introduction"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for believers who want more than religion",
+						"paras": [
+							"A short Bible study in nine chapters. Each chapter takes one familiar passage or question, lays out what the text says, and closes with reflection questions and lined pages for your own notes.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It asks questions instead of handing down answers. The author says he wants you to examine Scripture \"with fresh eyes\" and to see what you find when you \"look closely at familiar passages.\"",
+							"It goes back to the text. In Chapter 1 he points to Genesis 5:2; in Chapter 4 he lays out \"six pieces of textual evidence\" for children in the Garden of Eden; in Chapter 5 he compares the Hebrew words used in Job 1.",
+							"It covers the questions people whisper in Bible class: what Adam and Eve were really called, what the image of God means, who first got the blame for the fall, whether Job's children died, and whether the seals of Revelation have already been opened.",
+							"It speaks plainly about salvation. Chapter 7 begins, \"How can my name be written in the Book of Life?\" and the author says the chapter is \"an invitation to examine the Scriptures afresh.\"",
+							"It is made for personal study. Every chapter ends with reflection questions and a notes page, so it works as a small workbook for a quiet week or a group meeting."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with an acknowledgement, a foreword, a note of thanks and an introduction, \"An Invitation to Deeper Study.\" The introduction begins like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"There's a profound difference between knowing about God and truly knowing Him. Most of us, especially those raised in religious traditions, have accumulated knowledge about God—but genuine relationship with Him often remains elusive.",
+									"My own journey began in a deeply religious household. Through various denominational experiences, I discovered something curious: while Bible stories remained consistent across different churches, interpretations of salvation varied dramatically. Some emphasized baptism while others dismissed it; some required speaking in tongues while others considered it unnecessary."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1 then opens:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Let's begin with something that might surprise you. In most religious traditions I've encountered, people naturally assume that the first man and woman were named Adam and Eve. This seems so universally accepted that few would think to question it."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The nine chapters are:"
+							},
+							{
+								"type": "p",
+								"text": "1. What Were Their Real Names? The True Name of Adam and Eve\n2. The Complete Image: The Real Image of God\n3. Reexamining Familiar Blame: A Different Perspective on the Fall\n4. Hidden Families in Paradise? Children in the Garden of Eden\n5. Did Job's Children Really Die? Rethinking a Familiar Tragedy\n6. Signs of Jesus Christ's Return: Have the Seals Already Been Opened?\n7. The Plan of Salvation: What Does It Mean to Be Born Again?\n8. My Personal Testimony: How God Transforms a Broken Life\n9. Bonus: A Theory on Dinosaurs: Could Creation Hold an Overlooked Mystery?"
+							}
+						],
+						"intro": [
+							"Every copy opens with an acknowledgement, a foreword, a note of thanks and an introduction, \"An Invitation to Deeper Study.\" The introduction begins like this:"
+						],
+						"excerpt": [
+							"There's a profound difference between knowing about God and truly knowing Him. Most of us, especially those raised in religious traditions, have accumulated knowledge about God—but genuine relationship with Him often remains elusive.",
+							"My own journey began in a deeply religious household. Through various denominational experiences, I discovered something curious: while Bible stories remained consistent across different churches, interpretations of salvation varied dramatically. Some emphasized baptism while others dismissed it; some required speaking in tongues while others considered it unnecessary.",
+							"Let's begin with something that might surprise you. In most religious traditions I've encountered, people naturally assume that the first man and woman were named Adam and Eve. This seems so universally accepted that few would think to question it."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Nine short chapters on Adam and Eve, the image of God, the fall, Cain's wife and the Garden of Eden, Job's children, the seals of Revelation, being born again, the author's testimony and a bonus chapter on dinosaurs and creation",
+						"Reflection questions at the end of every chapter and lined pages for notes",
+						"A foreword by Pastor Larry Thornhill and an acknowledgement by Dr. Precious Taylor",
+						"Scripture from the New King James Version",
+						"Paperback, 50 pages"
+					],
+					"details": {
+						"Title": "In Church for 40 Years and Not Knowing God: Escaping Tradition to Truly Know God",
+						"Author": "Philip Guenaga",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "50",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound), black and white interior on cream paper",
+						"Paperback ISBN": "979-8-89307-204-4",
+						"eBook ISBN": "979-8-89307-205-1"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "What were their real names?",
+							"paras": [
+								"Chapter 1 begins with an assumption most readers share, that the first man and woman were named Adam and Eve. The author points to Genesis 5:2: \"Male and female created he them; and blessed them, and called their name Adam, on the day when they were created.\" In his reading, God named them both Adam, the name Eve was given later by the man, and the change reflects a human perspective that developed over time. The chapter closes with reflection questions about how our understanding of gender roles might change if both were first given the same name."
+							]
+						},
+						{
+							"h2": "Did Job's children really die?",
+							"paras": [
+								"Chapter 5 takes up one of the hardest passages in Scripture. The author looks at the Hebrew word used by each messenger who brings Job bad news, notes that translators rendered it as \"servants\" in three reports and as \"young men\" in the fourth, and asks why. He also notices that Job's wife seems distraught only once Job himself is afflicted. He offers a possibility, and he is clear about his purpose: \"This perspective doesn't diminish the trials Job endured.\" The chapter closes with questions about how translation shapes the way we read."
+							]
+						},
+						{
+							"h2": "My personal testimony",
+							"paras": [
+								"In Chapter 8 the author tells how God changed his life. He grew up in a home where love was absent, one of seven children, and at seventeen he gave his life to God. He writes that \"He spoke to me, saying He would be my friend,\" and that from that moment his life changed. He went on to marry, to serve ten years in the Army and to walk with God through the years. He admits that \"some wounds from my childhood linger\" and that God continues to heal him. The chapter ends with three questions for the reader about transformation, God's voice and personal struggles that might become testimonies."
+							]
+						}
+					],
+					"author": {
+						"bio": "Philip Guenaga grew up in a deeply religious household and moved through several denominations, where he noticed that the teaching on salvation differed sharply from church to church. As a young man he had an experience with God that carried him through difficult times. He served in the Army for ten years and was stationed at Fort Leonard Wood, Missouri. He came to Rolla in 1986 and attended the church pastored by Larry Thornhill, who wrote the foreword and says he has known him for 34 years. Pastor Thornhill calls the book \"first, an act of love, and second, a true understanding of God's word.\" The author wrote this study at the encouragement of friends."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Philip Guenaga's Bible study."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author says the book began with a curious observation: Bible stories stayed the same from church to church, but \"interpretations of salvation varied dramatically.\" He wrote it as \"an invitation to examine the Scriptures afresh\" and as a journey of personal discovery. In his words, \"Rather than accepting traditional interpretations without question, I encourage you to examine Scripture with fresh eyes.\"",
+							"His friend and editor, Dr. Precious Taylor, recalls that he gave her every excuse for why he could not write a book, and she is proud that he finished it. The foreword says the book \"is dedicated to those that are searching for a genuine relationship with the giver of life, Jesus Christ.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is In Church for 40 Years and Not Knowing God about?",
+							"a": "It is a short Bible study in which Philip Guenaga asks readers to set aside inherited assumptions and examine familiar passages with fresh eyes, moving from knowing about God to a genuine relationship with Him through Jesus Christ."
+						},
+						{
+							"q": "What does the book say about the plan of salvation?",
+							"a": "Salvation is the issue that opens the book, and Chapter 7, \"The Plan of Salvation,\" asks what it means to be born again. The author says the chapter is not written to condemn any religion or denomination, and that Jesus told Nicodemus the path into the kingdom is to be born again. He writes that the path is \"repentance, baptism in Jesus' name, and receiving the Spirit.\" It is his reading of Scripture, not a denominational statement."
+						},
+						{
+							"q": "Does it discuss baptism and speaking in tongues?",
+							"a": "Yes. The Introduction notes that some churches emphasize baptism while others dismiss it, and that some require speaking in tongues while others consider it unnecessary. Chapter 7 gives the author's view of both, in the context of being born of water and of the Spirit."
+						},
+						{
+							"q": "Does it talk about the Garden of Eden?",
+							"a": "Yes. Chapter 4 asks whether Adam and Eve had children in the Garden of Eden and lists six pieces of textual evidence. Chapter 3 looks at the sequence of events in the garden, and the bonus chapter returns to Eden in a question about creation."
+						},
+						{
+							"q": "What does it say about the story of Job?",
+							"a": "Chapter 5 compares the Hebrew words used in Job 1 and asks whether Job's children died at all. The author offers it as a possibility to consider and says Job's suffering \"was still immense.\""
+						},
+						{
+							"q": "Does it cover the return of Jesus and the seals of Revelation?",
+							"a": "Yes. Chapter 6 compares Jesus' words in Matthew 24 with the first five seals of Revelation 6 and asks whether several seals may already have been opened. It does not set dates."
+						},
+						{
+							"q": "What is the image of God, according to the book?",
+							"a": "Chapter 2 asks what \"His image\" means when both man and woman were created in it. The author suggests that the union of marriage reflects God's complete image, and he presents it as insight gained through prayer and reflection."
+						},
+						{
+							"q": "Is it good for a Bible study workbook or small group?",
+							"a": "Yes. Each chapter closes with reflection questions and lined pages for notes, which suits personal study, small groups and Bible classes."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fy-in-church-for-40-years-and-not-knowing-god.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"in-church-for-40-years-and-not-knowing-god-pb": {
@@ -4495,7 +5190,182 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For anyone who wants to read the Bible with fresh expectation",
+							"paras": [
+								"The author believed for decades, as many do, that the Bible was old words about other people. When a friend showed her how God speaks to her in Scripture, it changed everything. Here she shows what that looks like in real moments, with real verses. If you have ever opened your Bible and wondered what it has to do with Tuesday, her stories will give you something to look for."
+							]
+						},
+						{
+							"h2": "For believers who want to pray about real decisions",
+							"paras": [
+								"Where to live, whether to sell a home, whether to move a family, how to take an unexpected job: these are the decisions at the center of the book. The author prays about each and tells what she says God said in return. Whatever you think of her interpretations, you will see a woman who asks, listens and checks what she hears against the Bible, which is the habit the book encourages."
+							]
+						},
+						{
+							"h2": "For readers who enjoy a warm, honest and humorous Christian memoir",
+							"paras": [
+								"If you like a memoir that is both sincere and funny, you are in the right place. The twins who are nothing alike, the husband who is an engineer and rarely wrong, the baby girl she prayed for, and the day she was lost at Disney World make the pages move quickly. The thirty-four chapters are short enough to read one at a time."
+							]
+						}
+					],
+					"audience": {
+						"headline": "God still speaks. Thirty-four true stories of how one woman learned to hear Him.",
+						"body": "For readers who want to hear God's voice in everyday life, to read the Bible with fresh expectation, and to pray about real decisions. Michele Wilson walks through a lifetime of answered prayer, from marriage at nineteen and raising four children to a night vision, a ten-year prayer, a back porch and a Walmart aisle, and anchors every story in Scripture. A note on subjects: two chapters are the author's personal testimony about a diagnosis of obsessive compulsive disorder and a season of depression, and one chapter touches on a child's close call. They are told without graphic detail. This is a faith memoir, not medical advice, and it makes no treatment claims.",
+						"quote": {
+							"text": "I am thrilled that you desire to truly hear the voice of God.",
+							"cite": "Michele Wilson, Introduction"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who want to hear God speak",
+						"paras": [
+							"A Christian memoir in thirty-four short chapters, grouped into parts on foundations of faith, visions and dreams, trials and triumphs, walking in faith, prayer, provision, humility, everyday miracles, gratitude, and times and seasons. Each chapter is a true story and each is anchored in a Bible passage.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is built on a simple discovery. After nearly thirty years in church, the author learned in 1995 that God speaks through the Bible, and she writes so that you do not have to wait that long.",
+							"Every story points back to Scripture. Passages are quoted in full so you can see how God used His Word at the very moment it was needed.",
+							"It is honest about hard seasons. The author writes about fear, depression, moving from town to town, and years of waiting, along with the moments she says God answered.",
+							"It is warm and funny. A day lost at Disney World, an unexpected job as a general contractor, and a conversation in a Walmart aisle sit beside the weighty chapters.",
+							"It tells you how to respond. The closing chapter explains that salvation is a gift received by grace through faith, and invites you to pray, to read the Bible daily and to join a Bible-centered church."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with acknowledgments, a short preface, a page of quotations about the Bible and an introduction, \"Wanting to Hear God Speak.\" The preface reads:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"In these pages, I share how God has spoken to me in ways both ordinary and extraordinary. My prayer is that as you read, you will begin to expect Him to speak to you, too, because He promises to draw near to those who seek Him."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter One, \"In the Beginning,\" then opens:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"In the beginning, God created the heavens and the earth. Many years later, He created twins that put a new meaning on the word fraternal. My twin sister and I are so very different. She has blond hair, and I have black hair; she has a fair complexion, and I have a dark complexion; she is tall, and I am short; she is an introvert, and I am an extravert."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The book is organized in these parts:"
+							},
+							{
+								"type": "p",
+								"text": "1. Foundations of Faith: In the Beginning; The Two Shall Become One; The Hidden Secret of OCD\n2. Visions and Dreams: A Vision in the Night; The Greatest Revelation; On the Road Again; A Dream from God\n3. Trials and Triumphs: Jesus Take the Wheel; Moving Back Home; Battling Deep Depression in Texas; Home Sweet Home; God Answered My Ten-Year Prayer; Setting the Captives Free; Saved on His Deathbed\n4. Walking in Faith: Not Just One Baby Girl, but Two!; The Passion of the Christ; What? Abnormal Chromosomes!; then Power in Prayer: Crying Out to God; Jesus Raised Lazarus from the Grave\n5. Journeys and Provision: Raleigh, Here We Come!; Me? A General Contractor!; God Said Thursday; Lost in Disney World\n6. Lessons in Humility: A Rocky Road; The Humble Will Be Exalted; The Wicked Will Be No More; Life or Death; God's Amazing Grace\n7. Miracles in Everyday Life: A Palm Sunday Miracle; Back Porch Encounters; The Year of Jubilee; then Family and Gratitude: An Encounter With God In Walmart\n8. Times and Seasons: Friday The Thirteenth; Mackenzie's Miracle; and a closing chapter, My Greatest Desire"
+							}
+						],
+						"intro": [
+							"Every copy opens with acknowledgments, a short preface, a page of quotations about the Bible and an introduction, \"Wanting to Hear God Speak.\" The preface reads:"
+						],
+						"excerpt": [
+							"In these pages, I share how God has spoken to me in ways both ordinary and extraordinary. My prayer is that as you read, you will begin to expect Him to speak to you, too, because He promises to draw near to those who seek Him.",
+							"In the beginning, God created the heavens and the earth. Many years later, He created twins that put a new meaning on the word fraternal. My twin sister and I are so very different. She has blond hair, and I have black hair; she has a fair complexion, and I have a dark complexion; she is tall, and I am short; she is an introvert, and I am an extravert."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Thirty-four true stories, each anchored in Scripture, from a long marriage and a busy family life",
+						"Stories of a vision in the night, a dream, a ten-year prayer, a man saved on his deathbed, and encounters in ordinary places",
+						"An introduction on hearing God's voice and a closing chapter on salvation, daily Bible reading and a Bible-centered church",
+						"Scripture in the New International Version, with some passages in the New American Standard Bible",
+						"Paperback, 178 pages"
+					],
+					"details": {
+						"Title": "Jesus Whispers: Learning to Recognize His Whispers in Your Soul",
+						"Author": "Michele Wilson",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "178",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound), black and white interior on cream paper",
+						"Paperback ISBN": "979-8-89307-201-3",
+						"eBook ISBN": "979-8-89307-199-3",
+						"Library of Congress Control Number": "2026900265"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "A vision in the night, and a home by February 28",
+							"paras": [
+								"In a rental home the family disliked, the author prayed for help by February 28, the end of the lease. Months later she cried out to God to reveal Himself. Two days after, around 3:00 a.m., she saw a blinding white light in the upper corner of her bedroom, and she writes that she heard, \"The whole ordeal you have been through for the last four months will be over very soon.\" Chapter Five tells what came next. A friend from church called about her house for sale. On the morning of February 28 the author read John 4:50, \"You may go, your son will live,\" and the next word she saw was \"pool,\" and the family bought that home the same day."
+							]
+						},
+						{
+							"h2": "God answered my ten-year prayer",
+							"paras": [
+								"For ten years the author had prayed for a baby girl, and she writes that \"I had been praying for a baby girl for ten years.\" On June 19 she asked God to show her in her Bible the word \"her\" or \"she,\" and it opened to Psalm 87:5. Her husband, an engineer, thought they would have all boys. She kept the promise in her heart through ultrasounds, mailed Christmas cards announcing a girl, and met her daughter three days after the due date. The chapter also tells, honestly, how hard the first months at home were."
+							]
+						},
+						{
+							"h2": "An encounter with God in Walmart",
+							"paras": [
+								"On the twenty-first anniversary of a frightening accident in which her son was spared, the author called her older son and asked, for the first time, what he had seen that day. Later, shopping at Walmart, she writes that God said, \"For twenty-one years now you have been asking me how you can pay me back for saving your son's life. Let's get something straight; you can't pay me back, so don't ever ask me again.\" The message she took from it was that she should share the story, and tell others that Jesus died to save their lives eternally."
+							]
+						}
+					],
+					"author": {
+						"bio": "Michele Wilson was raised in West Columbia, South Carolina, by Christian parents who took their four children to church almost every time the doors were open. She has a twin sister and a brother who became a pastor. She accepted Jesus at about age twelve and married at nineteen, and she and her husband raised four children. In 1995 a friend named Lelia showed her how God speaks through the Bible, a discovery that changed her life. She writes so that readers will learn to hear His voice and come to know Jesus as Savior."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Michele Wilson's stories."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author says God directed her to write it: \"The very reason I am writing this book is because God directed me to do so in Jeremiah 30:2.\" She hopes readers will do two things: \"learn how to hear His voice,\" and, if they do not yet belong to Him, \"come to know Him as your Savior.\"",
+							"She also wants you to see why the Bible matters. \"Salvation is a gift from God, not something we can earn by church attendance, good works, or family heritage.\" And she ends with a promise she says she has seen kept: \"As I have testified throughout this book, God keeps His promises.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Jesus Whispers about?",
+							"a": "It is Michele Wilson's collection of thirty-four short true stories in which she says God answered prayer, gave direction and drew near through Scripture, a vision in the night, dreams and quiet nudges she learned to recognize as His voice."
+						},
+						{
+							"q": "Does the book use the Bible?",
+							"a": "Yes. Each story is anchored in Scripture, with passages quoted so readers can see how God used His Word at the moment it was needed."
+						},
+						{
+							"q": "Is Jesus Whispers a memoir?",
+							"a": "It reads as a Christian memoir told in short chapters, from marriage at nineteen and raising four children to a back-porch encounter and a Walmart aisle. It is classed as a Christian biography and a book on spiritual growth."
+						},
+						{
+							"q": "Does it have stories of answered prayer?",
+							"a": "Yes. The best known is the ten-year prayer for a baby girl, and there are others, including the home she prayed for by a certain date and a man saved on his deathbed."
+						},
+						{
+							"q": "How does the author say she hears God's voice?",
+							"a": "Through the Bible first, she writes, and also through a vision in the night, dreams and quiet nudges. She says the goal is to read Scripture and pray each day, and that \"Once you experience God speaking to you, you will hunger for more.\""
+						},
+						{
+							"q": "Does it talk about salvation?",
+							"a": "Yes. She explains that salvation is a gift received by grace through faith, quoting Ephesians 2:8-9, and the closing chapter gives a short prayer for readers who want to receive it."
+						},
+						{
+							"q": "Does it deal with mental health?",
+							"a": "Two chapters touch on her own experiences, a diagnosis of obsessive compulsive disorder and a season of deep depression, told as personal testimony. The book is not medical advice and makes no treatment claims."
+						},
+						{
+							"q": "Does it talk about visions and dreams?",
+							"a": "Yes. Part Two is called Visions and Dreams and includes a vision in the night, \"The Greatest Revelation,\" and a dream from God. They are the author's own accounts, set beside the Bible passages she links to them."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fy-jesus-whispers.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"jesus-whispers-pb": {
@@ -4721,7 +5591,187 @@
 						"jsonld.person.url": "https://www.amazon.com/Patricia-A-Daniel/e/B0FH5QYJNL (Author Central, sameAs only after pmprint approves)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For believers who want to be ready for the Lord's return",
+							"paras": [
+								"If you have been wondering how to prepare your heart for the days ahead, this book gives you a daily rhythm instead of speculation. The author calls it \"a roadmap to help us be ready for His return.\" It does not set dates. It asks you, one day at a time, to surrender, to trust the Commander and to obey."
+							]
+						},
+						{
+							"h2": "For readers who want a 40-day devotional on identity, surrender and fearless faith",
+							"paras": [
+								"Forty days is long enough to build a habit and short enough to finish. The first week focuses on who you are in Christ, and the remaining days on how a person who belongs to Him thinks and lives. Each day gives you something to say aloud, something to think about and something to do, so the truth reaches your week and not only your reading."
+							]
+						},
+						{
+							"h2": "For men and women who want Scripture, a prayer and journal pages every day",
+							"paras": [
+								"You will find a Bible verse and a set of affirmations at the start of each day, a prayer at the end, and a journal page you can fill in. The reflection questions are practical, such as asking where you still struggle with fear, what you have not yet fully surrendered, and where you have been relying on your own strength. You can read alone or share it with a friend or small group."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Forty days to stand fearless, surrendered and ready for the Lord's return.",
+						"body": "For believers who want a 40-day devotional on identity in Christ, surrender and faith over fear. Patricia A. Daniel, who grew up the child of military parents, gives you Scripture, affirmations, a reflection, ways to apply it, a prayer and a journal page for every day, so that you can begin each morning with daily Bible reading and a prayer for strength. A note on subjects: the book uses military imagery as a picture of spiritual life under Christ's command, and it speaks of a possible season of persecution and even martyrdom for believers. It gives no instructions for violence and sets no dates. It is a devotional, written to encourage readers toward courage and trust.",
+						"quote": {
+							"text": "May this devotional serve as our trumpet call, awakening us to new levels of faith, commitment, and obedience.",
+							"cite": "Patricia A. Daniel, Foreword"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for believers who want to be ready for the Lord's return",
+						"paras": [
+							"A devotional in four sections and forty days. It begins by asking who your Commander is, builds up your identity in Christ, speaks of the training God allows, and then spends thirty-three days on the mindset of a believer who is hidden in Christ and fixed on Jesus.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It gives you a plan. Each day has the same shape: New King James Scripture and affirmations, a biblical truth, a reflection, ideas for how to apply it, a prayer, and a closing affirmation of faith, with a page for notes.",
+							"It was born from a poem. The author wrote \"Marching Orders\" about being prepared to serve faithfully in the end-times, and \"God would eventually use this poem to be the inspiration behind the devotional.\"",
+							"It is rooted in identity. Section Two takes five days on the surrendered, equipped, authorized, fearless and victorious warrior, so that you start from who you are in Christ, not from what you must achieve.",
+							"It tackles fear head on. Day 5 begins, \"Fear is the first weapon the enemy deploys against a warrior,\" and the day closes with a prayer to renounce fear and entrust your life to the Lord.",
+							"It pairs courage with humility. Day 29 says true humility is \"an accurate assessment of ourselves before God,\" and the book repeatedly describes the warrior as one who serves without seeking recognition."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a foreword, a dedication and the contents, and then Day 1, \"We Serve A Man Of War.\" The foreword begins:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Dear Reader,",
+									"When I was growing up as a child of military parents, I witnessed firsthand the discipline, order, and unwavering commitment displayed by those who served in our armed forces. Little did I know that God would use this experience to shape my understanding of what it means to serve under the command of our Lord Jesus Christ."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Day 1 then opens:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Every warrior must first understand who their commander is. Our Commander is none other than the LORD Himself—a man of war. This powerful declaration from Exodus reveals a facet of God's nature that we often overlook."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The forty days are arranged in four sections:"
+							},
+							{
+								"type": "p",
+								"text": "1. The Lord, Our Commander: Day 1, We Serve A Man Of War\n2. The Warrior's Identity in Christ: Day 2, The Surrendered Warrior; Day 3, The Equipped Warrior; Day 4, The Authorized Warrior; Day 5, The Fearless Warrior; Day 6, The Victorious Warrior\n3. The Warrior's Special Training: Day 7, The Sovereign Training Of His Warriors\n4. The Warrior's Mindset: Days 8 to 40, from He Wears The Armor of God, 24/7, and He is Hidden in Christ, through He Lives In The Peace Of God, He Is Clothed In Humility and His Eyes are Fixed on Jesus, to He Anticipates His Reward From The Lord"
+							},
+							{
+								"type": "p",
+								"text": "The book ends with A Final Prayer and a page about the author."
+							}
+						],
+						"intro": [
+							"Every copy opens with a foreword, a dedication and the contents, and then Day 1, \"We Serve A Man Of War.\" The foreword begins:"
+						],
+						"excerpt": [
+							"Dear Reader,",
+							"When I was growing up as a child of military parents, I witnessed firsthand the discipline, order, and unwavering commitment displayed by those who served in our armed forces. Little did I know that God would use this experience to shape my understanding of what it means to serve under the command of our Lord Jesus Christ.",
+							"Every warrior must first understand who their commander is. Our Commander is none other than the LORD Himself—a man of war. This powerful declaration from Exodus reveals a facet of God's nature that we often overlook."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Forty daily devotions in four sections, each with Scripture, affirmations, a biblical truth, a reflection, an action, a prayer and a journal page",
+						"Thirty-three days on the Warrior's Mindset, including the armor of God, being hidden in Christ, living in the peace of God and being clothed in humility",
+						"A foreword and a dedication, a final prayer and a short biography of the author",
+						"Scripture in the New King James Version",
+						"Paperback, 254 pages"
+					],
+					"details": {
+						"Title": "The End-Times Warrior: A 40-Day Devotional",
+						"Author": "Patricia A. Daniel",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "254",
+						"Trim size": "5 x 8 inches",
+						"Binding": "Paperback (perfect bound), black and white interior on cream paper",
+						"Paperback ISBN": "979-8-89307-153-5",
+						"eBook ISBN": "979-8-89307-154-2"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "Day 1: We serve a man of war",
+							"paras": [
+								"Day 1 begins with the verse \"The LORD is a man of war; The LORD is His name\" from Exodus 15:3. The author reminds readers that when Moses and the Israelites stood at the Red Sea, \"they didn't sing praises to their own strength or strategy,\" but recognized the true source of their victory. Under His command, she says, \"we are offensive, not merely defensive; unstoppable, not easily deterred; and victorious, not defeated.\" The reflection asks you to take inventory of your readiness, to name what you have not yet surrendered and to write a personal declaration of surrender."
+							]
+						},
+						{
+							"h2": "Day 5: The fearless warrior",
+							"paras": [
+								"Day 5 names fear as the first weapon of the enemy, \"because he knows that a frightened soldier cannot fight effectively.\" The author reminds readers that they stand in a long line of believers: Stephen faced stoning with a face like an angel, and \"Paul and Silas sang hymns in prison at midnight.\" The action for the day is small and practical. Speak truth when it would be easier to stay silent, take a step of faith when you would rather play it safe, and reach out to someone when rejection seems possible. The prayer renounces fear and embraces the spirit of power, love and a sound mind."
+							]
+						},
+						{
+							"h2": "Day 9: He is hidden in Christ",
+							"paras": [
+								"Day 9 turns to Colossians. The author writes that when we come to Christ, our old self dies and our new life is hidden in Him, and that \"This sacred concealment offers both protection and a new identity.\" She says the hidden position does not make us ineffective, but gives access to resources beyond human understanding. The reflection asks you to rest in that security today, especially when criticism or attack comes, and to remember that your worth cannot be touched."
+							]
+						}
+					],
+					"author": {
+						"bio": "Patricia Daniel grew up a child of military parents and saw firsthand the discipline, order and commitment of those who served. She has served in multiple ministries over several decades, but most enjoys the Missions ministry, and has served in India and Brazil. She uses her administrative gift, her English as a Second Language certification and her writing gifts to edify the body of Christ. She is the author of three other books: a poetry collection, In Heaven I Can Fly, a children's book, The Purple Swan, and A Block From Grace, a memorial tribute to her parents that she co-authored. Her ministry blog, Destination Jesus, is where she shares her poetry, short stories and Bible teaching. She believes in what she calls legacy living, intentionally living so that your impact outlives you."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Patricia A. Daniel's devotional."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"It began with a poem. The author writes, \"It was not too long ago that I penned a poem called Marching Orders about being prepared to serve faithfully in the end-times.\" She never imagined it would become the inspiration for a devotional.",
+							"She also wrote it because she believes God is preparing believers now. \"God is raising up His End-Times Warriors,\" she writes, \"men and women who will dare to believe, trust, and obey Him at ANY COST.\" She is clear about the limits of the book: \"This 40-day devotional by no means captures the full breadth of all God is doing in us and for us in these end-times, but it can serve as a roadmap to help us be ready for His return.\" Her closing hope is that readers will \"rest in the fullness of His grace.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is The End-Times Warrior?",
+							"a": "A 40-day devotional by Patricia A. Daniel that helps believers prepare to serve Christ as surrendered, fearless warriors and be ready for His return."
+						},
+						{
+							"q": "How is each day built?",
+							"a": "New King James Scripture and affirmations, a biblical truth, a reflection, ways to apply it, a prayer and journal pages."
+						},
+						{
+							"q": "What are the four sections?",
+							"a": "The Lord, Our Commander; The Warrior's Identity in Christ; The Warrior's Special Training; and The Warrior's Mindset, which spans thirty-three days."
+						},
+						{
+							"q": "Does it include prayers for strength?",
+							"a": "Each day ends with a written prayer. Day 5, for example, asks the Lord to \"Strengthen me to stand fearlessly against every scheme of the enemy,\" and Day 11 prays that Christ's life will supply what the reader needs."
+						},
+						{
+							"q": "Does it cover the armor of God?",
+							"a": "Yes, as one of the truths in the Warrior's Mindset section. Day 8 is titled He Wears The Armor of God, 24/7. It is one theme among forty days, not the whole book."
+						},
+						{
+							"q": "Does it help with fear?",
+							"a": "Yes. Day 5 is devoted to the fearless warrior, and the book returns to fear throughout, pointing you to peace, to being hidden in Christ and to the truth that \"We're not fighting for victory; we're fighting from victory.\""
+						},
+						{
+							"q": "Is it a book about the second coming of Jesus?",
+							"a": "It is a devotional and a roadmap to be ready for the Lord's return, with daily Scripture and prayer. It does not predict dates."
+						},
+						{
+							"q": "Does it speak to identity in Christ?",
+							"a": "Yes. Section Two is entirely about the warrior's identity in Christ, and later days speak of being crucified with Christ, hidden in Christ and one of many living stones."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fy-the-end-times-warrior.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"the-end-times-warrior-pb": {
