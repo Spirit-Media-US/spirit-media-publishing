@@ -205,11 +205,24 @@ export async function getStaticPaths() {
 			// pre-sized R2 covers (pmprint 11-14) when the title has them: 600 webp src, 300 in srcset, 1200 jpg for OG
 			cover: (sized as Record<string, any>).covers[t.slug]
 				? {
-						src: (sized as Record<string, any>).covers[t.slug].w600,
-						w300: (sized as Record<string, any>).covers[t.slug].w300,
+						// 3D hero (spine from the real page count) when the title has one; flat 1200 jpg stays the OG fallback
+						src: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).w600,
+						w300: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).w300,
 						og: (sized as Record<string, any>).covers[t.slug].jpg1200,
-						w: (sized as Record<string, any>).covers[t.slug].width,
-						h: (sized as Record<string, any>).covers[t.slug].height,
+						w: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).width,
+						h: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).height,
 						alt: `Cover of ${b.title} by ${b.author.name}`,
 					}
 				: { src: b.cover.jpg, w: d.w, h: d.h, alt: `Cover of ${b.title} by ${b.author.name}` },

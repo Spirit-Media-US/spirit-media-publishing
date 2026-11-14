@@ -224,7 +224,14 @@
 			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-600.webp",
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-300.webp",
 			"width": 600,
-			"height": 927
+			"height": 927,
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-3d-300.webp",
+				"width": 600,
+				"height": 838,
+				"_spine": "3D from the Ingram PB wrap, spine 0.678in = 302 pages"
+			}
 		},
 		"silas-and-woolly-the-mammoth": {
 			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/silas-and-woolly-the-mammoth-1200.jpg",
