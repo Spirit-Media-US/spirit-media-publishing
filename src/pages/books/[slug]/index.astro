@@ -627,7 +627,7 @@ const crumbs = {
 						{p.page?.hero?.offer_line && <p class="mt-4 text-sm font-semibold text-stone-700">{p.page.hero.offer_line}</p>}
 						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || !orderBox) && (
 							<div class="mt-5 flex flex-wrap gap-3">
-								{!orderBox && <a href="#order" class="inline-flex min-h-12 items-center justify-center rounded-full bg-ink-soft px-7 font-semibold text-white hover:bg-ink">{T.order}</a>}
+								{!orderBox && <a href="#order" class="btn btn-primary min-h-12 px-7">{T.order}</a>}
 								{/* Kevin 2026-11-14: the SAME Look inside as FHB: the button opens the page viewer (front through Chapter 1). */}
 								{hasViewer ? <LookInside slug={p.slug} title={p.title} size="lg" label={T.look} /> : (p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0) && <a href="#look-inside" class="book-look">{T.look}</a>}
 							</div>
@@ -662,7 +662,7 @@ const crumbs = {
 									<div class="flex justify-between" data-fee-line hidden><dt>{T.handling}</dt><dd data-fee>$0.00</dd></div>
 									<div class="flex justify-between text-base font-bold text-ink"><dt>{T.total}</dt><dd data-total>{money(sellFormats.length === 1 ? (sellFormats[0].list_cents as number) : 0)}</dd></div>
 								</dl>
-								<button type="submit" class="mt-4 min-h-12 w-full rounded-full bg-ink-soft px-4 py-3 font-semibold text-white hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-soft">{T.checkout}</button>
+								<button type="submit" class="btn btn-primary mt-4 min-h-12 w-full px-4 py-3 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-soft">{T.checkout}</button>
 								<p id="buy-msg" role="status" class="mt-2 text-sm text-stone-700"></p>
 								<p class="mt-2 text-sm text-stone-600">{T.free} <a href="/returns/" class="text-ink-soft underline">{T.returns}</a>.</p>
 							</form>
@@ -753,7 +753,7 @@ const crumbs = {
 	/* the FHB hero chips (FATHER SON SPIRIT style): bold caps in a 2px frame, the cover colour when measured */
 	.book-chip { display: inline-block; padding: 0.35rem 0.8rem; border: 2px solid var(--color-ink-soft); border-radius: 6px; background: #fff; color: var(--color-ink-soft); font-size: 1.05rem; font-weight: 800; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
 	/* the FHB Look inside button: soft pink pill */
-	.book-look { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.8rem; border: 1px solid #f0c4d8; border-radius: 999px; background: #fbe7f0; color: var(--color-ink); font-size: 1.05rem; font-weight: 600; text-decoration: none; }
+	.book-look { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.8rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: transparent; color: var(--color-red, #c0392b); font-size: 1.05rem; font-weight: 600; text-decoration: none; }
 	.book-look:hover { border-color: var(--color-ink); }
 </style>
 

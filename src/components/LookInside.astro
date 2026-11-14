@@ -142,9 +142,10 @@ const ph = pages[0]?.h ?? 1400;
 		padding: calc(0.8rem - 1px) calc(1.8rem - 1px);
 		font-size: 1rem; font-weight: 600;
 		/* Kevin 2026-11-14: "Look inside looks like ghost button. Make it light pink background." */
-		background: #fbe7f0; border-color: #f0c4d8; color: var(--color-ink);
+		/* SMP: the site's ghost button (red outline), not FHB's pink pill */
+		background: transparent; border: 2px solid var(--color-red, #c0392b); color: var(--color-red, #c0392b);
 	}
-	.li-size-lg .li-trigger:hover { background: #f6d6e5; border-color: #e6a9c4; }
+	.li-size-lg .li-trigger:hover { background: var(--color-red, #c0392b); border-color: var(--color-red, #c0392b); color: var(--color-surface, #fff); }
 	/* On a card the trigger is one of two peer links, so it takes the card's link
 	   shape rather than a pill that would compete with the buttons around it. */
 	/* Weight and size are TOKENS so a host row can match its neighbouring link without

@@ -4,7 +4,7 @@
 //   offer line centered -> full-width black country marquee (~2s per country, A-Z, data-nosnippet moving copies,
 //   reduced-motion stops it) -> four compact choices ABOVE the box (white items, gray frame, gray text) -> the box:
 //   one row per format with its own quantity, the price everyone pays first, an itemized summary, Total, Ship to under
-//   Total, calm charcoal Checkout (SMP: no bright red buttons), and a "Contact us" BUTTON (MailtoLink: an address is
+//   Total, Checkout in SMP's own primary button style, and a "Contact us" BUTTON (MailtoLink: an address is
 //   never printed, Kevin 2026-11-15 "We do not post our emails ... mailto: show a button not the email").
 // Nothing here is commerce: prices are the engine's registry rows, the countries are the ones the engine itself sells
 // this book to (asked in the page's getStaticPaths), the per-copy handling fee is the engine's marginGuard figure, and
@@ -194,14 +194,15 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 	.bo-label { display: block; margin: 0.6rem 0 0.3rem; font-size: 0.85rem; font-weight: 600; }
 	.bo-select { box-sizing: border-box; width: 100%; min-height: 44px; padding: 0.55rem 0.8rem; border: 1.5px solid #d9d0c4; border-radius: 0.6rem; background: #fff; font: inherit; font-size: 1rem; }
 	.bo-note { margin: 0.4rem 0 0; color: #57534e; font-size: 0.78rem; }
-	/* calm charcoal: SMP never uses a bright red button (Kevin L1999) */
-	.bo-checkout { width: 100%; margin-top: 0.75rem; min-height: 48px; padding: 0.7rem 1.8rem; border: 2px solid #2e2a26; border-radius: 999px; background: #2e2a26; color: #fff; font: inherit; font-weight: 600; font-size: 1rem; cursor: pointer; }
-	.bo-checkout:hover { background: #1a1714; }
+	/* SMP's own primary button (global .btn-primary: --color-red, hover --color-red-deep). Kevin 2026-11-14: "We don't
+	   use black buttons. KNOW your site! Know and follow SMP style." */
+	.bo-checkout { width: 100%; margin-top: 0.75rem; min-height: 48px; padding: 0.7rem 1.8rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: var(--color-red, #c0392b); color: var(--color-surface, #fff); font: inherit; font-weight: 600; font-size: 1rem; cursor: pointer; }
+	.bo-checkout:hover { background: var(--color-red-deep, #9b2d20); border-color: var(--color-red-deep, #9b2d20); }
 	.bo-checkout:disabled { opacity: 0.6; cursor: wait; }
 	.bo-msg { margin: 0.5rem 0 0; color: #57534e; font-size: 0.85rem; }
 	.bo-msg:empty { display: none; }
 	.bo-help { margin: 0.6rem 0 0; text-align: center; }
-	.bo-help :global(.bo-help-btn) { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.2rem; border: 1px solid #c4c4cc; border-radius: 999px; background: #fff; color: #3f3f46; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+	.bo-help :global(.bo-help-btn) { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.2rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: transparent; color: var(--color-red, #c0392b); font-size: 0.85rem; font-weight: 600; text-decoration: none; } /* SMP .btn-ghost */
 	.bo-shop { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; max-width: 34rem; margin: 1rem auto 0; padding: 0 1rem; }
 	.bo-shop__label { width: 100%; text-align: center; font-size: 0.85rem; font-weight: 600; color: #3f3f46; }
 	.bo-shop a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid #f0c4d8; border-radius: 999px; background: #fbe7f0; color: #52525b; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
