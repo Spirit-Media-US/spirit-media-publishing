@@ -2,6 +2,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import coverSized from '../data/books/cover-sized.json';
+import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
 import { sanityClient } from '../lib/sanity.ts';
 
@@ -292,10 +294,51 @@ for (const doc of rawBooks as any[]) {
 // LAMB PILOT (Kevin L1971; plan 3fb B): the card for Jesus Had a Little Lamb opens our own book page (one card, no
 // duplicate). Its format links keep their store listings until our store sells the book (plan 3fb Phase 4: no
 // dead ends before checkout is live).
-const LAMB_ID = 'NDqZYriAeiGP8AQhVCdVVT';
+// 3gh #3 (pmseoaeo 2026-11-14): the Lamb page is unlisted until its price is set, so its card keeps its listing.
+
+// ENGINE #1 (Kevin 2026-11-13 L1973: our store is the #1 retailer of every SMP book; pmseoaeo 3gh #1 owner call): a
+// card for a book our store sells opens ITS OWN /books/<slug>/ page (order form on it) and carries no store badges.
+// Matched by normalised title against the ship set (the same data that builds those pages), so a page always exists.
+const norm = (t: string) =>
+	String(t || '')
+		.toLowerCase()
+		.replace(/\((spanish|english|large print|hardcover|paperback)[^)]*edition\)/gi, '')
+		.normalize('NFKD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.replace(/[^a-z0-9]+/g, ' ')
+		.trim();
+const OWN_PAGE = new Map<string, string>(
+	(shipset as any).titles.map((t: any) => [norm(t.book.title), `/books/${t.slug}/`]),
+);
 for (const doc of rawBooks as any[]) {
-	if (doc._id === LAMB_ID)
-		doc.amazon = 'https://spiritmediapublishing.com/books/jesus-had-a-little-lamb/';
+	if (doc._id?.startsWith('fhb-') || doc._id === BELOVED_ID) continue; // FHB cards keep their FHB pages
+	const own = OWN_PAGE.get(norm(doc.title)) ?? OWN_PAGE.get(norm(doc.display_title));
+	if (!own) continue;
+	doc.amazon = own;
+	doc.formats = {};
+	doc.ownPage = true;
+}
+// A book our store sells with no bookstore document yet (new titles: publishing a Sanity document rebuilds
+// PRODUCTION) gets its card from the same ship-set data that builds its page.
+{
+	const carded = new Set((rawBooks as any[]).filter((d) => d.ownPage).map((d) => d.amazon));
+	for (const t of (shipset as any).titles) {
+		const href = `/books/${t.slug}/`;
+		if (carded.has(href)) continue;
+		const sized = (coverSized as any).covers[t.slug];
+		rawBooks.push({
+			_id: `smp-store-${t.slug}`,
+			title: t.book.title,
+			display_title: t.book.title,
+			author: t.book.author?.name ?? '',
+			img: sized?.w300 ?? t.book.cover?.jpg,
+			amazon: href,
+			date: null,
+			collections: null,
+			formats: {},
+			ownPage: true,
+		});
+	}
 }
 
 const BOOKS_JSON = JSON.stringify(rawBooks);
@@ -364,6 +407,7 @@ const FMT_STYLES: Record<string, string> = {
 const badgeStyle =
 	'display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;';
 const formatsHtml = (b: any): string => {
+	if (b.ownPage) return '';
 	const fmts = b.formats || {};
 	// 3aj: a format may be a URL or a bare flag (true) — a flag links to the book's own listing,
 	// never to href="true" (was a 404 on SOAR To Success). No URL to give = no badge.
@@ -525,13 +569,13 @@ const itemListLd =
     <div id="book-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
       {initialBooks.map((b: any) => (
         <div class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-          <a href={b.amazon || undefined} target={b.amazon ? '_blank' : undefined} rel={b.amazon ? 'noopener noreferrer' : undefined} class="block">
+          <a href={b.amazon || undefined} target={b.amazon && !b.ownPage ? '_blank' : undefined} rel={b.amazon && !b.ownPage ? 'noopener noreferrer' : undefined} class="block">
             <div class={`aspect-[2/3] overflow-hidden bg-stone-100${isLightCover(b) ? ' border-b border-[#adacab]' : ''}`}>
               {b.img && <img src={b.img} alt={b.display_title || b.title} loading="lazy" width={b.w} height={b.h} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />}
             </div>
           </a>
           <div class="p-3 flex flex-col gap-1">
-            <a href={b.amazon || undefined} target={b.amazon ? '_blank' : undefined} rel={b.amazon ? 'noopener noreferrer' : undefined} class="text-xs font-semibold text-ink-soft leading-tight line-clamp-2 hover:text-red transition-colors">{b.display_title || b.title}</a>
+            <a href={b.amazon || undefined} target={b.amazon && !b.ownPage ? '_blank' : undefined} rel={b.amazon && !b.ownPage ? 'noopener noreferrer' : undefined} class="text-xs font-semibold text-ink-soft leading-tight line-clamp-2 hover:text-red transition-colors">{b.display_title || b.title}</a>
             <p class="text-xs text-stone-500">{b.author}</p>
             {dateLabelOf(b) && <p class="text-xs text-stone-400">{dateLabelOf(b)}</p>}
             <Fragment set:html={formatsHtml(b)} />

@@ -133,7 +133,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	assert.equal(set.titles.length, 49); // 30 ship-set (3fu) + 8 cover-blocked (3gc) + 6 (3ge) + 5 (3gf)
 	const read = (slug) => fs.readFileSync(new URL(`${slug}/index.html`, dist), 'utf8');
 	const mainOf = (html) => html.slice(html.indexOf('<main'), html.indexOf('</main>'));
-	for (const t of [...set.titles, { slug: 'jesus-had-a-little-lamb' }]) {
+	for (const t of set.titles) {
 		const html = read(t.slug);
 		const main = mainOf(html);
 		assert.ok(main.length > 500, `${t.slug}: <main> found`);
@@ -170,7 +170,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		assert.doesNotMatch(main, /amazon/i, `${t.slug}: Amazon only in sameAs, never in page text`);
 		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
 	}
-	for (const b of sold) {
+	for (const b of []) { // 3gh: FHB books have no SMP page (301 to FHB, asserted below)
 		const main = mainOf(read(b.slug));
 		assert.match(main, /<form id="order"[^>]*data-status="live"/, `${b.slug}: order form on the book page`);
 		assert.match(main, /<h2[^>]*>About the book<\/h2>/, `${b.slug}: the full page, not just a checkout`);
@@ -181,7 +181,13 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const redirects = fs.readFileSync(new URL('../public/_redirects', import.meta.url), 'utf8');
 	assert.match(redirects, /^\/books\/:slug\/buy\/ \/books\/:slug\/#order 301$/m, '/buy/ 301s to #order');
 	const built = fs.readdirSync(dist).filter((d) => fs.existsSync(new URL(`${d}/index.html`, dist)));
-	const allowed = new Set([...set.titles.map((t) => t.slug), ...sold.map((b) => b.slug), 'jesus-had-a-little-lamb']);
+	const allowed = new Set(set.titles.map((t) => t.slug));
+	for (const b of [...sold.map((x) => x.slug), 'jesus-had-a-little-lamb']) assert.ok(!fs.existsSync(new URL(`${b}/index.html`, dist)), `no SMP page for ${b}`);
+	for (const b of sold) assert.match(redirects, new RegExp(`^/books/${b.slug}/ https://fathersheartbible.com/books/${b.slug}/ 301$`, 'm'), `${b.slug} 301s to FHB`);
+	// 3gh #1: the bookstore links every book we sell to its own page, and none of them to a store listing
+	const store = fs.readFileSync(new URL('../dist/bookstore/index.html', import.meta.url), 'utf8');
+	for (const t of set.titles) assert.ok(store.includes(`href="/books/${t.slug}/"`) || !store.includes(t.book.title), `bookstore card -> /books/${t.slug}/`);
+
 	for (const d of built) assert.ok(allowed.has(d), `unexpected book page /books/${d}/`);
 });
 

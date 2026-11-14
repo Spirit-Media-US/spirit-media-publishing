@@ -121,8 +121,12 @@ export function getStaticPaths() {
 	const SKUS = bookSkus.skus as Record<string, any>;
 	const pages: Page[] = [];
 
-	// the books the store sells today
-	for (const b of engineBooks.books as any[]) {
+	// FHB's own books (Who Am I?, Beloved Identity) live on fathersheartbible.com: no SMP /books/ page for them, the
+	// SMP URL 301s there (public/_redirects; pmseoaeo 3gh #4 owner call, scope Doc). The Lamb pilot is unlisted until
+	// its price is set (3gh #3). Flip either constant to bring a page back.
+	const SMP_HOSTS_FHB_BOOKS = false;
+	const LAMB_LISTED = false;
+	for (const b of (SMP_HOSTS_FHB_BOOKS ? engineBooks.books : []) as any[]) {
 		const f = faqGate(b.faq);
 		pages.push({
 			slug: b.slug,
@@ -222,7 +226,7 @@ export function getStaticPaths() {
 	}
 	// Lamb (Kevin L1971 pilot; pmseoaeo QA 3ft #6: same template). Sourced facts only (src/data/books/<slug>.json): no
 	// price, no ISBN-to-format, no description yet, so the page carries what is known and "Available soon".
-	if (!pages.some((p) => p.slug === lamb.slug)) {
+	if (LAMB_LISTED && !pages.some((p) => p.slug === lamb.slug)) {
 		const desc = `${lamb.title}, a book by ${lamb.author}, published by ${lamb.publisher}.`;
 		pages.push({
 			slug: lamb.slug,
