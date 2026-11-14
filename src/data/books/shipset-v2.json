@@ -281,7 +281,9 @@
 							"The Gift of Life",
 							"\"Dribble for Victory Over Cancer\"",
 							"Faith"
-						]
+						],
+						"numbered": true,
+						"contents_after": []
 					},
 					"whats_inside": [
 						"A true story told by the man who lived it, with Paul Weissenstein",
@@ -622,7 +624,159 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For anyone who knew Beetle, and anyone who did not",
+							"paras": [
+								"If you knew him, you will hear his voice: the movie quotes, the Rubik's cube in his hand, the \"Saweet!\" he said when something went his way. If you never met him, you will feel as if you did. Dana writes him as warm, humble and quick, with a smile that said \"I'll do anything for you\" without a word. Friends, family and coworkers add their own stories at the end, from a school bus left in a ditch to a hardware store where every total was \"a Thoooousand dollars.\""
+							]
+						},
+						{
+							"h2": "For readers who love funny true stories about friendship and practical jokes",
+							"paras": [
+								"Act I is all pranks. A teenage Stephen and Dana move a youth leader's car to the wrong side of a church driveway while a conference is under way, then wait to hear what happens. Later chapters go treasure hunting with a metal detector, fish for metal with magnets and set out on a bigfoot hunt. The humor is gentle, the friendship is the point, and the faith is never bolted on."
+							]
+						},
+						{
+							"h2": "For readers who want to finish well, and anyone losing a friend",
+							"paras": [
+								"Dana's closing hope for you is to \"finish well in the race in which you find yourself.\" The last third follows Beetle through a hospital stay in Maine, a solved Rubik's cube, hard news from a physician, and a homecoming to his own house and his dog, Max. It does not hide the loss. It also does not let sorrow have the last word. This is one friend's story, not a grief manual, and you will find company in it."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A best friend who made everyone laugh, and finished well.",
+						"body": "For anyone who knew Beetle, and anyone who did not. Dana Morrison tells the true story of Stephen Michael Bailey, a plump, freckled, kind and gentle man from Danforth, Maine, who turned every hard job into a punchline and carried his faith into his final days. It is a memoir written to be read, remembered, performed or passed along.",
+						"quote": {
+							"text": "A cheerful heart is good medicine.",
+							"cite": "Proverbs 17:22, the verse printed on the epigraph page, followed by the line \"Beetle is living proof.\""
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who want laughter and faith in the same story",
+						"paras": [
+							"The Beetle Experience is a funny memoir that is not shy about the hard parts. Dana calls it \"not a traditional memoir\" and \"not a conventional stage play either.\" It is something in between, and it welcomes you into the front row.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is a memoir-play hybrid. Prose memories sit beside dramatic scenes, stage directions, tableaux, monologues, vignettes and short Reader's Notes that give the time and place, so the book can be read quietly or staged with friends.",
+							"It is told by the best friend. Dana was there for the pranks, the summers at camp and the hospital room, and he narrates as himself, turning to the audience to give you the backstory.",
+							"It keeps its promise to tell the truth. \"The stories you will see are true,\" Dana writes. \"The names haven't been changed to protect the innocent as there were likely none that were innocent.\"",
+							"It lets you laugh and grieve in the same breath. In Beetle's last days, a room full of visitors is telling funny stories when he says, \"I'm dyin' over here… and you guys are tellin' jokes!\"",
+							"It ends with an invitation and a chorus of voices. After the epilogue come simple next steps for anyone who wants to start following Jesus, then \"Last Words\" from family, camp friends, coworkers and neighbors who knew him."
+						]
+					},
+					"look_inside_text": {
+						"intro": [
+							"Every copy opens with a dedication, a short letter to the audience, an epigraph, a preface on why the book is told this way, a guide called \"How to Read This Book,\" and a definition of the word \"Beetle.\" The first story begins with a section called \"Created for Joy\":"
+						],
+						"excerpt": [
+							"In the beginning, God created the heavens and the earth.\nThen He made Beetle.\nScripture tells us in Proverbs 17:22 that 'A cheerful heart is good medicine.'\nIn Stephen Bailey, God created a medicine man — and one highly proficient in his work.",
+							"From the letter to the audience: \"Whether you knew Beetle or not, I hope that you will receive the blessing of laughter and be inspired to finish well in the race in which you find yourself."
+						],
+						"contents": [
+							"Act I, The Pre-Beetle Days: Getting Warmed Up; Let the Pranks Begin; OIH, Operation Indian House; Warning, Don't Try This at Home; Dave Buys a New Truck; Dave Learns Stephen's Kryptonite",
+							"Act II, The Campfire Years: Invitation to Camp; Beetle Is Born; A Life Full of Skills; Finishing Up That First Year of Camp; The Guidance Counselor",
+							"Act III, The Turning Point: Camp Days Continue; Life Is Changing; Hardship Strikes; The Mustang",
+							"Act IV, The Breaking and the Mending: Danforth Shenanigans; Doing So Much for So Many; Whiteman Backstory; Beetle the Caretaker; Apart; Treasure Hunting",
+							"Act V, The Final Days: Heaven and Earth; My Own Panic Attacks; The Trip to Beetle; Rubik's Cube; Tall Tales; Grace for the Last Mile",
+							"Act VI, The Homecoming: The Big One-Liner; Home; Reminiscing; Visitors",
+							"Epilogue: The Curtain Falls, The Legacy Lives On; The Invitation of Joy; Last Words"
+						],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A true story told by the friend who lived it",
+						"Six acts, 31 scenes, an epilogue, an invitation and a closing chapter of voices from people who knew him",
+						"A glossary of theatrical terms, so every reader can follow the stage directions",
+						"Paperback, 5.5 x 8.5 inches, 202 pages"
+					],
+					"details": {
+						"Title": "The Beetle Experience: Living with Laughter. Dying with Peace.",
+						"Author": "Dana Morrison",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "202",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound), cream paper, black and white interior",
+						"Paperback ISBN": "979-8-89307-190-0",
+						"eBook ISBN": "979-8-89307-191-7",
+						"Library of Congress Control Number": "2025917180"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "How Stephen became Beetle",
+							"paras": [
+								"In the summer of 1988, Dana, Stephen and a friend named Scott arrive as volunteers at Living Waters Bible Camp. A loud, laughing staff member named Ty Hutchins hands out nicknames to everyone standing in the dinner line. Dana is \"Crash.\" Scott is \"Pee Wee,\" to his fury. Stephen becomes \"Beetle,\" because his last name is Bailey. Then the camp's assistant director, Roger Black, insists that he gave the name first. Dana settles it by asking the audience to vote and concludes, \"I guess Beetle just… named himself.\" The same scene gives us the day Beetle tells a camper he is 45, and keeps saying it for years."
+							]
+						},
+						{
+							"h2": "Captain Kidd's treasure, or what is left of it",
+							"paras": [
+								"Every summer Dana and Beetle plan the fun they will have when he is back in Maine. One year Beetle has heard a rumor that Captain Kidd buried treasure near Wiscasset, so they take an old metal detector to the water behind his parents' house. They find spent .22 casings, a shotgun shell and a bottle cap. Dana admits that historians doubt Kidd ever reached the Maine coast, but says that without the rumor \"he and I might have had some great memories stolen from us.\" The next summer they research a real abandoned gold prospect near Danforth."
+							]
+						},
+						{
+							"h2": "The cube and the one-liner",
+							"paras": [
+								"In the hospital in June 2023, Beetle reaches for the Rubik's cube on his bedside table. His hands tremble, but he works it click by click until the colors line up, and Dana sees a verse come alive: \"I have fought the good fight, I have finished the race, I have kept the faith.\" (2 Timothy 4:7) A few scenes later, the room explodes into laughter at Beetle's line about dying, and the laughter dissolves into tears. Dana writes that in one line Beetle gave them permission to hold both, \"the comedy and the tragedy — side by side.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Dana Morrison was the best friend of Stephen Michael Bailey, known to nearly everyone as Beetle. Their friendship ran from teenage pranks and campfire years through hardship, time apart, treasure hunting and Beetle's final days. Dana wrote The Beetle Experience, shaping these memories into a memoir-play hybrid meant to be read, remembered, performed or passed along. Dana and Beetle share a birthday."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Dana Morrison's tribute to a friend."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"Dana says the book began as a collection of memories, \"funny, raw, sacred, and real,\" about a man God used to shape his life. Every time he tried to write it as a plain memoir, it felt \"too small.\" Beetle, he explains, \"isn't a man who speaks in paragraphs. He speaks in stories. Scenes. Punchlines. Pranks.\" So he started staging the memories, and the book became a hybrid.",
+							"\"Some stories are too full of laughter to be told quietly. Some lives are too bright to be dimmed by paragraphs alone.\" It is an honest tribute, built on Proverbs 17:22 and on the belief that Beetle's joy pointed past himself to Christ. The epilogue says it plainly: \"He ran his race, and he finished with joy.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is The Beetle Experience about?",
+							"a": "It is the story of Stephen Michael Bailey, known as Beetle, told by his best friend, Dana Morrison, as a memoir-play hybrid in six acts: a laughter-generating, treasure-hunting, churchgoing bundle of joy and the friends and family around him."
+						},
+						{
+							"q": "Is it a memoir or a stage play?",
+							"a": "Both and neither. It is a memoir-play hybrid, with prose memories, dramatic scenes, stage directions, tableaux, monologues and vignettes that can be read, remembered, performed or passed along."
+						},
+						{
+							"q": "Is it a funny memoir?",
+							"a": "Yes. It tells of pranks, tall tales, treasure hunting and a man who made everyone laugh, and it is rooted in Proverbs 17:22, \"A cheerful heart is good medicine.\""
+						},
+						{
+							"q": "Is it a spiritual memoir?",
+							"a": "It is a Christian memoir. Faith runs through the camp years and the final days, and the closing pages invite readers who want to follow Jesus, with simple next steps, such as reading the Gospel of John and finding a church family."
+						},
+						{
+							"q": "Does it include practical jokes and pranks?",
+							"a": "Act I is built on them, from moving a car at a church conference to \"Operation Indian House,\" and Dana says the stories are true."
+						},
+						{
+							"q": "Is it set in northern Maine, and what is the Bible camp?",
+							"a": "Much of it takes place in and around Danforth, Maine, and at Living Waters Bible Camp, where the friends volunteered the summer of 1988 and where Stephen got his nickname."
+						},
+						{
+							"q": "Will it help if I am losing a friend?",
+							"a": "It follows a friendship through Beetle's final days and homecoming, and it holds laughter and loss together. It is one friend's testimony rather than a guide to grief."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Anyone who knew Beetle and anyone who did not, readers who enjoy funny true stories with faith and friendship at the center, and readers who want to be inspired to finish well in the race they are running."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fw-the-beetle-experience.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"the-beetle-experience-pb": {
@@ -857,7 +1011,182 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For readers who love warm, funny and moving true stories",
+							"paras": [
+								"If you like Christian memoir that makes you smile first and tear up second, this one is for you. There is a pastor who needs convincing, a congregation that gasps, a friend who offers to help with the sign language, and a man in a nursing home who never forgets his clown. Cindy writes with the same gentleness she showed in the room, and she does not pretend that every day was easy."
+							]
+						},
+						{
+							"h2": "For readers who feel called to bring joy to others",
+							"paras": [
+								"You do not need greasepaint to be touched by this book. Cindy writes, \"you don't have to dress up as a clown to touch someone's life in a positive way, just be YOU.\" If you are thinking about clown ministry, hospital visits or simply being a kinder presence at church, you will find ideas, courage and a good sense of what the work really asks of you. It is a memoir, not a how-to manual, but the tool box at the back is generous."
+							]
+						},
+						{
+							"h2": "For anyone who has visited or worked in hospitals, nursing homes or schools",
+							"paras": [
+								"Many of the chapters take place in rooms where people are hurting, lonely or afraid: a children's ward, a nursing home on Christmas Eve, a school auditorium full of teenagers. If you are a volunteer, a chaplain, a nurse, a teacher or a family member sitting by a bed, you will recognize the quiet work of showing up and listening."
+							]
+						}
+					],
+					"audience": {
+						"headline": "One smile, one hug and one red nose at a time.",
+						"body": "For readers who love a warm, funny and moving true story, and for anyone who feels called to bring joy to someone who is hurting. Cindy Love spent thirty-five years as Sparkle, a gospel clown who visited hospitals, nursing homes, schools, churches and parades. Her message is simple: everyone needs to be heard, and everyone is loved.",
+						"quote": {
+							"text": "I want each person to know how loved and valued they truly are.",
+							"cite": "Cindy Love, from the Foreword"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who want a message of love they can pass on",
+						"paras": [
+							"Clowning From The Heart is a memoir in twenty-seven short chapters, so you can read one at a bedside, on a break or over a cup of coffee. Cindy tells it plainly, with humor and tears, and with a gentle push to go and do something kind.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It begins in the Mojave Desert in 1965. A seven-year-old Cindy and her sisters line up in clown makeup for their town's first-ever clown contest, and her little sister wins a trip to Catalina Island.",
+							"It grows out of a hospital job. Years later, working in a hospital billing office, Cindy and a friend put on makeup and red noses to visit patients. She realizes that clowning can be more than a hobby: it can be a ministry.",
+							"It is full of the work itself. You will meet the stickers that read \"I Hugged A Clown Today,\" the makeup, the balloon animals, the sleight-of-hand magic and the mime routines, and you will walk through parades, a rehab center, a graduation and a 12-step retreat.",
+							"It is honest about the cost. A car accident in 2016 left Cindy unable to hold small children or kneel to meet their eyes, and the book follows her through the grief of stepping away from Sparkle.",
+							"It leaves you tools. \"Sparkle's Tool Box\" shares three of her favorite magic tricks with the messages that go with them, and a reference page explains the six main types of clowns."
+						]
+					},
+					"look_inside_text": {
+						"intro": [
+							"Every copy opens with a dedication to Cindy's children and grandchildren, a Foreword called \"Who Is Sparkle?\", twenty-seven chapters, Sparkle's Tool Box, a reference page and acknowledgments. The Foreword begins:"
+						],
+						"excerpt": [
+							"Hi, my name is Sparkle, and I am a clown. You see, I'm not just any clown, I am a gospel clown. Many of you might wonder, 'What is a gospel clown?' To me, a gospel clown is a clown who loves the Lord with all of his or her heart and loves all people as well.",
+							"Chapter 1 opens: \"With a chance for my family to win a free trip to the sandy shores of a tropical island, my sisters and I became very interested in our town's first-ever clown contest."
+						],
+						"contents": [
+							"The Clown Contest",
+							"Benji",
+							"Becoming Sparkle",
+							"Everyone, Please Welcome Sparkle the Clown!",
+							"Sparkle's Outfits Over the Years",
+							"Parades and Purpose",
+							"Princesses and Heroes",
+							"Sparkle's Special Children",
+							"Signs and Wonders at the Fairground",
+							"A Graduation to Remember",
+							"Happy Birthday Jesus",
+							"The Rehab Center",
+							"Clown Communion",
+							"Woodstick",
+							"The Sad Goodbye",
+							"The 12-Step Retreat",
+							"Bullying",
+							"Beauty on the Dance Floor",
+							"The Re-Grand Opening of Silver Saddle",
+							"A Magazine Article on Joy, Featuring Sparkle!",
+							"The Beginning of Smiles For Life",
+							"The Next 10 Years",
+							"My Last Parade",
+							"My Final Goodbye as Sparkle",
+							"The Purple Plastic Tote Container",
+							"The Dress That Did Not Fit",
+							"My Letter to Sparkle"
+						],
+						"numbered": true,
+						"contents_after": [
+							"Sparkle's Tool Box; Reference Page: Types of Clowns; Acknowledgments"
+						]
+					},
+					"whats_inside": [
+						"A true story told by the woman who lived it",
+						"27 chapters, 196 pages, with a full-color interior",
+						"Sparkle's Tool Box: three magic tricks that carry a message of hope, peace, healing and love",
+						"A reference page on the six main types of clowns",
+						"Paperback, 5.5 x 8.5 inches"
+					],
+					"details": {
+						"Title": "Clowning From The Heart: One Smile at a Time",
+						"Author": "Cindy Love",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "196",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound), color interior",
+						"Paperback ISBN": "979-8-89307-224-2",
+						"eBook ISBN": "979-8-89307-225-9",
+						"Library of Congress Control Number": "2026903169"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "Benji and the Polaroid",
+							"paras": [
+								"In her late twenties, Cindy works in a hospital billing office in Walla Walla, Washington, and visits patients in her free time dressed as a clown. One day she is asked to come see a frightened toddler named Benji, who is in a full body cast and will let no one near him. When he sees the clown, his little body relaxes and he smiles for the first time. She leaves him a Polaroid of the two of them. Later that day he does not recognize her without the makeup, until she holds up the picture and says, \"Benji, look. I am the clown.\" For six weeks she visits on her breaks, and on the day he goes home he tells her, \"I love you too.\""
+							]
+						},
+						{
+							"h2": "Happy Birthday Jesus",
+							"paras": [
+								"Driving to go Christmas shopping with a friend, Cindy hears a song on the radio and cannot shake it. She tracks down the recording, adds sign language she learned partly because her mother was hard of hearing, and asks her pastor if she can stage it with children before the service. He agrees, nervously. She appears as Sparkle in the middle of a congregation that is mostly elderly. When the song ends and she kneels by the cradle, the room bursts into applause and calls of \"Amen.\""
+							]
+						},
+						{
+							"h2": "The Needle and the Balloon",
+							"paras": [
+								"Asked to perform for an entire school in Adams, Oregon, a town of 389 people, Cindy dreads the high school assembly most. The older students turn out to be the best audience. She invites two strong volunteers to push a fifteen-inch needle through a balloon. Theirs pop; hers does not, because she was prepared. The trick carries a message about preparing for life, and she follows it with \"The Torn Heart,\" a paper heart she tears apart and then shows made whole again, to talk about what love can mend."
+							]
+						}
+					],
+					"author": {
+						"bio": "Cindy Love grew up in California City, a small retirement town in the Mojave Desert. In her late twenties, while working in the billing department of a hospital in Walla Walla, Washington, she first put on clown makeup to visit patients. In 1989 she began clowning in earnest, and for thirty-five years she served as Sparkle, a gospel clown, at hospitals, nursing homes, schools, churches, parks and community events. Around 2010 she founded a nonprofit called Smiles For Life so that this kind of caring could continue through other people."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Cindy Love's story."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"Cindy says Sparkle has \"touched the lives of thousands of people over the past few decades,\" and she writes, \"I hope her story can touch you as well.\" The book is also an act of letting go. In the last chapter she writes a letter to Sparkle and tells her that this book \"is your legacy now.\"",
+							"She says the most important thing she can do for anyone is to listen: \"Everyone has stories to tell, whether the stories are exciting and good, or scary and bad.\" Sparkle was the way she was able to sit and listen, and to tell each person how loved and valued they are. This book is her way of passing that on."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Clowning From The Heart about?",
+							"a": "It is Cindy Love's true story of becoming Sparkle, a gospel clown, and of thirty-five years of clown ministry in hospitals, nursing homes, schools, churches and parades, told in twenty-seven short chapters."
+						},
+						{
+							"q": "Is it a book about a message of love?",
+							"a": "One conviction runs through it: everyone needs to be heard and to know how loved and valued they are. Sparkle listens to the lonely, the sick, the frightened and the grieving and points them to the love of the Lord."
+						},
+						{
+							"q": "Does it teach clown makeup and balloon animals?",
+							"a": "It tells how Cindy learned makeup, balloon animals and sleight-of-hand magic, and it closes with Sparkle's Tool Box and a reference page on the types of clowns. It is a memoir, not a how-to manual."
+						},
+						{
+							"q": "Does the book take place in hospitals?",
+							"a": "Many chapters do. The first came when she and a friend put on clown makeup to visit patients at the hospital where she worked; the book also covers nursing homes, a rehab center, schools, churches and parades."
+						},
+						{
+							"q": "Does it say anything about Happy Birthday Jesus?",
+							"a": "Yes. Chapter 11 tells how she found the song, built a mime-and-sign-language Christmas play with children from her church, and performed it with her pastor's trust."
+						},
+						{
+							"q": "Does it carry a message that people are beautiful and valued?",
+							"a": "Yes. The Foreword says Cindy wants people to feel \"how beautiful and special they are inside and out,\" and she gives a hug and a sticker to prove it, in hospital rooms, on parade routes and to strangers on the street."
+						},
+						{
+							"q": "What are the types of clowns?",
+							"a": "A reference page near the end describes six: the rodeo clown, the tramp or hobo clown, the auguste clown, the mime clown, the classic white-faced clown and the grotesque white-faced clown."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Christian readers who enjoy warm, funny and moving true stories, readers who feel called to bring joy to others, including through clown ministry, and anyone who has visited or worked in hospitals, nursing homes or schools and wants encouragement."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fw-clowning-from-the-heart.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"clowning-from-the-heart-pb": {
@@ -1084,7 +1413,162 @@
 						"jsonld.person.url": "TBD (none in sources)",
 						"jsonld.person.sameAs": "TBD (none approved)"
 					}
-				}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For anyone who has asked why they react so strongly",
+							"paras": [
+								"If a slammed door makes your heart leap, if you tense up before a hard conversation, or if you feel unworthy no matter what you achieve, this book offers language and company. John writes, \"My reactions weren't overreactions; they were survival skills that had outlived their usefulness.\" It reads like a conversation with someone who has been where you are."
+							]
+						},
+						{
+							"h2": "For survivors of childhood trauma, including men who were taught to push through alone",
+							"paras": [
+								"John grew up in a small town in the mountains of West Virginia, with a home that looked normal from the outside. He became an achiever, a funny one, the helpful kid, building what he calls a mask. He writes honestly about hiding symptoms behind success and about drinking and isolation. If you have been told to \"man up,\" the sentence that follows in the book is worth hearing: \"Being a male survivor doesn't make you weak. Speaking about it makes you courageous.\""
+							]
+						},
+						{
+							"h2": "For readers who want a faith-friendly account of trauma and recovery",
+							"paras": [
+								"God appears here as a gentle Father who meets a worn-out man on his knees, not as a punishing figure. John writes of Psalm 34:18, \"The Lord is close to the brokenhearted and saves those who are crushed in spirit,\" and of lifelines, the teachers, friends and mentors who stayed. This is a personal and faith-friendly book. It is not medical advice or a treatment guide, and it encourages you to find a trauma-informed professional."
+							]
+						}
+					],
+					"audience": {
+						"headline": "You are not crazy. You are injured, and healing is possible.",
+						"body": "For anyone who has asked why they react so strongly, why they feel unsafe even when they are safe, or why they cannot just get over the past. John Boyle lived nearly four decades with Complex PTSD he could not name. Invisible Wounds is the book he needed back then, a four-part walk through what trauma does to the body and brain, and a road toward hope.",
+						"quote": {
+							"text": "John, you're not crazy, you're injured.",
+							"cite": "the words that changed everything, Chapter 1"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who want to understand complex PTSD",
+						"paras": [
+							"Invisible Wounds does not diagnose you, and it does not drown you in jargon. John says his goal is \"to explain what is happening in a way that feels like you're finally being spoken to, not spoken about.\"",
+							"Five things set it apart:",
+							"A note before you begin: this book describes childhood abuse and its effects. John says he wants \"to share my story in a way that doesn't retraumatize you but helps you recognize your own strength.\""
+						],
+						"list": [
+							"It names the enemy. Part One, \"Naming the Invisible Enemy,\" opens with the author's own story: sleepless nights, startle responses and the quiet certainty that something was wrong with him, until a trauma-informed therapist gave it a name.",
+							"It explains the body. Part Two, \"The Body Keeps the Score,\" shows how trauma lives in muscles, stomachs and sleep, and how a child's brain can be wired for \"fight, flight, freeze, or fawn\" long after the danger has passed.",
+							"It answers the question every survivor asks. Part Three, \"The Tangled Puppet Strings,\" takes on \"Why can't I just get over it?\" and a chapter called \"Misdiagnosis Roulette,\" about the string of labels John collected before the right one.",
+							"It speaks directly to male survivors. A page called \"The Untold Story of Male Trauma Survivors\" begins, \"Men are taught to push through.\"",
+							"It treats faith as rescue, not doctrine. Scripture and prayer appear as comfort and companionship, and Part Four, \"The Road to Healing,\" ends with lifelines and hope."
+						]
+					},
+					"look_inside_text": {
+						"intro": [
+							"Every copy opens with a dedication, a table of contents, and an introduction that begins:"
+						],
+						"excerpt": [
+							"If you're holding this book, I want to start by telling you something I wish someone would have told me a long time ago:\nYou're not crazy.\nYou're not weak.\nYou're not broken.\nYou're not failing at being a human being.\nYou're hurting.\nAnd if you're hurting, I want you to know you are in the right place."
+						],
+						"contents": [
+							"Introduction",
+							"Part One: Naming the Invisible Enemy. Chapter 1, You're Not Crazy, You're Injured. Chapter 2, When Home Is the War Zone.",
+							"Part Two: The Body Keeps the Score. Chapter 3, The Symptoms That Steal Your Life. Chapter 4, The Terrible Math of Trauma.",
+							"Part Three: The Tangled Puppet Strings. Chapter 5, Why Can't I Just Get Over It? Chapter 6, Misdiagnosis Roulette.",
+							"Part Four: The Road to Healing. Chapter 7, Finding Your Lifelines. Chapter 8, Hope Changes Everything.",
+							"Epilogue: Dear Younger Me",
+							"Bibliography",
+							"Resources for Hope, Healing, and Next Steps"
+						],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A survivor's story told with care, in four parts and eight chapters",
+						"Survivor Insight exercises for naming pain and replacing self-blame with accuracy",
+						"A quick grounding exercise, the 5-4-3-2-1 reset, for moments of panic",
+						"A letter to the author's younger self in the epilogue",
+						"A resources section with a self-assessment that is not a diagnostic test, a Day One Healing Action Plan, guidance for finding a trauma-informed therapist, warning signs in children, organizations that can help, questions to bring to a provider and Scriptures for healing and hope",
+						"Paperback, 6 x 9 inches"
+					],
+					"details": {
+						"Title": "Invisible Wounds: Understanding and Healing from Complex PTSD",
+						"Author": "John P. Boyle, author of Appalachian Kid",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "132",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound), cream paper, black and white interior",
+						"Paperback ISBN": "979-8-89307-218-1",
+						"eBook ISBN": "979-8-89307-219-8",
+						"Library of Congress Control Number": "2026902584"
+					},
+					"stories_title": "Three stories from the book",
+					"stories": [
+						{
+							"h2": "\"You're not crazy, you're injured\"",
+							"paras": [
+								"John spends nearly four decades believing his pain means he is defective. He calls the sleepless nights, the startle responses and the headaches stress, anxiety and bad nerves. Then a trauma-informed therapist explains that Complex PTSD comes from chronic, inescapable stress, usually in childhood, \"what happens when the people meant to protect you are the ones who cause you pain.\" For the first time, the chaos makes sense. He stops asking what is wrong with him and begins asking what happened to him."
+							]
+						},
+						{
+							"h2": "The morning his body spoke",
+							"paras": [
+								"At thirty-six, running a fast-growing business and traveling constantly, John wakes with his heart pounding and his chest tight. He ends up in the emergency room convinced he is dying. The physician comes back smiling. \"Good news,\" he says. \"Your heart is perfect. It's probably just stress.\" John writes that the physician was right, but not in the way he thought: \"It was unresolved trauma that had been simmering for decades.\" The chapter becomes an invitation to listen to the body instead of silencing it."
+							]
+						},
+						{
+							"h2": "The mirror moment",
+							"paras": [
+								"Years later, volunteering at his hometown high school as a successful businessman, John sits in a small-group discussion when a mistreated teenage boy looks at him and says, \"God doesn't love everyone. He plays favorites.\" John sees himself in that boy: the same hollow ache and quiet despair. He realizes that his success has not healed him, only distracted him. He writes, \"That was the day I stopped running from my past.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "John P. Boyle grew up in a small town in the mountains of West Virginia. He went on to boarding school and Harvard and built a career as a business leader while living for nearly four decades with Complex PTSD he could not name. Diagnosed by a trauma-informed therapist, he now writes about childhood trauma, male survivors and the role of faith in recovery. He is a husband and father and the author of Appalachian Kid."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish John Boyle's story."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"John says he wrote the book because he does not want you to wander as long as he did. \"I don't want you to blame yourself for things that were never your fault. I don't want you to feel alone in symptoms that millions of people experience but rarely talk about.\"",
+							"He also gives a plain reason for writing about something so painful: \"Because pain loses power when it's spoken out loud. Because healing grows when it's shared.\" He believes \"God carried me through things I didn't understand so that I could turn back and help others,\" and that \"none of us are meant to heal in isolation.\" The book ends with a letter to the boy he once was, and an invitation to write your own."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Invisible Wounds about?",
+							"a": "It is John Boyle's account of living nearly four decades with Complex PTSD he could not name, and a four-part guide to understanding it and walking the road to healing. The subtitle is Understanding and Healing from Complex PTSD."
+						},
+						{
+							"q": "What does the book mean by complex PTSD?",
+							"a": "In the author's words it is \"a disorder of reactions,\" and it \"is not about what is wrong with you; it is about what happened to you.\" He explains that it develops from chronic, inescapable stress, usually in childhood, rather than from one event."
+						},
+						{
+							"q": "What does the book say about hypervigilance and fight, flight, freeze?",
+							"a": "Part Two shows how trauma lives in the body and rewires a child's brain for fight, flight, freeze or fawn. Hypervigilance, startle responses and panic are among the experiences the author describes in his own life."
+						},
+						{
+							"q": "Is it about childhood trauma and men's mental health?",
+							"a": "Yes to both. It follows the effects of a chaotic childhood into adulthood, and it speaks directly to male survivors, who are taught to push through alone."
+						},
+						{
+							"q": "Does it explain emotional flashbacks and toxic shame?",
+							"a": "It does, in Chapter 3. John describes \"gray days\" that turned out to be emotional flashbacks, and he separates guilt from shame: \"Guilt says, 'I did something wrong.' Shame says, 'I am something wrong.'\""
+						},
+						{
+							"q": "Are there exercises for calming the nervous system?",
+							"a": "Yes. Survivor Insight exercises help you name pain and replace self-blame with accuracy, and a 5-4-3-2-1 grounding reset helps when the body goes into panic or freeze mode. The resources section adds a five-step plan for day one."
+						},
+						{
+							"q": "Is Scripture part of the healing?",
+							"a": "Scripture and prayer run through the book. Psalm 34:18 carried John through many dark nights, and the resources section lists verses for healing and hope. Faith appears as rescue, not doctrine."
+						},
+						{
+							"q": "Is it a clinical book, and who is it for?",
+							"a": "No. The author explains what is happening without diagnosing and without overwhelming; it is a personal and faith-friendly account, not medical advice or a treatment guide. It is for anyone who has asked why they react so strongly, for survivors of childhood trauma, and for readers who want a faith-friendly account of recovery."
+						}
+					]
+				},
+				"page_source": "aeo-state/3fw-invisible-wounds.md (pmseoaeo, reader copy verbatim)"
 			},
 			"skus": {
 				"invisible-wounds-pb": {

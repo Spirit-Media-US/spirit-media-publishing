@@ -58,7 +58,14 @@ const details = Object.entries(g.details ?? {}).filter(([, v]) => has(v));
 			{has(g.look_inside_text.contents) && (
 				<div class="mt-6">
 					<h3 class="text-lg font-bold text-ink">Contents</h3>
-					<ol class="mt-3 list-decimal columns-1 gap-8 space-y-1 pl-6 sm:columns-2">{g.look_inside_text.contents.map((t: string) => <li class="break-inside-avoid">{t}</li>)}</ol>
+					{g.look_inside_text.numbered === false ? (
+						<ul class="mt-3 list-disc space-y-2 pl-6">{g.look_inside_text.contents.map((t: string) => <li>{t}</li>)}</ul>
+					) : (
+						<ol class="mt-3 list-decimal columns-1 gap-8 space-y-1 pl-6 sm:columns-2">{g.look_inside_text.contents.map((t: string) => <li class="break-inside-avoid">{t}</li>)}</ol>
+					)}
+					{has(g.look_inside_text.contents_after) && (
+						<ul class="mt-2 space-y-1 pl-6 text-stone-700">{g.look_inside_text.contents_after.map((t: string) => <li>{t}</li>)}</ul>
+					)}
 				</div>
 			)}
 		</div>
