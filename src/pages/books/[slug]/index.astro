@@ -1,6 +1,7 @@
 ---
 import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
+import LookInside from '../../../components/LookInside.astro';
 // /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
 // is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
 // new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
@@ -24,6 +25,7 @@ import coverColors from '../../../data/books/cover-colors.json';
 import dims from '../../../data/books/cover-dims.json';
 import sized from '../../../data/books/cover-sized.json';
 import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
+import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
 import set from '../../../data/books/shipset-v2.json';
 import Layout from '../../../layouts/Layout.astro';
@@ -464,6 +466,9 @@ const headshot = headshotRow
 	: undefined;
 // SHARE IMAGE: the book's 1200x630 card when it has one (src/data/books/og-cards.json), else its cover JPG with the
 // size tags omitted (a portrait cover is not 1200x630, and a guessed size is worse than none).
+const hasViewer = Boolean(
+	(lookinside as Record<string, { pages?: unknown[] }>)[p.slug]?.pages?.length,
+);
 const card = (ogCards as Record<string, any>)[p.slug] as
 	| { src: string; w: number; h: number }
 	| undefined;
@@ -620,10 +625,11 @@ const crumbs = {
 							</div>
 						)}
 						{p.page?.hero?.offer_line && <p class="mt-4 text-sm font-semibold text-stone-700">{p.page.hero.offer_line}</p>}
-						{(p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || !orderBox) && (
+						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || !orderBox) && (
 							<div class="mt-5 flex flex-wrap gap-3">
 								{!orderBox && <a href="#order" class="inline-flex min-h-12 items-center justify-center rounded-full bg-ink-soft px-7 font-semibold text-white hover:bg-ink">{T.order}</a>}
-								{(p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0) && <a href="#look-inside" class="book-look">{T.look}</a>}
+								{/* Kevin 2026-11-14: the SAME Look inside as FHB: the button opens the page viewer (front through Chapter 1). */}
+								{hasViewer ? <LookInside slug={p.slug} title={p.title} size="lg" label={T.look} /> : (p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0) && <a href="#look-inside" class="book-look">{T.look}</a>}
 							</div>
 						)}
 						{!p.page && <p class="mt-6 text-base leading-relaxed text-stone-800">{p.short}</p>}
@@ -683,7 +689,7 @@ const crumbs = {
 			</section>
 		)}
 
-		{p.page ? <BookMirror page={p.page} title={p.title} faq={p.faq} lang={p.lang ?? 'en'} headshot={headshot} titleColor={smallTitleColor} authorName={p.author} more={more} /> : (
+		{p.page ? <BookMirror hideLookInside={hasViewer} page={p.page} title={p.title} faq={p.faq} lang={p.lang ?? 'en'} headshot={headshot} titleColor={smallTitleColor} authorName={p.author} more={more} /> : (
 		<section class="px-4 py-10 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-3xl space-y-10 text-stone-800">
 				{p.who_for.length > 0 && (

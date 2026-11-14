@@ -12,6 +12,8 @@
 // Every section renders ONLY from its field (copy by pmseoaeo, field list in jobs/seat-status/builder.md); nothing is
 // written here. One column, phone first.
 interface Props {
+	/** true when the hero carries the FHB page viewer: no Look inside section below (Kevin 2026-11-14) */
+	hideLookInside?: boolean;
 	page: Record<string, any>;
 	title: string;
 	faq: { q: string; a: string }[];
@@ -29,6 +31,7 @@ const {
 	title,
 	faq,
 	lang = 'en',
+	hideLookInside = false,
 	headshot,
 	titleColor,
 	authorName,
@@ -165,7 +168,7 @@ const H2 = 'text-2xl font-bold leading-snug text-ink sm:text-3xl';
 	</section>
 )}
 
-{look.length === 0 && g.look_inside_text && has(g.look_inside_text.blocks) && (
+{!hideLookInside && look.length === 0 && g.look_inside_text && has(g.look_inside_text.blocks) && (
 	<section class={`${BG.soft} px-4 py-12 sm:px-6 lg:px-8`} id="look-inside">
 		<div class="mx-auto max-w-3xl text-stone-800">
 			<h2 class={H2}>{L.look_inside}</h2>
@@ -199,7 +202,7 @@ const H2 = 'text-2xl font-bold leading-snug text-ink sm:text-3xl';
 
 {/* Kevin 2026-11-14: Look inside = the real pages, front of the book through Chapter 1, for every book; the page
     images replace the text summary whenever they exist. */}
-{look.length > 0 && (
+{!hideLookInside && look.length > 0 && (
 	<section class={`${BG.soft} px-4 py-12 sm:px-6 lg:px-8`} id="look-inside">
 		<div class="mx-auto max-w-5xl">
 			<h2 class={H2}>{L.look_inside}</h2>

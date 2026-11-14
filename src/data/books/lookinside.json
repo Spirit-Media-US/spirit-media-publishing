@@ -1,0 +1,243 @@
+{
+	"_note": "SMP Look inside samples (Kevin 2026-11-14: the front of the book through Chapter 1, for every book). Pages on R2 spirit-media-publishing/lookinside/<dir>/. Same shape as FHB src/data/lookinside.json.",
+	"raised-in-a-barn": {
+		"count": 39,
+		"dir": "raised-in-a-barn",
+		"pages": [
+			{
+				"file": "p001.webp",
+				"label": "Advance Praise",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p002.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p009.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p011.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p015.webp",
+				"label": "Prologue",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p027.webp",
+				"label": "Chapter 1: The Foundation",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p030.webp",
+				"label": "Page 28",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p031.webp",
+				"label": "Page 29",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p032.webp",
+				"label": "Page 30",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p033.webp",
+				"label": "Page 31",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p034.webp",
+				"label": "Page 32",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p035.webp",
+				"label": "Page 33",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p036.webp",
+				"label": "Page 34",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p037.webp",
+				"label": "Page 35",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p038.webp",
+				"label": "Page 36",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p039.webp",
+				"label": "Page 37",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p040.webp",
+				"label": "Page 38",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "p041.webp",
+				"label": "Page 39",
+				"w": 800,
+				"h": 1217
+			}
+		]
+	}
+}
