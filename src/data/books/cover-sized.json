@@ -36,6 +36,62 @@
 				"-600.webp": [600, 900],
 				"-300.webp": [300, 450]
 			}
+		},
+		"hallelujah-even-here": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hallelujah-even-here-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hallelujah-even-here-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hallelujah-even-here-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"lead-at-a-higher-altitude": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/lead-at-a-higher-altitude-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/lead-at-a-higher-altitude-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/lead-at-a-higher-altitude-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"soar-to-success": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/soar-to-success-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/soar-to-success-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/soar-to-success-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"missed-you-sleeping": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/missed-you-sleeping-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/missed-you-sleeping-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/missed-you-sleeping-300.webp",
+			"width": 600,
+			"height": 600
+		},
+		"spring-birds": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/spring-birds-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/spring-birds-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/spring-birds-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"can-i-pray-for-you": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/can-i-pray-for-you-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/can-i-pray-for-you-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/can-i-pray-for-you-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"life-on-the-ridge": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/life-on-the-ridge-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/life-on-the-ridge-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/life-on-the-ridge-300.webp",
+			"width": 600,
+			"height": 750
+		},
+		"robie-the-ghost": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/robie-the-ghost-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/robie-the-ghost-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/robie-the-ghost-300.webp",
+			"width": 600,
+			"height": 900
 		}
 	}
 }

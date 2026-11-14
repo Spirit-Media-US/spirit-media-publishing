@@ -9,6 +9,389 @@
 	},
 	"titles": [
 		{
+			"slug": "hallelujah-even-here",
+			"units_12m": 164,
+			"book": {
+				"slug": "hallelujah-even-here",
+				"status": "pending",
+				"title": "Hallelujah Even Here",
+				"subtitle": "A Place for Your Grief to Breathe",
+				"full_title": "Hallelujah Even Here: A Place for Your Grief to Breathe",
+				"author": {
+					"name": "Meredith P. Nolasco"
+				},
+				"credits": null,
+				"page_title": "Hallelujah Even Here: Pregnancy and Infant Loss, NICU",
+				"h1": "Hallelujah Even Here",
+				"meta": "Hallelujah Even Here by Meredith P. Nolasco: a mother's honest telling of a premature baby, twelve NICU days, and a hope that sits beside the sorrow.",
+				"short": "A mother's telling of a baby born at twenty-seven weeks who lived twelve days, written as companionship rather than answers.",
+				"about": "Carter Alexander Nolasco was born at twenty-seven weeks, weighing two pounds, six ounces. His nursery was finished, his name chosen, and then an ordinary Sunday unraveled in minutes. In Hallelujah Even Here, Meredith P. Nolasco walks through the emergency that brought him into the world, the NICU days of monitors and prayers, the first time she held him on Day 12, and the night he slipped into eternity. She writes about the silent morning after, the ache of mothering a toddler while mourning an infant, and the questions friends and strangers ask without knowing what they cost. She had known the grief of a miscarriage and believed that if she did everything right things would unfold as planned; Carter's story showed how fragile that expectation is. This is not a guide on how to grieve, a roadmap or a promise that everything will feel reconciled. It is a telling, in twenty-six short chapters with dated journal entries written to her son, and an honest wrestling with God, including the hardest question: why a child?",
+				"who_for": [
+					"Mothers who have known the loss of a baby and are searching for language for the pain",
+					"Fathers who stand beside them, holding a sorrow of their own",
+					"Anyone who has lost a child or loves someone who has"
+				],
+				"who_for_status": "PROPOSED (Doc WHO THIS BOOK IS FOR paragraph, not a ranked list)",
+				"faq": [
+					{
+						"q": "What is Hallelujah Even Here about?",
+						"a": "It is Meredith P. Nolasco's honest telling of her son Carter, born at twenty-seven weeks, who lived twelve days in the NICU, and of grief, faith and the hardest question: why a child?"
+					},
+					{
+						"q": "Is it a book about premature baby loss?",
+						"a": "Yes. The book follows a premature birth, the NICU days, and the night the baby died, with dated journal entries a mother wrote to her son during those days."
+					},
+					{
+						"q": "Is it a guide on how to grieve?",
+						"a": "No. It is not a guide, a roadmap or a list of steps, and it does not tie itself up neatly; it is a telling that offers companionship rather than answers."
+					},
+					{
+						"q": "Who is Hallelujah Even Here for?",
+						"a": "It is for mothers who have known this kind of loss, for the fathers who stand beside them, and for anyone who has lost a child or loves someone who has."
+					},
+					{
+						"q": "What does the book say about surrendering to God?",
+						"a": "Looking back, the author would tell her earlier self to loosen her grip and cling more to God's sovereignty than to statistics and vague reassurances; the book makes room for trust and confusion, peace and fear to exist together."
+					}
+				],
+				"bio": "Meredith P. Nolasco is a wife, a mother and a coach who, with her husband, walks with people through their health journeys, helping them plan, prepare and build steady rhythms. Her faith in Jesus is personal, something she chose beyond the foundation she was raised in. In January 2026 her second son was born at twenty-seven weeks and lived for twelve days in the NICU. During those days she began writing to him, and those words grew into Hallelujah Even Here.",
+				"jsonld": {
+					"book": {
+						"name": "Hallelujah Even Here",
+						"alternativeHeadline": "A Place for Your Grief to Breathe",
+						"inLanguage": "en",
+						"isbn": "9798893072761 (paperback); workExample eBook 9798893072778",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 110,
+						"datePublished": "2026-05-25",
+						"audience": "Bereaved parents and those who love them",
+						"about": ["infant loss", "premature birth", "NICU", "grief", "faith"],
+						"sameAs": ["https://www.amazon.com/dp/B0H2YC1RNP"],
+						"@id": "https://spiritmediapublishing.com/books/hallelujah-even-here/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Meredith P. Nolasco",
+						"description": "Meredith P. Nolasco is a wife, a mother and a coach who, with her husband, walks with people through their health journeys, helping them plan, prepare and build steady rhythms.",
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/hallelujah-even-here/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Hallelujah Even Here about?",
+							"a": "It is Meredith P. Nolasco's honest telling of her son Carter, born at twenty-seven weeks, who lived twelve days in the NICU, and of grief, faith and the hardest question: why a child?"
+						},
+						{
+							"q": "Is it a book about premature baby loss?",
+							"a": "Yes. The book follows a premature birth, the NICU days, and the night the baby died, with dated journal entries a mother wrote to her son during those days."
+						},
+						{
+							"q": "Is it a guide on how to grieve?",
+							"a": "No. It is not a guide, a roadmap or a list of steps, and it does not tie itself up neatly; it is a telling that offers companionship rather than answers."
+						},
+						{
+							"q": "Who is Hallelujah Even Here for?",
+							"a": "It is for mothers who have known this kind of loss, for the fathers who stand beside them, and for anyone who has lost a child or loves someone who has."
+						},
+						{
+							"q": "What does the book say about surrendering to God?",
+							"a": "Looking back, the author would tell her earlier self to loosen her grip and cling more to God's sovereignty than to statistics and vague reassurances; the book makes room for trust and confusion, peace and fear to exist together."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Hallelujah Even Here"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"Too Stubborn to Die (faith through suffering; batch 2)",
+					"Hope That Anchors the Soul (batch 2)",
+					"Potter's Child (NICU and prayer; batch 2)",
+					"/returns/ when Buy goes live"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hallelujah-even-here-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["hallelujah-even-here-pb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026912421",
+				"pub_date": "2026-05-25",
+				"lead_term": {
+					"term": "pregnancy and infant loss",
+					"volume": 1600
+				},
+				"target_queries": [
+					{
+						"term": "pregnancy and infant loss",
+						"volume": 1600,
+						"role": "LEAD (the book's subject: a baby who lived twelve days; fully truthful)"
+					},
+					{
+						"term": "premature baby",
+						"volume": 14800,
+						"role": "BESIDE, bigger than the lead: the circumstance (27 weeks, NICU); Doc: the story of a premature birth"
+					},
+					{
+						"term": "surrender to god",
+						"volume": 1900
+					},
+					{
+						"term": "healing after loss",
+						"volume": 1300
+					},
+					{
+						"term": "grieving parents",
+						"volume": 480
+					}
+				],
+				"beside_larger_than_lead": ["premature baby 14,800", "surrender to god 1,900"],
+				"home": "SMP (no source marks it Father Heart)",
+				"url": "https://spiritmediapublishing.com/books/hallelujah-even-here/",
+				"buy_url": "https://spiritmediapublishing.com/books/hallelujah-even-here/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#hallelujah-even-here (draft unit 3fk); sources: Drive metadata Doc 1RPNwxNuIpAugyGQKJCLyQl2xHsyPG_QVHIKwgwvvOEg (Hallelujah Even Here - Metadata 2026-10-14) + specsheet/sheet.json (2026-10-15) + interior booktext + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 12.99 USD (re-confirm), InStock, New",
+						"jsonld.person.url": "TBD",
+						"jsonld.person.sameAs": "TBD"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For mothers who have known this kind of loss",
+							"paras": [
+								"If you are searching for language, this book may lend you some. The author describes the silent morning after, the milk that came in with no baby to feed, and the way she woke each day and thought of the same Friday. She writes that she did not soften it: \"So I don't soften it.\" She also writes that she no longer needs to make people comfortable in her grief."
+							]
+						},
+						{
+							"h2": "For fathers and the people who love them",
+							"paras": [
+								"The author writes about her husband with respect. Their grief is the same loss from different places. She names it in a line that returns through the chapter: \"Same loss. Different heart journey.\" The book does not instruct a father. It shows two people choosing, again and again, to stay beside each other."
+							]
+						},
+						{
+							"h2": "For friends, family and caregivers who want to know what helps",
+							"paras": [
+								"A chapter called I Can't Imagine turns a familiar sentence around, and a chapter called How Are You Doing? asks what that question costs. She writes that people who \"sit in the valley\" with her are doing \"holy work without knowing it.\" A reader who wants to sit with someone grieving will find what that can look like."
+							]
+						},
+						{
+							"h2": "For anyone wrestling with why a child",
+							"paras": [
+								"The book gives space to anger, numbness and the question itself. It does not say that a child's death makes sense. It says that Scripture rarely explains and often shows. The author asks her questions of God in the open and also writes of moments when she felt \"undeniably held.\""
+							]
+						}
+					],
+					"audience": {
+						"headline": "A mother tells the story of her son, who lived twelve days, and finds a place for her grief to breathe.",
+						"body": "For mothers who have known the loss of a baby and are searching for language for the pain, for the fathers who stand beside them, and for anyone who has lost a child or loves someone who has. Meredith P. Nolasco writes in twenty-six short chapters, with dated entries addressed to her son, about a birth at twenty-seven weeks, the NICU, the night he died and the long months after. It offers companionship rather than answers. A note on subjects: this is a memoir of the death of a baby. It describes an emergency birth, intensive care, the moments of the baby's death, cremation, and the physical and emotional weight of grief, told honestly and without graphic detail. It is a mother's telling, not medical, counseling or mental health advice. If grief or trauma is overwhelming you, please contact a physician or licensed professional, and if you are in crisis or thinking about harming yourself, contact your local emergency services or a crisis line right away.",
+						"quote": {
+							"text": "I write for the mothers who have known this kind of loss, who are searching for language for a pain that feels unspeakable.",
+							"cite": "the Introduction"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for people carrying the loss of a baby",
+						"paras": [
+							"This is the story of Carter Alexander Nolasco, born at twenty-seven weeks and weighing two pounds, six ounces. His nursery was finished and his name was chosen. Then an ordinary Sunday came apart in minutes. The author does not hand the reader a method. She tells what happened, what she asked God, and what she learned about holding sorrow and love in the same hands.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is a telling, not a guide. The Introduction says so in plain words: \"This is not a guide on how to grieve.\"",
+							"It stays close to one family and one baby. The chapters follow the emergency, the NICU days, the one hour of holding him on Day 12, the night he died, and the months after.",
+							"It speaks to fathers and to the people around a grieving family. A chapter on what people say, a chapter on a marriage under strain and a chapter on mothering a toddler while mourning an infant sit beside the hospital chapters.",
+							"It brings the hardest question to God and does not tidy the answer. One chapter is titled Why a Child?, another Wrestling, another A Stubborn Hope.",
+							"Hope is present but not loud. The author writes that hope here \"exists right alongside the pain\" and is \"sometimes steady, sometimes barely there, but real.\""
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The book opens with an Introduction that begins like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"I keep coming back to the same question: Why am I writing this? Why do I feel compelled to put words to something that still feels impossible to hold?"
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1, The Spring I Thought I Knew, begins like this:"
+							},
+							{
+								"type": "quote",
+								"paras": ["We are planners."]
+							},
+							{
+								"type": "p",
+								"text": "and a few lines later:"
+							},
+							{
+								"type": "quote",
+								"paras": ["Before Carter, I was a believer. Not casually. Not culturally."]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 5, The Morning After, begins like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"I woke up the next morning and for a brief second, everything felt normal. There is a kind of mercy in that."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The twenty-six chapters include:"
+							},
+							{
+								"type": "p",
+								"text": "1. The Spring I Thought I Knew\n2. Unraveling\n3. Eye of the Storm\n4. Day 12\n5. The Morning After\n6. Shock Is a Mercy\n7. Two Strands\n8. I Can't Imagine\n9. Friday\n10. Ashes\n11. When the Body Still Remembers\n12. Brothers\n13. Mothering on Both Sides\n14. Constant Collision\n15. April 5th\n16. How Are You Doing?\n17. Why a Child?\n18. Fragile, But Not Broken\n19. Two Sons\n20. Wrestling\n21. Good Friday\n22. Saturday\n23. A Stubborn Hope\n24. Coming Up for Air\n25. What Remains\n26. I'll Always Be Your Mommy"
+							}
+						],
+						"intro": ["The book opens with an Introduction that begins like this:"],
+						"excerpt": [
+							"I keep coming back to the same question: Why am I writing this? Why do I feel compelled to put words to something that still feels impossible to hold?",
+							"We are planners.",
+							"Before Carter, I was a believer. Not casually. Not culturally.",
+							"I woke up the next morning and for a brief second, everything felt normal. There is a kind of mercy in that."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Twenty-six short chapters, from the Introduction to a closing chapter titled I'll Always Be Your Mommy",
+						"Dated entries written to her son, from January 8 to April 7, 2026",
+						"Chapters on shock, on what people say, on grief inside a marriage, on mothering a toddler through loss, and on a question that used to be simple: Do you have children?",
+						"Scripture quoted in the NIV and the NKJV",
+						"A portrait of Carter, who lived from January 4 to January 16, 2026",
+						"Paperback of 110 pages, with an eBook edition and a free downloadable PDF"
+					],
+					"details": {
+						"Title": "Hallelujah Even Here",
+						"Subtitle": "A Place for Your Grief to Breathe",
+						"Author": "Meredith P. Nolasco",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "110 (paperback)",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound, matte laminate), black and white interior on creme paper",
+						"Paperback ISBN": "979-8-89307-276-1",
+						"eBook ISBN": "979-8-89307-277-8",
+						"Library of Congress Control Number": "2026912421"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The Sunday it came apart",
+							"paras": [
+								"Chapter 2 begins with a normal Sunday: church in the morning, waffles after, a soccer ball in the backyard. Then pain, then the floor, then sirens. At twenty-seven weeks, her water broke, and she writes that \"What had been a normal Sunday unraveled in minutes.\" A nurse held the baby in until the surgical team could take her in for an emergency C-section. She whispered prayers, asking God to go where she could not. Then, she writes, \"He was here. Tiny. Fighting. Alive.\""
+							]
+						},
+						{
+							"h2": "The hour on Day 12",
+							"paras": [
+								"Chapter 4 begins with a gift. The lead physician asked whether she would like to hold him, and for the first time she did, with him resting on her chest. \"I felt my whole body exhale,\" she writes. She went home planning to spend the whole next day with him. She had no way to know, she writes, that \"it would be the only time I would ever hold him full of life.\" That evening came three calls from the hospital. Chapter 4 ends in the NICU, in her arms, with the beeps fading and the words \"Carter was gone.\""
+							]
+						},
+						{
+							"h2": "Two strands of hair",
+							"paras": [
+								"In Chapter 7, the author looks at a photograph and thinks that she should have kept a small piece of his hair. Days later, sitting in his room with his hospital blanket in her lap, she peels back a fold and finds \"two small pieces of his hair, intertwined, caught in the fabric.\" She does not claim to understand why a child died. She does write that \"He knows every hair on Carter's head\" and that God \"left a couple for his mom.\" It is one of the book's smallest and most tender chapters."
+							]
+						}
+					],
+					"author": {
+						"bio": "Meredith P. Nolasco is a wife, a mother and a coach who, with her husband, walks with people toward better health, helping them plan, prepare and build steady rhythms. Her faith in Jesus is personal, something she chose beyond the foundation she was raised in. In January 2026 her second son was born at twenty-seven weeks and lived for twelve days in the NICU. During those days she began writing to him, and those words grew into this book."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish this mother's telling of her son's life."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author asks the question herself in the first paragraph and answers it plainly: \"Because I have to.\" She says there is \"a weight to Carter's story that will not let me stay silent,\" and calls it \"a sacred urgency\" that does not lift until the words are out.",
+							"She says who the book is for and what it will not do. \"This book is simply a telling,\" she writes, \"Of our baby who lived.\" And her last sentence to the reader is the title: \"Hallelujah even here.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Hallelujah Even Here about?",
+							"a": "It is Meredith P. Nolasco's honest telling of her son Carter, born at twenty-seven weeks, who lived twelve days in the NICU, and of grief, faith and the hardest question: why a child? It is told in twenty-six short chapters with dated entries written to her son."
+						},
+						{
+							"q": "Is it a book about pregnancy and infant loss?",
+							"a": "Yes, in the sense that it follows one family through the birth and death of a baby who lived twelve days. The phrase pregnancy and infant loss does not appear in the interior, and the book does not claim to cover the subject broadly. The author also mentions an earlier miscarriage in one line. It is one mother's story, not a reference book."
+						},
+						{
+							"q": "Is it about a premature baby?",
+							"a": "Yes. The baby was born at twenty-seven weeks after a sudden emergency, spent twelve days in the NICU and died there. The word premature does not appear in the book. It speaks of twenty-seven weeks, the NICU, monitors and a two pound, six ounce baby."
+						},
+						{
+							"q": "Is it a guide on how to grieve?",
+							"a": "No. The Introduction says it is \"not a roadmap, or a list of steps.\" It offers companionship and does not tie itself up neatly: \"It's not a story that ties itself up neatly in the end.\""
+						},
+						{
+							"q": "What does the book say about surrender to God?",
+							"a": "She describes surrender as \"a posture. A choice,\" not giving up but \"loosening my grip.\" Looking back, she would tell her earlier self to \"Loosen your grip\" and to cling more to God's sovereignty than to statistics. She also writes that surrender \"doesn't feel like peace\" at first."
+						},
+						{
+							"q": "Does it speak to healing after loss?",
+							"a": "It does not promise a cure or a timeline. It describes a slow, uneven mercy: shock that shelters, sorrow that arrives later, joy and grief that \"stand side by side,\" and a purpose that grows quieter. The author writes that the hope she found \"doesn't erase sorrow or rush healing.\""
+						},
+						{
+							"q": "Is it for grieving parents, including fathers?",
+							"a": "Yes. The Introduction names mothers and fathers, and a chapter is given to what grief looks like inside a marriage. It is also written for anyone who has lost a child or loves someone who has."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-hallelujah-even-here.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"hallelujah-even-here-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893072761",
+					"isbn_display": "979-8-89307-276-1",
+					"list_cents": 1299,
+					"price_note": "12.99 (Doc: live; Doc proposal 15.99 not applied; sheet.json price 15.99)",
+					"price_flags": [],
+					"pages": 110,
+					"pages_note": "110",
+					"trim": "5.5 x 8.5 in",
+					"binding": "Perfect bound, matte laminate, creme paper",
+					"checkout_title": "Hallelujah Even Here — Paperback",
+					"checkout_name": "Hallelujah Even Here: A Place for Your Grief to Breathe",
+					"checkout_desc": "Paperback · 110 pages · by Meredith P. Nolasco · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "hallelujah-even-here",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/hallelujah-even-here/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Meredith P. Nolasco",
+					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
 			"slug": "the-pyramid-principle",
 			"units_12m": 105,
 			"book": {
@@ -1271,6 +1654,436 @@
 			}
 		},
 		{
+			"slug": "lead-at-a-higher-altitude",
+			"units_12m": 77,
+			"book": {
+				"slug": "lead-at-a-higher-altitude",
+				"status": "pending",
+				"title": "Lead at a Higher Altitude",
+				"subtitle": "7 Principles for Rising in Leadership, Learning, and Work",
+				"full_title": "Lead at a Higher Altitude: 7 Principles for Rising in Leadership, Learning, and Work",
+				"author": {
+					"name": "Ron Tredway"
+				},
+				"credits": null,
+				"page_title": "Lead at a Higher Altitude by Ron Tredway: Career Growth",
+				"h1": "Lead at a Higher Altitude",
+				"meta": "Lead at a Higher Altitude by Ron Tredway: seven principles for career development, leadership and learning, with the A-L-T-I-T-U-D-E model.",
+				"short": "Using a delayed, storm-tossed flight that still landed safely, Ron Tredway lays out seven principles for leaders and learners, from Attitude Affects Behavior to Learning Is Performance.",
+				"about": "A flight to Dallas left an hour late, ran into a storm, changed altitude and course, circled in a holding pattern and still landed safely. Ron Tredway uses it as a picture of a career and of leadership: the pilot owns the journey and brings everyone to the destination. In Lead at a Higher Altitude, altitude is not a title or position but a level of effectiveness, clarity and influence, never reached by accident. Seven principles each get a chapter on their meaning for performance, for leaders and for organizational and talent development professionals: Attitude Affects Behavior; Clarity of Direction Shapes Destiny; Reality Check Dispels Wrong Assumptions; Feedback Application on Gap Promotes Achievement; Competency Awareness Sparks Readiness; Leadership Is About Change and Learning; and Learning Is Performance. A simple A-L-T-I-T-U-D-E model runs through the principles. The book includes reflection prompts, Words of Wisdom from Solomon and other sages, an Integrated Practice summary, practical prayers and terms and definitions.",
+				"who_for": [
+					"Leaders and managers who want to rise in effectiveness, clarity and influence",
+					"Learning and talent development professionals",
+					"Christians in the workplace who want Scripture-based wisdom for career and leadership"
+				],
+				"who_for_status": "PROPOSED (no ranked For list; the Doc has an Audience row and description headings)",
+				"faq": [
+					{
+						"q": "What is Lead at a Higher Altitude about?",
+						"a": "It is a guide to seven principles for rising in leadership, learning and work, using a delayed, storm-tossed flight that still landed safely as the picture of a career. Altitude means effectiveness, clarity and influence."
+					},
+					{
+						"q": "What are the seven principles?",
+						"a": "Attitude Affects Behavior; Clarity of Direction Shapes Destiny; Reality Check Dispels Wrong Assumptions; Feedback Application on Gap Promotes Achievement; Competency Awareness Sparks Readiness; Leadership Is About Change and Learning; and Learning Is Performance."
+					},
+					{
+						"q": "Does it cover feedback and performance?",
+						"a": "Yes. Feedback and performance are major threads, including how to apply feedback on the gap between where you are and where you want to be."
+					},
+					{
+						"q": "Is it a Christian book?",
+						"a": "Yes. It includes Words of Wisdom from Solomon and other sages and practical prayers, and the author's stated purpose is to glorify his Creator through service. It is also written for talent development professionals."
+					},
+					{
+						"q": "Who is it for?",
+						"a": "Leaders, managers, educators, learners, and organizational and talent development professionals."
+					}
+				],
+				"bio": "Ron Tredway's passion is helping individuals and organizations improve their performance. He lives out his calling in the workplace through building relationships, guiding others through instruction and conveying insight through coaching. His purpose is to glorify his Creator by using his talents in service to others while continuously learning. He holds career discussions with both students and leaders and has supported leadership teams and observed leaders in training programs firsthand.",
+				"jsonld": {
+					"book": {
+						"name": "Lead at a Higher Altitude",
+						"alternativeHeadline": "7 Principles for Rising in Leadership, Learning, and Work",
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893072679; eBook 9798893072686",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 114,
+						"datePublished": null,
+						"audience": "Adult leaders, managers, educators and learners",
+						"about": [
+							"career development",
+							"leadership",
+							"learning and performance",
+							"talent development"
+						],
+						"sameAs": ["https://www.amazon.com/dp/B0H5G34CKN"],
+						"@id": "https://spiritmediapublishing.com/books/lead-at-a-higher-altitude/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Ron Tredway",
+						"description": "Ron Tredway's passion is helping individuals and organizations improve their performance. He lives out his calling in the workplace through building relationships, guiding others through instruction and conveying insight through coaching.",
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/lead-at-a-higher-altitude/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Lead at a Higher Altitude about?",
+							"a": "It is a guide to seven principles for rising in leadership, learning and work, using a delayed, storm-tossed flight that still landed safely as the picture of a career. Altitude means effectiveness, clarity and influence."
+						},
+						{
+							"q": "What are the seven principles?",
+							"a": "Attitude Affects Behavior; Clarity of Direction Shapes Destiny; Reality Check Dispels Wrong Assumptions; Feedback Application on Gap Promotes Achievement; Competency Awareness Sparks Readiness; Leadership Is About Change and Learning; and Learning Is Performance."
+						},
+						{
+							"q": "Does it cover feedback and performance?",
+							"a": "Yes. Feedback and performance are major threads, including how to apply feedback on the gap between where you are and where you want to be."
+						},
+						{
+							"q": "Is it a Christian book?",
+							"a": "Yes. It includes Words of Wisdom from Solomon and other sages and practical prayers, and the author's stated purpose is to glorify his Creator through service. It is also written for talent development professionals."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Leaders, managers, educators, learners, and organizational and talent development professionals."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Lead at a Higher Altitude"
+				},
+				"internal_links": ["/bookstore/", "SOAR To Success (this batch, a productivity title)"],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/lead-at-a-higher-altitude-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["lead-at-a-higher-altitude-pb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026912262",
+				"pub_date": null,
+				"lead_term": {
+					"term": "career development",
+					"volume": 4400
+				},
+				"target_queries": [
+					{
+						"term": "career development",
+						"volume": 4400,
+						"role": "LEAD (Y, borderline: 'a picture of a career and of leadership'; career 24 mentions; the exact phrase is absent)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "managing change",
+						"volume": 12100,
+						"role": "BESIDE, bigger than the lead: principle six, Leadership Is About Change and Learning (change 105 mentions, exact phrase 3)",
+						"interior_mentions": 3
+					},
+					{
+						"term": "360 degree feedback",
+						"volume": 3600,
+						"role": "BESIDE: the feedback principle (feedback 93 mentions; the exact phrase 0)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "organizational development",
+						"volume": 2400,
+						"role": "BESIDE: the Doc names organizational development professionals (1 mention)",
+						"interior_mentions": 2
+					},
+					{
+						"term": "leading change",
+						"volume": 1300,
+						"role": "BESIDE: principle six (5 mentions)",
+						"interior_mentions": 5
+					},
+					{
+						"term": "employee development",
+						"volume": 1300,
+						"role": "BESIDE: the Doc names talent development professionals",
+						"interior_mentions": 0
+					},
+					{
+						"term": "talent development",
+						"volume": 1000,
+						"role": "BESIDE: 3 mentions",
+						"interior_mentions": 3
+					},
+					{
+						"term": "workplace performance",
+						"volume": 720,
+						"role": "BESIDE: performance 222 mentions (3 exact)",
+						"interior_mentions": 3
+					},
+					{
+						"term": "how to be a better leader",
+						"volume": 390,
+						"role": "BESIDE: the whole book for leaders (leader 196 mentions)",
+						"interior_mentions": 0
+					}
+				],
+				"beside_larger_than_lead": [
+					{
+						"term": "managing change",
+						"volume": 12100
+					}
+				],
+				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
+				"url": "https://spiritmediapublishing.com/books/lead-at-a-higher-altitude/",
+				"buy_url": "https://spiritmediapublishing.com/books/lead-at-a-higher-altitude/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#lead-at-a-higher-altitude (draft unit 3fn); sources: Drive metadata Doc 1yKidyTJSW-kkKMjV6j5_5zk22okaPXaMG2Yl4qIxHdY (Lead at a Higher Altitude — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-06-15, Amazon June 15, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 14.99 USD, eBook 4.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.url": "https://www.amazon.com/Ron-Tredway/e/B0H7612V25 (Author Central, as sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For leaders and managers",
+							"paras": [
+								"The book asks leaders to look at what they are modeling. In one story the author is asked to help with a performance matter in a large nursing group and finds two differences between top and bottom performers: expectations were conveyed differently, and the people who asked clarifying questions were rated higher. His conclusion is blunt: \"You can't correct what you won't confront.\""
+							]
+						},
+						{
+							"h2": "For learning and talent development professionals",
+							"paras": [
+								"The author says the book looks at each principle for its \"implications for organizational and talent development professionals seeking to foster effective, heightened performance.\" It treats the classroom and the workplace as one learning space, recommends feedback rubrics for written work and projects, and ends with supplemental insights on basic techniques for managing change."
+							]
+						},
+						{
+							"h2": "For people early in a career or planning the next step",
+							"paras": [
+								"The author holds career discussions with students and leaders and says he often relates the flight to career planning: preparing for the expected and the unexpected, adapting when delays come, acknowledging a holding pattern and celebrating a safe landing. A section on what the book calls the gap, the distance between expectation and reality, gives a practical way to ask for feedback and use it."
+							]
+						},
+						{
+							"h2": "For Christians who want faith at work",
+							"paras": [
+								"Scripture and prayer are part of the method. Short lines from Proverbs sit inside the chapters, and the back of the book gives a prayer for the leader, one for the performer and one for the instructor. The Foreword names the purpose behind it: \"to glorify my divine Creator by using my talents in service to others.\""
+							]
+						}
+					],
+					"audience": {
+						"headline": "A delayed, storm-tossed flight that still landed safely, and seven principles for rising in leadership, learning and work.",
+						"body": "For leaders and managers who want to rise in effectiveness, clarity and influence, for learning and talent development professionals, and for Christians in the workplace who want Scripture-based wisdom for career and leadership. Dr. Ron Tredway draws on more than forty years in leadership roles to treat altitude not as a title but as a level of effectiveness. Seven principles each get a chapter, a short set of questions to ponder, and a line of wisdom from Solomon and other sages. A note on what this is: a professional-development book written from a Christian worldview, with Scripture, practical prayers and a stated purpose of glorifying the Creator through service. It draws on the author's own workplace and classroom experience and on published leadership research. It is not human resources, legal or employment advice, and the people in its stories are described without names.",
+						"quote": {
+							"text": "Think of altitude not as a title or position, but as a level of effectiveness, clarity, and influence.",
+							"cite": "from the Foreword"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for leaders who want to rise",
+						"paras": [
+							"The book starts in a seat on a plane. A flight to Dallas left an hour late, met rough weather, changed altitude and course, waited in a holding pattern near the airport and still landed safely at the planned destination. The author uses that flight as a picture of a career and of leading others: someone owns the flight, adjusts as conditions change and brings people to the destination.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"One image runs through the whole book. Preparation, ascent, turbulence, course corrections, cruising altitude and landing are used to describe how performance works.",
+							"It treats learning and work as one thing. The seventh principle says it directly: learning is performance.",
+							"Each principle has a real scene behind it, from a training room, a nursing department, a team of technical writers, an aviation company and an MBA classroom.",
+							"It is built for use. Boxed questions to ponder appear throughout, and the later sections carry an Integrated Practice summary, practical prayers, terms and definitions and the Words of Wisdom in one place.",
+							"It speaks to more than managers. The Foreword says leaders at every stage, formal or informal, in the workplace, classroom, ministry or community, can use it."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The Foreword begins like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"My passion is for helping individuals and organizations improve their performance."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The Introduction to the 7 Principles begins like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"As I boarded a flight to Dallas, I was relieved to finally be boarding after a 1-hour delay due to some technical difficulty."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The first set of questions in the book reads like this:"
+							},
+							{
+								"type": "quote",
+								"paras": ["How do you typically respond when plans change mid-journey?"]
+							},
+							{
+								"type": "quote",
+								"paras": ["Do delays frustrate you, or prompt adjustment and reflection?"]
+							},
+							{
+								"type": "p",
+								"text": "The author sets out a model for what he calls altitudinal performance, spelled out by the letters of the word altitude. Its eight parts are:"
+							},
+							{
+								"type": "p",
+								"text": "1. \"Advance the Attitude\"\n2. \"Leverage your moments\"\n3. \"Take time for clarity of direction\"\n4. \"Insist on periodic reality checks\"\n5. \"Thank those who provide meaningful feedback\"\n6. \"Understand the link between learning and work\"\n7. \"Develop the needed competencies\"\n8. \"Engage in practical practice\""
+							},
+							{
+								"type": "p",
+								"text": "The seven principles are:"
+							},
+							{
+								"type": "p",
+								"text": "1. Attitude Affects Behavior\n2. Clarity of Direction Shapes Destiny\n3. Reality Check Dispels Wrong Assumptions\n4. Feedback Application on Gap Promotes Achievement\n5. Competency Awareness Sparks Readiness\n6. Leadership Is About Change and Learning\n7. Learning Is Performance"
+							}
+						],
+						"intro": ["The Foreword begins like this:"],
+						"excerpt": [
+							"My passion is for helping individuals and organizations improve their performance.",
+							"As I boarded a flight to Dallas, I was relieved to finally be boarding after a 1-hour delay due to some technical difficulty.",
+							"How do you typically respond when plans change mid-journey?",
+							"Do delays frustrate you, or prompt adjustment and reflection?"
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A Foreword and an Introduction to the 7 Principles",
+						"Seven chapters, one for each principle, each opening with an epigraph and a list of themes",
+						"Questions to ponder and prompts to reflect, boxed throughout",
+						"Words of Wisdom from Proverbs, 1 Corinthians and Micah, summarized in the appendix",
+						"An Integrated Practice summary",
+						"Three practical prayers, one each for a leader, a performer and an instructor",
+						"Terms and definitions, references, supplemental insights on techniques for managing change and on habits to practice",
+						"Paperback of 114 pages, with an eBook edition and a free downloadable PDF"
+					],
+					"details": {
+						"Title": "Lead at a Higher Altitude",
+						"Subtitle": "7 Principles for Rising in Leadership, Learning, and Work",
+						"Author": "Ron Tredway",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "114 (paperback)",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound, matte laminate), black and white interior",
+						"Paperback ISBN": "979-8-89307-267-9",
+						"eBook ISBN": "979-8-89307-268-6",
+						"Library of Congress Control Number": "2026912262"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The flight to Dallas",
+							"paras": [
+								"The book's opening scene is a one-hour delay, a rough ride at 30,000 feet, a change of altitude, a slight change of course and a holding pattern near the destination. \"Yes, our flight was delayed from the original plan. Yet we arrived safely at the intended destination.\" The author asks what success looks like when the path is altered but the destination stays intact."
+							]
+						},
+						{
+							"h2": "A reality check",
+							"paras": [
+								"Principle 3 tells of a manager who inherited a team of technical writers. A senior member had been passed between departments with a reputation as a mediocre performer, yet believed himself a top performer. Reviewing the facts, the author found that he had a lot of knowledge and commitment but was working from assumptions, not reality. After an honest conversation he committed to clarify expectations. A year later he was seen by peer managers as one of the strongest performers in the organization. The author's reading is that \"he took time to listen to the reality check and do something meaningful with it.\""
+							]
+						},
+						{
+							"h2": "The captain who sang",
+							"paras": [
+								"In Principle 7 the author remembers a flight into John Wayne Airport. Power is reduced on descent, and the quiet can feel eerie. This time the captain sang, which changed the mood. Asked why, the captain said: \"I do it in the flight simulator, why not do it when it really matters.\" The author takes it as a reminder of how what we do in the learning space carries over to the workplace."
+							]
+						}
+					],
+					"author": {
+						"bio": "Ron Tredway's passion is helping individuals and organizations improve their performance. He lives out his calling in the workplace through building relationships, guiding others through instruction and conveying insight through coaching. His purpose is to glorify his Creator by using his talents in service to others while continuously learning. He holds career discussions with both students and leaders and has supported leadership teams and observed leaders in training programs firsthand."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Dr. Tredway's principles for leadership, learning and work."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author says the desire behind writing it \"is simple, yet weighty: to help others gain a clearer understanding and a more practical application of the joy of learning and peak performance as they pursue their purpose, calling, and passion as leaders.\"",
+							"His hope for the reader is \"not only gain insight but also conviction, conviction to learn intentionally, perform faithfully, and lead humbly.\" And the sentence he would have you carry from the Foreword is: \"Altitude is not achieved by accident.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Lead at a Higher Altitude about?",
+							"a": "It is a guide to seven principles for rising in leadership, learning and work, using a delayed, storm-tossed flight that still landed safely as the picture of a career. Altitude means effectiveness, clarity and influence."
+						},
+						{
+							"q": "What are the seven principles?",
+							"a": "Attitude Affects Behavior; Clarity of Direction Shapes Destiny; Reality Check Dispels Wrong Assumptions; Feedback Application on Gap Promotes Achievement; Competency Awareness Sparks Readiness; Leadership Is About Change and Learning; and Learning Is Performance."
+						},
+						{
+							"q": "Is it a book about career development?",
+							"a": "It is about a career in the sense that the author uses it throughout, from career planning conversations with students and leaders to how learning shapes opportunity. The exact phrase career development does not appear in the interior, and the book is not a job-search guide. It is a leadership and performance book that treats a career as a flight to be prepared for and flown."
+						},
+						{
+							"q": "Does it cover managing change and leading change?",
+							"a": "Yes. Principle 6, Leadership Is About Change and Learning, covers orchestrating change, sharing the horizon, thinking about change and leading change and learning. It says the key tasks include \"reducing resistance, communicating vision, building coalitions, and embedding change into the culture.\" A supplemental section lists basic techniques for managing change."
+						},
+						{
+							"q": "Does it cover 360 degree feedback?",
+							"a": "Principle 4 describes a 360-degree feedback process used in a leadership development program for succession planning, and what mattered most was how the feedback was perceived and how it was turned into action. It is a principle about using feedback to close a gap, not a manual for running a feedback survey."
+						},
+						{
+							"q": "Is it for talent development and organizational development professionals?",
+							"a": "Yes, among others. The Introduction says each principle is looked at for \"organizational and talent development professionals.\" The author's background includes leadership and organizational development roles. The phrase employee development does not appear, and the book speaks of learners, performers and leaders."
+						},
+						{
+							"q": "Does it say anything about workplace performance and how to be a better leader?",
+							"a": "Both are the subject. Performance is \"the deliverance of effort and output toward the expectations and goals for success.\" It gives leaders seven practices and a model rather than a checklist, and asks them to model learning: \"leaders model learning behaviors.\""
+						},
+						{
+							"q": "Is it a Christian book?",
+							"a": "Yes. It includes Words of Wisdom from Solomon and other sages and practical prayers, and the author's stated purpose is to glorify his Creator through service. It is also written to be useful to leaders of any background."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-lead-at-a-higher-altitude.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"lead-at-a-higher-altitude-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893072679",
+					"isbn_display": "979-8-89307-267-9",
+					"list_cents": 1499,
+					"price_note": "14.99 (Doc: live, kept)",
+					"price_flags": [],
+					"pages": 114,
+					"pages_note": "114 (Doc and Amazon page agree)",
+					"trim": "6.0 x 9.0 in (Doc)",
+					"binding": "Perfect bound",
+					"checkout_title": "Lead at a Higher Altitude — Paperback",
+					"checkout_name": "Lead at a Higher Altitude: 7 Principles for Rising in Leadership, Learning, and Work",
+					"checkout_desc": "Paperback · 114 pages · by Ron Tredway · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "lead-at-a-higher-altitude",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/lead-at-a-higher-altitude/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Ron Tredway",
+					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
 			"slug": "invisible-wounds",
 			"units_12m": 68,
 			"book": {
@@ -1660,6 +2473,851 @@
 					"royalty_hold": false,
 					"author_key": "John Boyle",
 					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "soar-to-success",
+			"units_12m": 63,
+			"book": {
+				"slug": "soar-to-success",
+				"status": "pending",
+				"title": "SOAR To Success",
+				"subtitle": "Mastering the ART of Organizing Information to Finally Get Things Done",
+				"full_title": "SOAR To Success: Mastering the ART of Organizing Information to Finally Get Things Done",
+				"author": {
+					"name": "Andrea Anderson with Barbara Hemphill"
+				},
+				"credits": null,
+				"page_title": "SOAR To Success by Andrea Anderson: Filing System",
+				"h1": "SOAR To Success",
+				"meta": "SOAR To Success by Andrea Anderson with Barbara Hemphill: a keyword-driven filing system for paper and digital files, like Google for your cabinet.",
+				"short": "Andrea Anderson and Barbara Hemphill share the Productive Environment Finding SYSTEM, a keyword-driven File Index that works like Google for your filing cabinet, in ten short chapters with client snapshots.",
+				"about": "Your desk has piles of paper, your inbox is overflowing and your hard drive looks like a digital junk drawer. You have tried systems before, but none lasted. Andrea Anderson, CEO of the Productive Environment Institute, and Barbara Hemphill, author of Taming the Paper Tiger, explain that clutter is postponed decisions and that most people do not mind filing, they mind not being able to find what they filed. The Productive Environment Finding SYSTEM is a keyword-driven File Index: paper files are numbered and indexed so anyone can retrieve them in seconds, and digital files use a simple alphabetical structure that makes the most of built-in search. Ten short chapters cover Foundation, Equip (the Magic 7 tools), Flow, Act and File (Action and Reference Files), Process and Plan, and Connect, Systemize and Sustain, with real client snapshots. The book teaches methodology, mechanics and habits so you choose tools that fit your life.",
+				"who_for": [
+					"Professionals, business owners and retirees buried in paper, email and digital files",
+					"People who have tried organizing systems that did not last",
+					"Anyone who wants to find what they filed in seconds, not minutes"
+				],
+				"who_for_status": "PROPOSED (no ranked For list; the Doc has an Audience row and description headings)",
+				"faq": [
+					{
+						"q": "What is SOAR To Success about?",
+						"a": "It is a guide to the Productive Environment Finding SYSTEM, a keyword-driven filing system with a File Index for paper and digital files, written by Andrea Anderson with Barbara Hemphill in ten short chapters."
+					},
+					{
+						"q": "How does the filing system work?",
+						"a": "Paper files are numbered and indexed with keywords in a File Index so anyone can retrieve them in seconds; digital files use a simple alphabetical structure that makes the most of built-in search."
+					},
+					{
+						"q": "Does it help with email and paper piles?",
+						"a": "Yes. The book describes overflowing inboxes and stacks of paper, and the chapters on Flow, Act and File and on Process and Plan turn stacks and inboxes into decisions."
+					},
+					{
+						"q": "What is the Magic 7?",
+						"a": "The seven essential tools to have in place before you organize anything, covered in the Equip chapter."
+					},
+					{
+						"q": "Is it a time management book?",
+						"a": "It is classed under time management, and the book covers planning your time into intention, but its core is the filing system."
+					}
+				],
+				"bio": "Andrea Anderson is CEO of the Productive Environment Institute. She began her career as a teacher, and her experience in education and mental health gave her deep compassion for people who feel overwhelmed. While working for a family preservation agency in 2005 she discovered Barbara Hemphill's numerical filing system, and within a year she joined Barbara's team, left her job and launched her own organizing business.",
+				"jsonld": {
+					"book": {
+						"name": "SOAR To Success",
+						"alternativeHeadline": "Mastering the ART of Organizing Information to Finally Get Things Done",
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893072075; eBook 9798893072099",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 88,
+						"datePublished": null,
+						"audience": "Adult professionals, business owners and retirees",
+						"about": ["filing system", "organizing paperwork", "productivity", "paper clutter"],
+						"sameAs": ["https://www.amazon.com/dp/B0GHF42WT8"],
+						"@id": "https://spiritmediapublishing.com/books/soar-to-success/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Andrea Anderson with Barbara Hemphill",
+						"description": "Andrea Anderson is CEO of the Productive Environment Institute. She began her career as a teacher, and her experience in education and mental health gave her deep compassion for people who feel overwhelmed.",
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/soar-to-success/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is SOAR To Success about?",
+							"a": "It is a guide to the Productive Environment Finding SYSTEM, a keyword-driven filing system with a File Index for paper and digital files, written by Andrea Anderson with Barbara Hemphill in ten short chapters."
+						},
+						{
+							"q": "How does the filing system work?",
+							"a": "Paper files are numbered and indexed with keywords in a File Index so anyone can retrieve them in seconds; digital files use a simple alphabetical structure that makes the most of built-in search."
+						},
+						{
+							"q": "Does it help with email and paper piles?",
+							"a": "Yes. The book describes overflowing inboxes and stacks of paper, and the chapters on Flow, Act and File and on Process and Plan turn stacks and inboxes into decisions."
+						},
+						{
+							"q": "What is the Magic 7?",
+							"a": "The seven essential tools to have in place before you organize anything, covered in the Equip chapter."
+						},
+						{
+							"q": "Is it a time management book?",
+							"a": "It is classed under time management, and the book covers planning your time into intention, but its core is the filing system."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > SOAR To Success"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"Lead at a Higher Altitude (this batch, a work and performance title)"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/soar-to-success-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["soar-to-success-pb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026900275",
+				"pub_date": null,
+				"lead_term": {
+					"term": "filing system",
+					"volume": 2900
+				},
+				"target_queries": [
+					{
+						"term": "filing system",
+						"volume": 2900,
+						"role": "LEAD (Y: the Productive Environment Finding SYSTEM and its File Index are the whole book; filing 32, file index 24 mentions)",
+						"interior_mentions": 8
+					},
+					{
+						"term": "email inbox",
+						"volume": 18100,
+						"role": "BESIDE, bigger than the lead: processing inboxes is one chapter theme (16 mentions of inbox)",
+						"interior_mentions": 1
+					},
+					{
+						"term": "decision fatigue",
+						"volume": 8100,
+						"role": "BESIDE, bigger than the lead, weak: 'clutter is postponed decisions' (3 mentions)",
+						"interior_mentions": 3
+					},
+					{
+						"term": "time management skills",
+						"volume": 4400,
+						"role": "BESIDE, bigger than the lead: the Amazon category and the Process and Plan chapter (0 exact)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "daily planning",
+						"volume": 4400,
+						"role": "BESIDE, bigger than the lead, weak: planning your time into intention (0 exact)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "productivity system",
+						"volume": 720,
+						"role": "BESIDE, smaller: the 3fh auto lead (system 141 mentions)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "get organized",
+						"volume": 720,
+						"role": "BESIDE, smaller: 2 mentions",
+						"interior_mentions": 2
+					},
+					{
+						"term": "paper filing system",
+						"volume": 140,
+						"role": "BESIDE, smaller: paper files numbered and indexed",
+						"interior_mentions": 0
+					},
+					{
+						"term": "digital clutter",
+						"volume": 110,
+						"role": "BESIDE, smaller: digital files (4 mentions)",
+						"interior_mentions": 4
+					}
+				],
+				"beside_larger_than_lead": [
+					{
+						"term": "email inbox",
+						"volume": 18100
+					},
+					{
+						"term": "decision fatigue",
+						"volume": 8100
+					},
+					{
+						"term": "time management skills",
+						"volume": 4400
+					},
+					{
+						"term": "daily planning",
+						"volume": 4400
+					}
+				],
+				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
+				"url": "https://spiritmediapublishing.com/books/soar-to-success/",
+				"buy_url": "https://spiritmediapublishing.com/books/soar-to-success/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#soar-to-success (draft unit 3fn); sources: Drive metadata Doc 1S_aFlSVMqEdmFAx82oWWtEjMCC5HoP2cKur-kskNEto (SOAR To Success — Metadata (2026-10-14)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-01-16, Amazon January 16, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 9.99 USD, eBook 4.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.url": "https://www.amazon.com/Andrea-Anderson/e/B0GT7FXW84 (Author Central, as sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For people buried in paper",
+							"paras": [
+								"Chapter 3 starts the clearing with a First Sort: make three piles, pick up one item at a time, and ask what it requires from you. The book says clients often find that \"50% or more of their piles go straight to Toss, they just never stopped to decide.\" A bill you have not paid is an Action, a child's report card is a Reference, and an expired flyer is a Toss."
+							]
+						},
+						{
+							"h2": "For anyone whose inbox is overflowing",
+							"paras": [
+								"Chapter 6 applies the same three choices to email, and it takes a firm line on one popular habit: \"We no longer recommend the popular 2-minute rule,\" because it can fill a session with minor tasks and leave your most important work untouched. The chapter's advice for old mail is gentle: \"Today's Mail is tomorrow's pile.\" You do not have to clean up the past, only start organizing for the future."
+							]
+						},
+						{
+							"h2": "For people who have tried systems that did not last",
+							"paras": [
+								"The authors list what helps a system last: \"A system you trust,\" \"A simple rhythm\" and \"Support when you drift.\" The last chapter says a sustainable system \"doesn't prevent that\" change in life and priorities. It \"supports you through it.\""
+							]
+						},
+						{
+							"h2": "For retirees and caregivers managing family affairs",
+							"paras": [
+								"The Introduction speaks to readers who are retired but managing their own affairs and, increasingly, the affairs of an aging parent. The File Index is described as useful for more than paper: it works for storage, memorabilia, binders and client papers too."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Find anything you file in seconds, on paper or on your computer.",
+						"body": "For professionals, business owners and retirees whose desks hold piles of paper, whose inboxes are overflowing and whose hard drives look like a digital junk drawer, and who have tried systems that did not last. Andrea Anderson, CEO of the Productive Environment Institute, writes with Barbara Hemphill, author of Taming the Paper Tiger, in ten short chapters built around a keyword-driven File Index that works like Google for your filing cabinet.",
+						"quote": {
+							"text": "Clutter is postponed decisions.",
+							"cite": "Barbara Hemphill, in the Foreword"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for people who want a filing system that lasts",
+						"paras": [
+							"Most organizing advice tells you where to put things. This book is about finding them again. The authors put it plainly: \"most people don't mind filing, they mind not being able to find what they filed.\" The answer they teach is a numbered, keyword-indexed filing system that anyone, even a family member or team assistant, can use to retrieve a paper in moments.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It was born from a real frustration. Andrea Anderson was organizing a boss's office, and each time the work looked neat but nothing could be found. She typed \"filing system\" into Google, and the first result was Barbara Hemphill.",
+							"It is keyword-driven. You label a folder with a number, then record keywords in one File Index, so a search for a word such as Honda or mechanic tells you which numbered folder holds the papers.",
+							"It covers paper and digital in one way of thinking. Paper gets numbers, because \"the drawers don't have search bars.\" Digital files get a simple alphabetical folder structure, because search is built in.",
+							"It runs on one decision tool. Every item is an Action, a Reference or a Toss, a method the book calls the ART of Organizing Information.",
+							"It is honest about time. The introduction says \"Will this work overnight? No.\" and promises change through intention and practice."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The Introduction opens with the author's first meeting with Barbara Hemphill:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"When I first met Barbara Hemphill in 2005, I had no idea how much that connection would shape the rest of my life."
+								]
+							},
+							{
+								"type": "p",
+								"text": "It describes who the book is for, the reader as \"bright, capable, and hardworking,\" then names the problem: \"your inbox is overflowing, and your hard drive looks like a digital junk drawer.\""
+							},
+							{
+								"type": "p",
+								"text": "And it states the plan in three levels:"
+							},
+							{
+								"type": "p",
+								"text": "1. Methodology: understanding the big picture so you choose tools and processes that fit your life\n2. Mechanics: step-by-step strategies to create a repeatable SYSTEM, short for Saving You Space, Time, Energy, and Money\n3. Maintenance: building habits and support structures that keep the system going"
+							},
+							{
+								"type": "p",
+								"text": "The ten chapters are:"
+							},
+							{
+								"type": "p",
+								"text": "1. Foundation\n2. Equip\n3. Flow\n4. Act\n5. File\n6. Process\n7. Plan\n8. Connect\n9. Systemize\n10. Sustain"
+							}
+						],
+						"intro": [
+							"The Introduction opens with the author's first meeting with Barbara Hemphill:"
+						],
+						"excerpt": [
+							"When I first met Barbara Hemphill in 2005, I had no idea how much that connection would shape the rest of my life."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A Foreword by Barbara Hemphill and an Introduction by Andrea Anderson",
+						"Reader testimonials near the front, including a professional organizer of more than forty years who says the system gives you \"back your peace of mind\"",
+						"The File Index, explained for physical files and for digital files",
+						"The Magic 7, the seven tools to put in place before you organize anything",
+						"The ART of Organizing Paper, Email and Digital Information",
+						"Three ways to organize Action items: by date, by type and by project",
+						"Client snapshots in most chapters, each a short story with a quoted result",
+						"A closing chapter on keeping the system going, with a workshop named as the next step",
+						"Paperback, 88 pages, with an eBook edition"
+					],
+					"details": {
+						"Title": "SOAR To Success",
+						"Subtitle": "Mastering the ART of Organizing Information to Finally Get Things Done",
+						"Authors": "Andrea Anderson with Barbara Hemphill",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "88 (paperback)",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback, perfect bound",
+						"Paperback ISBN": "979-8-89307-207-5",
+						"eBook ISBN": "979-8-89307-209-9",
+						"Library of Congress Control Number": "2026900275"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "A boss who could not find anything",
+							"paras": [
+								"In the Introduction, Andrea Anderson was working for a family preservation agency and spending days, even weeks, putting a busy boss's papers in order. Everything looked neat when she left. The boss would return from a trip and say \"it looks great, but I can't find anything.\" After one more failed attempt she sat at the desk in tears and prayed, \"God, there has got to be a better way!\" Moments later she typed \"filing system\" into Google. The first result was Barbara Hemphill, and Barbara's numerical finding system, supported by a simple index, gave \"every piece of paper\" a clear place to go and \"a reliable way to find it again.\""
+							]
+						},
+						{
+							"h2": "Car, Honda or Vehicle?",
+							"paras": [
+								"Chapter 1 tells how the File Index began. In 1978 Barbara Hemphill was using alphabetical folders, and they worked \"until it didn't.\" One person labeled a file Car while the spouse looked under Honda or Vehicle. She began writing file names on a yellow legal pad so others could see what existed, and that became her first File Index. The book compares it this way: \"A File Index is to filing what a Chart of Accounts is to accounting.\""
+							]
+						},
+						{
+							"h2": "Anne's six drawers",
+							"paras": [
+								"Anne, a retired educator, came with six drawers of paper from two homes and no clear system. Once her Reference files had numbers and keywords such as insurance, Blue Cross and auto policy, she said \"I've had these files for 20 years and could never find what I needed. Now I can find it in seconds.\" She printed her File Index for the front of the drawer and kept a digital copy that is searchable on her phone."
+							]
+						}
+					],
+					"author": {
+						"bio": "Andrea Anderson is CEO of the Productive Environment Institute. She began her career as a teacher, and her experience in education and mental health gave her deep compassion for people who feel overwhelmed. While working for a family preservation agency in 2005 she discovered Barbara Hemphill's numerical filing system, and within a year she joined Barbara's team, left her job and launched her own organizing business. Barbara Hemphill is the author of Taming the Paper Tiger and the founder of the Productive Environment Institute, and she wrote the Foreword to this book."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish this guide to finding what you file."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"Andrea Anderson says the book exists \"to offer you a way forward. To honor Barbara's legacy.\" She wants the reader to feel hopeful: \"You can accomplish your work and enjoy your life.\" The book is also an invitation into a community, because the authors believe \"Together, We Are Better!\"",
+							"Barbara Hemphill adds one thing she wants a reader to keep: \"If you remember only one truth from this book, let it be this: Clutter is postponed decisions.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is SOAR To Success about?",
+							"a": "It is a guide to the Productive Environment Finding SYSTEM, a keyword-driven filing system with a File Index for paper and digital files, written by Andrea Anderson with Barbara Hemphill in ten short chapters."
+						},
+						{
+							"q": "How does the filing system work?",
+							"a": "Paper folders are labeled with numbers, such as Ref 1 and Ref 2, and each number is logged in a File Index with keywords. Searching the index for a word like Honda or mechanic shows which numbered folder holds the paper. For digital files the book recommends a simple alphabetical folder structure, because search is built in."
+						},
+						{
+							"q": "Is there a way to deal with a flooded email inbox?",
+							"a": "Yes. Chapter 6 teaches the ART of Organizing Email, where every message is an Action, a Reference or a Toss. It suggests triaging email by priority, and it offers the line \"Today's Mail is tomorrow's pile.\" It does not promise inbox zero."
+						},
+						{
+							"q": "What does clutter is postponed decisions mean?",
+							"a": "It is Barbara Hemphill's phrase, and the book repeats it in the Foreword and in Chapter 3: clutter is not caused by having too much information, it comes from decisions not yet made. The chapter on digital clutter applies it to unread mail and unsorted files too."
+						},
+						{
+							"q": "What is the Magic 7?",
+							"a": "The seven tools the book says to have in place before you organize anything: in, out and file trays; a toss, recycle and shred setup; a calendar or planner; a contact manager; an Action system; a Reference system; and an integrated task manager, which the book names the SOAR Board."
+						},
+						{
+							"q": "Is it a book about daily planning and time management?",
+							"a": "Part of it is. Chapter 7 teaches planning your day, week and month, and it says the breakthrough \"comes from learning how to spend the time you already have.\" Its core, though, is the filing and decision system."
+						},
+						{
+							"q": "Does the book depend on buying something else?",
+							"a": "The method is taught in the book, and the authors say you can use paper, a computer or both. The book also names its own digital tool, a CRM and a workshop that readers can choose for extra support."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-soar-to-success.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"soar-to-success-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893072075",
+					"isbn_display": "979-8-89307-207-5",
+					"list_cents": 999,
+					"price_note": "9.99 (Doc: live, kept; proposal 12.99)",
+					"price_flags": [],
+					"pages": 88,
+					"pages_note": "88 (Doc and Amazon page agree)",
+					"trim": "6.0 x 9.0 in (Doc)",
+					"binding": "Perfect bound",
+					"checkout_title": "SOAR To Success — Paperback",
+					"checkout_name": "SOAR To Success: Mastering the ART of Organizing Information to Finally Get Things Done",
+					"checkout_desc": "Paperback · 88 pages · by Andrea Anderson with Barbara Hemphill · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "soar-to-success",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/soar-to-success/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Andrea Anderson with Barbara Hemphill",
+					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "missed-you-sleeping",
+			"units_12m": 45,
+			"book": {
+				"slug": "missed-you-sleeping",
+				"status": "pending",
+				"title": "I Missed You While You Were Sleeping",
+				"subtitle": "(no subtitle)",
+				"full_title": "I Missed You While You Were Sleeping: (no subtitle)",
+				"author": {
+					"name": "Dana House"
+				},
+				"credits": null,
+				"page_title": "I Missed You While You Were Sleeping by Dana House",
+				"h1": "I Missed You While You Were Sleeping",
+				"meta": "I Missed You While You Were Sleeping by Dana House: a mother tells her son in gentle rhyme of a promised baby, answered prayer and a frightening night.",
+				"short": "In gentle rhyming verse a mother tells her son about every flutter and kick, every quiet nap in her arms and the frightening night his tiny heart needed help, a read-aloud about being wanted, prayed for and loved.",
+				"about": "One morning before church, a stranger looked a praying mother in the eyes and declared, \"Your baby is on the way!\" Years later the promised gift from God arrived: a precious baby boy she could not bear to put down. In gentle rhyming verse she tells her son about the first flutters of movement, two proud parents with their hands on her belly, and the old saying that holding a baby too much will spoil him, which her own mama taught her was not true. A recurring refrain, I missed you while you were sleeping, reassures every little one. On the twenty-first day of his life doctors found his heart was enlarged and the family hurried to Children's Hospital, where the word spoken to her years before became a source of strength. It is a true-to-life story told by a mother directly to her son and a gentle way to talk with children about answered prayer, waiting and trusting God in hard times.",
+				"who_for": [
+					"Parents who want a gentle rhyming read-aloud about a mother's love for her son",
+					"Families who have waited and prayed for a child",
+					"Parents of babies who spent time in a children's hospital and want a hopeful, faith-filled story"
+				],
+				"who_for_status": "PROPOSED (no ranked For list; the Doc has an Audience row and description headings)",
+				"faq": [
+					{
+						"q": "What is I Missed You While You Were Sleeping about?",
+						"a": "It is a rhyming picture book in which a mother tells her son about waiting for him, holding him close and the frightening night his tiny heart needed help, with a refrain every child can treasure: I missed you while you were sleeping."
+					},
+					{
+						"q": "Is it a true story?",
+						"a": "Yes. It is a true-to-life story told by a mother directly to her son, drawn from the author's own family."
+					},
+					{
+						"q": "Does it talk about prayer?",
+						"a": "Yes. It opens with a stranger's promise to a praying mother, and it is a gentle way to talk with children about answered prayer, waiting and trusting God in hard times."
+					},
+					{
+						"q": "Is it a medical book about a heart condition?",
+						"a": "No. One scene in the story is a hospital stay when the baby's heart was found to be enlarged; the book gives no medical information and does not name a diagnosis beyond that."
+					},
+					{
+						"q": "What age is it for?",
+						"a": "Ages 4 to 8, as a read-aloud with a parent."
+					}
+				],
+				"bio": "Dana House is the author of I Missed You While You Were Sleeping, a rhyming picture book drawn from her own family's story.",
+				"jsonld": {
+					"book": {
+						"name": "I Missed You While You Were Sleeping",
+						"alternativeHeadline": null,
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893072860; Hardback 9798893073423; eBook 9798893072877",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 54,
+						"datePublished": null,
+						"audience": "Children ages 4-8 and their parents",
+						"about": [
+							"mother and son",
+							"answered prayer",
+							"bedtime read-aloud",
+							"children's hospital"
+						],
+						"sameAs": ["https://www.amazon.com/dp/B0HDTSMLTH"],
+						"@id": "https://spiritmediapublishing.com/books/i-missed-you-while-you-were-sleeping/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Dana House",
+						"description": "Dana House is the author of I Missed You While You Were Sleeping, a rhyming picture book drawn from her own family's story.",
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/i-missed-you-while-you-were-sleeping/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is I Missed You While You Were Sleeping about?",
+							"a": "It is a rhyming picture book in which a mother tells her son about waiting for him, holding him close and the frightening night his tiny heart needed help, with a refrain every child can treasure: I missed you while you were sleeping."
+						},
+						{
+							"q": "Is it a true story?",
+							"a": "Yes. It is a true-to-life story told by a mother directly to her son, drawn from the author's own family."
+						},
+						{
+							"q": "Does it talk about prayer?",
+							"a": "Yes. It opens with a stranger's promise to a praying mother, and it is a gentle way to talk with children about answered prayer, waiting and trusting God in hard times."
+						},
+						{
+							"q": "Is it a medical book about a heart condition?",
+							"a": "No. One scene in the story is a hospital stay when the baby's heart was found to be enlarged; the book gives no medical information and does not name a diagnosis beyond that."
+						},
+						{
+							"q": "What age is it for?",
+							"a": "Ages 4 to 8, as a read-aloud with a parent."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > I Missed You While You Were Sleeping"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"My Perfect Daddy (this batch, a Christian picture book)"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/missed-you-sleeping-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["missed-you-sleeping-pb", "missed-you-sleeping-hb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026914669",
+				"pub_date": null,
+				"lead_term": {
+					"term": "mom and son",
+					"volume": 201000
+				},
+				"target_queries": [
+					{
+						"term": "mom and son",
+						"volume": 201000,
+						"role": "LEAD (Y, borderline: a mother tells her son; generic phrase, interior uses mama 4 and mother 1)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "answered prayer",
+						"volume": 2900,
+						"role": "BESIDE, smaller than the lead: the promised baby is an answered prayer (pray 1 mention, exact phrase 0)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "gift from god",
+						"volume": 1900,
+						"role": "BESIDE: the baby is called a gift from God (4 mentions)",
+						"interior_mentions": 4
+					},
+					{
+						"term": "mothers love for son",
+						"volume": 880,
+						"role": "BESIDE: the 3fh auto lead, the book's theme",
+						"interior_mentions": 0
+					},
+					{
+						"term": "mother son love",
+						"volume": 880,
+						"role": "BESIDE: same theme, variant",
+						"interior_mentions": 0
+					},
+					{
+						"term": "bedtime love story",
+						"volume": 480,
+						"role": "BESIDE: gentle rhyming bedtime read-aloud",
+						"interior_mentions": 0
+					},
+					{
+						"term": "preschool read aloud",
+						"volume": 590,
+						"role": "BESIDE: ages 4-8 read-aloud",
+						"interior_mentions": 0
+					},
+					{
+						"term": "rhyming read aloud",
+						"volume": 50,
+						"role": "BESIDE: the whole book is rhyming verse",
+						"interior_mentions": 0
+					}
+				],
+				"beside_larger_than_lead": [],
+				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
+				"url": "https://spiritmediapublishing.com/books/missed-you-sleeping/",
+				"buy_url": "https://spiritmediapublishing.com/books/missed-you-sleeping/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#missed-you-sleeping (draft unit 3fn); sources: Drive metadata Doc 1i0HvrYV_hymhRgvNwjnuEFZV85rLJ56LaDBm-sSgxk0 (I Missed You While You Were Sleeping — Metadata (2026-10-12)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-08-11, Amazon August 11, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 15.99 USD, Hardback 21.99 USD, eBook 7.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.url": "TBD (none)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For parents who want a gentle rhyming read-aloud",
+							"paras": [
+								"The verse moves in short rhymed couplets and returns to the same refrain, which makes it easy to read slowly at bedtime and easy for a child to say along. The lines about holding a sleeping baby make a natural place to pause and talk."
+							]
+						},
+						{
+							"h2": "For families who have waited and prayed for a child",
+							"paras": [
+								"The story begins with a question to God about whether to have a baby of her own, and it admits the long wait: \"Several years passed by; I doubted that you would even come.\" A couple of pages later the news arrives, and the mother treasures the stranger's words in her heart: \"I hid these words inside my heart that later I would need.\""
+							]
+						},
+						{
+							"h2": "For parents of babies who spent time in the hospital",
+							"paras": [
+								"The hospital pages are short. The baby is taken to Children's Hospital on the twenty-first day of his life, the parents stand beside his bed, and the surgeries leave him sleeping. The family does not face it alone: \"We were never left alone; we felt an army gathered round our fighting baby boy.\" Home comes after a long stay, and a rainbow shines over the ramp as they leave."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A mother tells her son: every flutter, every nap, every night, I was there.",
+						"body": "For parents who want a gentle rhyming read-aloud about a mother's love for her son, families who have waited and prayed for a child, and parents of babies who spent time in a children's hospital. Dana House tells the true story of the promised baby she carried, the old saying about spoiling a baby with too much holding, and the frightening night his tiny heart needed help, in verse built around one refrain a child can hold on to. A note on subjects: the story includes a newborn found to have an enlarged heart, a long hospital stay and surgeries, told in simple rhyme with no graphic detail and no medical advice. It ends in the hope of home, a rainbow and a mother's steady love. Parents may want to read it first before sharing it with a child who has had hospital time of their own."
+					},
+					"what_makes": {
+						"title": "What makes this book for parents who want a read-aloud about love and trust",
+						"paras": [
+							"It is a picture book told by a mother directly to her son, and its subject is being wanted. A stranger's promise, years of waiting, a surprise, a hard season and a rainbow are all carried by one repeated line.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is true to life. The mother speaks to her son about events from the author's own family.",
+							"It is built on a refrain. Again and again the verse comes home to \"I missed you while you were sleeping,\" and each time it means something different, from a flutter in the womb to a long hospital sleep.",
+							"It begins with prayer. Before church one morning the mother prays about big decisions, and a stranger tells her that her baby is on the way.",
+							"It speaks about holding a baby. The mother heard the old saying that you will spoil a baby if you hold him too much, and her own mama had taught her otherwise.",
+							"It meets a hard season honestly. The hospital pages are brief and gentle, and the family keeps choosing to \"find the little joys and not let the worries win.\""
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Every copy opens with a dedication and then this first page:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"One morning before church, I prayed, God, what should we do? We have big decisions to make and need clear direction from You."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Over the next page a stranger speaks:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"You can just imagine my feelings of surprise when a lady that I didn't know looked me in the eyes."
+								]
+							},
+							{
+								"type": "p",
+								"text": "And the first refrain arrives when the baby is still unborn:"
+							},
+							{
+								"type": "quote",
+								"paras": ["When you were curled up still, I'd wait to feel you leaping."]
+							},
+							{
+								"type": "p",
+								"text": "The book closes on a verse from Isaiah:"
+							},
+							{
+								"type": "quote",
+								"paras": ["As a mother comforts her child, so I will comfort you."]
+							}
+						],
+						"intro": ["Every copy opens with a dedication and then this first page:"],
+						"excerpt": [
+							"One morning before church, I prayed, God, what should we do? We have big decisions to make and need clear direction from You.",
+							"You can just imagine my feelings of surprise when a lady that I didn't know looked me in the eyes.",
+							"When you were curled up still, I'd wait to feel you leaping.",
+							"As a mother comforts her child, so I will comfort you."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"A rhyming story told by a mother to her son, from the promise to the present day",
+						"A repeated refrain, \"I missed you while you were sleeping,\" that changes meaning as the story grows",
+						"Pages on waiting, on the first movements, on the birth and on the old saying about spoiling a baby",
+						"A hospital season, a long stay and a rainbow on the way home",
+						"A closing look ahead, to a time when roles may change and the son sits beside his mother",
+						"Ages 4 to 8 as a read-aloud, with a closing Scripture verse",
+						"Paperback and hardback, with an eBook edition"
+					],
+					"details": {
+						"Title": "I Missed You While You Were Sleeping",
+						"Author": "Dana House",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Trim size": "8.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound) and hardback (case laminate)",
+						"Paperback ISBN": "979-8-89307-286-0",
+						"Hardback ISBN": "979-8-89307-342-3",
+						"eBook ISBN": "979-8-89307-287-7",
+						"Library of Congress Control Number": "2026914669"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "A stranger at church",
+							"paras": [
+								"On the page before the promise, a praying mother asks what her family should do. A lady she does not know looks her in the eyes and boldly declares, \"Your baby is on the way!\" She says the child will be a gift from God, and the mother keeps those words close. Years later they carry her through the hardest pages of the book."
+							]
+						},
+						{
+							"h2": "Too much holding",
+							"paras": [
+								"When the baby is weeks old, the mother keeps holding him even while he sleeps. She has heard the old saying, \"You'll spoil a child if you hold a baby too much,\" but her mama taught her otherwise. She knows that \"you just needed my touch,\" and that someday she will long to hold him and watch him dream, so she holds him now, sowing love into the harvest."
+							]
+						},
+						{
+							"h2": "A rainbow on the ramp",
+							"paras": [
+								"After six months the family goes home. It feels strange to leave, because the hospital had begun to feel like home. As they leave the ramp, \"a beautiful rainbow was shining brightly in the sky,\" and it reminds them they are never left alone. The mother sees God's reminder through the clouds and says again, \"I missed you while you were sleeping.\""
+							]
+						}
+					],
+					"author": {
+						"bio": "Dana House is the author of I Missed You While You Were Sleeping, a rhyming picture book drawn from her own family's story."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish this mother's story for her son."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author dedicates the book to her husband, friends and family, who \"surrounded us like an army,\" and to her parents, who taught her that a home should be loving, peaceful, and a safe haven. She writes the book to her son in the words she says were spoken to her that Sunday morning: \"You are my gift from God, birthed from me, for me.\" The last page leaves the reader with the promise of Isaiah."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is I Missed You While You Were Sleeping about?",
+							"a": "It is a rhyming picture book in which a mother tells her son about waiting for him, holding him close and the frightening night his tiny heart needed help, with a refrain every child can treasure: I missed you while you were sleeping."
+						},
+						{
+							"q": "Is it a story about a mom and her son?",
+							"a": "Yes. The mother speaks to her son on every page, from a stranger's promise before he was born to the day he turns nine. The book calls him her gift from God, her healing boy and her promised one. The words \"mom and son\" do not appear, since the mother speaks as mama."
+						},
+						{
+							"q": "Is it a true story?",
+							"a": "Yes. It is a true-to-life story told by a mother directly to her son, drawn from the author's own family."
+						},
+						{
+							"q": "Does it talk about answered prayer?",
+							"a": "It opens with a mother's prayer and a stranger's message that her baby is on the way, and later she says that knowing he was her gift from God gave her strength to overcome her fears. The exact phrase answered prayer does not appear, but the story is built around it."
+						},
+						{
+							"q": "Is the baby called a gift from God?",
+							"a": "Yes. The phrase comes back several times, in the stranger's message, in the refrain and in the dedication. The mother also says \"you'd be a beacon of light in the dark,\" and calls her son a victorious one and a heart warrior child."
+						},
+						{
+							"q": "Is it a medical book about a heart condition?",
+							"a": "No. One scene is a hospital stay when the baby's heart was found to be enlarged. The book gives no medical information and names no diagnosis beyond that."
+						},
+						{
+							"q": "What age is it for?",
+							"a": "Ages 4 to 8, as a read-aloud with a parent. It is told in short rhyming lines that suit bedtime or a quiet afternoon."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-missed-you-sleeping.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"missed-you-sleeping-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893072860",
+					"isbn_display": "979-8-89307-286-0",
+					"list_cents": 1599,
+					"price_note": "15.99 (Doc: live, kept)",
+					"price_flags": [],
+					"pages": 54,
+					"pages_note": "54 (Doc and Amazon page agree)",
+					"trim": "8.5 x 8.5 in (Doc)",
+					"binding": "Perfect bound",
+					"checkout_title": "I Missed You While You Were Sleeping — Paperback",
+					"checkout_name": "I Missed You While You Were Sleeping: (no subtitle)",
+					"checkout_desc": "Paperback · 54 pages · by Dana House · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "missed-you-sleeping",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/missed-you-sleeping/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Dana House",
+					"sku_tbd": [],
+					"sku_ready": true
+				},
+				"missed-you-sleeping-hb": {
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893073423",
+					"isbn_display": "979-8-89307-342-3",
+					"list_cents": 2199,
+					"price_note": "21.99 (Doc: live, kept)",
+					"price_flags": [],
+					"pages": null,
+					"pages_note": null,
+					"trim": "8.5 x 8.5 in (Doc)",
+					"binding": "Case laminate",
+					"checkout_title": "I Missed You While You Were Sleeping — Hardback",
+					"checkout_name": "I Missed You While You Were Sleeping: (no subtitle)",
+					"checkout_desc": "TBD",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "missed-you-sleeping",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/missed-you-sleeping/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Dana House",
+					"sku_tbd": ["pages (hardback count not stated)"],
 					"sku_ready": true
 				}
 			}
@@ -2831,6 +4489,412 @@
 			}
 		},
 		{
+			"slug": "spring-birds",
+			"units_12m": 28,
+			"book": {
+				"slug": "spring-birds",
+				"status": "pending",
+				"title": "Spring Birds",
+				"subtitle": "Finding Forgiveness in a Broken World",
+				"full_title": "Spring Birds: Finding Forgiveness in a Broken World",
+				"author": {
+					"name": "Max Brande"
+				},
+				"credits": null,
+				"page_title": "Spring Birds by Max Brande: A Historical Fiction Novel",
+				"h1": "Spring Birds",
+				"meta": "Spring Birds by Max Brande: a baker who refuses to fight, his praying wife and a wild-haired boy find forgiveness in a warm, faith-filled historical novel.",
+				"short": "In a small Austrian village a baker named Big Leo refuses to fight when his emperor orders a military draft, and takes his praying wife and a wild-haired boy to Vienna, in a warm, faith-filled story about mercy, family and grace.",
+				"about": "In a small village in Austria, the yellow Heuriger hotel glows on summer nights and the smell of fresh bread drifts from the kitchen. The bread belongs to Big Leo, a barefoot baker with gentle eyes. His wife Rosina runs the front desk, always praying and blessing guests. When Emperor Gier decrees a military draft and officers arrive with Leo's military orders, he gives a plain answer: he will not go, because God does not want him to fight them or anyone else. At the center is Max, a wild-haired village boy who wants to be a baker and wants to know why grown-ups are always fighting. Rosina answers that we need love as we need water: if someone hits you, do not hit back, love them still and forgive them. Leo, Rosina and Max set out by carriage for Vienna, with a smoky roadside inn, a bar fight Leo ends with a song, and a night sky full of stars. In Vienna, Max sees cakes and church bells, kindness and anger on the same street. A warm, faith-filled story about mercy, family and grace.",
+				"who_for": [
+					"Readers of faith-filled historical fiction who like warm, family-centered stories",
+					"Book clubs looking for a story about mercy, forgiveness and loving people who do wrong",
+					"Readers who enjoy small-village settings, bread and a journey to the city"
+				],
+				"who_for_status": "PROPOSED (no ranked For list; the Doc has an Audience row and description headings)",
+				"faq": [
+					{
+						"q": "What is Spring Birds about?",
+						"a": "A baker named Big Leo in a small Austrian village refuses to fight when his emperor orders a military draft. He, his praying wife Rosina and a wild-haired boy named Max travel to Vienna, and the story asks why grown-ups fight and answers with love and forgiveness."
+					},
+					{
+						"q": "Is it historical fiction?",
+						"a": "Yes. It is classed as historical fiction and Christian fiction. The emperor in the story is named Emperor Gier, and the setting is an Austrian village and Vienna; the story does not name a year."
+					},
+					{
+						"q": "Is it about refusing to fight?",
+						"a": "Yes. The opening premise is that Leo refuses military service because he believes God does not want him to fight anyone, and the book then follows the family to Vienna."
+					},
+					{
+						"q": "What does the book say about forgiveness?",
+						"a": "Rosina tells Max to love people who do wrong and forgive them so there is no evil in his heart."
+					},
+					{
+						"q": "Is it a warm, uplifting book?",
+						"a": "Yes. It is a warm, faith-filled story about mercy, family and grace."
+					}
+				],
+				"bio": null,
+				"jsonld": {
+					"book": {
+						"name": "Spring Birds",
+						"alternativeHeadline": "Finding Forgiveness in a Broken World",
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893072631; eBook 9798893072648",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 80,
+						"datePublished": null,
+						"audience": "Adult Christian readers",
+						"about": ["historical fiction", "forgiveness", "family", "faith"],
+						"sameAs": ["https://www.amazon.com/dp/B0H39719HR"],
+						"@id": "https://spiritmediapublishing.com/books/spring-birds/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Max Brande",
+						"description": null,
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/spring-birds/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Spring Birds about?",
+							"a": "A baker named Big Leo in a small Austrian village refuses to fight when his emperor orders a military draft. He, his praying wife Rosina and a wild-haired boy named Max travel to Vienna, and the story asks why grown-ups fight and answers with love and forgiveness."
+						},
+						{
+							"q": "Is it historical fiction?",
+							"a": "Yes. It is classed as historical fiction and Christian fiction. The emperor in the story is named Emperor Gier, and the setting is an Austrian village and Vienna; the story does not name a year."
+						},
+						{
+							"q": "Is it about refusing to fight?",
+							"a": "Yes. The opening premise is that Leo refuses military service because he believes God does not want him to fight anyone, and the book then follows the family to Vienna."
+						},
+						{
+							"q": "What does the book say about forgiveness?",
+							"a": "Rosina tells Max to love people who do wrong and forgive them so there is no evil in his heart."
+						},
+						{
+							"q": "Is it a warm, uplifting book?",
+							"a": "Yes. It is a warm, faith-filled story about mercy, family and grace."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Spring Birds"
+				},
+				"internal_links": ["/bookstore/", "Hallelujah Even Here (3fk, a faith-based title)"],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/spring-birds-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["spring-birds-pb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026910742",
+				"pub_date": null,
+				"lead_term": {
+					"term": "historical fiction",
+					"volume": 27100
+				},
+				"target_queries": [
+					{
+						"term": "historical fiction",
+						"volume": 27100,
+						"role": "LEAD (Y, borderline: set in an Austrian village and Vienna under an emperor; the Amazon category is Historical Fiction; exact phrase absent, a fictional emperor)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "conscientious objector",
+						"volume": 27100,
+						"role": "BESIDE, equal volume: the opening premise, Leo refuses the draft (draft 8 mentions)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "love your enemies",
+						"volume": 12100,
+						"role": "BESIDE, smaller: Rosina's answer, love them still (0 exact; forgive 16)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "heartwarming novel",
+						"volume": 9900,
+						"role": "BESIDE, smaller: the Doc calls it a warm story (0 exact)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "spring birds",
+						"volume": 2400,
+						"role": "BESIDE: the title phrase, 33 mentions, a generic title term",
+						"interior_mentions": 33
+					},
+					{
+						"term": "christian fiction",
+						"volume": 1600,
+						"role": "BESIDE, smaller: the Amazon category",
+						"interior_mentions": 0
+					},
+					{
+						"term": "light in darkness",
+						"volume": 880,
+						"role": "BESIDE, small: the 3fh auto lead",
+						"interior_mentions": 0
+					},
+					{
+						"term": "redemption story",
+						"volume": 480,
+						"role": "BESIDE, small",
+						"interior_mentions": 0
+					},
+					{
+						"term": "forgive your enemies",
+						"volume": 320,
+						"role": "BESIDE, small: forgive 16 mentions",
+						"interior_mentions": 0
+					},
+					{
+						"term": "learning to forgive",
+						"volume": 210,
+						"role": "BESIDE, small: Max learns to forgive",
+						"interior_mentions": 0
+					}
+				],
+				"beside_larger_than_lead": [],
+				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
+				"url": "https://spiritmediapublishing.com/books/spring-birds/",
+				"buy_url": "https://spiritmediapublishing.com/books/spring-birds/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#spring-birds (draft unit 3fn); sources: Drive metadata Doc 1Rr2JBUjAnriQZOgG_XGppmMftXVOsam5dthywac-lEU (Spring Birds — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"bio": "TBD (Doc bio reads NEEDS AUTHOR INPUT)"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-05-14, Amazon May 14, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 11.99 USD, eBook 4.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.description": "TBD",
+						"jsonld.person.url": "https://www.amazon.com/Max-Brande/e/B0H66RHDG6 (Author Central, as sameAs only after pmprint approves)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For readers of faith-filled historical fiction",
+							"paras": [
+								"This one has an emperor, a palace, an old city and an inn built in the 1600s, all seen through a boy's eyes. The faith in it is practical: people pray over a meal, bless a guest, ask a priest for help."
+							]
+						},
+						{
+							"h2": "For book clubs",
+							"paras": [
+								"What does Leo owe an emperor, and what does he owe God? Is Rosina right that anyone can be reached by love? Why does Max keep asking? A short book, but a club will find plenty to discuss in how it treats people who are poor, drunk, proud or afraid."
+							]
+						},
+						{
+							"h2": "For readers who love small villages, bread and food",
+							"paras": [
+								"Bread runs through every page. A baker lifts a fifty pound bag of flour and shows a boy how his starter stretches like a tongue. A basket of rolls with honey changes the mood of a standoff. A Vienna bakery changes hands in a day, and a soup the baker can never match is served in a cottage kitchen."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A baker who will not fight, a praying wife and a wild-haired boy set out for Vienna.",
+						"body": "For readers of warm, faith-filled historical fiction, book clubs that like a story about mercy and forgiveness, and anyone who enjoys a small village, fresh bread and a long ride to the big city. In a short novel of twenty-four chapters, a barefoot baker called Big Leo refuses to take up arms for his emperor, and a boy who wants to know why grown-ups are always fighting gets an answer he does not expect. A note on subjects: this is a gentle story with a tender heart, but it does not look away from hard things. It includes drinking and a bar fight, a child who has been frightened by her father, a mother in despair, and a scene in which a public execution is carried out in front of a crowd. These are told without graphic detail, and the book answers them with kindness. If any of this is close to your own life, please talk to someone you trust. If you or someone you know is in danger or thinking about suicide, contact your local emergency services or a crisis line right away."
+					},
+					"what_makes": {
+						"title": "What makes this book for people who want a story of mercy",
+						"paras": [
+							"Spring Birds begins in a small village in Austria, at a yellow inn called the Heuriger, where beer, sausage and bread fill the air. From there it follows one family of three, a baker, his wife and a village boy, to the capital and into the lives of the people they meet on its streets. The emperor in the story is named Gier, and in Chapter 17 a character confirms the year as 1910.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It starts with a refusal. When officers arrive with a conscription order, Leo does not argue about politics. He simply says what he believes God wants of him, and he sits the officers down to eat.",
+							"It is told through a child's questions. Max asks the question the whole book answers: why do grown-ups fight?",
+							"It puts forgiveness in plain words. A wife and a baker teach a boy to love people who do wrong, and the book then tests that teaching on a stranger's street.",
+							"It is funny. A teacher who calls a boy a loof, a grandmother who feeds blue birds at her window, a dough starter with a name and an emperor with a long neck all keep the mood light.",
+							"It is short. Twenty-four brief chapters, about eighty pages, easy to read in a weekend."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The story opens at night, in the village:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"It was lively and happy in the small village in the heart of Austria. The yellow Heuriger hotel glowed with light in the summer night, and there were people all in and around it. There was much laughter, and everyone's breath smelled like beer. The bar and restaurant of the hotel rang loud with banging and shouting, and the cooking made the whole village aromatic with fried foods, sausage, and bread."
+								]
+							},
+							{
+								"type": "p",
+								"text": "In Chapter 2 Max asks his questions in the courtyard, and Rosina answers him:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"The whole world could be at war, but that doesn't mean you have to be. We are taught to love everyone and to forgive everyone."
+								]
+							},
+							{
+								"type": "p",
+								"text": "She goes on, when Max asks whether he should love people who are bad:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Maybe they are bad because no one loved them. Maybe no one loves them because they are bad. We need love as we need water. If someone is mean to you or hits you, don't hit them back. Love them still and forgive them, so there can be no evil in your heart, and then maybe it will make the evil in their heart go away."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The chapters are:"
+							},
+							{
+								"type": "p",
+								"text": "1. Chapters 1 to 4: the inn at night, the courtyard and a grandmother's cottage, the arrival of the officers, and Leo's morning prayer\n2. Chapters 5 to 8: the carriage ride, the arrival in Vienna, a trumpet in the night and the first morning in the city\n3. Chapters 9 to 12: a boy on a narrow street, a flower shop, a silent girl called Blue and three street musicians\n4. Chapters 13 to 16: the meadow, a dark night, the clouds and a mother's long day\n5. Chapters 17 to 20: the year 1910, an old photograph, the week of the royal feast and the walk to the palace\n6. Chapters 21 to 24: the last four chapters, left for you to read"
+							}
+						],
+						"intro": ["The story opens at night, in the village:"],
+						"excerpt": [
+							"It was lively and happy in the small village in the heart of Austria. The yellow Heuriger hotel glowed with light in the summer night, and there were people all in and around it. There was much laughter, and everyone's breath smelled like beer. The bar and restaurant of the hotel rang loud with banging and shouting, and the cooking made the whole village aromatic with fried foods, sausage, and bread.",
+							"The whole world could be at war, but that doesn't mean you have to be. We are taught to love everyone and to forgive everyone.",
+							"Maybe they are bad because no one loved them. Maybe no one loves them because they are bad. We need love as we need water. If someone is mean to you or hits you, don't hit them back. Love them still and forgive them, so there can be no evil in your heart, and then maybe it will make the evil in their heart go away."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Twenty-four short chapters about a baker, his wife and a boy",
+						"A village inn, a cozy yellow cottage, a carriage ride, a smoky roadside tavern and a night sky full of stars",
+						"A bakery below the street in Vienna, a flower shop, an old stone church on a hill and a walk to the palace",
+						"A grandmother, an old royal baker, a street musician with a trumpet, a priest, and a mother and her silent daughter",
+						"A prayer Leo says for the soldiers who came for him",
+						"Paperback, about 80 pages, with an eBook edition"
+					],
+					"details": {
+						"Title": "Spring Birds",
+						"Subtitle": "Finding Forgiveness in a Broken World",
+						"Author": "Max Brande",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "80 (paperback)",
+						"Trim size": "5.5 x 8.5 inches",
+						"Binding": "Paperback (perfect bound, matte laminate), black and white interior, cream paper",
+						"Paperback ISBN": "979-8-89307-263-1",
+						"eBook ISBN": "979-8-89307-264-8",
+						"Library of Congress Control Number": "2026910742"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "Rolls and honey",
+							"paras": [
+								"Three men in uniform come to the hotel with a letter of military orders. Leo does not take it. He tells them plainly that \"God doesn't want me to fight you or anyone else.\" One of the soldiers, an old friend, shrugs and apologizes. Another quietly empties the basket of rolls. Leo offers him more: \"It's great with a drop of honey.\" Then he invites all three to the bar for coffee, because \"I know you haven't had anything.\" The officer, careful not to look too pleased, asks how long Leo has been a baker, and the standoff turns into a new offer. Leo sums it up with a dry line: \"A minute ago you wanted me to kill people, and now you want me to feed people.\""
+							]
+						},
+						{
+							"h2": "A trumpet in the alley",
+							"paras": [
+								"One night soon after reaching Vienna, Leo lies awake listening to the city and hears a trumpet in the alley below. \"It sounded honest and sad. There was a humble pain in it.\" The next morning he meets the man who played it, a street musician who has been told his music is too slow. Leo does not tell him to change. He says, \"I heard you play at night, my friend. It was truly beautiful.\" Leo offers an idea that is also a blessing: \"God's an artist, you're a musician, and I'm a baker.\""
+							]
+						},
+						{
+							"h2": "Two children in a meadow",
+							"paras": [
+								"A girl with a flower in her hair has never been heard to speak. When she meets Max, he takes the flower she offers and leads her out of the city to a green meadow. \"It looked like two does were meeting each other.\" They lie on their backs and watch the clouds. When Max starts walking through the flowers, she speaks, and the book marks it plainly: \"Don't step on the flowers.\" Max is not surprised. He thinks her voice is pretty."
+							]
+						}
+					],
+					"author": {
+						"bio": ""
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Max Brande's story of mercy and forgiveness."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"What the story itself says is plain. Its first question comes from a boy: \"Do I have to fight when I grow up?\" Its answer comes from a wife who prays: \"The whole world could be at war, but that doesn't mean you have to be.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Spring Birds about?",
+							"a": "A baker named Big Leo in a small Austrian village refuses to fight when his emperor orders a military call-up. He, his praying wife Rosina and a wild-haired boy named Max travel to Vienna, and the story asks why grown-ups fight and answers with love and forgiveness."
+						},
+						{
+							"q": "Is it historical fiction?",
+							"a": "Yes, it is classed as historical fiction and Christian fiction. It is set in an Austrian village and in Vienna, with a fictional emperor named Gier, and in Chapter 17 a character gives the year as 1910."
+						},
+						{
+							"q": "Is it a story about a conscientious objector?",
+							"a": "In effect, yes. The opening premise is that Leo refuses military service because he believes God does not want him to fight anyone. The words conscientious objector do not appear in the book. Leo's reason is his faith, he states it calmly, and the book follows what happens next."
+						},
+						{
+							"q": "What does the book say about loving your enemies?",
+							"a": "Rosina tells Max that we are taught to love everyone and forgive everyone, and Leo prays for the soldiers who came for him. He tells Max that \"Being hateful is exhausting. Also, they are my brothers.\" The phrase love your enemies is not in the book, but the idea runs through it."
+						},
+						{
+							"q": "Is it a heartwarming novel?",
+							"a": "Yes. It is a warm, faith-filled story about mercy, family and grace, and much of it is funny. It also contains hard moments, and the note on subjects near the top says what they are."
+						},
+						{
+							"q": "What does the title Spring Birds mean?",
+							"a": "The phrase appears in Chapter 10, where Rosina walks down a Vienna street and everyone she smiles at is happy for a while after. \"She was pleasant like spring birds, innocent like their songs.\" Blue birds also gather at the window of Max's grandmother's kitchen in Chapter 2."
+						},
+						{
+							"q": "What does the book say about forgiveness?",
+							"a": "Rosina tells Max to love people who do wrong and forgive them so there is no evil in his heart. Later in the book, forgiveness is asked for and given by people who have good reason to withhold it."
+						},
+						{
+							"q": "How long is it, and who is it for?",
+							"a": "It is about eighty pages in twenty-four short chapters, for adult and teen readers who like warm historical fiction. Parents of younger readers should read the note on subjects first."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-spring-birds.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"spring-birds-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893072631",
+					"isbn_display": "979-8-89307-263-1",
+					"list_cents": 1199,
+					"price_note": "11.99 (Doc: live, kept)",
+					"price_flags": [],
+					"pages": 80,
+					"pages_note": "80 (Doc and Amazon page agree)",
+					"trim": "5.5 x 8.5 in (Doc)",
+					"binding": "Perfect bound",
+					"checkout_title": "Spring Birds — Paperback",
+					"checkout_name": "Spring Birds: Finding Forgiveness in a Broken World",
+					"checkout_desc": "Paperback · 80 pages · by Max Brande · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "spring-birds",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/spring-birds/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Max Brande",
+					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
 			"slug": "from-jesus-til-now",
 			"units_12m": 26,
 			"book": {
@@ -3267,6 +5331,392 @@
 			}
 		},
 		{
+			"slug": "can-i-pray-for-you",
+			"units_12m": 23,
+			"book": {
+				"slug": "can-i-pray-for-you",
+				"status": "pending",
+				"title": "Can I Pray for You?",
+				"subtitle": "none (the live listing has no subtitle)",
+				"full_title": "Can I Pray for You?: none (the live listing has no subtitle)",
+				"author": {
+					"name": "Ryan Schraffenberger"
+				},
+				"credits": null,
+				"page_title": "Can I Pray for You? Praying for Others, Praying Scripture",
+				"h1": "Can I Pray for You?",
+				"meta": "Can I Pray for You? by Ryan Schraffenberger: a prayer sign at RV campgrounds becomes a guide to praying for others, praying Scripture and fasting.",
+				"short": "A sandwich-board sign reading Can We Pray For You? at RV campgrounds leads to a practical book on building a prayer life that flows into everyday boldness.",
+				"about": "Wherever Ryan Schraffenberger and his family park their RV, he sets out a sandwich-board sign: Can We Pray For You? One morning at a nearly empty RV resort in Texas, the resort's general manager read it and told him he had planned to end his life the night before; Ryan put his hand on the man's shoulder and prayed. That conversation became the launchpad for a movement and for this book. Ryan tells honestly how he went from the Florida Keys, bartending and partying, to full-time faith. Part 1, Inward Progression, builds the private foundation: living with open hands, relating to God as Father and learning to hear from Him, prayer in the family and workplace, praying Scripture, prayer and fasting, models for prayer and praying through lament. Part 2, Outward Expression, turns it outward: boldness in faith, sharing your testimony and the Gospel in plain words, walking with someone as they accept Christ, and becoming the local chaplain in your community. His message: outcomes are His, obedience is ours.",
+				"who_for": [
+					"Believers who want to pray more but freeze at praying out loud with a stranger",
+					"Parents who want prayer woven into family life",
+					"Professionals who want to be a light at work",
+					"Anyone who has felt a nudge from God and talked themselves out of it"
+				],
+				"who_for_status": "PROPOSED (Doc WHO THIS BOOK IS FOR paragraph, not a ranked list)",
+				"faq": [
+					{
+						"q": "What is Can I Pray for You? about?",
+						"a": "It is Ryan Schraffenberger's account of setting out a Can We Pray For You? sign wherever his family parks their RV, and a practical guide to building a prayer life that flows naturally into everyday boldness."
+					},
+					{
+						"q": "Does the book teach praying Scripture?",
+						"a": "Yes. Part 1 includes praying Scripture and overcoming barriers to prayer, along with prayer and fasting, models for prayer, praying through lament and building a personal prayer plan."
+					},
+					{
+						"q": "Is there a chapter on prayer and fasting?",
+						"a": "Prayer and fasting is covered in Part 1, Inward Progression, alongside relating to God as your Father, learning to hear from Him, and praying in the family and the workplace."
+					},
+					{
+						"q": "Is the book about praying for other people out loud?",
+						"a": "Yes. Part 2, Outward Expression, covers boldness in faith, praying in public, sharing your testimony and the Gospel in plain words, and supporting the people you pray with after the moment has passed."
+					},
+					{
+						"q": "Do I need to be a pastor to use this book?",
+						"a": "No. You do not need a title, a pulpit or a perfect story, only open hands and one simple question; it is for believers, parents and professionals who want to pray more boldly."
+					}
+				],
+				"bio": "Ryan Schraffenberger graduated from college in 2010 and spent his early twenties in the Florida Keys, bartending, DJing weddings and fishing. At twenty-four he was elected City Commissioner of Key Colony Beach, Florida, and served one term. In 2014 he started Promotions Guy with screen-printing equipment bought on a credit card; the business now supports ministries around the world. He lives with ADHD. He and his family live as full-time RVers, and he sets out a prayer sign at campgrounds across the country.",
+				"jsonld": {
+					"book": {
+						"name": "Can I Pray for You?",
+						"inLanguage": "en",
+						"isbn": "9798893079937 (paperback); workExample eBook 9798893075823",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 214,
+						"datePublished": "2026-07-22",
+						"audience": "Christian readers, parents and professionals",
+						"about": ["prayer", "praying Scripture", "prayer and fasting", "sharing the Gospel"],
+						"sameAs": ["https://www.amazon.com/dp/B0H9ZXRKMN"],
+						"@id": "https://spiritmediapublishing.com/books/can-i-pray-for-you/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Ryan Schraffenberger",
+						"description": "Ryan Schraffenberger graduated from college in 2010 and spent his early twenties in the Florida Keys, bartending, DJing weddings and fishing. At twenty-four he was elected City Commissioner of Key Colony Beach, Florida, and served one term.",
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/can-i-pray-for-you/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Can I Pray for You? about?",
+							"a": "It is Ryan Schraffenberger's account of setting out a Can We Pray For You? sign wherever his family parks their RV, and a practical guide to building a prayer life that flows naturally into everyday boldness."
+						},
+						{
+							"q": "Does the book teach praying Scripture?",
+							"a": "Yes. Part 1 includes praying Scripture and overcoming barriers to prayer, along with prayer and fasting, models for prayer, praying through lament and building a personal prayer plan."
+						},
+						{
+							"q": "Is there a chapter on prayer and fasting?",
+							"a": "Prayer and fasting is covered in Part 1, Inward Progression, alongside relating to God as your Father, learning to hear from Him, and praying in the family and the workplace."
+						},
+						{
+							"q": "Is the book about praying for other people out loud?",
+							"a": "Yes. Part 2, Outward Expression, covers boldness in faith, praying in public, sharing your testimony and the Gospel in plain words, and supporting the people you pray with after the moment has passed."
+						},
+						{
+							"q": "Do I need to be a pastor to use this book?",
+							"a": "No. You do not need a title, a pulpit or a perfect story, only open hands and one simple question; it is for believers, parents and professionals who want to pray more boldly."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Can I Pray for You?"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"Say Yes to God (obedience and outreach; batch 2)",
+					"Get to the Point (batch 2)",
+					"The Seer's Journey (batch 2)",
+					"/returns/ when Buy goes live"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/can-i-pray-for-you-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["can-i-pray-for-you-pb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026917674",
+				"pub_date": "2026-07-22",
+				"lead_term": {
+					"term": "praying for others",
+					"volume": 1600
+				},
+				"target_queries": [
+					{
+						"term": "praying for others",
+						"volume": 1600,
+						"role": "LEAD (the title's question and the book's subject; fully truthful)"
+					},
+					{
+						"term": "praying scripture",
+						"volume": 14800,
+						"role": "BESIDE, bigger than the lead: a chapter, Praying Scripture"
+					},
+					{
+						"term": "prayer and fasting",
+						"volume": 8100,
+						"role": "BESIDE, bigger than the lead: a section of Part 1 (42 fasting mentions)"
+					},
+					{
+						"term": "relationship with god",
+						"volume": 2400,
+						"role": "BESIDE, bigger than the lead: Part 1 foundation; sheet slot 1"
+					},
+					{
+						"term": "hearing gods voice",
+						"volume": 1300
+					}
+				],
+				"beside_larger_than_lead": [
+					"praying scripture 14,800",
+					"prayer and fasting 8,100",
+					"relationship with god 2,400"
+				],
+				"home": "SMP (no source marks it Father Heart)",
+				"url": "https://spiritmediapublishing.com/books/can-i-pray-for-you/",
+				"buy_url": "https://spiritmediapublishing.com/books/can-i-pray-for-you/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#can-i-pray-for-you (draft unit 3fk); sources: Drive metadata Doc 1hZO4bUc6JhL1NR5ZwfJJOAqn1RQ85CwFnnuKAIi-NLU (Can I Pray for You? - Metadata 2026-10-13) + specsheet/sheet.json (2026-10-19) + interior booktext + 3fh keywords",
+				"_internal_3fu": {
+					"jsonld_withheld": {
+						"jsonld.offer": "OMIT while no sku_status live; at go-live paperback 14.99 USD (re-confirm), InStock, New",
+						"jsonld.person.url": "TBD (Promotions Guy business site not approved)",
+						"jsonld.person.sameAs": "TBD"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For believers who freeze at praying out loud",
+							"paras": [
+								"The author knows the feeling and says so plainly: \"Praying in public takes courage, no question.\" His answer is not a technique. It is a way of living that gives you room to say yes: hold life with open hands, and expect interruptions as invitations. He calls it going off script, and it begins long before you meet anyone who needs prayer."
+							]
+						},
+						{
+							"h2": "For parents and families",
+							"paras": [
+								"A chapter on prayer in the family opens with a joke that rings true: \"If praying in public feels like jumping out of a plane, then praying with your family sometimes feels like jumping without a parachute.\" He walks through how to begin with your spouse, how to pray with children, and why a praying family does not need to be perfect."
+							]
+						},
+						{
+							"h2": "For professionals and workplaces",
+							"paras": [
+								"Most of us spend more waking hours at work than anywhere else. The workplace chapter makes the case for bringing prayer there, quietly and without a title: \"Peace is magnetic, peace is noticeable, peace is evangelism without trying.\""
+							]
+						},
+						{
+							"h2": "For people who want to hear from God",
+							"paras": [
+								"The chapter Hearing from God is for anyone who finds prayer one-sided. The author says hearing from God is not mystical but relational, and he gives practical rhythms: coffee and Scripture in the morning, a walk, a drive, a quiet pause."
+							]
+						}
+					],
+					"audience": {
+						"headline": "One simple question that can change a life.",
+						"body": "For believers who want to pray more but freeze when it comes to praying out loud with a stranger, parents who want prayer woven into family life, professionals who want to be a light at work, and anyone who has felt a nudge from God and talked themselves out of it. Ryan Schraffenberger tells how a sandwich-board sign at RV campgrounds led to a prayer movement, and gives a practical way to build a prayer life that grows into everyday boldness. A note on subjects: the opening chapter tells a true story about a man who had planned to end his life, and other chapters mention suicidal thoughts, grief, addiction and illness. They are told with care and no graphic detail, and the book points readers toward prayer, community and people who can help. It is a faith-based book, not medical advice or a substitute for care. If you or someone you know is thinking about suicide, please contact your local emergency services or a crisis line right away, and talk to a physician or licensed counselor about what you are carrying.",
+						"quote": {
+							"text": "outcomes are His responsibility. Obedience is ours.",
+							"cite": "Chapter 2, Living Freely and Lightly"
+						}
+					},
+					"what_makes": {
+						"title": "What makes this book for people who want to pray for others",
+						"paras": [
+							"Can I Pray for You? begins with a question the author asks strangers in campgrounds, grocery stores and airports, and it grows from there. Part 1, Inward Progression, builds the private foundation of prayer: living with open hands, knowing God as Father, hearing His voice, praying Scripture and fasting. Part 2, Outward Expression, turns that foundation outward.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It begins with a real encounter. The first chapter is one morning at a nearly empty RV resort in Texas, told simply and with care.",
+							"It starts in private. The author says \"If you want to pray powerfully for strangers in public, start by praying intimately in private.\"",
+							"It is practical. Chapters include models for prayer, praying Scripture, fasting, lament and a personal prayer plan, and thirteen chapters close with a short challenge called Your Turn.",
+							"It is honest about fear. A full chapter, Looking Like Weirdos, argues that feeling awkward is a sign you are on the right track.",
+							"It does not make you the savior. The author's rule is that \"outcomes are His responsibility. Obedience is ours.\""
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The introduction opens with the author's own story:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"After graduating from college, I almost immediately headed to the Florida Keys. I did all the things you might imagine—bartending, DJing weddings, fishing, boating, and spending plenty of time at the bars."
+								]
+							},
+							{
+								"type": "p",
+								"text": "He is direct about where he started:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"One thing was certain: God was not my target. I was my own savior, and I lived for myself."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1, Prayer in Public, begins:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This is a story about God using something simple to save a life, and how it became the launchpad for a movement."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The contents are:"
+							},
+							{
+								"type": "p",
+								"text": "1. Introduction\n2. Part 1, Inward Progression: Prayer in Public, Living Freely and Lightly, Relationship with Your Father, Hearing from God, Prayer in the Family, Prayer in the Workplace, Praying Scripture, Overcoming Barriers to Prayer, Prayer and Fasting, Models for Prayer, Praying Through Lament, Your Personal Prayer Plan, Stewardship, Your Calling\n3. Part 2, Outward Expression: A New Approach: Using the Shirt, Looking Like Weirdos, Boldness in Faith, Sharing Your Testimony and the Gospel, Accepting Christ, Supporting People, Be the Local Chaplain, Get Out There and Pray\n4. Conclusion and A Final Word"
+							}
+						],
+						"intro": ["The introduction opens with the author's own story:"],
+						"excerpt": [
+							"After graduating from college, I almost immediately headed to the Florida Keys. I did all the things you might imagine—bartending, DJing weddings, fishing, boating, and spending plenty of time at the bars.",
+							"One thing was certain: God was not my target. I was my own savior, and I lived for myself.",
+							"This is a story about God using something simple to save a life, and how it became the launchpad for a movement."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Twenty-two chapters in two parts, with an introduction, a conclusion and a final word",
+						"Chapters on praying Scripture, prayer and fasting, models for prayer including the Lord's Prayer and A.C.T.S., and praying through lament",
+						"A chapter on family prayer, including how to begin praying with a spouse, and a chapter on prayer at work",
+						"Your Turn challenges at the close of thirteen chapters",
+						"Chapters on boldness, telling your testimony and the Gospel in plain words, and walking with someone after they pray",
+						"A call to become the local chaplain of the places you already go",
+						"Paperback, 214 pages, with an eBook edition"
+					],
+					"details": {
+						"Title": "Can I Pray for You?",
+						"Subtitle": "One simple question that can change a life (printed on the interior; the live listing carries no subtitle)",
+						"Author": "Ryan Schraffenberger",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "214 (paperback)",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound, gloss laminate), black and white interior",
+						"Paperback ISBN": "979-8-89307-993-7",
+						"eBook ISBN": "979-8-89307-582-3",
+						"Library of Congress Control Number": "2026917674"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "One morning at a nearly empty RV resort",
+							"paras": [
+								"Wherever his family parks their RV, the author sets a sandwich-board sign beside the campsite: Can We Pray For You? With it is a phone number and the words Call or Text. At a resort in Texas, assigned a site at the back, he laughs to himself that no one will see it. On Monday morning, reading outside, which he rarely does, he notices the resort's general manager come out of the woods, stop, and walk toward him to ask about the sign. The man tells him he had planned to end his life the night before. The author does not preach. \"Tell me everything,\" I said. \"But I want you to know something first—I'm broken too.\" He puts a hand on the man's shoulder and prays, and they both cry. He offers his number and an invitation: \"Let's get together and start reading the Bible from the beginning. I'll give you as much time as you need.\" While the author is away for work, the man tells his closest friends everything. \"They surrounded him with love.\" The author draws one lesson: \"That's how God works. That's how He multiplies.\""
+							]
+						},
+						{
+							"h2": "Keeping the phone off the hook",
+							"paras": [
+								"Hearing from God, says the author, is simpler than most people imagine. He compares it to an old landline phone left off the hook, so the line stays open and the conversation never has to end. \"You don't hang up the phone with Heaven. You keep the line open.\" The point is not constant talking but constant connection: \"This is why hearing God isn't mystical; it's relational.\" Then comes the line that gives the chapter its weight: \"You can't recognize a voice you never spend time with.\""
+							]
+						},
+						{
+							"h2": "Lament is not faithlessness",
+							"paras": [
+								"A chapter for hard seasons says what many readers need to hear. \"Lament is not complaining, lament is not faithlessness. Lament is worship with tears in your eyes.\" The author reminds readers that \"The Lord is close to the brokenhearted and saves those who are crushed in spirit (Psalm 34:18).\" He then turns to the one who prays for others: when someone is suffering, real compassion begins with humility, not a quick spiritual answer."
+							]
+						}
+					],
+					"author": {
+						"bio": "Ryan Schraffenberger graduated from college in 2010 and spent his early twenties in the Florida Keys, bartending, DJing weddings and fishing. At twenty-four he was elected City Commissioner of Key Colony Beach, Florida, and served one term. In 2014 he started Promotions Guy with screen-printing equipment bought on a credit card, and the business now supports ministries around the world. He lives with ADHD. He and his family live as full-time RVers, and wherever they park he sets out a prayer sign."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Ryan Schraffenberger's call to pray with boldness."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author says the book is a starting point: \"This book was written to equip you to pray boldly, live courageously, and carry Christ into the world with compassion and confidence. But this book isn't the end. It's the launchpad.\" He closes by telling readers what to do next: \"Wear the shirt. Be the bridge. Tell your story. Pray with strangers. Walk in boldness.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Can I Pray for You? about?",
+							"a": "It is Ryan Schraffenberger's account of setting out a Can We Pray For You? sign wherever his family parks their RV, and a practical guide to building a prayer life that flows naturally into everyday boldness."
+						},
+						{
+							"q": "Is it a book about praying for others?",
+							"a": "Yes. Part 2, Outward Expression, covers boldness in faith, telling your testimony and the Gospel in plain words, supporting people after the moment has passed, and becoming the local chaplain of the places you already go. Part 1 builds the private prayer life that makes that possible."
+						},
+						{
+							"q": "Does it teach praying Scripture?",
+							"a": "Yes. A full chapter, Praying Scripture, explains why to do it and gives simple methods, such as turning a verse into a personal prayer, praying slowly through a passage, and praying Scripture over someone else. The author writes that \"when you pray Scripture, you are praying God's thoughts back to God.\""
+						},
+						{
+							"q": "Is there a chapter on prayer and fasting?",
+							"a": "Yes. Prayer and Fasting is in Part 1. It looks at fasting in the Bible and in modern life and says, \"Prayer connects you to God; fasting clears space so you can hear Him.\""
+						},
+						{
+							"q": "Does it help with building a relationship with God?",
+							"a": "That is the foundation of the book. In Relationship with Your Father the author writes that \"you must understand something foundational: God is your Father, and He desires a relationship with you.\" He adds that \"Your Father wants your presence more than your perfection.\""
+						},
+						{
+							"q": "Does it teach how to hear God's voice?",
+							"a": "It has a full chapter, Hearing from God. The author says God most often speaks in a whisper, that He may use a nudge, a Scripture or a moment of peace, and that \"The more you quiet your life, the louder His whisper becomes.\" The book offers habits, not guarantees."
+						},
+						{
+							"q": "Do I need to be a pastor to use this book?",
+							"a": "No. It is written for believers, parents and professionals. The local chaplain chapter says \"You don't need a title. You just need a heart that says, Lord, use me here.\""
+						},
+						{
+							"q": "Is it only for people who already pray out loud?",
+							"a": "No. It is written for people who find it hard. A chapter called Looking Like Weirdos says that the feeling of awkwardness is common, and that \"The awkwardness is temporary, but the fruit is eternal.\""
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-can-i-pray-for-you.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"can-i-pray-for-you-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893079937",
+					"isbn_display": "979-8-89307-993-7",
+					"list_cents": 1499,
+					"price_note": "14.99 (Doc: live, kept; sheet.json price 15.99 stale)",
+					"price_flags": [],
+					"pages": 214,
+					"pages_note": "214",
+					"trim": "6 x 9 in",
+					"binding": "Perfect bound, gloss laminate",
+					"checkout_title": "Can I Pray for You? — Paperback",
+					"checkout_name": "Can I Pray for You?: none (the live listing has no subtitle)",
+					"checkout_desc": "Paperback · 214 pages · by Ryan Schraffenberger · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "can-i-pray-for-you",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/can-i-pray-for-you/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Ryan Schraffenberger",
+					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
 			"slug": "humble-influence",
 			"units_12m": 22,
 			"book": {
@@ -3695,6 +6145,774 @@
 					"royalty_hold": false,
 					"author_key": "Jim Matuga",
 					"sku_tbd": ["pages (hardback count not stated)"],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "life-on-the-ridge",
+			"units_12m": 22,
+			"book": {
+				"slug": "life-on-the-ridge",
+				"status": "pending",
+				"title": "Life on The Ridge",
+				"subtitle": "(no subtitle)",
+				"full_title": "Life on The Ridge: (no subtitle)",
+				"author": {
+					"name": "Darci LaRue"
+				},
+				"credits": null,
+				"page_title": "Life on The Ridge by Darci LaRue: Good Old Days Story",
+				"h1": "Life on The Ridge",
+				"meta": "Life on The Ridge by Darci LaRue: ten cousins, one oak tree and a whole lot of trouble in a warm, funny Christian story of the good old days.",
+				"short": "Thirteen-year-old RJ and his nine cousins meet every day under the oak tree in Johnny D's field, and trouble is never far behind, in a warm, funny Christian story of simpler times.",
+				"about": "Growing up on the ridge was fun, and it was a safe place. For thirteen-year-old RJ and his nine cousins, every day begins under the big oak tree in Johnny D's field, with no cell phones and no video games, just a field, a family and endless ideas, some of them very bad ones. RJ's dad and his three brothers were raised by Grandma after Pa died, and every Saturday night the cousins sleep on her hardwood floors under hand-made quilts and every Sunday morning eat her famous cathead biscuits and gravy before Sunday school. The cousins build a campfire that brings the fire department, take a dare that ends with Dad's prize pig and turn a muddy kitchen floor into a sock-sliding rink right before Mom walks through the door. Through every scrape RJ learns that actions have consequences and that family sticks together. Sister Pearl brings Bible stories to life, and the parents live out the Golden Rule.",
+				"who_for": [
+					"Readers ages 8 to 12 who like funny stories about cousins and growing up",
+					"Grandparents and parents who want a warm, nostalgic Christian story to share",
+					"Families who enjoy stories of simpler times, Sunday school and family that sticks together"
+				],
+				"who_for_status": "PROPOSED (no ranked For list; the Doc has an Audience row and description headings)",
+				"faq": [
+					{
+						"q": "What is Life on The Ridge about?",
+						"a": "It is a warm, funny Christian story about RJ and his nine cousins growing up together on a ridge in simpler times, getting into trouble and learning that family sticks together."
+					},
+					{
+						"q": "Who is it for?",
+						"a": "Ages 8 to 12 as a middle-grade read; grandparents and parents who like nostalgic stories of simpler times will also enjoy it."
+					},
+					{
+						"q": "Where do the cousins meet?",
+						"a": "Every day under the big oak tree in Johnny D's field."
+					},
+					{
+						"q": "Is it a faith story?",
+						"a": "Yes. The cousins go to Sunday school with Sister Pearl, the parents live out the Golden Rule, and it is a warm, funny Christian story."
+					},
+					{
+						"q": "Is it about brothers and cousins?",
+						"a": "Yes: RJ, his brothers and his nine cousins are the whole cast, with Grandma's house as the family's center."
+					}
+				],
+				"bio": null,
+				"jsonld": {
+					"book": {
+						"name": "Life on The Ridge",
+						"alternativeHeadline": null,
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893073133; eBook 9798893073140",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 40,
+						"datePublished": null,
+						"audience": "Children ages 8-12 and their families",
+						"about": ["growing up", "cousins", "Sunday school", "simpler times"],
+						"sameAs": ["https://www.amazon.com/dp/B0HCN5N3TC"],
+						"@id": "https://spiritmediapublishing.com/books/life-on-the-ridge/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Darci LaRue",
+						"description": null,
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/life-on-the-ridge/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Life on The Ridge about?",
+							"a": "It is a warm, funny Christian story about RJ and his nine cousins growing up together on a ridge in simpler times, getting into trouble and learning that family sticks together."
+						},
+						{
+							"q": "Who is it for?",
+							"a": "Ages 8 to 12 as a middle-grade read; grandparents and parents who like nostalgic stories of simpler times will also enjoy it."
+						},
+						{
+							"q": "Where do the cousins meet?",
+							"a": "Every day under the big oak tree in Johnny D's field."
+						},
+						{
+							"q": "Is it a faith story?",
+							"a": "Yes. The cousins go to Sunday school with Sister Pearl, the parents live out the Golden Rule, and it is a warm, funny Christian story."
+						},
+						{
+							"q": "Is it about brothers and cousins?",
+							"a": "Yes: RJ, his brothers and his nine cousins are the whole cast, with Grandma's house as the family's center."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Life on The Ridge"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"Robie the Ghost (this batch, a middle-grade chapter book)"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/life-on-the-ridge-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["life-on-the-ridge-pb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": null,
+				"pub_date": null,
+				"lead_term": {
+					"term": "good old days",
+					"volume": 8100
+				},
+				"target_queries": [
+					{
+						"term": "good old days",
+						"volume": 8100,
+						"role": "LEAD (Y: the narrator's own words, 'those were the good old days' (1 exact mention); the Doc and back cover call it a story of simpler times)",
+						"interior_mentions": 1
+					},
+					{
+						"term": "brothers and cousins",
+						"volume": 3600,
+						"role": "BESIDE: the 3fh auto lead; RJ, his brothers and nine cousins (cousin 4, brother 10 mentions)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "country cousins",
+						"volume": 2400,
+						"role": "BESIDE, weak: rural cousins on a ridge (0 mentions)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "simpler times",
+						"volume": 1900,
+						"role": "BESIDE: the Doc's own phrase (interior 'simpler' 0)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "old oak tree",
+						"volume": 1600,
+						"role": "BESIDE: the meeting place (oak tree 6 mentions)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "growing in faith",
+						"volume": 880,
+						"role": "BESIDE: Sunday school and the Golden Rule (Sunday school 2 mentions)",
+						"interior_mentions": 0
+					}
+				],
+				"beside_larger_than_lead": [],
+				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
+				"url": "https://spiritmediapublishing.com/books/life-on-the-ridge/",
+				"buy_url": "https://spiritmediapublishing.com/books/life-on-the-ridge/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#life-on-the-ridge (draft unit 3fn); sources: Drive metadata Doc 1E5IXiScHF8HYD-IXddTUcIePYodzTqo7-P2PrxbWJUk (Life on The Ridge — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"bio": "TBD (Doc bio reads NEEDS AUTHOR INPUT)",
+						"lccn": "none in the Doc or sheet.json"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-07-30, Amazon July 30, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 15.99 USD, eBook 9.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.description": "TBD",
+						"jsonld.person.url": "TBD (none)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For grandparents and parents",
+							"paras": [
+								"If you remember a cord on the kitchen phone and a grandmother who gave every cousin a scoop of vanilla ice cream, this is a story to read aloud and talk about. It is also a gentle way to tell children what an ordinary week once looked like."
+							]
+						},
+						{
+							"h2": "For families who like funny stories of cousins",
+							"paras": [
+								"The book is built on scenes that are easy to retell: the day the cousins turned a muddy kitchen floor into a sock-sliding rink, or the night a camping trip was nearly ruined by a \"bear\" that turned out to be one cousin snoring."
+							]
+						},
+						{
+							"h2": "For Sunday school classes and church families",
+							"paras": [
+								"Sunday school is part of the story from the first chapter, where the narrator remembers that \"There we memorized Bible verses, and I still remember many of them to this day.\" A Golden Rule scene in chapter 5 gives a leader an easy way into a short talk about kindness."
+							]
+						}
+					],
+					"audience": {
+						"headline": "Ten cousins, one oak tree and a lot of very bad ideas.",
+						"body": "For families who want a warm, funny, Christian story of growing up in simpler times, for grandparents and parents who remember a field, a party line and Grandma's biscuits, and for young readers who like stories about cousins who always get into trouble and always stick together. Thirteen-year-old RJ tells seven short chapters about the summer days, Sunday mornings and scrapes that made his family what it is. A note on subjects: this is a gentle story with mischief and a few bumps. A fire brings the fire department, a boy breaks his arm falling off a van, the cousins are spanked and grounded as boys were in that day, and one evening the television news mentions a war, which upsets the family for a moment before a board game turns the evening around. There is no graphic detail."
+					},
+					"what_makes": {
+						"title": "What makes this book for families who miss the good old days",
+						"paras": [
+							"A short story in seven chapters, told by a boy who is proud of his family and honest about his mistakes. The first page sets the tone: \"We each had a phone, but it was connected to a cord in our homes.\" There are no games to play and no texting, only a field, a baseball and ten cousins who \"are the best of friends.\"",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It is told by a kid. RJ is the oldest of three brothers, and his chapters read like a storyteller at Grandma's table.",
+							"It is funny without being unkind. Every mishap is followed by a consequence and by a laugh, and the narrator says of the fire, \"To this day, we still laugh about that day.\"",
+							"It remembers real details of a simpler time: a party line, a station wagon, cathead biscuits, a wooden bat, a three-wheeler and a cake walk at the fire station dance. Hard words are explained in parentheses right in the text, so a young reader never gets lost.",
+							"Faith is part of the week, not an add-on. Sunday school, a fiery preacher, the blessing before meals and the Golden Rule all show up in ordinary scenes.",
+							"It ends with a short, sincere word to the reader about the Bible and prayer."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "Chapter 1 opens like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Growing up on the ridge was fun, and it was a safe place. We, the cousins, met every day underneath the oak tree in Johnny D's field. There we scuffled, arm wrestled, threw around a baseball, and told jokes, all while enjoying peanut butter sandwiches my mom packed for us."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The book closes like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"If you are at a place in your life where you don't know what to do, turn to the Bible. Turn to God. Talk to Him. He is always listening. He always loves."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The seven chapters follow the cousins through Grandma's house and Sunday school, a fire and a baseball field, a three-wheeler and a muddy floor, a flower bed, a pool, a dance and an evening in front of the news."
+							}
+						],
+						"intro": ["Chapter 1 opens like this:"],
+						"excerpt": [
+							"Growing up on the ridge was fun, and it was a safe place. We, the cousins, met every day underneath the oak tree in Johnny D's field. There we scuffled, arm wrestled, threw around a baseball, and told jokes, all while enjoying peanut butter sandwiches my mom packed for us.",
+							"If you are at a place in your life where you don't know what to do, turn to the Bible. Turn to God. Talk to Him. He is always listening. He always loves."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Seven short chapters, 40 pages in all, in full color",
+						"A cast of ten cousins, three brothers, a sister, four dads and a Grandma",
+						"Short explanations of old-fashioned words, such as a party line and cathead biscuits",
+						"The Golden Rule and Sunday school woven through the stories",
+						"A closing word to the reader about the Bible and prayer",
+						"Paperback and eBook editions"
+					],
+					"details": {
+						"Title": "Life on The Ridge",
+						"Author": "Darci LaRue",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "40 (paperback)",
+						"Trim size": "8 x 10 inches",
+						"Binding": "Paperback (perfect bound), full color interior",
+						"Paperback ISBN": "979-8-89307-313-3",
+						"eBook ISBN": "979-8-89307-314-0"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The fire under the oak tree",
+							"paras": [
+								"It is a week before Thanksgiving, and the cousins decide to build a fire. \"It burned so high that we started sweating.\" A neighbor sees the smoke and calls for help, and the cousins run, leaving their jackets hanging on the oak tree. The firefighters know whose they are. The narrator adds, in parentheses, that \"Firefighters come quickly when there's a fire, even a small one.\""
+							]
+						},
+						{
+							"h2": "The muddy floor",
+							"paras": [
+								"A new water well sends up black mud, and the boys play in it for hours. When they trudge inside for lunch, Dad walks in. They clean with the water hose, then one cousin brings it indoors, and soon they are all in their socks. \"We all took turns sliding across the wet, muddy floor.\" The ending is a spanking and a week of being grounded, which was \"the longest week of my life,\" saved only by an hour a day on the party line."
+							]
+						},
+						{
+							"h2": "Peas in the pockets",
+							"paras": [
+								"Chapter 6 ends at the pastor's dinner table, where the narrator, a picky eater, hides his brussels sprouts and peas in his pockets until the pastor's wife offers him more. \"You must love green peas! Let me give you some more.\" One look at his mother settles it: \"My pockets were stuffed with green peas that night.\""
+							]
+						}
+					],
+					"author": {
+						"bio": ""
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish Darci LaRue's story of family and faith."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author does not write a separate preface, so the reason is in her last pages. She writes: \"I am so thankful for my Sunday school teachers, my pastors, and my parents, who taught me the Bible.\" She says she has \"seen Bible verses proven true many times in my own life,\" and that \"They have never failed me.\" Her hope for the reader is the closing invitation to turn to God, who \"is always listening.\""
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Life on The Ridge about?",
+							"a": "A warm, funny Christian story about RJ and his nine cousins growing up together on a ridge, getting into trouble and learning that family sticks together. It is told in seven short chapters."
+						},
+						{
+							"q": "Is it a book about the good old days?",
+							"a": "Yes. The narrator says it in his first chapter: \"Those were the good old days.\" The stories show what he means, from a phone on a cord to biscuits at Grandma's, and the book never complains about today."
+						},
+						{
+							"q": "Is it a story of simpler times?",
+							"a": "It is. The cousins play ball in a field, share one party line and spend Saturday nights at Grandma's, and one scene mentions the summer of 1975 and a war on the television news. The book does not say it is a memoir or a novel."
+						},
+						{
+							"q": "Who are the brothers and cousins?",
+							"a": "RJ is the oldest of three brothers, with a sister who is not to be crossed. His uncles are his dad's three brothers, and together there are ten cousins. Grandma raised the four brothers alone after Pa died."
+						},
+						{
+							"q": "Where is the old oak tree?",
+							"a": "In Johnny D's field. It is where the cousins meet every day, where they hang their jackets on a cold morning and where, one day in chapter 3, two cousins come riding up on a three-wheeler."
+						},
+						{
+							"q": "Is it about growing in faith?",
+							"a": "Yes, in a gentle way. The cousins attend Sunday school, the family prays before meals, and RJ's mother reminds him of the Golden Rule: \"So in everything, do to others what you would have them do to you.\""
+						},
+						{
+							"q": "What age is it for?",
+							"a": "It reads as a middle-grade story with plenty to enjoy for adults. The reading age is not confirmed here; check the listing at purchase."
+						},
+						{
+							"q": "Is it scary or upsetting?",
+							"a": "No. There is a fire, a broken arm and a news report about a war, but each is handled briefly and the family comforts one another."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-life-on-the-ridge.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"life-on-the-ridge-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893073133",
+					"isbn_display": "979-8-89307-313-3",
+					"list_cents": 1599,
+					"price_note": "15.99 (Doc: live, kept)",
+					"price_flags": [],
+					"pages": 40,
+					"pages_note": "40 (Doc and Amazon page agree)",
+					"trim": "8.0 x 10.0 in (Doc)",
+					"binding": "Perfect bound",
+					"checkout_title": "Life on The Ridge — Paperback",
+					"checkout_name": "Life on The Ridge: (no subtitle)",
+					"checkout_desc": "Paperback · 40 pages · by Darci LaRue · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "life-on-the-ridge",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/life-on-the-ridge/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Darci LaRue",
+					"sku_tbd": [],
+					"sku_ready": true
+				}
+			}
+		},
+		{
+			"slug": "robie-the-ghost",
+			"units_12m": 19,
+			"book": {
+				"slug": "robie-the-ghost",
+				"status": "pending",
+				"title": "Robie the Ghost",
+				"subtitle": "(no subtitle)",
+				"full_title": "Robie the Ghost: (no subtitle)",
+				"author": {
+					"name": "Maggie Mac"
+				},
+				"credits": null,
+				"page_title": "Robie the Ghost by Maggie Mac: Good Versus Evil Story",
+				"h1": "Robie the Ghost",
+				"meta": "Robie the Ghost by Maggie Mac: a ghost, an angel and two children rescue lost kids from the Bad Man in a hopeful Christian adventure for ages 8 to 12.",
+				"short": "Robie has been a ghost since the blizzard of 1836. With new friends Jimmy and Sarah and a mysterious girl named Mary, who is secretly an angel, he sets out to free the children Bebop's monsters keep locked in caves.",
+				"about": "In 1836 ten-year-old Robie went out to feed the animals in a blizzard, struck his head and woke up a ghost. Before he could follow the beautiful light that came for him, a red-haired girl hurried him away, insisting the light was evil, and he spent the next 175 years exploring the world alone. Then he learns the truth: the Bad Man is Bebop, a shape-changer whose monsters keep children who have just died locked in underground caves. When two children, Jimmy and Sarah, escape one of those caves, Robie knows he has to help. In Heaven an angel named Mary has noticed that too many children are missing, and she is sent to Earth with a daring plan and a song, Jesus Loves Me. The four friends work out how to slip into Bebop's caves, teach the captive children to jump from place to place and gather them in a desert where the Bad Man's power cannot reach. When every child is safe they will sing Jesus' song and call for help. Across thirteen chapters the rescue grows into a mission that spans the planet.",
+				"who_for": [
+					"Readers ages 8 to 12 who like adventure, angels and monsters with a hopeful ending",
+					"Parents who want a clean middle-grade story about courage and helping others",
+					"Families looking for a faith-based good-versus-evil story that centers on Jesus"
+				],
+				"who_for_status": "PROPOSED (no ranked For list; the Doc has an Audience row and description headings)",
+				"faq": [
+					{
+						"q": "What is Robie the Ghost about?",
+						"a": "A boy who has been a ghost since a blizzard in 1836 joins two escaped children and an angel named Mary to rescue lost children from a shape-changer called Bebop and his monsters, and to call Jesus to bring them home."
+					},
+					{
+						"q": "Is it scary?",
+						"a": "It has monsters and underground caves, but the story is hopeful: the friends rescue the captive children in a hopeful adventure about purpose, courage and helping others. Parents of younger readers may want to read it first."
+					},
+					{
+						"q": "What is the song in the story?",
+						"a": "Mary's plan includes the song Jesus Loves Me, which the children sing to call Jesus. The book mentions the song by name and does not reprint a children's songbook."
+					},
+					{
+						"q": "Does it have angels?",
+						"a": "Yes. Mary is an angel sent from Heaven, her supervising angel is named Mac, and angels appear throughout the story."
+					},
+					{
+						"q": "What age is it for?",
+						"a": "Ages 8 to 12, as a middle-grade chapter book of thirteen chapters."
+					}
+				],
+				"bio": null,
+				"jsonld": {
+					"book": {
+						"name": "Robie the Ghost",
+						"alternativeHeadline": null,
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893072730; eBook 9798893072747",
+						"bookFormat": "https://schema.org/Paperback",
+						"numberOfPages": 112,
+						"datePublished": null,
+						"audience": "Children ages 8-12",
+						"about": ["good versus evil", "angels", "Jesus", "courage"],
+						"sameAs": ["https://www.amazon.com/dp/B0H9NV2N66"],
+						"@id": "https://spiritmediapublishing.com/books/robie-the-ghost/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Maggie Mac",
+						"description": null,
+						"url": null,
+						"sameAs": null,
+						"@id": "https://spiritmediapublishing.com/books/robie-the-ghost/#author"
+					},
+					"faqpage": [
+						{
+							"q": "What is Robie the Ghost about?",
+							"a": "A boy who has been a ghost since a blizzard in 1836 joins two escaped children and an angel named Mary to rescue lost children from a shape-changer called Bebop and his monsters, and to call Jesus to bring them home."
+						},
+						{
+							"q": "Is it scary?",
+							"a": "It has monsters and underground caves, but the story is hopeful: the friends rescue the captive children in a hopeful adventure about purpose, courage and helping others. Parents of younger readers may want to read it first."
+						},
+						{
+							"q": "What is the song in the story?",
+							"a": "Mary's plan includes the song Jesus Loves Me, which the children sing to call Jesus. The book mentions the song by name and does not reprint a children's songbook."
+						},
+						{
+							"q": "Does it have angels?",
+							"a": "Yes. Mary is an angel sent from Heaven, her supervising angel is named Mac, and angels appear throughout the story."
+						},
+						{
+							"q": "What age is it for?",
+							"a": "Ages 8 to 12, as a middle-grade chapter book of thirteen chapters."
+						}
+					],
+					"breadcrumb": "Home > Bookstore > Robie the Ghost"
+				},
+				"internal_links": [
+					"/bookstore/",
+					"The Fairies Quest (this batch, a faith-based chapter book)"
+				],
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/robie-the-ghost-1200.jpg",
+					"source": "pmprint R2 sized set (3gc)"
+				},
+				"formats": ["robie-the-ghost-pb"],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026912356",
+				"pub_date": null,
+				"lead_term": {
+					"term": "good versus evil",
+					"volume": 5400
+				},
+				"target_queries": [
+					{
+						"term": "good versus evil",
+						"volume": 5400,
+						"role": "LEAD (Y: Bebop and his monsters against Heaven's rescue is the whole plot; 'bad man' 15, monster 94, angel 50 mentions)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "jesus loves me",
+						"volume": 27100,
+						"role": "BESIDE, bigger than the lead, weak: the song in the plan (6 mentions); song searchers want lyrics",
+						"interior_mentions": 6
+					},
+					{
+						"term": "jesus loves me song",
+						"volume": 6600,
+						"role": "BESIDE, bigger than the lead, weak: same song (0 exact mentions)",
+						"interior_mentions": 0
+					},
+					{
+						"term": "angels and heaven",
+						"volume": 2900,
+						"role": "BESIDE: angel 50, heaven 42 mentions",
+						"interior_mentions": 0
+					},
+					{
+						"term": "warrior angels",
+						"volume": 2400,
+						"role": "BESIDE: 5 mentions",
+						"interior_mentions": 5
+					},
+					{
+						"term": "finding your purpose",
+						"volume": 1600,
+						"role": "BESIDE: the Doc calls it a hopeful adventure about purpose",
+						"interior_mentions": 0
+					},
+					{
+						"term": "monsters and angels",
+						"volume": 110,
+						"role": "BESIDE: the two sides of the story",
+						"interior_mentions": 0
+					},
+					{
+						"term": "guardian angel story",
+						"volume": 90,
+						"role": "BESIDE, small: Mary is an angel sent to Earth",
+						"interior_mentions": 0
+					}
+				],
+				"beside_larger_than_lead": [
+					{
+						"term": "jesus loves me",
+						"volume": 27100
+					},
+					{
+						"term": "jesus loves me song",
+						"volume": 6600
+					}
+				],
+				"home": "SMP (no source marks it Father Heart; every Doc carries only the standard publisher line about our Father's heart)",
+				"url": "https://spiritmediapublishing.com/books/robie-the-ghost/",
+				"buy_url": "https://spiritmediapublishing.com/books/robie-the-ghost/buy/",
+				"_source": "aeo-state/smp-books-drafts-merged-3fo-20261114.json#robie-the-ghost (draft unit 3fn); sources: Drive metadata Doc 1dYchzgJVKdnDkhVmLSD6NLypKjhzvyBWDIk7zIVUTwM (Robie the Ghost — Metadata (2026-10-15)) + specsheet/sheet.json + specsheet/booktext.txt + 3fh keywords",
+				"_internal_3fu": {
+					"withheld_reader_fields": {
+						"bio": "TBD (Doc bio reads NEEDS AUTHOR INPUT)"
+					},
+					"jsonld_withheld": {
+						"jsonld.book.datePublished": "OMIT until pmpublish confirms (Doc 2026-07-20, Amazon July 20, 2026)",
+						"jsonld.offer": "OMIT while no sku_status live; at go-live Paperback 10.99 USD, eBook 5.99 USD (re-confirm at go-live), InStock, New",
+						"jsonld.person.description": "TBD",
+						"jsonld.person.url": "TBD (none)",
+						"jsonld.person.sameAs": "TBD (none approved)"
+					}
+				},
+				"page": {
+					"sections": [
+						{
+							"h2": "For readers who love adventure with angels",
+							"paras": [
+								"If your reader wants monsters, secret maps, jumps across the planet and angels who hide in plain sight, this has all of them, and the heroes are children. A warrior angel named Meshech stands unseen at the border of the desert, and the monsters cannot see or hear him unless he allows it."
+							]
+						},
+						{
+							"h2": "For parents who want a clean story about courage",
+							"paras": [
+								"Each rescue is followed by healing, and Robie's friends take care of one another. The monsters are frightening but foolish, and the children are never left without help. The foreword calls it a story about \"the joys of helping others.\""
+							]
+						},
+						{
+							"h2": "For families who want to talk about purpose",
+							"paras": [
+								"Jimmy asks Mary whether Jesus really needs them. She answers: \"Yes, Jimmy. That is how the universe is set up. We each have tasks to fulfill. God waits to see if we will accept those tasks and do them.\" It is a good place to stop reading and ask what task a young reader might be given."
+							]
+						},
+						{
+							"h2": "For readers who like a team and a plan",
+							"paras": [
+								"By chapter 8 the rescue has become an organization. Teams are trained to make the jumps, border guards watch the desert, and Robie briefs the team leaders before a big raid in Liberia: \"Tell them ChaCha is coming for them.\" When a leader asks how he knows Heaven is behind them, he answers, \"Because they glow, and they don't hurt you but help you.\" Readers who like to see how a plan is made, tested and fixed will find a lot to enjoy."
+							]
+						}
+					],
+					"audience": {
+						"headline": "A ghost boy, an angel named Mary and ten thousand lost children to bring home.",
+						"body": "For readers ages 8 to 12 who love adventure, angels and monsters with a hopeful ending, and for parents who want a clean middle-grade story about courage, purpose and helping others. Robie has been a ghost since a blizzard in 1836. When he meets two children who have just escaped a monster's cave, he finally learns what has been happening to children like him, and what he can do about it. A note on subjects: this is an adventure about children who have died and are being kept from Heaven. Robie falls in a blizzard, another boy drowned in a storm, and the captive children are hurt by monsters who feed on pain. The hurt is described briefly, and the story turns on hope, healing and rescue. Parents of younger or more sensitive readers may want to read the first chapters first."
+					},
+					"what_makes": {
+						"title": "What makes this book for readers who love a story of good versus evil",
+						"paras": [
+							"A thirteen-chapter adventure that sets a shape-changing villain and his band of small monsters against a handful of children and an angel with a plan. The plan is a song, \"Jesus Loves Me\", and a desert where the Bad Man cannot use his power.",
+							"Five things set it apart:"
+						],
+						"list": [
+							"It begins with an unusual hero. Robie is not a scary ghost. He is a lonely ten-year-old boy, and when a stranger finally speaks to him he says, \"You're the first person to talk back to me in one hundred seventy years.\"",
+							"The villain is clever and foolish at once. Bebop can \"change his shape to be anyone or anything he wants,\" and yet he forgets to lock the cage doors.",
+							"Heaven is involved from the first chapters. An angel named Mary and her supervising angel, Mac, talk about the missing children, and Jesus Himself comes to meet the four friends.",
+							"The children are the rescuers. They learn to jump from place to place by thinking about it very hard, and then teach others to do the same.",
+							"It says what it is for. The foreword to parents begins with its theme, purpose, and ends with the joy of helping others."
+						]
+					},
+					"look_inside_text": {
+						"blocks": [
+							{
+								"type": "p",
+								"text": "The foreword to parents says:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"This is a story about purpose. It is important for each person to find their place in life and use their talents to better the human experience. I hope your child enjoys the adventures of Robie, Jimmy, Kono, Sarah, and Mary and their discoveries of the joys of helping others."
+								]
+							},
+							{
+								"type": "p",
+								"text": "Chapter 1 opens like this:"
+							},
+							{
+								"type": "quote",
+								"paras": [
+									"Robie looked out the window of his new home into the valley below. It was a beautiful view. It had taken Robie about fifty years to find this house, but it had been worth it. It was quiet here, and the Bad Man could not find him on top of the mountain."
+								]
+							},
+							{
+								"type": "p",
+								"text": "The thirteen chapters are:"
+							},
+							{
+								"type": "p",
+								"text": "1. Robie the Ghost\n2. Saving Sarah and Jimmy\n3. Planning to Save the Children\n4. Finding a Safe Place to Hide\n5. Finding the Kids and Rescuing Them\n6. Saving God's Children\n7. Learning New Jobs and Expanding the Search\n8. Getting All the Teams Ready\n9. Bebop Makes a Plan\n10. Freeing a Boy Named ChaCha\n11. The Big Raid\n12. The Final Rescue\n13. The Final Mission and the Way Home"
+							}
+						],
+						"intro": ["The foreword to parents says:"],
+						"excerpt": [
+							"This is a story about purpose. It is important for each person to find their place in life and use their talents to better the human experience. I hope your child enjoys the adventures of Robie, Jimmy, Kono, Sarah, and Mary and their discoveries of the joys of helping others.",
+							"Robie looked out the window of his new home into the valley below. It was a beautiful view. It had taken Robie about fifty years to find this house, but it had been worth it. It was quiet here, and the Bad Man could not find him on top of the mountain."
+						],
+						"contents": [],
+						"numbered": false,
+						"contents_after": []
+					},
+					"whats_inside": [
+						"Thirteen chapters of adventure, about 112 pages",
+						"A cast of Robie, Jimmy, Sarah, Kono and the angel Mary, with Mac, Andrey and warrior angels in the background",
+						"A rescue that moves from the Pacific islands to Europe and Africa",
+						"A short, familiar song at the heart of the plan",
+						"A foreword to parents about finding purpose",
+						"Paperback and eBook editions"
+					],
+					"details": {
+						"Title": "Robie the Ghost",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Pages": "about 112 (paperback)",
+						"Trim size": "6 x 9 inches",
+						"Binding": "Paperback (perfect bound), black and white interior",
+						"Paperback ISBN": "979-8-89307-273-0",
+						"eBook ISBN": "979-8-89307-274-7",
+						"Library of Congress Control Number": "2026912356"
+					},
+					"stories_title": "Three moments from the book",
+					"stories": [
+						{
+							"h2": "The light that was not evil",
+							"paras": [
+								"In chapter 1, a very bright light full of color and music comes down from the sky, and Robie turns to follow it. A red-haired girl screams, \"No-o-o! That is an evil light. It will hurt you.\" The light is gone before he can reach it, and he spends a hundred and seventy-five years alone. Only later does he understand who the girl really was."
+							]
+						},
+						{
+							"h2": "A plan with a song",
+							"paras": [
+								"In Heaven, Mary tells Mac that \"there are ten thousand missing children.\" Mac tells her about Bebop and then lays out the plan: \"Teach it to the kids. When the time is right and all of the children have been gathered, sing it loud and clear.\" On Earth, Jimmy supplies the missing piece: \"We jump into the caves while the monsters are sleeping or gone, free the kids, teach them how to jump out,\" and the four friends choose the Mojave Desert as the place to take them."
+							]
+						},
+						{
+							"h2": "Jesus comes to the cabin",
+							"paras": [
+								"When Jimmy shouts that Mary sounds just like the rest of them, the sky grows bright and a man with a kind face stands before the children. \"I am Jesus, the One you seek, even though you knew Me not.\" Robie bursts into tears as all the pain and loneliness he has carried finally leave him, and Jimmy hugs Him. Jesus tells Sarah, \"Keep the faith before them, and all will come home.\""
+							]
+						}
+					],
+					"author": {
+						"bio": ""
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service book creation and publishing in paperback, hardback, digital and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production. We are honored to publish a rescue adventure for young readers."
+					},
+					"why": {
+						"title": "Why this book exists",
+						"paras": [
+							"The author's reason is in the foreword to parents: \"This is a story about purpose.\" She writes that \"It is important for each person to find their place in life and use their talents to better the human experience.\" Her hope is that a child reading it will discover \"the joys of helping others.\" The story shows that idea in action. Each of the four friends has a different gift, from teaching to healing to fighting, and each is needed."
+						]
+					},
+					"faq": [
+						{
+							"q": "What is Robie the Ghost about?",
+							"a": "A boy who has been a ghost since a blizzard in 1836 joins two escaped children and an angel named Mary to rescue lost children from a shape-changer called Bebop and his monsters, and to call Jesus to bring them home."
+						},
+						{
+							"q": "Is it a story of good versus evil?",
+							"a": "Yes. Bebop and his small monsters keep new souls in cages and \"feed off pain and negative emotions,\" while Heaven sends an angel, a plan and warrior angels to bring the children home. The words \"good versus evil\" are not used in the book. The contest is the whole plot."
+						},
+						{
+							"q": "Is it scary for kids?",
+							"a": "It has monsters and underground caves, and the captive children have been hurt. The story is hopeful, the hurt is described briefly and healing follows each rescue. Parents of younger readers may want to read it first."
+						},
+						{
+							"q": "What is the song in the story?",
+							"a": "Mary's plan includes \"Jesus Loves Me,\" which the children sing together when all of them are gathered. The book names the song early, and the familiar words of the first verse and chorus appear in the final chapters when the children sing. It is a story that uses the song, not a songbook."
+						},
+						{
+							"q": "Does it have angels?",
+							"a": "Yes. Mary is an angel sent to Earth, her supervising angel is Mac, and other angels, including warrior angels, appear throughout. Mac teases Mary when she is alarmed: \"Don't get your wings all bunched up.\""
+						},
+						{
+							"q": "What age is it for?",
+							"a": "It is written for ages 8 to 12 as a middle-grade chapter book of thirteen chapters."
+						},
+						{
+							"q": "Is it a story about finding your purpose?",
+							"a": "The foreword says so in its first line, and each child finds a job that fits: Jimmy teaches the jumps, Sarah heals, and Kono, who has waited five hundred years, joins the rescue. It is not a self-help book. It is an adventure that shows what purpose looks like."
+						},
+						{
+							"q": "Is it a guardian angel story?",
+							"a": "Partly. Mary explains to Sarah that everyone has a guardian angel, and Sarah's own helper begins to speak up in the cabin. It is one thread of the story, not the whole of it."
+						}
+					]
+				},
+				"page_source": "aeo-state/3gc-robie-the-ghost.md (pmseoaeo, reader copy verbatim)"
+			},
+			"skus": {
+				"robie-the-ghost-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893072730",
+					"isbn_display": "979-8-89307-273-0",
+					"list_cents": 1099,
+					"price_note": "10.99 (Doc: live, kept)",
+					"price_flags": [],
+					"pages": 112,
+					"pages_note": "112 (Doc and Amazon page agree)",
+					"trim": "6.0 x 9.0 in (Doc)",
+					"binding": "Perfect bound",
+					"checkout_title": "Robie the Ghost — Paperback",
+					"checkout_name": "Robie the Ghost: (no subtitle)",
+					"checkout_desc": "Paperback · 112 pages · by Maggie Mac · free shipping",
+					"checkout_img": null,
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "robie-the-ghost",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/robie-the-ghost/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"sameas": null,
+					"royalty_hold": false,
+					"author_key": "Maggie Mac",
+					"sku_tbd": [],
 					"sku_ready": true
 				}
 			}
