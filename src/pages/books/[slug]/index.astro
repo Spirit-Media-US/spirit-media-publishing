@@ -66,7 +66,15 @@ type Page = {
 	faq: { q: string; a: string }[];
 	faqDropped: number;
 	bio: string | null;
-	cover: { src: string; w: number; h: number; alt: string; w300?: string; og?: string };
+	cover: {
+		src: string;
+		w: number;
+		h: number;
+		alt: string;
+		w300?: string;
+		og?: string;
+		is3d?: boolean;
+	};
 	formats: Fmt[];
 	lccn: string | null;
 	sameAs: string[];
@@ -223,6 +231,7 @@ export async function getStaticPaths() {
 							(sized as Record<string, any>).covers[t.slug].hero3d ??
 							(sized as Record<string, any>).covers[t.slug]
 						).height,
+						is3d: Boolean((sized as Record<string, any>).covers[t.slug].hero3d),
 						alt: `Cover of ${b.title} by ${b.author.name}`,
 					}
 				: { src: b.cover.jpg, w: d.w, h: d.h, alt: `Cover of ${b.title} by ${b.author.name}` },
@@ -621,7 +630,7 @@ const crumbs = {
 								alt={p.cover.alt}
 								fetchpriority="high"
 								decoding="async"
-								class="h-auto w-full rounded shadow-lg"
+								class={p.cover.is3d ? 'h-auto w-full' : 'h-auto w-full rounded shadow-lg'}
 							/>
 						</a>
 					</div>

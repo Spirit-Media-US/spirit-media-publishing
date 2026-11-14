@@ -1,9 +1,22 @@
 {
 	"_note": "SMP Look inside samples (Kevin 2026-11-14: the front of the book through Chapter 1, for every book). Pages on R2 spirit-media-publishing/lookinside/<dir>/. Same shape as FHB src/data/lookinside.json.",
 	"raised-in-a-barn": {
-		"count": 39,
+		"count": 41,
 		"dir": "raised-in-a-barn",
 		"pages": [
+			{
+				"file": "raised-in-a-barn-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1217
+			},
+			{
+				"file": "raised-in-a-barn-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1217,
+				"spacer": true
+			},
 			{
 				"file": "p001.webp",
 				"label": "Advance Praise",
