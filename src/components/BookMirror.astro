@@ -36,6 +36,16 @@ const HOUSE: Record<string, Record<string, string>> = {
 		why: 'Por qué existe este libro',
 		browse: 'Ver todos los libros de Spirit Media',
 	},
+	fr: {
+		look_inside: "Un aperçu de l'intérieur",
+		contents: 'Sommaire',
+		whats_inside: 'Ce que contient le livre',
+		details: 'Fiche du livre',
+		author: "À propos de l'auteur",
+		faq: 'Questions fréquentes',
+		why: 'Pourquoi ce livre existe',
+		browse: 'Voir tous les livres de Spirit Media',
+	},
 };
 const L = { ...(HOUSE[lang] ?? HOUSE.en), ...(g.labels ?? {}) };
 const bands = ['bg-white', 'bg-stone-50'];

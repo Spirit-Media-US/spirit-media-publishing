@@ -218,7 +218,7 @@ export function getStaticPaths() {
 			),
 			// publisher of record when it is not SMP (Say Yes to God = Vector Reach, author-owned ISBNs; pmseoaeo 11-14 02:49Z)
 			publisher: usable(b.publisher) ? (b.publisher as string) : null,
-			lang: b.language === 'es' ? 'es' : 'en',
+			lang: b.language === 'es' || b.language === 'fr' ? (b.language as 'es' | 'fr') : 'en',
 			canonical: null,
 			orderable: (b.formats as string[]).some((sku) => BOOK_SKUS[sku]?.isbn),
 			page: b.page ? deep(t.slug, 'page', b.page) : null,
@@ -306,7 +306,7 @@ const feeCfg = JSON.stringify({
 	),
 });
 
-// Page chrome in the book's language (3ge: the Spanish title ¿Sabes Qué?). en is the house text, unchanged.
+// Page chrome in the book's language (3ge: the Spanish title ¿Sabes Qué?; 3gs: the French La Connexion à Dieu). en is the house text, unchanged.
 const T = (
 	{
 		en: {
@@ -356,8 +356,34 @@ const T = (
 			} as Record<string, string>,
 			countries: { US: 'Estados Unidos' } as Record<string, string>,
 		},
+		fr: {
+			home: 'Accueil',
+			store: 'Librairie',
+			by: 'de',
+			order: 'Commander',
+			look: "Un aperçu de l'intérieur",
+			direct: 'Commande directe · livraison gratuite aux États-Unis',
+			orderTitle: 'Commander',
+			shipTo: 'Livrer à',
+			more: "Bientôt livré dans d'autres pays.",
+			checkout: 'Payer →',
+			free: 'Livraison gratuite aux États-Unis.',
+			returns: 'Retours sous 30 jours',
+			soon: 'Bientôt disponible dans notre librairie.',
+			qty: 'quantité',
+			subtotal: 'Sous-total',
+			handling: 'Livraison et manutention',
+			total: 'Total',
+			formats: {
+				Paperback: 'Broché',
+				Hardback: 'Relié',
+				Hardcover: 'Relié',
+				eBook: 'Livre numérique',
+			} as Record<string, string>,
+			countries: { US: 'États-Unis' } as Record<string, string>,
+		},
 	} as const
-)[p.lang === 'es' ? 'es' : 'en'];
+)[p.lang === 'es' || p.lang === 'fr' ? p.lang : 'en'];
 const fmt = (f: string) => T.formats[f] ?? f;
 
 const ld = {

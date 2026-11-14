@@ -330,6 +330,41 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sabes-que-300.webp",
 			"width": 600,
 			"height": 600
+		},
+		"following-god-is-easy": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/following-god-is-easy-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/following-god-is-easy-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/following-god-is-easy-300.webp",
+			"width": 600,
+			"height": 840
+		},
+		"love-gods-way": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-gods-way-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-gods-way-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-gods-way-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"the-god-connection": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-god-connection-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-god-connection-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-god-connection-300.webp",
+			"width": 600,
+			"height": 927
+		},
+		"the-pitted-nail": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-pitted-nail-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-pitted-nail-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-pitted-nail-300.webp",
+			"width": 600,
+			"height": 900
+		},
+		"blessing-trail-3": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/blessing-trail-3-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/blessing-trail-3-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/blessing-trail-3-300.webp",
+			"width": 600,
+			"height": 600
 		}
 	}
 }
