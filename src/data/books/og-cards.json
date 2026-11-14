@@ -1,3 +1,9 @@
 {
-	"_note": "1200x630 JPG share cards for the book pages, keyed by slug: { src, w: 1200, h: 630 }. A NEW file on R2 at spirit-media-publishing/og/books/<slug>-og.jpg. No entry = the page shares its cover JPG (size tags omitted). Add a card = add a row."
+	"_note": "1200x630 JPG share cards for the book pages, keyed by slug: { src, w: 1200, h: 630 }. A NEW file on R2 at spirit-media-publishing/og/books/<slug>-og.jpg. No entry = the page shares its cover JPG (size tags omitted). Add a card = add a row.",
+	"raised-in-a-barn": {
+		"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/og/books/raised-in-a-barn-og.jpg",
+		"w": 1200,
+		"h": 630,
+		"_made": "2026-11-15 bin/fhb-og-card.mjs --smp (cover + title + 15% offer + SMP logo)"
+	}
 }
