@@ -310,9 +310,23 @@ const norm = (t: string) =>
 const OWN_PAGE = new Map<string, string>(
 	(shipset as any).titles.map((t: any) => [norm(t.book.title), `/books/${t.slug}/`]),
 );
+// A card whose title differs from the ship set: its slug read as words ("your time first responders") is a key too,
+// and the bookstore's own spellings of the Home editions and the plain "Your Time" cards (Sanity points every Your
+// Time card at the Work Staff listing) are named here, so no other edition's card is pulled in (pmseoaeo 3gm #1).
+for (const t of (shipset as any).titles)
+	OWN_PAGE.set(norm(t.slug.replace(/-/g, ' ')), `/books/${t.slug}/`);
+const OWN_ALIAS: Record<string, string> = {
+	'home colored': '/books/home/',
+	'home b w': '/books/home/',
+	'home sacred search for belonging colored': '/books/home/',
+	'your time': '/books/your-time-work-staff/',
+};
 for (const doc of rawBooks as any[]) {
 	if (doc._id?.startsWith('fhb-') || doc._id === BELOVED_ID) continue; // FHB cards keep their FHB pages
-	const own = OWN_PAGE.get(norm(doc.title)) ?? OWN_PAGE.get(norm(doc.display_title));
+	const own =
+		OWN_PAGE.get(norm(doc.title)) ??
+		OWN_PAGE.get(norm(doc.display_title)) ??
+		OWN_ALIAS[norm(doc.title)];
 	if (!own) continue;
 	doc.amazon = own;
 	doc.formats = {};
