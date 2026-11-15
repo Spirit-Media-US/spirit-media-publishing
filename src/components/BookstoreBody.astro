@@ -161,6 +161,50 @@ async function deriveFhbEditions() {
 			),
 		});
 	}
+	// ROSTER EDITIONS (Kevin 2026-11-15 "You are missing many. Please get this cleaned up."): a language
+	// edition FHB already sells from its own /bibles page (language-roster.json: sellable, ISBNs, card cut
+	// from the BUILT case) before the edition chain lists it in edition-registry.json. Shown only when its
+	// full built cover exists in projects/fhb-lang-covers/<code>/out/ (COVER RULE, Kevin 2026-10-06) and its
+	// /bibles page data exists; the card HEAD check below still applies. Roster `ak` (Twi) is filed under
+	// `tw` there (fhb-chain.py ED_ROSTER_ALIAS).
+	const { rosterLanguages } = await load('language-editions.ts');
+	const COVERS = '/home/deploy/projects/fhb-lang-covers';
+	const builtCover = (code: string) => {
+		const dir = path.join(COVERS, code === 'ak' ? 'tw' : code, 'out');
+		try {
+			return fs.readdirSync(dir).some((f) => /-CASE-\d+pp\.pdf$/.test(f));
+		} catch {
+			return false;
+		}
+	};
+	for (const l of rosterLanguages) {
+		if (l.code === 'en' || l.listed || !l.sellable || !l.card || !l.isbn) continue;
+		if (!builtCover(l.code)) {
+			left.push(`${l.code}: roster edition, no built cover in ${COVERS}/${l.code}/out`);
+			continue;
+		}
+		const slug = langSlug(l);
+		const ed = page(slug);
+		if (!ed) {
+			left.push(`${l.code}: roster edition, no /bibles page data (${slug}.json)`);
+			continue;
+		}
+		const english = l.english.replace(/\s*\(.*\)/, '');
+		rows.push({
+			group: 'language',
+			title: `${ed.title} — ${english} Edition`,
+			display_title: `${l.name} — ${english} Edition`,
+			author: AUTHOR,
+			img: cardUrl(`lang-${l.code}`, 360),
+			w: 360,
+			h: 458,
+			href: `${SITE}/bibles/${slug}-bible/`,
+			date: ed.datePublished ?? null,
+			collections: [umbrella, language],
+			formats: l.amazon ?? {},
+			...commerceOf(ed, { hb: LANG_HB, pb: LANG_PB }),
+		});
+	}
 	// A 5xx, a 429 or a timeout is the asset host failing, not a missing card: three tries, and a
 	// card still unanswered stays only if the committed snapshot already carries that same card
 	// (verified 200 when it was written). 2026-10-13: Cloudflare IAD trouble failed 11 of 57 HEADs
