@@ -372,6 +372,22 @@
 			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/blessing-trail-3-300.webp",
 			"width": 600,
 			"height": 600
+		},
+		"who-am-i": {
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/who-am-i-hailstones-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/who-am-i-hailstones-3d-300.webp",
+				"width": 600,
+				"height": 740
+			}
+		},
+		"beloved-identity": {
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/FHB/print/books/beloved-identity-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/FHB/print/books/beloved-identity-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
 		}
 	}
 }

@@ -252,5 +252,237 @@
 				"h": 1217
 			}
 		]
+	},
+	"who-am-i": {
+		"count": 12,
+		"dir": "books/who-am-i",
+		"pages": [
+			{
+				"file": "who-am-i-00-front.webp",
+				"label": "Front cover",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-spacer.webp",
+				"label": "Inside cover",
+				"w": 1400,
+				"h": 1400,
+				"spacer": true
+			},
+			{
+				"file": "who-am-i-01.webp",
+				"label": "Title page",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-02.webp",
+				"label": "Copyright",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-03.webp",
+				"label": "Things my heavenly Father says about me",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-04.webp",
+				"label": "Illustration",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-05.webp",
+				"label": "I am wonderfully made",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-06.webp",
+				"label": "Illustration",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-07.webp",
+				"label": "I am a child of my heavenly Father",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-08.webp",
+				"label": "Illustration",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-09.webp",
+				"label": "I am loved",
+				"w": 1400,
+				"h": 1400
+			},
+			{
+				"file": "who-am-i-10.webp",
+				"label": "Illustration",
+				"w": 1400,
+				"h": 1400
+			}
+		],
+		"base": "https://assets.spiritmediapublishing.com/FHB/print/lookinside"
+	},
+	"beloved-identity": {
+		"count": 24,
+		"dir": "books/beloved-identity",
+		"pages": [
+			{
+				"file": "beloved-identity-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "beloved-identity-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1280,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p009.webp",
+				"label": "Part One: The Invitation",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p011.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p017.webp",
+				"label": "The Wound We All Carry",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p021.webp",
+				"label": "Before You Begin",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p025.webp",
+				"label": "Part Two: The Father Speaks",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p027.webp",
+				"label": "Who Do You Say That I Am?",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1280
+			}
+		],
+		"base": "https://assets.spiritmediapublishing.com/FHB/print/lookinside"
 	}
 }

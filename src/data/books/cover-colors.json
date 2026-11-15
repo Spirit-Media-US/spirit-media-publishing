@@ -7,5 +7,21 @@
 		"contrast_white": 4.85,
 		"contrast_page": 4.57,
 		"measured": "2026-11-14 from covers/raised-in-a-barn-600.webp: greens cover ~65% of the face (largest single cluster #5b7a4b 17.1%); the cover's red title lettering #a71d2d (12.2%, 6.93:1 on the page) is the alternative if the title should match the lettering instead"
+	},
+	"beloved-identity": {
+		"cover": "#ea95a9",
+		"title": "#ea95a9",
+		"outline": true,
+		"contrast_white": 2.24,
+		"contrast_page": 2.11,
+		"measured": "2026-11-15 from the 3D front face: largest median-cut cluster #ea95a9 16.7%; fails AA even deepened 0.15 -> true colour with thin dark outline"
+	},
+	"who-am-i": {
+		"cover": "#522f4f",
+		"title": "#522f4f",
+		"outline": false,
+		"contrast_white": 11.2,
+		"contrast_page": 10.55,
+		"measured": "2026-11-15: the face's largest clusters are pale sky/meadow (#fceee3 18.4%, 1.07:1 = no recognisable cover colour, white-ish even outlined), so the cover's own TITLE LETTERING is used (plum #522f4f, 10.55:1 on the page), the alternative the RIAB note names"
 	}
 }

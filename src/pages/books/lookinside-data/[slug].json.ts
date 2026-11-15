@@ -5,7 +5,8 @@ import data from '../../../data/books/lookinside.json';
 
 const ASSETS = 'https://assets.spiritmediapublishing.com/spirit-media-publishing/lookinside';
 type Page = { file: string; label: string; w: number; h: number };
-type Entry = { dir?: string; pages: Page[] };
+// base: a book whose sample lives under another site's prefix (the FHB books, same files on both sites)
+type Entry = { dir?: string; base?: string; pages: Page[] };
 
 export function getStaticPaths() {
 	return Object.keys(data)
@@ -17,7 +18,7 @@ export function GET({ params }: { params: { slug: string } }) {
 	const entry = (data as Record<string, Entry>)[params.slug];
 	const dir = entry?.dir ?? params.slug;
 	const items = (entry?.pages ?? []).map((p, i) => ({
-		src: `${ASSETS}/${dir}/${p.file}`,
+		src: `${entry?.base ?? ASSETS}/${dir}/${p.file}`,
 		label: p.label,
 		w: p.w,
 		h: p.h,

@@ -5,5 +5,15 @@
 		"w": 1200,
 		"h": 630,
 		"_made": "2026-11-15 bin/fhb-og-card.mjs --smp (cover + title + 15% offer + SMP logo)"
+	},
+	"who-am-i": {
+		"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/og/books/who-am-i-hailstones-og.jpg",
+		"w": 1200,
+		"h": 630
+	},
+	"beloved-identity": {
+		"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/og/books/beloved-identity-og.jpg",
+		"w": 1200,
+		"h": 630
 	}
 }

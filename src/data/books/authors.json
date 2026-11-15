@@ -7,5 +7,19 @@
 			"h": 600,
 			"source": "Google Drive 1e9MMxNdzSISM8JLnM6lhqIy16l-MkDtT (Van Eure.jpeg 1194x1003), PIL crop (225,20,985,780) -> 600x600 WebP q82, 2026-11-14"
 		}
+	},
+	"Kevin White": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/kevin-white-600.webp",
+			"w": 600,
+			"h": 600
+		}
+	},
+	"Karen Inge Hailstones": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/karen-inge-hailstones-600.webp",
+			"w": 600,
+			"h": 600
+		}
 	}
 }
