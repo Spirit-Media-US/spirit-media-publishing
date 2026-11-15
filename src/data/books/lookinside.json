@@ -484,5 +484,6897 @@
 			}
 		],
 		"base": "https://assets.spiritmediapublishing.com/FHB/print/lookinside"
+	},
+	"hallelujah-even-here": {
+		"count": 13,
+		"dir": "hallelujah-even-here",
+		"pages": [
+			{
+				"file": "hallelujah-even-here-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "hallelujah-even-here-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Chapter 1: The Spring I Thought I Knew",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"the-pyramid-principle": {
+		"count": 13,
+		"dir": "the-pyramid-principle",
+		"pages": [
+			{
+				"file": "the-pyramid-principle-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "the-pyramid-principle-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Chapter 1: The Journey Begins",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"the-beetle-experience": {
+		"count": 24,
+		"dir": "the-beetle-experience",
+		"pages": [
+			{
+				"file": "the-beetle-experience-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "the-beetle-experience-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dear Audience",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Epigraph",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Preface",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "How to Read This Book",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Who Is Beetle?",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Glossary of Theatrical Terms",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p018.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p021.webp",
+				"label": "Act I: The Pre-Beetle Days",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p023.webp",
+				"label": "Created for Joy",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p024.webp",
+				"label": "Scene 1: Getting Warmed Up",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"clowning-from-the-heart": {
+		"count": 15,
+		"dir": "clowning-from-the-heart",
+		"pages": [
+			{
+				"file": "clowning-from-the-heart-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "clowning-from-the-heart-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Chapter 1: The Clown Contest",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"lead-at-a-higher-altitude": {
+		"count": 25,
+		"dir": "lead-at-a-higher-altitude",
+		"pages": [
+			{
+				"file": "lead-at-a-higher-altitude-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "lead-at-a-higher-altitude-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Principle 1: Attitude Affects Behavior",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"invisible-wounds": {
+		"count": 21,
+		"dir": "invisible-wounds",
+		"pages": [
+			{
+				"file": "invisible-wounds-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "invisible-wounds-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p003.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "PART ONE Naming the Invisible Enemy",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Chapter 1: You’re Not Crazy, You’re Injured",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"soar-to-success": {
+		"count": 23,
+		"dir": "soar-to-success",
+		"pages": [
+			{
+				"file": "soar-to-success-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "soar-to-success-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Testimonials",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Chapter 1: Foundation",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"missed-you-sleeping": {
+		"count": 18,
+		"dir": "missed-you-sleeping",
+		"pages": [
+			{
+				"file": "missed-you-sleeping-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "missed-you-sleeping-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 800,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 800
+			}
+		]
+	},
+	"brothers-lunch-basket": {
+		"count": 12,
+		"dir": "brothers-lunch-basket",
+		"pages": [
+			{
+				"file": "brothers-lunch-basket-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "brothers-lunch-basket-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1000,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p003.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p005.webp",
+				"label": "Note from the Author",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1000
+			}
+		]
+	},
+	"of-judgement-and-of-mercy": {
+		"count": 17,
+		"dir": "of-judgement-and-of-mercy",
+		"pages": [
+			{
+				"file": "of-judgement-and-of-mercy-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "of-judgement-and-of-mercy-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Chapter 1: The Ticket And The Trap",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"in-the-hands-of-our-heavenly-father": {
+		"count": 19,
+		"dir": "in-the-hands-of-our-heavenly-father",
+		"pages": [
+			{
+				"file": "in-the-hands-of-our-heavenly-father-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "in-the-hands-of-our-heavenly-father-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Before You Begin",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Acknowledgments",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Opening Remarks",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Part I",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Part I: Excerpts",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"spring-birds": {
+		"count": 8,
+		"dir": "spring-birds",
+		"pages": [
+			{
+				"file": "spring-birds-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "spring-birds-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Chapter 1: The Heuriger",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"from-jesus-til-now": {
+		"count": 31,
+		"dir": "from-jesus-til-now",
+		"pages": [
+			{
+				"file": "from-jesus-til-now-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "from-jesus-til-now-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p003.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "How to Use This Book",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Prologue",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p023.webp",
+				"label": "Chapter One: The Genesis of the Church",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p030.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p031.webp",
+				"label": "Page 25",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p032.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p033.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p034.webp",
+				"label": "Page 28",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p035.webp",
+				"label": "Page 29",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"can-i-pray-for-you": {
+		"count": 20,
+		"dir": "can-i-pray-for-you",
+		"pages": [
+			{
+				"file": "can-i-pray-for-you-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "can-i-pray-for-you-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Part 1: Inward Progression",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Chapter 1: Prayer in Public",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"humble-influence": {
+		"count": 26,
+		"dir": "humble-influence",
+		"pages": [
+			{
+				"file": "humble-influence-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "humble-influence-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Acknowledgments",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p021.webp",
+				"label": "Chapter 1: The Importance of Following",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"life-on-the-ridge": {
+		"count": 8,
+		"dir": "life-on-the-ridge",
+		"pages": [
+			{
+				"file": "life-on-the-ridge-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "life-on-the-ridge-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1000,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p005.webp",
+				"label": "Chapter 1",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1000
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1000
+			}
+		]
+	},
+	"robie-the-ghost": {
+		"count": 16,
+		"dir": "robie-the-ghost",
+		"pages": [
+			{
+				"file": "robie-the-ghost-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "robie-the-ghost-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Chapter 1: Robie The Ghost",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"the-fairies-quest": {
+		"count": 11,
+		"dir": "the-fairies-quest",
+		"pages": [
+			{
+				"file": "the-fairies-quest-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "the-fairies-quest-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Chapter 1: The Spring Festival",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"lessons-from-the-well": {
+		"count": 14,
+		"dir": "lessons-from-the-well",
+		"pages": [
+			{
+				"file": "lessons-from-the-well-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "lessons-from-the-well-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Chapter 1: A Place Once Known as Virtue",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"my-perfect-daddy": {
+		"count": 11,
+		"dir": "my-perfect-daddy",
+		"pages": [
+			{
+				"file": "my-perfect-daddy-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "my-perfect-daddy-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1035,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1035
+			}
+		]
+	},
+	"get-out-of-the-fast": {
+		"count": 30,
+		"dir": "get-out-of-the-fast",
+		"pages": [
+			{
+				"file": "get-out-of-the-fast-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "get-out-of-the-fast-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1067,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p003.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p004.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p011.webp",
+				"label": "Author's Introduction",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p022.webp",
+				"label": "Main Dishes: Chicken and Dumplings",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 25",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1067
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 28",
+				"w": 800,
+				"h": 1067
+			}
+		]
+	},
+	"in-church-for-40-years-and-not-knowing-god": {
+		"count": 12,
+		"dir": "in-church-for-40-years-and-not-knowing-god",
+		"pages": [
+			{
+				"file": "in-church-for-40-years-and-not-knowing-god-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "in-church-for-40-years-and-not-knowing-god-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Chapter 1: What Were Their Real Names?",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"the-seers-journey": {
+		"count": 16,
+		"dir": "the-seers-journey",
+		"pages": [
+			{
+				"file": "the-seers-journey-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "the-seers-journey-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Prologue",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Chapter 1: The Prophetess’s Son",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"too-stubborn-to-die": {
+		"count": 20,
+		"dir": "too-stubborn-to-die",
+		"pages": [
+			{
+				"file": "too-stubborn-to-die-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "too-stubborn-to-die-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Chapter 1: Foundations",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"jesus-whispers": {
+		"count": 17,
+		"dir": "jesus-whispers",
+		"pages": [
+			{
+				"file": "jesus-whispers-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "jesus-whispers-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Acknowledgments",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Preface",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Part One: Foundations of Faith",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Chapter 1: In the Beginning",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"the-end-times-warrior": {
+		"count": 17,
+		"dir": "the-end-times-warrior",
+		"pages": [
+			{
+				"file": "the-end-times-warrior-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "the-end-times-warrior-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1280,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p003.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p011.webp",
+				"label": "Day 1: The Lord, Our Commander",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1280
+			}
+		]
+	},
+	"forty-days-of-prayer-and-reflection": {
+		"count": 16,
+		"dir": "forty-days-of-prayer-and-reflection",
+		"pages": [
+			{
+				"file": "forty-days-of-prayer-and-reflection-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "forty-days-of-prayer-and-reflection-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Acknowledgments",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Praise",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Day 1: Healing For Wholeness",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"bringing-jesus-to-work": {
+		"count": 24,
+		"dir": "bringing-jesus-to-work",
+		"pages": [
+			{
+				"file": "bringing-jesus-to-work-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "bringing-jesus-to-work-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Preface",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Week One: Building Authentic Relationships at Work",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"untouchable": {
+		"count": 13,
+		"dir": "untouchable",
+		"pages": [
+			{
+				"file": "untouchable-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "untouchable-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1120,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p003.webp",
+				"label": "Why Is Elisha Writing This Foreword?",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p005.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p011.webp",
+				"label": "Chapter One",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1120
+			}
+		]
+	},
+	"write-before-coffee": {
+		"count": 18,
+		"dir": "write-before-coffee",
+		"pages": [
+			{
+				"file": "write-before-coffee-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "write-before-coffee-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Author's Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Why Do People Write?",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"a-shepherds-story": {
+		"count": 15,
+		"dir": "a-shepherds-story",
+		"pages": [
+			{
+				"file": "a-shepherds-story-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "a-shepherds-story-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Chapter 1: My Sweet and Never-to-Be-Forgotten Homeland",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"audacious-generosity": {
+		"count": 41,
+		"dir": "audacious-generosity",
+		"pages": [
+			{
+				"file": "audacious-generosity-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "audacious-generosity-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p025.webp",
+				"label": "Chapter 1: Live Recklessly to Experience More",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p030.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p031.webp",
+				"label": "Page 25",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p032.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p033.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p034.webp",
+				"label": "Page 28",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p035.webp",
+				"label": "Page 29",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p036.webp",
+				"label": "Page 30",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p037.webp",
+				"label": "Page 31",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p038.webp",
+				"label": "Page 32",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p039.webp",
+				"label": "Page 33",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p040.webp",
+				"label": "Page 34",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p041.webp",
+				"label": "Page 35",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p042.webp",
+				"label": "Page 36",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p043.webp",
+				"label": "Page 37",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p044.webp",
+				"label": "Page 38",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p045.webp",
+				"label": "Page 39",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"do-you-know": {
+		"count": 12,
+		"dir": "do-you-know",
+		"pages": [
+			{
+				"file": "do-you-know-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "do-you-know-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 776,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p002.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 776
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 776
+			}
+		]
+	},
+	"a-journey-through-grief": {
+		"count": 16,
+		"dir": "a-journey-through-grief",
+		"pages": [
+			{
+				"file": "a-journey-through-grief-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "a-journey-through-grief-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1035,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p003.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p005.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p010.webp",
+				"label": "Lesson 1: Living with Grief",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1035
+			}
+		]
+	},
+	"escaping-anxiety": {
+		"count": 16,
+		"dir": "escaping-anxiety",
+		"pages": [
+			{
+				"file": "escaping-anxiety-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "escaping-anxiety-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Exploring the Power Ideas for Escaping Anxiety",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Power Idea One: Delete Anxious Thinking",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"hope-that-anchors-the-soul": {
+		"count": 17,
+		"dir": "hope-that-anchors-the-soul",
+		"pages": [
+			{
+				"file": "hope-that-anchors-the-soul-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "hope-that-anchors-the-soul-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Chapter 1: The 7:30 Am Screwdriver",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"gods-dream": {
+		"count": 26,
+		"dir": "gods-dream",
+		"pages": [
+			{
+				"file": "gods-dream-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "gods-dream-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1120,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p005.webp",
+				"label": "Endorsements",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p015.webp",
+				"label": "Preface",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p017.webp",
+				"label": "Chapter 1: The First Step",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1120
+			}
+		]
+	},
+	"monday-morning-preacher": {
+		"count": 19,
+		"dir": "monday-morning-preacher",
+		"pages": [
+			{
+				"file": "monday-morning-preacher-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "monday-morning-preacher-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dear Reader",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Part 1",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Chapter 1: The Big Question",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"sabes-que": {
+		"count": 11,
+		"dir": "sabes-que",
+		"pages": [
+			{
+				"file": "sabes-que-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "sabes-que-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 800,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 800
+			}
+		]
+	},
+	"get-to-the-point": {
+		"count": 31,
+		"dir": "get-to-the-point",
+		"pages": [
+			{
+				"file": "get-to-the-point-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "get-to-the-point-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p021.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p027.webp",
+				"label": "Chapter 1: The Point",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 25",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p030.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p031.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p032.webp",
+				"label": "Page 28",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p033.webp",
+				"label": "Page 29",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"gifts": {
+		"count": 20,
+		"dir": "gifts",
+		"pages": [
+			{
+				"file": "gifts-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "gifts-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Acknowledgments",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p019.webp",
+				"label": "Chapter 1: Gifts",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"potters-child": {
+		"count": 40,
+		"dir": "potters-child",
+		"pages": [
+			{
+				"file": "potters-child-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "potters-child-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Register This Book",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Reviews",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Acknowledgments",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p029.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p031.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p032.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p033.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p034.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p035.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p036.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p037.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p038.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p039.webp",
+				"label": "Special Thanks",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p041.webp",
+				"label": "Chapter 1: The Power of Prayer",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p042.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p043.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p044.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p045.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p046.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p047.webp",
+				"label": "Page 25",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p048.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p049.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p050.webp",
+				"label": "Page 28",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p051.webp",
+				"label": "Page 29",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p052.webp",
+				"label": "Page 30",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p053.webp",
+				"label": "Page 31",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p054.webp",
+				"label": "Page 32",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p055.webp",
+				"label": "Page 33",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p056.webp",
+				"label": "Page 34",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p057.webp",
+				"label": "Page 35",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p058.webp",
+				"label": "Page 36",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p059.webp",
+				"label": "Page 37",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p060.webp",
+				"label": "Page 38",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"say-yes-to-god": {
+		"count": 20,
+		"dir": "say-yes-to-god",
+		"pages": [
+			{
+				"file": "say-yes-to-god-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "say-yes-to-god-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Foreword",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Letter to the Reader",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Part One: Foundations of Faith",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p019.webp",
+				"label": "Chapter 1: Say Yes to God: Ordinary Life, Extraordinary Adventure",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"whats-your-word": {
+		"count": 36,
+		"dir": "whats-your-word",
+		"pages": [
+			{
+				"file": "whats-your-word-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "whats-your-word-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p019.webp",
+				"label": "Chapter 1: One",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 25",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p030.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p031.webp",
+				"label": "Page 28",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p032.webp",
+				"label": "Page 29",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p033.webp",
+				"label": "Page 30",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p034.webp",
+				"label": "Page 31",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p035.webp",
+				"label": "Page 32",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p036.webp",
+				"label": "Page 33",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p037.webp",
+				"label": "Page 34",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"el-gran-sueno-de-la-yiayia-voula": {
+		"count": 18,
+		"dir": "el-gran-sueno-de-la-yiayia-voula",
+		"pages": [
+			{
+				"file": "el-gran-sueno-de-la-yiayia-voula-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "el-gran-sueno-de-la-yiayia-voula-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 800,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p002.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p004.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 800
+			}
+		]
+	},
+	"silas-and-woolly-the-mammoth": {
+		"count": 15,
+		"dir": "silas-and-woolly-the-mammoth",
+		"pages": [
+			{
+				"file": "silas-and-woolly-the-mammoth-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "silas-and-woolly-the-mammoth-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 800,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p003.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 800
+			}
+		]
+	},
+	"the-forgotten-witness": {
+		"count": 18,
+		"dir": "the-forgotten-witness",
+		"pages": [
+			{
+				"file": "the-forgotten-witness-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "the-forgotten-witness-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1280,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Advance Praise",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p002.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p003.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p004.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p011.webp",
+				"label": "Preface",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p015.webp",
+				"label": "Chapter 1: The Beauty Of Longevity",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1280
+			}
+		]
+	},
+	"sms-ultimate-book-marketing-guide": {
+		"count": 21,
+		"dir": "sms-ultimate-book-marketing-guide",
+		"pages": [
+			{
+				"file": "sms-ultimate-book-marketing-guide-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "sms-ultimate-book-marketing-guide-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1035,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p003.webp",
+				"label": "Register This Book",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p005.webp",
+				"label": "Money-Back Guarantee",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p009.webp",
+				"label": "Client Testimonials",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p013.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p015.webp",
+				"label": "Chapter 1: Start Marketing While Writing",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1035
+			}
+		]
+	},
+	"mended": {
+		"count": 13,
+		"dir": "mended",
+		"pages": [
+			{
+				"file": "mended-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "mended-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1035,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p003.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p005.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p006.webp",
+				"label": "Session 1: Feelings",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1035
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1035
+			}
+		]
+	},
+	"your-time-first-responders": {
+		"count": 11,
+		"dir": "your-time-first-responders",
+		"pages": [
+			{
+				"file": "your-time-first-responders-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "your-time-first-responders-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Epigraph",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Time-Control",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"your-time-work-staff": {
+		"count": 11,
+		"dir": "your-time-work-staff",
+		"pages": [
+			{
+				"file": "your-time-work-staff-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "your-time-work-staff-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Epigraph",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Time-Control",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"pure-and-simple": {
+		"count": 17,
+		"dir": "pure-and-simple",
+		"pages": [
+			{
+				"file": "pure-and-simple-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "pure-and-simple-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 618,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page 1",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p003.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 618
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 618
+			}
+		]
+	},
+	"home": {
+		"count": 19,
+		"dir": "home",
+		"pages": [
+			{
+				"file": "home-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "home-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Page 2",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p004.webp",
+				"label": "Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Ground Floor: Gifts",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"following-god-is-easy": {
+		"count": 16,
+		"dir": "following-god-is-easy",
+		"pages": [
+			{
+				"file": "following-god-is-easy-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "following-god-is-easy-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1120,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p005.webp",
+				"label": "Opening",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p007.webp",
+				"label": "Chapter One: How It All Started",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1120
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1120
+			}
+		]
+	},
+	"love-gods-way": {
+		"count": 11,
+		"dir": "love-gods-way",
+		"pages": [
+			{
+				"file": "love-gods-way-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "love-gods-way-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1200,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p003.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p005.webp",
+				"label": "Preface",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 5",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p007.webp",
+				"label": "Part 1 Recognizing God’s Love",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p009.webp",
+				"label": "Chapter 1: What is Love?",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1200
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1200
+			}
+		]
+	},
+	"the-god-connection": {
+		"count": 20,
+		"dir": "the-god-connection",
+		"pages": [
+			{
+				"file": "the-god-connection-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "the-god-connection-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1236,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Page de titre",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p003.webp",
+				"label": "Sommaire",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p005.webp",
+				"label": "Remerciements",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p013.webp",
+				"label": "Chapitre Un : La grâce – notre connexion à Dieu",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1236
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1236
+			}
+		]
+	},
+	"the-pitted-nail": {
+		"count": 20,
+		"dir": "the-pitted-nail",
+		"pages": [
+			{
+				"file": "the-pitted-nail-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "the-pitted-nail-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1280,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p003.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p004.webp",
+				"label": "Acknowledgments",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p005.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p006.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p007.webp",
+				"label": "Contents",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p009.webp",
+				"label": "Still Waters",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 1280
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1280
+			}
+		]
+	},
+	"blessing-trail-3": {
+		"count": 23,
+		"dir": "blessing-trail-3",
+		"pages": [
+			{
+				"file": "blessing-trail-3-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "blessing-trail-3-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 800,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p003.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p004.webp",
+				"label": "Page 3",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p005.webp",
+				"label": "Page 4",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p007.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p008.webp",
+				"label": "Choices",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p019.webp",
+				"label": "Page 17",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 800
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 800
+			}
+		]
 	}
 }

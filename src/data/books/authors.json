@@ -12,7 +12,8 @@
 		"headshot": {
 			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/kevin-white-600.webp",
 			"w": 600,
-			"h": 600
+			"h": 600,
+			"source": "existing R2 file (uploaded 2026-11-14 22:50Z for the FHB book pages); reused, not re-made by lane 3"
 		}
 	},
 	"Karen Inge Hailstones": {
@@ -20,6 +21,318 @@
 			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/karen-inge-hailstones-600.webp",
 			"w": 600,
 			"h": 600
+		}
+	},
+	"Meredith P. Nolasco": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/meredith-p-nolasco-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 15ADDmd232bHxbUtH5zLuKI6MegGBxKPg (Headshot.jpeg 1125x759), PIL crop (248, 55, 938, 745) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"John Vallely": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/john-vallely-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 15mSheYDrU9COyepV_ovsA1bo9jLyPXsv (Author - John Vallely.JPG 6240x4160), PIL crop (1842, 793, 4280, 3231) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Dana Morrison": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/dana-morrison-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1AzJer_S98wupNeOM6o4p8yK_d7e2uyXD (IMG_3536.JPG 6000x4000), PIL crop (986, 137, 4848, 4000) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Cindy Love": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/cindy-love-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1QgfQviiMIxxiM0jnY9b1wB1jRGdT-FSM (Headshot.JPEG 4160x3957), PIL crop (154, 176, 3625, 3647) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Ron Tredway": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/ron-tredway-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1j3EbkJHQJLhRAUsrJ1uuqdfIsuLgV38w (Headshot 2.png 1233x1275), PIL crop (0, 0, 1233, 1233) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"John Boyle": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/john-boyle-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1vT_0dVAu7yiamZzQKnpfTRH2oPU_67gm (Headshot 1.jpg 2764x4144), PIL crop (0, 174, 2764, 2938) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Andrea Anderson with Barbara Hemphill": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/andrea-anderson-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1HbPu-0niru41xR4WjTRZW1oIsNZ8Umjy (Headshot.png 1029x942), PIL crop (77, 0, 1019, 942) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Dana House": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/dana-house-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1qM79GNW7_kqOVbTwCWj7-ErS-67sxWXJ (Headshot.PNG 1122x1402), PIL crop (0, 54, 1122, 1176) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Roy Roberts": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/roy-roberts-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1_RUlz--ytP1NddI0AGyW8ShjPBiGO2_I (20250615_165841.jpg 2448x3264), PIL crop (0, 356, 2448, 2804) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Daniel Zebarth": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/daniel-zebarth-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1MzxX4c6bJK1v1_1PeLlQlucLJCRE_IbM (Headshot 6.jpg 2304x3456), PIL crop (0, 431, 2304, 2735) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Max Brande": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/max-brande-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1IRzlWoujJx58eUtJh1lkOUjlVIvhGdN4 (Headshot 2.png 1254x1254), PIL crop (74, 59, 1152, 1137) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Ryan Schraffenberger": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/ryan-schraffenberger-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1DbzDVulwZ8cGj9hrCCZrnk1Kq5g3Rybk (Ryan Headshot.jpg 895x1136), PIL crop (0, 0, 895, 895) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Jim Matuga": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/jim-matuga-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1gFgvp3vsaNbgj_CwdpiTzcHqg_5h1NW4 (Jim Matuga Headshot.png 1280x961), PIL crop (229, 50, 1021, 842) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Darci LaRue": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/darci-larue-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1UPc1geIe-74zNGCD581u0K8ZjHh7sn9O (Headshot.jpg 2984x3600), PIL crop (427, 400, 2632, 2605) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Maggie Mac": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/maggie-mac-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1llpa2-b-Bb5asHbqrjEDYHNNs5oWQSWA (Headshot.jpeg 1536x2048), PIL crop (0, 240, 1536, 1776) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Jenna Kris": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/jenna-kris-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1n84SjiyvwM4N-7w4RZLz3MEARRwwcARC (Headshot 2.jpg 1242x1599), PIL crop (0, 56, 1242, 1298) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Carol Renee Gitthens": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/carol-renee-gitthens-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1LdfLABO66aJkemB-wENBJjzY1yVwApSs (7de388c8-c163-4031-9605-7907d66aacfc.JPG 2400x3000), PIL crop (420, 408, 2155, 2142) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Kelly Pexton": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/kelly-pexton-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 18Zn4uBiYcBye_3verhYkhjYG5W9-xmsa (Headshot.jpeg 2316x3088), PIL crop (0, 512, 2316, 2828) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Toni R. Young-Huber": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/toni-r-young-huber-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1R_h6ZExRXv1U5rz_baTCOBCRNkhpCfGV (Headshot.jpeg 899x1200), PIL crop (0, 301, 899, 1200) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Philip Guenaga": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/philip-guenaga-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1BL9hOXcxmkwoFmTbM1He0zgTrYIit1so (Headshot 1.jpg 2448x3264), PIL crop (0, 441, 2448, 2889) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Frank Theurer II": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/frank-theurer-ii-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1EfmEfpPZ9IYCMGqv3gkNtT1W9IFNQ2Xq (Headshot2.jpg 499x647), PIL crop (0, 40, 493, 533) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Susan Mahon": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/susan-mahon-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1kVGYmiAw27XjHno14BrBKVm926wV7bz5 (Headshot.jpeg 1290x1326), PIL crop (70, 170, 1220, 1320) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Michele Wilson": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/michele-wilson-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1ZEyYb6WuP-m-X147Dso2esoRz1iGgqMa (Michele Wilson Headshot - High Resolution.png 1270x1342), PIL crop (0, 72, 1270, 1342) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Pastor Andre d'Arden": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/andre-darden-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 185xdbyFWkjx-sUJ1AtgTpFAnZhcrj_90 (black sweater.JPG 5184x3888), PIL crop (994, 0, 4882, 3888) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Mark Thompson": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/mark-thompson-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1cVBr9-3XY2xcyWxcBrp9qiPR_VophU2w (Headshot 1.jpg 408x612), PIL crop (0, 0, 408, 408) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Carlene Hill Byron": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/carlene-hill-byron-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1SiWSgaRjP1kpqOvkO1WNc_B91AwcA-bC (Carlene Hill Byron - Editor.jpg 2592x3872), PIL crop (0, 0, 2592, 2592) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Leivon Canary Kom": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/leivon-canary-kom-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1FNc75lfixnm022WYoDqTpE2xQGlk0bLB (PicsArt_22-09-20_22-40-30-298.jpg 2007x2007), PIL crop (372, 648, 1564, 1839) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Katherine Robinson": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/katherine-robinson-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1HCAlyohGlUJ2oLjJTxjbFGUgk7oDRip0 (IMG_0431.jpeg 1080x1014), PIL crop (0, 35, 978, 1014) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"John P. Boyle": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/john-boyle-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1vT_0dVAu7yiamZzQKnpfTRH2oPU_67gm (Headshot 1.jpg 2764x4144), PIL crop (0, 174, 2764, 2938) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Elisha Chowtapalli": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/elisha-chowtapalli-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1YkwxZIJgeK8XFsJ5uOxCOXT6xkwj16UY (Headshot.jpg 1584x1788), PIL crop (64, 244, 1584, 1763) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Roger Loomis": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/roger-loomis-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1-j3TFHn0zIbztPeN_Bix-lUH8x0tGDkN (Author photo for Raising Parents Is Tough.jpg 2160x3840), PIL crop (214, 338, 2122, 2246) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Kenneth W. Pullin": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/kenneth-pullin-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1Sw-MkL0T4Toc_FBDhmE8Vi9gDfLFWOvY (Headshot.jpeg 2342x2515), PIL crop (0, 173, 2342, 2515) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Justin Creasman": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/justin-creasman-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1GsLFPPjMnMPkq8fbJNScl5oABRTWRKO4 (Justin Creasman.jpeg 893x852), PIL crop (40, 0, 892, 852) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Daniel W. Evans": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/daniel-w-evans-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1SO7dSfnwp-7xziThV5JdSSLaafZfpa5N (Author Daniel W Evans Image 3-2-23.png 891x1497), PIL crop (-55, -60, 945, 940) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Ron King": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/ron-king-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1OjXdxL-uiA4IuhTM7NPKEcrftv06yp3d (Ron Headshot.jpg 689x645), PIL crop (18, 0, 663, 645) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Vern Kaska III": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/vern-kaska-iii-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1QK8sbhUmlYTWJG3cPVjgxBvQ1yhoLOce (Headshot.jpg 3024x4032), PIL crop (0, 9, 3024, 3033) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Wanda Bailey Clark": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/wanda-bailey-clark-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1nVnqiEe3eh09G4BNWIllg2_4XrYVM3Hx (Headshot.jpeg 3024x4032), PIL crop (0, 343, 3024, 3367) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Kenneth Pullin": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/kenneth-pullin-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1Sw-MkL0T4Toc_FBDhmE8Vi9gDfLFWOvY (Headshot.jpeg 2342x2515), PIL crop (0, 173, 2342, 2515) -> 600x600 WebP q82, 2026-11-15"
+		}
+	},
+	"Wendy Reardon": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/wendy-reardon-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1qipXs5AepHC610PlT3xpugRofhX2ou9v (Headshot.jpg 1500x2100), PIL crop (0, 240, 1500, 1740) -> 600x600 WebP q82, 2026-11-15"
 		}
 	}
 }

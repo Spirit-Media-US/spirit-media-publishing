@@ -21,6 +21,7 @@ import LookInside from '../../../components/LookInside.astro';
 // Also carried: no "Buy on Amazon" button (Amazon = sameAs only); no Offer while nothing sells; calm ink, no red
 // (Kevin L1999); a 390px phone first. A hand-built page (src/pages/books/<slug>.astro) keeps its slug.
 import authors from '../../../data/books/authors.json';
+import bookPages from '../../../data/books/book-pages.json';
 import coverColors from '../../../data/books/cover-colors.json';
 import dims from '../../../data/books/cover-dims.json';
 import sized from '../../../data/books/cover-sized.json';
@@ -207,7 +208,9 @@ export async function getStaticPaths() {
 		const b = t.book;
 		const d = (dims as Record<string, { w: number; h: number }>)[t.slug];
 		// the mirrored page's questions replace the draft FAQ (same gate)
-		const f = faqGate(b.page?.faq ?? b.faq);
+		// the RIAB-standard page object (pmprint lane 4) wins over the ship set's draft
+		const pg = (bookPages as Record<string, any>)[t.slug] ?? b.page;
+		const f = faqGate(pg?.faq ?? b.faq);
 		const ld = b.jsonld?.book ?? {};
 		pages.push({
 			slug: t.slug,
@@ -274,7 +277,7 @@ export async function getStaticPaths() {
 			lang: b.language === 'es' || b.language === 'fr' ? (b.language as 'es' | 'fr') : 'en',
 			canonical: null,
 			orderable: (b.formats as string[]).some((sku) => BOOK_SKUS[sku]?.isbn),
-			page: b.page ? deep(t.slug, 'page', b.page) : null,
+			page: pg ? deep(t.slug, 'page', pg) : null,
 			served: [],
 		});
 	}
