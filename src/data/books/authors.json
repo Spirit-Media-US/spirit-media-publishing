@@ -334,5 +334,101 @@
 			"h": 600,
 			"source": "Google Drive 1qipXs5AepHC610PlT3xpugRofhX2ou9v (Headshot.jpg 1500x2100), PIL crop (0, 240, 1500, 1740) -> 600x600 WebP q82, 2026-11-15"
 		}
+	},
+	"Nicole Bran Clark": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/nicole-bran-clark-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1NxmrXNFeuXfPbZ2AweTQP5tX3B0yvtC1 (0U2A8664-Enhanced-NR.jpeg 4640x6960), PIL crop (1420, 1450, 3220, 3250) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15; group photo, author holds a child who cannot be cropped out, both kept in frame"
+		}
+	},
+	"Julie Boone": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/julie-boone-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1jbQIELn4EECGUcNCqBkf8LhFC6jGwa5d (Julie Boone.jpeg 237x440), PIL crop (30, 60, 237, 267) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15; tiny source, best honest crop excluding the other person, Lanczos upscale only (no AI upscaling)"
+		}
+	},
+	"Patricia A. Daniel": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/patricia-a-daniel-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1DR5cIBf5Gkd6hQudrmniALSVWUrMmdKS (unnamed (1).jpg 1638x2265), PIL crop (70, 280, 1570, 1780) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15"
+		}
+	},
+	"Richard Convery": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/richard-convery-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1OEbSyKewRsSKCFbpkSC8vcYELJyL-ESk (IMG_4568.JPG 1992x2176), PIL crop (406, 60, 1706, 1360) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15"
+		}
+	},
+	"Annie Brown": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/annie-brown-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1nn5LIDDB6GX0dVJvnYeY9rWbcV2WtYNL (image.png 720x631), PIL crop (171, 60, 671, 560) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15"
+		}
+	},
+	"Dr. James E. Kilgore": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/james-e-kilgore-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1UuTWGsxXhLGD4fV3GzMPmzu1H1vjIge8 (DSC_2638.JPG 3000x4496), PIL crop (0, 400, 3000, 3400) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15"
+		}
+	},
+	"Stephanie Mathews": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/stephanie-mathews-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 12uIL0LDc5uXBBDSMxl5G5GGZA8F9p4Mv (180402-9546.jpg 3600x2400), PIL crop (1530, 320, 2680, 1470) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15; cropped to exclude the third-party book she holds (thin edge remains at left)"
+		}
+	},
+	"Michael Gaetke": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/michael-gaetke-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "faithnewsservice.com/wp-content/uploads/2024/11/Screenshot-2024-11-13-at-6.45.26 AM.png (Kevin 2026-11-15) (screenshot.png 232x236), PIL crop (0, 0, 232, 232) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15; Kevin-chosen image (not the family photo), source only 232x236 so Lanczos upscale only"
+		}
+	},
+	"Tyler Stavlas": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/tyler-stavlas-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1HbFMabqi1G0Jpl7_kYWSS-xAnjrtwIH3 (IMG_7618.jpeg 4284x5712), PIL crop (1928, 743, 3428, 2243) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15; group photo, cropped to the author (book text: Tyler tells the story of his grandmother YiaYia Voula)"
+		}
+	},
+	"Kami Tahyi, MS, LPCC": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/kami-tahyi-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1klLPlQz3u_h4XkBPAINY-XX2oXMK8Yh5 (IMG_9528_Original.jpg 1242x1664), PIL crop (30, 40, 1130, 1140) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15"
+		}
+	},
+	"Aleksa Aishpur": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/aleksa-aishpur-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1RVH7PV1dX6VwvoVBmaf8mfHqNMAaszs3 (IMG_3241.jpg 1695x1695), PIL crop (314, 150, 1314, 1150) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15"
+		}
+	},
+	"Suzan Cartagena": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/suzan-cartagena-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1vKGhwHo5zCRZI78Uv1RTna1S9j2efoaM (Headshot 1.jpeg 1280x938), PIL crop (560, 30, 900, 370) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15; group photo, cropped to the author (book text refers to the author as elle)"
+		}
 	}
 }
