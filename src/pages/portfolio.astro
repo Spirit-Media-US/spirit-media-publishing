@@ -398,7 +398,7 @@ const portfolioFaqs = [
 
 <Layout
 	title="Portfolio — 300+ Christian Books Published by Spirit Media"
-	description="Spirit Media Publishing has helped 300+ Christian authors publish, brand, and market their books across 195 nations. Explore our publishing, branding, and marketing portfolio."
+	description="Spirit Media Publishing has helped 300+ Christian authors publish, brand, and market their books across 195 nations. Explore our portfolio of work."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/e1274263f40d901cf33297ab4c8110e8ad9d9ca7-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
 >
 	<Fragment slot="head">
@@ -495,6 +495,7 @@ const portfolioFaqs = [
 				<div class="text-center mb-12">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">Testimonials</p>
 					<h2 class="font-serif text-3xl font-bold text-ink-soft sm:text-4xl" data-animate="fade-up" data-delay="1">What Our Clients Say</h2>
+					<p class="mt-3 type-body-sm text-stone-600" data-animate="fade-up" data-delay="2">Our press releases and video features are in the <a href="/media-center/" class="underline hover:text-red">Media Center</a>.</p>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
 					{portfolioVideos.map(({ youtubeEmbedUrl, title }, i) => (
@@ -517,7 +518,7 @@ const portfolioFaqs = [
 
 				<!-- Websites -->
 				<div class="mb-14">
-					<h3 class="font-serif text-xl font-bold text-ink-soft mb-10" data-animate="fade-up">Astro + Tailwind Websites</h3>
+					<h3 class="font-serif text-xl font-bold text-ink-soft mb-10" data-animate="fade-up"><a href="/author-website/" class="hover:text-red">Astro + Tailwind Websites</a></h3>
 					<div class="grid grid-cols-1 md:grid-cols-3 gap-1.5">
 						{([
 							{
@@ -547,7 +548,7 @@ const portfolioFaqs = [
 									<div class="relative grid items-end gap-1.5" style="grid-template-columns: 1.2fr 4fr 1.8fr;">
 										<a href={url} target="_blank" rel="noopener noreferrer" class="block group">
 											<div class="border-2 border-stone-300 rounded-xl overflow-hidden shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
-												<img src={mobile} alt="" loading="lazy" class="w-full block" />
+												<img src={mobile} alt={`${url.replace('https://', '')} website on a phone`} loading="lazy" class="w-full block" />
 											</div>
 										</a>
 										<a href={url} target="_blank" rel="noopener noreferrer" class="block group">
@@ -560,7 +561,7 @@ const portfolioFaqs = [
 												<div class="flex-1 bg-white/50 rounded px-1 py-px text-[9px] text-stone-500 truncate">{url.replace('https://', '')}</div>
 											</div>
 											<div class="overflow-hidden rounded-b-lg border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
-												<img src={desktop} alt="" loading="lazy" class="w-full block" />
+												<img src={desktop} alt={`${url.replace('https://', '')} website on a desktop screen`} loading="lazy" class="w-full block" />
 											</div>
 										</a>
 										<a href={url} target="_blank" rel="noopener noreferrer" class="block group">
@@ -568,7 +569,7 @@ const portfolioFaqs = [
 												<div class="w-3 h-0.5 rounded-full bg-stone-400"></div>
 											</div>
 											<div class="overflow-hidden rounded-b-md border border-stone-300 border-t-0 shadow-md transition-transform duration-200 group-hover:-translate-y-0.5">
-												<img src={tablet} alt="" loading="lazy" class="w-full block" />
+												<img src={tablet} alt={`${url.replace('https://', '')} website on a tablet`} loading="lazy" class="w-full block" />
 											</div>
 										</a>
 									</div>

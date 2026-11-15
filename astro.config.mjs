@@ -75,7 +75,8 @@ export default defineConfig({
       // Assign crawl priority by page type
       customPages: [],
       // Keep noindex'd pages (/partnership, /thank-you) out of the sitemap: a sitemap lists only pages we want indexed.
-      filter: (page) => !page.includes('/partnership') && !page.includes('/thank-you'),
+      // /books/<slug>/buy/ = noindex,follow checkout pages (plan 3fb contract 3fe): never in a sitemap.
+      filter: (page) => !page.includes('/partnership') && !page.includes('/thank-you') && !/\/books\/[^/]+\/buy\/$/.test(page),
       serialize(item) {
         const lastmod = lastmodFor(item.url);
         if (lastmod) item = { ...item, lastmod };

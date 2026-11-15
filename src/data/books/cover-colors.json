@@ -1,0 +1,499 @@
+{
+	"_note": "Book title colour = its cover colour (the FHB edition-page method, FHB src/data/cover-colors.json _note, Kevin 2026-11-14 '1A'). MEASURED from the book's cover image (PIL median-cut, 8 colours, share of the cover face). title = the dominant cover colour when it passes WCAG AA 4.5:1 on white (order box) AND on the page's stone-50 #faf8f5 (hero); else deepened (HLS lightness, <=0.15) when the hue stays recognisable; else the true colour with a thin dark outline (W3C G18), outline: true. No entry = ink. Re-measure when a cover changes.",
+	"raised-in-a-barn": {
+		"cover": "#5b7a4b",
+		"title": "#5b7a4b",
+		"outline": false,
+		"contrast_white": 4.85,
+		"contrast_page": 4.57,
+		"measured": "2026-11-14 from covers/raised-in-a-barn-600.webp: greens cover ~65% of the face (largest single cluster #5b7a4b 17.1%); the cover's red title lettering #a71d2d (12.2%, 6.93:1 on the page) is the alternative if the title should match the lettering instead"
+	},
+	"beloved-identity": {
+		"cover": "#ea95a9",
+		"title": "#ea95a9",
+		"outline": true,
+		"contrast_white": 2.24,
+		"contrast_page": 2.11,
+		"measured": "2026-11-15 from the 3D front face: largest median-cut cluster #ea95a9 16.7%; fails AA even deepened 0.15 -> true colour with thin dark outline"
+	},
+	"who-am-i": {
+		"cover": "#522f4f",
+		"title": "#522f4f",
+		"outline": false,
+		"contrast_white": 11.2,
+		"contrast_page": 10.55,
+		"measured": "2026-11-15: the face's largest clusters are pale sky/meadow (#fceee3 18.4%, 1.07:1 = no recognisable cover colour, white-ish even outlined), so the cover's own TITLE LETTERING is used (plum #522f4f, 10.55:1 on the page), the alternative the RIAB note names"
+	},
+	"hallelujah-even-here": {
+		"cover": "#7c96b7",
+		"title": "#55749b",
+		"outline": false,
+		"contrast_white": 4.82,
+		"contrast_page": 4.55,
+		"measured": "2026-11-15 from covers/hallelujah-even-here-1200.jpg: largest median-cut cluster #7c96b7 27.7% (2.87:1 on the page); deepened HLS lightness -0.13 to #55749b, hue kept; title #55749b = 4.82:1 on white, 4.55:1 on #faf8f5"
+	},
+	"the-pyramid-principle": {
+		"cover": "#0d7bb6",
+		"title": "#0d78b1",
+		"outline": false,
+		"contrast_white": 4.84,
+		"contrast_page": 4.57,
+		"measured": "2026-11-15 from covers/the-pyramid-principle-1200.jpg: largest median-cut cluster #0d7bb6 29.6% (4.38:1 on the page); deepened HLS lightness -0.01 to #0d78b1, hue kept; title #0d78b1 = 4.84:1 on white, 4.57:1 on #faf8f5"
+	},
+	"the-beetle-experience": {
+		"cover": "#0e171e",
+		"title": "#0e171e",
+		"outline": false,
+		"contrast_white": 18.1,
+		"contrast_page": 17.08,
+		"measured": "2026-11-15 from covers/The-Beetle-Experience-Front-Cover-683x1024.jpg: largest median-cut cluster #0e171e 16.5% (17.08:1 on the page); passes AA as measured; title #0e171e = 18.1:1 on white, 17.08:1 on #faf8f5"
+	},
+	"clowning-from-the-heart": {
+		"cover": "#e7445e",
+		"title": "#dc1c3b",
+		"outline": false,
+		"contrast_white": 4.92,
+		"contrast_page": 4.64,
+		"measured": "2026-11-15 from covers/clowning-from-the-heart-1200.jpg: largest median-cut cluster #e7445e 20.6% (3.68:1 on the page); deepened HLS lightness -0.10 to #dc1c3b, hue kept; title #dc1c3b = 4.92:1 on white, 4.64:1 on #faf8f5"
+	},
+	"lead-at-a-higher-altitude": {
+		"cover": "#1c2535",
+		"title": "#1c2535",
+		"outline": false,
+		"contrast_white": 15.38,
+		"contrast_page": 14.51,
+		"measured": "2026-11-15 from covers/lead-at-a-higher-altitude-1200.jpg: largest median-cut cluster #1c2535 15.6% (14.51:1 on the page); passes AA as measured; title #1c2535 = 15.38:1 on white, 14.51:1 on #faf8f5"
+	},
+	"invisible-wounds": {
+		"cover": "#000201",
+		"title": "#000201",
+		"outline": false,
+		"contrast_white": 20.81,
+		"contrast_page": 19.63,
+		"measured": "2026-11-15 from covers/invisible-wounds-1200.jpg: largest median-cut cluster #000201 34.7% (19.63:1 on the page); passes AA as measured; title #000201 = 20.81:1 on white, 19.63:1 on #faf8f5"
+	},
+	"soar-to-success": {
+		"cover": "#02345a",
+		"title": "#02345a",
+		"outline": false,
+		"contrast_white": 12.79,
+		"contrast_page": 12.07,
+		"measured": "2026-11-15 from covers/soar-to-success-1200.jpg: largest median-cut cluster #c3dad5 18.3% (1.38:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (navy \"SOAR to SUCCESS\" lettering, #02345a); title #02345a = 12.79:1 on white, 12.07:1 on #faf8f5"
+	},
+	"missed-you-sleeping": {
+		"cover": "#a4847b",
+		"title": "#8c6a60",
+		"outline": false,
+		"contrast_white": 4.83,
+		"contrast_page": 4.56,
+		"measured": "2026-11-15 from covers/missed-you-sleeping-1200.jpg: largest median-cut cluster #a4847b 16.0% (3.21:1 on the page); deepened HLS lightness -0.10 to #8c6a60, hue kept; title #8c6a60 = 4.83:1 on white, 4.56:1 on #faf8f5"
+	},
+	"brothers-lunch-basket": {
+		"cover": "#d7bf82",
+		"title": "#d7bf82",
+		"outline": true,
+		"contrast_white": 1.8,
+		"contrast_page": 1.7,
+		"measured": "2026-11-15 from covers/brothers-lunch-basket-1200.jpg: largest median-cut cluster #fcfcfb 19.7% (1.03:1 on the page) = pale background; the title lettering is white (no colour); next-largest recognisable face cluster = sun gold #d7bf82 14.8%; maroon #78353a (12.2%, 8.36:1) is the passing alternative; fails AA even deepened 0.15 -> true colour with thin dark outline; title #d7bf82 = 1.8:1 on white, 1.7:1 on #faf8f5"
+	},
+	"of-judgement-and-of-mercy": {
+		"cover": "#010302",
+		"title": "#010302",
+		"outline": false,
+		"contrast_white": 20.69,
+		"contrast_page": 19.51,
+		"measured": "2026-11-15 from covers/Of-Judgement-and-Of-Mercy-683x1024.jpg: largest median-cut cluster #f6ebd1 17.1% (1.12:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (black title lettering, #010302); title #010302 = 20.69:1 on white, 19.51:1 on #faf8f5"
+	},
+	"in-the-hands-of-our-heavenly-father": {
+		"cover": "#4c4c4c",
+		"title": "#4c4c4c",
+		"outline": false,
+		"contrast_white": 8.59,
+		"contrast_page": 8.1,
+		"measured": "2026-11-15 from covers/in-the-hands-of-our-heavenly-father-1200.jpg: largest median-cut cluster #e2d1b1 15.9% (1.42:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (charcoal title lettering, #4c4c4c); title #4c4c4c = 8.59:1 on white, 8.1:1 on #faf8f5"
+	},
+	"spring-birds": {
+		"cover": "#c6b391",
+		"title": "#c6b391",
+		"outline": true,
+		"contrast_white": 2.05,
+		"contrast_page": 1.93,
+		"measured": "2026-11-15 from covers/spring-birds-1200.jpg: largest median-cut cluster #c6b391 14.2% (1.93:1 on the page); fails AA even deepened 0.15 -> true colour with thin dark outline (stone/meadow beige is a real cover colour; yellow title lettering is no better (fails too)); title #c6b391 = 2.05:1 on white, 1.93:1 on #faf8f5"
+	},
+	"from-jesus-til-now": {
+		"cover": "#eeb75b",
+		"title": "#eeb75b",
+		"outline": true,
+		"contrast_white": 1.82,
+		"contrast_page": 1.71,
+		"measured": "2026-11-15 from covers/from-jesus-til-now-1200.jpg: largest median-cut cluster #eeb75b 14.2% (1.71:1 on the page); fails AA even deepened 0.15 -> true colour with thin dark outline (gold is the cover's colour; title lettering is white); title #eeb75b = 1.82:1 on white, 1.71:1 on #faf8f5"
+	},
+	"can-i-pray-for-you": {
+		"cover": "#080808",
+		"title": "#080808",
+		"outline": false,
+		"contrast_white": 20.03,
+		"contrast_page": 18.89,
+		"measured": "2026-11-15 from covers/can-i-pray-for-you-1200.jpg: largest median-cut cluster #080808 72.1% (18.89:1 on the page); passes AA as measured; title #080808 = 20.03:1 on white, 18.89:1 on #faf8f5"
+	},
+	"humble-influence": {
+		"cover": "#848fa5",
+		"title": "#66728b",
+		"outline": false,
+		"contrast_white": 4.83,
+		"contrast_page": 4.56,
+		"measured": "2026-11-15 from covers/Humble-Influence-663x1024.jpg: largest median-cut cluster #848fa5 77.4% (3.07:1 on the page); deepened HLS lightness -0.11 to #66728b, hue kept; title #66728b = 4.83:1 on white, 4.56:1 on #faf8f5"
+	},
+	"life-on-the-ridge": {
+		"cover": "#594c32",
+		"title": "#594c32",
+		"outline": false,
+		"contrast_white": 8.38,
+		"contrast_page": 7.91,
+		"measured": "2026-11-15 from covers/life-on-the-ridge-1200.jpg: largest median-cut cluster #594c32 14.6% (7.91:1 on the page); passes AA as measured; title #594c32 = 8.38:1 on white, 7.91:1 on #faf8f5"
+	},
+	"robie-the-ghost": {
+		"cover": "#de936e",
+		"title": "#de936e",
+		"outline": true,
+		"contrast_white": 2.47,
+		"contrast_page": 2.33,
+		"measured": "2026-11-15 from covers/robie-the-ghost-1200.jpg: largest median-cut cluster #de936e 14.4% (2.33:1 on the page); fails AA even deepened 0.15 -> true colour with thin dark outline (sunset peach is the cover's colour; yellow title lettering fails too); title #de936e = 2.47:1 on white, 2.33:1 on #faf8f5"
+	},
+	"the-fairies-quest": {
+		"cover": "#384124",
+		"title": "#384124",
+		"outline": false,
+		"contrast_white": 10.77,
+		"contrast_page": 10.16,
+		"measured": "2026-11-15 from covers/the-fairies-quest-1200.jpg: largest median-cut cluster #f8eaed 21.9% (1.1:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (dark olive-green \"The Fairies Quest\" lettering, #384124); title #384124 = 10.77:1 on white, 10.16:1 on #faf8f5"
+	},
+	"lessons-from-the-well": {
+		"cover": "#a58a76",
+		"title": "#866b58",
+		"outline": false,
+		"contrast_white": 4.93,
+		"contrast_page": 4.65,
+		"measured": "2026-11-15 from covers/Lessons-From-The-Well-674x1024.jpg: largest median-cut cluster #a58a76 16.6% (3.05:1 on the page); deepened HLS lightness -0.12 to #866b58, hue kept; title #866b58 = 4.93:1 on white, 4.65:1 on #faf8f5"
+	},
+	"my-perfect-daddy": {
+		"cover": "#b4e6ee",
+		"title": "#b4e6ee",
+		"outline": true,
+		"contrast_white": 1.36,
+		"contrast_page": 1.28,
+		"measured": "2026-11-15 from covers/my-perfect-daddy-1200.jpg: largest median-cut cluster #f8f5e4 21.7% (1.03:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (pale-blue \"My Perfect Daddy\" lettering (the cover itself draws it with a dark outline), #b4e6ee); fails AA even deepened 0.15 -> true colour with thin dark outline; title #b4e6ee = 1.36:1 on white, 1.28:1 on #faf8f5"
+	},
+	"get-out-of-the-fast": {
+		"cover": "#222121",
+		"title": "#222121",
+		"outline": false,
+		"contrast_white": 16.06,
+		"contrast_page": 15.15,
+		"measured": "2026-11-15 from covers/get-out-of-the-fast-1200.jpg: largest median-cut cluster #fff0cf 39.4% (1.06:1 on the page) = pale background; the title lettering is cream (#f5f0c6, 1.09:1, white-ish even outlined); next-largest face cluster = the black title disc #222121 25.6%, used; title #222121 = 16.06:1 on white, 15.15:1 on #faf8f5"
+	},
+	"in-church-for-40-years-and-not-knowing-god": {
+		"cover": "#2f1403",
+		"title": "#2f1403",
+		"outline": false,
+		"contrast_white": 17.18,
+		"contrast_page": 16.21,
+		"measured": "2026-11-15 from covers/In-Church-for-40-Years-and-Not-Knowing-God-683x1024.jpg: largest median-cut cluster #2f1403 16.0% (16.21:1 on the page); passes AA as measured; title #2f1403 = 17.18:1 on white, 16.21:1 on #faf8f5"
+	},
+	"the-seers-journey": {
+		"cover": "#3a1b14",
+		"title": "#3a1b14",
+		"outline": false,
+		"contrast_white": 15.59,
+		"contrast_page": 14.71,
+		"measured": "2026-11-15 from covers/the-seers-journey-1200.jpg: largest median-cut cluster #3a1b14 16.6% (14.71:1 on the page); passes AA as measured; title #3a1b14 = 15.59:1 on white, 14.71:1 on #faf8f5"
+	},
+	"too-stubborn-to-die": {
+		"cover": "#282533",
+		"title": "#282533",
+		"outline": false,
+		"contrast_white": 14.97,
+		"contrast_page": 14.12,
+		"measured": "2026-11-15 from covers/too-stubborn-to-die-1200.jpg: largest median-cut cluster #282533 14.6% (14.12:1 on the page); passes AA as measured; title #282533 = 14.97:1 on white, 14.12:1 on #faf8f5"
+	},
+	"jesus-whispers": {
+		"cover": "#406996",
+		"title": "#406996",
+		"outline": false,
+		"contrast_white": 5.71,
+		"contrast_page": 5.38,
+		"measured": "2026-11-15 from covers/jesus-whispers.jpg: largest median-cut cluster #406996 20.0% (5.38:1 on the page); passes AA as measured; title #406996 = 5.71:1 on white, 5.38:1 on #faf8f5"
+	},
+	"the-end-times-warrior": {
+		"cover": "#be6657",
+		"title": "#b55646",
+		"outline": false,
+		"contrast_white": 4.79,
+		"contrast_page": 4.52,
+		"measured": "2026-11-15 from covers/the-end-times-warrior-600.webp: largest median-cut cluster #be6657 17.1% (3.79:1 on the page); deepened HLS lightness -0.05 to #b55646, hue kept; title #b55646 = 4.79:1 on white, 4.52:1 on #faf8f5"
+	},
+	"forty-days-of-prayer-and-reflection": {
+		"cover": "#fbc44f",
+		"title": "#fbc44f",
+		"outline": true,
+		"contrast_white": 1.6,
+		"contrast_page": 1.51,
+		"measured": "2026-11-15 from covers/40%20days%20of%20prayer.jpg: largest median-cut cluster #fbc44f 16.8% (1.51:1 on the page); fails AA even deepened 0.15 -> true colour with thin dark outline (sun-ray yellow is the cover's colour; title lettering is pale peach); title #fbc44f = 1.6:1 on white, 1.51:1 on #faf8f5"
+	},
+	"bringing-jesus-to-work": {
+		"cover": "#1d2b38",
+		"title": "#1d2b38",
+		"outline": false,
+		"contrast_white": 14.43,
+		"contrast_page": 13.62,
+		"measured": "2026-11-15 from covers/bringing-jesus-to-work-1200.jpg: largest median-cut cluster #1d2b38 16.2% (13.62:1 on the page); passes AA as measured; title #1d2b38 = 14.43:1 on white, 13.62:1 on #faf8f5"
+	},
+	"untouchable": {
+		"cover": "#181312",
+		"title": "#181312",
+		"outline": false,
+		"contrast_white": 18.41,
+		"contrast_page": 17.37,
+		"measured": "2026-11-15 from covers/untouchable-1200.jpg: largest median-cut cluster #181312 16.6% (17.37:1 on the page); passes AA as measured; title #181312 = 18.41:1 on white, 17.37:1 on #faf8f5"
+	},
+	"write-before-coffee": {
+		"cover": "#6992cd",
+		"title": "#3e71bb",
+		"outline": false,
+		"contrast_white": 4.9,
+		"contrast_page": 4.62,
+		"measured": "2026-11-15 from covers/write-before-coffee-1200.jpg: largest median-cut cluster #6992cd 17.9% (3.0:1 on the page); deepened HLS lightness -0.12 to #3e71bb, hue kept; title #3e71bb = 4.9:1 on white, 4.62:1 on #faf8f5"
+	},
+	"a-shepherds-story": {
+		"cover": "#6bbba1",
+		"title": "#6bbba1",
+		"outline": true,
+		"contrast_white": 2.27,
+		"contrast_page": 2.14,
+		"measured": "2026-11-15 from covers/a-shepherds-story-1200.jpg: largest median-cut cluster #abd6ba 15.4% (1.52:1 on the page) = pale background; the title lettering is white (no colour); next-largest recognisable face cluster = mountain teal #6bbba1 14.3%; dark teal #315753 (12.6%, 7.56:1) is the passing alternative; fails AA even deepened 0.15 -> true colour with thin dark outline; title #6bbba1 = 2.27:1 on white, 2.14:1 on #faf8f5"
+	},
+	"audacious-generosity": {
+		"cover": "#5666b8",
+		"title": "#5666b8",
+		"outline": false,
+		"contrast_white": 5.27,
+		"contrast_page": 4.97,
+		"measured": "2026-11-15 from covers/audacious-generosity-1200.jpg: largest median-cut cluster #ffffff 80.5% (1.06:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (indigo end of the indigo-to-blue title gradient (the blue end #62a6dd is 2.47:1), #5666b8); title #5666b8 = 5.27:1 on white, 4.97:1 on #faf8f5"
+	},
+	"do-you-know": {
+		"cover": "#0d85b9",
+		"title": "#0c77a6",
+		"outline": false,
+		"contrast_white": 4.99,
+		"contrast_page": 4.71,
+		"measured": "2026-11-15 from covers/Do-You-Know-pdf.jpg: largest median-cut cluster #f9f1c6 15.8% (1.08:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (blue \"Do You Know?\" lettering, #0d85b9); fails AA, deepened HLS lightness -0.04 to #0c77a6; title #0c77a6 = 4.99:1 on white, 4.71:1 on #faf8f5"
+	},
+	"a-journey-through-grief": {
+		"cover": "#181716",
+		"title": "#181716",
+		"outline": false,
+		"contrast_white": 17.9,
+		"contrast_page": 16.89,
+		"measured": "2026-11-15 from covers/A%20journey%20through%20grief.jpg: largest median-cut cluster #ffffff 39.1% (1.06:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (near-black title lettering, #181716); title #181716 = 17.9:1 on white, 16.89:1 on #faf8f5"
+	},
+	"escaping-anxiety": {
+		"cover": "#8e2d2a",
+		"title": "#8e2d2a",
+		"outline": false,
+		"contrast_white": 8.21,
+		"contrast_page": 7.74,
+		"measured": "2026-11-15 from covers/escaping-anxiety-1200.jpg: largest median-cut cluster #8e2d2a 20.2% (7.74:1 on the page); passes AA as measured; title #8e2d2a = 8.21:1 on white, 7.74:1 on #faf8f5"
+	},
+	"hope-that-anchors-the-soul": {
+		"cover": "#100f0d",
+		"title": "#100f0d",
+		"outline": false,
+		"contrast_white": 19.16,
+		"contrast_page": 18.07,
+		"measured": "2026-11-15 from covers/hope-that-anchors-the-soul-1200.jpg: largest median-cut cluster #100f0d 16.3% (18.07:1 on the page); passes AA as measured; title #100f0d = 19.16:1 on white, 18.07:1 on #faf8f5"
+	},
+	"gods-dream": {
+		"cover": "#0407ac",
+		"title": "#0407ac",
+		"outline": false,
+		"contrast_white": 12.87,
+		"contrast_page": 12.14,
+		"measured": "2026-11-15 from covers/gods-dream-1200.jpg: largest median-cut cluster #43b9fe 21.4% (2.06:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (royal-blue \"GOD'S DREAM\" lettering, #0407ac); title #0407ac = 12.87:1 on white, 12.14:1 on #faf8f5"
+	},
+	"monday-morning-preacher": {
+		"cover": "#1e281d",
+		"title": "#1e281d",
+		"outline": false,
+		"contrast_white": 15.26,
+		"contrast_page": 14.39,
+		"measured": "2026-11-15 from covers/monday-morning-preacher-1200.jpg: largest median-cut cluster #1e281d 18.1% (14.39:1 on the page); passes AA as measured; title #1e281d = 15.26:1 on white, 14.39:1 on #faf8f5"
+	},
+	"sabes-que": {
+		"cover": "#3782c5",
+		"title": "#3175b1",
+		"outline": false,
+		"contrast_white": 4.87,
+		"contrast_page": 4.6,
+		"measured": "2026-11-15 from covers/sabes-que-1200.jpg: largest median-cut cluster #ebe8bc 16.6% (1.18:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (blue \"¿Sabes Qué?\" lettering, #3782c5); fails AA, deepened HLS lightness -0.05 to #3175b1; title #3175b1 = 4.87:1 on white, 4.6:1 on #faf8f5"
+	},
+	"get-to-the-point": {
+		"cover": "#0ea4bd",
+		"title": "#0a7b8e",
+		"outline": false,
+		"contrast_white": 4.96,
+		"contrast_page": 4.68,
+		"measured": "2026-11-15 from covers/get-to-the-point-1200.jpg: largest median-cut cluster #0ea4bd 24.4% (2.8:1 on the page); deepened HLS lightness -0.10 to #0a7b8e, hue kept; title #0a7b8e = 4.96:1 on white, 4.68:1 on #faf8f5"
+	},
+	"gifts": {
+		"cover": "#46a838",
+		"title": "#36822b",
+		"outline": false,
+		"contrast_white": 4.79,
+		"contrast_page": 4.52,
+		"measured": "2026-11-15 from covers/gifts-1200.jpg: largest median-cut cluster #46a838 24.5% (2.86:1 on the page); deepened HLS lightness -0.10 to #36822b, hue kept; title #36822b = 4.79:1 on white, 4.52:1 on #faf8f5"
+	},
+	"potters-child": {
+		"cover": "#954e3a",
+		"title": "#954e3a",
+		"outline": false,
+		"contrast_white": 6.12,
+		"contrast_page": 5.78,
+		"measured": "2026-11-15 from covers/potters-child-1200.jpg: largest median-cut cluster #954e3a 15.2% (5.78:1 on the page); passes AA as measured; title #954e3a = 6.12:1 on white, 5.78:1 on #faf8f5"
+	},
+	"say-yes-to-god": {
+		"cover": "#00bab9",
+		"title": "#007d7c",
+		"outline": false,
+		"contrast_white": 4.97,
+		"contrast_page": 4.69,
+		"measured": "2026-11-15 from covers/say-yes-to-god-1200.jpg: largest median-cut cluster #00bab9 66.4% (2.27:1 on the page); deepened HLS lightness -0.12 to #007d7c, hue kept; title #007d7c = 4.97:1 on white, 4.69:1 on #faf8f5"
+	},
+	"whats-your-word": {
+		"cover": "#3f3029",
+		"title": "#3f3029",
+		"outline": false,
+		"contrast_white": 12.6,
+		"contrast_page": 11.89,
+		"measured": "2026-11-15 from covers/whats-your-word-1200.jpg: largest median-cut cluster #3f3029 22.7% (11.89:1 on the page); passes AA as measured; title #3f3029 = 12.6:1 on white, 11.89:1 on #faf8f5"
+	},
+	"el-gran-sueno-de-la-yiayia-voula": {
+		"cover": "#7c89ac",
+		"title": "#617099",
+		"outline": false,
+		"contrast_white": 4.9,
+		"contrast_page": 4.62,
+		"measured": "2026-11-15 from covers/el-gran-sueno-de-la-yiayia-voula-1200.jpg: largest median-cut cluster #7c89ac 19.6% (3.28:1 on the page); deepened HLS lightness -0.09 to #617099, hue kept; title #617099 = 4.9:1 on white, 4.62:1 on #faf8f5"
+	},
+	"silas-and-woolly-the-mammoth": {
+		"cover": "#010001",
+		"title": "#010001",
+		"outline": false,
+		"contrast_white": 20.96,
+		"contrast_page": 19.78,
+		"measured": "2026-11-15 from covers/silas-and-woolly-the-mammoth-1200.jpg: largest median-cut cluster #fcf1d5 14.6% (1.06:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (black title lettering, #010001); title #010001 = 20.96:1 on white, 19.78:1 on #faf8f5"
+	},
+	"the-fairies-and-the-elf-king": {
+		"cover": "#4f4f3e",
+		"title": "#4f4f3e",
+		"outline": false,
+		"contrast_white": 8.33,
+		"contrast_page": 7.86,
+		"measured": "2026-11-15 from covers/the-fairies-and-the-elf-king-1200.jpg: largest median-cut cluster #ece1e2 15.7% (1.21:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (dark olive title lettering, #4f4f3e); title #4f4f3e = 8.33:1 on white, 7.86:1 on #faf8f5"
+	},
+	"the-forgotten-witness": {
+		"cover": "#020202",
+		"title": "#020202",
+		"outline": false,
+		"contrast_white": 20.75,
+		"contrast_page": 19.57,
+		"measured": "2026-11-15 from covers/the-forgotten-witness-1200.jpg: largest median-cut cluster #fef9f3 54.5% (1.01:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (black title lettering, #020202); title #020202 = 20.75:1 on white, 19.57:1 on #faf8f5"
+	},
+	"sms-ultimate-book-marketing-guide": {
+		"cover": "#858995",
+		"title": "#6e727e",
+		"outline": false,
+		"contrast_white": 4.8,
+		"contrast_page": 4.53,
+		"measured": "2026-11-15 from covers/sms-ultimate-book-marketing-guide-1200.jpg: largest median-cut cluster #858995 15.4% (3.3:1 on the page); deepened HLS lightness -0.09 to #6e727e, hue kept; title #6e727e = 4.8:1 on white, 4.53:1 on #faf8f5"
+	},
+	"mended": {
+		"cover": "#202020",
+		"title": "#202020",
+		"outline": false,
+		"contrast_white": 16.29,
+		"contrast_page": 15.37,
+		"measured": "2026-11-15 from covers/mended-1200.jpg: largest median-cut cluster #ffffff 39.2% (1.06:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (near-black \"Mended\" lettering, #202020); title #202020 = 16.29:1 on white, 15.37:1 on #faf8f5"
+	},
+	"your-time-first-responders": {
+		"cover": "#000002",
+		"title": "#000002",
+		"outline": false,
+		"contrast_white": 20.98,
+		"contrast_page": 19.79,
+		"measured": "2026-11-15 from covers/your-time-1200.jpg: largest median-cut cluster #000002 30.4% (19.79:1 on the page); passes AA as measured; title #000002 = 20.98:1 on white, 19.79:1 on #faf8f5"
+	},
+	"your-time-work-staff": {
+		"cover": "#010101",
+		"title": "#010101",
+		"outline": false,
+		"contrast_white": 20.87,
+		"contrast_page": 19.69,
+		"measured": "2026-11-15 from covers/your-time-special-edition-for-work-staff-1200.jpg: largest median-cut cluster #010101 29.0% (19.69:1 on the page); passes AA as measured; title #010101 = 20.87:1 on white, 19.69:1 on #faf8f5"
+	},
+	"pure-and-simple": {
+		"cover": "#f32a39",
+		"title": "#e20d1d",
+		"outline": false,
+		"contrast_white": 4.87,
+		"contrast_page": 4.6,
+		"measured": "2026-11-15 from covers/pure-and-simple-1200.jpg: largest median-cut cluster #fff3d9 67.5% (1.04:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (red \"PURE and SIMPLE\" lettering, #f32a39); fails AA, deepened HLS lightness -0.09 to #e20d1d; title #e20d1d = 4.87:1 on white, 4.6:1 on #faf8f5"
+	},
+	"home": {
+		"cover": "#0b0e1d",
+		"title": "#0b0e1d",
+		"outline": false,
+		"contrast_white": 19.18,
+		"contrast_page": 18.1,
+		"measured": "2026-11-15 from covers/home-1200.jpg: largest median-cut cluster #fcfdfc 15.4% (1.04:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (navy-black \"HOME\" lettering, #0b0e1d); title #0b0e1d = 19.18:1 on white, 18.1:1 on #faf8f5"
+	},
+	"following-god-is-easy": {
+		"cover": "#dab586",
+		"title": "#dab586",
+		"outline": true,
+		"contrast_white": 1.92,
+		"contrast_page": 1.81,
+		"measured": "2026-11-15 from covers/following-god-is-easy-1200.jpg: largest median-cut cluster #dab586 15.7% (1.81:1 on the page); fails AA even deepened 0.15 -> true colour with thin dark outline (golden light is the cover's colour; title lettering is white); title #dab586 = 1.92:1 on white, 1.81:1 on #faf8f5"
+	},
+	"love-gods-way": {
+		"cover": "#181512",
+		"title": "#181512",
+		"outline": false,
+		"contrast_white": 18.18,
+		"contrast_page": 17.15,
+		"measured": "2026-11-15 from covers/love-gods-way-1200.jpg: largest median-cut cluster #181512 17.2% (17.15:1 on the page); passes AA as measured; title #181512 = 18.18:1 on white, 17.15:1 on #faf8f5"
+	},
+	"the-god-connection": {
+		"cover": "#4aaec9",
+		"title": "#4aaec9",
+		"outline": true,
+		"contrast_white": 2.56,
+		"contrast_page": 2.42,
+		"measured": "2026-11-15 from covers/the-god-connection-1200.jpg: largest median-cut cluster #ffffff 70.2% (1.06:1 on the page) = pale background, no recognisable cover colour, so the cover's TITLE LETTERING is used (teal \"LA CONNEXION\" lettering (the dark-grey \"À DIEU\" #3a3a3c, 10.71:1, is the passing alternative), #4aaec9); fails AA even deepened 0.15 -> true colour with thin dark outline; title #4aaec9 = 2.56:1 on white, 2.42:1 on #faf8f5"
+	},
+	"the-pitted-nail": {
+		"cover": "#683818",
+		"title": "#683818",
+		"outline": false,
+		"contrast_white": 9.69,
+		"contrast_page": 9.14,
+		"measured": "2026-11-15 from covers/the-pitted-nail-1200.jpg: largest median-cut cluster #683818 16.2% (9.14:1 on the page); passes AA as measured; title #683818 = 9.69:1 on white, 9.14:1 on #faf8f5"
+	},
+	"blessing-trail-3": {
+		"cover": "#15181f",
+		"title": "#15181f",
+		"outline": false,
+		"contrast_white": 17.76,
+		"contrast_page": 16.76,
+		"measured": "2026-11-15 from covers/blessing-trail-3-1200.jpg: largest median-cut cluster #15181f 23.3% (16.76:1 on the page); passes AA as measured; title #15181f = 17.76:1 on white, 16.76:1 on #faf8f5"
+	}
+}

@@ -317,7 +317,7 @@ const marketingFaqs = [
 								<div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(92,65,45,0.25));"></div>
 							</div>
 							<div class="p-6">
-								<h3 class="type-card-subheading mb-3">{title}</h3>
+								<h3 class="type-card-subheading mb-3">{title === 'Websites with SEO' ? <a href="/author-website/" class="underline hover:text-red">{title}</a> : title}</h3>
 								<p class="type-body-sm text-stone-700">{body}</p>
 							</div>
 						</div>
@@ -335,6 +335,7 @@ const marketingFaqs = [
 				<div class="text-center mb-10">
 					<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">CRM Platform</p>
 					<h2 class="type-section-heading text-ink-soft" data-animate="fade-up" data-delay="1">See Spirit Media ONE in Action</h2>
+					<p class="mt-2 type-body-sm text-stone-600" data-animate="fade-up" data-delay="1">More of our work is in the <a href="/portfolio/" class="underline hover:text-red">portfolio</a>.</p>
 					<p class="mt-4 text-stone-600 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="2">Spirit Media ONE is our configured version of GoHighLevel — everything you need to manage contacts, automate follow-up, and grow your Kingdom mission in one place. We handle the setup, training, and ongoing optimization so you can focus on your message.</p>
 				</div>
 				<div class="rounded-2xl overflow-hidden shadow-xl aspect-video" data-animate="fade-up" data-delay="3">
