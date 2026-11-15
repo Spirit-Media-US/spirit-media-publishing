@@ -29,6 +29,7 @@ import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
 import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
 import set from '../../../data/books/shipset-v2.json';
+import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
 import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
@@ -495,7 +496,30 @@ const more = ((p.page?.more ?? []) as string[])
 				: null),
 	)
 	.filter(Boolean)
-	.map((t: any) => ({ slug: t.slug as string, title: t.book.title as string }));
+	.map((t: any) => ({ slug: t.slug as string, title: t.book.title as string }))
+	// an FHB Bible edition slug (the FHB books' related picks) links to its FHB page
+	.concat(
+		((p.page?.more ?? []) as string[])
+			.filter(
+				(slug) =>
+					!(set.titles as any[]).some((t) => t.slug === slug) &&
+					!(engineBooks.books as any[]).some((b) => b.slug === slug),
+			)
+			.map((slug) => {
+				const e = (fhbEditions.editions as any[]).find(
+					(x) => x.href === `https://fathersheartbible.com/bibles/${slug}/`,
+				);
+				const title = e
+					? String(e.title).replace(/^Father’s Heart Bible — /, '')
+					: slug === 'fathers-heart-bible'
+						? 'Father’s Heart Bible'
+						: null;
+				return title
+					? { slug, title, href: `https://fathersheartbible.com/bibles/${slug}/` }
+					: null;
+			})
+			.filter(Boolean) as any[],
+	);
 // AUTHOR HEADSHOT by author name (src/data/books/authors.json); none = no photo.
 const headshotRow = (authors as Record<string, any>)[p.author]?.headshot as
 	| { src: string; w: number; h: number }
