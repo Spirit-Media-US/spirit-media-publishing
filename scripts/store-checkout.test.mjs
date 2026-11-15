@@ -131,9 +131,15 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
 	assert.equal(set.titles.length, 60); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs)
+	// BOOK PAGES SWITCH: production builds only Kevin-approved pages (src/data/books/pages-live.json);
+	// a BOOKS_PREVIEW_ALL=1 preview builds every one. An unapproved page that builds on production fails here.
+	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
+	const LIVE = JSON.parse(fs.readFileSync(new URL('../src/data/books/pages-live.json', import.meta.url), 'utf8')).slugs;
+	const titles = set.titles.filter((t) => ALL || LIVE.includes(t.slug));
+	if (!ALL) for (const t of set.titles.filter((x) => !LIVE.includes(x.slug))) assert.ok(!fs.existsSync(new URL(`${t.slug}/index.html`, dist)), `${t.slug}: not approved, must not build on production`);
 	const read = (slug) => fs.readFileSync(new URL(`${slug}/index.html`, dist), 'utf8');
 	const mainOf = (html) => html.slice(html.indexOf('<main'), html.indexOf('</main>'));
-	for (const t of set.titles) {
+	for (const t of titles) {
 		const html = read(t.slug);
 		const main = mainOf(html);
 		assert.ok(main.length > 500, `${t.slug}: <main> found`);
@@ -189,7 +195,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const built = fs.readdirSync(dist).filter((d) => fs.existsSync(new URL(`${d}/index.html`, dist)));
 	// Kevin 2026-11-14 "Who and I and Beloved Identity on SMP and FHB - same content on 2 different sites": the FHB books
 	// now HAVE an SMP page (order form on it), canonical to their FHB page, and no 301 sends them away.
-	const allowed = new Set([...set.titles.map((t) => t.slug), ...sold.map((x) => x.slug)]);
+	const allowed = new Set([...titles.map((t) => t.slug), ...sold.map((x) => x.slug)]);
 	assert.ok(!fs.existsSync(new URL('jesus-had-a-little-lamb/index.html', dist)), 'no SMP page for the unlisted Lamb');
 	for (const b of sold) {
 		const html = read(b.slug);
@@ -198,7 +204,9 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	}
 	// 3gh #1: the bookstore links every book we sell to its own page, and none of them to a store listing
 	const store = fs.readFileSync(new URL('../dist/bookstore/index.html', import.meta.url), 'utf8');
-	for (const t of set.titles) assert.ok(store.includes(`href="/books/${t.slug}/"`) || !store.includes(t.book.title), `bookstore card -> /books/${t.slug}/`);
+	for (const t of titles) assert.ok(store.includes(`href="/books/${t.slug}/"`) || !store.includes(t.book.title), `bookstore card -> /books/${t.slug}/`);
+	// a card never links to a page that is not built
+	for (const t of set.titles.filter((x) => !titles.includes(x))) assert.ok(!store.includes(`href="/books/${t.slug}/"`), `bookstore: no link to unbuilt /books/${t.slug}/`);
 
 	for (const d of built) assert.ok(allowed.has(d), `unexpected book page /books/${d}/`);
 });

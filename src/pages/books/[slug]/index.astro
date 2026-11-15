@@ -29,6 +29,7 @@ import fhbBookPages from '../../../data/books/fhb-book-pages.json';
 import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
 import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
+import pagesLive from '../../../data/books/pages-live.json';
 import set from '../../../data/books/shipset-v2.json';
 import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
@@ -356,7 +357,11 @@ export async function getStaticPaths() {
 		}
 		p.served = memo.get(key) as string[];
 	}
-	return pages.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+	// BOOK PAGES SWITCH (src/data/books/pages-live.json): production builds only Kevin-approved pages
+	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
+	return pages
+		.filter((p) => ALL || (pagesLive.slugs as string[]).includes(p.slug))
+		.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
 
 const { p } = Astro.props as { p: Page };

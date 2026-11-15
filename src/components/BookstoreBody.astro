@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import coverSized from '../data/books/cover-sized.json';
+import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
 import { sanityClient } from '../lib/sanity.ts';
@@ -307,20 +308,27 @@ const norm = (t: string) =>
 		.replace(/[\u0300-\u036f]/g, '')
 		.replace(/[^a-z0-9]+/g, ' ')
 		.trim();
+// only the pages that BUILD (src/data/books/pages-live.json; all of them on a BOOKS_PREVIEW_ALL=1 preview)
+const PAGE_BUILT = (slug: string) =>
+	process.env.BOOKS_PREVIEW_ALL === '1' || (pagesLive.slugs as string[]).includes(slug);
+const LIVE_TITLES = (shipset as any).titles.filter((t: any) => PAGE_BUILT(t.slug));
 const OWN_PAGE = new Map<string, string>(
-	(shipset as any).titles.map((t: any) => [norm(t.book.title), `/books/${t.slug}/`]),
+	LIVE_TITLES.map((t: any) => [norm(t.book.title), `/books/${t.slug}/`]),
 );
 // A card whose title differs from the ship set: its slug read as words ("your time first responders") is a key too,
 // and the bookstore's own spellings of the Home editions and the plain "Your Time" cards (Sanity points every Your
 // Time card at the Work Staff listing) are named here, so no other edition's card is pulled in (pmseoaeo 3gm #1).
-for (const t of (shipset as any).titles)
-	OWN_PAGE.set(norm(t.slug.replace(/-/g, ' ')), `/books/${t.slug}/`);
-const OWN_ALIAS: Record<string, string> = {
-	'home colored': '/books/home/',
-	'home b w': '/books/home/',
-	'home sacred search for belonging colored': '/books/home/',
-	'your time': '/books/your-time-work-staff/',
-};
+for (const t of LIVE_TITLES) OWN_PAGE.set(norm(t.slug.replace(/-/g, ' ')), `/books/${t.slug}/`);
+const OWN_ALIAS: Record<string, string> = Object.fromEntries(
+	Object.entries({
+		'home colored': 'home',
+		'home b w': 'home',
+		'home sacred search for belonging colored': 'home',
+		'your time': 'your-time-work-staff',
+	})
+		.filter(([, slug]) => PAGE_BUILT(slug))
+		.map(([k, slug]) => [k, `/books/${slug}/`]),
+);
 for (const doc of rawBooks as any[]) {
 	if (doc._id?.startsWith('fhb-') || doc._id === BELOVED_ID) continue; // FHB cards keep their FHB pages
 	const own =
@@ -336,7 +344,7 @@ for (const doc of rawBooks as any[]) {
 // PRODUCTION) gets its card from the same ship-set data that builds its page.
 {
 	const carded = new Set((rawBooks as any[]).filter((d) => d.ownPage).map((d) => d.amazon));
-	for (const t of (shipset as any).titles) {
+	for (const t of LIVE_TITLES) {
 		const href = `/books/${t.slug}/`;
 		if (carded.has(href)) continue;
 		const sized = (coverSized as any).covers[t.slug];
