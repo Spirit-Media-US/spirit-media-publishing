@@ -1,0 +1,314 @@
+---
+// THE ORDER AREA ON AN SMP BOOK PAGE (/books/<slug>/#order), mirroring the approved FHB edition-page order area
+// (FHB src/components/EditionOrder.astro + OrderSummary.astro, grandparents-bible, Kevin 2026-11-14/15):
+//   offer line centered -> full-width black country marquee (~2s per country, A-Z, data-nosnippet moving copies,
+//   reduced-motion stops it) -> four compact choices ABOVE the box (white items, gray frame, gray text) -> the box:
+//   one row per format with its own quantity, the price everyone pays first, an itemized summary, Total, Ship to under
+//   Total, Checkout in SMP's own primary button style, and a "Contact us" BUTTON (MailtoLink: an address is
+//   never printed, Kevin 2026-11-15 "We do not post our emails ... mailto: show a button not the email").
+// Nothing here is commerce: prices are the engine's registry rows, the countries are the ones the engine itself sells
+// this book to (asked in the page's getStaticPaths), the per-copy handling fee is the engine's marginGuard figure, and
+// the POST is the existing /store-checkout. The server stays authoritative.
+// English only for now: es/fr book pages keep their reviewed-string form until their own strings exist.
+import MailtoLink from './MailtoLink.astro';
+
+interface Props {
+	slug: string;
+	title: string;
+	/** the title's cover colour style (src/data/books/cover-colors.json), or undefined = ink */
+	titleStyle?: string;
+	formats: { sku: string; format: string; list_cents: number }[];
+	/** the countries the engine sells ALL these formats to, engine order */
+	countries: { code: string; name: string }[];
+	/** { list: {sku: cents}, fee: {country: {sku: cents}} } */
+	feeCfg: string;
+	/** the engine lets these SKUs take the first-order 15% (books: false today, Kevin 2026-11-10) */
+	firstOrder: boolean;
+	firstOrderPct: number;
+	returnDays: number;
+}
+const {
+	slug,
+	title,
+	titleStyle,
+	formats,
+	countries,
+	feeCfg,
+	firstOrder,
+	firstOrderPct,
+	returnDays,
+} = Astro.props;
+const money = (c: number) => `$${(c / 100).toFixed(2)}`;
+const n = countries.length;
+const names = countries.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
+const shipLine =
+	n > 1
+		? `Free standard shipping to ${n} countries`
+		: `Free standard shipping in the ${names[0] ?? 'United States'}`;
+// ONE-LINE SWITCH (15% wording): it follows the engine. When the engine lets books take the first-order discount,
+// firstOrder is true and the offer line, the per-row first-order price and the summary line appear by themselves.
+const offerLine = firstOrder
+	? `${firstOrderPct}% off first order + ${shipLine.replace(/^Free/, 'free')}`
+	: shipLine;
+const feeTable = (JSON.parse(feeCfg).fee ?? {}) as Record<string, Record<string, number>>;
+const anyFee = Object.values(feeTable).some((row) => Object.values(row).some((c) => c > 0));
+const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
+---
+<p class="bo-offer">{offerLine}</p>
+<div class="bo-marquee" role="region" aria-label={shipLine}>
+	<p class="bo-sr">{names.join(', ')}</p>
+	{n > 1 ? (
+		<div class="bo-marquee__track" aria-hidden="true" data-nosnippet style={`--bo-marquee-dur: ${n * 2}s;`}>
+			{[0, 1].map(() => (
+				<ul class="bo-marquee__list">
+					{names.map((x) => <li>{x}</li>)}
+				</ul>
+			))}
+		</div>
+	) : (
+		<ul class="bo-marquee__list bo-marquee__list--still" aria-hidden="true" data-nosnippet>
+			{names.map((x) => <li>{x}</li>)}
+		</ul>
+	)}
+</div>
+<form id="order" class="bo-wrap" data-box data-slug={slug} data-status="live" data-fees={feeCfg} data-first={firstOrder ? firstOrderPct : 0}>
+	<div class="bo-acc">
+		<details class="bo-acc__item">
+			<summary data-choice>{shipLine}</summary>
+			<div class="bo-acc__body">
+				<p>{shipLine}.</p>
+				<ul class="bo-bubbles" aria-label={shipLine}>
+					{names.map((x) => <li class="bo-bubble">{x}</li>)}
+				</ul>
+				{n === 1 && <p>Ships to more countries soon.</p>}
+				{anyFee && <p>Outside the United States any international handling fee for your country is shown on the order form before checkout.</p>}
+			</div>
+		</details>
+		<details class="bo-acc__item">
+			<summary data-choice>Your purchase is guaranteed</summary>
+			<div class="bo-acc__body">
+				<p>If anything isn’t right with your order, for any reason, let us know within {returnDays} days of delivery and we will make it right.</p>
+				<p><a href="/returns/">Read our guarantee →</a></p>
+			</div>
+		</details>
+		<details class="bo-acc__item">
+			<summary data-choice>Ordering more than one book?</summary>
+			<div class="bo-acc__body">
+				<p><a href="/bookstore/">Browse the Spirit Media bookstore →</a></p>
+			</div>
+		</details>
+		{/* "Buying 10 or more?" is omitted: the engine gives books no volume ladder (DISCOUNT_EXEMPT). */}
+	</div>
+	<div class="bo-box">
+		<h2 class="bo-title" style={titleStyle}>Order {title}</h2>
+		<div class="bo-rows">
+			{formats.map((f, i) => (
+				<div class="bo-row" data-line-sku={f.sku}>
+					<div class="bo-row__info">
+						<span class="bo-row__binding">{f.format}</span>
+						<b class="bo-row__list">{money(f.list_cents)}</b>
+						{firstOrder && <span class="bo-row__first">{money(firstUnit(f.list_cents))} on your first order</span>}
+					</div>
+					<div class="bo-qty">
+						<button type="button" class="bo-step" data-step="-1" data-sku={f.sku} aria-label={`One fewer ${f.format}`}>−</button>
+						<input class="bo-qty__in" type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={i === 0 ? '1' : '0'} aria-label={`${f.format} quantity`} />
+						<button type="button" class="bo-step" data-step="1" data-sku={f.sku} aria-label={`One more ${f.format}`}>+</button>
+					</div>
+				</div>
+			))}
+		</div>
+		<div class="bo-panel">
+			<ul class="bo-items" data-items></ul>
+			<dl class="bo-lines">
+				<div data-fee-line hidden><dt>Shipping &amp; handling</dt><dd data-fee>$0.00</dd></div>
+				<div class="bo-total"><dt>Total</dt><dd data-total aria-live="polite">{money(formats[0]?.list_cents ?? 0)}</dd></div>
+			</dl>
+			{firstOrder && <p class="bo-first" data-first-save hidden></p>}
+			<label class="bo-label" for={`bo-${slug}-country`}>Ship to</label>
+			<select id={`bo-${slug}-country`} name="country" class="bo-select" autocomplete="country">
+				{countries.map((c) => <option value={c.code} selected={c.code === 'US'}>{c.name}</option>)}
+			</select>
+		</div>
+		<p class="bo-note">Free standard shipping · tax calculated at checkout</p>
+		<button type="submit" class="bo-checkout">Checkout →</button>
+		<p id="buy-msg" class="bo-msg" role="status"></p>
+		<p class="bo-help"><MailtoLink email="hello@spiritmediapublishing.com" class="bo-help-btn">Contact us</MailtoLink></p>
+	</div>
+</form>
+<nav class="bo-shop" aria-label="Keep shopping">
+	<span class="bo-shop__label">Keep shopping</span>
+	<a href="https://fathersheartbible.com/print/">FH Bibles</a>
+	<a href="https://fathersheartbible.com/books/">FH Books</a>
+	<a href="/bookstore/">All SMP Books</a>
+</nav>
+
+<style>
+	/* MOBILE FIRST, the FHB edition-page order area (EditionOrder.astro) in SMP's charcoal. */
+	.bo-offer { margin: 1.6rem auto 0; padding: 0 1rem; text-align: center; color: var(--color-red-deep, #9b2d20); font-size: 1rem; font-weight: 700; }
+	.bo-marquee { position: relative; margin: 0.8rem 0 0; background: #1a1714; color: #f5f5f4; overflow: hidden; font-size: 1rem; line-height: 1.4rem; font-weight: 600; }
+	.bo-marquee__track { display: flex; width: max-content; animation: bo-marquee var(--bo-marquee-dur, 446s) linear infinite; }
+	.bo-marquee__list { display: flex; margin: 0; padding: 0.5rem 0; list-style: none; white-space: nowrap; }
+	.bo-marquee__list li { padding: 0 1.1rem; }
+	.bo-marquee__list li::after { content: '•'; margin-left: 2.2rem; color: #e4006f; }
+	.bo-marquee__list--still { justify-content: center; }
+	.bo-marquee__list--still li::after { content: none; }
+	.bo-marquee:hover .bo-marquee__track { animation-play-state: paused; }
+	@keyframes bo-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+	@media (prefers-reduced-motion: reduce) { .bo-marquee__track { animation: none; flex-wrap: wrap; width: auto; } }
+	.bo-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+	.bo-wrap { max-width: 34rem; margin: 2.2rem auto 0; padding: 0 1rem; scroll-margin-top: 110px; color: var(--color-ink); box-sizing: content-box; }
+	.bo-acc { display: grid; gap: 0.4rem; }
+	.bo-acc__item { background: #fff; border: 1px solid #c4c4cc; border-radius: 0.7rem; overflow: hidden; }
+	.bo-acc__item > summary { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: 44px; padding: 0.35rem 0.85rem; color: #3f3f46; font-size: 0.85rem; font-weight: 600; cursor: pointer; list-style: none; }
+	.bo-acc__item > summary::-webkit-details-marker { display: none; }
+	.bo-acc__item > summary::after { content: '+'; flex: none; font-size: 1.2rem; font-weight: 400; color: #71717a; }
+	.bo-acc__item[open] > summary::after { content: '−'; }
+	.bo-acc__body { padding: 0.7rem 0.85rem 0.4rem; color: #3f3f46; font-size: 0.85rem; line-height: 1.5; }
+	.bo-acc__body p { margin: 0 0 0.5rem; }
+	.bo-acc__body a { color: #3f3f46; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+	.bo-bubbles { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0 0 0.6rem; padding: 0; }
+	.bo-bubble { font-size: 0.8rem; color: #52525b; background: #fbe7f0; border: 1px solid #f0c4d8; border-radius: 999px; padding: 0.25rem 0.7rem; }
+	.bo-box { margin: 1.1rem 0 0; padding: 1rem 0.9rem 0.95rem; background: #fff; border: 1px solid var(--color-border, #ddd7cf); border-radius: 1rem; }
+	.bo-title { margin: 0 0 0.2rem; color: var(--color-ink); font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+	.bo-rows { display: grid; gap: 0.6rem; margin-top: 0.9rem; }
+	.bo-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.55rem 0.7rem; background: #fbf1f6; border: 1px solid #efd3e1; border-radius: 0.75rem; }
+	.bo-row__info { display: flex; flex-direction: column; min-width: 0; line-height: 1.35; }
+	.bo-row__binding { font-size: 0.95rem; font-weight: 600; }
+	.bo-row__list { font-size: 1.05rem; font-weight: 800; color: var(--color-ink); }
+	.bo-row__first { color: #9d174d; font-size: 0.8rem; font-weight: 600; }
+	.bo-qty { display: inline-flex; flex: none; align-items: center; gap: 0.35rem; }
+	.bo-step { width: 44px; height: 44px; border: 1.5px solid #d9d0c4; border-radius: 999px; background: #fff; color: var(--color-ink); font-size: 1.2rem; line-height: 1; cursor: pointer; }
+	.bo-qty__in { width: 2.75rem; min-height: 44px; background: #fff; border: 1.5px solid #d9d0c4; border-radius: 0.6rem; font: inherit; font-size: 1rem; text-align: center; -moz-appearance: textfield; }
+	.bo-qty__in::-webkit-inner-spin-button, .bo-qty__in::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+	.bo-step:focus-visible, .bo-qty__in:focus-visible, .bo-select:focus-visible, .bo-checkout:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
+	.bo-panel { margin-top: 0.9rem; padding: 0.2rem 0.8rem 0.8rem; background: #f6f6f8; border-radius: 0.75rem; }
+	.bo-items { list-style: none; margin: 0.6rem 0 0; padding: 0; font-size: 0.9rem; }
+	.bo-items :global(li) { display: flex; justify-content: space-between; gap: 1rem; line-height: 1.7; }
+	.bo-lines { margin: 0.7rem 0 0; padding: 0.6rem 0 0; border-top: 1px solid #e4e4e7; }
+	.bo-lines > div { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9rem; line-height: 1.7; }
+	.bo-lines > div[hidden] { display: none; }
+	.bo-lines dt, .bo-lines dd { margin: 0; }
+	.bo-total { font-weight: 700; }
+	.bo-total dd { font-size: 1.5rem; line-height: 1.3; }
+	.bo-first { margin: 0.1rem 0 0; color: #9d174d; font-size: 0.88rem; font-weight: 700; text-align: right; }
+	.bo-first[hidden] { display: none; }
+	.bo-label { display: block; margin: 0.6rem 0 0.3rem; font-size: 0.85rem; font-weight: 600; }
+	.bo-select { box-sizing: border-box; width: 100%; min-height: 44px; padding: 0.55rem 0.8rem; border: 1.5px solid #d9d0c4; border-radius: 0.6rem; background: #fff; font: inherit; font-size: 1rem; }
+	.bo-note { margin: 0.4rem 0 0; color: #57534e; font-size: 0.78rem; }
+	/* SMP's own primary button (global .btn-primary: --color-red, hover --color-red-deep). Kevin 2026-11-14: "We don't
+	   use black buttons. KNOW your site! Know and follow SMP style." */
+	.bo-checkout { width: 100%; margin-top: 0.75rem; min-height: 48px; padding: 0.7rem 1.8rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: var(--color-red, #c0392b); color: var(--color-surface, #fff); font: inherit; font-weight: 600; font-size: 1rem; cursor: pointer; }
+	.bo-checkout:hover { background: var(--color-red-deep, #9b2d20); border-color: var(--color-red-deep, #9b2d20); }
+	.bo-checkout:disabled { opacity: 0.6; cursor: wait; }
+	.bo-msg { margin: 0.5rem 0 0; color: #57534e; font-size: 0.85rem; }
+	.bo-msg:empty { display: none; }
+	.bo-help { margin: 0.6rem 0 0; text-align: center; }
+	.bo-help :global(.bo-help-btn) { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.2rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: transparent; color: var(--color-red, #c0392b); font-size: 0.85rem; font-weight: 600; text-decoration: none; } /* SMP .btn-ghost */
+	.bo-shop { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; max-width: 34rem; margin: 1rem auto 0; padding: 0 1rem; }
+	.bo-shop__label { width: 100%; text-align: center; font-size: 0.85rem; font-weight: 600; color: #3f3f46; }
+	.bo-shop a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid #f0c4d8; border-radius: 999px; background: #fbe7f0; color: #52525b; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
+	.bo-shop a:hover { border-color: var(--color-ink); }
+	@media (min-width: 641px) { .bo-box { padding: 1.25rem 1.25rem 1.1rem; } }
+</style>
+
+<script>
+	// The same arithmetic the server charges: list x qty + the country's per-copy handling fee x qty.
+	for (const form of document.querySelectorAll<HTMLFormElement>('form[data-box]')) {
+		const cfg = JSON.parse(form.dataset.fees || '{"list":{},"fee":{}}') as {
+			list: Record<string, number>;
+			fee: Record<string, Record<string, number>>;
+		};
+		const pct = Number(form.dataset.first || 0);
+		const cents = (c: number) => `$${(c / 100).toFixed(2)}`;
+		const sel = form.querySelector('select[name=country]') as HTMLSelectElement;
+		const inputs = [...form.querySelectorAll<HTMLInputElement>('input[type=number]')];
+		const qty = (i: HTMLInputElement) => Math.max(0, Math.min(999, Math.floor(Number(i.value) || 0)));
+		const label = (i: HTMLInputElement) =>
+			(i.closest('.bo-row')?.querySelector('.bo-row__binding')?.textContent ?? i.name).trim();
+		const render = () => {
+			let sub = 0;
+			let fees = 0;
+			const items = form.querySelector('[data-items]') as HTMLElement;
+			items.replaceChildren();
+			for (const i of inputs) {
+				const q = qty(i);
+				if (!q) continue;
+				const line = q * (cfg.list[i.name] ?? 0);
+				sub += line;
+				fees += q * (cfg.fee[sel.value]?.[i.name] ?? 0);
+				const li = document.createElement('li');
+				const a = document.createElement('span');
+				a.textContent = `${q} × ${label(i)}`;
+				const b = document.createElement('span');
+				b.textContent = cents(line);
+				li.append(a, b);
+				items.append(li);
+			}
+			(form.querySelector('[data-fee]') as HTMLElement).textContent = cents(fees);
+			(form.querySelector('[data-fee-line]') as HTMLElement).hidden = fees <= 0;
+			(form.querySelector('[data-total]') as HTMLElement).textContent = cents(sub + fees);
+			const save = form.querySelector<HTMLElement>('[data-first-save]');
+			if (save) {
+				const off = sub - Math.round((sub * (100 - pct)) / 100);
+				save.hidden = !(pct > 0 && off > 0);
+				save.textContent = `First order? -${cents(off)} (${pct}%) comes off at checkout`;
+			}
+		};
+		for (const b of form.querySelectorAll<HTMLButtonElement>('[data-step]')) {
+			b.addEventListener('click', () => {
+				const i = form.querySelector<HTMLInputElement>(`input[name="${b.dataset.sku}"]`);
+				if (!i) return;
+				i.value = String(Math.max(0, Math.min(999, qty(i) + Number(b.dataset.step))));
+				render();
+			});
+		}
+		form.addEventListener('input', render);
+		sel.addEventListener('change', render);
+		render();
+		form.addEventListener('submit', async (ev) => {
+			ev.preventDefault();
+			const msg = form.querySelector('#buy-msg') as HTMLElement;
+			const counts: Record<string, number> = {};
+			for (const i of inputs) counts[i.name] = qty(i);
+			if (!Object.values(counts).some((x) => x > 0)) {
+				msg.textContent = 'Choose at least one copy.';
+				return;
+			}
+			const q = new URLSearchParams(location.search);
+			const utm = Object.fromEntries(
+				['source', 'medium', 'campaign', 'content']
+					.map((k) => [k, q.get(`utm_${k}`) ?? ''])
+					.filter(([, v]) => v),
+			);
+			const site =
+				({ 'fathersheartbible.com': 'fhb', 'vaneure.com': 'vaneure' } as Record<string, string>)[utm.source ?? ''] ??
+				'smp';
+			(window as any).gtag?.('event', 'begin_checkout', {
+				currency: 'USD',
+				items: Object.entries(counts)
+					.filter(([, x]) => x > 0)
+					.map(([id, x]) => ({ item_id: id, quantity: x })),
+			});
+			msg.textContent = '';
+			const btn = form.querySelector('.bo-checkout') as HTMLButtonElement;
+			btn.disabled = true;
+			try {
+				const r = await fetch('/store-checkout', {
+					method: 'POST',
+					headers: { 'content-type': 'application/json' },
+					body: JSON.stringify({ counts, country: sel.value, returnPath: `/books/${form.dataset.slug}/`, site, utm }),
+				});
+				const j = await r.json();
+				if (j.url) {
+					location.href = j.url;
+					return;
+				}
+				msg.textContent =
+					j.message || (j.disabled ? 'Checkout is not open yet.' : 'Something went wrong. Please try again.');
+			} catch {
+				msg.textContent = 'Something went wrong. Please try again.';
+			}
+			btn.disabled = false;
+		});
+	}
+</script>

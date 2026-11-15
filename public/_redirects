@@ -1,6 +1,21 @@
+# pmseoaeo 3gh (2026-11-14): FHB books live on FHB; the Lamb page is unlisted until its price is set
+/books/jesus-had-a-little-lamb/ /bookstore/ 302
+/books/jesus-had-a-little-lamb /bookstore/ 302
 # Vanity redirects
 /club https://spirit-media.mn.co/collections/3073128 301
 
 # 2yc 2026-11-12: old "Request a call" CTA (GSC 404) -> contact page
 /request-a-call /contact/ 301
 /request-a-call/ /contact/ 301
+
+# Kevin 2026-11-13 (pmseoaeo 23:19Z): ONE page per book, order form ON it. The old checkout pages go to its #order.
+/books/:slug/buy/ /books/:slug/#order 301
+/books/:slug/buy /books/:slug/#order 301
+
+# pmseoaeo #5 (2026-11-13 23:26Z): canonical = the clean slug. Old ship-set spellings and QA 3ft spellings land on it.
+/books/a-shepherd-s-story/ /books/a-shepherds-story/ 301
+/books/god-s-dream/ /books/gods-dream/ 301
+/books/potter-s-child/ /books/potters-child/ 301
+/books/what-s-your-word/ /books/whats-your-word/ 301
+/books/get-out-of-the-fast-food-lane/ /books/get-out-of-the-fast/ 301
+/books/the-brothers-and-their-lunch-basket/ /books/brothers-lunch-basket/ 301
