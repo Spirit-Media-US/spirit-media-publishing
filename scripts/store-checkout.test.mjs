@@ -185,6 +185,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	for (const b of []) { // 3gh: FHB books have no SMP page (301 to FHB, asserted below)
 		const main = mainOf(read(b.slug));
 		assert.match(main, /<form id="order"[^>]*data-status="live"/, `${b.slug}: order form on the book page`);
+		assert.match(main, /<input[^>]*type="email"[^>]*name="email"[^>]*required/, `${b.slug}: email field (first-order 15% needs it)`);
 		assert.match(main, /<h2[^>]*>About the book<\/h2>/, `${b.slug}: the full page, not just a checkout`);
 		for (const sku of b.formats) assert.match(main, new RegExp(`name="${sku}"`), `${b.slug}: ${sku} quantity`);
 		assert.equal(textOf(main).match(LEAK), null, `${b.slug}: internal wording`);
