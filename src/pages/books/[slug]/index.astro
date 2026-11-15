@@ -1,0 +1,895 @@
+---
+import BookMirror from '../../../components/BookMirror.astro';
+import BookOrder from '../../../components/BookOrder.astro';
+import LookInside from '../../../components/LookInside.astro';
+// /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
+// is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
+// new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
+//
+// TWO SOURCES, ONE PAGE SHAPE:
+//  · src/data/books/shipset-v2.json — pmseoaeo's ship set v2 (3fu, clean copy), ship_ready titles only, sales order,
+//    verbatim apart from clean slugs ('-s-' -> 's-', pmseoaeo #5; old spellings 301 in public/_redirects). pmseoaeo
+//    23:26Z #4 "B": US checkout at list price, free US shipping, on every page whose SKU has an ISBN + price (the rows
+//    are in the store registry, FHB src/data/book-skus.json owner_site smp); non-US "Ships to more countries soon"
+//    until costs are measured (plan D5); the sale records net_usd unmeasured.
+//  · src/store-engine/data/books.json + book-skus.json — the books the store SELLS today (Who Am I?, Beloved Identity),
+//    the same records the checkout prices. These carry the order form (#order). D1 open: their ranking page is
+//    fathersheartbible.com/books/<slug>/, so canonical points there.
+// Every word comes from that data. COPY GATE (pmseoaeo 23:19Z, Kevin: "Never render internal wording or TBD"): copy()
+// strips only a bare ", per the Doc" tail; a FAQ entry that still talks about our sources is dropped; body copy that
+// does FAILS THE BUILD by slug + field. The fix belongs in the data, never here.
+// Also carried: no "Buy on Amazon" button (Amazon = sameAs only); no Offer while nothing sells; calm ink, no red
+// (Kevin L1999); a 390px phone first. A hand-built page (src/pages/books/<slug>.astro) keeps its slug.
+import authors from '../../../data/books/authors.json';
+import bookPages from '../../../data/books/book-pages.json';
+import coverColors from '../../../data/books/cover-colors.json';
+import dims from '../../../data/books/cover-dims.json';
+import sized from '../../../data/books/cover-sized.json';
+import fhbBookPages from '../../../data/books/fhb-book-pages.json';
+import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
+import lookinside from '../../../data/books/lookinside.json';
+import ogCards from '../../../data/books/og-cards.json';
+import pagesLive from '../../../data/books/pages-live.json';
+import set from '../../../data/books/shipset-v2.json';
+import fhbEditions from '../../../data/fhb-editions.json';
+import Layout from '../../../layouts/Layout.astro';
+import bookSkus from '../../../store-engine/data/book-skus.json';
+import engineBooks from '../../../store-engine/data/books.json';
+import { handlingFeeCents, shippingDetailsFor } from '../../../store-engine/lib/marginGuard.ts';
+import {
+	BOOK_SKUS,
+	FIRST_ORDER_PCT,
+	isDiscountExempt,
+} from '../../../store-engine/lib/order-pricing.ts';
+import { LIVE_COUNTRIES } from '../../../store-engine/lib/shipCountries.ts';
+import { checkoutForm } from '../../../store-engine/lib/storeEngine.ts';
+
+type Fmt = {
+	sku: string;
+	format: string;
+	schema_format: string;
+	isbn: string;
+	isbn_display: string;
+	list_cents: number | null;
+	pages: number | null;
+	trim: string | null;
+};
+type Page = {
+	slug: string;
+	title: string;
+	h1: string;
+	subtitle: string | null;
+	author: string;
+	credits: string | null;
+	page_title: string;
+	meta: string;
+	short: string;
+	about: string | null;
+	aboutHtml: string | null;
+	who_for: string[];
+	faq: { q: string; a: string }[];
+	faqDropped: number;
+	bio: string | null;
+	cover: {
+		src: string;
+		w: number;
+		h: number;
+		alt: string;
+		w300?: string;
+		og?: string;
+		is3d?: boolean;
+	};
+	formats: Fmt[];
+	lccn: string | null;
+	sameAs: string[];
+	publisher?: string | null;
+	lang?: string;
+	canonical: string | null;
+	orderable: boolean;
+	/** mirrored FHB-edition-page copy (Kevin 11-14 L2006), or null -> the compact layout */
+	page: Record<string, any> | null;
+	/** the live countries the ENGINE sells every sellable format of this book to (asked below, never retyped) */
+	served: string[];
+};
+
+export async function getStaticPaths() {
+	// ---- COPY GATE (inside getStaticPaths: Astro runs it in isolation) ----
+	// Internal wording a reader must never see (pmseoaeo QA 3ft list + ours). Narrow on purpose: "through the pages",
+	// "keywords for further research", "bring to the page", "first draft" are ordinary prose and pass.
+	const INTERNAL =
+		/\b(the Doc\b|Doc (says|lists|calls|describes|names|files|suggests|audience|has)|\(Doc\b|sheet\.json|the sheet\b|the page (makes|attributes|does|publishes|names|claims)|makes no claim|the interior (has|mentions|names|is)|\d+ mentions\b|mentions? [\w' ]{1,24} \d+ times|names? the [\w ]{1,30} \d+ times|TBD\b|OMIT\b|UNMEASURED|unconfirmed|pmpublish|pmprint|pmseoaeo|PROPOSED\b|lead term|search volume|unit \d[a-z]{2}\b)/i;
+	const strip = (s: string) => s.replace(/,?\s+per the Doc\b/gi, '');
+	const copy = (slug: string, field: string, s: unknown): string | null => {
+		if (s == null || s === '') return null;
+		const out = strip(String(s));
+		const m = out.match(INTERNAL);
+		if (m)
+			throw new Error(
+				`book copy leak: ${slug} ${field} contains internal wording "${m[0]}" — fix it in the ship set`,
+			);
+		return out;
+	};
+	// FAQ: an entry with internal wording, or naming Amazon (Amazon is a sameAs record only), is held back
+	const faqGate = (items: { q: string; a: string }[] | undefined) => {
+		const kept: { q: string; a: string }[] = [];
+		let dropped = 0;
+		for (const f of items ?? []) {
+			const q = strip(f.q ?? '');
+			const a = strip(f.a ?? '');
+			if (!q || !a || INTERNAL.test(`${q} ${a}`) || /amazon/i.test(`${q} ${a}`)) dropped++;
+			else kept.push({ q, a });
+		}
+		return { kept, dropped };
+	};
+	// the mirrored page copy: every string through the same gate, by path, so a leak names its field
+	const deep = (slug: string, path: string, v: any): any =>
+		typeof v === 'string'
+			? copy(slug, path, v)
+			: Array.isArray(v)
+				? v.map((x, i) => deep(slug, `${path}[${i}]`, x))
+				: v && typeof v === 'object'
+					? Object.fromEntries(
+							Object.entries(v).map(([k, x]) => [k, deep(slug, `${path}.${k}`, x)]),
+						)
+					: v;
+	// a fact shows only when it is clean: LCCN = 10 digits, alone or "(Doc and sheet.json)" (both sources agree); trim
+	// = a measurement, alone or "(Doc)". "sheet.json only", "unconfirmed", "none", a conflict note -> omitted.
+	const lccnOf = (v: unknown) => {
+		const m = String(v ?? '').match(/^(\d{10})(\s+\(Doc and sheet\.json\))?$/);
+		return m ? m[1] : null;
+	};
+	const trimOf = (v: unknown) => {
+		const m = String(v ?? '').match(/^([\d.]+ x [\d.]+ in)(\s+\(Doc\))?$/);
+		return m ? m[1] : null;
+	};
+	const usable = (v: unknown) => v != null && v !== '' && !/^(TBD|OMIT)\b/i.test(String(v));
+	const SKUS = bookSkus.skus as Record<string, any>;
+	const pages: Page[] = [];
+
+	// FHB's own books (Who Am I?, Beloved Identity) live on fathersheartbible.com: no SMP /books/ page for them, the
+	// SMP URL 301s there (public/_redirects; pmseoaeo 3gh #4 owner call, scope Doc). The Lamb pilot is unlisted until
+	// its price is set (3gh #3). Flip either constant to bring a page back.
+	// Kevin 2026-11-14: "prioritize adding Who and I and Beloved Identity on SMP and FHB - they will be the same content
+	// but on 2 different sites". Same page object on both (src/data/books/fhb-book-pages.json); canonical stays on FHB.
+	const SMP_HOSTS_FHB_BOOKS = true;
+	const LAMB_LISTED = false;
+	for (const b of (SMP_HOSTS_FHB_BOOKS ? engineBooks.books : []) as any[]) {
+		const fp = (fhbBookPages as Record<string, any>)[b.slug] ?? null;
+		const f = faqGate(fp?.faq ?? b.faq);
+		const sz = (sized as Record<string, any>).covers[b.slug];
+		const c3 = sz ? (sz.hero3d ?? sz) : null;
+		pages.push({
+			slug: b.slug,
+			title: b.title,
+			h1: b.title,
+			subtitle: copy(b.slug, 'subtitle', b.subtitle),
+			author: b.author.name,
+			credits: null,
+			page_title: copy(b.slug, 'page_title', b.page_title) as string,
+			meta: copy(b.slug, 'short', b.short) as string,
+			short: copy(b.slug, 'short', b.short) as string,
+			about: null,
+			aboutHtml: copy(b.slug, 'long_html', b.long_html),
+			who_for: (b.who_for ?? []).map(
+				(w: string, i: number) => copy(b.slug, `who_for[${i}]`, w) as string,
+			),
+			faq: f.kept,
+			faqDropped: f.dropped,
+			bio: copy(b.slug, 'author_bio', b.author_bio),
+			cover: c3
+				? {
+						src: c3.w600,
+						w300: c3.w300,
+						og: sz.jpg1200,
+						w: c3.width,
+						h: c3.height,
+						is3d: Boolean(sz.hero3d),
+						alt: b.cover.alt,
+					}
+				: {
+						src: b.cover.w600 ?? b.cover.jpg,
+						w: b.cover.width,
+						h: b.cover.height,
+						alt: b.cover.alt,
+					},
+			formats: (b.formats as string[]).map((sku) => ({ sku, ...SKUS[sku] })),
+			lccn: null,
+			sameAs: [],
+			canonical: `https://fathersheartbible.com/books/${b.slug}/`,
+			orderable: b.status === 'live',
+			page: fp ? deep(b.slug, 'page', fp) : null,
+			served: [],
+		});
+	}
+	const sold = new Set(pages.map((p) => p.slug));
+
+	// the ship set (sales order)
+	for (const t of set.titles as any[]) {
+		if (sold.has(t.slug)) continue;
+		const b = t.book;
+		const d = (dims as Record<string, { w: number; h: number }>)[t.slug];
+		// the mirrored page's questions replace the draft FAQ (same gate)
+		// the RIAB-standard page object (pmprint lane 4) wins over the ship set's draft
+		const pg = (bookPages as Record<string, any>)[t.slug] ?? b.page;
+		const f = faqGate(pg?.faq ?? b.faq);
+		const ld = b.jsonld?.book ?? {};
+		pages.push({
+			slug: t.slug,
+			title: b.title,
+			h1: copy(t.slug, 'h1', b.h1 || b.title) as string,
+			subtitle: usable(b.subtitle) ? copy(t.slug, 'subtitle', b.subtitle) : null,
+			author: b.author.name,
+			credits: usable(b.credits) ? copy(t.slug, 'credits', b.credits) : null,
+			page_title: copy(t.slug, 'page_title', b.page_title) as string,
+			meta: copy(t.slug, 'meta', b.meta) as string,
+			short: copy(t.slug, 'short', b.short) as string,
+			about: copy(t.slug, 'about', b.about),
+			aboutHtml: null,
+			who_for: (Array.isArray(b.who_for) ? b.who_for : []).map(
+				(w: string, i: number) => copy(t.slug, `who_for[${i}]`, w) as string,
+			),
+			faq: f.kept,
+			faqDropped: f.dropped,
+			bio: usable(b.bio) ? copy(t.slug, 'bio', b.bio) : null,
+			// pre-sized R2 covers (pmprint 11-14) when the title has them: 600 webp src, 300 in srcset, 1200 jpg for OG
+			cover: (sized as Record<string, any>).covers[t.slug]
+				? {
+						// 3D hero (spine from the real page count) when the title has one; flat 1200 jpg stays the OG fallback
+						src: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).w600,
+						w300: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).w300,
+						og: (sized as Record<string, any>).covers[t.slug].jpg1200,
+						w: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).width,
+						h: (
+							(sized as Record<string, any>).covers[t.slug].hero3d ??
+							(sized as Record<string, any>).covers[t.slug]
+						).height,
+						is3d: Boolean((sized as Record<string, any>).covers[t.slug].hero3d),
+						alt: `Cover of ${b.title} by ${b.author.name}`,
+					}
+				: { src: b.cover.jpg, w: d.w, h: d.h, alt: `Cover of ${b.title} by ${b.author.name}` },
+			formats: (b.formats as string[])
+				.map((sku: string) => ({ sku, ...t.skus[sku] }))
+				.filter((x: any) => usable(x.isbn))
+				.map((x: any) => ({
+					sku: x.sku,
+					format: x.format,
+					schema_format: x.schema_format,
+					isbn: x.isbn,
+					isbn_display: x.isbn_display,
+					list_cents: Number.isInteger(x.list_cents) ? x.list_cents : null,
+					pages: Number.isInteger(x.pages) ? x.pages : null,
+					trim: trimOf(x.trim),
+				})),
+			lccn: lccnOf(b.lccn),
+			sameAs: (Array.isArray(ld.sameAs) ? ld.sameAs : []).filter((u: unknown) =>
+				/^https:\/\/\S+$/.test(String(u)),
+			),
+			// publisher of record when it is not SMP (Say Yes to God = Vector Reach, author-owned ISBNs; pmseoaeo 11-14 02:49Z)
+			publisher: usable(b.publisher) ? (b.publisher as string) : null,
+			lang: b.language === 'es' || b.language === 'fr' ? (b.language as 'es' | 'fr') : 'en',
+			canonical: null,
+			orderable: (b.formats as string[]).some((sku) => BOOK_SKUS[sku]?.isbn),
+			page: pg ? deep(t.slug, 'page', pg) : null,
+			served: [],
+		});
+	}
+	// Lamb (Kevin L1971 pilot; pmseoaeo QA 3ft #6: same template). Sourced facts only (src/data/books/<slug>.json): no
+	// price, no ISBN-to-format, no description yet, so the page carries what is known and "Available soon".
+	if (LAMB_LISTED && !pages.some((p) => p.slug === lamb.slug)) {
+		const desc = `${lamb.title}, a book by ${lamb.author}, published by ${lamb.publisher}.`;
+		pages.push({
+			slug: lamb.slug,
+			title: lamb.title,
+			h1: lamb.title,
+			subtitle: null,
+			author: lamb.author,
+			credits: null,
+			page_title: `${lamb.title} by ${lamb.author}`,
+			meta: desc,
+			short: desc,
+			about: null,
+			aboutHtml: null,
+			who_for: [],
+			faq: [],
+			faqDropped: 0,
+			bio: null,
+			cover: {
+				src: `${lamb.cover.src}?w=600&fm=webp&q=80`,
+				w: 600,
+				h: Math.round((600 * lamb.cover.height) / lamb.cover.width),
+				alt: lamb.cover.alt,
+			},
+			formats: lamb.formats.map((f: { format: string; schema_format: string }) => ({
+				sku: '',
+				format: f.format,
+				schema_format: f.schema_format,
+				isbn: '',
+				isbn_display: '',
+				list_cents: null,
+				pages: null,
+				trim: null,
+			})),
+			lccn: null,
+			sameAs: (lamb.same_as ?? []).filter((u: string) => /^https:\/\/\S+$/.test(u)),
+			canonical: null,
+			orderable: false,
+			page: null,
+			served: [],
+		});
+	}
+	// SHIP-TO, ASKED OF THE ENGINE (src/store-engine is a synced copy, called as it is, never edited): a country is listed
+	// only when the engine's own checkoutForm builds a Stripe form for one copy of EVERY sellable format of the book
+	// there. Read-only (stub deps: no key, no network). When the engine learns a country or a book cost, the page follows
+	// on the next build. Memoised per SKU set (most books share none, so this is one pass per orderable book).
+	const memo = new Map<string, string[]>();
+	for (const p of pages) {
+		const skus = p.orderable
+			? p.formats.filter((f) => f.list_cents != null && BOOK_SKUS[f.sku]).map((f) => f.sku)
+			: [];
+		const key = skus.join(',');
+		if (!memo.has(key)) {
+			const ok: string[] = [];
+			for (const c of skus.length ? LIVE_COUNTRIES : []) {
+				let all = true;
+				for (const sku of skus) {
+					const r = await checkoutForm(
+						{ counts: { [sku]: 1 }, country: c.code, returnPath: '/bookstore/' },
+						'https://spiritmediapublishing.com/store-checkout',
+						{ enabled: true, isFirstOrder: async () => false, firstOrderPromo: async () => null },
+					);
+					if (!('form' in r)) {
+						all = false;
+						break;
+					}
+				}
+				if (all) ok.push(c.code);
+			}
+			memo.set(key, ok);
+		}
+		p.served = memo.get(key) as string[];
+	}
+	// BOOK PAGES SWITCH (src/data/books/pages-live.json): production builds only Kevin-approved pages
+	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
+	return pages
+		.filter((p) => ALL || (pagesLive.slugs as string[]).includes(p.slug))
+		.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props as { p: Page };
+const SITE = 'https://spiritmediapublishing.com';
+const url = `${SITE}/books/${p.slug}/`;
+const money = (c: number) => `$${(c / 100).toFixed(2)}`;
+// ship-to: the US, plus every live country with a measured landed cost for ALL this book's formats
+// the formats the store sells (in its registry, with a price); the rest show in Book details only
+// paperback first, then hardback (the FHB box's order), then anything else
+const FORMAT_ORDER = ['Paperback', 'Hardback', 'Hardcover'];
+const rank = (f: { format: string }) => (FORMAT_ORDER.indexOf(f.format) + 99) % 99;
+const sellFormats = p.formats
+	.filter((f) => f.list_cents != null && BOOK_SKUS[f.sku])
+	.sort((a, b) => rank(a) - rank(b));
+const servedRows = LIVE_COUNTRIES.filter((c) => p.served.includes(c.code));
+const countries = servedRows.map((c) => ({ code: c.code, name: c.name }));
+// The FHB-standard order area (BookOrder) on English pages that sell; es/fr keep their reviewed-string form for now.
+const orderBox = p.orderable && (p.lang ?? 'en') === 'en' && countries.length > 0;
+// The per-copy handling fee each country pays, sized at BUILD time by the same marginGuard the checkout charges
+// with (break-even, floor 0). Only the resulting fees reach the page, never a cost (pmseoaeo 3gh #5: total line).
+const feeCfg = JSON.stringify({
+	list: Object.fromEntries(sellFormats.map((f) => [f.sku, f.list_cents])),
+	fee: Object.fromEntries(
+		countries
+			.filter((c) => c.code !== 'US')
+			.map((c) => {
+				const row = LIVE_COUNTRIES.find((x) => x.code === c.code);
+				return [
+					c.code,
+					Object.fromEntries(
+						sellFormats.map((f) => [
+							f.sku,
+							row ? handlingFeeCents(f.sku, f.list_cents as number, row) : 0,
+						]),
+					),
+				];
+			}),
+	),
+});
+
+// Page chrome in the book's language (3ge: the Spanish title ¿Sabes Qué?; 3gs: the French La Connexion à Dieu). en is the house text, unchanged.
+const T = (
+	{
+		en: {
+			home: 'Home',
+			store: 'Bookstore',
+			by: 'by',
+			order: 'Order',
+			look: 'Look inside',
+			direct: 'Order direct · free US shipping',
+			orderTitle: 'Order',
+			shipTo: 'Ship to',
+			more: 'Ships to more countries soon.',
+			checkout: 'Checkout →',
+			free: 'Free shipping in the US.',
+			returns: '30-day returns',
+			soon: 'Available soon from our store.',
+			qty: 'quantity',
+			subtotal: 'Subtotal',
+			handling: 'Shipping & handling',
+			total: 'Total',
+			formats: {} as Record<string, string>,
+			countries: {} as Record<string, string>,
+		},
+		es: {
+			home: 'Inicio',
+			store: 'Librería',
+			by: 'de',
+			order: 'Pedir',
+			look: 'Un vistazo por dentro',
+			direct: 'Pedido directo · envío gratis en EE. UU.',
+			orderTitle: 'Pide',
+			shipTo: 'Enviar a',
+			more: 'Pronto enviaremos a más países.',
+			checkout: 'Pagar →',
+			free: 'Envío gratis en EE. UU.',
+			returns: 'Devoluciones en 30 días',
+			soon: 'Pronto disponible en nuestra tienda.',
+			qty: 'cantidad',
+			subtotal: 'Subtotal',
+			handling: 'Envío y manejo',
+			total: 'Total',
+			formats: {
+				Paperback: 'Tapa blanda',
+				Hardback: 'Tapa dura',
+				Hardcover: 'Tapa dura',
+				eBook: 'Libro electrónico',
+			} as Record<string, string>,
+			countries: { US: 'Estados Unidos' } as Record<string, string>,
+		},
+		fr: {
+			home: 'Accueil',
+			store: 'Librairie',
+			by: 'de',
+			order: 'Commander',
+			look: "Un aperçu de l'intérieur",
+			direct: 'Commande directe · livraison gratuite aux États-Unis',
+			orderTitle: 'Commander',
+			shipTo: 'Livrer à',
+			more: "Bientôt livré dans d'autres pays.",
+			checkout: 'Payer →',
+			free: 'Livraison gratuite aux États-Unis.',
+			returns: 'Retours sous 30 jours',
+			soon: 'Bientôt disponible dans notre librairie.',
+			qty: 'quantité',
+			subtotal: 'Sous-total',
+			handling: 'Livraison et manutention',
+			total: 'Total',
+			formats: {
+				Paperback: 'Broché',
+				Hardback: 'Relié',
+				Hardcover: 'Relié',
+				eBook: 'Livre numérique',
+			} as Record<string, string>,
+			countries: { US: 'États-Unis' } as Record<string, string>,
+		},
+	} as const
+)[p.lang === 'es' || p.lang === 'fr' ? p.lang : 'en'];
+const fmt = (f: string) => T.formats[f] ?? f;
+
+// TITLE IN THE COVER'S COLOUR (the FHB edition-page method, Kevin 2026-11-14 '1A'): measured per cover in
+// src/data/books/cover-colors.json; a pale cover keeps its colour with a thin dark outline (W3C G18) on the big
+// headings only. No entry = ink.
+const cc = (coverColors as Record<string, any>)[p.slug] as
+	| { title: string; outline: boolean }
+	| undefined;
+const OUTLINE =
+	'-1px -1px 0 #27272a, 1px -1px 0 #27272a, -1px 1px 0 #27272a, 1px 1px 0 #27272a, 0 1px 0 #27272a, 0 -1px 0 #27272a, 1px 0 0 #27272a, -1px 0 0 #27272a';
+const titleStyle = cc
+	? `color: ${cc.title};${cc.outline ? ` text-shadow: ${OUTLINE};` : ''}`
+	: undefined;
+const smallTitleColor = cc && !cc.outline ? cc.title : undefined;
+// More SMP books (FHB "More editions"): the page.more slugs that have a page in the ship set, in the copy's order.
+const more = ((p.page?.more ?? []) as string[])
+	.map(
+		(slug) =>
+			(set.titles as any[]).find((t) => t.slug === slug) ??
+			((engineBooks.books as any[]).some((b) => b.slug === slug)
+				? { slug, book: (engineBooks.books as any[]).find((b) => b.slug === slug) }
+				: null),
+	)
+	.filter(Boolean)
+	.map((t: any) => ({ slug: t.slug as string, title: t.book.title as string }))
+	// an FHB Bible edition slug (the FHB books' related picks) links to its FHB page
+	.concat(
+		((p.page?.more ?? []) as string[])
+			.filter(
+				(slug) =>
+					!(set.titles as any[]).some((t) => t.slug === slug) &&
+					!(engineBooks.books as any[]).some((b) => b.slug === slug),
+			)
+			.map((slug) => {
+				const e = (fhbEditions.editions as any[]).find(
+					(x) => x.href === `https://fathersheartbible.com/bibles/${slug}/`,
+				);
+				const title = e
+					? String(e.title).replace(/^Father’s Heart Bible — /, '')
+					: slug === 'fathers-heart-bible'
+						? 'Father’s Heart Bible'
+						: null;
+				return title
+					? { slug, title, href: `https://fathersheartbible.com/bibles/${slug}/` }
+					: null;
+			})
+			.filter(Boolean) as any[],
+	);
+// AUTHOR HEADSHOT by author name (src/data/books/authors.json); none = no photo.
+const headshotRow = (authors as Record<string, any>)[p.author]?.headshot as
+	| { src: string; w: number; h: number }
+	| undefined;
+const headshot = headshotRow
+	? {
+			src: headshotRow.src,
+			w: headshotRow.w,
+			h: headshotRow.h,
+			alt: `${p.author}, author of ${p.title}`,
+		}
+	: undefined;
+// SHARE IMAGE: the book's 1200x630 card when it has one (src/data/books/og-cards.json), else its cover JPG with the
+// size tags omitted (a portrait cover is not 1200x630, and a guessed size is worse than none).
+const hasViewer = Boolean(
+	(lookinside as Record<string, { pages?: unknown[] }>)[p.slug]?.pages?.length,
+);
+const card = (ogCards as Record<string, any>)[p.slug] as
+	| { src: string; w: number; h: number }
+	| undefined;
+const ogImage = card?.src ?? p.cover.og ?? p.cover.src;
+const ogW = card ? card.w : 0;
+const ogH = card ? card.h : 0;
+// <title>: the sheet's own page title (written for the book's search terms); the brand is appended only when the
+// whole title still fits the ~60 characters a results page shows.
+const BRAND = ' | Spirit Media Publishing';
+const docTitle =
+	p.page_title.length + BRAND.length <= 60 ? `${p.page_title}${BRAND}` : p.page_title;
+// Meta description 140-165 (the FHB edition-page rule): the sheet's meta, else its short line when that one fits.
+const fit = (s: string | null | undefined) => !!s && s.length >= 140 && s.length <= 165;
+const metaDesc = fit(p.meta) ? p.meta : fit(p.short) ? p.short : p.meta;
+// The first-order 15% follows the engine: books are DISCOUNT_EXEMPT today (Kevin 2026-11-10, Bibles only).
+const firstOrder = sellFormats.some((f) => !isDiscountExempt(f.sku));
+const RETURN_DAYS = 30; // = src/pages/returns.astro (the SMP store promise page)
+const ORG = {
+	'@type': 'Organization',
+	'@id': `${SITE}/#organization`,
+	name: 'Spirit Media Publishing',
+	url: `${SITE}/`,
+};
+const returnPolicy = {
+	'@type': 'MerchantReturnPolicy',
+	applicableCountry: p.served.length === 1 ? p.served[0] : p.served,
+	returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+	merchantReturnDays: RETURN_DAYS,
+	merchantReturnLink: `${SITE}/returns/`,
+};
+const offerFor = (f: Fmt) => ({
+	'@type': 'Offer',
+	price: ((f.list_cents as number) / 100).toFixed(2),
+	priceCurrency: 'USD',
+	availability: 'https://schema.org/InStock',
+	itemCondition: 'https://schema.org/NewCondition',
+	url: `${url}#order`,
+	sku: f.sku,
+	gtin13: f.isbn,
+	seller: ORG,
+	hasMerchantReturnPolicy: returnPolicy,
+	shippingDetails: shippingDetailsFor(
+		{ slug: f.sku, listUsd: (f.list_cents as number) / 100 },
+		servedRows,
+	),
+});
+const sellable = (f: Fmt) => !p.canonical && sellFormats.includes(f) && servedRows.length > 0;
+const publisherLd =
+	p.publisher && p.publisher !== 'Spirit Media Publishing'
+		? { '@type': 'Organization', name: p.publisher }
+		: ORG;
+// The page's Book node is the first sellable format (paperback first); every other format hangs off it as a
+// workExample, each a Book+Product with its own ISBN and Offer when the store sells it (one product per GTIN).
+const isbnFormats = p.formats.filter((f) => f.isbn);
+const lead = isbnFormats.find(sellable);
+const formatNode = (f: Fmt) => ({
+	'@type': sellable(f) ? ['Book', 'Product'] : 'Book',
+	...(f !== lead ? { name: `${p.title} (${f.format})` } : {}),
+	bookFormat: f.schema_format,
+	isbn: f.isbn,
+	...(sellable(f) ? { gtin13: f.isbn, sku: f.sku, offers: offerFor(f) } : {}),
+	...(f.pages ? { numberOfPages: f.pages } : {}),
+	...(f !== lead && sellable(f)
+		? {
+				description: p.short,
+				image: p.cover.og ?? p.cover.src,
+				brand: { '@type': 'Brand', name: 'Spirit Media Publishing' },
+			}
+		: {}),
+});
+const ld = {
+	'@context': 'https://schema.org',
+	'@id': `${url}#book`,
+	...(lead ? formatNode(lead) : { '@type': 'Book' }),
+	name: p.title,
+	...(p.subtitle ? { alternativeHeadline: p.subtitle } : {}),
+	url,
+	description: p.short,
+	author: { '@type': 'Person', name: p.author, ...(headshot ? { image: headshot.src } : {}) },
+	publisher: publisherLd,
+	...(lead ? { brand: { '@type': 'Brand', name: 'Spirit Media Publishing' } } : {}),
+	inLanguage: p.lang ?? 'en',
+	image: p.cover.og ?? p.cover.src,
+	...(p.sameAs.length ? { sameAs: p.sameAs } : {}),
+	workExample: isbnFormats.filter((f) => f !== lead).map(formatNode),
+};
+const faqLd = p.faq.length
+	? {
+			'@context': 'https://schema.org',
+			'@type': 'FAQPage',
+			mainEntity: p.faq.map((f) => ({
+				'@type': 'Question',
+				name: f.q,
+				acceptedAnswer: { '@type': 'Answer', text: f.a },
+			})),
+		}
+	: null;
+const crumbs = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+		{ '@type': 'ListItem', position: 2, name: 'Bookstore', item: `${SITE}/bookstore/` },
+		{ '@type': 'ListItem', position: 3, name: p.title, item: url },
+	],
+};
+---
+
+<Layout lang={p.lang ?? 'en'} title={docTitle} description={metaDesc} ogImage={ogImage} ogImageWidth={ogW} ogImageHeight={ogH} canonical={p.canonical ?? undefined}>
+	<Fragment slot="head">
+		<link rel="preload" as="image" href={p.cover.src} imagesrcset={p.cover.w300 ? `${p.cover.w300} 300w, ${p.cover.src} 600w` : undefined} imagesizes={p.cover.w300 ? "(min-width: 768px) 280px, 240px" : undefined} fetchpriority="high" />
+		{!p.canonical && <script type="application/ld+json" set:html={JSON.stringify(ld)}></script>}
+		{!p.canonical && faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>}
+		<script type="application/ld+json" set:html={JSON.stringify(crumbs)}></script>
+	</Fragment>
+	<main id="main-content">
+		{/* HERO, the FHB edition page's (grandparents-bible, Kevin 2026-11-14): cover left | eyebrow, title in the cover
+		    colour, subtitle, WHO the book is for, one sentence of WHAT it is, three chips, Look inside. No Order button
+		    above the box (Kevin: "useless to have order button directly above the order box"). All from the book's data
+		    (page.hero); a book without page.hero shows its byline and short line instead. */}
+		<section class="bg-stone-50 px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
+			<div class="mx-auto max-w-5xl">
+				<nav aria-label="Breadcrumb" class="mb-5 text-sm text-stone-600">
+					<a href="/" class="text-stone-600 underline-offset-2 hover:underline">{T.home}</a> /
+					<a href="/bookstore/" class="text-stone-600 underline-offset-2 hover:underline">{T.store}</a> /
+					<span aria-current="page">{p.title}</span>
+				</nav>
+				<div class="grid items-start gap-8 md:grid-cols-2 md:gap-10">
+					<div class="flex justify-center">
+						<a href="#order" aria-label={`${T.order} ${p.title}`} class="block w-full max-w-[240px] md:max-w-[340px]">
+							<img
+								src={p.cover.src}
+								srcset={p.cover.w300 ? `${p.cover.w300} 300w, ${p.cover.src} 600w` : undefined}
+								sizes={p.cover.w300 ? '(min-width: 768px) 340px, 240px' : undefined}
+								width={p.cover.w}
+								height={p.cover.h}
+								alt={p.cover.alt}
+								fetchpriority="high"
+								decoding="async"
+								class={p.cover.is3d ? 'h-auto w-full' : 'h-auto w-full rounded shadow-lg'}
+							/>
+						</a>
+					</div>
+					<div>
+						{p.page?.hero?.eyebrow && <p class="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-stone-600">{p.page.hero.eyebrow}</p>}
+						<h1 class="text-3xl font-bold leading-tight text-ink lg:text-4xl" style={titleStyle}>{p.h1}</h1>
+						{p.subtitle && <p class="mt-2 text-lg leading-snug text-ink-muted">{p.subtitle}</p>}
+						{!p.page?.hero?.eyebrow && <p class="mt-3 text-base text-stone-700">{T.by} {p.author}{p.credits && <span> · {p.credits}</span>}</p>}
+						{p.page?.hero?.audience_line && <p class="mt-3 text-base leading-relaxed text-stone-600">{p.page.hero.audience_line}</p>}
+						{p.page?.hero?.tagline && <p class="mt-3 text-base leading-relaxed text-ink">{p.page.hero.tagline}</p>}
+						{p.page?.hero?.chips?.length > 0 && (
+							<div class="mt-4 flex flex-wrap gap-2">
+								{(p.page?.hero?.chips ?? []).map((c: string) => <span class="book-chip" style={smallTitleColor ? `color: ${smallTitleColor}; border-color: ${smallTitleColor};` : undefined}>{c}</span>)}
+							</div>
+						)}
+						{p.page?.hero?.offer_line && <p class="mt-4 text-sm font-semibold text-stone-700">{p.page.hero.offer_line}</p>}
+						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || !orderBox) && (
+							<div class="mt-5 flex flex-wrap gap-3">
+								{!orderBox && <a href="#order" class="btn btn-primary min-h-12 px-7">{T.order}</a>}
+								{/* Kevin 2026-11-14: the SAME Look inside as FHB: the button opens the page viewer (front through Chapter 1). */}
+								{hasViewer ? <LookInside slug={p.slug} title={p.title} size="lg" label={T.look} /> : (p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0) && <a href="#look-inside" class="book-look">{T.look}</a>}
+							</div>
+						)}
+						{!p.page && <p class="mt-6 text-base leading-relaxed text-stone-800">{p.short}</p>}
+					</div>
+				</div>
+			</div>
+			{!orderBox && (
+				<div class="mx-auto mt-10 max-w-xl">
+{p.orderable ? (
+							<form id="order" class="scroll-mt-28 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-slug={p.slug} data-status="live" data-fees={feeCfg}>
+								<p class="text-xs font-bold uppercase tracking-widest text-stone-500">{T.direct}</p>
+								<h2 class="mt-1 text-xl font-bold text-ink">{T.orderTitle} {p.title}</h2>
+								<div class="mt-4 space-y-3">
+									{sellFormats.map((f) => (
+										<label class="flex items-center justify-between gap-4 rounded-lg border border-stone-300 p-3">
+											<span class="flex flex-col"><span class="font-semibold text-ink">{fmt(f.format)}</span>{f.list_cents != null && <span class="text-lg font-bold text-ink">{money(f.list_cents)}</span>}</span>
+											<input type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={sellFormats.length === 1 ? 1 : 0} class="h-11 w-20 rounded border border-stone-300 px-2 text-center text-base" aria-label={`${fmt(f.format)} ${T.qty}`} />
+										</label>
+									))}
+								</div>
+								<label class="mt-4 block">
+									<span class="text-sm font-semibold text-ink">{T.shipTo}</span>
+									<select name="country" class="mt-1 h-11 w-full rounded border border-stone-300 bg-white px-2 text-base">
+										{countries.map((c) => <option value={c.code} selected={c.code === 'US'}>{T.countries[c.code] ?? c.name}</option>)}
+									</select>
+								</label>
+								{countries.length === 1 && <p class="mt-1 text-sm text-stone-600">{T.more}</p>}
+								<dl class="mt-4 space-y-1 border-t border-stone-200 pt-3 text-sm text-stone-700">
+									<div class="flex justify-between"><dt>{T.subtotal}</dt><dd data-sub>{money(sellFormats.length === 1 ? (sellFormats[0].list_cents as number) : 0)}</dd></div>
+									<div class="flex justify-between" data-fee-line hidden><dt>{T.handling}</dt><dd data-fee>$0.00</dd></div>
+									<div class="flex justify-between text-base font-bold text-ink"><dt>{T.total}</dt><dd data-total>{money(sellFormats.length === 1 ? (sellFormats[0].list_cents as number) : 0)}</dd></div>
+								</dl>
+								<button type="submit" class="btn btn-primary mt-4 min-h-12 w-full px-4 py-3 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-soft">{T.checkout}</button>
+								<p id="buy-msg" role="status" class="mt-2 text-sm text-stone-700"></p>
+								<p class="mt-2 text-sm text-stone-600">{T.free} <a href="/returns/" class="text-ink-soft underline">{T.returns}</a>.</p>
+							</form>
+						) : (
+							<div id="order" class="scroll-mt-28 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-status="pending">
+								<ul class="space-y-1.5">
+									{p.formats.map((f) => (
+										<li class="flex items-baseline justify-between gap-4 text-lg">
+											<span class="font-semibold text-ink">{fmt(f.format)}</span>
+											{f.list_cents != null && <span class="font-bold text-ink">{money(f.list_cents)}</span>}
+										</li>
+									))}
+								</ul>
+								<p class="mt-4 border-t border-stone-200 pt-3 text-stone-700">{T.soon}</p>
+							</div>
+						)}
+				</div>
+			)}
+		</section>
+		{/* The order area in its own unpadded band, so the black country marquee runs edge to edge (FHB standard). */}
+		{orderBox && (
+			<section class="bg-stone-50 pb-10" aria-label={`${T.order} ${p.title}`}>
+				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number }))} countries={countries} feeCfg={feeCfg} firstOrder={firstOrder} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} />
+			</section>
+		)}
+
+		{p.page ? <BookMirror hideLookInside={hasViewer} page={p.page} title={p.title} faq={p.faq} lang={p.lang ?? 'en'} headshot={headshot} titleColor={smallTitleColor} authorName={p.author} more={more} /> : (
+		<section class="px-4 py-10 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl space-y-10 text-stone-800">
+				{p.who_for.length > 0 && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">Who this book is for</h2>
+						<ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed">{p.who_for.map((w) => <li>{w}</li>)}</ul>
+					</div>
+				)}
+				{(p.aboutHtml || p.about) && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">About the book</h2>
+						{p.aboutHtml ? <div class="book-about mt-4 space-y-3 leading-relaxed" set:html={p.aboutHtml} /> : <p class="mt-4 leading-relaxed">{p.about}</p>}
+					</div>
+				)}
+				{p.bio && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">About the author</h2>
+						<div class="mt-4 flow-root">
+							{headshot && <img src={headshot.src} width={headshot.w} height={headshot.h} alt={headshot.alt} loading="lazy" decoding="async" class="float-left mb-2 mr-4 h-28 w-28 rounded-2xl object-cover sm:h-40 sm:w-40" />}
+							<p class="leading-relaxed">{p.bio}</p>
+						</div>
+					</div>
+				)}
+				<div>
+					<h2 class="text-2xl font-bold text-ink">Book details</h2>
+					<dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[0.95rem]">
+						<dt class="font-semibold">Publisher</dt><dd>Spirit Media Publishing</dd>
+						<dt class="font-semibold">Language</dt><dd>English</dd>
+						{p.formats.filter((f) => f.isbn_display || f.pages || f.trim).map((f) => (
+							<>
+								<dt class="font-semibold">{f.format}</dt>
+								<dd>{[f.isbn_display && `ISBN ${f.isbn_display}`, f.pages && `${f.pages} pages`, f.trim].filter(Boolean).join(' · ')}</dd>
+							</>
+						))}
+						{p.lccn && (<><dt class="font-semibold">LCCN</dt><dd>{p.lccn}</dd></>)}
+					</dl>
+				</div>
+				{p.faq.length > 0 && (
+					<div>
+						<h2 class="text-2xl font-bold text-ink">Questions</h2>
+						<div class="mt-4 divide-y divide-stone-200 rounded-lg border border-stone-300 bg-white" data-faq-dropped={p.faqDropped}>
+							{p.faq.map((f) => (
+								<details class="group p-4">
+									<summary class="cursor-pointer list-none font-semibold text-ink">{f.q}</summary>
+									<p class="mt-2 leading-relaxed">{f.a}</p>
+								</details>
+							))}
+						</div>
+					</div>
+				)}
+				<p><a href="/bookstore/" class="font-semibold text-ink-soft underline underline-offset-2">Browse all Spirit Media books</a></p>
+			</div>
+		</section>
+		)}
+	</main>
+</Layout>
+
+<style>
+	.book-about :global(p) { margin: 0 0 0.75rem; }
+	.book-about :global(strong) { color: var(--color-ink); }
+	/* the FHB hero chips (FATHER SON SPIRIT style): bold caps in a 2px frame, the cover colour when measured */
+	.book-chip { display: inline-block; padding: 0.35rem 0.8rem; border: 2px solid var(--color-ink-soft); border-radius: 6px; background: #fff; color: var(--color-ink-soft); font-size: 1.05rem; font-weight: 800; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
+	/* the FHB Look inside button: soft pink pill */
+	.book-look { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.8rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: transparent; color: var(--color-red, #c0392b); font-size: 1.05rem; font-weight: 600; text-decoration: none; }
+	.book-look:hover { border-color: var(--color-ink); }
+</style>
+
+<script>
+	const form = document.getElementById('order') as HTMLFormElement | null;
+	// the es/fr form only: the English order box (BookOrder, form[data-box]) runs its own script
+	if (form?.tagName === 'FORM' && !form.hasAttribute('data-box')) {
+		// the same arithmetic the server charges: list x qty + the country's per-copy handling fee x qty
+		const cfg = JSON.parse(form.dataset.fees || '{"list":{},"fee":{}}') as { list: Record<string, number>; fee: Record<string, Record<string, number>> };
+		const cents = (c: number) => '$' + (c / 100).toFixed(2);
+		const sel = form.querySelector('select[name=country]') as HTMLSelectElement;
+		const render = () => {
+			let sub = 0;
+			let fees = 0;
+			for (const i of form.querySelectorAll<HTMLInputElement>('input[type=number]')) {
+				const q = Math.max(0, Math.floor(Number(i.value) || 0));
+				sub += q * (cfg.list[i.name] ?? 0);
+				fees += q * (cfg.fee[sel.value]?.[i.name] ?? 0);
+			}
+			(form.querySelector('[data-sub]') as HTMLElement).textContent = cents(sub);
+			(form.querySelector('[data-fee]') as HTMLElement).textContent = cents(fees);
+			(form.querySelector('[data-fee-line]') as HTMLElement).hidden = fees <= 0;
+			(form.querySelector('[data-total]') as HTMLElement).textContent = cents(sub + fees);
+		};
+		form.addEventListener('input', render);
+		sel.addEventListener('change', render);
+		render();
+		form.addEventListener('submit', async (ev) => {
+			ev.preventDefault();
+			const msg = document.getElementById('buy-msg') as HTMLElement;
+			const counts: Record<string, number> = {};
+			for (const i of form.querySelectorAll<HTMLInputElement>('input[type=number]')) counts[i.name] = Math.max(0, Math.floor(Number(i.value) || 0));
+			if (!Object.values(counts).some((n) => n > 0)) {
+				msg.textContent = 'Choose at least one copy.';
+				return;
+			}
+			const q = new URLSearchParams(location.search);
+			const utm = Object.fromEntries(['source', 'medium', 'campaign', 'content'].map((k) => [k, q.get(`utm_${k}`) ?? '']).filter(([, v]) => v));
+			const site = ({ 'fathersheartbible.com': 'fhb', 'vaneure.com': 'vaneure' } as Record<string, string>)[utm.source ?? ''] ?? 'smp';
+			const country = (form.querySelector('select[name=country]') as HTMLSelectElement).value;
+			(window as any).gtag?.('event', 'begin_checkout', { currency: 'USD', items: Object.entries(counts).filter(([, n]) => n > 0).map(([id, n]) => ({ item_id: id, quantity: n })) });
+			msg.textContent = '';
+			const btn = form.querySelector('button') as HTMLButtonElement;
+			btn.disabled = true;
+			try {
+				const r = await fetch('/store-checkout', {
+					method: 'POST',
+					headers: { 'content-type': 'application/json' },
+					body: JSON.stringify({ counts, country, returnPath: `/books/${form.dataset.slug}/`, site, utm }),
+				});
+				const j = await r.json();
+				if (j.url) {
+					location.href = j.url;
+					return;
+				}
+				msg.textContent = j.message || (j.disabled ? 'Checkout is not open yet.' : 'Something went wrong. Please try again.');
+			} catch {
+				msg.textContent = 'Something went wrong. Please try again.';
+			}
+			btn.disabled = false;
+		});
+	}
+</script>

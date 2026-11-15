@@ -1,0 +1,4 @@
+{
+	"_note": "BOOK PAGES SWITCH (Kevin 2026-11-14 'This is the standard' + 2026-11-15 'Approved.' for Who Am I? + Beloved Identity). Production builds ONLY these /books/<slug>/ pages; every other book keeps its bookstore listing link until Kevin approves its page. A preview build with BOOKS_PREVIEW_ALL=1 builds every page for inspection. Add a slug only with Kevin's approval of that page (kevin-decisions line).",
+	"slugs": ["who-am-i", "beloved-identity"]
+}
