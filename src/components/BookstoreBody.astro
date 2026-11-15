@@ -7,6 +7,7 @@ import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
 import { sanityClient } from '../lib/sanity.ts';
+import engineBooks from '../store-engine/data/books.json';
 
 interface Props {
 	initialCollection?: string;
@@ -366,6 +367,11 @@ const OWN_PAGE = new Map<string, string>(
 // and the bookstore's own spellings of the Home editions and the plain "Your Time" cards (Sanity points every Your
 // Time card at the Work Staff listing) are named here, so no other edition's card is pulled in (pmseoaeo 3gm #1).
 for (const t of LIVE_TITLES) OWN_PAGE.set(norm(t.slug.replace(/-/g, ' ')), `/books/${t.slug}/`);
+// The FHB books SMP hosts from the store engine (books.json: Who Am I?, Beloved Identity) have /books/ pages too but
+// no ship-set row, so their cards kept the Amazon link (deploy audit 2026-11-15). Beloved Identity's card stays on
+// its FHB page (Kevin 2026-11-10, BELOVED_ID below skips it).
+for (const b of (engineBooks as any).books)
+	if (PAGE_BUILT(b.slug)) OWN_PAGE.set(norm(b.title), `/books/${b.slug}/`);
 const OWN_ALIAS: Record<string, string> = Object.fromEntries(
 	Object.entries({
 		'home colored': 'home',
