@@ -152,7 +152,10 @@ async function deriveFhbEditions() {
 			href: `${SITE}/bibles/${slug}-bible/`,
 			date: ed.datePublished ?? null,
 			collections: [umbrella, language],
-			formats: l.amazon ?? {},
+			// Kevin 2026-11-15 L2109 "make sure to count every paperback, hardback, ebook, and audiobook": the
+			// registry lists an edition only once BOTH bindings are submitted to Ingram, so both are carded
+			// (and counted) even where Amazon lists only one; every binding links to the FHB page below.
+			formats: { hardback: l.amazon?.hardback ?? true, paperback: l.amazon?.paperback ?? true },
 			...commerceOf(
 				ed,
 				orderableLanguages.some((o: any) => o.code === l.code)
@@ -381,6 +384,7 @@ for (const doc of rawBooks as any[]) {
 		OWN_ALIAS[norm(doc.title)];
 	if (!own) continue;
 	doc.amazon = own;
+	doc.formatsAll = doc.formats; // still counted in Published Titles (L2109), only the badges go
 	doc.formats = {};
 	doc.ownPage = true;
 }
@@ -402,6 +406,8 @@ for (const doc of rawBooks as any[]) {
 			date: null,
 			collections: null,
 			formats: {},
+			// the ship set's own format list (pb/hb/ebook/audio SKUs) counts in Published Titles (L2109)
+			formatsAll: Object.fromEntries((t.book.formats || []).map((f: string) => [f, true])),
 			ownPage: true,
 		});
 	}
@@ -416,7 +422,8 @@ const BOOKS_JSON = JSON.stringify(rawBooks);
 const STAT_PUBLISHER = /^spirit media(\s+publishing)?$/i;
 const STAT_SUFFIX = /^(jr|sr|ii|iii|iv|v|md|phd|dds|esq)\.?$/i;
 const STAT_TITLES = rawBooks.reduce(
-	(sum: number, b: any) => sum + Object.values(b.formats || {}).filter((v) => v).length,
+	(sum: number, b: any) =>
+		sum + Object.values(b.formatsAll || b.formats || {}).filter((v) => v).length,
 	0,
 );
 const STAT_AUTHORS = new Set(
