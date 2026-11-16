@@ -12,9 +12,11 @@
  * (src/store-engine/data/book-skus.json, ISBN + list price) to at least one live country. The price, GTIN (ISBN-13),
  * availability and per-country shipping are therefore exactly what the page and the checkout say; "Available soon"
  * pages and formats without a price declare no Offer, so they are excluded by construction.
- * A page whose canonical points to another site (today: Who Am I?, Beloved Identity -> fathersheartbible.com) emits no
- * Offer; when its canonical moves to SMP (Kevin store-168 #2) its Offers appear and it joins the feed with no edit here.
- * One listing per GTIN per business: scripts/merchant-feed.test.mjs fails if a GTIN is also in FHB's feed.
+ * SMP is the ONE retailer (Kevin brief store-168 #3): SMP books + FH books. An FH book's SMP page keeps its canonical
+ * on fathersheartbible.com and so carries no Product JSON-LD; it emits the same Offers in a plain
+ * <script type="application/json" id="smp-retail-offers"> block, read below, so its listing lands on the SMP page.
+ * One listing per GTIN per business: scripts/merchant-feed.test.mjs fails if a GTIN is also in FHB's feed
+ * (FHB's feed = Bibles only).
  *
  * Runs AFTER `astro build` (writes dist/merchant-feed.xml, served at https://spiritmediapublishing.com/merchant-feed.xml).
  * Nothing is submitted anywhere by this script.
@@ -82,6 +84,9 @@ export function collect(dist = 'dist') {
 				author: j.author?.name,
 			});
 		}
+		// FH-book retail pages (canonical on FHB, no Product JSON-LD): the page's own Offer data block
+		const r = html.match(/<script type="application\/json" id="smp-retail-offers"[^>]*>(.*?)<\/script>/s);
+		if (r) walk(JSON.parse(r[1]), { slug: d });
 	}
 	return items;
 }

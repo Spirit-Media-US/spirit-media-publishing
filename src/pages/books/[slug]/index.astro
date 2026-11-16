@@ -631,6 +631,22 @@ const ld = {
 	...(p.sameAs.length ? { sameAs: p.sameAs } : {}),
 	workExample: isbnFormats.filter((f) => f !== lead).map(formatNode),
 };
+// RETAIL FEED (Kevin brief pmprint-store-168-strategy-20261116 #2-3: SMP is the one retailer; FH books keep their
+// FHB canonical, so their SMP page carries no Product markup). The same Offers the order box sells go into a plain
+// JSON data block (NOT JSON-LD, invisible) that scripts/gen-merchant-feed.mjs reads, so the Merchant listing lands
+// on this SMP page with exactly the page's price, ISBN and shipping. Pages with SMP canonical use their JSON-LD.
+const retailOffers =
+	p.canonical && orderBox
+		? sellFormats.map((f) => ({
+				name: `${p.title} (${f.format})`,
+				bookFormat: f.schema_format,
+				sku: f.sku,
+				gtin13: f.isbn,
+				description: p.short,
+				image: p.cover.og ?? p.cover.src,
+				offers: offerFor(f),
+			}))
+		: [];
 const faqLd = p.faq.length
 	? {
 			'@context': 'https://schema.org',
@@ -658,6 +674,7 @@ const crumbs = {
 		<link rel="preload" as="image" href={p.cover.src} imagesrcset={p.cover.w300 ? `${p.cover.w300} 300w, ${p.cover.src} 600w` : undefined} imagesizes={p.cover.w300 ? "(min-width: 768px) 280px, 240px" : undefined} fetchpriority="high" />
 		{!p.canonical && <script type="application/ld+json" set:html={JSON.stringify(ld)}></script>}
 		{!p.canonical && faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>}
+		{retailOffers.length > 0 && <script type="application/json" id="smp-retail-offers" set:html={JSON.stringify(retailOffers)}></script>}
 		<script type="application/ld+json" set:html={JSON.stringify(crumbs)}></script>
 	</Fragment>
 	<main id="main-content">

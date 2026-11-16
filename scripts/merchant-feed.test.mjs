@@ -13,7 +13,7 @@ import test from 'node:test';
 import { collect } from './gen-merchant-feed.mjs';
 
 const FEED = 'dist/merchant-feed.xml';
-const FHB_LOCAL = '/srv/sites/FHB/dist/merchant-feed.xml';
+const FHB_LOCAL = process.env.FHB_FEED ?? '/srv/sites/FHB/dist/merchant-feed.xml'; // FHB_FEED: point at another build
 const FHB_URL = 'https://fathersheartbible.com/merchant-feed.xml';
 
 const un = (s) => s.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
@@ -75,23 +75,32 @@ test('every item carries the fields Merchant Center requires', (t) => {
 	assert.equal(new Set(items.map((i) => i.gtin)).size, items.length, 'a GTIN is listed twice');
 });
 
-test('every live SMP-canonical page with an order form is in the feed', (t) => {
+test('every live page with an order form is in the feed (SMP books AND FH books: SMP is the one retailer)', (t) => {
 	if (!built) return t.skip('no dist build');
 	const inFeed = new Set(items.map((i) => i.link.replace(/#order$/, '')));
 	const live = JSON.parse(fs.readFileSync('src/data/books/pages-live.json', 'utf8')).slugs;
-	const offSite = [];
+	let n = 0;
 	for (const s of live) {
 		const html = fs.readFileSync(`dist/books/${s}/index.html`, 'utf8');
 		const url = `https://spiritmediapublishing.com/books/${s}/`;
-		const canon = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
-		if (canon && canon !== url) {
-			offSite.push(s); // canonical on another site (FH books -> FHB): that site's feed lists it
-			continue;
-		}
 		if (!/id="order"/.test(html) || /Available soon/.test(html)) continue; // not sellable
+		n++;
 		assert.ok(inFeed.has(url), `${s} sells (order form) but has no feed item`);
 	}
-	t.diagnostic(`canonical on another site (listed in that site's feed): ${offSite.join(', ') || 'none'}`);
+	t.diagnostic(`${n} sellable live pages, all in the feed`);
+});
+
+test('the FH books (canonical on FHB) are in the SMP feed via their retail-offer block', (t) => {
+	if (!built) return t.skip('no dist build');
+	for (const s of ['who-am-i', 'beloved-identity']) {
+		const html = fs.readFileSync(`dist/books/${s}/index.html`, 'utf8');
+		if (!/id="order"/.test(html)) continue;
+		assert.match(html, /id="smp-retail-offers"/, `${s} has no retail-offer block`);
+		assert.ok(
+			items.some((i) => i.link === `https://spiritmediapublishing.com/books/${s}/#order`),
+			`${s} missing from the SMP feed`,
+		);
+	}
 });
 
 test('no GTIN is in both the SMP and FHB feeds (one listing per GTIN per business)', async (t) => {
