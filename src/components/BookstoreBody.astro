@@ -333,11 +333,42 @@ for (const doc of rawBooks as any[]) {
 // too"): the card and its paperback go to the FHB order page, fulfilled through Ingram. FHB sells
 // only the paperback, so the eBook and audiobook keep their store links.
 const BELOVED_ID = 'ybgI64RkWpWJOFkftSQjLA';
-const BELOVED_PAGE = `${FHB_SITE}/books/beloved-identity/`;
+// OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): FHB is the ONE window for every Father's Heart
+// product. Every FH book the store engine sells (books.json: Beloved Identity, Who Am I?, any added later) has its card
+// and its print bindings on its FHB page; SMP builds no page for them (their SMP URLs 301 to FHB). eBook/audiobook keep
+// their store links (FHB sells print only).
+const fhBookPage = (slug: string) => `${FHB_SITE}/books/${slug}/`;
+const normT = (t: string) =>
+	String(t || '')
+		.toLowerCase()
+		.normalize('NFKD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.replace(/[^a-z0-9]+/g, ' ')
+		.trim();
+const FH_BOOK_BY_TITLE = new Map<string, string>(
+	(engineBooks as any).books.map((b: any) => [normT(b.title), b.slug]),
+);
+// the two Sanity documents by id (their Sanity titles carry subtitles); a later FH book matches by its engine title
+const FH_BOOK_IDS: Record<string, string> = {
+	[BELOVED_ID]: 'beloved-identity',
+	'42467468-1171-4ec9-8f48-81f813da9070': 'who-am-i',
+};
+const fhBookSlugOf = (doc: any) =>
+	FH_BOOK_IDS[doc._id] ??
+	FH_BOOK_BY_TITLE.get(normT(doc.title)) ??
+	FH_BOOK_BY_TITLE.get(normT(doc.display_title));
 for (const doc of rawBooks as any[]) {
-	if (doc._id !== BELOVED_ID) continue;
-	doc.amazon = BELOVED_PAGE;
-	doc.formats = { ...(doc.formats || {}), paperback: BELOVED_PAGE };
+	const slug = fhBookSlugOf(doc);
+	if (!slug) continue;
+	const href = fhBookPage(slug);
+	doc.amazon = href;
+	doc.fhBook = true;
+	doc.formats = Object.fromEntries(
+		Object.entries(doc.formats || {}).map(([k, v]) => [
+			k,
+			v && /^(paperback|hardback|hardcover)$/.test(k) ? href : v,
+		]),
+	);
 }
 
 // LAMB PILOT (Kevin L1971; plan 3fb B): the card for Jesus Had a Little Lamb opens our own book page (one card, no
@@ -367,11 +398,7 @@ const OWN_PAGE = new Map<string, string>(
 // and the bookstore's own spellings of the Home editions and the plain "Your Time" cards (Sanity points every Your
 // Time card at the Work Staff listing) are named here, so no other edition's card is pulled in (pmseoaeo 3gm #1).
 for (const t of LIVE_TITLES) OWN_PAGE.set(norm(t.slug.replace(/-/g, ' ')), `/books/${t.slug}/`);
-// The FHB books SMP hosts from the store engine (books.json: Who Am I?, Beloved Identity) have /books/ pages too but
-// no ship-set row, so their cards kept the Amazon link (deploy audit 2026-11-15). Beloved Identity's card stays on
-// its FHB page (Kevin 2026-11-10, BELOVED_ID below skips it).
-for (const b of (engineBooks as any).books)
-	if (PAGE_BUILT(b.slug)) OWN_PAGE.set(norm(b.title), `/books/${b.slug}/`);
+// The FH books (store-engine books.json) are carded to their FHB page above (Option C), never to an SMP page.
 const OWN_ALIAS: Record<string, string> = Object.fromEntries(
 	Object.entries({
 		'home colored': 'home',
@@ -383,7 +410,7 @@ const OWN_ALIAS: Record<string, string> = Object.fromEntries(
 		.map(([k, slug]) => [k, `/books/${slug}/`]),
 );
 for (const doc of rawBooks as any[]) {
-	if (doc._id?.startsWith('fhb-') || doc._id === BELOVED_ID) continue; // FHB cards keep their FHB pages
+	if (doc._id?.startsWith('fhb-') || doc.fhBook) continue; // FHB cards keep their FHB pages
 	const own =
 		OWN_PAGE.get(norm(doc.title)) ??
 		OWN_PAGE.get(norm(doc.display_title)) ??

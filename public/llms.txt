@@ -73,6 +73,74 @@ Answers to the questions authors ask most (Spirit Media blog):
 - /blog/when-a-stranger-finds-your-book/ — When a Stranger Finds Your Book: The Real Author Ripple
 - /blog/why-we-start-with-heart/ — Why We Start with Heart — Leadership That Truly Lasts
 
+<!-- GENERATED:book-pages (scripts/llms-books.mjs — edit the script or the book data, not this block) -->
+## Books (every live book page, generated from the site on each build)
+
+Books published by Spirit Media Publishing, each with its own page:
+
+- /books/sabes-que/ — ¿Sabes Qué? by Katherine Robinson. Con preguntas sencillas y versículos de la Biblia Reina-Valera Antigua, este libro presenta a los niños al Dios que creó los cielos y la tierra, que los ama y que tiene un plan para ellos.
+- /books/a-journey-through-grief/ — A Journey Through Grief by Annie Brown. A grief counselor widowed in her mid-thirties walks grieving readers through the pain of loss in short lessons with key takeaways, rooted in Scripture and honest about the process.
+- /books/a-shepherds-story/ — A Shepherd's Story by Leivon Canary Kom. Leivon Canary Kom's plain, honest testimony of God's love, from a poor village in Manipur, India, through miracles, ministry and loss, offered to encourage poor people wherever his own voice cannot go.
+- /books/audacious-generosity/ — Audacious Generosity by Kevin White. Kevin White tells how a prayer for food that others might eat, while his family lived on less than $500 a month, grew into a ministry feeding 500 families, and shows three steps to set God, yourself and others free.
+- /books/bringing-jesus-to-work/ — Bringing Jesus to Work by Mark Thompson. A practical ten-week study for Christian professionals that closes the gap between Sunday faith and Monday work.
+- /books/can-i-pray-for-you/ — Can I Pray for You? by Ryan Schraffenberger. A sandwich-board sign reading Can We Pray For You? at RV campgrounds leads to a practical book on building a prayer life that flows into everyday boldness.
+- /books/clowning-from-the-heart/ — Clowning From The Heart by Cindy Love. The true story of Cindy Love and Sparkle, the gospel clown she became: thirty-five years of clown ministry, one smile and one hug at a time.
+- /books/do-you-know/ — Do You Know? by Katherine Robinson. A gentle, read-aloud picture book that introduces young children to who God is and how deeply He loves them.
+- /books/el-gran-sueno-de-la-yiayia-voula/ — El Gran Sueño de la YiaYia Voula by Tyler Stavlas. De un pueblo de Grecia a los supermercados de Estados Unidos: un cuento infantil basado en una historia real que enseña que la fe, la familia, el trabajo duro y la esperanza pueden sostener un gran sueño hasta hacerlo realidad.
+- /books/escaping-anxiety/ — Escaping Anxiety by Dr. James E. Kilgore. Drawing on more than sixty-five years as a marriage and family therapist and pastor, James E. Kilgore offers brief faith-filled readings, each a power idea, that help readers choose faith over fear.
+- /books/following-god-is-easy/ — Following God Is Easy by Vern Kaska III. A plain-spoken book for people who want to stop overthinking faith and start talking with God.
+- /books/forty-days-of-prayer-and-reflection/ — Forty Days of Prayer and Reflection by Pastor Andre d'Arden. A guided devotional journal of forty days, each opening with New King James Scripture, then a heartfelt prayer, a brief reflection and questions with lined space to write.
+- /books/from-jesus-til-now/ — From Jesus 'til Now by Julie Boone. A storyteller's timeline of the Christian church from Pentecost to the iPhone century in twenty-four chapters, each ending with questions for discussion, a Bible passage to study and prompts for personal response.
+- /books/get-out-of-the-fast/ — Get Out of the Fast (Food) Lane! by Toni R. Young-Huber. A warm, practical cookbook of simple, inexpensive recipes that helps busy people and self-described kitchen failures leave the drive-through behind and feed the people they love.
+- /books/get-to-the-point/ — Get to the Point by Kevin White. A pastor dismissed from the church he planted finds the point on a ten-day trip to India: the whole point of life is to live moment by moment in the presence of God.
+- /books/gifts/ — GIFTS by Kevin White. After praying over hundreds of millions of dollars of human need in India and Nepal, Kevin White and his team collected every verse where God promises to give; GIFTS publishes that list in six categories.
+- /books/gods-dream/ — God's Dream by Elisha Chowtapalli. Elisha Chowtapalli's own account of what God did with a life that began in an impoverished Dalit village in Andhra Pradesh, from a street-light classroom to a children's home, schools, churches and a hospital.
+- /books/hallelujah-even-here/ — Hallelujah Even Here by Meredith P. Nolasco. A mother's telling of a baby born at twenty-seven weeks who lived twelve days, written as companionship rather than answers.
+- /books/home/ — Home by Aleksa Aishpur. A Christian memoir in pictures and prayer for anyone searching for a place to belong.
+- /books/hope-that-anchors-the-soul/ — Hope That Anchors the Soul by John P. Boyle. A true story of a successful businessman who hid anxiety and old wounds behind a full calendar and a 7:30 AM screwdriver, and the hope that held when willpower could not.
+- /books/humble-influence/ — Humble Influence by Jim Matuga. A practical, faith-grounded guide for everyone who does vital work without holding the top title: followership as an active, intentional skill.
+- /books/missed-you-sleeping/ — I Missed You While You Were Sleeping by Dana House. In gentle rhyming verse a mother tells her son about every flutter and kick, every quiet nap in her arms and the frightening night his tiny heart needed help, a read-aloud about being wanted, prayed for and loved.
+- /books/in-church-for-40-years-and-not-knowing-god/ — In Church for 40 Years and Not Knowing God by Philip Guenaga. A short Bible study that invites readers to set aside inherited assumptions and examine Scripture with fresh eyes, to move from knowing about God to truly knowing Him.
+- /books/in-the-hands-of-our-heavenly-father/ — In The Hands of Our Heavenly Father by Daniel Zebarth. Daniel Zebarth's true account of a pancreatic neuroendocrine tumor, Stage IV cancer, years of chemotherapy and a biopsy that came back benign, with his wife's telling of the same story.
+- /books/invisible-wounds/ — Invisible Wounds by John Boyle. John Boyle names his invisible enemy, complex post-traumatic stress disorder, and walks the road to healing through lifelines and hope.
+- /books/jesus-whispers/ — Jesus Whispers by Michele Wilson. Michele Wilson shares a lifetime of true stories in which God answered prayer, gave direction and drew near through His Word, a vision in the night, dreams and quiet nudges.
+- /books/the-god-connection/ — La Connexion à Dieu by Suzan Cartagena. Cinquante ans de vie chrétienne en montagnes russes, et ce que la grâce voulait dire depuis le début.
+- /books/lead-at-a-higher-altitude/ — Lead at a Higher Altitude by Ron Tredway. Using a delayed, storm-tossed flight that still landed safely, Ron Tredway lays out seven principles for leaders and learners, from Attitude Affects Behavior to Learning Is Performance.
+- /books/lessons-from-the-well/ — Lessons from the Well by Carol Renee Gitthens. A devotional for the divorced and relationship impaired, written by a pastor's daughter who found grace waiting on the other side: God will restore.
+- /books/life-on-the-ridge/ — Life on The Ridge by Darci LaRue. Thirteen-year-old RJ and his nine cousins meet every day under the oak tree in Johnny D's field, and trouble is never far behind, in a warm, funny Christian story of simpler times.
+- /books/love-gods-way/ — LOVE God's Way by Wanda Bailey Clark. A study and workbook on agape, the love God commands, and what it takes to live it.
+- /books/mended/ — Mended by Kami Tahyi, MS, LPCC. A Christian Bible study workbook for believers who have been forgiven and still feel stuck.
+- /books/monday-morning-preacher/ — Monday Morning Preacher by Roger Loomis. Forty-three years of pastoral ministry distilled into forty behind-the-scenes church issues, each paired with biblical principles, for pastors and church leaders.
+- /books/my-perfect-daddy/ — My Perfect Daddy by Kelly Pexton. On Friday the dads are coming to school, and Caleb has not seen his father since he was little. When it is his turn he whispers a prayer for courage and tells his class about a different kind of Father who will never leave.
+- /books/of-judgement-and-of-mercy/ — Of Judgement and Of Mercy by Roy Roberts. A born-again mill worker buys one lottery ticket against his convictions, wins a fortune, and discovers that his best friend's wife is already scheming to take it.
+- /books/potters-child/ — Potter's Child by Stephanie Mathews. Ten practical habits parents can instill in their children, drawn from Scripture, a mother's own story and true stories from pastors, physicians and parents.
+- /books/pure-and-simple/ — Pure and Simple by Ron King. Handwritten stories from children and teenagers, ages 6 to 16, for everyone who plans or leads worship.
+- /books/raised-in-a-barn/ — Raised in a Barn by Van Eure. Angus Barn leader Van Eure shares the funny, heartfelt stories and 12 Commandments behind one of the highest-grossing independent restaurants in the United States.
+- /books/robie-the-ghost/ — Robie the Ghost by Maggie Mac. Robie has been a ghost since the blizzard of 1836. With new friends Jimmy and Sarah and a mysterious girl named Mary, who is secretly an angel, he sets out to free the children Bebop's monsters keep locked in caves.
+- /books/say-yes-to-god/ — Say Yes to God by Michael Gaetke. A shy boy who froze in front of his class becomes a businessman whose habit of saying yes to God carries him from a Papua New Guinea jungle feast to Kenya, prison ministry and church planting.
+- /books/silas-and-woolly-the-mammoth/ — Silas and Woolly the Mammoth by Kenneth W. Pullin. An ice age bedtime story: on the night before kindergarten, a nervous boy named Silas wakes in a prehistoric land and must find his way home with a little mouse and a gentle woolly mammoth. Ends with real woolly mammoth facts.
+- /books/sms-ultimate-book-marketing-guide/ — SM's Ultimate Book Marketing Guide by Kevin White. A publisher's 120-page playbook for the author whose book is published but not selling.
+- /books/soar-to-success/ — SOAR To Success by Andrea Anderson with Barbara Hemphill. Andrea Anderson and Barbara Hemphill share the Productive Environment Finding SYSTEM, a keyword-driven File Index that works like Google for your filing cabinet, in ten short chapters with client snapshots.
+- /books/spring-birds/ — Spring Birds by Max Brande. In a small Austrian village a baker named Big Leo refuses to fight when his emperor orders a military draft, and takes his praying wife and a wild-haired boy to Vienna, in a warm, faith-filled story about mercy, family and grace.
+- /books/the-beetle-experience/ — The Beetle Experience by Dana Morrison. A memoir-play hybrid about a best friend nicknamed Beetle and how God used one man's humor to shape the lives around him.
+- /books/blessing-trail-3/ — The Blessing Trail 3 by Wendy Reardon. Six read-aloud stories about two children, their parents, and what God's Word says when life gets real.
+- /books/brothers-lunch-basket/ — The Brothers and Their Lunch Basket by Nicole Bran Clark. Four brothers share their small lunch of five loaves and two fish and watch Jesus feed a crowd too big to count in this warm retelling for young readers.
+- /books/the-end-times-warrior/ — The End-Times Warrior by Patricia A. Daniel. A 40-day devotional in four sections that equips believers to serve as surrendered, fearless warriors under the command of the Lord Jesus Christ as they prepare for His return.
+- /books/the-fairies-and-the-elf-king/ — The Fairies and the Elf King by Jenna Kris. A Christian fantasy chapter book for young readers: when elves capture their families, a timid fire fairy and his friends turn to prayer and Bible stories of Jericho and the fiery furnace to find the courage to bring them home.
+- /books/the-fairies-quest/ — The Fairies Quest by Jenna Kris. Two fairy best friends, Rose Petal and Raindrop, set out for The Questing Woods to answer what came first, the chicken or the egg, and discover the Creator who made it all.
+- /books/the-forgotten-witness/ — The Forgotten Witness by Justin Creasman. A Christian guide to faith at work that reconnects your career with your calling and shows how integrity on the job can move you from a forgotten witness to a known witness of Jesus Christ.
+- /books/the-pitted-nail/ — The Pitted Nail by Kenneth Pullin. A true story of one summer day on the Chesapeake Bay, a storm, and the rusted nail that held.
+- /books/the-pyramid-principle/ — The Pyramid Principle by John Vallely. A former UCLA basketball player, NBA first-round pick and Houston Rocket draws on Coach John Wooden's teaching to face his daughter's cancer, a courtroom battle with a bank and his own lymphoma.
+- /books/the-seers-journey/ — The Seer's Journey by Frank Theurer II. A first-person true account of growing up the son of a prophetess, of angels over Iraq, visions of hell and an encounter before the throne.
+- /books/too-stubborn-to-die/ — Too Stubborn to Die by Susan Mahon. A pediatric nurse, math teacher and Army German linguist tells how she kept going through a lifetime of illness, and what God's faithfulness looked like along the way.
+- /books/untouchable/ — Untouchable by Richard Convery. A work of fiction inspired by real events: a five-year-old Dalit orphan in rural India flees a violent father and searches for survival while a young man builds a refuge for children no one else will take.
+- /books/whats-your-word/ — What's Your Word? by Kevin White. Pastor and missions leader Kevin White shows how one word from God can redirect your life, through ten one-word chapters from ONE to WORD that begin at God's call in Deuteronomy 30 to choose life.
+- /books/write-before-coffee/ — Write Before Coffee by Carlene Hill Byron. A short, warm guide from a writer and editor of more than 40 years for people who believe they are not writers: why your story matters, where the words for a book come from and how to start.
+- /books/your-time-first-responders/ — Your Time (Special Edition for First Responders) by Daniel W. Evans. A short Christian book on time management that puts God first and others next.
+- /books/your-time-work-staff/ — Your Time (Special Edition for Work Staff) by Daniel W. Evans. A short Christian book on time management built around what matters most.
+
+<!-- /GENERATED:book-pages -->
+
 ## Contact
 
 - Spirit Media Publishing

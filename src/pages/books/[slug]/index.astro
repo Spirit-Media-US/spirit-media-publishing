@@ -151,7 +151,10 @@ export async function getStaticPaths() {
 	// its price is set (3gh #3). Flip either constant to bring a page back.
 	// Kevin 2026-11-14: "prioritize adding Who and I and Beloved Identity on SMP and FHB - they will be the same content
 	// but on 2 different sites". Same page object on both (src/data/books/fhb-book-pages.json); canonical stays on FHB.
-	const SMP_HOSTS_FHB_BOOKS = true;
+	// OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): FHB is the ONE window for every Father's
+	// Heart product, so SMP builds no page for them again; the SMP URLs 301 to FHB (public/_redirects) and the bookstore
+	// cards link there. They still sell through the one SMP store engine from the FHB page.
+	const SMP_HOSTS_FHB_BOOKS = false;
 	const LAMB_LISTED = false;
 	for (const b of (SMP_HOSTS_FHB_BOOKS ? engineBooks.books : []) as any[]) {
 		const fp = (fhbBookPages as Record<string, any>)[b.slug] ?? null;

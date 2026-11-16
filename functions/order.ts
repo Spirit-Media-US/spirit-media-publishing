@@ -5,6 +5,10 @@ interface Env {
 	STRIPE_STORE_SECRET_KEY?: string;
 }
 const SUPPORT = 'hello@spiritmediapublishing.com';
+// CONTACT US (Kevin 2026-11-16, standing rule): a button that opens mail to hello@, labelled only "Contact us"; the
+// address itself is never printed on the page.
+export const contactUs = (subject = '') =>
+	`<a class="contact" href="mailto:${SUPPORT}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}">Contact us</a>`;
 const esc = (s: unknown) =>
 	String(s ?? '').replace(
 		/[&<>"']/g,
@@ -21,6 +25,7 @@ export function page(title: string, body: string) {
 <style>body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fafaf9;color:#1c1917}
 main{max-width:640px;margin:0 auto;padding:40px 16px}h1{font-size:1.8rem;margin:0 0 8px}a{color:#b91c1c}
 table{width:100%;border-collapse:collapse;margin:20px 0}td{padding:8px 0;border-bottom:1px solid #e7e5e4}td.r{text-align:right}
+.contact{display:inline-block;background:#b91c1c;color:#fff;font-weight:600;padding:.5rem 1.2rem;border-radius:999px;text-decoration:none}
 .box{background:#fff;border:1px solid #d6d3d1;border-radius:8px;padding:16px;margin-top:16px}.muted{color:#57534e}</style></head>
 <body><main><p><a href="/">Spirit Media Publishing</a></p>${body}</main></body></html>`;
 }
@@ -42,7 +47,7 @@ export function orderHtml(s: any): string {
 		`<h1>${paid ? 'Thank you for your order' : 'Your order is not complete'}</h1>
 <p class="muted">${paid ? 'We have received your payment. A receipt is on its way to your email.' : 'This checkout was not paid. Nothing has been charged.'}</p>
 <table>${items}<tr><td><strong>Total</strong></td><td class="r"><strong>${money(s.amount_total, s.currency)}</strong></td></tr></table>
-${addr}<p class="muted">Order reference: ${esc(String(s.id).slice(-12))}. Questions? <a href="mailto:${SUPPORT}">${SUPPORT}</a></p>
+${addr}<p class="muted">Order reference: ${esc(String(s.id).slice(-12))}. Questions? ${contactUs(`Order ${String(s.id).slice(-12)}`)}</p>
 <p><a href="/bookstore/">Browse all our books</a></p>`,
 	);
 }
@@ -58,7 +63,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
 		return html(
 			page(
 				'Your order',
-				`<h1>Your order</h1><p class="muted">We could not find that order. If you paid, your receipt email has the details, or write to <a href="mailto:${SUPPORT}">${SUPPORT}</a>.</p>`,
+				`<h1>Your order</h1><p class="muted">We could not find that order. If you paid, your receipt email has the details. ${contactUs()}</p>`,
 			),
 			404,
 		);
@@ -71,7 +76,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
 		return html(
 			page(
 				'Your order',
-				`<h1>Your order</h1><p class="muted">We could not load that order right now. Your receipt email has the details, or write to <a href="mailto:${SUPPORT}">${SUPPORT}</a>.</p>`,
+				`<h1>Your order</h1><p class="muted">We could not load that order right now. Your receipt email has the details. ${contactUs()}</p>`,
 			),
 			502,
 		);
