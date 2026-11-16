@@ -123,6 +123,30 @@ test('/order shows a paid order read live from Stripe; a bad reference gets a 40
 // Books M4 (pmseoaeo 22:53Z; Kevin approved SMP book pages 11-13) + ONE PAGE PER BOOK (Kevin via pmseoaeo 23:19Z: "All I
 // see is check out form? Where is the page?"; "Never render internal wording or TBD").
 const LEAK = /\b(the Doc\b|Doc (says|lists|calls|describes|names|files|suggests|audience|has)|per the Doc|\(Doc\b|sheet\.json|the sheet\b|the page (makes|attributes|does|publishes|names|claims)|makes no claim|the interior (has|mentions|names|is)|\d+ mentions\b|mentions? [\w' ]{1,24} \d+ times|TBD\b|OMIT\b|UNMEASURED|unconfirmed|pmpublish|pmprint|pmseoaeo|PROPOSED\b|lead term|search volume|unit \d[a-z]{2}\b|no subtitle|live listing|the Record\b|printed on the interior|\[slot\b)/i; // 3gs: a '[Slot: ...]' placeholder reached LOVE God's Way's author bio. 3ge: a Record 'subtitle' of '(no subtitle)' rendered under the h1
+// DUPLICATE RULE (store-168 item 2, Kevin 2026-11-16 "SMP not FHB will be #1 retailer ..."; brief: FH books KEEP the FHB
+// canonical, the SMP page is the retail listing with rel=canonical -> FHB; every other SMP book page is self-canonical).
+// canonicalErrs() is the ONE check, used on the built pages below and proven to fail on a wrong canonical.
+const canonicalOf = (html) => [...html.matchAll(/<link rel="canonical" href="([^"]+)"/g)].map((m) => m[1]);
+const canonicalErrs = (slug, html, want) => {
+	const got = canonicalOf(html);
+	const errs = [];
+	if (got.length !== 1) errs.push(`${slug}: ${got.length} canonical tags`);
+	else if (got[0] !== want) errs.push(`${slug}: canonical ${got[0]}, want ${want}`);
+	// a page whose canonical is elsewhere declares no merchant listing of its own (one listing per GTIN)
+	if (want !== `https://spiritmediapublishing.com/books/${slug}/` && /"@type":(\["Book","Product"\]|"Product")|"@type":"Offer"/.test(html))
+		errs.push(`${slug}: canonical is elsewhere but the page declares Product/Offer`);
+	return errs;
+};
+test('duplicate rule check FAILS on a wrong canonical (proof the gate can reject)', () => {
+	const fhb = 'https://fathersheartbible.com/books/who-am-i/';
+	const smp = 'https://spiritmediapublishing.com/books/who-am-i/';
+	assert.deepEqual(canonicalErrs('who-am-i', `<link rel="canonical" href="${fhb}">`, fhb), []);
+	assert.equal(canonicalErrs('who-am-i', `<link rel="canonical" href="${smp}">`, fhb).length, 1, 'SMP self-canonical on an FH book must fail');
+	assert.equal(canonicalErrs('who-am-i', '<p>no tag</p>', fhb).length, 1, 'a missing canonical must fail');
+	assert.equal(canonicalErrs('who-am-i', `<link rel="canonical" href="${fhb}"><script type="application/ld+json">{"@type":["Book","Product"]}</script>`, fhb).length, 1, 'Product markup on a non-canonical page must fail');
+	assert.deepEqual(canonicalErrs('gifts', '<link rel="canonical" href="https://spiritmediapublishing.com/books/gifts/">', 'https://spiritmediapublishing.com/books/gifts/'), []);
+	assert.equal(canonicalErrs('gifts', '<link rel="canonical" href="https://fathersheartbible.com/books/gifts/">', 'https://spiritmediapublishing.com/books/gifts/').length, 1, 'an SMP book pointing away must fail');
+});
 const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
@@ -143,6 +167,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		const html = read(t.slug);
 		const main = mainOf(html);
 		assert.ok(main.length > 500, `${t.slug}: <main> found`);
+		assert.deepEqual(canonicalErrs(t.slug, html, `https://spiritmediapublishing.com/books/${t.slug}/`), [], `${t.slug}: SMP book self-canonical`);
 		assert.match(main, /<h1[^>]*>/, `${t.slug}: h1`);
 		// Offers only where the store sells (Book+Product per format, riab-pilot 2026-11-14), each at the registry's list
 		// price; a page that sells nothing declares none.
@@ -201,6 +226,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	for (const b of sold) {
 		const html = read(b.slug);
 		assert.match(html, new RegExp(`<link rel="canonical" href="https://fathersheartbible.com/books/${b.slug}/">`), `${b.slug}: canonical = FHB`);
+		assert.deepEqual(canonicalErrs(b.slug, html, `https://fathersheartbible.com/books/${b.slug}/`), [], `${b.slug}: FH book -> FHB canonical, no Product here`);
 		assert.doesNotMatch(redirects, new RegExp(`^/books/${b.slug}/? `, 'm'), `${b.slug}: no 301 away from SMP`);
 	}
 	// 3gh #1: the bookstore links every book we sell to its own page, and none of them to a store listing
