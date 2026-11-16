@@ -27,10 +27,12 @@ import { BOOK_SKUS } from '../src/store-engine/lib/order-pricing.ts';
 import {
 	checkoutForm,
 	EMAIL_RE,
+	ebookCheckoutForm,
 	encodeForm,
 	familyOf,
 	familyOfSku,
 	firstOrderPromo,
+	isEbookSku,
 	isFirstOrder,
 	type OrderPayload,
 	storeTagErrors,
@@ -75,6 +77,27 @@ const clip = (v: unknown) =>
 		.replace(/[^\w .:/@-]/g, '')
 		.slice(0, 60);
 
+/** A print order (books from any window, Bibles from the FHB window only) -> the engine's print form, or the refusal. */
+async function printForm(
+	payload: OrderPayload,
+	requestUrl: string,
+	key: string | undefined,
+	site: string,
+	counts: Record<string, number>,
+) {
+	// a book sells from any window; a Bible only from the FHB window; anything else is refused before the engine sees it
+	const sellable = (sku: string) =>
+		Boolean(BOOK_SKUS[sku]) || (site === 'fhb' && familyOfSku(sku) === 'bible');
+	if (Object.entries(counts).some(([sku, n]) => Number(n) > 0 && !sellable(sku))) {
+		return { status: 400, body: { error: 'invalid_selection' } } as const;
+	}
+	return checkoutForm(payload, requestUrl, {
+		enabled: Boolean(key),
+		isFirstOrder: (em) => isFirstOrder(em, key as string),
+		firstOrderPromo: () => firstOrderPromo(key as string),
+	});
+}
+
 /** The Stripe form for one SMP order, or the refusal. Pure apart from the engine's injected lookups. */
 export async function smpCheckoutForm(
 	payload: OrderPayload & { site?: string; utm?: Record<string, string> },
@@ -83,18 +106,18 @@ export async function smpCheckoutForm(
 ) {
 	const counts = payload.counts ?? {};
 	const site = SITES[String(payload.site)] ? String(payload.site) : 'smp';
-	// a book sells from any window; a Bible only from the FHB window; anything else is refused before the engine sees it
-	const sellable = (sku: string) =>
-		Boolean(BOOK_SKUS[sku]) || (site === 'fhb' && familyOfSku(sku) === 'bible');
-	if (Object.entries(counts).some(([sku, n]) => Number(n) > 0 && !sellable(sku))) {
-		return { status: 400, body: { error: 'invalid_selection' } } as const;
-	}
-	const r = await checkoutForm(payload, requestUrl, {
-		enabled: Boolean(key),
-		isFirstOrder: (em) => isFirstOrder(em, key as string),
-		firstOrderPromo: () => firstOrderPromo(key as string),
-	});
+	// EBOOKS (Kevin 2026-11-16 "We point to our own ebook sales"): a cart holding a book's eBook goes to the engine's
+	// eBook form (no shipping; it refuses a cart mixing an eBook with print, and an eBook still in KDP Select).
+	const ebook = Object.entries(counts).some(([sku, n]) => Number(n) > 0 && isEbookSku(sku));
+	const r = ebook
+		? await ebookCheckoutForm(payload, requestUrl, {
+				enabled: Boolean(key),
+				isFirstOrder: (em) => isFirstOrder(em, key as string),
+				firstOrderPromo: () => firstOrderPromo(key as string),
+			})
+		: await printForm(payload, requestUrl, key, site, counts);
 	if (!('form' in r)) return r;
+
 	// Option C tags first, always (the engine reserves their keys); storeTagErrors refuses the session without them
 	Object.assign(r.form, storeTags(site, familyOf(counts)));
 	const extra: Record<string, string> = {};

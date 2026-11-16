@@ -15,6 +15,7 @@ import { sanityClient } from '../lib/sanity.ts';
 import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
+import { ebookForBook } from '../store-engine/lib/storeEngine.ts';
 import BookCard from './BookCard.astro';
 import ShipCountryMarquee from './ShipCountryMarquee.astro';
 
@@ -436,12 +437,16 @@ const kindOf = (k: string) =>
 					: /-(audio|ab)$/.test(k)
 						? 'audiobook'
 						: '';
+// EBOOKS (Kevin 2026-11-16 "We point to our own ebook sales"): when our store sells the book's eBook (engine
+// ebookForBook: a current EPUB and no active KDP Select term) its eBook badge opens our page too.
 const ownFormats = (own: string, all: Record<string, unknown> | undefined) => {
 	const out: Record<string, string> = {};
+	const ownEbook = Boolean(ebookForBook(own.replace(/^\/books\/|\/$/g, '')));
 	for (const [k, v] of Object.entries(all || {})) {
 		const kind = kindOf(k);
 		if (!kind) continue;
-		if (kind === 'paperback' || kind === 'hardback') out[kind] = own;
+		if (kind === 'paperback' || kind === 'hardback' || (kind === 'ebook' && ownEbook))
+			out[kind] = own;
 		else if (typeof v === 'string' && /^https?:/.test(v)) out[kind] = v;
 	}
 	if (!Object.keys(out).length) out.paperback = own;
