@@ -1,10 +1,9 @@
 ---
 import PartnershipSurvey from '../components/PartnershipSurvey.astro';
-import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout youversionBanner={false}
+<Layout
 	robots="noindex, nofollow"
 	title="Before We Partner — Spirit Media Publishing"
 	description="A private step for prospective Spirit Media partners."
@@ -23,8 +22,6 @@ import Layout from '../layouts/Layout.astro';
 				</p>
 			</div>
 		</section>
-		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
-		<YouVersionBanner />
 
 		<!-- SURVEY -->
 		<section class="bg-stone-100 pt-8 lg:pt-10 pb-12 lg:pb-20 px-6 lg:px-8">

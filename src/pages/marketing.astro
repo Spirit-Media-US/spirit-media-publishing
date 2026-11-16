@@ -2,7 +2,6 @@
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
-import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
@@ -184,7 +183,7 @@ const marketingFaqs = [
 ];
 ---
 
-<Layout youversionBanner={false}
+<Layout
 	title="Book Marketing Services for Christian Authors — Spirit Media"
 	description="Book marketing services for Christian authors: Amazon reviews, advance reader copies, paid ads, reels, podcast and YouTube help, monthly reporting."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/1c65c6e17b6405d6936a7c82bb7de49dac709b1d-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -257,8 +256,6 @@ const marketingFaqs = [
 				</div>
 			</div>
 		</section>
-		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
-		<YouVersionBanner />
 
 		<AnswerBlock
 			url="/marketing/"
