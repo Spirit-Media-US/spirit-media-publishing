@@ -6,6 +6,14 @@
 /books/beloved-identity https://fathersheartbible.com/books/beloved-identity/ 301
 /books/jesus-had-a-little-lamb/ /bookstore/ 302
 /books/jesus-had-a-little-lamb /bookstore/ 302
+# Bookstore collections (Kevin 2026-11-16 "Make it: All, SMP only ... FHB English ... FHB Languages ... FHB Books"):
+# the 3 retired FHB collection pages keep their link value. Express Books keeps its own URL.
+/bookstore/fathers-heart-bible-fhb/ /bookstore/fhb-english/ 301
+/bookstore/fathers-heart-bible-fhb /bookstore/fhb-english/ 301
+/bookstore/fathers-heart-bible-audience-editions/ /bookstore/fhb-english/ 301
+/bookstore/fathers-heart-bible-audience-editions /bookstore/fhb-english/ 301
+/bookstore/fathers-heart-bible-language-editions/ /bookstore/fhb-languages/ 301
+/bookstore/fathers-heart-bible-language-editions /bookstore/fhb-languages/ 301
 # Vanity redirects
 /club https://spirit-media.mn.co/collections/3073128 301
 

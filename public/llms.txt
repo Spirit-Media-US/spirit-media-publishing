@@ -36,10 +36,11 @@ Kevin White is the founder of Spirit Media Publishing. Forty years of pastoral m
 - /book-cover-design/ — book cover design and interior layout for Christian authors
 - /author-website/ — author websites for Christian authors
 - /contact/ — get in touch
+- /bookstore/smp/ — SMP only
 - /bookstore/express-books/ — Express Books
-- /bookstore/fathers-heart-bible-audience-editions/ — Father's Heart Bible™ — Audience Editions
-- /bookstore/fathers-heart-bible-fhb/ — Father's Heart Bible™ (FHB)
-- /bookstore/fathers-heart-bible-language-editions/ — Father's Heart Bible™ — Language Editions
+- /bookstore/fhb-english/ — FHB English
+- /bookstore/fhb-languages/ — FHB Languages
+- /bookstore/fhb-books/ — FHB Books
 - /free-book/ — Receive Your FREE Copy — Father's Heart → Beloved Identity
 - /join/ — Join the Spirit Media Network — Community for Christian Authors & Leaders
 - /media-center/ — Media Center — Spirit Media Publishing in the News

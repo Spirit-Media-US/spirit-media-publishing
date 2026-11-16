@@ -8,6 +8,7 @@ import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
 import { sanityClient } from '../lib/sanity.ts';
 import engineBooks from '../store-engine/data/books.json';
+import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
 
 interface Props {
 	initialCollection?: string;
@@ -291,6 +292,7 @@ for (const e of fhb.editions as any[]) {
 		amazon: e.href,
 		date: e.date,
 		collections: e.collections,
+		fhbGroup: e.group, // audience | language: decides FHB English vs FHB Languages below
 		// FHB points buyers to itself (Kevin 2026-11-08; unit 2jd): every binding is ordered on the
 		// edition's own page on fathersheartbible.com, listed on Amazon or not.
 		formats: listed
@@ -446,6 +448,70 @@ for (const doc of rawBooks as any[]) {
 	}
 }
 
+// ── COLLECTIONS (Kevin 2026-11-16, kevin-decisions.md: "Make it: All, SMP only (all without FHB), FHB English (which
+// shows ALL english editions), FHB Languages (showing all the foreign lanuage editions), FHB Books" + "Sorry add Express
+// Books back after SMP only" + "after 2 add a new 3: SMP worldwide (showing those available for shipping until we get all
+// \"SMP only\" showing)"). Each card's collection is DERIVED from the data above, never typed per card:
+//   fhb-books     — doc.fhBook (an FH book the store engine sells, books.json; Option C d416648)
+//   fhb-languages — an FHB language edition (fhb-editions.json group "language")
+//   fhb-english   — every other FHB edition (Sanity fhb-* documents: General, Large Print, eBook, audience editions;
+//                   fhb-editions.json group "audience")
+//   smp           — everything else. Express Books = its Sanity members that are SMP only (a subset of SMP only).
+//   smp-worldwide — the SMP-only cards ORDERABLE here: a live SMP /books/ page (pages-live.json) with an order box (an
+//                   English ship-set book with a store-registry SKU that has an ISBN and a price, the same rule
+//                   books/[slug] uses for its BookOrder). A subset of SMP only; it grows as pages go live.
+//                   RETIRES ITSELF: the build that finds it equal to SMP only drops its chip and page, and the
+//                   smp-worldwide-retire integration (astro.config.mjs) writes /bookstore/smp-worldwide/ -> /bookstore/smp/ 301.
+// Every card sits in exactly one of smp / fhb-english / fhb-languages / fhb-books (scripts/store-checkout.test.mjs).
+// bookstore/[collection].astro builds one page per non-All key with the same slugs; the 3 retired FHB collection
+// URLs 301 in public/_redirects. In SMP only, cards with a live SMP book page (src/data/books/pages-live.json, the
+// books orderable here) sort first.
+const COLLECTIONS = [
+	{ key: '', name: 'All' },
+	{ key: 'smp', name: 'SMP only' },
+	{ key: 'smp-worldwide', name: 'SMP worldwide' },
+	{ key: 'express-books', name: 'Express Books' },
+	{ key: 'fhb-english', name: 'FHB English' },
+	{ key: 'fhb-languages', name: 'FHB Languages' },
+	{ key: 'fhb-books', name: 'FHB Books' },
+];
+const partitionOf = (b: any) =>
+	b.fhBook
+		? 'fhb-books'
+		: b.fhbGroup === 'language'
+			? 'fhb-languages'
+			: b.fhbGroup === 'audience' || String(b._id || '').startsWith('fhb-')
+				? 'fhb-english'
+				: 'smp';
+const LIVE_SLUGS = new Set(pagesLive.slugs as string[]);
+const SHIP_TITLE = new Map<string, any>((shipset as any).titles.map((t: any) => [t.slug, t]));
+const hasOrderBox = (slug: string) => {
+	const t = SHIP_TITLE.get(slug);
+	if (!t || !LIVE_SLUGS.has(slug) || ['es', 'fr'].includes(t.book.language)) return false;
+	return (t.book.formats as string[]).some(
+		(sku) => (BOOK_SKUS as any)[sku]?.isbn && Number.isInteger(t.skus?.[sku]?.list_cents),
+	);
+};
+for (const b of rawBooks as any[]) {
+	const part = partitionOf(b);
+	const own = /^\/books\/([^/]+)\/$/.exec(b.amazon || '');
+	b.live = !!(own && LIVE_SLUGS.has(own[1]));
+	b.colls = [part];
+	if (part === 'smp' && own && hasOrderBox(own[1])) b.colls.push('smp-worldwide');
+	if (part === 'smp' && (b.collections || []).includes('Express Books'))
+		b.colls.push('express-books');
+	b.cardId = b._id || `${b.display_title || b.title}|${b.amazon}`;
+}
+// the retirement check (see above): every SMP-only card orderable = SMP worldwide has done its job
+const WORLDWIDE_RETIRED = (rawBooks as any[]).every(
+	(b) => !b.colls.includes('smp') || b.colls.includes('smp-worldwide'),
+);
+(globalThis as any).__smpWorldwideRetired = WORLDWIDE_RETIRED;
+const CHIPS = COLLECTIONS.filter((c) => !(WORLDWIDE_RETIRED && c.key === 'smp-worldwide'));
+// newest first; in SMP only the live-page cards lead
+const byDate = (x: any, y: any) => (y.date || '').localeCompare(x.date || '');
+const liveFirst = (x: any, y: any) => Number(!!y.live) - Number(!!x.live);
+
 const BOOKS_JSON = JSON.stringify(rawBooks);
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
 // browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
@@ -470,26 +536,17 @@ const STAT_AUTHORS = new Set(
 const statYearsNow = new Date();
 const STAT_YEARS = statYearsNow.getFullYear() - 2022 - (statYearsNow.getMonth() < 5 ? 1 : 0);
 
-const allCollections = [
-	...new Set(rawBooks.flatMap((b: any) => b.collections || []).filter(Boolean)),
-].sort() as string[];
-
 // INDEXING (SMP indexing brief, Kevin 2026-10-19). The grid was drawn only by the script below,
 // so every collection page's HTML was the same empty shell (91-98% identical) and the chips were
 // <button>s, so nothing linked the collection pages. Now each chip is a real link to its page
-// (same slug rule as bookstore/[collection].astro) and the page's first view is in the HTML.
+// (the collection key is its slug, as bookstore/[collection].astro builds it) and the page's first view is in the HTML.
 // The script still filters in place and redraws the grid with its full cards on load.
-const collectionHref = (c: string) =>
-	c
-		? `/bookstore/${c
-				.toLowerCase()
-				.replace(/\s+/g, '-')
-				.replace(/[^a-z0-9-]/g, '')
-				.replace(/-+/g, '-')}/`
-		: '/bookstore/';
+const collectionHref = (c: string) => (c ? `/bookstore/${c}/` : '/bookstore/');
 const initialBooks = rawBooks
-	.filter((b: any) => !initialCollection || (b.collections || []).includes(initialCollection))
-	.sort((x: any, y: any) => (y.date || '').localeCompare(x.date || ''));
+	.filter((b: any) => !initialCollection || b.colls.includes(initialCollection))
+	.sort((x: any, y: any) =>
+		initialCollection === 'smp' ? liveFirst(x, y) || byDate(x, y) : byDate(x, y),
+	);
 const introRendered = introHtml.replaceAll('{n}', String(initialBooks.length));
 // 2uv (CLS): the client script redraws the grid with date labels + format badges; the SSR cards
 // lacked them, so every card grew on load (desktop CLS 0.73). These helpers MIRROR the script's
@@ -645,15 +702,12 @@ const itemListLd =
 <section class="bg-stone-100 py-5 lg:py-8 px-6 lg:px-8">
   <div class="mx-auto max-w-7xl">
 
-    {allCollections.length > 0 && (
-      <div class="flex items-center gap-2 flex-wrap mb-3">
-        <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider shrink-0">Collection:</span>
-        <a href={collectionHref('')} data-collection="" class={`collection-chip px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${initialCollection === '' ? 'active bg-red text-white border-red' : 'border-stone-300 text-stone-600 hover:border-red hover:text-red'}`}>All</a>
-        {allCollections.map((c) => (
-          <a href={collectionHref(c)} data-collection={c} class={`collection-chip px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${initialCollection === c ? 'active bg-red text-white border-red' : 'border-stone-300 text-stone-600 hover:border-red hover:text-red'}`}>{c}</a>
-        ))}
-      </div>
-    )}
+    <div class="flex items-center gap-2 flex-wrap mb-3">
+      <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider shrink-0">Collection:</span>
+      {CHIPS.map((c) => (
+        <a href={collectionHref(c.key)} data-collection={c.key} class={`collection-chip px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${initialCollection === c.key ? 'active bg-red text-white border-red' : 'border-stone-300 text-stone-600 hover:border-red hover:text-red'}`}>{c.name}</a>
+      ))}
+    </div>
 
     <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
       <input id="book-search" type="text" placeholder="Search by title or author…"
@@ -674,7 +728,7 @@ const itemListLd =
     </div>
     <div id="book-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
       {initialBooks.map((b: any) => (
-        <div class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+        <div data-card={b.cardId} data-colls={b.colls.join(' ')} data-live={b.live ? '1' : undefined} class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
           <a href={b.amazon || undefined} target={b.amazon && !b.ownPage ? '_blank' : undefined} rel={b.amazon && !b.ownPage ? 'noopener noreferrer' : undefined} class="block">
             <div class={`aspect-[2/3] overflow-hidden bg-stone-100${isLightCover(b) ? ' border-b border-[#adacab]' : ''}`}>
               {b.img && <img src={b.img} alt={b.display_title || b.title} loading="lazy" width={b.w} height={b.h} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />}
@@ -862,10 +916,12 @@ const itemListLd =
       const displayTitle = (b.display_title || b.title).toLowerCase();
       const matchQ = !q || displayTitle.includes(q) || b.author.toLowerCase().includes(q);
       const matchA = !a || b.author.toLowerCase() === a;
-      const matchC = !activeCollection || (Array.isArray(b.collections) && b.collections.includes(activeCollection));
+      const matchC = !activeCollection || (Array.isArray(b.colls) && b.colls.includes(activeCollection));
       return matchQ && matchA && matchC;
     });
     filtered.sort((x, y) => {
+      // SMP only: the books with a live SMP page (orderable here) lead, in any sort
+      if (activeCollection === 'smp' && !!x.live !== !!y.live) return x.live ? -1 : 1;
       if (sort === 'newest') return (y.date || '').localeCompare(x.date || '');
       if (sort === 'oldest') return (x.date || '').localeCompare(y.date || '');
       if (sort === 'title')  return (x.display_title || x.title).localeCompare(y.display_title || y.title);
