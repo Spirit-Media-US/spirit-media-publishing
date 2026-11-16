@@ -267,7 +267,7 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 			     closing line (Kevin 2026-09-24: below the buttons; it appears ONCE).
 			     Rhythm with CoverMarquee: 2rem between every part, 1rem between
 			     paragraphs, 3rem / 4rem (lg) clear space above and below the group. -->
-			<div class="mx-auto max-w-3xl text-center px-6 pt-8 pb-12 lg:pb-16">
+			<div class="mx-auto max-w-3xl text-center px-6 pt-8">
 				<p class="type-body-lg text-stone-700">For a hundred and twenty-five years, red letters have shown you the Son speaking. Our Father speaks more than three times as often — 128,579 words across 5,615 verses. Father's Heart Bible is the first Bible in print where you can see who is speaking.</p>
 				<!-- Colour words at 19px bold = WCAG "large text" (>=18.66px bold, AA 3:1). BLUE #2563eb
 				     on this #fbeaee band measures 4.46:1 — under 4.5 at the 18px body size, clear of AA
@@ -282,7 +282,9 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 			</div>
 			<!-- Offer line + black country marquee at the BOTTOM of the pink section (Kevin 2026-11-16 ~15:3xZ), FHB's shared
 			     component; SMP brand red for the offer line via the colour token. -->
-			<div class="px-4" style="--color-primary: var(--color-red-deep, #9b2d20);">
+			<!-- No gap between the tagline and the offer line (Kevin 2026-11-16 ~15:48Z "remove gap between"): the tagline block
+			     drops its bottom padding and this wrapper pulls the shared component's 1.6rem offer margin up to ~0.5rem. -->
+			<div class="px-4" style="--color-primary: var(--color-red-deep, #9b2d20); margin-top: -1.1rem;">
 				<ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
 			</div>
 		</section>
