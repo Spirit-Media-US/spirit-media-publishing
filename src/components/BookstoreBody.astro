@@ -9,6 +9,8 @@ import fhbSnapshot from '../data/fhb-editions.json';
 import { sanityClient } from '../lib/sanity.ts';
 import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
+import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
+import ShipCountryMarquee from './ShipCountryMarquee.astro';
 
 interface Props {
 	initialCollection?: string;
@@ -24,7 +26,7 @@ const {
 	initialCollection = '',
 	heroEyebrow = 'Bookstore',
 	heroTitleHtml = `Spirit Media's <span class="text-red">Bookstore</span>`,
-	heroSubtitle = 'Over 300 titles by Kingdom Messengers. New books added every week.',
+	heroSubtitle = 'Over 550 titles by Kingdom Messengers. New books added every week.',
 	introHtml = '',
 } = Astro.props;
 
@@ -512,6 +514,12 @@ const CHIPS = COLLECTIONS.filter((c) => !(WORLDWIDE_RETIRED && c.key === 'smp-wo
 const byDate = (x: any, y: any) => (y.date || '').localeCompare(x.date || '');
 const liveFirst = (x: any, y: any) => Number(!!y.live) - Number(!!x.live);
 
+// /bookstore/ (Kevin 2026-11-16 ~15:3xZ "SMP bookstore needs this shipping and country marquee added under Over 300
+// titles by Kingdom Messengers..."): the offer line + country marquee under the tagline, the shared FHB component and
+// wording as on the SMP homepage. Count + names = the LIVE ship list from the store engine, never retyped; A-Z.
+const shipOfferLine = `15% off first order + free standard shipping to ${LIVE_COUNTRIES.length} countries`;
+const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
+
 const BOOKS_JSON = JSON.stringify(rawBooks);
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
 // browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
@@ -686,6 +694,11 @@ const itemListLd =
     </div>
     <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
   </div>
+  {initialCollection === '' && (
+    <div class="mx-auto max-w-7xl" data-ship-band>
+      <ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
+    </div>
+  )}
 </section>
 
 

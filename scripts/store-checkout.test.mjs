@@ -617,3 +617,16 @@ test('bookstore collections: SMP worldwide retires itself to a 301 when it equal
 		globalThis.__smpWorldwideRetired = was;
 	}
 });
+
+test('bookstore: tagline "Over 550 titles..." with the offer line + country marquee directly under it (Kevin 2026-11-16)', async () => {
+	const html = storePage('');
+	const { LIVE_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts').catch(() => ({}));
+	const tag = html.indexOf('Over 550 titles by Kingdom Messengers. New books added every week.');
+	assert.ok(tag > 0, 'tagline');
+	assert.doesNotMatch(html, /Over 300 titles by Kingdom Messengers/);
+	const offer = html.search(/<p class="eo-offer[^"]*"[^>]*>15% off first order \+ free standard shipping to \d+ countries<\/p>/);
+	const band = html.search(/<div class="eo-marquee[^"]*" role="region"/);
+	assert.ok(offer > tag && band > offer && html.indexOf('id="book-grid"') > band, 'tagline -> offer line -> marquee -> grid');
+	if (LIVE_COUNTRIES) assert.match(html, new RegExp(`free standard shipping to ${LIVE_COUNTRIES.length} countries</p>`));
+	assert.doesNotMatch(storePage('smp'), /data-ship-band/, 'the hero band is on /bookstore/ only');
+});
