@@ -693,12 +693,18 @@ const itemListLd =
       <h1 class="font-serif text-3xl font-bold text-ink-soft"><Fragment set:html={heroTitleHtml} /></h1>
       <p class="mt-1 text-sm text-stone-500">{heroSubtitle}</p>
     </div>
-    <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
+    {initialCollection !== '' && <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>}
   </div>
   {initialCollection === '' && (
-    <div class="mx-auto max-w-7xl" data-ship-band>
-      <ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
-    </div>
+    <>
+      {/* /bookstore/ (pmprint 2026-11-16, Kevin "under the tagline"): tagline -> offer line -> marquee -> Publish Your Book */}
+      <div class="mx-auto max-w-7xl" data-ship-band>
+        <ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
+      </div>
+      <div class="mx-auto max-w-7xl mt-5 flex flex-col sm:flex-row sm:justify-center" data-publish-cta>
+        <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
+      </div>
+    </>
   )}
 </section>
 <!-- The YouVersion banner under the bookstore hero/tagline block, as on every SMP page with a hero (the pages pass
