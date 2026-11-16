@@ -12,6 +12,7 @@
 // Test: scripts/llms-books.test.mjs fails if any live page is missing from either file.
 import fs from 'node:fs';
 import path from 'node:path';
+import { dnpMatcher } from '../src/lib/do-not-publish.mjs';
 
 export const BEGIN =
 	'<!-- GENERATED:book-pages (scripts/llms-books.mjs — edit the script or the book data, not this block) -->';
@@ -26,8 +27,12 @@ const strip = (s) =>
 		.replace(/\s+/g, ' ')
 		.trim();
 
+// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): src/data/books/do-not-publish.json
+const dnp = (root) => dnpMatcher(readJson(root, 'src/data/books/do-not-publish.json'));
+
 export function liveSlugs(root = process.cwd()) {
-	return readJson(root, 'src/data/books/pages-live.json').slugs;
+	const isDnp = dnp(root);
+	return readJson(root, 'src/data/books/pages-live.json').slugs.filter((slug) => !isDnp({ slug }));
 }
 
 /** One entry per live page: { slug, url, title, author, description }. Throws if a live slug has no data. */
@@ -59,6 +64,7 @@ export function collect(root = process.cwd()) {
 				description: strip(b.desc),
 			};
 		})
+		.filter((e) => !dnp(root)({ slug: e.slug, title: e.title }))
 		.sort((a, b) => a.title.localeCompare(b.title));
 }
 

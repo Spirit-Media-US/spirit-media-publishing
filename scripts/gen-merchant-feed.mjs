@@ -22,6 +22,7 @@
  * Usage: node scripts/gen-merchant-feed.mjs [--dist dist] [--out dist/merchant-feed.xml]
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dnpMatcher } from '../src/lib/do-not-publish.mjs';
 
 const arg = (k, d) => (process.argv.includes(k) ? process.argv[process.argv.indexOf(k) + 1] : d);
 export const esc = (s) =>
@@ -70,9 +71,11 @@ export function collect(dist = 'dist', fh = fhSkus()) {
 		}
 		for (const v of Object.values(n)) walk(v, ctx);
 	};
+	// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): never a feed item, even if a page leaked
+	const isDnp = dnpMatcher(JSON.parse(readFileSync(new URL('../src/data/books/do-not-publish.json', import.meta.url), 'utf8')));
 	for (const d of readdirSync(`${dist}/books`).sort()) {
 		const f = `${dist}/books/${d}/index.html`;
-		if (!existsSync(f)) continue;
+		if (!existsSync(f) || isDnp({ slug: d })) continue;
 		const html = readFileSync(f, 'utf8');
 		for (const m of html.matchAll(/<script type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)) {
 			let j;
@@ -81,6 +84,7 @@ export function collect(dist = 'dist', fh = fhSkus()) {
 			} catch {
 				continue;
 			}
+			if (isDnp({ title: j.name })) continue;
 			walk(j, {
 				slug: d,
 				name: j.name,

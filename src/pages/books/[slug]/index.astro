@@ -1,6 +1,7 @@
 ---
 import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
+import BookRetailer from '../../../components/BookRetailer.astro';
 import LookInside from '../../../components/LookInside.astro';
 // /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
 // is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
@@ -25,14 +26,17 @@ import bookPages from '../../../data/books/book-pages.json';
 import coverColors from '../../../data/books/cover-colors.json';
 import dims from '../../../data/books/cover-dims.json';
 import sized from '../../../data/books/cover-sized.json';
+import doNotPublish from '../../../data/books/do-not-publish.json';
 import fhbBookPages from '../../../data/books/fhb-book-pages.json';
 import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
 import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
 import pagesLive from '../../../data/books/pages-live.json';
+import retailerLinks from '../../../data/books/retailer-links.json';
 import set from '../../../data/books/shipset-v2.json';
 import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
+import { dnpMatcher } from '../../../lib/do-not-publish.mjs';
 import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
 import { handlingFeeCents, shippingDetailsFor } from '../../../store-engine/lib/marginGuard.ts';
@@ -42,7 +46,7 @@ import {
 	isDiscountExempt,
 } from '../../../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../../../store-engine/lib/shipCountries.ts';
-import { checkoutForm } from '../../../store-engine/lib/storeEngine.ts';
+import { checkoutForm, EBOOK_SKUS, ebookForBook } from '../../../store-engine/lib/storeEngine.ts';
 
 type Fmt = {
 	sku: string;
@@ -362,8 +366,11 @@ export async function getStaticPaths() {
 	}
 	// BOOK PAGES SWITCH (src/data/books/pages-live.json): production builds only Kevin-approved pages
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
+	// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): never a page, not even on a preview
+	const isDoNotPublish = dnpMatcher(doNotPublish);
 	return pages
 		.filter((p) => ALL || (pagesLive.slugs as string[]).includes(p.slug))
+		.filter((p) => !isDoNotPublish({ slug: p.slug, title: p.title }))
 		.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
 
@@ -384,10 +391,28 @@ const countries = servedRows.map((c) => ({ code: c.code, name: c.name }));
 // The FHB-standard order area (BookOrder) on English pages that sell; es/fr keep their reviewed-string form for now.
 // es/fr pages get the same box in their language (Kevin 2026-11-15 "2A")
 const orderBox = p.orderable && countries.length > 0;
+// DIGITAL-ONLY (Kevin 2026-11-16 17:15Z): a book with no store SKU but a live eBook / audiobook listing gets the retailer
+// box in place of the order box (src/data/books/retailer-links.json); a store SKU always wins.
+// EBOOKS (Kevin 2026-11-16 "We point to our own ebook sales"): the book's eBook when our store sells it today (a current
+// EPUB, no active KDP Select term: engine ebookForBook). Beside print it is one more row in the order box; with no print
+// it is an EBOOK-ONLY box (email + 15% line, no shipping line, no marquee) in place of the retailer button. A title still
+// in KDP Select has no eBook here and keeps its retailer button until its term ends.
+const ebookSku = ebookForBook(p.slug);
+const ebook = ebookSku ? { sku: ebookSku, list_cents: EBOOK_SKUS[ebookSku].listCents } : undefined;
+const ebookOnly = !orderBox && Boolean(ebook);
+const retail =
+	p.orderable || ebookOnly
+		? undefined
+		: ((retailerLinks.links as Record<string, any>)[p.slug] as
+				| { kind: 'ebook' | 'audiobook'; href: string; store: string }
+				| undefined);
 // The per-copy handling fee each country pays, sized at BUILD time by the same marginGuard the checkout charges
 // with (break-even, floor 0). Only the resulting fees reach the page, never a cost (pmseoaeo 3gh #5: total line).
 const feeCfg = JSON.stringify({
-	list: Object.fromEntries(sellFormats.map((f) => [f.sku, f.list_cents])),
+	list: Object.fromEntries([
+		...sellFormats.map((f) => [f.sku, f.list_cents]),
+		...(ebook ? [[ebook.sku, ebook.list_cents]] : []),
+	]),
 	fee: Object.fromEntries(
 		countries
 			.filter((c) => c.code !== 'US')
@@ -705,9 +730,9 @@ const crumbs = {
 							</div>
 						)}
 						{p.page?.hero?.offer_line && <p class="mt-4 text-sm font-semibold text-stone-700">{p.page.hero.offer_line}</p>}
-						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || !orderBox) && (
+						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || (!orderBox && !retail && !ebookOnly)) && (
 							<div class="mt-5 flex flex-wrap gap-3">
-								{!orderBox && <a href="#order" class="btn btn-primary min-h-12 px-7">{T.order}</a>}
+								{!orderBox && !retail && !ebookOnly && <a href="#order" class="btn btn-primary min-h-12 px-7">{T.order}</a>}
 								{/* Kevin 2026-11-14: the SAME Look inside as FHB: the button opens the page viewer (front through Chapter 1). */}
 								{hasViewer ? <LookInside slug={p.slug} title={p.title} size="lg" label={T.look} /> : (p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0) && <a href="#look-inside" class="book-look">{T.look}</a>}
 							</div>
@@ -716,7 +741,8 @@ const crumbs = {
 					</div>
 				</div>
 			</div>
-			{!orderBox && (
+			{!orderBox && retail && <BookRetailer title={p.title} titleStyle={titleStyle} kind={retail.kind} href={retail.href} store={retail.store} />}
+			{!orderBox && !retail && !ebookOnly && (
 				<div class="mx-auto mt-10 max-w-xl">
 {p.orderable ? (
 							<form id="order" class="scroll-mt-28 rounded-lg border border-stone-300 bg-white p-4 sm:p-5" data-slug={p.slug} data-status="live" data-fees={feeCfg}>
@@ -763,9 +789,9 @@ const crumbs = {
 			)}
 		</section>
 		{/* The order area in its own unpadded band, so the black country marquee runs edge to edge (FHB standard). */}
-		{orderBox && (
+		{(orderBox || ebookOnly) && (
 			<section class="bg-stone-50 pb-10" aria-label={`${T.order} ${p.title}`}>
-				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number }))} countries={countries} feeCfg={feeCfg} firstOrder={firstOrder} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} />
+				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={orderBox ? sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number })) : []} countries={orderBox ? countries : []} feeCfg={feeCfg} firstOrder={firstOrder || ebookOnly} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} ebook={ebook} />
 			</section>
 		)}
 

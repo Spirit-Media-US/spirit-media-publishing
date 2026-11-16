@@ -1,0 +1,51 @@
+---
+// THE RETAILER BOX ON A DIGITAL-ONLY SMP BOOK PAGE (/books/<slug>/#order), in place of the order box (Kevin 2026-11-16
+// 17:15Z: "we want book page for every book for SEO/AEO even if we can't sell it like the audiobook"). Our store ships
+// print only, so an eBook-only or audiobook-only title has nothing to order here: one calm button to its LIVE listing
+// ("Buy the eBook" / "Listen on Audible", src/data/books/retailer-links.json), no offer line, no country marquee
+// (nothing to ship), no email field. Keep shopping is the same row the order box carries (BookOrder.astro).
+// Button: SMP's own ghost style (outline, never a filled bright red, never black: Kevin 2026-11-13 L1999, 2026-11-14).
+interface Props {
+	title: string;
+	/** the title's cover colour style (src/data/books/cover-colors.json), or undefined = ink */
+	titleStyle?: string;
+	kind: 'ebook' | 'audiobook';
+	href: string;
+	store: string;
+}
+const { title, titleStyle, kind, href, store } = Astro.props;
+const label = kind === 'audiobook' ? 'Listen on Audible' : 'Buy the eBook';
+const what = kind === 'audiobook' ? 'Audiobook' : 'eBook';
+---
+<div id="order" class="br-wrap" data-status="digital" data-kind={kind}>
+	<div class="br-box">
+		<p class="br-eyebrow">{what}</p>
+		<h2 class="br-title" style={titleStyle}>{title}</h2>
+		<p class="br-line">{kind === 'audiobook' ? `${title} is available as an audiobook.` : `${title} is available as an eBook.`}</p>
+		<a class="br-btn" href={href} rel="noopener" target="_blank" data-retailer={kind}>{label}</a>
+		<p class="br-note">Opens the {store} listing in a new tab.</p>
+	</div>
+</div>
+<nav class="br-shop" aria-label="Keep shopping">
+	<span class="br-shop__label">Keep shopping</span>
+	<a href="https://fathersheartbible.com/print/">FH Bibles</a>
+	<a href="https://fathersheartbible.com/books/">FH Books</a>
+	<a href="/bookstore/smp-worldwide/">All SMP Books</a>
+</nav>
+<style>
+	.br-wrap { max-width: 34rem; margin: 2.2rem auto 0; padding: 0 1rem; scroll-margin-top: 110px; color: var(--color-ink); box-sizing: content-box; }
+	.br-box { padding: 1.1rem 1rem 1rem; background: #fff; border: 1px solid var(--color-border, #ddd7cf); border-radius: 1rem; text-align: center; }
+	.br-eyebrow { margin: 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #57534e; }
+	.br-title { margin: 0.25rem 0 0; color: var(--color-ink); font-size: 1.35rem; font-weight: 700; line-height: 1.25; }
+	.br-line { margin: 0.5rem 0 0; color: #3f3f46; font-size: 0.95rem; line-height: 1.5; }
+	/* SMP .btn-ghost: outline in the house accent on white; calm, not a filled alarm button */
+	.br-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; box-sizing: border-box; margin-top: 0.9rem; min-height: 48px; padding: 0.7rem 1.8rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: #fff; color: var(--color-red, #c0392b); font-size: 1rem; font-weight: 600; text-decoration: none; }
+	.br-btn:hover { border-color: var(--color-ink); color: var(--color-ink); }
+	.br-btn:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
+	.br-note { margin: 0.5rem 0 0; color: #57534e; font-size: 0.8rem; }
+	.br-shop { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; max-width: 34rem; margin: 1rem auto 0; padding: 0 1rem; }
+	.br-shop__label { width: 100%; text-align: center; font-size: 0.85rem; font-weight: 600; color: #3f3f46; }
+	.br-shop a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid #f0c4d8; border-radius: 999px; background: #fbe7f0; color: #52525b; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
+	.br-shop a:hover { border-color: var(--color-ink); }
+	@media (min-width: 641px) { .br-box { padding: 1.3rem 1.4rem 1.2rem; } }
+</style>

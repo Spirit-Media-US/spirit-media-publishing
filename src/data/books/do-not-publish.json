@@ -1,0 +1,26 @@
+{
+	"_source": "Kevin 2026-11-16 (kevin-decisions.md): \"These should NOT show on SMP at all\". Titles that SMP never shows: no bookstore card, no /books/ page, no merchant-feed item, no llms entry, not counted in Published Titles. The Sanity documents are NOT deleted or edited; they are excluded at build by id and by title (src/lib/do-not-publish.mjs). Test: scripts/do-not-publish.test.mjs.",
+	"titles": [
+		{
+			"sanityId": "XbySjk53DxBxwdnL2kwj73",
+			"title": "How I Became Me",
+			"author": "Katherine Humphries"
+		},
+		{
+			"sanityId": "0hcVbP56e0ef3HkYHQVZfn",
+			"title": "The Awakening Glossary",
+			"author": "Bryan Elliott"
+		},
+		{ "sanityId": "ybgI64RkWpWJOFkftSQmfc", "title": "Ascension", "author": "Bryan Elliott" },
+		{
+			"sanityId": "ybgI64RkWpWJOFkftSRLsq",
+			"title": "Your Very Own Children’s Book",
+			"author": "Kevin White"
+		},
+		{
+			"sanityId": "ybgI64RkWpWJOFkftSRV2a",
+			"title": "Why Bless Israel",
+			"author": "Charles Shefler"
+		}
+	]
+}
