@@ -23,10 +23,6 @@ interface Props {
 	ogImageWidth?: number;
 	ogImageHeight?: number;
 	ogImageType?: string;
-	/** The FHB YouVersion banner under the nav on EVERY page, as FHB's Layout does (Kevin 2026-11-16 ~15:0xZ "add it
-	 *  to SMP pages too the same way we do FHB"). Default on. A page that places <YouVersionBanner /> itself (the
-	 *  homepage, inside its FHB section) passes false, so it never shows twice. */
-	youversionBanner?: boolean;
 }
 
 const {
@@ -38,7 +34,6 @@ const {
 	lang = 'en',
 	ogImageWidth = 1200,
 	ogImageHeight = 630,
-	youversionBanner = true,
 } = Astro.props;
 let ogImage = Astro.props.ogImage;
 let twitterHandle = '@spiritmediaus';
@@ -341,7 +336,9 @@ const ogImageType =
   </head>
   <body class="flex min-h-screen flex-col bg-stone-50 text-ink antialiased">
     <Navbar />
-    {youversionBanner && <YouVersionBanner />}
+    <!-- FHB YouVersion bar: the ONE place it renders, on EVERY SMP page, directly under the global nav (Kevin 2026-11-16
+         ~16:40Z "should be at the top under global nav"). No page opts out or places its own copy. -->
+    <YouVersionBanner />
     <slot />
     <Footer />
 

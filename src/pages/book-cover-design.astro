@@ -1,7 +1,6 @@
 ---
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
-import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Answer page for "book cover design". Every fact here comes from pages already
@@ -77,7 +76,7 @@ const faqs = [
 ];
 ---
 
-<Layout youversionBanner={false}
+<Layout
 	title="Book Cover Design for Christian Authors | Spirit Media"
 	description="Spirit Media designs the covers for the books it publishes: professional cover design and interior layout, print-ready for paperback and eBook."
 >
@@ -120,8 +119,6 @@ const faqs = [
 				</div>
 			</div>
 		</section>
-		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
-		<YouVersionBanner />
 
 		<AnswerBlock
 			url="/book-cover-design/"

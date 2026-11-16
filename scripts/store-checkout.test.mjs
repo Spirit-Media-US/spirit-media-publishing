@@ -488,11 +488,13 @@ const exactlyOneErrors = (pages, all) => {
 };
 const cardsOf = (html) => {
 	const grid = html.slice(html.indexOf('id="book-grid"'), html.indexOf('id="no-results"'));
-	return [...grid.matchAll(/<div data-card="([^"]*)" data-colls="([^"]*)"(?: data-live="1")?[^>]*>[\s\S]*?<a href="([^"]*)"/g)].map((m) => ({
+	return [...grid.matchAll(/<div data-card="([^"]*)"(?: data-key="([^"]*)")? data-colls="([^"]*)"(?: data-live="1")?[^>]*>[\s\S]*?<a href="([^"]*)"[\s\S]*?alt="([^"]*)"/g)].map((m) => ({
 		id: m[1].replace(/&#39;/g, "'").replace(/&amp;/g, '&'),
-		colls: m[2].split(' '),
+		key: m[2] || '',
+		colls: m[3].split(' '),
 		live: m[0].includes('data-live="1"'),
-		href: m[3],
+		href: m[4],
+		title: m[5].replace(/&#39;/g, "'").replace(/&#38;/g, '&').replace(/&amp;/g, '&'),
 	}));
 };
 const cardsTitles = (html) => {
@@ -630,7 +632,7 @@ test('bookstore collections: SMP worldwide retires itself to a 301 when it equal
 	}
 });
 
-test('bookstore: tagline "Over 550 titles..." with the offer line + country marquee directly under it (Kevin 2026-11-16)', async () => {
+test('bookstore: tagline + Publish Your Book in the hero, offer line + marquee under the search controls, no "Showing" line (Kevin 2026-11-16)', async () => {
 	const html = storePage('');
 	const { LIVE_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts').catch(() => ({}));
 	const tag = html.indexOf('Over 550 titles by Kingdom Messengers. New books added every week.');
@@ -638,14 +640,72 @@ test('bookstore: tagline "Over 550 titles..." with the offer line + country marq
 	assert.doesNotMatch(html, /Over 300 titles by Kingdom Messengers/);
 	const offer = html.search(/<p class="eo-offer[^"]*"[^>]*>15% off first order \+ free standard shipping to \d+ countries<\/p>/);
 	const band = html.search(/<div class="eo-marquee[^"]*" role="region"/);
-	assert.ok(offer > tag && band > offer && html.indexOf('id="book-grid"') > band, 'tagline -> offer line -> marquee -> grid');
 	const cta = html.indexOf('>Publish Your Book →</a>');
+	const heroEnd = html.indexOf('</section>', tag);
 	const chips = html.indexOf('class="collection-chip');
-	assert.ok(cta > band && chips > cta, 'marquee -> Publish Your Book -> chips');
+	const sort = html.indexOf('id="sort-order"');
+	const grid = html.indexOf('id="book-grid"');
+	assert.ok(cta > tag && cta < heroEnd, 'Publish Your Book in the hero, beside the title + tagline');
+	assert.ok(chips > heroEnd && sort > chips && offer > sort && band > offer && grid > band, 'hero -> chips -> search/author/sort -> offer line -> marquee -> grid');
+	assert.doesNotMatch(html, /Showing \d+ of \d+ titles|id="book-count"/, 'no "Showing N of N titles"');
 	assert.equal(html.split('>Publish Your Book →</a>').length - 1, 1, 'one Publish Your Book button');
 	assert.match(html, /<title>Christian Bookstore — 550\+ Spirit Media Published Titles<\/title>/);
 	if (LIVE_COUNTRIES) assert.match(html, new RegExp(`free standard shipping to ${LIVE_COUNTRIES.length} countries</p>`));
 	assert.doesNotMatch(storePage('smp'), /data-ship-band/, 'the hero band is on /bookstore/ only');
-	// no YouVersion banner on any bookstore page (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee)
-	for (const slug of ['', 'smp', 'express-books', 'fhb-english']) assert.ok(!storePage(slug).includes('FHB+DVC on YouVersion'), `/bookstore/${slug}: no banner`);
+	// the YouVersion bar: exactly ONE, at the top under the global nav, from the Layout (Kevin 2026-11-16 ~16:40Z "should be at
+	// the top under global nav", superseding the 16:0xZ no-banner-on-bookstore), so it never sits on the country marquee
+	for (const slug of ['', 'smp', 'express-books', 'fhb-english']) {
+		const h = storePage(slug);
+		assert.equal(h.split('FHB+DVC on YouVersion').length - 1, 1, `/bookstore/${slug}: exactly one YouVersion bar`);
+		assert.ok(h.indexOf('FHB+DVC on YouVersion') < h.indexOf('<main'), `/bookstore/${slug}: the bar sits above the page content, under the nav`);
+	}
+});
+
+// CARD -> OWN PAGE (Kevin 2026-11-16 16:5xZ: bookstore card images must open the SMP book page). Independent of the
+// component's lookup: a card is matched to a page by the ship-set title, the slug read as words, or the alias file
+// (card-page-aliases.json); a match whose page is BUILT on this build means the card may not link off-site.
+const offsiteWithPage = (cards) => {
+	const norm = (t) => String(t || '').toLowerCase().replace(/\((spanish|english|large print|hardcover|paperback)[^)]*edition\)/gi, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-v2.json', import.meta.url), 'utf8'));
+	const aliases = JSON.parse(fs.readFileSync(new URL('../src/data/books/card-page-aliases.json', import.meta.url), 'utf8')).aliases;
+	const built = (slug) => fs.existsSync(new URL(`../dist/books/${slug}/index.html`, import.meta.url));
+	const bySlugKey = new Map();
+	for (const t of set.titles) {
+		bySlugKey.set(norm(t.book.title), [t.slug]);
+		bySlugKey.set(norm(t.slug.replace(/-/g, ' ')), [t.slug]);
+	}
+	const bad = [];
+	for (const c of cards) {
+		if (c.href.startsWith('/books/') || c.href.startsWith('https://fathersheartbible.com/')) continue;
+		const cands = [c.key, norm(c.title)].flatMap((k) => [...(bySlugKey.get(k) || []), ...(aliases[k] || [])]);
+		const page = cands.find(built);
+		if (page) bad.push(`${c.title}: links ${c.href} although /books/${page}/ is built`);
+	}
+	return bad;
+};
+
+test('bookstore: no card links off-site when its SMP page is built (+ fails on an injected off-site card)', () => {
+	const cards = cardsOf(storePage(''));
+	assert.deepEqual(offsiteWithPage(cards), []);
+	const own = cards.find((c) => c.href.startsWith('/books/') && c.key);
+	const injected = [...cards, { ...own, id: 'injected', href: 'https://www.amazon.com/dp/INJECTED' }];
+	const errs = offsiteWithPage(injected);
+	assert.equal(errs.length, 1);
+	console.log(`# injected-failure proof: ${errs[0]}`);
+	const off = cards.filter((c) => !c.href.startsWith('/books/') && !c.href.startsWith('https://fathersheartbible.com/'));
+	console.log(`# cards: ${cards.length} = own ${cards.filter((c) => c.href.startsWith('/books/')).length} / FHB ${cards.filter((c) => c.href.startsWith('https://fathersheartbible.com/')).length} / off-site ${off.length}`);
+	for (const c of off) console.log(`# off-site: ${c.title} -> ${c.href}`);
+});
+
+test('bookstore: pale covers in light-covers.json get the thin gray cover line (Kevin 2026-11-16, The Forgotten Witness)', () => {
+	const html = storePage('');
+	const light = JSON.parse(fs.readFileSync(new URL('../src/data/books/light-covers.json', import.meta.url), 'utf8'));
+	const cards = html.split('<div data-card=').slice(1);
+	const framed = (c) => /border-b border-\[#adacab\]/.test(c.slice(0, c.indexOf('</a>')));
+	for (const t of light.titles) {
+		const c = cards.find((x) => x.includes(`alt="${t}"`));
+		assert.ok(c, `${t}: carded`);
+		assert.ok(framed(c), `${t}: framed`);
+	}
+	assert.ok(!framed(cards.find((x) => x.includes('alt="Hold It, Daniel!"'))), 'a dark cover is not framed');
 });
