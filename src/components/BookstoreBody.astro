@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import cardAliases from '../data/books/card-page-aliases.json';
 import coverSized from '../data/books/cover-sized.json';
 import expressExtra from '../data/books/express-books.json';
 import pagesLive from '../data/books/pages-live.json';
@@ -429,14 +430,12 @@ const ownFormats = (own: string, all: Record<string, unknown> | undefined) => {
 	if (!Object.keys(out).length) out.paperback = own;
 	return out;
 };
+// Cards whose title differs from the ship set: src/data/books/card-page-aliases.json (Kevin 2026-11-16 16:5xZ "card images
+// must open the SMP book page"), one lookup, the first BUILT candidate page wins; no built candidate = the store link stays.
 const OWN_ALIAS: Record<string, string> = Object.fromEntries(
-	Object.entries({
-		'home colored': 'home',
-		'home b w': 'home',
-		'home sacred search for belonging colored': 'home',
-		'your time': 'your-time-work-staff',
-	})
-		.filter(([, slug]) => PAGE_BUILT(slug))
+	Object.entries((cardAliases as any).aliases as Record<string, string[]>)
+		.map(([k, slugs]) => [k, slugs.find((slug) => PAGE_BUILT(slug))])
+		.filter(([, slug]) => slug)
 		.map(([k, slug]) => [k, `/books/${slug}/`]),
 );
 for (const doc of rawBooks as any[]) {
@@ -444,7 +443,8 @@ for (const doc of rawBooks as any[]) {
 	const own =
 		OWN_PAGE.get(norm(doc.title)) ??
 		OWN_PAGE.get(norm(doc.display_title)) ??
-		OWN_ALIAS[norm(doc.title)];
+		OWN_ALIAS[norm(doc.title)] ??
+		OWN_ALIAS[norm(doc.display_title)];
 	if (!own) continue;
 	doc.amazon = own;
 	doc.formatsAll = doc.formats; // still counted in Published Titles (L2109)
@@ -785,7 +785,7 @@ const itemListLd =
     )}
     <div id="book-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
       {initialBooks.map((b: any) => (
-        <div data-card={b.cardId} data-colls={b.colls.join(' ')} data-live={b.live ? '1' : undefined} class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+        <div data-card={b.cardId} data-key={norm(b.title)} data-colls={b.colls.join(' ')} data-live={b.live ? '1' : undefined} class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
           <a href={b.amazon || undefined} target={b.amazon && !b.ownPage ? '_blank' : undefined} rel={b.amazon && !b.ownPage ? 'noopener noreferrer' : undefined} class="block">
             <div class={`aspect-[2/3] overflow-hidden bg-stone-100${isLightCover(b) ? ' border-b border-[#adacab]' : ''}`}>
               {b.img && <img src={b.img} alt={b.display_title || b.title} loading="lazy" width={b.w} height={b.h} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />}

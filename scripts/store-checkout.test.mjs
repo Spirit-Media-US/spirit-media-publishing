@@ -488,11 +488,13 @@ const exactlyOneErrors = (pages, all) => {
 };
 const cardsOf = (html) => {
 	const grid = html.slice(html.indexOf('id="book-grid"'), html.indexOf('id="no-results"'));
-	return [...grid.matchAll(/<div data-card="([^"]*)" data-colls="([^"]*)"(?: data-live="1")?[^>]*>[\s\S]*?<a href="([^"]*)"/g)].map((m) => ({
+	return [...grid.matchAll(/<div data-card="([^"]*)"(?: data-key="([^"]*)")? data-colls="([^"]*)"(?: data-live="1")?[^>]*>[\s\S]*?<a href="([^"]*)"[\s\S]*?alt="([^"]*)"/g)].map((m) => ({
 		id: m[1].replace(/&#39;/g, "'").replace(/&amp;/g, '&'),
-		colls: m[2].split(' '),
+		key: m[2] || '',
+		colls: m[3].split(' '),
 		live: m[0].includes('data-live="1"'),
-		href: m[3],
+		href: m[4],
+		title: m[5].replace(/&#39;/g, "'").replace(/&#38;/g, '&').replace(/&amp;/g, '&'),
 	}));
 };
 const cardsTitles = (html) => {
@@ -652,4 +654,40 @@ test('bookstore: tagline + Publish Your Book in the hero, offer line + marquee u
 	assert.doesNotMatch(storePage('smp'), /data-ship-band/, 'the hero band is on /bookstore/ only');
 	// no YouVersion banner on any bookstore page (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee)
 	for (const slug of ['', 'smp', 'express-books', 'fhb-english']) assert.ok(!storePage(slug).includes('FHB+DVC on YouVersion'), `/bookstore/${slug}: no banner`);
+});
+
+// CARD -> OWN PAGE (Kevin 2026-11-16 16:5xZ: bookstore card images must open the SMP book page). Independent of the
+// component's lookup: a card is matched to a page by the ship-set title, the slug read as words, or the alias file
+// (card-page-aliases.json); a match whose page is BUILT on this build means the card may not link off-site.
+const offsiteWithPage = (cards) => {
+	const norm = (t) => String(t || '').toLowerCase().replace(/\((spanish|english|large print|hardcover|paperback)[^)]*edition\)/gi, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-v2.json', import.meta.url), 'utf8'));
+	const aliases = JSON.parse(fs.readFileSync(new URL('../src/data/books/card-page-aliases.json', import.meta.url), 'utf8')).aliases;
+	const built = (slug) => fs.existsSync(new URL(`../dist/books/${slug}/index.html`, import.meta.url));
+	const bySlugKey = new Map();
+	for (const t of set.titles) {
+		bySlugKey.set(norm(t.book.title), [t.slug]);
+		bySlugKey.set(norm(t.slug.replace(/-/g, ' ')), [t.slug]);
+	}
+	const bad = [];
+	for (const c of cards) {
+		if (c.href.startsWith('/books/') || c.href.startsWith('https://fathersheartbible.com/')) continue;
+		const cands = [c.key, norm(c.title)].flatMap((k) => [...(bySlugKey.get(k) || []), ...(aliases[k] || [])]);
+		const page = cands.find(built);
+		if (page) bad.push(`${c.title}: links ${c.href} although /books/${page}/ is built`);
+	}
+	return bad;
+};
+
+test('bookstore: no card links off-site when its SMP page is built (+ fails on an injected off-site card)', () => {
+	const cards = cardsOf(storePage(''));
+	assert.deepEqual(offsiteWithPage(cards), []);
+	const own = cards.find((c) => c.href.startsWith('/books/') && c.key);
+	const injected = [...cards, { ...own, id: 'injected', href: 'https://www.amazon.com/dp/INJECTED' }];
+	const errs = offsiteWithPage(injected);
+	assert.equal(errs.length, 1);
+	console.log(`# injected-failure proof: ${errs[0]}`);
+	const off = cards.filter((c) => !c.href.startsWith('/books/') && !c.href.startsWith('https://fathersheartbible.com/'));
+	console.log(`# cards: ${cards.length} = own ${cards.filter((c) => c.href.startsWith('/books/')).length} / FHB ${cards.filter((c) => c.href.startsWith('https://fathersheartbible.com/')).length} / off-site ${off.length}`);
+	for (const c of off) console.log(`# off-site: ${c.title} -> ${c.href}`);
 });
