@@ -16852,5 +16852,186 @@
 				"h": 1200
 			}
 		]
+	},
+	"the-sunday-scaries": {
+		"count": 29,
+		"dir": "the-sunday-scaries",
+		"pages": [
+			{
+				"file": "the-sunday-scaries-00-front.webp",
+				"label": "Front cover",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "the-sunday-scaries-spacer.webp",
+				"label": "Inside cover",
+				"w": 800,
+				"h": 1133,
+				"spacer": true
+			},
+			{
+				"file": "p001.webp",
+				"label": "Title page",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p002.webp",
+				"label": "Copyright",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p003.webp",
+				"label": "Dedication",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p005.webp",
+				"label": "Table of Contents",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p007.webp",
+				"label": "Introduction",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p008.webp",
+				"label": "Page 6",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p009.webp",
+				"label": "Page 7",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p010.webp",
+				"label": "Page 8",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p011.webp",
+				"label": "Page 9",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p012.webp",
+				"label": "Page 10",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p013.webp",
+				"label": "Page 11",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p014.webp",
+				"label": "Page 12",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p015.webp",
+				"label": "Page 13",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p016.webp",
+				"label": "Page 14",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p017.webp",
+				"label": "Page 15",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p018.webp",
+				"label": "Page 16",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p019.webp",
+				"label": "Chapter 1: The Sunday Scaries",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p020.webp",
+				"label": "Page 18",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p021.webp",
+				"label": "Page 19",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p022.webp",
+				"label": "Page 20",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p023.webp",
+				"label": "Page 21",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p024.webp",
+				"label": "Page 22",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p025.webp",
+				"label": "Page 23",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p026.webp",
+				"label": "Page 24",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p027.webp",
+				"label": "Page 25",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p028.webp",
+				"label": "Page 26",
+				"w": 800,
+				"h": 1133
+			},
+			{
+				"file": "p029.webp",
+				"label": "Page 27",
+				"w": 800,
+				"h": 1133
+			}
+		]
 	}
 }

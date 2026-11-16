@@ -286,6 +286,43 @@ test('duplicate rule check FAILS on a wrong canonical (proof the gate can reject
 	assert.equal(canonicalErrs('gifts', '<link rel="canonical" href="https://fathersheartbible.com/books/gifts/">', 'https://spiritmediapublishing.com/books/gifts/').length, 1, 'an SMP book pointing away must fail');
 });
 const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+// DIGITAL-ONLY (Kevin 2026-11-16 17:15Z "book page for every book ... even if we can't sell it like the audiobook"): a book
+// with no store SKU and a live listing in src/data/books/retailer-links.json carries ONE calm retailer button in place of
+// the order box ("Buy the eBook" / "Listen on Audible" -> that listing), Keep shopping, and nothing to ship: no order form,
+// no offer line, no marquee, no email field, no pending note. digitalErrs() is the ONE check, used on the built pages and
+// proven to fail on a digital page with no retailer button.
+const RETAIL = JSON.parse(fs.readFileSync(new URL('../src/data/books/retailer-links.json', import.meta.url), 'utf8')).links;
+const RETAIL_LABEL = { ebook: 'Buy the eBook', audiobook: 'Listen on Audible' };
+const RETAIL_BTN = /<a class="br-btn"[^>]*href="([^"]+)"[^>]*>([^<]*)<\/a>|<a[^>]*href="([^"]+)"[^>]*class="br-btn"[^>]*>([^<]*)<\/a>/g;
+const digitalErrs = (slug, main, row) => {
+	const errs = [];
+	const btns = [...main.matchAll(RETAIL_BTN)].map((m) => ({ href: m[1] ?? m[3], label: (m[2] ?? m[4]).trim() }));
+	if (btns.length !== 1) errs.push(`${slug}: ${btns.length} retailer buttons, want 1`);
+	else {
+		if (btns[0].href !== row.href) errs.push(`${slug}: retailer button -> ${btns[0].href}, want ${row.href}`);
+		if (btns[0].label !== RETAIL_LABEL[row.kind]) errs.push(`${slug}: retailer label "${btns[0].label}", want "${RETAIL_LABEL[row.kind]}"`);
+	}
+	if (!/id="order"[^>]*data-status="digital"/.test(main)) errs.push(`${slug}: no #order retailer box`);
+	if (!/aria-label="Keep shopping"/.test(main)) errs.push(`${slug}: no Keep shopping`);
+	if (/<form id="order"/.test(main)) errs.push(`${slug}: an order form on a digital-only page`);
+	if (/class="bo-offer"|class="bo-marquee"/.test(main)) errs.push(`${slug}: offer line / marquee on a digital-only page (nothing to ship)`);
+	if (/<input[^>]+type="email"/.test(main)) errs.push(`${slug}: email field on a digital-only page`);
+	if (/Available soon from our store\./.test(main)) errs.push(`${slug}: pending note on a digital-only page`);
+	if (/class="[^"]*\bbtn-primary\b[^"]*"[^>]*>\s*Order\s*</.test(main)) errs.push(`${slug}: an Order button with nothing to order`);
+	return errs;
+};
+test('digital-only check FAILS on a digital page with no retailer button (proof the gate can reject)', () => {
+	const row = RETAIL['the-sunday-scaries'];
+	const good = `<main><div id="order" class="br-wrap" data-status="digital" data-kind="audiobook"><a class="br-btn" href="${row.href}" rel="noopener" target="_blank" data-retailer="audiobook">Listen on Audible</a></div><nav class="br-shop" aria-label="Keep shopping"></nav></main>`;
+	assert.deepEqual(digitalErrs('the-sunday-scaries', good, row), []);
+	const noBtn = good.replace(/<a class="br-btn"[\s\S]*?<\/a>/, '');
+	assert.ok(digitalErrs('the-sunday-scaries', noBtn, row).some((e) => /0 retailer buttons/.test(e)), 'a digital page with no retailer button must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace(row.href, 'https://www.amazon.com/dp/B000000000'), row).length, 'a button to the wrong listing must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace('Listen on Audible', 'Buy now'), row).length, 'a wrong label must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace('</main>', '<p class="bo-offer">x</p></main>'), row).length, 'an offer line must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace('</main>', '<input id="e" type="email"></main>'), row).length, 'an email field must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace(' aria-label="Keep shopping"', ''), row).length, 'no Keep shopping must fail');
+});
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
 	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-v2.json', import.meta.url), 'utf8'));
@@ -326,11 +363,16 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 				assert.doesNotMatch(main, />(Look inside|Questions|Product details|Checkout →)</, `${t.slug}: no English chrome`);
 			}
 			for (const k of Object.keys(t.skus)) if (REG[k]) assert.match(main, new RegExp(`name="${k}"`), `${t.slug}: ${k} quantity`);
+		} else if (RETAIL[t.slug]) {
+			assert.deepEqual(digitalErrs(t.slug, main, RETAIL[t.slug]), [], `${t.slug}: digital-only retailer box`);
 		} else {
 			assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
 			assert.match(main, { es: /Pronto disponible en nuestra tienda\./, fr: /Bientôt disponible dans notre librairie\./ }[t.book?.language] ?? /Available soon from our store\./, `${t.slug}: pending note`);
 		}
-		assert.doesNotMatch(main, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
+		// digital-only: the ONE retailer button is Kevin's 2026-11-16 17:15Z exception to "Amazon is never a buy option";
+		// everything else on the page still obeys it
+		const body = RETAIL[t.slug] && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
+		assert.doesNotMatch(body, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
 		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
 		const leak = textOf(main).match(LEAK);
 		assert.equal(leak, null, `${t.slug}: internal wording on the page: "${leak?.[0]}"`);
@@ -338,7 +380,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		assert.equal(ld.match(LEAK), null, `${t.slug}: internal wording in JSON-LD`);
 		// Amazon is never a buy option on our page (Kevin 11-13 L1973): no link to it, no 'buy/order/available on Amazon'.
 		// A book's own words may name it (SM's Guide contents: "Chapter 9: Respect King Amazon"), so the bare word is allowed.
-		assert.doesNotMatch(main, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
+		assert.doesNotMatch(body, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
 		assert.doesNotMatch(textOf(main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
 		// the order box's choices are <summary data-choice>, not questions
 		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary(?![^>]*data-choice)[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
@@ -697,15 +739,42 @@ test('bookstore: no card links off-site when its SMP page is built (+ fails on a
 	for (const c of off) console.log(`# off-site: ${c.title} -> ${c.href}`);
 });
 
-test('bookstore: pale covers in light-covers.json get the thin gray cover line (Kevin 2026-11-16, The Forgotten Witness)', () => {
+test('bookstore: pale covers in light-covers.json get their frame: full 4-side on The Forgotten Witness, underline on White Editions (Kevin 2026-11-16)', () => {
 	const html = storePage('');
 	const light = JSON.parse(fs.readFileSync(new URL('../src/data/books/light-covers.json', import.meta.url), 'utf8'));
-	const cards = html.split('<div data-card=').slice(1);
-	const framed = (c) => /border-b border-\[#adacab\]/.test(c.slice(0, c.indexOf('</a>')));
-	for (const t of light.titles) {
-		const c = cards.find((x) => x.includes(`alt="${t}"`));
-		assert.ok(c, `${t}: carded`);
-		assert.ok(framed(c), `${t}: framed`);
+	const cards = html.split('<div data-card=').slice(1).map((c) => c.slice(0, c.indexOf('</a>')));
+	const card = (re) => cards.find((c) => re.test(c));
+	const full = (c) => /<img [^>]*class="[^"]*\bborder border-\[#adacab\]/.test(c);
+	const underline = (c) => /aspect-\[2\/3\][^"]*border-b border-\[#adacab\]/.test(c);
+	for (const t of light.titles.filter((x) => x.frame === 'full')) {
+		const c = card(new RegExp(`alt="${t.title}"`));
+		assert.ok(c && full(c) && !underline(c), `${t.title}: 1px frame on all four sides of the cover image`);
 	}
-	assert.ok(!framed(cards.find((x) => x.includes('alt="Hold It, Daniel!"'))), 'a dark cover is not framed');
+	// underline (the default): every card a pattern names keeps the line under the cover and no full frame. Today no card
+	// title says "White Edition" (the FHB White card is "Regular Print - White"), so the path is also proven on a copy.
+	const titleOf = (c) => (c.match(/alt="([^"]*)"/)?.[1] || '').replace(/&#39;/g, "'");
+	for (const pat of light.patterns)
+		for (const c of cards.filter((x) => new RegExp(pat.pattern, 'i').test(titleOf(x))))
+			assert.ok(underline(c) && !full(c), `${titleOf(c)} keeps its underline`);
+	assert.ok(underline('<div class="aspect-[2/3] overflow-hidden bg-stone-100 border-b border-[#adacab]"><img class="w-full h-full object-contain"') && !full('<img class="w-full h-full object-contain"'), 'underline detector');
+	const dark = card(/alt="Hold It, Daniel!"/);
+	assert.ok(dark && !full(dark) && !underline(dark), 'Hold It, Daniel! has neither');
+});
+
+test('home: "New from Spirit Media Authors" renders the SAME bookstore cards, and the menu has Books (Kevin 2026-11-16)', () => {
+	const home = fs.readFileSync(new URL('../dist/index.html', import.meta.url), 'utf8');
+	const store = storePage('');
+	const sec = home.slice(home.indexOf('id="home-books-heading"'), home.indexOf('Visit the Bookstore'));
+	assert.ok(sec.length > 0, 'section present');
+	const homeCards = sec.split('<li>').slice(1).map((x) => x.slice(0, x.indexOf('</li>')));
+	assert.equal(homeCards.length, 8, '8 cards');
+	for (const c of homeCards) {
+		const id = c.match(/data-card="([^"]*)"/)[1];
+		const s = store.indexOf(`<div data-card="${id}"`);
+		assert.ok(s > 0, `${id}: is a bookstore card`);
+		const storeCard = store.slice(s, s + c.length);
+		assert.equal(c, storeCard, `${id}: identical markup to the /bookstore/ card`);
+		assert.match(c, /href="\/books\/[^"]+\/"/, `${id}: opens its SMP page`);
+	}
+	assert.match(home, /<a href="\/bookstore\/"[^>]*>\s*Books\s*<\/a>/, 'menu Books link');
 });

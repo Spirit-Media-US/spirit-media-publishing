@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 70,
+	"language": 71,
 	"editions": [
 		{
 			"group": "audience",
@@ -1603,6 +1603,25 @@
 			],
 			"formats": {},
 			"isbn": "979-8-89307-435-2",
+			"binding": "hb",
+			"price": 99.99
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Kitêba Pîroz a Kurmancî (Kurmanji Kurdish) — Kurmanji Kurdish Edition",
+			"display_title": "Kitêba Pîroz a Kurmancî — Kurmanji Kurdish Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-kmr-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/kurmanji-kurdish-bible/",
+			"date": "2026-10-29",
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {},
+			"isbn": "979-8-89307-437-6",
 			"binding": "hb",
 			"price": 99.99
 		},

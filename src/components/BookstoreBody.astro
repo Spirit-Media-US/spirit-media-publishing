@@ -4,15 +4,18 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import cardAliases from '../data/books/card-page-aliases.json';
 import coverSized from '../data/books/cover-sized.json';
+import doNotPublish from '../data/books/do-not-publish.json';
 import expressExtra from '../data/books/express-books.json';
 import lightCovers from '../data/books/light-covers.json';
 import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
+import { dnpMatcher } from '../lib/do-not-publish.mjs';
 import { sanityClient } from '../lib/sanity.ts';
 import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
+import BookCard from './BookCard.astro';
 import ShipCountryMarquee from './ShipCountryMarquee.astro';
 
 interface Props {
@@ -23,6 +26,9 @@ interface Props {
 	// 2wg: unique intro for a collection page. `{n}` is replaced with the number of books the
 	// page lists (computed from the collection data at build, never typed). Index page: none.
 	introHtml?: string;
+	// Homepage "New from Spirit Media Authors" (Kevin 2026-11-16 "Make them show like cards on bookstore page"): render
+	// ONLY the bookstore cards whose link is one of these /books/<slug>/ pages, in this order, as the same BookCard.
+	cardsOnlyHrefs?: string[];
 }
 
 const {
@@ -31,6 +37,7 @@ const {
 	heroTitleHtml = `Spirit Media's <span class="text-red">Bookstore</span>`,
 	heroSubtitle = 'Over 550 titles by Kingdom Messengers. New books added every week.',
 	introHtml = '',
+	cardsOnlyHrefs,
 } = Astro.props;
 
 const rawBooks = await sanityClient.fetch(`
@@ -55,6 +62,13 @@ const rawBooks = await sanityClient.fetch(`
     }
   }
 `);
+// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): src/data/books/do-not-publish.json, by
+// Sanity id or title. Dropped HERE, before anything reads rawBooks, so they get no card on /bookstore/ or any collection
+// page, no ItemList entry, no author in the filter, and are not counted in Published Titles / Kingdom Messengers.
+// The Sanity documents are left untouched. Test: scripts/do-not-publish.test.mjs.
+const isDoNotPublish = dnpMatcher(doNotPublish);
+for (let i = rawBooks.length - 1; i >= 0; i--)
+	if (isDoNotPublish(rawBooks[i])) rawBooks.splice(i, 1);
 
 // ── Every FHB AUDIENCE and LANGUAGE edition (Kevin 2026-10-07: "update SMP bookstore with all
 // the audience editions and languages"). ONE MASTER PER FACT: titles, dates, cards and links
@@ -397,7 +411,9 @@ const norm = (t: string) =>
 // only the pages that BUILD (src/data/books/pages-live.json; all of them on a BOOKS_PREVIEW_ALL=1 preview)
 const PAGE_BUILT = (slug: string) =>
 	process.env.BOOKS_PREVIEW_ALL === '1' || (pagesLive.slugs as string[]).includes(slug);
-const LIVE_TITLES = (shipset as any).titles.filter((t: any) => PAGE_BUILT(t.slug));
+const LIVE_TITLES = (shipset as any).titles.filter(
+	(t: any) => PAGE_BUILT(t.slug) && !isDoNotPublish({ slug: t.slug, title: t.book?.title }),
+);
 const OWN_PAGE = new Map<string, string>(
 	LIVE_TITLES.map((t: any) => [norm(t.book.title), `/books/${t.slug}/`]),
 );
@@ -561,14 +577,34 @@ const liveFirst = (x: any, y: any) => Number(!!y.live) - Number(!!x.live);
 const shipOfferLine = `15% off first order + free standard shipping to ${LIVE_COUNTRIES.length} countries`;
 const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
 
-// pale covers that blend into the white card: src/data/books/light-covers.json (title patterns + exact titles)
-const LIGHT_PATTERNS = (lightCovers as any).patterns.map((x: string) => new RegExp(x, 'i'));
-const LIGHT_TITLES = new Set<string>((lightCovers as any).titles.map((t: string) => norm(t)));
-const isLightCover = (b: any) =>
-	[b.title, b.display_title].some(
-		(t) => t && (LIGHT_PATTERNS.some((re: RegExp) => re.test(t)) || LIGHT_TITLES.has(norm(t))),
-	);
-for (const b of rawBooks as any[]) if (isLightCover(b)) b.lightCover = true;
+// pale covers that blend into the white card: src/data/books/light-covers.json (title patterns + exact titles), each
+// with its style: 'underline' (default, the line under the cover) or 'full' (1px frame on all four sides of the image)
+const LIGHT_PATTERNS = (lightCovers as any).patterns.map((x: any) => ({
+	re: new RegExp(x.pattern, 'i'),
+	frame: x.frame || 'underline',
+}));
+const LIGHT_TITLES = new Map<string, string>(
+	(lightCovers as any).titles.map((t: any) => [norm(t.title), t.frame || 'underline']),
+);
+const coverFrameOf = (b: any): string | undefined => {
+	for (const t of [b.title, b.display_title].filter(Boolean)) {
+		const exact = LIGHT_TITLES.get(norm(t));
+		if (exact) return exact;
+		const pat = LIGHT_PATTERNS.find((x: any) => x.re.test(t));
+		if (pat) return pat.frame;
+	}
+	return undefined;
+};
+for (const b of rawBooks as any[]) {
+	const f = coverFrameOf(b);
+	if (f) b.coverFrame = f;
+}
+// the SSR card and the script's redraw use the same classes (keep in sync with render() below)
+const COVER_BOX_UNDERLINE = ' border-b border-[#adacab]';
+const IMG_CLASS =
+	'w-full h-full object-contain group-hover:scale-105 transition-transform duration-300';
+const IMG_CLASS_FRAMED =
+	'block h-full w-auto max-w-full mx-auto border border-[#adacab] object-contain group-hover:scale-105 transition-transform duration-300';
 const BOOKS_JSON = JSON.stringify(rawBooks);
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
 // browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
@@ -726,8 +762,26 @@ const itemListLd =
 				})),
 			})
 		: '';
+// the BookCard props for one card (the /bookstore/ grid and the homepage section share them)
+const cardProps = (b: any) => ({
+	b,
+	dataKey: norm(b.title),
+	coverBoxClass: `aspect-[2/3] overflow-hidden bg-stone-100${b.coverFrame === 'underline' ? COVER_BOX_UNDERLINE : ''}`,
+	imgClass: b.coverFrame === 'full' ? IMG_CLASS_FRAMED : IMG_CLASS,
+	dateLabel: dateLabelOf(b),
+	formatsHtml: formatsHtml(b),
+});
+const cardsOnly = cardsOnlyHrefs
+	? cardsOnlyHrefs.map((href) => (rawBooks as any[]).find((b) => b.amazon === href)).filter(Boolean)
+	: null;
 ---
 
+{cardsOnly ? (
+<ul class="grid grid-cols-2 gap-5 sm:grid-cols-4" data-home-cards>
+  {cardsOnly.map((b: any) => <li><BookCard {...cardProps(b)} /></li>)}
+</ul>
+) : (
+<Fragment>
 {itemListLd && <script type="application/ld+json" set:html={itemListLd}></script>}
 
 <!-- HERO -->
@@ -791,21 +845,7 @@ const itemListLd =
       </div>
     )}
     <div id="book-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
-      {initialBooks.map((b: any) => (
-        <div data-card={b.cardId} data-key={norm(b.title)} data-colls={b.colls.join(' ')} data-live={b.live ? '1' : undefined} class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-          <a href={b.amazon || undefined} target={b.amazon && !b.ownPage ? '_blank' : undefined} rel={b.amazon && !b.ownPage ? 'noopener noreferrer' : undefined} class="block">
-            <div class={`aspect-[2/3] overflow-hidden bg-stone-100${isLightCover(b) ? ' border-b border-[#adacab]' : ''}`}>
-              {b.img && <img src={b.img} alt={b.display_title || b.title} loading="lazy" width={b.w} height={b.h} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />}
-            </div>
-          </a>
-          <div class="p-3 flex flex-col gap-1">
-            <a href={b.amazon || undefined} target={b.amazon && !b.ownPage ? '_blank' : undefined} rel={b.amazon && !b.ownPage ? 'noopener noreferrer' : undefined} class="text-xs font-semibold text-ink-soft leading-tight line-clamp-2 hover:text-red transition-colors">{b.display_title || b.title}</a>
-            <p class="text-xs text-stone-500">{b.author}</p>
-            {dateLabelOf(b) && <p class="text-xs text-stone-400">{dateLabelOf(b)}</p>}
-            <Fragment set:html={formatsHtml(b)} />
-          </div>
-        </div>
-      ))}
+      {initialBooks.map((b: any) => <BookCard {...cardProps(b)} />)}
     </div>
     <p id="no-results" class="hidden text-center text-stone-500 py-12 lg:py-20">No books found matching your search.</p>
   </div>
@@ -945,8 +985,11 @@ const itemListLd =
       const displayTitle = b.display_title || b.title;
       // Light/white covers (e.g. FHB White Edition) blend into the white card —
       // add a hairline between the cover and the card body so the edge reads.
-      const lightCover = !!b.lightCover; // set at build from src/data/books/light-covers.json
-      const coverBorder = lightCover ? ' border-b border-[#adacab]' : '';
+      // b.coverFrame is set at build from src/data/books/light-covers.json ('underline' | 'full')
+      const coverBorder = b.coverFrame === 'underline' ? ' border-b border-[#adacab]' : '';
+      const imgClass = b.coverFrame === 'full'
+        ? 'block h-full w-auto max-w-full mx-auto border border-[#adacab] object-contain group-hover:scale-105 transition-transform duration-300'
+        : 'w-full h-full object-contain group-hover:scale-105 transition-transform duration-300';
       // No listing at all -> an inert <a> rather than href="null" (a link that 404s on
       // our own domain is worse than no link). GROQ already falls back to the per-binding
       // URLs, so this only fires for a book with no purchase link recorded anywhere.
@@ -955,7 +998,7 @@ const itemListLd =
         <a ${buyAttrs} class="block">
           <div class="aspect-[2/3] overflow-hidden bg-stone-100${coverBorder}">
             ${b.img ? `<img src="${b.img}" alt="${displayTitle}" loading="lazy"${b.w ? ` width="${b.w}" height="${b.h}"` : ''}
-              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />` : ''}
+              class="${imgClass}" />` : ''}
           </div>
         </a>
         <div class="p-3 flex flex-col gap-1">
@@ -1015,3 +1058,5 @@ const itemListLd =
   // 2uv: the server already drew this exact grid (same sort, same card markup) — redrawing it on load
   // replaced every card and shifted layout. Nothing is redrawn on load; filtering redraws as before.
 </script>
+</Fragment>
+)}

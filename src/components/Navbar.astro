@@ -8,6 +8,9 @@ const mainLinks = [
 	{ href: '/about/', label: 'About' },
 	{ href: '/publishing/', label: 'Publishing' },
 	{ href: '/marketing/', label: 'Marketing' },
+	// Books -> the bookstore (pmprint 2026-11-16, brief pmprint-smp-growth #2); desktop links are px-2 below xl so the
+	// bar still fits at 1024px with the extra item (measured: px-3 overflowed to 1077px).
+	{ href: '/bookstore/', label: 'Books' },
 ] as const;
 
 const resourcesLinks = [
@@ -73,7 +76,7 @@ const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishin
                   href={href}
                   aria-current={isActive(href) ? 'page' : undefined}
                   class:list={[
-                    'rounded px-3 py-2 text-base font-medium transition-colors',
+                    'rounded px-2 xl:px-3 py-2 text-base font-medium transition-colors',
                     isActive(href)
                       ? 'bg-red text-white'
                       : 'text-stone-600 hover:bg-stone-50 hover:text-ink',
@@ -93,7 +96,7 @@ const logoUrl = 'https://assets.spiritmediapublishing.com/spirit-media-publishin
               aria-expanded="false"
               id="resources-menu-btn"
               class:list={[
-                'flex items-center gap-1 rounded px-3 py-2 text-base font-medium transition-colors',
+                'flex items-center gap-1 rounded px-2 xl:px-3 py-2 text-base font-medium transition-colors',
                 isResourcesActive
                   ? 'bg-red text-white'
                   : 'text-stone-600 hover:bg-stone-50 hover:text-ink',
