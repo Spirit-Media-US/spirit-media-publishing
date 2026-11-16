@@ -1,0 +1,31 @@
+{
+	"_note": "Bookstore card -> SMP book page aliases (Kevin 2026-11-16 16:5xZ: bookstore card images must open the SMP book page). Key = the card's Sanity title (or display title), normalised as BookstoreBody.astro norm() does (lower case, accents and punctuation to single spaces, '(... edition)' dropped). Value = candidate /books/<slug>/ pages in order; the FIRST one that is built on this build (pages-live.json, or every page on a BOOKS_PREVIEW_ALL=1 preview) wins. A card whose title already equals a ship-set title or slug needs no entry. A card with no built candidate keeps its store link until its page is live.",
+	"aliases": {
+		"home colored": ["home"],
+		"home b w": ["home"],
+		"home sacred search for belonging colored": ["home"],
+		"your time": ["your-time-work-staff"],
+		"your time law enforcements": ["your-time-law-enforcement"],
+		"your time church leadership": ["your-time-church-leaders"],
+		"your time bday male": ["your-time-mens-birthday"],
+		"your time bday female": ["your-time-womens-birthday"],
+		"1 my way to adoption": ["my-way-to-adoption"],
+		"4 who am i": ["who-am-i-tetiana-kurylo"],
+		"heart journey book": ["heart-journey"],
+		"only god works b w": ["only-god-works"],
+		"only god works color": ["only-god-works"],
+		"ogw arabic": ["only-god-works"],
+		"ogw hindi": ["ogw-hindi", "only-god-works"],
+		"the creation": ["the-creation-of-the-world"],
+		"rightly dividing the truth the cross the church and the spirit s power": [
+			"rightly-dividing-the-truth-the-cross-the-church-and-the-spirits-power"
+		],
+		"rightly dividing the truth foundations of faith prayer": [
+			"rightly-dividing-the-truth-foundations-of-faith-and-prayer"
+		],
+		"singers amazing journey": ["singer-s-amazing-journey"],
+		"pantry stuffers rehydration calculations made easy u s and metric measurements": [
+			"pantry-stuffers-rehydration-calculations-made-easy"
+		]
+	}
+}

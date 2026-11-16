@@ -1,6 +1,5 @@
 ---
 import RelatedPosts from '../components/RelatedPosts.astro';
-import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
@@ -147,7 +146,7 @@ const teamMembers = (rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM)
 }));
 ---
 
-<Layout youversionBanner={false}
+<Layout
 	title="About Spirit Media Publishing — Kingdom Messengers"
 	description="Spirit Media Publishing is a global Christian publishing and marketing company empowering Kingdom Messengers to share their message in 195 nations."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/02e9961fbe45d2e8dfc63a772f73719af79693f0-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -230,8 +229,6 @@ const teamMembers = (rawTeamMembers.length > 0 ? rawTeamMembers : FALLBACK_TEAM)
 				</div>
 			</div>
 		</section>
-		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
-		<YouVersionBanner />
 
 		<!-- IMPACT STATS -->
 		<section class="bg-red px-6 py-12 lg:px-8">

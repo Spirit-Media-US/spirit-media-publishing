@@ -1,6 +1,5 @@
 ---
 import AuthorSurvey from '../components/AuthorSurvey.astro';
-import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
@@ -25,7 +24,7 @@ contactHeroImage =
 	'https://cdn.sanity.io/images/pmowd8uo/production/232962df9e9743a5790ae86776ab683dbd76042b-1200x630.jpg';
 ---
 
-<Layout youversionBanner={false}
+<Layout
 	title="Free Publishing & Marketing Consultation — Spirit Media"
 	description="Ready to publish your book or grow your platform? Schedule a free consultation with Spirit Media Publishing and discover how we can help you reach the nations."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f67376ca3cbad336ac9ed54977f72d3f9917397b-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -63,8 +62,6 @@ contactHeroImage =
 				</div>
 			</div>
 		</section>
-		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
-		<YouVersionBanner />
 
 		<!-- FORM -->
 		<section class="bg-stone-100 pt-8 lg:pt-10 pb-12 lg:pb-20 px-6 lg:px-8">
