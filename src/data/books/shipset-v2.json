@@ -27988,7 +27988,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893071351",
 					"isbn_display": "979-8-89307-135-1",
-					"list_cents": null,
+					"list_cents": 1489,
 					"price_note": "TBD (Round 2; legacy $15.99 superseded, do not publish)",
 					"price_flags": [],
 					"pages": 36,
@@ -28681,7 +28681,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070781",
 					"isbn_display": "979-8-89307-078-1",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "unknown list: Doc \"Pending — Round 2\"; live Amazon PB $15.99 (2026-11-14, sheet price_record_m6) held off the Doc by the 25% margin gate (needs $17.49): store price decision owed (M6 C0)",
 					"price_flags": [],
 					"pages": 64,
@@ -29033,7 +29033,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070644",
 					"isbn_display": "979-8-89307-064-4",
-					"list_cents": null,
+					"list_cents": 1273,
 					"price_note": "unknown list: Doc \"Pending — Round 2\"; Amazon PB sells $12.73 (M6 batch 2, 2026-11-14), account unknown; list read with pmpublish",
 					"price_flags": [],
 					"pages": 84,
@@ -29205,7 +29205,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798990964402",
 					"isbn_display": "979-8-9909644-0-2",
-					"list_cents": null,
+					"list_cents": 1499,
 					"price_note": "list price NOT CONFIRMED: author-owned imprint and ISBNs (author account, not ours). Amazon SELLING $14.99 (read r-20261115025658-a3fc)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29245,7 +29245,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9798990964426",
 					"isbn_display": "979-8-9909644-2-6",
-					"list_cents": null,
+					"list_cents": 2299,
 					"price_note": "list price NOT CONFIRMED (author account). Amazon SELLING $22.99 (read r-20261115025715-d9ce)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29373,7 +29373,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070705",
 					"isbn_display": "979-8-89307-070-5",
-					"list_cents": null,
+					"list_cents": 2199,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223; Ingram-fed from another account (INFERRED, pmpublish m6b45). Amazon SELLING $21.99 (read r-20261115025911-f96f)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29509,7 +29509,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070460",
 					"isbn_display": "979-8-89307-046-0",
-					"list_cents": null,
+					"list_cents": 1499,
 					"price_note": "list price NOT CONFIRMED (not on SMP Ingram 9224 r-20261114222849-b598 / SMP KDP 9223). Amazon SELLING $14.99 (read r-20261115025733-1a32)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29627,7 +29627,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070361",
 					"isbn_display": "979-8-89307-036-1",
-					"list_cents": null,
+					"list_cents": 1099,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $10.99 (read r-20261115025751-370e)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29764,7 +29764,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070217",
 					"isbn_display": "979-8-89307-021-7",
-					"list_cents": null,
+					"list_cents": 1399,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $13.99 (read r-20261115025818-4e0d)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29804,7 +29804,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9798893070231",
 					"isbn_display": "979-8-89307-023-1",
-					"list_cents": null,
+					"list_cents": 1799,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $17.99 (read r-20261115025844-1db2)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29938,7 +29938,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070262",
 					"isbn_display": "979-8-89307-026-2",
-					"list_cents": null,
+					"list_cents": 1199,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $11.99 (read r-20261114224541 series, m6b45 amz_summary)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -29978,7 +29978,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9798893070279",
 					"isbn_display": "979-8-89307-027-9",
-					"list_cents": null,
+					"list_cents": 1999,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $19.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30114,7 +30114,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070101",
 					"isbn_display": "979-8-89307-010-1",
-					"list_cents": null,
+					"list_cents": 1999,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $19.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30154,7 +30154,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9798893070118",
 					"isbn_display": "979-8-89307-011-8",
-					"list_cents": null,
+					"list_cents": 2999,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $29.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30283,7 +30283,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070040",
 					"isbn_display": "979-8-89307-004-0",
-					"list_cents": 1599,
+					"list_cents": 1899,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $18.99 (m6b45 amz_summary B0CVM3N859)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30417,7 +30417,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070187",
 					"isbn_display": "979-8-89307-018-7",
-					"list_cents": null,
+					"list_cents": 1300,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $13.00 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30457,7 +30457,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9798893070194",
 					"isbn_display": "979-8-89307-019-4",
-					"list_cents": null,
+					"list_cents": 1799,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $17.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30586,7 +30586,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070026",
 					"isbn_display": "979-8-89307-002-6",
-					"list_cents": 1599,
+					"list_cents": 1799,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $17.99 (m6b45 amz_summary B0CSDZ25W6)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30716,7 +30716,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070064",
 					"isbn_display": "979-8-89307-006-4",
-					"list_cents": null,
+					"list_cents": 1799,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $17.99 (m6b45 amz_summary B0CSQVJWNF)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30845,7 +30845,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070002",
 					"isbn_display": "979-8-89307-000-2",
-					"list_cents": 1599,
+					"list_cents": 1799,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $17.99 (m6b45 amz_summary B0CSF1PXB9)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30981,7 +30981,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614789",
 					"isbn_display": "978-1-961614-78-9",
-					"list_cents": null,
+					"list_cents": 1699,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $16.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -31021,7 +31021,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614796",
 					"isbn_display": "978-1-961614-79-6",
-					"list_cents": null,
+					"list_cents": 2999,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $29.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -31150,7 +31150,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614727",
 					"isbn_display": "978-1-961614-72-7",
-					"list_cents": 1599,
+					"list_cents": 1799,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $17.99 (m6b45 amz_summary 1961614723)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -31337,7 +31337,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614963",
 					"isbn_display": "978-1-961614-96-3",
-					"list_cents": null,
+					"list_cents": 1140,
 					"price_note": "TBD -> list price NOT CONFIRMED: author account (not on SMP Ingram 9224 r-20261114222849-b598 / KDP 9223). Amazon SELLING $11.40 (r-20261115030349-8957)",
 					"price_flags": [],
 					"pages": 73,
@@ -31376,7 +31376,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614970",
 					"isbn_display": "978-1-961614-97-0",
-					"list_cents": null,
+					"list_cents": 2000,
 					"price_note": "TBD -> list price NOT CONFIRMED: author account. Amazon SELLING $20.00 (r-20261115030412-612a)",
 					"price_flags": [],
 					"pages": 77,
@@ -31510,7 +31510,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614826",
 					"isbn_display": "978-1-961614-82-6",
-					"list_cents": null,
+					"list_cents": 2149,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $21.49 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -31648,7 +31648,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614956",
 					"isbn_display": "978-1-961614-95-6",
-					"list_cents": null,
+					"list_cents": 1999,
 					"price_note": "list price NOT CONFIRMED (Ingram-fed from another account, INFERRED; absent from SMP Ingram 9224 r-20261114222849-b598). Amazon SELLING $19.99 (m6b45 amz_1961614952)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -31688,7 +31688,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614901",
 					"isbn_display": "978-1-961614-90-1",
-					"list_cents": null,
+					"list_cents": 2999,
 					"price_note": "list price NOT CONFIRMED. Amazon SELLING $29.99 (m6b45 r-20261114224542-981d)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32158,7 +32158,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614642",
 					"isbn_display": "978-1-961614-64-2",
-					"list_cents": null,
+					"list_cents": 1099,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $10.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32198,7 +32198,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614666",
 					"isbn_display": "978-1-961614-66-6",
-					"list_cents": null,
+					"list_cents": 1499,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $14.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32334,7 +32334,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304648",
 					"isbn_display": "978-1-958304-64-8",
-					"list_cents": null,
+					"list_cents": 1795,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $17.95 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32374,7 +32374,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304655",
 					"isbn_display": "978-1-958304-65-5",
-					"list_cents": null,
+					"list_cents": 1995,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $19.95 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32510,7 +32510,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304969",
 					"isbn_display": "978-1-958304-96-9",
-					"list_cents": null,
+					"list_cents": 1799,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $17.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32550,7 +32550,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304976",
 					"isbn_display": "978-1-958304-97-6",
-					"list_cents": null,
+					"list_cents": 2299,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $22.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32684,7 +32684,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614260",
 					"isbn_display": "978-1-961614-26-0",
-					"list_cents": null,
+					"list_cents": 1299,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $12.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32724,7 +32724,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614277",
 					"isbn_display": "978-1-961614-27-7",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $15.99 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -33027,7 +33027,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614222",
 					"isbn_display": "978-1-961614-22-2",
-					"list_cents": null,
+					"list_cents": 1300,
 					"price_note": "list price NOT CONFIRMED: title absent from SMP Ingram 9224 (read r-20261114222849-b598) and SMP KDP 9223 (read r-20261114222823-3af4); feeding account not ours (pmpublish smp-audit-prices-20261115). Amazon SELLING price for reference only: $13.00 (m6b45)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -33155,7 +33155,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614703",
 					"isbn_display": "978-1-961614-70-3",
-					"list_cents": 1599,
+					"list_cents": 1699,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $16.99 (m6b45 amz_summary 1961614707)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -33607,7 +33607,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304563",
 					"isbn_display": "978-1-958304-56-3",
-					"list_cents": null,
+					"list_cents": 1799,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115). Amazon B0CJ43Z8QD $17.99 is a SELLING price (r-20261114224543-d4a1). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -33647,7 +33647,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304570",
 					"isbn_display": "978-1-958304-57-0",
-					"list_cents": null,
+					"list_cents": 2249,
 					"price_note": "unconfirmed: author account. Amazon B0CJ41XG6J $22.49 selling (r-20261114224543-371a)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34025,7 +34025,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614567",
 					"isbn_display": "978-1-961614-56-7",
-					"list_cents": null,
+					"list_cents": 1799,
 					"price_note": "unconfirmed: not on SMP Ingram 9224 (r-20261114222849-b598) or KDP 9223; sheet 15.99 not confirmed; Amazon 1961614561 $17.99 is a selling price (partC.raw amz_1961614561.json, 2026-11-15)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34121,7 +34121,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614130",
 					"isbn_display": "978-1-961614-13-0",
-					"list_cents": null,
+					"list_cents": 1300,
 					"price_note": "unconfirmed: author account (pmpublish 11-15). Amazon B0CHLC1XTS $13.00 selling (r-20261114224543-921e)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34217,7 +34217,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614123",
 					"isbn_display": "978-1-961614-12-3",
-					"list_cents": null,
+					"list_cents": 1300,
 					"price_note": "unconfirmed: author account (pmpublish 11-15). Amazon B0CHL16CBJ $13.00 selling (r-20261114224543-55be)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34500,7 +34500,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614383",
 					"isbn_display": "978-1-961614-38-3",
-					"list_cents": 1599,
+					"list_cents": 1799,
 					"price_note": "unconfirmed: not on SMP Ingram/KDP; Amazon 1961614383 $17.99 selling (partC.raw amz_1961614383.json, 2026-11-15)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34607,7 +34607,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614185",
 					"isbn_display": "978-1-961614-18-5",
-					"list_cents": null,
+					"list_cents": 3801,
 					"price_note": "unconfirmed: author account. Amazon 1961614189 $38.01 selling (r-20261114224542-5c41)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34647,7 +34647,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614208",
 					"isbn_display": "978-1-961614-20-8",
-					"list_cents": null,
+					"list_cents": 7499,
 					"price_note": "unconfirmed: other Ingram account (INFERRED). Amazon 1961614200 $74.99 selling (r-20261114224542-649f)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34756,7 +34756,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614154",
 					"isbn_display": "978-1-961614-15-4",
-					"list_cents": null,
+					"list_cents": 2699,
 					"price_note": "unconfirmed: author account. Amazon 1961614154 $26.99 selling (r-20261114224542-e5d8)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -34796,7 +34796,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614161",
 					"isbn_display": "978-1-961614-16-1",
-					"list_cents": null,
+					"list_cents": 5699,
 					"price_note": "unconfirmed. Amazon 1961614162 $56.99 selling (r-20261114224542-8d4f)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -35001,7 +35001,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614086",
 					"isbn_display": "978-1-961614-08-6",
-					"list_cents": null,
+					"list_cents": 1400,
 					"price_note": "unconfirmed: author account. Amazon 1961614081 $14.00 selling (r-20261114224542-df26)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -35041,7 +35041,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614116",
 					"isbn_display": "978-1-961614-11-6",
-					"list_cents": null,
+					"list_cents": 2199,
 					"price_note": "unconfirmed: other Ingram account (INFERRED). Amazon 1961614111 $21.99 selling (r-20261114224542-147b)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -35148,7 +35148,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304723",
 					"isbn_display": "978-1-958304-72-3",
-					"list_cents": null,
+					"list_cents": 1350,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115; absent from SMP Ingram 9224 r-20261114222849-b598 + KDP 9223). Amazon 1958304727 $13.50 is a SELLING price (r-20261114224541-0353). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -35188,7 +35188,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304730",
 					"isbn_display": "978-1-958304-73-0",
-					"list_cents": null,
+					"list_cents": 1945,
 					"price_note": "unconfirmed: author account. Amazon 1958304735 $19.45 selling (r-20261114224541-07d2)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -35674,7 +35674,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304259",
 					"isbn_display": "978-1-958304-25-9",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115; absent from SMP Ingram 9224 r-20261114222849-b598 + KDP 9223). Amazon 1958304255 $15.99 is a SELLING price (r-20261114224541-bf70). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -35714,7 +35714,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304266",
 					"isbn_display": "978-1-958304-26-6",
-					"list_cents": null,
+					"list_cents": 1999,
 					"price_note": "unconfirmed: author account. Amazon 1958304263 $19.99 selling (r-20261114224541-c357)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -35821,7 +35821,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304471",
 					"isbn_display": "978-1-958304-47-1",
-					"list_cents": null,
+					"list_cents": 2499,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115; absent from SMP Ingram 9224 r-20261114222849-b598 + KDP 9223). Amazon 1958304476 $24.99 is a SELLING price (r-20261114224541-0a80). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36185,7 +36185,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304600",
 					"isbn_display": "978-1-958304-60-0",
-					"list_cents": null,
+					"list_cents": 1499,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115; absent from SMP Ingram 9224 r-20261114222849-b598 + KDP 9223). Amazon 1958304603 $14.99 is a SELLING price (r-20261114224541-2eb7). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36225,7 +36225,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304617",
 					"isbn_display": "978-1-958304-61-7",
-					"list_cents": null,
+					"list_cents": 1999,
 					"price_note": "unconfirmed: author account. Amazon 1958304611 $19.99 selling (r-20261114224541-3c22)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36334,7 +36334,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304402",
 					"isbn_display": "978-1-958304-40-2",
-					"list_cents": null,
+					"list_cents": 1500,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115; absent from SMP Ingram 9224 r-20261114222849-b598 + KDP 9223). Amazon 1958304409 $15.00 is a SELLING price (r-20261114224541-c312). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36374,7 +36374,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304396",
 					"isbn_display": "978-1-958304-39-6",
-					"list_cents": null,
+					"list_cents": 2149,
 					"price_note": "unconfirmed: author account. Amazon 1958304395 $21.49 selling (r-20261114224541-a515)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36582,7 +36582,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781737775843",
 					"isbn_display": "978-1-7377758-4-3",
-					"list_cents": null,
+					"list_cents": 1199,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115; absent from SMP Ingram 9224 r-20261114222849-b598 + KDP 9223). Amazon 1737775840 $11.99 is a SELLING price (r-20261114224541-79ec). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36622,7 +36622,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781737775850",
 					"isbn_display": "978-1-7377758-5-0",
-					"list_cents": null,
+					"list_cents": 1799,
 					"price_note": "unconfirmed: author account. Amazon 1737775859 $17.99 selling (r-20261114224541-a84d)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36730,7 +36730,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304006",
 					"isbn_display": "978-1-958304-00-6",
-					"list_cents": null,
+					"list_cents": 1499,
 					"price_note": "unconfirmed: author account, no session (pmpublish smp-audit-prices-20261115; absent from SMP Ingram 9224 r-20261114222849-b598 + KDP 9223). Amazon 195830400X $14.99 is a SELLING price (r-20261114224541-6c8a). Kevin batch-2 NEEDS KEVIN #3 open",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -36770,7 +36770,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304013",
 					"isbn_display": "978-1-958304-01-3",
-					"list_cents": null,
+					"list_cents": 1999,
 					"price_note": "unconfirmed: author account. Amazon 1958304018 $19.99 selling (r-20261114224541-db45)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -37034,7 +37034,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304280",
 					"isbn_display": "978-1-958304-28-0",
-					"list_cents": 1599,
+					"list_cents": 699,
 					"price_note": "unconfirmed (was 15.99 from the Doc, marked 'not live'); author account, no session (pmpublish smp-audit-prices-20261115 row 58)",
 					"price_flags": [
 						"price from the Doc but not confirmed live (no live note)"
@@ -37074,7 +37074,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304297",
 					"isbn_display": "978-1-958304-29-7",
-					"list_cents": 2299,
+					"list_cents": 1799,
 					"price_note": "unconfirmed (was 22.99 from the Doc, marked 'not live'); author account, no session (pmpublish smp-audit-prices-20261115 row 58)",
 					"price_flags": [
 						"price from the Doc but not confirmed live (no live note)"
