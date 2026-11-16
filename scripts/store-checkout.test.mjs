@@ -626,6 +626,12 @@ test('bookstore: tagline "Over 550 titles..." with the offer line + country marq
 	const offer = html.search(/<p class="eo-offer[^"]*"[^>]*>15% off first order \+ free standard shipping to \d+ countries<\/p>/);
 	const band = html.search(/<div class="eo-marquee[^"]*" role="region"/);
 	assert.ok(offer > tag && band > offer && html.indexOf('id="book-grid"') > band, 'tagline -> offer line -> marquee -> grid');
+	const cta = html.indexOf('>Publish Your Book →</a>');
+	const chips = html.indexOf('class="collection-chip');
+	const yvAt = html.indexOf('FHB+DVC on YouVersion');
+	assert.ok(cta > band && yvAt > cta && chips > yvAt, 'marquee -> Publish Your Book -> YouVersion banner -> chips');
+	assert.equal(html.split('>Publish Your Book →</a>').length - 1, 1, 'one Publish Your Book button');
+	assert.match(html, /<title>Christian Bookstore — 550\+ Spirit Media Published Titles<\/title>/);
 	if (LIVE_COUNTRIES) assert.match(html, new RegExp(`free standard shipping to ${LIVE_COUNTRIES.length} countries</p>`));
 	assert.doesNotMatch(storePage('smp'), /data-ship-band/, 'the hero band is on /bookstore/ only');
 	// the YouVersion banner: once, under the hero/tagline block (after the marquee, before the grid), on every bookstore page
