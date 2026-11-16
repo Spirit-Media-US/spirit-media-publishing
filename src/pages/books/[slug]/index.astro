@@ -1,4 +1,5 @@
 ---
+import AuthorLinks from '../../../components/AuthorLinks.astro';
 import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
 import BookRetailer from '../../../components/BookRetailer.astro';
@@ -37,6 +38,7 @@ import seoTitleData from '../../../data/books/seo-titles.json';
 import set from '../../../data/books/shipset-v2.json';
 import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
+import { authorLd } from '../../../lib/author-sites.mjs';
 import { heroSizes, heroSrcset, heroStyle } from '../../../lib/cover-hero.mjs';
 import { dnpMatcher } from '../../../lib/do-not-publish.mjs';
 import { seoTitles } from '../../../lib/seo-title.mjs';
@@ -673,7 +675,13 @@ const ld = {
 	...(p.subtitle ? { alternativeHeadline: p.subtitle } : {}),
 	url,
 	description: p.short,
-	author: { '@type': 'Person', name: p.author, ...(headshot ? { image: headshot.src } : {}) },
+	// url + sameAs = the author's CERTAIN sites (src/data/books/author-sites.json), the same set the bio's link row shows.
+	author: {
+		'@type': 'Person',
+		name: p.author,
+		...(headshot ? { image: headshot.src } : {}),
+		...authorLd(p.author),
+	},
 	publisher: publisherLd,
 	...(lead ? { brand: { '@type': 'Brand', name: 'Spirit Media Publishing' } } : {}),
 	inLanguage: p.lang ?? 'en',
@@ -842,6 +850,7 @@ const crumbs = {
 							{headshot && <img src={headshot.src} width={headshot.w} height={headshot.h} alt={headshot.alt} loading="lazy" decoding="async" class="float-left mb-2 mr-4 h-28 w-28 rounded-2xl object-cover sm:h-40 sm:w-40" />}
 							<p class="leading-relaxed">{p.bio}</p>
 						</div>
+						<AuthorLinks author={p.author} />
 					</div>
 				)}
 				<div>
