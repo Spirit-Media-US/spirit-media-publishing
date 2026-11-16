@@ -292,7 +292,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 60); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs)
+	assert.equal(set.titles.length, 144); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY)
 	// BOOK PAGES SWITCH: production builds only Kevin-approved pages (src/data/books/pages-live.json);
 	// a BOOKS_PREVIEW_ALL=1 preview builds every one. An unapproved page that builds on production fails here.
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
@@ -361,7 +361,9 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	// Heart product. The FH books have NO SMP page (not built, not in pages-live), their SMP URLs 301 to the FHB page,
 	// and the bookstore card links there.
 	const allowed = new Set(titles.map((t) => t.slug));
-	assert.ok(!fs.existsSync(new URL('jesus-had-a-little-lamb/index.html', dist)), 'no SMP page for the unlisted Lamb');
+	// lane 5 (2026-11-16): the Lamb is now a ship-set title (lane-0 intake PRINT, price still pending) -> a preview page;
+	// production stays shut until Kevin approves it in pages-live.json
+	if (!ALL && !LIVE.includes('jesus-had-a-little-lamb')) assert.ok(!fs.existsSync(new URL('jesus-had-a-little-lamb/index.html', dist)), 'no SMP page for the unlisted Lamb');
 	const storeHtml = fs.readFileSync(new URL('../dist/bookstore/index.html', import.meta.url), 'utf8');
 	for (const b of sold) {
 		const fhb = `https://fathersheartbible.com/books/${b.slug}/`;

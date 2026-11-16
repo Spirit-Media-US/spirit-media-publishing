@@ -383,7 +383,8 @@ const sellFormats = p.formats
 const servedRows = LIVE_COUNTRIES.filter((c) => p.served.includes(c.code));
 const countries = servedRows.map((c) => ({ code: c.code, name: c.name }));
 // The FHB-standard order area (BookOrder) on English pages that sell; es/fr keep their reviewed-string form for now.
-const orderBox = p.orderable && (p.lang ?? 'en') === 'en' && countries.length > 0;
+// es/fr pages get the same box in their language (Kevin 2026-11-15 "2A")
+const orderBox = p.orderable && countries.length > 0;
 // The per-copy handling fee each country pays, sized at BUILD time by the same marginGuard the checkout charges
 // with (break-even, floor 0). Only the resulting fees reach the page, never a cost (pmseoaeo 3gh #5: total line).
 const feeCfg = JSON.stringify({
@@ -767,7 +768,7 @@ const crumbs = {
 		{/* The order area in its own unpadded band, so the black country marquee runs edge to edge (FHB standard). */}
 		{orderBox && (
 			<section class="bg-stone-50 pb-10" aria-label={`${T.order} ${p.title}`}>
-				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number }))} countries={countries} feeCfg={feeCfg} firstOrder={firstOrder} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} />
+				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number }))} countries={countries} feeCfg={feeCfg} firstOrder={firstOrder} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} />
 			</section>
 		)}
 
