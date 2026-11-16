@@ -97,11 +97,6 @@ const covers = [
 // languages, their built-cover cards (360px, as on FHB) and their pages are never retyped here.
 // Reverse order because the row travels left-to-right: covers then ARRIVE A→Z (as on FHB).
 
-// YouVersion banner: the SAME component as FHB (src/components/YouVersionBanner.astro, a byte-identical copy of
-// FHB's; Kevin 2026-11-16 ~15:0xZ "add it to SMP pages too the same way we do FHB"). Numbers: src/data/youversion-stats.json
-// (build-time copy of the R2 stats.json via scripts/sync-youversion-stats.mjs); the component counts up to the live file.
-import YouVersionBanner from './YouVersionBanner.astro';
-
 // Kevin 2026-10-30: all 80 languages in every marquee ("Then we just make links go live as links go
 // live"). Derived at build time from the FHB repo's own registry/roster (the same source
 // BookstoreBody.astro uses), never retyped: every roster language with a BUILT case card gets a cover;
@@ -191,9 +186,7 @@ const rows = [
 	<h2 id="fhbm-title" class="fhbm-title">Father&rsquo;s Heart Bible™ + Divine Voice™ Color is Here</h2>
 	<p class="fhbm-line type-body-lg text-stone-700">Where other Bibles use &ldquo;God&rdquo; to say what He is, the Father&rsquo;s Heart Bible™ uses &ldquo;our Father&rdquo; to show who He has been all along.</p>
 
-	<!-- YouVersion (Kevin 2026-11-06: "It needs to be with the FHB section. SMP is not on YouVersion
-	     rather Father's Heart Bible is"). Thin black banner, as the old top bar (Kevin 2026-11-06). -->
-	<div class="fhbm-yvw"><YouVersionBanner /></div>
+	<!-- The YouVersion banner moved to directly under the homepage hero image (Kevin 2026-11-16 ~15:3xZ). -->
 
 	<!-- The strip. The track holds the covers TWICE and travels exactly -50%, so the
 	     second copy is under the cursor at the moment the first wraps — that is what
@@ -313,7 +306,6 @@ const rows = [
 		margin: 0 1.5rem 0.75rem;
 	}
 	.fhbm-viewport + .fhbm-label { margin-top: 1.75rem; }
-	.fhbm-yvw { margin: 0 0 1.5rem; }
 	/* English name under each language cover, centred under the FRONT board (x 24..466 of
 	   every 600px language card), as on the FHB homepage. */
 	.fhbm-cap {

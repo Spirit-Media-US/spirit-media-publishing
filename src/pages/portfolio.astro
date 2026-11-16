@@ -1,6 +1,7 @@
 ---
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
+import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
@@ -396,7 +397,7 @@ const portfolioFaqs = [
 ];
 ---
 
-<Layout
+<Layout youversionBanner={false}
 	title="Portfolio — 300+ Christian Books Published by Spirit Media"
 	description="Spirit Media Publishing has helped 300+ Christian authors publish, brand, and market their books across 195 nations. Explore our portfolio of work."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/e1274263f40d901cf33297ab4c8110e8ad9d9ca7-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -438,6 +439,8 @@ const portfolioFaqs = [
 				</div>
 			</div>
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 
 		<AnswerBlock
 			url="/portfolio/"
