@@ -1,5 +1,6 @@
 ---
 import CoverMarquee from '../components/CoverMarquee.astro';
+import HomeBooks from '../components/HomeBooks.astro';
 import MailtoLink from '../components/MailtoLink.astro';
 import ShipCountryMarquee from '../components/ShipCountryMarquee.astro';
 import Layout from '../layouts/Layout.astro';
@@ -455,6 +456,8 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 			</div>
 		</section>
 
+		<!-- ═══ BOOKS ═══ the bookstore + newest live book pages (pmprint 2026-11-16) -->
+		<HomeBooks />
 
 		<!-- ═══ SERVICES OVERVIEW ═══ -->
 		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8">
