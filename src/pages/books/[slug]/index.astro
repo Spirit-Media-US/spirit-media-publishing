@@ -33,6 +33,7 @@ import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
 import pagesLive from '../../../data/books/pages-live.json';
 import retailerLinks from '../../../data/books/retailer-links.json';
+import seoTitleData from '../../../data/books/seo-titles.json';
 import set from '../../../data/books/shipset-v2.json';
 import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
@@ -380,7 +381,7 @@ export async function getStaticPaths() {
 		.filter((p) => ALL || (pagesLive.slugs as string[]).includes(p.slug))
 		.filter((p) => !isDoNotPublish({ slug: p.slug, title: p.title }));
 	// <title> <= 60, book title first, unique across the built pages (src/lib/seo-title.mjs has the rule; a page that
-	// cannot fit or stays a duplicate fails the build). seo_title in the ship set is the per-book override.
+	// cannot fit or stays a duplicate fails the build). Hand-written per-book titles: src/data/books/seo-titles.json.
 	const titles = seoTitles(
 		built.map((p) => ({
 			slug: p.slug,
@@ -388,7 +389,10 @@ export async function getStaticPaths() {
 			subtitle: p.subtitle,
 			author: p.author,
 			page_title: p.page_title,
-			seo_title: (set.titles as any[]).find((t) => t.slug === p.slug)?.book?.seo_title ?? null,
+			seo_title:
+				(seoTitleData as Record<string, string>)[p.slug] ??
+				(set.titles as any[]).find((t) => t.slug === p.slug)?.book?.seo_title ??
+				null,
 		})),
 	);
 	return built.map((p) => ({ params: { slug: p.slug }, props: { p, docTitle: titles[p.slug] } }));

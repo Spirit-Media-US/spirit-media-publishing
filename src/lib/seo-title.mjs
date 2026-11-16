@@ -11,12 +11,14 @@
 // shows), the book's own title always first, unique across the site.
 //
 // THE RULE — the first candidate that fits wins, so a title that already fits is never changed:
-//   0. seo_title in the book's data (a hand-written override; over 60 fails the build)
+//   0. seo_title: hand-written, src/data/books/seo-titles.json (or the ship set's book.seo_title); over 60 fails the build
 //   1. page_title + " | Spirit Media Publishing"      (the brand is the least important suffix: dropped first)
 //   2. page_title
 //   3. page_title without its " by <author>" tail   (+ brand when that fits)
 //   4. the book title + the longest PHRASE of the subtitle that fits: cut only before punctuation (, ; : —) or before a
-//      joining word (and, or, with, for, from, ...), never mid-word, never ending on a joining word, at least two words, no brand
+//      joining word (with, for, from, ...), never mid-word, at least two words, no brand, and NEVER A DANGLING CUT
+//      (danglingCut below: ends on , & and — or drops the end of a list/pair; pmprint 2026-11-16). A cut that would
+//      read broken falls through to 5; write a seo_title when the book deserves more than its bare title.
 //   5. the book title (+ brand when that fits)
 // Two pages that land on the same title (a series: four "Rightly Dividing the Truth" volumes) are rebuilt from
 // "<title>: <subtitle>" through the same ladder so each carries its volume subtitle; still equal = build error.
@@ -29,7 +31,24 @@ const len = (s) => [...s].length;
 const tidy = (s) => s.replace(/[\s,;:—–-]+$/, '').trim();
 const bare = (w) => w.replace(/^[^\p{L}&]+|[^\p{L}&]+$/gu, '');
 
-/** The longest prefix of `phrase` that is <= max chars, cut at a phrase boundary. null when none fits. */
+/**
+ * True when `kept` (what a cut keeps) followed by `dropped` (what it drops) reads as broken: it ends on a separator
+ * or coordinator (, ; & and or — –), the dropped tail continues a list or pair (starts with , & and or —), or the kept
+ * part opened a list (a comma) whose end is dropped. "Endurance, Hope" / "Walking in Christ—Obedience" /
+ * "Healing through Encounters with Jesus" (& Psychology) / "Expanded and Updated" (for the 21st Century Church) are all
+ * dangling.
+ */
+export function danglingCut(kept, dropped) {
+	const k = kept.trim();
+	const d = (dropped ?? '').trim();
+	if (!d) return false;
+	if (/[,;&—–:-]$/.test(k) || /\b(and|or)$/i.test(k)) return true;
+	if (/^([,;&—–]|and\b|or\b)/i.test(d)) return true;
+	// a list (comma) or a pair (and, &, or, a dash) opened in the kept part loses its end or its shared complement
+	return /[,—–&]/.test(k) || /\b(and|or)\b/i.test(k);
+}
+
+/** The longest prefix of `phrase` that is <= max chars, cut at a phrase boundary, never dangling. null when none fits. */
 export function phrasePrefix(phrase, max) {
 	if (len(phrase) <= max) return phrase;
 	// boundaries: after a word ending in , ; : — or before a joining word (never before an article or "who": that cuts
@@ -42,6 +61,8 @@ export function phrasePrefix(phrase, max) {
 		if (!atPunct && !atJoin) continue;
 		const cand = tidy(words.slice(0, i).join(' ').replace(/— /g, '—'));
 		if (!cand || JOIN.test(bare(cand.split(/\s+/).pop() ?? ''))) continue;
+		const raw = words.slice(0, i).join(' ').replace(/— /g, '—');
+		if (danglingCut(raw, words.slice(i).join(' ').replace(/— /g, '—'))) continue;
 		if (len(cand) <= max) best = cand;
 		else break;
 	}
