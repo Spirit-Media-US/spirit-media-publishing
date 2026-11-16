@@ -4,11 +4,13 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import cardAliases from '../data/books/card-page-aliases.json';
 import coverSized from '../data/books/cover-sized.json';
+import doNotPublish from '../data/books/do-not-publish.json';
 import expressExtra from '../data/books/express-books.json';
 import lightCovers from '../data/books/light-covers.json';
 import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
+import { dnpMatcher } from '../lib/do-not-publish.mjs';
 import { sanityClient } from '../lib/sanity.ts';
 import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
@@ -55,6 +57,13 @@ const rawBooks = await sanityClient.fetch(`
     }
   }
 `);
+// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): src/data/books/do-not-publish.json, by
+// Sanity id or title. Dropped HERE, before anything reads rawBooks, so they get no card on /bookstore/ or any collection
+// page, no ItemList entry, no author in the filter, and are not counted in Published Titles / Kingdom Messengers.
+// The Sanity documents are left untouched. Test: scripts/do-not-publish.test.mjs.
+const isDoNotPublish = dnpMatcher(doNotPublish);
+for (let i = rawBooks.length - 1; i >= 0; i--)
+	if (isDoNotPublish(rawBooks[i])) rawBooks.splice(i, 1);
 
 // ── Every FHB AUDIENCE and LANGUAGE edition (Kevin 2026-10-07: "update SMP bookstore with all
 // the audience editions and languages"). ONE MASTER PER FACT: titles, dates, cards and links
@@ -397,7 +406,9 @@ const norm = (t: string) =>
 // only the pages that BUILD (src/data/books/pages-live.json; all of them on a BOOKS_PREVIEW_ALL=1 preview)
 const PAGE_BUILT = (slug: string) =>
 	process.env.BOOKS_PREVIEW_ALL === '1' || (pagesLive.slugs as string[]).includes(slug);
-const LIVE_TITLES = (shipset as any).titles.filter((t: any) => PAGE_BUILT(t.slug));
+const LIVE_TITLES = (shipset as any).titles.filter(
+	(t: any) => PAGE_BUILT(t.slug) && !isDoNotPublish({ slug: t.slug, title: t.book?.title }),
+);
 const OWN_PAGE = new Map<string, string>(
 	LIVE_TITLES.map((t: any) => [norm(t.book.title), `/books/${t.slug}/`]),
 );
