@@ -247,7 +247,7 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 			@media (min-width: 768px) { .fhb-tagline { white-space: nowrap; } }
 		</style>
 		<section class="overflow-hidden" style="background-color:#fbeaee">
-			<a href="https://fathersheartbible.com" class="block fhb-hero-link" aria-label="Father's Heart Bible"><img src={`${R2_BASE}/fhb-hero-a02-1600.webp`} width="2400" height="920" srcset={heroA02Srcset} sizes="(max-width: 767px) 430px, 100vw"
+			<a href="https://fathersheartbible.com" class="block fhb-hero-link" aria-label="Father's Heart Bible, fathersheartbible.com"><img src={`${R2_BASE}/fhb-hero-a02-1600.webp`} width="2400" height="920" srcset={heroA02Srcset} sizes="(max-width: 767px) 430px, 100vw"
 				loading="eager" fetchpriority="high" decoding="async"
 				alt="Eight young adults sitting by a mountain lake, each smiling and holding a different edition of the Father's Heart Bible" class="w-full h-auto fhb-hero-img" /></a>
 			<!-- ═══ COVER MARQUEE ═══
@@ -271,8 +271,8 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 				<p class="mt-4 type-body-lg text-stone-700">Our Father's words in <strong style="color:#2563eb;font-size:19px">BLUE</strong>. The Son's in <strong style="color:#c8102e;font-size:19px">RED</strong>. The Spirit's in <strong style="color:#6a3fa0;font-size:19px">PURPLE</strong>.</p>
 				<p class="mt-4 type-body-lg text-stone-700">More than one word in four of the Bible is a divine voice speaking. This is not a study Bible about our Father. It is His voice, made visible, so you can hear it.</p>
 				<div class="mt-8 flex flex-wrap justify-center gap-4">
-					<a href="https://fathersheartbible.com/print/" class="btn btn-primary">Get It in Print</a>
-					<a href="https://fathersheartbible.com/read/" class="btn btn-ghost">Read &amp; Listen Free</a>
+					<a href="https://fathersheartbible.com/print/" class="btn btn-primary">Get It in Print<span class="xsite-dest"> <span aria-hidden="true">·</span> fathersheartbible.com</span></a>
+					<a href="https://fathersheartbible.com/read/" class="btn btn-ghost">Read &amp; Listen Free<span class="xsite-dest"> <span aria-hidden="true">·</span> fathersheartbible.com</span></a>
 				</div>
 				<p class="fhb-tagline mt-8">Receive the Father. Hear his voice. His heart is for you.</p>
 			</div>
@@ -484,7 +484,7 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 							<span class="font-serif text-xl font-bold text-ink-soft">Father's Heart Bible™ (FHB)</span>
 							<h3 class="type-card-subheading text-ink-soft mb-3">An intimate translation revealing our Father's heart to a fatherless generation.</h3>
 							<p class="type-body-lg text-stone-700 mb-5">One message for every reader: "Come home. You belong to Me. You are My beloved child."</p>
-							<a href="https://fathersheartbible.com" target="_blank" rel="noopener noreferrer" class="mt-auto text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit FathersHeartBible.com →</a>
+							<a href="https://fathersheartbible.com" class="mt-auto text-sm font-semibold text-red-deep hover:text-red transition-colors">Visit FathersHeartBible.com →</a>
 						</div>
 					</div>
 					<!-- Express Books -->
@@ -572,7 +572,7 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 								<div>
 									<p class="type-body-sm font-semibold text-ink-soft">
 										{t.authorUrl ? (
-											<a href={t.authorUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">{t.authorName}</a>
+											<a href={t.authorUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red transition-colors">{t.authorName}<span class="xsite-sr"> (opens in a new tab)</span></a>
 										) : t.authorName}
 									</p>
 									<p class="type-caption text-stone-700">{t.authorLocation}</p>

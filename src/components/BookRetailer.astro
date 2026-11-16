@@ -5,6 +5,8 @@
 // ("Buy the eBook" / "Listen on Audible", src/data/books/retailer-links.json), no offer line, no country marquee
 // (nothing to ship), no email field. Keep shopping is the same row the order box carries (BookOrder.astro).
 // Button: SMP's own ghost style (outline, never a filled bright red, never black: Kevin 2026-11-13 L1999, 2026-11-14).
+import { destHtml, newTabHtml, SISTER_HOST } from '../lib/xsite';
+
 interface Props {
 	title: string;
 	/** the title's cover colour style (src/data/books/cover-colors.json), or undefined = ink */
@@ -22,14 +24,14 @@ const what = kind === 'audiobook' ? 'Audiobook' : 'eBook';
 		<p class="br-eyebrow">{what}</p>
 		<h2 class="br-title" style={titleStyle}>{title}</h2>
 		<p class="br-line">{kind === 'audiobook' ? `${title} is available as an audiobook.` : `${title} is available as an eBook.`}</p>
-		<a class="br-btn" href={href} rel="noopener" target="_blank" data-retailer={kind}>{label}</a>
+		<a class="br-btn" href={href} rel="noopener" target="_blank" data-retailer={kind}>{label}<Fragment set:html={newTabHtml} /></a>
 		<p class="br-note">Opens the {store} listing in a new tab.</p>
 	</div>
 </div>
 <nav class="br-shop" aria-label="Keep shopping">
 	<span class="br-shop__label">Keep shopping</span>
-	<a href="https://fathersheartbible.com/print/">FH Bibles</a>
-	<a href="https://fathersheartbible.com/books/">FH Books</a>
+	<a href="https://fathersheartbible.com/print/">FH Bibles <Fragment set:html={destHtml(SISTER_HOST)} /></a>
+	<a href="https://fathersheartbible.com/books/">FH Books <Fragment set:html={destHtml(SISTER_HOST)} /></a>
 	<a href="/bookstore/smp-worldwide/">All SMP Books</a>
 </nav>
 <style>
