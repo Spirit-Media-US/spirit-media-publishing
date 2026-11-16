@@ -1,0 +1,65 @@
+{
+	"_note": "DIGITAL-ONLY book pages (Kevin 2026-11-16 17:15Z: every SMP book gets a page even when we cannot sell it; ebook/audio-only = a retailer button in place of the order box). A slug here gets the retailer box ONLY while it has no store-registry SKU (the order box always wins). Each href is the book's LIVE listing: amazon-book.mjs title+author match (Kindle) and curl 200, pmprint 2026-11-16. Label is fixed per kind: ebook -> 'Buy the eBook', audiobook -> 'Listen on Audible'. No live listing = no row = no button.",
+	"links": {
+		"rightly-dividing-the-truth-endurance-hope-and-eternal-glory": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0GTWSPTNK",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"rightly-dividing-the-truth-the-cross-the-church-and-the-spirits-power": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0GHZPRNN5",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"rightly-dividing-the-truth-walking-in-christ": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0GDJ52JKZ",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"rightly-dividing-the-truth-foundations-of-faith-and-prayer": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0F3V6V62C",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"become": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0FK6JCD76",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"the-seed-of-david-thoughts-from-spiritual-realm-encounters": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0FJ8YZNST",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"singer-s-amazing-journey": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0FHL3W9CY",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"the-gratitude-effect": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0FHKYSY92",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"pantry-stuffers-rehydration-calculations-made-easy": {
+			"kind": "ebook",
+			"href": "https://www.amazon.com/dp/B0GTBZ1PXT",
+			"store": "Kindle",
+			"checked": "2026-11-16"
+		},
+		"the-sunday-scaries": {
+			"kind": "audiobook",
+			"href": "https://www.audible.com/pd/The-Sunday-Scaries-Audiobook/B0H51WLC21",
+			"store": "Audible",
+			"checked": "2026-11-16"
+		}
+	}
+}

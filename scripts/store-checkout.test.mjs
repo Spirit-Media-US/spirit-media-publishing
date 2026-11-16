@@ -286,6 +286,43 @@ test('duplicate rule check FAILS on a wrong canonical (proof the gate can reject
 	assert.equal(canonicalErrs('gifts', '<link rel="canonical" href="https://fathersheartbible.com/books/gifts/">', 'https://spiritmediapublishing.com/books/gifts/').length, 1, 'an SMP book pointing away must fail');
 });
 const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+// DIGITAL-ONLY (Kevin 2026-11-16 17:15Z "book page for every book ... even if we can't sell it like the audiobook"): a book
+// with no store SKU and a live listing in src/data/books/retailer-links.json carries ONE calm retailer button in place of
+// the order box ("Buy the eBook" / "Listen on Audible" -> that listing), Keep shopping, and nothing to ship: no order form,
+// no offer line, no marquee, no email field, no pending note. digitalErrs() is the ONE check, used on the built pages and
+// proven to fail on a digital page with no retailer button.
+const RETAIL = JSON.parse(fs.readFileSync(new URL('../src/data/books/retailer-links.json', import.meta.url), 'utf8')).links;
+const RETAIL_LABEL = { ebook: 'Buy the eBook', audiobook: 'Listen on Audible' };
+const RETAIL_BTN = /<a class="br-btn"[^>]*href="([^"]+)"[^>]*>([^<]*)<\/a>|<a[^>]*href="([^"]+)"[^>]*class="br-btn"[^>]*>([^<]*)<\/a>/g;
+const digitalErrs = (slug, main, row) => {
+	const errs = [];
+	const btns = [...main.matchAll(RETAIL_BTN)].map((m) => ({ href: m[1] ?? m[3], label: (m[2] ?? m[4]).trim() }));
+	if (btns.length !== 1) errs.push(`${slug}: ${btns.length} retailer buttons, want 1`);
+	else {
+		if (btns[0].href !== row.href) errs.push(`${slug}: retailer button -> ${btns[0].href}, want ${row.href}`);
+		if (btns[0].label !== RETAIL_LABEL[row.kind]) errs.push(`${slug}: retailer label "${btns[0].label}", want "${RETAIL_LABEL[row.kind]}"`);
+	}
+	if (!/id="order"[^>]*data-status="digital"/.test(main)) errs.push(`${slug}: no #order retailer box`);
+	if (!/aria-label="Keep shopping"/.test(main)) errs.push(`${slug}: no Keep shopping`);
+	if (/<form id="order"/.test(main)) errs.push(`${slug}: an order form on a digital-only page`);
+	if (/class="bo-offer"|class="bo-marquee"/.test(main)) errs.push(`${slug}: offer line / marquee on a digital-only page (nothing to ship)`);
+	if (/<input[^>]+type="email"/.test(main)) errs.push(`${slug}: email field on a digital-only page`);
+	if (/Available soon from our store\./.test(main)) errs.push(`${slug}: pending note on a digital-only page`);
+	if (/class="[^"]*\bbtn-primary\b[^"]*"[^>]*>\s*Order\s*</.test(main)) errs.push(`${slug}: an Order button with nothing to order`);
+	return errs;
+};
+test('digital-only check FAILS on a digital page with no retailer button (proof the gate can reject)', () => {
+	const row = RETAIL['the-sunday-scaries'];
+	const good = `<main><div id="order" class="br-wrap" data-status="digital" data-kind="audiobook"><a class="br-btn" href="${row.href}" rel="noopener" target="_blank" data-retailer="audiobook">Listen on Audible</a></div><nav class="br-shop" aria-label="Keep shopping"></nav></main>`;
+	assert.deepEqual(digitalErrs('the-sunday-scaries', good, row), []);
+	const noBtn = good.replace(/<a class="br-btn"[\s\S]*?<\/a>/, '');
+	assert.ok(digitalErrs('the-sunday-scaries', noBtn, row).some((e) => /0 retailer buttons/.test(e)), 'a digital page with no retailer button must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace(row.href, 'https://www.amazon.com/dp/B000000000'), row).length, 'a button to the wrong listing must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace('Listen on Audible', 'Buy now'), row).length, 'a wrong label must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace('</main>', '<p class="bo-offer">x</p></main>'), row).length, 'an offer line must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace('</main>', '<input id="e" type="email"></main>'), row).length, 'an email field must fail');
+	assert.ok(digitalErrs('the-sunday-scaries', good.replace(' aria-label="Keep shopping"', ''), row).length, 'no Keep shopping must fail');
+});
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
 	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-v2.json', import.meta.url), 'utf8'));
@@ -326,11 +363,16 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 				assert.doesNotMatch(main, />(Look inside|Questions|Product details|Checkout →)</, `${t.slug}: no English chrome`);
 			}
 			for (const k of Object.keys(t.skus)) if (REG[k]) assert.match(main, new RegExp(`name="${k}"`), `${t.slug}: ${k} quantity`);
+		} else if (RETAIL[t.slug]) {
+			assert.deepEqual(digitalErrs(t.slug, main, RETAIL[t.slug]), [], `${t.slug}: digital-only retailer box`);
 		} else {
 			assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
 			assert.match(main, { es: /Pronto disponible en nuestra tienda\./, fr: /Bientôt disponible dans notre librairie\./ }[t.book?.language] ?? /Available soon from our store\./, `${t.slug}: pending note`);
 		}
-		assert.doesNotMatch(main, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
+		// digital-only: the ONE retailer button is Kevin's 2026-11-16 17:15Z exception to "Amazon is never a buy option";
+		// everything else on the page still obeys it
+		const body = RETAIL[t.slug] && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
+		assert.doesNotMatch(body, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
 		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
 		const leak = textOf(main).match(LEAK);
 		assert.equal(leak, null, `${t.slug}: internal wording on the page: "${leak?.[0]}"`);
@@ -338,7 +380,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		assert.equal(ld.match(LEAK), null, `${t.slug}: internal wording in JSON-LD`);
 		// Amazon is never a buy option on our page (Kevin 11-13 L1973): no link to it, no 'buy/order/available on Amazon'.
 		// A book's own words may name it (SM's Guide contents: "Chapter 9: Respect King Amazon"), so the bare word is allowed.
-		assert.doesNotMatch(main, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
+		assert.doesNotMatch(body, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
 		assert.doesNotMatch(textOf(main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
 		// the order box's choices are <summary data-choice>, not questions
 		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary(?![^>]*data-choice)[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
