@@ -222,16 +222,24 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const redirects = fs.readFileSync(new URL('../public/_redirects', import.meta.url), 'utf8');
 	assert.match(redirects, /^\/books\/:slug\/buy\/ \/books\/:slug\/#order 301$/m, '/buy/ 301s to #order');
 	const built = fs.readdirSync(dist).filter((d) => fs.existsSync(new URL(`${d}/index.html`, dist)));
-	// Kevin 2026-11-14 "Who and I and Beloved Identity on SMP and FHB - same content on 2 different sites": the FHB books
-	// now HAVE an SMP page (order form on it), canonical to their FHB page, and no 301 sends them away.
-	const allowed = new Set([...titles.map((t) => t.slug), ...sold.map((x) => x.slug)]);
+	// OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): FHB is the ONE window for every Father's
+	// Heart product. The FH books have NO SMP page (not built, not in pages-live), their SMP URLs 301 to the FHB page,
+	// and the bookstore card links there.
+	const allowed = new Set(titles.map((t) => t.slug));
 	assert.ok(!fs.existsSync(new URL('jesus-had-a-little-lamb/index.html', dist)), 'no SMP page for the unlisted Lamb');
+	const storeHtml = fs.readFileSync(new URL('../dist/bookstore/index.html', import.meta.url), 'utf8');
 	for (const b of sold) {
-		const html = read(b.slug);
-		assert.match(html, new RegExp(`<link rel="canonical" href="https://fathersheartbible.com/books/${b.slug}/">`), `${b.slug}: canonical = FHB`);
-		assert.deepEqual(canonicalErrs(b.slug, html, `https://fathersheartbible.com/books/${b.slug}/`), [], `${b.slug}: FH book -> FHB canonical, no Product here`);
-		assert.doesNotMatch(redirects, new RegExp(`^/books/${b.slug}/? `, 'm'), `${b.slug}: no 301 away from SMP`);
+		const fhb = `https://fathersheartbible.com/books/${b.slug}/`;
+		assert.ok(!LIVE.includes(b.slug), `${b.slug}: an FH book is not in pages-live.json`);
+		assert.ok(!fs.existsSync(new URL(`${b.slug}/index.html`, dist)), `${b.slug}: no SMP page (FHB is its window)`);
+		for (const from of [`/books/${b.slug}/`, `/books/${b.slug}`])
+			assert.ok(redirects.split('\n').includes(`${from} ${fhb} 301`), `${from} 301 -> ${fhb}`);
+		assert.ok(storeHtml.includes(`href="${fhb}"`), `bookstore card -> ${fhb}`);
+		assert.ok(!storeHtml.includes(`href="/books/${b.slug}/"`), `bookstore: no link to the SMP /books/${b.slug}/`);
 	}
+	const sitemap = fs.readdirSync(new URL('../dist/', import.meta.url)).filter((f) => /^sitemap-\d+\.xml$/.test(f)).map((f) => fs.readFileSync(new URL(`../dist/${f}`, import.meta.url), 'utf8')).join('');
+	assert.ok(sitemap.length > 0, 'sitemap built');
+	for (const b of sold) assert.ok(!sitemap.includes(`spiritmediapublishing.com/books/${b.slug}/`), `${b.slug}: not in the SMP sitemap`);
 	// 3gh #1: the bookstore links every book we sell to its own page, and none of them to a store listing
 	const store = fs.readFileSync(new URL('../dist/bookstore/index.html', import.meta.url), 'utf8');
 	for (const t of titles) assert.ok(store.includes(`href="/books/${t.slug}/"`) || !store.includes(t.book.title), `bookstore card -> /books/${t.slug}/`);

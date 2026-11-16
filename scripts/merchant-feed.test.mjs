@@ -75,7 +75,7 @@ test('every item carries the fields Merchant Center requires', (t) => {
 	assert.equal(new Set(items.map((i) => i.gtin)).size, items.length, 'a GTIN is listed twice');
 });
 
-test('every live page with an order form is in the feed (SMP books AND FH books: SMP is the one retailer)', (t) => {
+test('every live page with an order form is in the feed', (t) => {
 	if (!built) return t.skip('no dist build');
 	const inFeed = new Set(items.map((i) => i.link.replace(/#order$/, '')));
 	const live = JSON.parse(fs.readFileSync('src/data/books/pages-live.json', 'utf8')).slugs;
@@ -90,17 +90,37 @@ test('every live page with an order form is in the feed (SMP books AND FH books:
 	t.diagnostic(`${n} sellable live pages, all in the feed`);
 });
 
-test('the FH books (canonical on FHB) are in the SMP feed via their retail-offer block', (t) => {
-	if (!built) return t.skip('no dist build');
-	for (const s of ['who-am-i', 'beloved-identity']) {
-		const html = fs.readFileSync(`dist/books/${s}/index.html`, 'utf8');
-		if (!/id="order"/.test(html)) continue;
-		assert.match(html, /id="smp-retail-offers"/, `${s} has no retail-offer block`);
-		assert.ok(
-			items.some((i) => i.link === `https://spiritmediapublishing.com/books/${s}/#order`),
-			`${s} missing from the SMP feed`,
-		);
+// OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): SMP's feed = SMP-author books ONLY. Every
+// Father's Heart product (Bibles + the FH books in store-engine books.json) is FHB's window and FHB's feed.
+export const fhErrs = (feed, fhBooks, reg) => {
+	const errs = [];
+	const fhSku = new Set(fhBooks.flatMap((b) => b.formats ?? []));
+	const fhGtin = new Set([...fhSku].map((k) => reg[k]?.isbn).filter(Boolean));
+	const fhSlug = new Set(fhBooks.map((b) => b.slug));
+	for (const i of feed) {
+		if (fhSku.has(i.id)) errs.push(`${i.id}: a Father's Heart book SKU`);
+		if (fhGtin.has(i.gtin)) errs.push(`${i.id}: GTIN ${i.gtin} is a Father's Heart book`);
+		const slug = i.link?.match(/\/books\/([^/]+)\//)?.[1];
+		if (fhSlug.has(slug)) errs.push(`${i.id}: links to the FH book ${slug}`);
+		if (/Father.s Heart Bible/i.test(i.title ?? '')) errs.push(`${i.id}: a Father's Heart Bible`);
 	}
+	return errs;
+};
+const FH_BOOKS = JSON.parse(fs.readFileSync('src/store-engine/data/books.json', 'utf8')).books;
+const REG = JSON.parse(fs.readFileSync('src/store-engine/data/book-skus.json', 'utf8')).skus;
+
+test('the SMP feed carries no Father\'s Heart product (Option C: FHB is their one window)', (t) => {
+	if (!built) return t.skip('no dist build');
+	assert.ok(FH_BOOKS.length >= 2, 'store-engine books.json lists the FH books');
+	assert.deepEqual(fhErrs(items, FH_BOOKS, REG), []);
+	for (const b of FH_BOOKS) assert.ok(!fs.existsSync(`dist/books/${b.slug}/index.html`), `${b.slug}: no SMP page (301 to FHB)`);
+});
+
+test('the FH-product check FAILS on an injected FH book (proof it can reject)', () => {
+	const sku = FH_BOOKS[0].formats[0];
+	const bad = [{ id: sku, gtin: REG[sku].isbn, title: 'x', link: `https://spiritmediapublishing.com/books/${FH_BOOKS[0].slug}/#order` }];
+	assert.equal(fhErrs(bad, FH_BOOKS, REG).length, 3);
+	assert.equal(fhErrs([{ id: 'x', gtin: '1', title: "Father's Heart Bible (Hardcover)", link: '' }], FH_BOOKS, REG).length, 1);
 });
 
 test('no GTIN is in both the SMP and FHB feeds (one listing per GTIN per business)', async (t) => {

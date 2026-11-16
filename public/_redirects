@@ -1,4 +1,9 @@
 # pmseoaeo 3gh (2026-11-14): FHB books live on FHB; the Lamb page is unlisted until its price is set
+# OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): every Father's Heart product has ONE window, FHB
+/books/who-am-i/ https://fathersheartbible.com/books/who-am-i/ 301
+/books/who-am-i https://fathersheartbible.com/books/who-am-i/ 301
+/books/beloved-identity/ https://fathersheartbible.com/books/beloved-identity/ 301
+/books/beloved-identity https://fathersheartbible.com/books/beloved-identity/ 301
 /books/jesus-had-a-little-lamb/ /bookstore/ 302
 /books/jesus-had-a-little-lamb /bookstore/ 302
 # Vanity redirects

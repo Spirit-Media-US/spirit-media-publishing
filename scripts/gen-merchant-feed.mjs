@@ -12,11 +12,10 @@
  * (src/store-engine/data/book-skus.json, ISBN + list price) to at least one live country. The price, GTIN (ISBN-13),
  * availability and per-country shipping are therefore exactly what the page and the checkout say; "Available soon"
  * pages and formats without a price declare no Offer, so they are excluded by construction.
- * SMP is the ONE retailer (Kevin brief store-168 #3): SMP books + FH books. An FH book's SMP page keeps its canonical
- * on fathersheartbible.com and so carries no Product JSON-LD; it emits the same Offers in a plain
- * <script type="application/json" id="smp-retail-offers"> block, read below, so its listing lands on the SMP page.
- * One listing per GTIN per business: scripts/merchant-feed.test.mjs fails if a GTIN is also in FHB's feed
- * (FHB's feed = Bibles only).
+ * OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): this feed = SMP-author books ONLY. Every
+ * Father's Heart product (the Bibles and the FH books in src/store-engine/data/books.json) is listed by FHB's feed, on
+ * its FHB page; SMP builds no page for an FH book (its URL 301s to FHB), and any FH SKU is dropped here by construction.
+ * One listing per GTIN per business: scripts/merchant-feed.test.mjs fails if a GTIN is also in FHB's feed.
  *
  * Runs AFTER `astro build` (writes dist/merchant-feed.xml, served at https://spiritmediapublishing.com/merchant-feed.xml).
  * Nothing is submitted anywhere by this script.
@@ -35,14 +34,20 @@ const BIND = {
 };
 const imgUrl = (i) => (i && typeof i === 'object' ? i.contentUrl || i.url : i);
 
-/** Every Offer in the built book pages, keyed by SKU. */
-export function collect(dist = 'dist') {
+/** The Father's Heart book SKUs (FHB's window, never this feed): store-engine books.json formats. */
+export const fhSkus = (root = '.') =>
+	new Set(
+		JSON.parse(readFileSync(`${root}/src/store-engine/data/books.json`, 'utf8')).books.flatMap((b) => b.formats ?? []),
+	);
+
+/** Every Offer in the built book pages, keyed by SKU (Father's Heart SKUs excluded: FHB's window). */
+export function collect(dist = 'dist', fh = fhSkus()) {
 	const items = new Map();
 	const walk = (n, ctx) => {
 		if (Array.isArray(n)) return n.forEach((x) => walk(x, ctx));
 		if (!n || typeof n !== 'object') return;
 		const offer = n.offers && !Array.isArray(n.offers) ? n.offers : undefined;
-		if (offer?.sku && offer.gtin13 && !items.has(offer.sku)) {
+		if (offer?.sku && offer.gtin13 && !items.has(offer.sku) && !fh.has(offer.sku)) {
 			const fmt = BIND[n.bookFormat];
 			const base = String(n.name ?? ctx.name).replace(/ \((Hardcover|Hardback|Paperback|eBook|Audiobook)\)$/, '');
 			items.set(offer.sku, {
@@ -84,9 +89,6 @@ export function collect(dist = 'dist') {
 				author: j.author?.name,
 			});
 		}
-		// FH-book retail pages (canonical on FHB, no Product JSON-LD): the page's own Offer data block
-		const r = html.match(/<script type="application\/json" id="smp-retail-offers"[^>]*>(.*?)<\/script>/s);
-		if (r) walk(JSON.parse(r[1]), { slug: d });
 	}
 	return items;
 }
