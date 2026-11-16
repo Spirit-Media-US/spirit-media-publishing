@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import coverSized from '../data/books/cover-sized.json';
+import expressExtra from '../data/books/express-books.json';
 import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
@@ -11,7 +12,6 @@ import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
 import ShipCountryMarquee from './ShipCountryMarquee.astro';
-import YouVersionBanner from './YouVersionBanner.astro';
 
 interface Props {
 	initialCollection?: string;
@@ -487,7 +487,8 @@ for (const doc of rawBooks as any[]) {
 //   fhb-languages — an FHB language edition (fhb-editions.json group "language")
 //   fhb-english   — every other FHB edition (Sanity fhb-* documents: General, Large Print, eBook, audience editions;
 //                   fhb-editions.json group "audience")
-//   smp           — everything else. Express Books = its Sanity members that are SMP only (a subset of SMP only).
+//   smp           — everything else.
+//   express-books — CROSS-CUTTING: Sanity "Express Books" members + src/data/books/express-books.json, any partition.
 //   smp-worldwide — the SMP-only cards ORDERABLE here: a built SMP /books/ page with an order form (a ship-set book with
 //                   a store-registry SKU that has an ISBN and a price, the rule books/[slug] sells by; any language). A subset of SMP only; it grows as pages go live.
 //                   RETIRES ITSELF: the build that finds it equal to SMP only drops its chip and page, and the
@@ -513,6 +514,12 @@ const partitionOf = (b: any) =>
 			: b.fhbGroup === 'audience' || String(b._id || '').startsWith('fhb-')
 				? 'fhb-english'
 				: 'smp';
+// Express Books = the Sanity "Express Books" collection + src/data/books/express-books.json (titles proven Express by
+// another record: cover manifest, Express pipeline project; each entry names its source). Cross-cutting (Kevin
+// 2026-11-16 "You are missing express books"): a subset of All, so an FH book can be in FHB Books AND Express Books.
+const EXPRESS_TITLES = new Set<string>(
+	(expressExtra as any).titles.map((t: any) => normT(t.title)),
+);
 const SHIP_TITLE = new Map<string, any>((shipset as any).titles.map((t: any) => [t.slug, t]));
 // "live" = the page BUILDS on this build (PAGE_BUILT: pages-live.json, or every page on a BOOKS_PREVIEW_ALL=1 preview),
 // the same switch books/[slug] uses, so a card is in SMP worldwide exactly when its built page shows the order box.
@@ -529,7 +536,11 @@ for (const b of rawBooks as any[]) {
 	b.live = !!(own && PAGE_BUILT(own[1]));
 	b.colls = [part];
 	if (part === 'smp' && own && hasOrderBox(own[1])) b.colls.push('smp-worldwide');
-	if (part === 'smp' && (b.collections || []).includes('Express Books'))
+	const titleKeys = [b.display_title, b.title, String(b.title || '').split(':')[0]].map(normT);
+	if (
+		(b.collections || []).includes('Express Books') ||
+		titleKeys.some((k) => EXPRESS_TITLES.has(k))
+	)
 		b.colls.push('express-books');
 	b.cardId = b._id || `${b.display_title || b.title}|${b.amazon}`;
 }
@@ -734,9 +745,8 @@ const itemListLd =
     </>
   )}
 </section>
-<!-- The YouVersion banner under the bookstore hero/tagline block, as on every SMP page with a hero (the pages pass
-     youversionBanner={false} to Layout so it never shows twice). -->
-<YouVersionBanner />
+<!-- No YouVersion banner on the bookstore pages (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee); the pages
+     pass youversionBanner={false} to Layout. -->
 
 
 {introRendered && (

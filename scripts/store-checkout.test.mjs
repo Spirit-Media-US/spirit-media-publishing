@@ -495,6 +495,10 @@ const cardsOf = (html) => {
 		href: m[3],
 	}));
 };
+const cardsTitles = (html) => {
+	const grid = html.slice(html.indexOf('id="book-grid"'), html.indexOf('id="no-results"'));
+	return [...grid.matchAll(/<img src="[^"]*" alt="([^"]*)"/g)].map((m) => m[1].replace(/&#39;/g, "'").replace(/&amp;/g, '&'));
+};
 const storePage = (slug) => fs.readFileSync(new URL(`../dist/bookstore/${slug ? `${slug}/` : ''}index.html`, import.meta.url), 'utf8');
 
 test('bookstore collections: the 7 chips, counts = definitions, every card in exactly one, Express Books inside SMP only', () => {
@@ -525,11 +529,18 @@ test('bookstore collections: the 7 chips, counts = definitions, every card in ex
 	}
 	assert.deepEqual(exactlyOneErrors(Object.fromEntries(PARTITION.map((k) => [k, pages[k].map((c) => c.id)])), ids), []);
 	assert.equal(PARTITION.reduce((n, k) => n + pages[k].length, 0), all.length, 'the 4 partitions sum to All');
-	// Express Books: a subset of SMP only, and every SMP card Sanity files as an Express Book
+	// Express Books: cross-cutting (a subset of All, any partition, Kevin 2026-11-16 "You are missing express books"),
+	// and every title express-books.json proves Express (plus Beloved Identity, the Sanity member that is an FH book) is on it
 	const smpIds = new Set(pages.smp.map((c) => c.id));
-	assert.ok(pages['express-books'].length > 0, 'Express Books lists its books');
-	for (const c of pages['express-books']) assert.ok(smpIds.has(c.id), `Express Book ${c.id} is in SMP only`);
-	assert.equal(pages['express-books'].length, all.filter((c) => c.colls.includes('express-books')).length);
+	const allIds = new Set(ids);
+	const exp = pages['express-books'];
+	for (const c of exp) assert.ok(allIds.has(c.id), `Express Book ${c.id} is in All`);
+	assert.equal(exp.length, all.filter((c) => c.colls.includes('express-books')).length);
+	const expTitles = cardsTitles(storePage('express-books'));
+	const normT = (t) => String(t).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+	const extra = JSON.parse(fs.readFileSync(new URL('../src/data/books/express-books.json', import.meta.url), 'utf8')).titles;
+	for (const t of extra) assert.ok(expTitles.some((x) => normT(x).startsWith(normT(t.title))), `Express Books carries ${t.title}`);
+	assert.ok(exp.some((c) => c.href === 'https://fathersheartbible.com/books/beloved-identity/'), 'Express Books carries Beloved Identity');
 	// SMP worldwide: a subset of SMP only, every member's own page carries the order box, and every SMP-only card whose
 	// page carries one is a member (both ways, read off the built book pages)
 	const orderBox = (href) => {
@@ -630,18 +641,11 @@ test('bookstore: tagline "Over 550 titles..." with the offer line + country marq
 	assert.ok(offer > tag && band > offer && html.indexOf('id="book-grid"') > band, 'tagline -> offer line -> marquee -> grid');
 	const cta = html.indexOf('>Publish Your Book →</a>');
 	const chips = html.indexOf('class="collection-chip');
-	const yvAt = html.indexOf('FHB+DVC on YouVersion');
-	assert.ok(cta > band && yvAt > cta && chips > yvAt, 'marquee -> Publish Your Book -> YouVersion banner -> chips');
+	assert.ok(cta > band && chips > cta, 'marquee -> Publish Your Book -> chips');
 	assert.equal(html.split('>Publish Your Book →</a>').length - 1, 1, 'one Publish Your Book button');
 	assert.match(html, /<title>Christian Bookstore — 550\+ Spirit Media Published Titles<\/title>/);
 	if (LIVE_COUNTRIES) assert.match(html, new RegExp(`free standard shipping to ${LIVE_COUNTRIES.length} countries</p>`));
 	assert.doesNotMatch(storePage('smp'), /data-ship-band/, 'the hero band is on /bookstore/ only');
-	// the YouVersion banner: once, under the hero/tagline block (after the marquee, before the grid), on every bookstore page
-	for (const slug of ['', 'smp', 'fhb-english']) {
-		const h = storePage(slug);
-		const yvFirst = h.search(/FHB\+DVC on YouVersion/);
-		assert.equal(h.split('FHB+DVC on YouVersion').length - 1, 1, `/bookstore/${slug}: banner once`);
-		assert.ok(yvFirst > h.indexOf('</h1>') && yvFirst < h.indexOf('id="book-grid"'), `/bookstore/${slug}: banner under the hero`);
-		if (!slug) assert.ok(yvFirst > band, 'banner after the offer line + marquee');
-	}
+	// no YouVersion banner on any bookstore page (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee)
+	for (const slug of ['', 'smp', 'express-books', 'fhb-english']) assert.ok(!storePage(slug).includes('FHB+DVC on YouVersion'), `/bookstore/${slug}: no banner`);
 });
