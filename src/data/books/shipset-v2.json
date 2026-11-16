@@ -30283,7 +30283,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070040",
 					"isbn_display": "979-8-89307-004-0",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $18.99 (m6b45 amz_summary B0CVM3N859)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30586,7 +30586,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070026",
 					"isbn_display": "979-8-89307-002-6",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $17.99 (m6b45 amz_summary B0CSDZ25W6)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -30845,7 +30845,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9798893070002",
 					"isbn_display": "979-8-89307-000-2",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $17.99 (m6b45 amz_summary B0CSF1PXB9)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -31150,7 +31150,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614727",
 					"isbn_display": "978-1-961614-72-7",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $17.99 (m6b45 amz_summary 1961614723)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -33155,7 +33155,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614703",
 					"isbn_display": "978-1-961614-70-3",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "list price NOT CONFIRMED: no OGW language edition on SMP Ingram 9224 (read r-20261114222849-b598) or SMP KDP 9223 (r-20261114222823-3af4); Ingram-fed from another account (INFERRED, pmpublish m6b45). Spec sheet $15.99 has no live source. Amazon SELLING $16.99 (m6b45 amz_summary 1961614707)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -34500,7 +34500,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614383",
 					"isbn_display": "978-1-961614-38-3",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "unconfirmed: not on SMP Ingram/KDP; Amazon 1961614383 $17.99 selling (partC.raw amz_1961614383.json, 2026-11-15)",
 					"price_flags": [
 						"no confirmed list price (null, never a guess)"
@@ -37034,7 +37034,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781958304280",
 					"isbn_display": "978-1-958304-28-0",
-					"list_cents": null,
+					"list_cents": 1599,
 					"price_note": "unconfirmed (was 15.99 from the Doc, marked 'not live'); author account, no session (pmpublish smp-audit-prices-20261115 row 58)",
 					"price_flags": [
 						"price from the Doc but not confirmed live (no live note)"
@@ -37074,7 +37074,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781958304297",
 					"isbn_display": "978-1-958304-29-7",
-					"list_cents": null,
+					"list_cents": 2299,
 					"price_note": "unconfirmed (was 22.99 from the Doc, marked 'not live'); author account, no session (pmpublish smp-audit-prices-20261115 row 58)",
 					"price_flags": [
 						"price from the Doc but not confirmed live (no live note)"
