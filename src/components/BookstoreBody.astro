@@ -404,6 +404,31 @@ const OWN_PAGE = new Map<string, string>(
 // Time card at the Work Staff listing) are named here, so no other edition's card is pulled in (pmseoaeo 3gm #1).
 for (const t of LIVE_TITLES) OWN_PAGE.set(norm(t.slug.replace(/-/g, ' ')), `/books/${t.slug}/`);
 // The FH books (store-engine books.json) are carded to their FHB page above (Option C), never to an SMP page.
+// Kevin 2026-11-16 "Why does the cards only show paperback now?": an own-page card keeps its REAL formats.
+// Print formats (paperback/hardback) open our own page (we sell them); eBook/audio keep their store link.
+const kindOf = (k: string) =>
+	['paperback', 'hardback', 'ebook', 'audiobook', 'audio', 'pdf'].includes(k)
+		? k
+		: /-pb$/.test(k)
+			? 'paperback'
+			: /-hb$/.test(k)
+				? 'hardback'
+				: /-(eb|ebook)$/.test(k)
+					? 'ebook'
+					: /-(audio|ab)$/.test(k)
+						? 'audiobook'
+						: '';
+const ownFormats = (own: string, all: Record<string, unknown> | undefined) => {
+	const out: Record<string, string> = {};
+	for (const [k, v] of Object.entries(all || {})) {
+		const kind = kindOf(k);
+		if (!kind) continue;
+		if (kind === 'paperback' || kind === 'hardback') out[kind] = own;
+		else if (typeof v === 'string' && /^https?:/.test(v)) out[kind] = v;
+	}
+	if (!Object.keys(out).length) out.paperback = own;
+	return out;
+};
 const OWN_ALIAS: Record<string, string> = Object.fromEntries(
 	Object.entries({
 		'home colored': 'home',
@@ -422,8 +447,8 @@ for (const doc of rawBooks as any[]) {
 		OWN_ALIAS[norm(doc.title)];
 	if (!own) continue;
 	doc.amazon = own;
-	doc.formatsAll = doc.formats; // still counted in Published Titles (L2109), only the badges go
-	doc.formats = {};
+	doc.formatsAll = doc.formats; // still counted in Published Titles (L2109)
+	doc.formats = ownFormats(own, doc.formatsAll);
 	doc.ownPage = true;
 }
 // A book our store sells with no bookstore document yet (new titles: publishing a Sanity document rebuilds
@@ -443,7 +468,10 @@ for (const doc of rawBooks as any[]) {
 			amazon: href,
 			date: null,
 			collections: null,
-			formats: {},
+			formats: ownFormats(
+				href,
+				Object.fromEntries((t.book.formats || []).map((f: string) => [f, true])),
+			),
 			// the ship set's own format list (pb/hb/ebook/audio SKUs) counts in Published Titles (L2109)
 			formatsAll: Object.fromEntries((t.book.formats || []).map((f: string) => [f, true])),
 			ownPage: true,
@@ -579,7 +607,6 @@ const FMT_STYLES: Record<string, string> = {
 const badgeStyle =
 	'display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;';
 const formatsHtml = (b: any): string => {
-	if (b.ownPage) return '';
 	const fmts = b.formats || {};
 	// 3aj: a format may be a URL or a bare flag (true) — a flag links to the book's own listing,
 	// never to href="true" (was a 404 on SOAR To Success). No URL to give = no badge.
@@ -596,7 +623,7 @@ const formatsHtml = (b: any): string => {
 	const badges = keys
 		.map(
 			(k) =>
-				`<a href="${fmtHref(k)}" target="_blank" rel="noopener noreferrer" style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}</a>`,
+				`<a href="${fmtHref(k)}"${fmtHref(k).startsWith('/') ? '' : ' target="_blank" rel="noopener noreferrer"'} style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}</a>`,
 		)
 		.join('');
 	return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">${badges}</div>`;
@@ -888,7 +915,7 @@ const itemListLd =
       </div>`;
     }
     const badges = keys.map(k =>
-      `<a href="${fmtHref(k)}" target="_blank" rel="noopener noreferrer"
+      `<a href="${fmtHref(k)}"${fmtHref(k).startsWith('/') ? '' : ' target="_blank" rel="noopener noreferrer"'}
         style="display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;${FORMAT_STYLES[k]}"
         onclick="event.stopPropagation()">
         ${FORMAT_LABELS[k]}
