@@ -323,6 +323,82 @@ test('digital-only check FAILS on a digital page with no retailer button (proof 
 	assert.ok(digitalErrs('the-sunday-scaries', good.replace('</main>', '<input id="e" type="email"></main>'), row).length, 'an email field must fail');
 	assert.ok(digitalErrs('the-sunday-scaries', good.replace(' aria-label="Keep shopping"', ''), row).length, 'no Keep shopping must fail');
 });
+// EBOOKS (Kevin 2026-11-16 "We point to our own ebook sales"). An eBook-only page carries the EBOOK-ONLY order box in place
+// of the retailer button: email field + the 15% offer line, NO shipping line, NO marquee, NO Ship to, one eBook row at
+// the registry price, Keep shopping. A title still in KDP Select keeps its retailer button. ebookOnlyErrs() is the ONE
+// check, used on the built pages and proven to fail below.
+const EBOOKS = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).ebooks ?? {};
+const today = new Date().toISOString().slice(0, 10);
+const ebookOnSale = (slug) => {
+	const e = EBOOKS[`${slug}-ebook`];
+	return e && e.book === slug && (!e.select_until || today >= e.select_until) ? e : null;
+};
+const ebookOnlyErrs = (slug, main, row) => {
+	const errs = [];
+	if (!/<form id="order"[^>]*data-status="ebook"/.test(main)) errs.push(`${slug}: no ebook-only order form`);
+	if (!new RegExp(`name="${slug}-ebook"[^>]*max="1"`).test(main)) errs.push(`${slug}: no eBook row`);
+	if (!main.includes(`$${(row.list_cents / 100).toFixed(2)}`)) errs.push(`${slug}: eBook price $${(row.list_cents / 100).toFixed(2)} not shown`);
+	if (!/<input[^>]+type="email"/.test(main)) errs.push(`${slug}: no email field`);
+	if (!/<p class="bo-offer"[^>]*>\s*15% off first order\s*</.test(main)) errs.push(`${slug}: no 15% offer line (or it carries shipping)`);
+	if (/class="bo-marquee"/.test(main)) errs.push(`${slug}: marquee on an eBook-only page (nothing ships)`);
+	if (/[Ff]ree standard shipping|name="country"/.test(main)) errs.push(`${slug}: shipping line / Ship to on an eBook-only page`);
+	if (/class="br-btn"/.test(main)) errs.push(`${slug}: retailer button beside our own eBook sale`);
+	if (!/aria-label="Keep shopping"/.test(main)) errs.push(`${slug}: no Keep shopping`);
+	return errs;
+};
+test('ebook-only check FAILS on a page with a marquee, a shipping line, no email, no offer, a retailer button (proof the gate can reject)', () => {
+	const row = { list_cents: 699 };
+	const good = '<main><p class="bo-offer">15% off first order</p><form id="order" class="bo-wrap" data-box data-slug="x" data-status="ebook" data-ebook="x-ebook"><input class="bo-qty__in" type="number" name="x-ebook" min="0" max="1" value="1"><b>$6.99</b><input id="e" type="email"></form><nav aria-label="Keep shopping"></nav></main>';
+	assert.deepEqual(ebookOnlyErrs('x', good, row), []);
+	for (const [why, bad] of [
+		['marquee', good.replace('</main>', '<div class="bo-marquee"></div></main>')],
+		['shipping line', good.replace('15% off first order', '15% off first order + free standard shipping to 20 countries')],
+		['ship to', good.replace('</form>', '<select name="country"></select></form>')],
+		['no email', good.replace('<input id="e" type="email">', '')],
+		['no offer line', good.replace('<p class="bo-offer">15% off first order</p>', '')],
+		['retailer button', good.replace('</main>', '<a class="br-btn" href="https://www.amazon.com/dp/B0X">Buy the eBook</a></main>')],
+		['wrong price', good.replace('$6.99', '$9.99')],
+		['no eBook row', good.replace('name="x-ebook"', 'name="x-pb"')],
+	]) assert.ok(ebookOnlyErrs('x', bad, row).length, `${why} must fail`);
+});
+test('store-checkout routes an eBook cart to the engine eBook form (no shipping) and refuses a mixed cart', async () => {
+	const { EBOOK_SKUS } = await import('../src/store-engine/lib/storeEngine.ts');
+	EBOOK_SKUS['fixture-book-ebook'] = { title: 'Fixture Book', isbn: '', listCents: 599, bookSlug: 'fixture-book', img: null, selectUntil: null };
+	try {
+		const r = await post({ counts: { 'fixture-book-ebook': 1 }, email: 'a@example.com', returnPath: '/books/fixture-book/', site: 'smp' });
+		assert.equal(r.status, 200, JSON.stringify(r.json));
+		assert.equal(r.form.get('metadata[kind]'), 'ebook_direct');
+		assert.equal(r.form.get('metadata[ebook_sku]'), 'fixture-book-ebook');
+		assert.equal(r.form.get('metadata[family]'), 'smp_ebook');
+		assert.equal(r.form.get('metadata[window]'), 'smp');
+		assert.ok(![...r.form.keys()].some((k) => /shipping/.test(k)), 'no shipping on an eBook');
+		const pb = Object.keys(JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus).find((k) => k.endsWith('-pb'));
+		const mixed = await post({ counts: { 'fixture-book-ebook': 1, [pb]: 1 }, site: 'smp' });
+		assert.equal(mixed.status, 400);
+		assert.equal(mixed.json.error, 'ebook_separate');
+		assert.equal(mixed.form.toString(), '', 'nothing sent to Stripe');
+	} finally {
+		delete EBOOK_SKUS['fixture-book-ebook'];
+	}
+});
+test('/ebook-download on SMP forwards only s/e/t/dl to FHB (dev preview from pages.dev) and passes the answer back', async () => {
+	const { onRequestGet, upstreamFor } = await import('../functions/ebook-download.ts');
+	assert.equal(upstreamFor(new URL('https://spiritmediapublishing.com/x')), 'https://fathersheartbible.com');
+	assert.equal(upstreamFor(new URL('https://riab-pilot.spirit-media-publishing.pages.dev/x')), 'https://dev.fathersheartbible.pages.dev');
+	let seen = '';
+	globalThis.fetch = async (u) => {
+		seen = String(u);
+		return new Response('nope', { status: 403, headers: { 'content-type': 'text/html', 'set-cookie': 'x=1' } });
+	};
+	const r = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=cs_test_1&e=a-ebook&t=SIG&dl=epub&evil=1') });
+	assert.equal(seen, 'https://fathersheartbible.com/ebook-download?s=cs_test_1&e=a-ebook&t=SIG&dl=epub');
+	assert.equal(r.status, 403, 'the refusal passes through');
+	assert.equal(r.headers.get('set-cookie'), null);
+	globalThis.fetch = async () => new Response(null, { status: 302, headers: { location: '/ebook-download?s=a&e=b&t=c' } });
+	const r2 = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=a') });
+	assert.equal(r2.status, 302);
+	assert.equal(r2.headers.get('location'), '/ebook-download?s=a&e=b&t=c', 'the buyer stays on SMP');
+});
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
 	const set = JSON.parse(fs.readFileSync(new URL('../src/data/books/shipset-v2.json', import.meta.url), 'utf8'));
@@ -363,6 +439,13 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 				assert.doesNotMatch(main, />(Look inside|Questions|Product details|Checkout →)</, `${t.slug}: no English chrome`);
 			}
 			for (const k of Object.keys(t.skus)) if (REG[k]) assert.match(main, new RegExp(`name="${k}"`), `${t.slug}: ${k} quantity`);
+			const eb = ebookOnSale(t.slug);
+			if (eb) {
+				assert.match(main, new RegExp(`name="${t.slug}-ebook"[^>]*max="1"`), `${t.slug}: eBook row beside print`);
+				assert.ok(main.includes(`$${(eb.list_cents / 100).toFixed(2)}`), `${t.slug}: eBook price`);
+			} else assert.doesNotMatch(main, new RegExp(`name="${t.slug}-ebook"|<input[^>]*data-ebook-in`), `${t.slug}: no eBook row while not on sale`);
+		} else if (ebookOnSale(t.slug)) {
+			assert.deepEqual(ebookOnlyErrs(t.slug, main, ebookOnSale(t.slug)), [], `${t.slug}: eBook-only order box`);
 		} else if (RETAIL[t.slug]) {
 			assert.deepEqual(digitalErrs(t.slug, main, RETAIL[t.slug]), [], `${t.slug}: digital-only retailer box`);
 		} else {
@@ -371,7 +454,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		}
 		// digital-only: the ONE retailer button is Kevin's 2026-11-16 17:15Z exception to "Amazon is never a buy option";
 		// everything else on the page still obeys it
-		const body = RETAIL[t.slug] && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
+		const body = RETAIL[t.slug] && !ebookOnSale(t.slug) && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
 		assert.doesNotMatch(body, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
 		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
 		const leak = textOf(main).match(LEAK);
