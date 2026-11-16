@@ -1,4 +1,7 @@
 ---
+import { destHtml, SISTER_HOST, sisterHost } from '../lib/xsite';
+import AuthorLinks from './AuthorLinks.astro';
+
 // The SMP book page body, MIRRORING fathersheartbible.com/bibles/grandparents-bible/ section for section (Kevin
 // 2026-11-14 ~00:13Z via pmseoaeo: SMP book pages are "far from" the FHB edition pages; L2006; Kevin 2026-11-14 again:
 // "inspect them side by side ... While text will change the WHY of the text does not"). Rendered under the hero + order
@@ -167,6 +170,7 @@ const asList = (a: string) => {
 					<div class="min-w-0">
 						{author && <h3 class="text-xl font-bold text-ink">{author}</h3>}
 						<p class="mt-2 text-stone-700">{g.author.bio}</p>
+						{(authorName || author) && <AuthorLinks author={authorName || author} />}
 					</div>
 				</div>
 			)}
@@ -310,7 +314,7 @@ const asList = (a: string) => {
 				<nav aria-label={L.more.replace("{title}", title)} class="mb-10">
 					<h2 class="mb-3 text-xl font-bold text-ink">{L.more.replace("{title}", title)}</h2>
 					<ul class="flex flex-wrap gap-2">
-						{more.map((m) => <li><a href={m.href ?? `/books/${m.slug}/`} class="inline-flex min-h-11 items-center rounded-full border border-[#f0c4d8] bg-[#fbe7f0] px-4 text-sm font-semibold text-stone-700 no-underline hover:border-ink">{m.title}</a></li>)}
+						{more.map((m) => <li><a href={m.href ?? `/books/${m.slug}/`} class="inline-flex min-h-11 items-center rounded-full border border-[#f0c4d8] bg-[#fbe7f0] px-4 text-sm font-semibold text-stone-700 no-underline hover:border-ink">{m.title}{sisterHost(m.href) && <Fragment set:html={destHtml(SISTER_HOST)} />}</a></li>)}
 					</ul>
 				</nav>
 			)}

@@ -1,4 +1,5 @@
 ---
+import AuthorLinks from '../../../components/AuthorLinks.astro';
 import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
 import BookRetailer from '../../../components/BookRetailer.astro';
@@ -33,10 +34,14 @@ import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
 import pagesLive from '../../../data/books/pages-live.json';
 import retailerLinks from '../../../data/books/retailer-links.json';
+import seoTitleData from '../../../data/books/seo-titles.json';
 import set from '../../../data/books/shipset-v2.json';
 import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
+import { authorLd } from '../../../lib/author-sites.mjs';
+import { heroSizes, heroSrcset, heroStyle } from '../../../lib/cover-hero.mjs';
 import { dnpMatcher } from '../../../lib/do-not-publish.mjs';
+import { seoTitles } from '../../../lib/seo-title.mjs';
 import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
 import { handlingFeeCents, shippingDetailsFor } from '../../../store-engine/lib/marginGuard.ts';
@@ -187,6 +192,8 @@ export async function getStaticPaths() {
 				? {
 						src: c3.w600,
 						w300: c3.w300,
+						// the 1200 file of the SAME picture (the 3D render's own, else the flat 1200 jpg) for 2x screens
+						w1200: sz.hero3d ? sz.hero3d.w1200 : sz.jpg1200,
 						og: sz.jpg1200,
 						w: c3.width,
 						h: c3.height,
@@ -250,6 +257,10 @@ export async function getStaticPaths() {
 							(sized as Record<string, any>).covers[t.slug].hero3d ??
 							(sized as Record<string, any>).covers[t.slug]
 						).w300,
+						// the 1200 file of the SAME picture (the 3D render's own, else the flat 1200 jpg) for 2x screens
+						w1200: (sized as Record<string, any>).covers[t.slug].hero3d
+							? (sized as Record<string, any>).covers[t.slug].hero3d.w1200
+							: (sized as Record<string, any>).covers[t.slug].jpg1200,
 						og: (sized as Record<string, any>).covers[t.slug].jpg1200,
 						w: (
 							(sized as Record<string, any>).covers[t.slug].hero3d ??
@@ -368,13 +379,28 @@ export async function getStaticPaths() {
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
 	// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): never a page, not even on a preview
 	const isDoNotPublish = dnpMatcher(doNotPublish);
-	return pages
+	const built = pages
 		.filter((p) => ALL || (pagesLive.slugs as string[]).includes(p.slug))
-		.filter((p) => !isDoNotPublish({ slug: p.slug, title: p.title }))
-		.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+		.filter((p) => !isDoNotPublish({ slug: p.slug, title: p.title }));
+	// <title> <= 60, book title first, unique across the built pages (src/lib/seo-title.mjs has the rule; a page that
+	// cannot fit or stays a duplicate fails the build). Hand-written per-book titles: src/data/books/seo-titles.json.
+	const titles = seoTitles(
+		built.map((p) => ({
+			slug: p.slug,
+			title: p.title,
+			subtitle: p.subtitle,
+			author: p.author,
+			page_title: p.page_title,
+			seo_title:
+				(seoTitleData as Record<string, string>)[p.slug] ??
+				(set.titles as any[]).find((t) => t.slug === p.slug)?.book?.seo_title ??
+				null,
+		})),
+	);
+	return built.map((p) => ({ params: { slug: p.slug }, props: { p, docTitle: titles[p.slug] } }));
 }
 
-const { p } = Astro.props as { p: Page };
+const { p, docTitle } = Astro.props as { p: Page; docTitle: string };
 const SITE = 'https://spiritmediapublishing.com';
 const url = `${SITE}/books/${p.slug}/`;
 const money = (c: number) => `$${(c / 100).toFixed(2)}`;
@@ -580,11 +606,8 @@ const card = (ogCards as Record<string, any>)[p.slug] as
 const ogImage = card?.src ?? p.cover.og ?? p.cover.src;
 const ogW = card ? card.w : 0;
 const ogH = card ? card.h : 0;
-// <title>: the sheet's own page title (written for the book's search terms); the brand is appended only when the
-// whole title still fits the ~60 characters a results page shows.
-const BRAND = ' | Spirit Media Publishing';
-const docTitle =
-	p.page_title.length + BRAND.length <= 60 ? `${p.page_title}${BRAND}` : p.page_title;
+// <title> (docTitle, from getStaticPaths): the sheet's own page title, the brand appended only when the whole fits
+// 60; longer ones shorten by src/lib/seo-title.mjs (brand, then " by <author>", then the subtitle at a phrase boundary).
 // Meta description 140-165 (the FHB edition-page rule): the sheet's meta, else its short line when that one fits.
 const fit = (s: string | null | undefined) => !!s && s.length >= 140 && s.length <= 165;
 const metaDesc = fit(p.meta) ? p.meta : fit(p.short) ? p.short : p.meta;
@@ -652,7 +675,13 @@ const ld = {
 	...(p.subtitle ? { alternativeHeadline: p.subtitle } : {}),
 	url,
 	description: p.short,
-	author: { '@type': 'Person', name: p.author, ...(headshot ? { image: headshot.src } : {}) },
+	// url + sameAs = the author's CERTAIN sites (src/data/books/author-sites.json), the same set the bio's link row shows.
+	author: {
+		'@type': 'Person',
+		name: p.author,
+		...(headshot ? { image: headshot.src } : {}),
+		...authorLd(p.author),
+	},
 	publisher: publisherLd,
 	...(lead ? { brand: { '@type': 'Brand', name: 'Spirit Media Publishing' } } : {}),
 	inLanguage: p.lang ?? 'en',
@@ -684,7 +713,7 @@ const crumbs = {
 
 <Layout lang={p.lang ?? 'en'} title={docTitle} description={metaDesc} ogImage={ogImage} ogImageWidth={ogW} ogImageHeight={ogH} canonical={p.canonical ?? undefined}>
 	<Fragment slot="head">
-		<link rel="preload" as="image" href={p.cover.src} imagesrcset={p.cover.w300 ? `${p.cover.w300} 300w, ${p.cover.src} 600w` : undefined} imagesizes={p.cover.w300 ? "(min-width: 768px) 280px, 240px" : undefined} fetchpriority="high" />
+		<link rel="preload" as="image" href={p.cover.src} imagesrcset={heroSrcset(p.cover)} imagesizes={p.cover.w300 ? heroSizes(p.cover.w, p.cover.h) : undefined} fetchpriority="high" />
 		{!p.canonical && <script type="application/ld+json" set:html={JSON.stringify(ld)}></script>}
 		{!p.canonical && faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>}
 		<script type="application/ld+json" set:html={JSON.stringify(crumbs)}></script>
@@ -703,17 +732,21 @@ const crumbs = {
 				</nav>
 				<div class="grid items-start gap-8 md:grid-cols-2 md:gap-10">
 					<div class="flex justify-center">
-						<a href="#order" aria-label={`${T.order} ${p.title}`} class="block w-full max-w-[240px] md:max-w-[340px]">
+						{/* ONE common cover height, width by its own aspect (Kevin 2026-11-16 "Perfer larger as possible"):
+						    src/lib/cover-hero.mjs holds the numbers; scripts/cover-hero.test.mjs + cover-hero-measure.mjs check them */}
+						<a href="#order" aria-label={`${T.order} ${p.title}`} class="block w-full">
 							<img
 								src={p.cover.src}
-								srcset={p.cover.w300 ? `${p.cover.w300} 300w, ${p.cover.src} 600w` : undefined}
-								sizes={p.cover.w300 ? '(min-width: 768px) 340px, 240px' : undefined}
+								srcset={heroSrcset(p.cover)}
+								sizes={p.cover.w300 ? heroSizes(p.cover.w, p.cover.h) : undefined}
 								width={p.cover.w}
 								height={p.cover.h}
 								alt={p.cover.alt}
 								fetchpriority="high"
 								decoding="async"
-								class={p.cover.is3d ? 'h-auto w-full' : 'h-auto w-full rounded shadow-lg'}
+								data-hero-cover
+								style={heroStyle(p.cover.w, p.cover.h)}
+								class={p.cover.is3d ? 'book-cover' : 'book-cover rounded shadow-lg'}
 							/>
 						</a>
 					</div>
@@ -817,6 +850,7 @@ const crumbs = {
 							{headshot && <img src={headshot.src} width={headshot.w} height={headshot.h} alt={headshot.alt} loading="lazy" decoding="async" class="float-left mb-2 mr-4 h-28 w-28 rounded-2xl object-cover sm:h-40 sm:w-40" />}
 							<p class="leading-relaxed">{p.bio}</p>
 						</div>
+						<AuthorLinks author={p.author} />
 					</div>
 				)}
 				<div>
@@ -855,6 +889,10 @@ const crumbs = {
 
 <style>
 	.book-about :global(p) { margin: 0 0 0.75rem; }
+	/* HERO COVER (src/lib/cover-hero.mjs HERO_H / HERO_BP): one common height, width = height x the cover's own aspect,
+	   never wider than its column (a landscape cover then fills the column width). Fixed px, never vh. */
+	.book-cover { --hh: 336px; display: block; margin: 0 auto; width: min(100%, calc(var(--hh) * var(--ar, 0.6667))); max-width: 100%; height: auto; }
+	@media (min-width: 768px) { .book-cover { --hh: 550px; } }
 	.book-about :global(strong) { color: var(--color-ink); }
 	/* the FHB hero chips (FATHER SON SPIRIT style): bold caps in a 2px frame, the cover colour when measured */
 	.book-chip { display: inline-block; padding: 0.35rem 0.8rem; border: 2px solid var(--color-ink-soft); border-radius: 6px; background: #fff; color: var(--color-ink-soft); font-size: 1.05rem; font-weight: 800; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }

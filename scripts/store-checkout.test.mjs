@@ -293,7 +293,8 @@ const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>
 // proven to fail on a digital page with no retailer button.
 const RETAIL = JSON.parse(fs.readFileSync(new URL('../src/data/books/retailer-links.json', import.meta.url), 'utf8')).links;
 const RETAIL_LABEL = { ebook: 'Buy the eBook', audiobook: 'Listen on Audible' };
-const RETAIL_BTN = /<a class="br-btn"[^>]*href="([^"]+)"[^>]*>([^<]*)<\/a>|<a[^>]*href="([^"]+)"[^>]*class="br-btn"[^>]*>([^<]*)<\/a>/g;
+// the button's visible label; its new-tab notice (.xsite-sr "(opens in a new tab)", src/lib/xsite.ts) is read separately
+const RETAIL_BTN = /<a class="br-btn"[^>]*href="([^"]+)"[^>]*>([^<]*)(?:<span class="xsite-sr">[^<]*<\/span>)?<\/a>|<a[^>]*href="([^"]+)"[^>]*class="br-btn"[^>]*>([^<]*)(?:<span class="xsite-sr">[^<]*<\/span>)?<\/a>/g;
 const digitalErrs = (slug, main, row) => {
 	const errs = [];
 	const btns = [...main.matchAll(RETAIL_BTN)].map((m) => ({ href: m[1] ?? m[3], label: (m[2] ?? m[4]).trim() }));
