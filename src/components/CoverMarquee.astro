@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import fhbEditions from '../data/fhb-editions.json';
+import { destHtml, SISTER_HOST } from '../lib/xsite';
 import VoiceChips from './VoiceChips.astro';
 
 // This repo has no card-art.ts (that resolver lives in the FHB repo). The same R2
@@ -216,6 +217,7 @@ const rows = [
 										fetchpriority="low"
 									/>
 										{'caption' in c && <span class="fhbm-cap">{c.caption}</span>}
+										<Fragment set:html={destHtml(SISTER_HOST, true)} />
 									</a>
 								) : (
 									<div class="fhbm-soon">

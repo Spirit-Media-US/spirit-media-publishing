@@ -12,6 +12,7 @@ import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
 import { dnpMatcher } from '../lib/do-not-publish.mjs';
 import { sanityClient } from '../lib/sanity.ts';
+import { destHtml, newTabHtml, SISTER_HOST, sisterHost } from '../lib/xsite';
 import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
@@ -616,6 +617,12 @@ const IMG_CLASS =
 const IMG_CLASS_FRAMED =
 	'block h-full w-auto max-w-full mx-auto border border-[#adacab] object-contain group-hover:scale-105 transition-transform duration-300';
 const BOOKS_JSON = JSON.stringify(rawBooks);
+const XS = {
+	host: SISTER_HOST,
+	dest: destHtml(SISTER_HOST),
+	destSr: destHtml(SISTER_HOST, true),
+	newTab: newTabHtml,
+};
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
 // browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
 // Titles". The script animates up to these same values on scroll (one computation, not two).
@@ -672,6 +679,12 @@ const FMT_STYLES: Record<string, string> = {
 };
 const badgeStyle =
 	'display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;';
+// Cross-site rule (src/lib/xsite.ts): our own page or fathersheartbible.com = SAME tab (FHB with its destination, read by a
+// screen reader; the card title shows it visibly); a third-party listing = new tab, said to a screen reader.
+const linkAttrs = (href: string) =>
+	href.startsWith('/') || sisterHost(href) ? '' : ' target="_blank" rel="noopener noreferrer"';
+const linkTail = (href: string) =>
+	href.startsWith('/') ? '' : sisterHost(href) ? destHtml(SISTER_HOST, true) : newTabHtml;
 const formatsHtml = (b: any): string => {
 	const fmts = b.formats || {};
 	// 3aj: a format may be a URL or a bare flag (true) — a flag links to the book's own listing,
@@ -684,12 +697,12 @@ const formatsHtml = (b: any): string => {
 		const asin = (b.amazon.match(/\/dp\/([A-Z0-9]+)/) || [])[1] || '';
 		const isEbook = asin.startsWith('B');
 		const k = isEbook ? 'ebook' : 'paperback';
-		return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;"><a href="${b.amazon}" target="_blank" rel="noopener noreferrer" style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${isEbook ? 'eBook' : 'Paperback'}</a></div>`;
+		return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;"><a href="${b.amazon}"${linkAttrs(b.amazon)} style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${isEbook ? 'eBook' : 'Paperback'}${linkTail(b.amazon)}</a></div>`;
 	}
 	const badges = keys
 		.map(
 			(k) =>
-				`<a href="${fmtHref(k)}"${fmtHref(k).startsWith('/') ? '' : ' target="_blank" rel="noopener noreferrer"'} style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}</a>`,
+				`<a href="${fmtHref(k)}"${linkAttrs(fmtHref(k))} style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}${linkTail(fmtHref(k))}</a>`,
 		)
 		.join('');
 	return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">${badges}</div>`;
@@ -891,7 +904,7 @@ const cardsOnly = cardsOnlyHrefs
   </div>
 </section>
 
-<script define:vars={{ BOOKS_JSON, initialCollection, STAT_TITLES, STAT_AUTHORS }}>
+<script define:vars={{ BOOKS_JSON, initialCollection, STAT_TITLES, STAT_AUTHORS, XS }}>
   const BOOKS = JSON.parse(BOOKS_JSON);
   BOOKS.forEach(b => { if (!b.formats) b.formats = {}; });
 
@@ -957,6 +970,11 @@ const cardsOnly = cardsOnlyHrefs
     pdf:       'background:#f0eeeb;color:#5a5248;border:1px solid #d8d2cb;',
   };
 
+  // Same cross-site rule as the server render (src/lib/xsite.ts, passed in as XS): keep the two in sync.
+  const isSister = href => new RegExp('^(?:https?:)?//(?:www\\.)?' + XS.host.replace(/\./g, '\\.') + '(?:[/:?#]|$)', 'i').test(href || '');
+  const linkAttrs = href => (href.startsWith('/') || isSister(href) ? '' : ' target="_blank" rel="noopener noreferrer"');
+  const linkTail = href => (href.startsWith('/') ? '' : isSister(href) ? XS.destSr : XS.newTab);
+
   function renderFormats(b) {
     const fmts = b.formats || {};
     // 3aj: a bare flag (true) links to the book's own listing; no URL = no badge (a bare flag is never used as the link).
@@ -972,16 +990,16 @@ const cardsOnly = cardsOnlyHrefs
       const fmtKey = isEbook ? 'ebook' : 'paperback';
       const fmtLabel = isEbook ? 'eBook' : 'Paperback';
       return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">
-        <a href="${b.amazon}" target="_blank" rel="noopener noreferrer"
+        <a href="${b.amazon}"${linkAttrs(b.amazon)}
           style="display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;${FORMAT_STYLES[fmtKey]}"
-          onclick="event.stopPropagation()">${fmtLabel}</a>
+          onclick="event.stopPropagation()">${fmtLabel}${linkTail(b.amazon)}</a>
       </div>`;
     }
     const badges = keys.map(k =>
-      `<a href="${fmtHref(k)}"${fmtHref(k).startsWith('/') ? '' : ' target="_blank" rel="noopener noreferrer"'}
+      `<a href="${fmtHref(k)}"${linkAttrs(fmtHref(k))}
         style="display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;${FORMAT_STYLES[k]}"
         onclick="event.stopPropagation()">
-        ${FORMAT_LABELS[k]}
+        ${FORMAT_LABELS[k]}${linkTail(fmtHref(k))}
       </a>`
     ).join('');
     return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">${badges}</div>`;
@@ -1003,16 +1021,19 @@ const cardsOnly = cardsOnlyHrefs
       // No listing at all -> an inert <a> rather than href="null" (a link that 404s on
       // our own domain is worse than no link). GROQ already falls back to the per-binding
       // URLs, so this only fires for a book with no purchase link recorded anywhere.
-      const buyAttrs = b.amazon ? `href="${b.amazon}" target="_blank" rel="noopener noreferrer"` : '';
+      const buyAttrs = b.amazon ? `href="${b.amazon}"${linkAttrs(b.amazon)}` : '';
+      const coverTail = b.amazon ? linkTail(b.amazon) : '';
+      const titleTail = b.amazon && isSister(b.amazon) ? `<span class="xsite-line">${XS.dest}</span>` : coverTail;
       return `<div class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
         <a ${buyAttrs} class="block">
           <div class="aspect-[2/3] overflow-hidden bg-stone-100${coverBorder}">
             ${b.img ? `<img src="${b.img}" alt="${displayTitle}" loading="lazy"${b.w ? ` width="${b.w}" height="${b.h}"` : ''}
               class="${imgClass}" />` : ''}
           </div>
+          ${coverTail}
         </a>
         <div class="p-3 flex flex-col gap-1">
-          <a ${buyAttrs} class="text-xs font-semibold text-ink-soft leading-tight line-clamp-2 hover:text-red transition-colors">${displayTitle}</a>
+          <a ${buyAttrs} class="text-xs font-semibold text-ink-soft leading-tight hover:text-red transition-colors"><span class="line-clamp-2">${displayTitle}</span>${titleTail}</a>
           <p class="text-xs text-stone-500">${b.author}</p>
           ${dateLabel ? `<p class="text-xs text-stone-400">${dateLabel}</p>` : ''}
           ${renderFormats(b)}

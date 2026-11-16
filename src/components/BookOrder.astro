@@ -1,4 +1,5 @@
 ---
+import { destHtml, SISTER_HOST } from '../lib/xsite';
 // THE ORDER AREA ON AN SMP BOOK PAGE (/books/<slug>/#order), mirroring the approved FHB edition-page order area
 // (FHB src/components/EditionOrder.astro + OrderSummary.astro, grandparents-bible, Kevin 2026-11-14/15):
 //   offer line centered -> full-width black country marquee (~2s per country, A-Z, data-nosnippet moving copies,
@@ -301,8 +302,8 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 </form>
 <nav class="bo-shop" aria-label={L.keep}>
 	<span class="bo-shop__label">{L.keep}</span>
-	<a href="https://fathersheartbible.com/print/">FH Bibles</a>
-	<a href="https://fathersheartbible.com/books/">FH Books</a>
+	<a href="https://fathersheartbible.com/print/">FH Bibles <Fragment set:html={destHtml(SISTER_HOST)} /></a>
+	<a href="https://fathersheartbible.com/books/">FH Books <Fragment set:html={destHtml(SISTER_HOST)} /></a>
 	<a href="/bookstore/smp-worldwide/">All SMP Books</a>
 </nav>
 
