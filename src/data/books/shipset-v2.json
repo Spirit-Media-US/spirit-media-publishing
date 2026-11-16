@@ -32022,7 +32022,7 @@
 					"schema_format": "https://schema.org/Hardcover",
 					"isbn": "9781961614499",
 					"isbn_display": "978-1-961614-49-9",
-					"list_cents": null,
+					"list_cents": 1999,
 					"price_note": "list price NOT CONFIRMED (author account). Amazon SELLING $19.99, 'Only 1 left in stock' (r-20261115030110-9d34)",
 					"price_flags": [
 						"list price unconfirmed"
@@ -32901,7 +32901,7 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614239",
 					"isbn_display": "978-1-961614-23-9",
-					"list_cents": null,
+					"list_cents": 1300,
 					"price_note": "TBD -> list price NOT CONFIRMED: author account (not on SMP Ingram 9224 / KDP 9223). Amazon page 1961614235 returned no data on 2026-11-15 (r-20261115030326-7484) - unmeasured.",
 					"price_flags": [],
 					"pages": 160,
