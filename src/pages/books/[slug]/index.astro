@@ -869,7 +869,7 @@ const crumbs = {
 	/* HERO COVER (src/lib/cover-hero.mjs HERO_H / HERO_BP): one common height, width = height x the cover's own aspect,
 	   never wider than its column (a landscape cover then fills the column width). Fixed px, never vh. */
 	.book-cover { --hh: 336px; display: block; margin: 0 auto; width: min(100%, calc(var(--hh) * var(--ar, 0.6667))); max-width: 100%; height: auto; }
-	@media (min-width: 768px) { .book-cover { --hh: 490px; } }
+	@media (min-width: 768px) { .book-cover { --hh: 550px; } }
 	.book-about :global(strong) { color: var(--color-ink); }
 	/* the FHB hero chips (FATHER SON SPIRIT style): bold caps in a 2px frame, the cover colour when measured */
 	.book-chip { display: inline-block; padding: 0.35rem 0.8rem; border: 2px solid var(--color-ink-soft); border-radius: 6px; background: #fff; color: var(--color-ink-soft); font-size: 1.05rem; font-weight: 800; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }

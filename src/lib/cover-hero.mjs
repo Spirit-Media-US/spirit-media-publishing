@@ -12,16 +12,17 @@
 // 475px tall and a square picture book 343px. Shared by the page (src/pages/books/[slug]/index.astro), its build test
 // (scripts/cover-hero.test.mjs) and the Playwright check (scripts/cover-hero-measure.mjs).
 //
-// HERO_H.desktop = 490: the tallest cover today was 475 (a 2:3 3D render at 340 wide). The hero column at >=1024px is
-// (max-w-5xl 1024 - gap 40) / 2 = 492px, and the squarest 3D render (600x617) at 490 tall is 477 wide, so 490 is the
-// tallest height every square picture book can reach without leaving its column. Only a LANDSCAPE cover (wider than
-// tall) is width-bound below 490; it then fills the column's full width instead.
+// HERO_H.desktop = 550: the tallest cover today was 475 (a 2:3 3D render in the old 340px-wide box). The hero column at
+// 1440 is MEASURED 554px wide (this site's max-w-5xl = 1152px, md:gap-10 = 45px: (1152 - 45) / 2), and the squarest
+// 3D render (600x601) at 550 tall is 549 wide, so 550 is the tallest height every square picture book reaches without
+// leaving its column. Only a LANDSCAPE cover (wider than tall) is width-bound below 550; it fills the column instead.
+// The cover top sits ~230px down the page, so 550 still ends above the 900px fold at 1440x900.
 // HERO_H.mobile = 336: the tallest cover at 390 today (240 wide 2:3) was 335, so no 2:3 cover shrinks and square
-// covers grow from 240 to ~330 (the 390 column is 358).
+// covers grow from 240 to ~333 (the 390 column is measured 354).
 // The 3D sources are 600px wide, so neither height upscales past the file at 1x; a 1200w file joins the srcset
-// when the title has one (cover-sized.json hero3d.w1200).
-export const HERO_H = { desktop: 490, mobile: 336 };
-export const HERO_COL = { desktop: 492, mobile: 358 };
+// when the title has one.
+export const HERO_H = { desktop: 550, mobile: 336 };
+export const HERO_COL = { desktop: 554, mobile: 354 };
 export const HERO_BP = 768; // md: the two-column hero starts here
 
 /** aspect = width / height of the cover file (falls back to 2:3 when unknown) */

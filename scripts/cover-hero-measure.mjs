@@ -77,7 +77,7 @@ async function worker() {
 			if (m.h < Math.min(HERO_H.mobile, m.col / m.ar) - 1) why.push(`390 ${m.w.toFixed(0)}x${m.h.toFixed(0)} short`);
 			if (m.scrollW > 390) why.push(`390 horizontal scroll ${m.scrollW}`);
 		}
-		out.push({ slug, d1440: d, m390: m, pass: why.length === 0, why });
+		out.push({ slug: s, d1440: d, m390: m, pass: why.length === 0, why });
 		if (why.length) fails.push(`${s}: ${why.join('; ')}`);
 	}
 }
