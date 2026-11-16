@@ -547,11 +547,12 @@ test('bookstore collections: the 7 chips, counts = definitions, every card in ex
 		assert.equal(cardsOf(storePage('smp-worldwide')).length, ww.length, 'the SMP worldwide page lists every member');
 		assert.doesNotMatch(fs.readFileSync(new URL('../dist/_redirects', import.meta.url), 'utf8'), /smp-worldwide/, 'not retired: no 301');
 	}
-	// SMP only: the live-page (orderable) cards lead, and they are exactly the pages-live books
-	const live = JSON.parse(fs.readFileSync(new URL('../src/data/books/pages-live.json', import.meta.url), 'utf8')).slugs;
+	// SMP only: the cards whose SMP page is built on this build (pages-live.json; every page on a BOOKS_PREVIEW_ALL=1
+	// preview) lead, and a card is "live" exactly when its page was built
+	const built = (href) => /^\/books\/[^/]+\/$/.test(href) && fs.existsSync(new URL(`../dist${href}index.html`, import.meta.url));
+	for (const c of pages.smp) assert.equal(c.live, built(c.href), `${c.id}: live iff its page is built`);
 	const firstNotLive = pages.smp.findIndex((c) => !c.live);
 	assert.ok(firstNotLive > 0 && pages.smp.slice(firstNotLive).every((c) => !c.live), 'SMP only: live cards first');
-	for (const c of pages.smp.slice(0, firstNotLive)) assert.ok(live.includes(c.href.split('/')[2]), `${c.href} is a live page`);
 });
 
 test('bookstore collections: the exactly-one check FAILS on a card injected into two collections', () => {
@@ -627,4 +628,12 @@ test('bookstore: tagline "Over 550 titles..." with the offer line + country marq
 	assert.ok(offer > tag && band > offer && html.indexOf('id="book-grid"') > band, 'tagline -> offer line -> marquee -> grid');
 	if (LIVE_COUNTRIES) assert.match(html, new RegExp(`free standard shipping to ${LIVE_COUNTRIES.length} countries</p>`));
 	assert.doesNotMatch(storePage('smp'), /data-ship-band/, 'the hero band is on /bookstore/ only');
+	// the YouVersion banner: once, under the hero/tagline block (after the marquee, before the grid), on every bookstore page
+	for (const slug of ['', 'smp', 'fhb-english']) {
+		const h = storePage(slug);
+		const yvFirst = h.search(/FHB\+DVC on YouVersion/);
+		assert.equal(h.split('FHB+DVC on YouVersion').length - 1, 1, `/bookstore/${slug}: banner once`);
+		assert.ok(yvFirst > h.indexOf('</h1>') && yvFirst < h.indexOf('id="book-grid"'), `/bookstore/${slug}: banner under the hero`);
+		if (!slug) assert.ok(yvFirst > band, 'banner after the offer line + marquee');
+	}
 });
