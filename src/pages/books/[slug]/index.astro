@@ -26,6 +26,7 @@ import bookPages from '../../../data/books/book-pages.json';
 import coverColors from '../../../data/books/cover-colors.json';
 import dims from '../../../data/books/cover-dims.json';
 import sized from '../../../data/books/cover-sized.json';
+import doNotPublish from '../../../data/books/do-not-publish.json';
 import fhbBookPages from '../../../data/books/fhb-book-pages.json';
 import lamb from '../../../data/books/jesus-had-a-little-lamb.json';
 import lookinside from '../../../data/books/lookinside.json';
@@ -35,6 +36,7 @@ import retailerLinks from '../../../data/books/retailer-links.json';
 import set from '../../../data/books/shipset-v2.json';
 import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
+import { dnpMatcher } from '../../../lib/do-not-publish.mjs';
 import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
 import { handlingFeeCents, shippingDetailsFor } from '../../../store-engine/lib/marginGuard.ts';
@@ -364,8 +366,11 @@ export async function getStaticPaths() {
 	}
 	// BOOK PAGES SWITCH (src/data/books/pages-live.json): production builds only Kevin-approved pages
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
+	// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): never a page, not even on a preview
+	const isDoNotPublish = dnpMatcher(doNotPublish);
 	return pages
 		.filter((p) => ALL || (pagesLive.slugs as string[]).includes(p.slug))
+		.filter((p) => !isDoNotPublish({ slug: p.slug, title: p.title }))
 		.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
 
