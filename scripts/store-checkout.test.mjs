@@ -81,9 +81,134 @@ test('a US book order becomes the engine session, returned to SMP, recorded per 
 	assert.deepEqual(r.calls, ['https://api.stripe.com/v1/checkout/sessions'], 'no first-order lookup for books');
 });
 
-test('a Bible SKU is refused here (Bibles keep their own FHB checkout)', async () => {
+test('a Bible sells only in the FHB window: refused from an SMP page, sold from the FHB Bible box (Option C)', async () => {
 	const r = await post({ counts: { 'moms-hb': 1 }, country: 'US' });
 	assert.deepEqual([r.status, r.json.error, r.calls.length], [400, 'invalid_selection', 0]);
+	const v = await post({ counts: { 'moms-hb': 1 }, country: 'US', site: 'vaneure' });
+	assert.deepEqual([v.status, v.json.error], [400, 'invalid_selection']);
+	const f = await post({ counts: { 'moms-hb': 1 }, country: 'US', returnPath: '/bibles/moms-bible/' }, { origin: 'https://fathersheartbible.com' });
+	assert.equal(f.status, 200);
+	assert.equal(f.headers.get('access-control-allow-origin'), 'https://fathersheartbible.com');
+	assert.equal(f.form.get('cancel_url'), 'https://fathersheartbible.com/bibles/moms-bible/?order=canceled#order');
+});
+
+// ── OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP") ─────────────────────────────────────────
+const tagsOf = (f) => [f.get('metadata[site]'), f.get('metadata[window]'), f.get('metadata[family]')];
+test('item 1: every session is tagged site + window + family (FHB Bible box, FHB book box, SMP book page, vaneure)', async () => {
+	const fhbBible = await post({ counts: { 'moms-hb': 2 }, country: 'US' }, { origin: 'https://fathersheartbible.com' });
+	assert.deepEqual(tagsOf(fhbBible.form), ['fhb', 'fhb', 'bible']);
+	const fhbBook = await post({ counts: { 'who-am-i-pb': 1 }, country: 'US', returnPath: '/books/who-am-i/' }, { origin: 'https://fathersheartbible.com' });
+	assert.deepEqual(tagsOf(fhbBook.form), ['fhb', 'fhb', 'fh_book']);
+	const smpBook = await post({ counts: { 'the-pyramid-principle-pb': 1 }, country: 'US' });
+	assert.deepEqual(tagsOf(smpBook.form), ['smp', 'smp', 'smp_book']);
+	const vaneure = await post({ counts: { 'the-pyramid-principle-pb': 1 }, country: 'US', site: 'vaneure' });
+	assert.deepEqual(tagsOf(vaneure.form), ['vaneure', 'smp', 'smp_book']);
+	const mixed = await post({ counts: { 'moms-pb': 1, 'who-am-i-hb': 1 }, country: 'US' }, { origin: 'https://fathersheartbible.com' });
+	assert.deepEqual(tagsOf(mixed.form), ['fhb', 'fhb', 'bible+fh_book']);
+});
+
+test('item 1 FAILURE PATH: a session without the tags FAILS — refused 500 untagged, nothing sent to Stripe', async () => {
+	const { createSession, smpCheckoutForm } = await import('../functions/store-checkout.ts');
+	const calls = [];
+	globalThis.fetch = async (url) => (calls.push(String(url)), new Response(JSON.stringify({ url: 'https://stripe.test/s', data: [] })));
+	const r = await smpCheckoutForm({ counts: { 'moms-hb': 1 }, country: 'US', site: 'fhb' }, 'https://fathersheartbible.com/store-checkout', 'sk_test');
+	assert.ok('form' in r);
+	for (const k of ['metadata[site]', 'metadata[window]', 'metadata[family]']) {
+		const untagged = { ...r.form };
+		delete untagged[k];
+		calls.length = 0;
+		const s = await createSession(untagged, 'sk_test');
+		assert.deepEqual([s.status, s.body.error, calls.length], [500, 'untagged', 0], `without ${k}`);
+	}
+	calls.length = 0;
+	const ok = await createSession(r.form, 'sk_test');
+	assert.deepEqual([ok.status, calls], [200, ['https://api.stripe.com/v1/checkout/sessions']], 'the tagged form is sent');
+});
+
+// item 2 PARITY: the FHB Bible box used to post to FHB /dvc-checkout; it now posts here. For the fixed carts FHB's parity
+// gate uses (scripts/fixtures/fhb-dvc-checkout-golden.json = FHB scripts/fixtures/store-engine-golden.json, sha256
+// 2feaa8fa…, recorded on /dvc-checkout), this endpoint must send the BYTE-IDENTICAL Stripe request and the same Stripe
+// calls in the same order. The only permitted difference: the three Option C tags appended at the end.
+const CARTS = [
+	{ id: 'bible-us-volume', counts: { 'moms-hb': 12 }, email: 'x@y.co', country: 'US', repeat: true },
+	{ id: 'bible-us-first-order', counts: { 'moms-hb': 1 }, email: 'new@y.co', country: 'US' },
+	{ id: 'book-us', counts: { 'who-am-i-pb': 2 }, email: 'new@y.co', country: 'US' },
+	{ id: 'mixed-us-first-order', counts: { 'moms-pb': 1, 'beloved-identity-pb': 1, 'who-am-i-hb': 1 }, email: 'new@y.co', country: 'US', returnPath: '/books/who-am-i/' },
+	{ id: 'far-band-first-order', counts: { 'moms-hb': 3 }, email: 'new@y.co', country: 'PH' },
+	{ id: 'far-band-bulk-refused', counts: { 'moms-hb': 10 }, email: 'new@y.co', country: 'PH' },
+	{ id: 'intl-gb-mixed-handling', counts: { 'moms-hb': 2, 'moms-pb': 3 }, email: 'new@y.co', country: 'GB', returnPath: '/print/order/' },
+	{ id: 'intl-gb-volume-repeat', counts: { 'moms-pb': 30 }, email: 'x@y.co', country: 'GB', repeat: true },
+	{ id: 'book-abroad', counts: { 'beloved-identity-pb': 1 }, email: 'new@y.co', country: 'DE' },
+	{ id: 'empty', counts: {}, email: 'new@y.co', country: 'US' },
+	{ id: 'no-email', counts: { 'moms-pb': 5 }, email: '', country: 'US', returnPath: '/bibles/spanish-bible/' },
+];
+const TAGS_TAIL = /&metadata%5Bsite%5D=fhb&metadata%5Bwindow%5D=fhb&metadata%5Bfamily%5D=[a-z_%2B]+$/;
+test('item 2: FHB Bible box carts -> /store-checkout send the IDENTICAL Stripe request /dvc-checkout sent (+ tags only)', async () => {
+	const fs = await import('node:fs');
+	const want = JSON.parse(fs.readFileSync(new URL('./fixtures/fhb-dvc-checkout-golden.json', import.meta.url), 'utf8'));
+	assert.deepEqual(CARTS.map((c) => c.id), Object.keys(want));
+	const { onRequestPost } = await import('../functions/store-checkout.ts');
+	const day = (v) => JSON.parse(JSON.stringify(v).replace(/date%3D\d{4}-\d\d-\d\d|date=\d{4}-\d\d-\d\d/g, 'date=<day>'));
+	for (const c of CARTS) {
+		const calls = [];
+		let body = '';
+		globalThis.fetch = async (url, init) => {
+			const u = String(url);
+			calls.push(`${init?.method ?? 'GET'} ${u}`);
+			const j = (o) => new Response(JSON.stringify(o), { status: 200 });
+			if (u.includes('promotion_codes')) return j({ data: [{ id: 'promo_1', coupon: { valid: true, percent_off: 15 } }] });
+			if (u.includes('checkout/sessions') && init?.method === 'POST') {
+				body = init.body;
+				return j({ url: 'https://stripe.test/x' });
+			}
+			if (u.includes('checkout/sessions')) return j({ data: c.repeat ? [{ payment_status: 'paid', metadata: { kind: 'dvc_print' } }] : [] });
+			return j({ data: [] });
+		};
+		// exactly what the Bible box (FHB src/scripts/order-form.ts) posts, from the FHB page
+		const res = await onRequestPost({
+			request: new Request(A, {
+				method: 'POST',
+				headers: { origin: 'https://fathersheartbible.com' },
+				body: JSON.stringify({ counts: c.counts, email: c.email, country: c.country, returnPath: c.returnPath, site: 'fhb' }),
+			}),
+			env: { STRIPE_STORE_SECRET_KEY: 'sk_test' },
+		});
+		const got = { status: res.status, json: await res.json(), calls, body };
+		if (body) {
+			assert.match(got.body, TAGS_TAIL, `${c.id}: tags at the end`);
+			got.body = got.body.replace(TAGS_TAIL, '');
+		}
+		assert.deepEqual(day(got), day(want[c.id]), `cart ${c.id}: Stripe request differs from /dvc-checkout`);
+	}
+});
+
+test('item 2: the FHB Bible box first-order check answers from the store (FHB origin only, CORS), SMP pages get unknown', async () => {
+	const store = new Map();
+	globalThis.caches = { default: { match: async (k) => store.get(String(k.url ?? k)), put: async (k, v) => void store.set(String(k.url ?? k), v) } };
+	const { onRequestPost } = await import('../functions/store-checkout.ts');
+	const calls = [];
+	const ask = async (origin) => {
+		globalThis.fetch = async (url, init) => {
+			calls.push(`${init?.method ?? 'GET'} ${url}`);
+			// a live WELCOME15 at 15%, and no paid store session for this email
+			return new Response(JSON.stringify(String(url).includes('promotion_codes') ? { data: [{ id: 'promo_1', coupon: { valid: true, percent_off: 15 } }] } : { data: [] }));
+		};
+		const res = await onRequestPost({
+			request: new Request(A, { method: 'POST', headers: { origin }, body: JSON.stringify({ firstOrderCheck: true, email: 'new@y.co' }) }),
+			env: { STRIPE_STORE_SECRET_KEY: 'sk_test' },
+		});
+		return { json: await res.json(), headers: res.headers };
+	};
+	try {
+		const first = await ask('https://fathersheartbible.com');
+		assert.equal(first.headers.get('access-control-allow-origin'), 'https://fathersheartbible.com');
+		assert.equal(first.json.status, 'first', 'a new email gets the first-order answer');
+		assert.equal(calls.filter((u) => u.startsWith('POST')).length, 0, 'a lookup creates no session');
+		const smp = await ask('https://spiritmediapublishing.com');
+		assert.equal(smp.json.status, 'unknown');
+	} finally {
+		delete globalThis.caches;
+	}
 });
 
 test('an unknown site falls back to smp; a returnPath outside the allowlist cannot redirect elsewhere', async () => {
@@ -300,4 +425,28 @@ test('returns: SMP has /returns/ with the 30-day promise and every book order fo
 		assert.match(html, /href="\/returns\/"/, `${d}: returns link`);
 		assert.doesNotMatch(html, /fathersheartbible\.com\/returns/, `${d}: never FHB's returns page`);
 	}
+});
+
+test('item 2: an FHB-window order POST still reports checkout_server to FHB /_evt (3ef-1 kept); SMP pages do not', async () => {
+	const { onRequestPost } = await import('../functions/store-checkout.ts');
+	const run = async (origin) => {
+		const evts = [];
+		const waits = [];
+		globalThis.fetch = async (url, init) => {
+			if (String(url).endsWith('/_evt')) evts.push(JSON.parse(init.body));
+			return new Response(JSON.stringify({ url: 'https://stripe.test/s', data: [] }));
+		};
+		await onRequestPost({
+			request: new Request(A, { method: 'POST', headers: { origin, 'user-agent': 'Mozilla/5.0 Chrome/130' }, body: JSON.stringify({ counts: { 'moms-hb': 1 }, country: 'ZZ', returnPath: '/bibles/moms-bible/' }) }),
+			env: { STRIPE_STORE_SECRET_KEY: 'sk_test' },
+			waitUntil: (p) => waits.push(p),
+		});
+		await Promise.all(waits);
+		return evts;
+	};
+	const fhb = await run('https://fathersheartbible.com');
+	assert.equal(fhb.length, 1);
+	assert.deepEqual([fhb[0].kind, fhb[0].tag, fhb[0].status, fhb[0].path], ['checkout_server', 'site', 400, '/bibles/moms-bible/']);
+	assert.equal((await run('https://dev.fathersheartbible.pages.dev'))[0].tag, 'qa');
+	assert.equal((await run('https://spiritmediapublishing.com')).length, 0);
 });
