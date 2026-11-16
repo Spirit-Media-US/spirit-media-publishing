@@ -1,6 +1,5 @@
 ---
 import FaqSection from '../components/FaqSection.astro';
-import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 
 // 2yw G3 (pmseoaeo 2026-11-12): FAQ built ONLY from sentences already on this page.
@@ -28,7 +27,7 @@ const fhbFaqs = [
 ];
 ---
 
-<Layout youversionBanner={false}
+<Layout
 	title="Father's Heart Bible™ — Christian Bible Translation"
 	description="The Father's Heart Bible™ is a Bible translation revealing our Heavenly Father's heart to a fatherless generation. Published by Spirit Media Publishing."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f0cba808f17fcaeabd86cf4feb38536623b90483-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -79,8 +78,6 @@ const fhbFaqs = [
 				</div>
 			</div>
 		</section>
-		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
-		<YouVersionBanner />
 
 		<!-- ABOUT -->
 		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">

@@ -652,8 +652,13 @@ test('bookstore: tagline + Publish Your Book in the hero, offer line + marquee u
 	assert.match(html, /<title>Christian Bookstore — 550\+ Spirit Media Published Titles<\/title>/);
 	if (LIVE_COUNTRIES) assert.match(html, new RegExp(`free standard shipping to ${LIVE_COUNTRIES.length} countries</p>`));
 	assert.doesNotMatch(storePage('smp'), /data-ship-band/, 'the hero band is on /bookstore/ only');
-	// no YouVersion banner on any bookstore page (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee)
-	for (const slug of ['', 'smp', 'express-books', 'fhb-english']) assert.ok(!storePage(slug).includes('FHB+DVC on YouVersion'), `/bookstore/${slug}: no banner`);
+	// the YouVersion bar: exactly ONE, at the top under the global nav, from the Layout (Kevin 2026-11-16 ~16:40Z "should be at
+	// the top under global nav", superseding the 16:0xZ no-banner-on-bookstore), so it never sits on the country marquee
+	for (const slug of ['', 'smp', 'express-books', 'fhb-english']) {
+		const h = storePage(slug);
+		assert.equal(h.split('FHB+DVC on YouVersion').length - 1, 1, `/bookstore/${slug}: exactly one YouVersion bar`);
+		assert.ok(h.indexOf('FHB+DVC on YouVersion') < h.indexOf('<main'), `/bookstore/${slug}: the bar sits above the page content, under the nav`);
+	}
 });
 
 // CARD -> OWN PAGE (Kevin 2026-11-16 16:5xZ: bookstore card images must open the SMP book page). Independent of the
