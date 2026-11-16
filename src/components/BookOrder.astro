@@ -26,6 +26,8 @@ interface Props {
 	firstOrder: boolean;
 	firstOrderPct: number;
 	returnDays: number;
+	/** page language: es/fr pages get the same box in their language (Kevin 2026-11-15 "2A") */
+	lang?: 'en' | 'es' | 'fr';
 }
 const {
 	slug,
@@ -37,18 +39,133 @@ const {
 	firstOrder,
 	firstOrderPct,
 	returnDays,
+	lang = 'en',
 } = Astro.props;
+// THE BOX'S WORDS per language (Kevin 2026-11-15 "2A": "from the wording those pages already use"). es/fr come from the
+// SMP es/fr book pages' own strings (Enviar a, Pagar, Total, Envío y manejo) and FHB's order-strings/{es,fr}.json
+// (offer, shipping, guarantee title, Correo electrónico, messages); the few lines neither had are marked DRAFT for a
+// native reviewer. Country names come from the standard CLDR data (Intl.DisplayNames), never translated by hand.
+const L = {
+	en: {
+		ship: 'Free standard shipping to {n} countries',
+		ship1: 'Free standard shipping in the {c}',
+		offer: '{pct}% off first order + {ship}',
+		soon: 'Ships to more countries soon.',
+		fee: 'Outside the United States any international handling fee for your country is shown on the order form before checkout.',
+		guar: 'Your purchase is guaranteed',
+		guarBody:
+			'If anything isn’t right with your order, for any reason, let us know within {d} days of delivery and we will make it right.',
+		guarLink: 'Read our guarantee →',
+		multi: 'Ordering more than one book?',
+		browse: 'Browse the Spirit Media bookstore →',
+		order: 'Order {t}',
+		first: '{p} on your first order',
+		fewer: 'One fewer {f}',
+		more: 'One more {f}',
+		qty: '{f} quantity',
+		handling: 'Shipping & handling',
+		total: 'Total',
+		shipTo: 'Ship to',
+		email: 'Email',
+		hint: 'For your receipt, and to check your first-order saving.',
+		note: 'Free standard shipping · tax calculated at checkout',
+		checkout: 'Checkout →',
+		contact: 'Contact us',
+		keep: 'Keep shopping',
+		save: 'First order? -{a} ({pct}%) comes off at checkout',
+		choose: 'Choose at least one copy.',
+		closed: 'Checkout is not open yet.',
+		error: 'Something went wrong. Please try again.',
+	},
+	es: {
+		ship: 'Envío estándar gratis a {n} países',
+		ship1: 'Envío estándar gratis',
+		offer: '{pct} % de descuento en tu primer pedido + {ship}',
+		soon: 'Pronto enviaremos a más países.',
+		fee: 'Fuera de Estados Unidos, la tarifa de gestión internacional de tu país se muestra en el formulario antes de pagar.',
+		guar: 'Tu compra está garantizada',
+		guarBody:
+			'Si algo no está bien con tu pedido, por cualquier motivo, avísanos dentro de los {d} días posteriores a la entrega y lo solucionaremos.',
+		guarLink: 'Lee nuestra garantía →',
+		multi: '¿Pides más de un libro?',
+		browse: 'Ver la librería de Spirit Media →',
+		order: 'Pide {t}',
+		first: '{p} en tu primer pedido',
+		fewer: 'Un ejemplar menos de {f}',
+		more: 'Un ejemplar más de {f}',
+		qty: '{f}: cantidad',
+		handling: 'Envío y manejo',
+		total: 'Total',
+		shipTo: 'Enviar a',
+		email: 'Correo electrónico',
+		hint: 'Para tu recibo y para comprobar tu descuento de primer pedido.',
+		note: 'Envío estándar gratis · impuestos calculados al pagar',
+		checkout: 'Pagar →',
+		contact: 'Contáctanos',
+		keep: 'Seguir comprando',
+		save: '¿Primer pedido? -{a} ({pct} %) se descuenta al pagar',
+		choose: 'Elige al menos un ejemplar para continuar.',
+		closed: 'El pedido directo se abrirá pronto; vuelve a visitarnos.',
+		error: 'Lo sentimos, algo salió mal. Inténtalo de nuevo.',
+	},
+	fr: {
+		ship: 'Livraison standard gratuite dans {n} pays',
+		ship1: 'Livraison standard gratuite',
+		offer: '{pct} % de réduction sur votre première commande + {ship}',
+		soon: 'Livraison bientôt dans d’autres pays.',
+		fee: 'Hors des États-Unis, les frais de traitement internationaux de votre pays sont indiqués sur le bon de commande avant le paiement.',
+		guar: 'Votre achat est garanti',
+		guarBody:
+			'Si quelque chose ne va pas avec votre commande, pour quelque raison que ce soit, prévenez-nous dans les {d} jours suivant la livraison et nous arrangerons les choses.',
+		guarLink: 'Lire notre garantie →',
+		multi: 'Vous commandez plus d’un livre ?',
+		browse: 'Voir la librairie Spirit Media →',
+		order: 'Commander : {t}',
+		first: '{p} sur votre première commande',
+		fewer: 'Un exemplaire de moins : {f}',
+		more: 'Un exemplaire de plus : {f}',
+		qty: '{f} : quantité',
+		handling: 'Livraison et manutention',
+		total: 'Total',
+		shipTo: 'Pays de livraison',
+		email: 'E-mail',
+		hint: 'Pour votre reçu et pour vérifier votre réduction de première commande.',
+		note: 'Livraison standard gratuite · taxes calculées au paiement',
+		checkout: 'Passer au paiement →',
+		contact: 'Nous contacter',
+		keep: 'Continuer vos achats',
+		save: 'Première commande ? -{a} ({pct} %) déduits au paiement',
+		choose: 'Choisissez au moins un exemplaire pour continuer.',
+		closed: 'La commande directe ouvrira bientôt — merci de revenir plus tard.',
+		error: 'Désolé, une erreur s’est produite. Veuillez réessayer.',
+	},
+}[lang];
+const fill = (t: string, v: Record<string, string | number>) =>
+	t.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
+const DN = new Intl.DisplayNames([lang], { type: 'region' });
+const cname = (c: { code: string; name: string }) =>
+	lang === 'en' ? c.name : (DN.of(c.code) ?? c.name);
+const FMT: Record<string, Record<string, string>> = {
+	es: { Paperback: 'Tapa blanda', Hardback: 'Tapa dura', Hardcover: 'Tapa dura' },
+	fr: { Paperback: 'Broché', Hardback: 'Relié', Hardcover: 'Relié' },
+};
+const fmtName = (f: string) => FMT[lang]?.[f] ?? f;
 const money = (c: number) => `$${(c / 100).toFixed(2)}`;
 const n = countries.length;
-const names = countries.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
+const names = countries.map(cname).sort((a, b) => a.localeCompare(b, lang));
 const shipLine =
 	n > 1
-		? `Free standard shipping to ${n} countries`
-		: `Free standard shipping in the ${names[0] ?? 'United States'}`;
+		? fill(L.ship, { n })
+		: lang === 'en'
+			? fill(L.ship1, { c: names[0] ?? 'United States' })
+			: L.ship1;
 // ONE-LINE SWITCH (15% wording): it follows the engine. When the engine lets books take the first-order discount,
 // firstOrder is true and the offer line, the per-row first-order price and the summary line appear by themselves.
 const offerLine = firstOrder
-	? `${firstOrderPct}% off first order + ${shipLine.replace(/^Free/, 'free')}`
+	? fill(L.offer, {
+			pct: firstOrderPct,
+			ship: shipLine.charAt(0).toLowerCase() + shipLine.slice(1),
+		})
 	: shipLine;
 const feeTable = (JSON.parse(feeCfg).fee ?? {}) as Record<string, Record<string, number>>;
 const anyFee = Object.values(feeTable).some((row) => Object.values(row).some((c) => c > 0));
@@ -71,7 +188,7 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 		</ul>
 	)}
 </div>
-<form id="order" class="bo-wrap" data-box data-slug={slug} data-status="live" data-fees={feeCfg} data-first={firstOrder ? firstOrderPct : 0}>
+<form id="order" class="bo-wrap" data-box data-slug={slug} data-status="live" data-fees={feeCfg} data-first={firstOrder ? firstOrderPct : 0} data-msgs={JSON.stringify({ save: L.save, choose: L.choose, closed: L.closed, error: L.error })}>
 	<div class="bo-acc">
 		<details class="bo-acc__item">
 			<summary data-choice>{shipLine}</summary>
@@ -80,39 +197,39 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 				<ul class="bo-bubbles" aria-label={shipLine}>
 					{names.map((x) => <li class="bo-bubble">{x}</li>)}
 				</ul>
-				{n === 1 && <p>Ships to more countries soon.</p>}
-				{anyFee && <p>Outside the United States any international handling fee for your country is shown on the order form before checkout.</p>}
+				{n === 1 && <p>{L.soon}</p>}
+				{anyFee && <p>{L.fee}</p>}
 			</div>
 		</details>
 		<details class="bo-acc__item">
-			<summary data-choice>Your purchase is guaranteed</summary>
+			<summary data-choice>{L.guar}</summary>
 			<div class="bo-acc__body">
-				<p>If anything isn’t right with your order, for any reason, let us know within {returnDays} days of delivery and we will make it right.</p>
-				<p><a href="/returns/">Read our guarantee →</a></p>
+				<p>{fill(L.guarBody, { d: returnDays })}</p>
+				<p><a href="/returns/">{L.guarLink}</a></p>
 			</div>
 		</details>
 		<details class="bo-acc__item">
-			<summary data-choice>Ordering more than one book?</summary>
+			<summary data-choice>{L.multi}</summary>
 			<div class="bo-acc__body">
-				<p><a href="/bookstore/">Browse the Spirit Media bookstore →</a></p>
+				<p><a href="/bookstore/">{L.browse}</a></p>
 			</div>
 		</details>
 		{/* "Buying 10 or more?" is omitted: the engine gives books no volume ladder (DISCOUNT_EXEMPT). */}
 	</div>
 	<div class="bo-box">
-		<h2 class="bo-title" style={titleStyle}>Order {title}</h2>
+		<h2 class="bo-title" style={titleStyle}>{fill(L.order, { t: title })}</h2>
 		<div class="bo-rows">
 			{formats.map((f, i) => (
 				<div class="bo-row" data-line-sku={f.sku}>
 					<div class="bo-row__info">
-						<span class="bo-row__binding">{f.format}</span>
+						<span class="bo-row__binding">{fmtName(f.format)}</span>
 						<b class="bo-row__list">{money(f.list_cents)}</b>
-						{firstOrder && <span class="bo-row__first">{money(firstUnit(f.list_cents))} on your first order</span>}
+						{firstOrder && <span class="bo-row__first">{fill(L.first, { p: money(firstUnit(f.list_cents)) })}</span>}
 					</div>
 					<div class="bo-qty">
-						<button type="button" class="bo-step" data-step="-1" data-sku={f.sku} aria-label={`One fewer ${f.format}`}>−</button>
-						<input class="bo-qty__in" type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={i === 0 ? '1' : '0'} aria-label={`${f.format} quantity`} />
-						<button type="button" class="bo-step" data-step="1" data-sku={f.sku} aria-label={`One more ${f.format}`}>+</button>
+						<button type="button" class="bo-step" data-step="-1" data-sku={f.sku} aria-label={fill(L.fewer, { f: fmtName(f.format) })}>−</button>
+						<input class="bo-qty__in" type="number" inputmode="numeric" name={f.sku} min="0" max="999" value={i === 0 ? '1' : '0'} aria-label={fill(L.qty, { f: fmtName(f.format) })} />
+						<button type="button" class="bo-step" data-step="1" data-sku={f.sku} aria-label={fill(L.more, { f: fmtName(f.format) })}>+</button>
 					</div>
 				</div>
 			))}
@@ -120,30 +237,30 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 		<div class="bo-panel">
 			<ul class="bo-items" data-items></ul>
 			<dl class="bo-lines">
-				<div data-fee-line hidden><dt>Shipping &amp; handling</dt><dd data-fee>$0.00</dd></div>
-				<div class="bo-total"><dt>Total</dt><dd data-total aria-live="polite">{money(formats[0]?.list_cents ?? 0)}</dd></div>
+				<div data-fee-line hidden><dt>{L.handling}</dt><dd data-fee>$0.00</dd></div>
+				<div class="bo-total"><dt>{L.total}</dt><dd data-total aria-live="polite">{money(formats[0]?.list_cents ?? 0)}</dd></div>
 			</dl>
 			{firstOrder && <p class="bo-first" data-first-save hidden></p>}
-			<label class="bo-label" for={`bo-${slug}-country`}>Ship to</label>
+			<label class="bo-label" for={`bo-${slug}-country`}>{L.shipTo}</label>
 			<select id={`bo-${slug}-country`} name="country" class="bo-select" autocomplete="country">
-				{countries.map((c) => <option value={c.code} selected={c.code === 'US'}>{c.name}</option>)}
+				{[...countries].sort((a, b) => (a.code === 'US' ? -1 : b.code === 'US' ? 1 : 0)).map((c) => <option value={c.code} selected={c.code === 'US'}>{cname(c)}</option>)}
 			</select>
 			{/* a first order can only be recognised by its email (the engine's isFirstOrder): the FHB edition box asks the same way */}
-			<label class="bo-label" for={`bo-${slug}-email`}>Email</label>
-			{firstOrder && <p class="bo-hint" id={`bo-${slug}-email-hint`}>For your receipt, and to check your first-order saving.</p>}
+			<label class="bo-label" for={`bo-${slug}-email`}>{L.email}</label>
+			{firstOrder && <p class="bo-hint" id={`bo-${slug}-email-hint`}>{L.hint}</p>}
 			<input id={`bo-${slug}-email`} class="bo-select" type="email" name="email" autocomplete="email" inputmode="email" required aria-describedby={firstOrder ? `bo-${slug}-email-hint` : undefined} data-email />
 		</div>
-		<p class="bo-note">Free standard shipping · tax calculated at checkout</p>
-		<button type="submit" class="bo-checkout">Checkout →</button>
+		<p class="bo-note">{L.note}</p>
+		<button type="submit" class="bo-checkout">{L.checkout}</button>
 		<p id="buy-msg" class="bo-msg" role="status"></p>
-		<p class="bo-help"><MailtoLink email="hello@spiritmediapublishing.com" class="bo-help-btn">Contact us</MailtoLink></p>
+		<p class="bo-help"><MailtoLink email="hello@spiritmediapublishing.com" class="bo-help-btn">{L.contact}</MailtoLink></p>
 	</div>
 </form>
-<nav class="bo-shop" aria-label="Keep shopping">
-	<span class="bo-shop__label">Keep shopping</span>
+<nav class="bo-shop" aria-label={L.keep}>
+	<span class="bo-shop__label">{L.keep}</span>
 	<a href="https://fathersheartbible.com/print/">FH Bibles</a>
 	<a href="https://fathersheartbible.com/books/">FH Books</a>
-	<a href="/bookstore/">All SMP Books</a>
+	<a href="/bookstore/smp-worldwide/">All SMP Books</a>
 </nav>
 
 <style>
@@ -224,6 +341,7 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			fee: Record<string, Record<string, number>>;
 		};
 		const pct = Number(form.dataset.first || 0);
+		const msgs = JSON.parse(form.dataset.msgs || '{}') as Record<string, string>;
 		const cents = (c: number) => `$${(c / 100).toFixed(2)}`;
 		const sel = form.querySelector('select[name=country]') as HTMLSelectElement;
 		const inputs = [...form.querySelectorAll<HTMLInputElement>('input[type=number]')];
@@ -256,7 +374,7 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			if (save) {
 				const off = sub - Math.round((sub * (100 - pct)) / 100);
 				save.hidden = !(pct > 0 && off > 0);
-				save.textContent = `First order? -${cents(off)} (${pct}%) comes off at checkout`;
+				save.textContent = msgs.save.replace('{a}', cents(off)).replace('{pct}', String(pct));
 			}
 		};
 		for (const b of form.querySelectorAll<HTMLButtonElement>('[data-step]')) {
@@ -276,7 +394,7 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			const counts: Record<string, number> = {};
 			for (const i of inputs) counts[i.name] = qty(i);
 			if (!Object.values(counts).some((x) => x > 0)) {
-				msg.textContent = 'Choose at least one copy.';
+				msg.textContent = msgs.choose;
 				return;
 			}
 			const q = new URLSearchParams(location.search);
@@ -309,9 +427,9 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 					return;
 				}
 				msg.textContent =
-					j.message || (j.disabled ? 'Checkout is not open yet.' : 'Something went wrong. Please try again.');
+					j.message || (j.disabled ? msgs.closed : msgs.error);
 			} catch {
-				msg.textContent = 'Something went wrong. Please try again.';
+				msg.textContent = msgs.error;
 			}
 			btn.disabled = false;
 		});

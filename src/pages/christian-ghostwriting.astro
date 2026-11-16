@@ -2,6 +2,7 @@
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Answer page for "christian ghostwriting services". Every fact here comes from
@@ -70,7 +71,7 @@ const faqs = [
 ];
 ---
 
-<Layout
+<Layout youversionBanner={false}
 	title="Christian Ghostwriting Services — Angel Writing | Spirit Media"
 	description="Christian ghostwriting through Angel Writing: one hour a week with your writer, 10,000 words a month, and a finished manuscript in as little as 90 days."
 >
@@ -106,6 +107,8 @@ const faqs = [
 				</div>
 			</div>
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 
 		<AnswerBlock
 			url="/christian-ghostwriting/"

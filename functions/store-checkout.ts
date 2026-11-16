@@ -8,16 +8,33 @@
 //
 // Prices, discounts, far-band, margin floor and the author-royalty sale metadata come from the ONE store engine
 // (src/store-engine/, a manifest-checked copy of FHB src/lib/storeEngine.ts). This file only does HTTP and Stripe.
-// BOOKS ONLY: Bibles stay on fathersheartbible.com's own checkout. Stripe account = the Spirit Media store account
-// FHB /print already charges into (one account, sales split by metadata[site]); fulfilment runs through FHB's
-// print-webhook exactly as for FHB orders (metadata[kind]=dvc_print).
+// ONE STORE, TWO SHOP WINDOWS (Option C, Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): this is the
+// store for every window. Books sell from any site; BIBLES sell only in the FHB window (an FHB-origin order box, or
+// site fhb): Kevin 2026-11-16 "2yes", FHB Bibles stay sold on FHB only. The FHB Bible box (FHB src/scripts/order-form.ts)
+// posts here exactly as the FHB book box does, and its Stripe request is the one FHB /dvc-checkout sent, plus the tags
+// (golden-parity test in scripts/store-checkout.test.mjs). Stripe account = the Spirit Media store account FHB /print
+// already charges into (one account, sales split by metadata[site]); fulfilment runs through FHB's print-webhook exactly
+// as for FHB orders (metadata[kind]=dvc_print). Every session carries site + window + family (storeTagErrors gates it).
+import {
+	allowCheck,
+	answerBody,
+	constantTime,
+	emailTag,
+	type FirstStatus,
+	sameOrigin,
+} from '../src/store-engine/lib/firstOrderGuard.ts';
 import { BOOK_SKUS } from '../src/store-engine/lib/order-pricing.ts';
 import {
 	checkoutForm,
+	EMAIL_RE,
 	encodeForm,
+	familyOf,
+	familyOfSku,
 	firstOrderPromo,
 	isFirstOrder,
 	type OrderPayload,
+	storeTagErrors,
+	storeTags,
 } from '../src/store-engine/lib/storeEngine.ts';
 
 interface Env {
@@ -65,8 +82,11 @@ export async function smpCheckoutForm(
 	key: string | undefined,
 ) {
 	const counts = payload.counts ?? {};
-	// books only: any non-book SKU with a quantity is refused before the engine sees it
-	if (Object.entries(counts).some(([sku, n]) => Number(n) > 0 && !BOOK_SKUS[sku])) {
+	const site = SITES[String(payload.site)] ? String(payload.site) : 'smp';
+	// a book sells from any window; a Bible only from the FHB window; anything else is refused before the engine sees it
+	const sellable = (sku: string) =>
+		Boolean(BOOK_SKUS[sku]) || (site === 'fhb' && familyOfSku(sku) === 'bible');
+	if (Object.entries(counts).some(([sku, n]) => Number(n) > 0 && !sellable(sku))) {
 		return { status: 400, body: { error: 'invalid_selection' } } as const;
 	}
 	const r = await checkoutForm(payload, requestUrl, {
@@ -75,16 +95,68 @@ export async function smpCheckoutForm(
 		firstOrderPromo: () => firstOrderPromo(key as string),
 	});
 	if (!('form' in r)) return r;
-	const site = SITES[String(payload.site)] ? String(payload.site) : 'smp';
-	const extra: Record<string, string> = { 'metadata[site]': site };
+	// Option C tags first, always (the engine reserves their keys); storeTagErrors refuses the session without them
+	Object.assign(r.form, storeTags(site, familyOf(counts)));
+	const extra: Record<string, string> = {};
 	const utm = payload.utm ?? {};
 	for (const k of ['source', 'medium', 'campaign', 'content'])
 		if (utm[k]) extra[`metadata[utm_${k}]`] = clip(utm[k]);
-	// never past Stripe's 50 metadata keys: site first, then utm in order (contract 3fe item 5)
+	// never past Stripe's 50 metadata keys: site/window/family first, then utm in order (contract 3fe item 5)
 	const used = Object.keys(r.form).filter((k) => k.startsWith('metadata[')).length;
 	for (const [k, v] of Object.entries(extra).slice(0, Math.max(0, STRIPE_META_KEYS_MAX - used)))
 		r.form[k] = v;
 	return r;
+}
+
+/** The ONE way this store creates a Checkout Session: an untagged form is refused (500 untagged) and never sent. */
+export async function createSession(form: Record<string, string | number>, key: string) {
+	const errs = storeTagErrors(form);
+	if (errs.length) {
+		console.error('store-checkout untagged session refused', errs);
+		return { status: 500, body: { error: 'untagged' } } as const;
+	}
+	const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+		method: 'POST',
+		headers: {
+			authorization: `Bearer ${key}`,
+			'content-type': 'application/x-www-form-urlencoded',
+		},
+		body: encodeForm(form),
+	});
+	if (!res.ok)
+		return { status: 502, body: { error: 'stripe_error', detail: await res.text() } } as const;
+	const session = (await res.json()) as { url?: string };
+	return session.url
+		? ({ status: 200, body: { url: session.url } } as const)
+		: ({ status: 502, body: { error: 'no_session_url' } } as const);
+}
+
+/** The FHB Bible box asks "is this email a first order?" before checkout (the same guarded lookup FHB /dvc-checkout
+ *  answered: our-origin only, soft rate limit, one answer shape, constant time). Bibles take the 15%; books never do. */
+async function firstOrderAnswer(
+	request: Request,
+	payload: OrderPayload,
+	key: string | undefined,
+): Promise<Response> {
+	const headers = { 'content-type': 'application/json', 'cache-control': 'no-store' };
+	const reply = (status: FirstStatus) => new Response(answerBody(status), { headers });
+	if (!sameOrigin(request.headers)) return reply('unknown'); // an SMP page sells books only: nothing to look up
+	return constantTime(async () => {
+		const em = String(payload.email ?? '')
+			.trim()
+			.toLowerCase();
+		if (!key || em.length > 254 || !EMAIL_RE.test(em)) return reply('unknown');
+		const tag = await emailTag(em);
+		const ip = request.headers.get('cf-connecting-ip') ?? '';
+		// No cache to count in = no way to limit = fail closed to "unknown" (list price).
+		const cache = (globalThis as unknown as { caches?: { default?: Cache } }).caches?.default;
+		if (!(cache ? await allowCheck(cache, ip, tag) : false)) {
+			console.log(`first-order-check limited tag=${tag}`);
+			return reply('unknown');
+		}
+		const first = (await isFirstOrder(em, key)) && (await firstOrderPromo(key)) !== null;
+		return reply(first ? 'first' : 'repeat');
+	});
 }
 
 export const onRequestOptions: PagesFunction<Env> = async ({ request }) => {
@@ -94,7 +166,64 @@ export const onRequestOptions: PagesFunction<Env> = async ({ request }) => {
 		: new Response(null, { status: 403 });
 };
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+// 3ef-1 (pmseoaeo 2026-11-13) kept through the move: FHB /dvc-checkout reported every order POST server-side to FHB's
+// /_evt sink (kind checkout_server, tag site|qa, status, error code, path; aggregate only: no email, cart or IP). The
+// FHB order boxes now post here, so an FHB-window POST reports the same event, or the 3ef ledger would go blind.
+const QA_UA = /headless|playwright|puppeteer|python|curl|wget|node-fetch|undici|go-http|java\//i;
+export function fhbCheckoutEvent(
+	request: Request,
+	status: number,
+	body: Record<string, unknown> | null,
+	reason: string,
+) {
+	const host = new URL(request.headers.get('origin') ?? request.url).hostname;
+	const qa =
+		host.endsWith('.pages.dev') ||
+		/@example\.(com|org|net)$/i.test(String(body?.email ?? '')) ||
+		!!request.headers.get('x-fhb-qa') ||
+		QA_UA.test(request.headers.get('user-agent') ?? '');
+	return {
+		kind: 'checkout_server',
+		tag: qa ? 'qa' : 'site',
+		status,
+		reason,
+		path: String(body?.returnPath ?? '').slice(0, 60),
+	};
+}
+
+export const onRequestPost: PagesFunction<Env> = async (context) => {
+	const copy = context.request.clone();
+	const res = await handlePost(context);
+	const origin = context.request.headers.get('origin');
+	if (typeof context.waitUntil === 'function' && siteForOrigin(origin) === 'fhb') {
+		const body = (await copy.json().catch(() => null)) as Record<string, unknown> | null;
+		if (!body?.firstOrderCheck) {
+			const j =
+				res.status >= 400
+					? ((await res
+							.clone()
+							.json()
+							.catch(() => null)) as { error?: string } | null)
+					: null;
+			const ev = fhbCheckoutEvent(
+				context.request,
+				res.status,
+				body,
+				res.status >= 400 ? String(j?.error ?? `http_${res.status}`) : '',
+			);
+			context.waitUntil(
+				fetch('https://fathersheartbible.com/_evt', {
+					method: 'POST',
+					headers: { 'content-type': 'application/json' },
+					body: JSON.stringify(ev),
+				}).catch(() => undefined),
+			);
+		}
+	}
+	return res;
+};
+
+const handlePost: PagesFunction<Env> = async ({ request, env }) => {
 	const origin = request.headers.get('origin');
 	const self = new URL(request.url).origin;
 	const crossSite = origin && origin !== self ? siteForOrigin(origin) : null;
@@ -114,8 +243,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	} catch {
 		return json({ error: 'bad_request' }, 400);
 	}
-	// The first-order 15% is for Bibles only (Kevin 11-10); books never take it, so there is nothing to look up.
-	if (payload.firstOrderCheck) return json({ status: 'unknown' });
+	// The first-order 15% is for Bibles only (Kevin 11-10): the FHB Bible box asks; an SMP book page gets 'unknown'.
+	if (payload.firstOrderCheck) {
+		const a = await firstOrderAnswer(request, payload, env.STRIPE_STORE_SECRET_KEY);
+		if (crossSite)
+			for (const [k, v] of Object.entries(corsHeaders(origin as string))) a.headers.set(k, v);
+		return a;
+	}
 	// contract 3fe: the server derives the site from Origin. A cross-origin form returns its buyer (success + cancel)
 	// to ITS OWN origin; the engine accepts /books/<slug>/ there only for a slug in its catalogue (no open redirect).
 	if (crossSite) payload = { ...payload, site: crossSite };
@@ -128,15 +262,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		return json({ error: 'exception' }, 500);
 	}
 	if (!('form' in r)) return json(r.body, r.status);
-	const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
-		method: 'POST',
-		headers: {
-			authorization: `Bearer ${env.STRIPE_STORE_SECRET_KEY}`,
-			'content-type': 'application/x-www-form-urlencoded',
-		},
-		body: encodeForm(r.form),
-	});
-	if (!res.ok) return json({ error: 'stripe_error', detail: await res.text() }, 502);
-	const session = (await res.json()) as { url?: string };
-	return session.url ? json({ url: session.url }) : json({ error: 'no_session_url' }, 502);
+	const s = await createSession(r.form, env.STRIPE_STORE_SECRET_KEY as string);
+	return json(s.body, s.status);
 };

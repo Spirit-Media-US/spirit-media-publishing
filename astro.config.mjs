@@ -57,6 +57,27 @@ function lastmodFor(url) {
   return dates.length ? dates.sort().at(-1) : undefined;
 }
 
+// ── SMP worldwide retires itself (Kevin 2026-11-16: "SMP worldwide (showing those available for shipping until we get
+// all \"SMP only\" showing)"). BookstoreBody.astro sets globalThis.__smpWorldwideRetired when every SMP-only card is
+// orderable here; this build then ships /bookstore/smp-worldwide/ as a 301 to /bookstore/smp/ (its page dropped, so
+// the redirect is what answers) and leaves it out of the sitemap. Until then: nothing.
+const worldwideRetired = () => globalThis.__smpWorldwideRetired === true;
+const smpWorldwideRetire = {
+  name: "smp-worldwide-retire",
+  hooks: {
+    "astro:build:done": ({ dir }) => {
+      if (!worldwideRetired()) return;
+      const out = new URL(dir).pathname;
+      fs.appendFileSync(
+        path.join(out, "_redirects"),
+        "\n# SMP worldwide == SMP only (build-time check, BookstoreBody.astro): retired\n/bookstore/smp-worldwide/ /bookstore/smp/ 301\n/bookstore/smp-worldwide /bookstore/smp/ 301\n",
+      );
+      fs.rmSync(path.join(out, "bookstore", "smp-worldwide"), { recursive: true, force: true });
+      console.log("[bookstore] SMP worldwide equals SMP only: retired to a 301 -> /bookstore/smp/");
+    },
+  },
+};
+
 // https://astro.build/config
 export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
@@ -71,12 +92,13 @@ export default defineConfig({
     inlineStylesheets: 'auto',
   },
   integrations: [
+    smpWorldwideRetire,
     sitemap({
       // Assign crawl priority by page type
       customPages: [],
       // Keep noindex'd pages (/partnership, /thank-you) out of the sitemap: a sitemap lists only pages we want indexed.
       // /books/<slug>/buy/ = noindex,follow checkout pages (plan 3fb contract 3fe): never in a sitemap.
-      filter: (page) => !page.includes('/partnership') && !page.includes('/thank-you') && !/\/books\/[^/]+\/buy\/$/.test(page),
+      filter: (page) => !(worldwideRetired() && page.includes('/bookstore/smp-worldwide/')) && !page.includes('/partnership') && !page.includes('/thank-you') && !/\/books\/[^/]+\/buy\/$/.test(page),
       serialize(item) {
         const lastmod = lastmodFor(item.url);
         if (lastmod) item = { ...item, lastmod };
