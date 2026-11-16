@@ -11,6 +11,7 @@ import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
 import ShipCountryMarquee from './ShipCountryMarquee.astro';
+import YouVersionBanner from './YouVersionBanner.astro';
 
 interface Props {
 	initialCollection?: string;
@@ -485,11 +486,12 @@ const partitionOf = (b: any) =>
 			: b.fhbGroup === 'audience' || String(b._id || '').startsWith('fhb-')
 				? 'fhb-english'
 				: 'smp';
-const LIVE_SLUGS = new Set(pagesLive.slugs as string[]);
 const SHIP_TITLE = new Map<string, any>((shipset as any).titles.map((t: any) => [t.slug, t]));
+// "live" = the page BUILDS on this build (PAGE_BUILT: pages-live.json, or every page on a BOOKS_PREVIEW_ALL=1 preview),
+// the same switch books/[slug] uses, so a card is in SMP worldwide exactly when its built page shows the order box.
 const hasOrderBox = (slug: string) => {
 	const t = SHIP_TITLE.get(slug);
-	if (!t || !LIVE_SLUGS.has(slug) || ['es', 'fr'].includes(t.book.language)) return false;
+	if (!t || !PAGE_BUILT(slug) || ['es', 'fr'].includes(t.book.language)) return false;
 	return (t.book.formats as string[]).some(
 		(sku) => (BOOK_SKUS as any)[sku]?.isbn && Number.isInteger(t.skus?.[sku]?.list_cents),
 	);
@@ -497,7 +499,7 @@ const hasOrderBox = (slug: string) => {
 for (const b of rawBooks as any[]) {
 	const part = partitionOf(b);
 	const own = /^\/books\/([^/]+)\/$/.exec(b.amazon || '');
-	b.live = !!(own && LIVE_SLUGS.has(own[1]));
+	b.live = !!(own && PAGE_BUILT(own[1]));
 	b.colls = [part];
 	if (part === 'smp' && own && hasOrderBox(own[1])) b.colls.push('smp-worldwide');
 	if (part === 'smp' && (b.collections || []).includes('Express Books'))
@@ -700,6 +702,9 @@ const itemListLd =
     </div>
   )}
 </section>
+<!-- The YouVersion banner under the bookstore hero/tagline block, as on every SMP page with a hero (the pages pass
+     youversionBanner={false} to Layout so it never shows twice). -->
+<YouVersionBanner />
 
 
 {introRendered && (
