@@ -760,3 +760,21 @@ test('bookstore: pale covers in light-covers.json get their frame: full 4-side o
 	const dark = card(/alt="Hold It, Daniel!"/);
 	assert.ok(dark && !full(dark) && !underline(dark), 'Hold It, Daniel! has neither');
 });
+
+test('home: "New from Spirit Media Authors" renders the SAME bookstore cards, and the menu has Books (Kevin 2026-11-16)', () => {
+	const home = fs.readFileSync(new URL('../dist/index.html', import.meta.url), 'utf8');
+	const store = storePage('');
+	const sec = home.slice(home.indexOf('id="home-books-heading"'), home.indexOf('Visit the Bookstore'));
+	assert.ok(sec.length > 0, 'section present');
+	const homeCards = sec.split('<li>').slice(1).map((x) => x.slice(0, x.indexOf('</li>')));
+	assert.equal(homeCards.length, 8, '8 cards');
+	for (const c of homeCards) {
+		const id = c.match(/data-card="([^"]*)"/)[1];
+		const s = store.indexOf(`<div data-card="${id}"`);
+		assert.ok(s > 0, `${id}: is a bookstore card`);
+		const storeCard = store.slice(s, s + c.length);
+		assert.equal(c, storeCard, `${id}: identical markup to the /bookstore/ card`);
+		assert.match(c, /href="\/books\/[^"]+\/"/, `${id}: opens its SMP page`);
+	}
+	assert.match(home, /<a href="\/bookstore\/"[^>]*>\s*Books\s*<\/a>/, 'menu Books link');
+});
