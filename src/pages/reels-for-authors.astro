@@ -1,6 +1,7 @@
 ---
 import AnswerBlock from '../components/AnswerBlock.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Generic-first, practical-intent page. Origin: an author (Luis, San Francisco)
@@ -153,7 +154,7 @@ const moreWork = [
 ];
 ---
 
-<Layout
+<Layout youversionBanner={false}
 	title="Reels & Short-Form Video for Your Book — Spirit Media"
 	description="Spirit Media produces book reels for TikTok, Instagram, and YouTube Shorts: scripting, filming, post-production, and up to 20 reels a month."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/c8d6c169168afb24da775f4b69be02d5380c3975-800x360.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -198,6 +199,8 @@ const moreWork = [
 				</div>
 			</div>
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 
 		<AnswerBlock
 			url="/reels-for-authors/"

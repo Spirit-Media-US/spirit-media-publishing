@@ -3,6 +3,7 @@ import CoverMarquee from '../components/CoverMarquee.astro';
 import HomeBooks from '../components/HomeBooks.astro';
 import MailtoLink from '../components/MailtoLink.astro';
 import ShipCountryMarquee from '../components/ShipCountryMarquee.astro';
+import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
@@ -100,6 +101,7 @@ const shipOfferLine = `15% off first order + free standard shipping to ${LIVE_CO
 const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
 ---
 <Layout
+	youversionBanner={false}
 	title={pageTitle}
 	description={pageDescription}
 	ogImage="https://assets.spiritmediapublishing.com/spirit-media-publishing/og/homepage-og.jpg"
@@ -250,6 +252,8 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 			<a href="https://fathersheartbible.com" class="block fhb-hero-link" aria-label="Father's Heart Bible"><img src={`${R2_BASE}/fhb-hero-a02-1600.webp`} width="2400" height="920" srcset={heroA02Srcset} sizes="(max-width: 767px) 430px, 100vw"
 				loading="eager" fetchpriority="high" decoding="async"
 				alt="Eight young adults sitting by a mountain lake, each smiling and holding a different edition of the Father's Heart Bible" class="w-full h-auto fhb-hero-img" /></a>
+			<!-- FHB YouVersion banner directly under the hero image, as on FHB (Kevin 2026-11-16 ~15:3xZ). -->
+			<YouVersionBanner />
 			<!-- ═══ COVER MARQUEE ═══
 			     Title + scrolling FHB covers + FATHER|SON|SPIRIT + tagline. Kevin
 			     2026-09-24 placed this DIRECTLY BELOW THE FOLD, so it sits under the
@@ -275,6 +279,11 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 					<a href="https://fathersheartbible.com/read/" class="btn btn-ghost">Read &amp; Listen Free</a>
 				</div>
 				<p class="fhb-tagline mt-8">Receive the Father. Hear his voice. His heart is for you.</p>
+			</div>
+			<!-- Offer line + black country marquee at the BOTTOM of the pink section (Kevin 2026-11-16 ~15:3xZ), FHB's shared
+			     component; SMP brand red for the offer line via the colour token. -->
+			<div class="px-4" style="--color-primary: var(--color-red-deep, #9b2d20);">
+				<ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
 			</div>
 		</section>
 
@@ -451,11 +460,6 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 
 		<!-- ═══ BOOKS ═══ the bookstore + newest live book pages (pmprint 2026-11-16) -->
 		<HomeBooks />
-		<!-- Offer line + black country marquee under the books, as on FHB (shared component ShipCountryMarquee). Same
-		     band colour as the books section; SMP brand red for the offer line (as BookOrder), via the colour token. -->
-		<section class="bg-stone-50 px-4 pb-12 lg:pb-16" style="--color-primary: var(--color-red-deep, #9b2d20);" aria-label="Store offer">
-			<ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
-		</section>
 
 		<!-- ═══ SERVICES OVERVIEW ═══ -->
 		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8">

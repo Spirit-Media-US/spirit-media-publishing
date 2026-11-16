@@ -2,6 +2,7 @@
 import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
 import LookInside from '../../../components/LookInside.astro';
+import YouVersionBanner from '../../../components/YouVersionBanner.astro';
 // /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
 // is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
 // new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
@@ -657,7 +658,7 @@ const crumbs = {
 };
 ---
 
-<Layout lang={p.lang ?? 'en'} title={docTitle} description={metaDesc} ogImage={ogImage} ogImageWidth={ogW} ogImageHeight={ogH} canonical={p.canonical ?? undefined}>
+<Layout youversionBanner={false} lang={p.lang ?? 'en'} title={docTitle} description={metaDesc} ogImage={ogImage} ogImageWidth={ogW} ogImageHeight={ogH} canonical={p.canonical ?? undefined}>
 	<Fragment slot="head">
 		<link rel="preload" as="image" href={p.cover.src} imagesrcset={p.cover.w300 ? `${p.cover.w300} 300w, ${p.cover.src} 600w` : undefined} imagesizes={p.cover.w300 ? "(min-width: 768px) 280px, 240px" : undefined} fetchpriority="high" />
 		{!p.canonical && <script type="application/ld+json" set:html={JSON.stringify(ld)}></script>}
@@ -762,6 +763,8 @@ const crumbs = {
 				</div>
 			)}
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 		{/* The order area in its own unpadded band, so the black country marquee runs edge to edge (FHB standard). */}
 		{orderBox && (
 			<section class="bg-stone-50 pb-10" aria-label={`${T.order} ${p.title}`}>

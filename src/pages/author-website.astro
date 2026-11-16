@@ -1,6 +1,7 @@
 ---
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
+import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Answer page for "author website". Every fact here comes from pages already
@@ -58,7 +59,7 @@ const faqs = [
 ];
 ---
 
-<Layout
+<Layout youversionBanner={false}
 	title="Author Website for Christian Authors | Spirit Media"
 	description="Spirit Media builds author websites on an Astro + Tailwind + Claude stack with SSL, SEO, structured data, accessibility, lead gen forms and analytics."
 >
@@ -101,6 +102,8 @@ const faqs = [
 				</div>
 			</div>
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 
 		<AnswerBlock
 			url="/author-website/"

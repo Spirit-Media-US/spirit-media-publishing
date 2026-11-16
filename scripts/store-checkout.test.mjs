@@ -1,5 +1,6 @@
 // node --test scripts/store-checkout.test.mjs — /store-checkout (plan 3fb Phase 3) with Stripe mocked.
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import test from 'node:test';
 
 const A = 'https://spiritmediapublishing.com/store-checkout';
@@ -460,4 +461,159 @@ test('item 2: an FHB-window order POST still reports checkout_server to FHB /_ev
 	assert.deepEqual([fhb[0].kind, fhb[0].tag, fhb[0].status, fhb[0].path], ['checkout_server', 'site', 400, '/bibles/moms-bible/']);
 	assert.equal((await run('https://dev.fathersheartbible.pages.dev'))[0].tag, 'qa');
 	assert.equal((await run('https://spiritmediapublishing.com')).length, 0);
+});
+
+// BOOKSTORE COLLECTIONS (Kevin 2026-11-16, kevin-decisions.md: "Make it: All, SMP only (all without FHB), FHB English
+// (which shows ALL english editions), FHB Languages (showing all the foreign lanuage editions), FHB Books" + "Sorry add
+// Express Books back after SMP only" + "after 2 add a new 3: SMP worldwide ..."). Read off the BUILT pages (the cards a visitor gets), counted against definitions
+// taken from the source data, not from the classifier under test.
+const PARTITION = ['smp', 'fhb-english', 'fhb-languages', 'fhb-books'];
+const COLL_CHIPS = [
+	['All', '/bookstore/'],
+	['SMP only', '/bookstore/smp/'],
+	['SMP worldwide', '/bookstore/smp-worldwide/'],
+	['Express Books', '/bookstore/express-books/'],
+	['FHB English', '/bookstore/fhb-english/'],
+	['FHB Languages', '/bookstore/fhb-languages/'],
+	['FHB Books', '/bookstore/fhb-books/'],
+];
+// every card of All in exactly one of the 4 partition pages, and no partition card missing from All
+const exactlyOneErrors = (pages, all) => {
+	const seen = new Map();
+	for (const key of PARTITION) for (const id of pages[key] || []) seen.set(id, [...(seen.get(id) || []), key]);
+	const errs = all.filter((id) => (seen.get(id) || []).length !== 1).map((id) => `${id}: in ${(seen.get(id) || []).join(', ') || 'none'}`);
+	const allSet = new Set(all);
+	for (const id of seen.keys()) if (!allSet.has(id)) errs.push(`${id}: not in All`);
+	return errs;
+};
+const cardsOf = (html) => {
+	const grid = html.slice(html.indexOf('id="book-grid"'), html.indexOf('id="no-results"'));
+	return [...grid.matchAll(/<div data-card="([^"]*)" data-colls="([^"]*)"(?: data-live="1")?[^>]*>[\s\S]*?<a href="([^"]*)"/g)].map((m) => ({
+		id: m[1].replace(/&#39;/g, "'").replace(/&amp;/g, '&'),
+		colls: m[2].split(' '),
+		live: m[0].includes('data-live="1"'),
+		href: m[3],
+	}));
+};
+const storePage = (slug) => fs.readFileSync(new URL(`../dist/bookstore/${slug ? `${slug}/` : ''}index.html`, import.meta.url), 'utf8');
+
+test('bookstore collections: the 7 chips, counts = definitions, every card in exactly one, Express Books inside SMP only', () => {
+	const allHtml = storePage('');
+	const chips = [...allHtml.matchAll(/<a href="([^"]+)" data-collection(?:="[^"]*")? class="collection-chip[^>]*>([^<]+)<\/a>/g)].map((m) => [m[2], m[1]]);
+	const retired = !fs.existsSync(new URL('../dist/bookstore/smp-worldwide/index.html', import.meta.url));
+	assert.deepEqual(chips, COLL_CHIPS.filter(([n]) => !(retired && n === 'SMP worldwide')), 'exactly the collections, in order');
+	const all = cardsOf(allHtml);
+	const ids = all.map((c) => c.id);
+	assert.ok(all.length > 150, `All lists ${all.length} cards`);
+	assert.equal(new Set(ids).size, ids.length, 'card ids are unique');
+	const pages = Object.fromEntries(['smp', 'express-books', 'fhb-english', 'fhb-languages', 'fhb-books'].map((k) => [k, cardsOf(storePage(k))]));
+	// definitions from the source data
+	const fhbEd = JSON.parse(fs.readFileSync(new URL('../src/data/fhb-editions.json', import.meta.url), 'utf8'));
+	const engine = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8'));
+	const FHB = 'https://fathersheartbible.com/';
+	const def = {
+		'fhb-languages': all.filter((c) => fhbEd.editions.some((e) => e.group === 'language' && e.href === c.href)).length,
+		'fhb-books': all.filter((c) => engine.books.some((b) => c.href === `${FHB}books/${b.slug}/`)).length,
+		'fhb-english': all.filter((c) => c.href.startsWith(FHB) && !c.href.startsWith(`${FHB}books/`) && !fhbEd.editions.some((e) => e.group === 'language' && e.href === c.href)).length,
+	};
+	def.smp = all.filter((c) => !c.href.startsWith(FHB)).length;
+	assert.equal(def['fhb-languages'], fhbEd.language, 'every language edition in the FHB data is carded');
+	assert.equal(def['fhb-books'], engine.books.length, 'every FH book the engine sells is carded');
+	for (const k of PARTITION) {
+		assert.equal(pages[k].length, def[k], `${k}: ${pages[k].length} cards, definition ${def[k]}`);
+		for (const c of pages[k]) assert.deepEqual(c.colls.filter((x) => PARTITION.includes(x)), [k], `${c.id} on ${k} is tagged ${k}`);
+	}
+	assert.deepEqual(exactlyOneErrors(Object.fromEntries(PARTITION.map((k) => [k, pages[k].map((c) => c.id)])), ids), []);
+	assert.equal(PARTITION.reduce((n, k) => n + pages[k].length, 0), all.length, 'the 4 partitions sum to All');
+	// Express Books: a subset of SMP only, and every SMP card Sanity files as an Express Book
+	const smpIds = new Set(pages.smp.map((c) => c.id));
+	assert.ok(pages['express-books'].length > 0, 'Express Books lists its books');
+	for (const c of pages['express-books']) assert.ok(smpIds.has(c.id), `Express Book ${c.id} is in SMP only`);
+	assert.equal(pages['express-books'].length, all.filter((c) => c.colls.includes('express-books')).length);
+	// SMP worldwide: a subset of SMP only, every member's own page carries the order box, and every SMP-only card whose
+	// page carries one is a member (both ways, read off the built book pages)
+	const orderBox = (href) => {
+		const m = /^\/books\/([^/]+)\/$/.exec(href);
+		const f = m && new URL(`../dist/books/${m[1]}/index.html`, import.meta.url);
+		return !!f && fs.existsSync(f) && /<nav class="bo-shop"/.test(fs.readFileSync(f, 'utf8'));
+	};
+	const ww = all.filter((c) => c.colls.includes('smp-worldwide'));
+	for (const c of ww) {
+		assert.ok(smpIds.has(c.id), `SMP worldwide ${c.id} is in SMP only`);
+		assert.ok(orderBox(c.href), `SMP worldwide ${c.id}: ${c.href} has an order box`);
+	}
+	for (const c of pages.smp) assert.equal(c.colls.includes('smp-worldwide'), orderBox(c.href), `${c.id}: SMP worldwide iff its page has an order box`);
+	if (retired) assert.equal(ww.length, pages.smp.length, 'retired only when it equals SMP only');
+	else {
+		assert.ok(ww.length > 0 && ww.length < pages.smp.length, `SMP worldwide ${ww.length} of SMP only ${pages.smp.length}`);
+		assert.equal(cardsOf(storePage('smp-worldwide')).length, ww.length, 'the SMP worldwide page lists every member');
+		assert.doesNotMatch(fs.readFileSync(new URL('../dist/_redirects', import.meta.url), 'utf8'), /smp-worldwide/, 'not retired: no 301');
+	}
+	// SMP only: the live-page (orderable) cards lead, and they are exactly the pages-live books
+	const live = JSON.parse(fs.readFileSync(new URL('../src/data/books/pages-live.json', import.meta.url), 'utf8')).slugs;
+	const firstNotLive = pages.smp.findIndex((c) => !c.live);
+	assert.ok(firstNotLive > 0 && pages.smp.slice(firstNotLive).every((c) => !c.live), 'SMP only: live cards first');
+	for (const c of pages.smp.slice(0, firstNotLive)) assert.ok(live.includes(c.href.split('/')[2]), `${c.href} is a live page`);
+});
+
+test('bookstore collections: the exactly-one check FAILS on a card injected into two collections', () => {
+	const all = ['a', 'b', 'c', 'd'];
+	const pages = { smp: ['a'], 'fhb-english': ['b'], 'fhb-languages': ['c'], 'fhb-books': ['d'] };
+	assert.deepEqual(exactlyOneErrors(pages, all), []);
+	const twice = { ...pages, smp: ['a', 'b'] };
+	assert.deepEqual(exactlyOneErrors(twice, all), ['b: in smp, fhb-english']);
+	// and on the built pages: one real FHB English card injected into SMP only
+	const real = Object.fromEntries(PARTITION.map((k) => [k, cardsOf(storePage(k)).map((c) => c.id)]));
+	const allIds = cardsOf(storePage('')).map((c) => c.id);
+	const injected = { ...real, smp: [...real.smp, real['fhb-english'][0]] };
+	const errs = exactlyOneErrors(injected, allIds);
+	assert.equal(errs.length, 1);
+	assert.match(errs[0], /: in smp, fhb-english$|: in fhb-english, smp$/);
+	console.log(`# injected-failure proof: ${errs[0]}`);
+});
+
+test('bookstore collections: the 3 retired FHB URLs 301, Express Books keeps its URL, All SMP Books -> /bookstore/smp-worldwide/', () => {
+	const red = fs.readFileSync(new URL('../public/_redirects', import.meta.url), 'utf8');
+	for (const [from, to] of [
+		['fathers-heart-bible-fhb', 'fhb-english'],
+		['fathers-heart-bible-audience-editions', 'fhb-english'],
+		['fathers-heart-bible-language-editions', 'fhb-languages'],
+	]) {
+		assert.match(red, new RegExp(`^/bookstore/${from}/ /bookstore/${to}/ 301$`, 'm'));
+		assert.ok(!fs.existsSync(new URL(`../dist/bookstore/${from}/index.html`, import.meta.url)), `${from}: no page (it redirects)`);
+	}
+	assert.doesNotMatch(red, /^\/bookstore\/express-books/m, 'Express Books is not redirected');
+	const bo = fs.readFileSync(new URL('../src/components/BookOrder.astro', import.meta.url), 'utf8');
+	assert.match(bo, /<a href="\/bookstore\/smp-worldwide\/">All SMP Books<\/a>/);
+	const live = JSON.parse(fs.readFileSync(new URL('../src/data/books/pages-live.json', import.meta.url), 'utf8')).slugs;
+	const page = fs.readFileSync(new URL(`../dist/books/${live[0]}/index.html`, import.meta.url), 'utf8');
+	assert.match(page, /<a href="\/bookstore\/smp-worldwide\/"[^>]*>All SMP Books<\/a>/, `${live[0]}: All SMP Books -> /bookstore/smp-worldwide/`);
+});
+
+test('bookstore collections: SMP worldwide retires itself to a 301 when it equals SMP only (and only then)', async () => {
+	const os = await import('node:os');
+	const path = await import('node:path');
+	const { default: config } = await import('../astro.config.mjs');
+	const hook = config.integrations.find((i) => i.name === 'smp-worldwide-retire').hooks['astro:build:done'];
+	const was = globalThis.__smpWorldwideRetired;
+	const run = (flag) => {
+		const out = fs.mkdtempSync(path.join(os.tmpdir(), 'smp-ww-'));
+		fs.writeFileSync(path.join(out, '_redirects'), '/a /b 301\n');
+		fs.mkdirSync(path.join(out, 'bookstore', 'smp-worldwide'), { recursive: true });
+		fs.writeFileSync(path.join(out, 'bookstore', 'smp-worldwide', 'index.html'), 'x');
+		globalThis.__smpWorldwideRetired = flag;
+		hook({ dir: new URL(`file://${out}/`) });
+		const r = { red: fs.readFileSync(path.join(out, '_redirects'), 'utf8'), page: fs.existsSync(path.join(out, 'bookstore', 'smp-worldwide', 'index.html')) };
+		fs.rmSync(out, { recursive: true, force: true });
+		return r;
+	};
+	try {
+		const live = run(false);
+		assert.ok(live.page && !/smp-worldwide/.test(live.red), 'not equal: page kept, no 301');
+		const gone = run(true);
+		assert.ok(!gone.page, 'equal: page dropped');
+		assert.match(gone.red, /^\/bookstore\/smp-worldwide\/ \/bookstore\/smp\/ 301$/m, 'equal: 301 -> /bookstore/smp/');
+	} finally {
+		globalThis.__smpWorldwideRetired = was;
+	}
 });
