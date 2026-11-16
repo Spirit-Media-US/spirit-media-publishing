@@ -293,7 +293,7 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			{(firstOrder || ebook) && <p class="bo-hint" id={`bo-${slug}-email-hint`}>{L.hint}</p>}
 			<input id={`bo-${slug}-email`} class="bo-select" type="email" name="email" autocomplete="email" inputmode="email" required aria-describedby={firstOrder || ebook ? `bo-${slug}-email-hint` : undefined} data-email />
 		</div>
-		<p class="bo-note" data-note data-print-note={L.note} data-ebook-note={L.ebookNote}>{ebookOnly ? L.ebookNote : L.note}</p>
+		<p class="bo-note" data-note data-print-note={ebookOnly ? undefined : L.note} data-ebook-note={L.ebookNote}>{ebookOnly ? L.ebookNote : L.note}</p>
 		<button type="submit" class="bo-checkout">{L.checkout}</button>
 		<p id="buy-msg" class="bo-msg" role="status"></p>
 		<p class="bo-help"><MailtoLink email="hello@spiritmediapublishing.com" class="bo-help-btn">{L.contact}</MailtoLink></p>
