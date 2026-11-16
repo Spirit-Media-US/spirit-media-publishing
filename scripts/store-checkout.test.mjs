@@ -697,15 +697,24 @@ test('bookstore: no card links off-site when its SMP page is built (+ fails on a
 	for (const c of off) console.log(`# off-site: ${c.title} -> ${c.href}`);
 });
 
-test('bookstore: pale covers in light-covers.json get the thin gray cover line (Kevin 2026-11-16, The Forgotten Witness)', () => {
+test('bookstore: pale covers in light-covers.json get their frame: full 4-side on The Forgotten Witness, underline on White Editions (Kevin 2026-11-16)', () => {
 	const html = storePage('');
 	const light = JSON.parse(fs.readFileSync(new URL('../src/data/books/light-covers.json', import.meta.url), 'utf8'));
-	const cards = html.split('<div data-card=').slice(1);
-	const framed = (c) => /border-b border-\[#adacab\]/.test(c.slice(0, c.indexOf('</a>')));
-	for (const t of light.titles) {
-		const c = cards.find((x) => x.includes(`alt="${t}"`));
-		assert.ok(c, `${t}: carded`);
-		assert.ok(framed(c), `${t}: framed`);
+	const cards = html.split('<div data-card=').slice(1).map((c) => c.slice(0, c.indexOf('</a>')));
+	const card = (re) => cards.find((c) => re.test(c));
+	const full = (c) => /<img [^>]*class="[^"]*\bborder border-\[#adacab\]/.test(c);
+	const underline = (c) => /aspect-\[2\/3\][^"]*border-b border-\[#adacab\]/.test(c);
+	for (const t of light.titles.filter((x) => x.frame === 'full')) {
+		const c = card(new RegExp(`alt="${t.title}"`));
+		assert.ok(c && full(c) && !underline(c), `${t.title}: 1px frame on all four sides of the cover image`);
 	}
-	assert.ok(!framed(cards.find((x) => x.includes('alt="Hold It, Daniel!"'))), 'a dark cover is not framed');
+	// underline (the default): every card a pattern names keeps the line under the cover and no full frame. Today no card
+	// title says "White Edition" (the FHB White card is "Regular Print - White"), so the path is also proven on a copy.
+	const titleOf = (c) => (c.match(/alt="([^"]*)"/)?.[1] || '').replace(/&#39;/g, "'");
+	for (const pat of light.patterns)
+		for (const c of cards.filter((x) => new RegExp(pat.pattern, 'i').test(titleOf(x))))
+			assert.ok(underline(c) && !full(c), `${titleOf(c)} keeps its underline`);
+	assert.ok(underline('<div class="aspect-[2/3] overflow-hidden bg-stone-100 border-b border-[#adacab]"><img class="w-full h-full object-contain"') && !full('<img class="w-full h-full object-contain"'), 'underline detector');
+	const dark = card(/alt="Hold It, Daniel!"/);
+	assert.ok(dark && !full(dark) && !underline(dark), 'Hold It, Daniel! has neither');
 });
