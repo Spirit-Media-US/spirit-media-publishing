@@ -696,3 +696,16 @@ test('bookstore: no card links off-site when its SMP page is built (+ fails on a
 	console.log(`# cards: ${cards.length} = own ${cards.filter((c) => c.href.startsWith('/books/')).length} / FHB ${cards.filter((c) => c.href.startsWith('https://fathersheartbible.com/')).length} / off-site ${off.length}`);
 	for (const c of off) console.log(`# off-site: ${c.title} -> ${c.href}`);
 });
+
+test('bookstore: pale covers in light-covers.json get the thin gray cover line (Kevin 2026-11-16, The Forgotten Witness)', () => {
+	const html = storePage('');
+	const light = JSON.parse(fs.readFileSync(new URL('../src/data/books/light-covers.json', import.meta.url), 'utf8'));
+	const cards = html.split('<div data-card=').slice(1);
+	const framed = (c) => /border-b border-\[#adacab\]/.test(c.slice(0, c.indexOf('</a>')));
+	for (const t of light.titles) {
+		const c = cards.find((x) => x.includes(`alt="${t}"`));
+		assert.ok(c, `${t}: carded`);
+		assert.ok(framed(c), `${t}: framed`);
+	}
+	assert.ok(!framed(cards.find((x) => x.includes('alt="Hold It, Daniel!"'))), 'a dark cover is not framed');
+});

@@ -1,0 +1,5 @@
+{
+	"_note": "Bookstore cards whose pale cover blends into the white card get the thin gray line between cover and card (BookstoreBody.astro isLightCover, border #adacab). A card is light when its title or display title matches one of `patterns` (case-insensitive) or equals one of `titles`. Kevin 2026-11-16: \"put thin gray frame around the thumbnail\" (The Forgotten Witness). The book-page hero shows the 3D mockup (spine + shadow), so it needs no frame.",
+	"patterns": ["White Edition"],
+	"titles": ["The Forgotten Witness"]
+}

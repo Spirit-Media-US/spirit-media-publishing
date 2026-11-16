@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 import cardAliases from '../data/books/card-page-aliases.json';
 import coverSized from '../data/books/cover-sized.json';
 import expressExtra from '../data/books/express-books.json';
+import lightCovers from '../data/books/light-covers.json';
 import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
@@ -560,6 +561,14 @@ const liveFirst = (x: any, y: any) => Number(!!y.live) - Number(!!x.live);
 const shipOfferLine = `15% off first order + free standard shipping to ${LIVE_COUNTRIES.length} countries`;
 const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
 
+// pale covers that blend into the white card: src/data/books/light-covers.json (title patterns + exact titles)
+const LIGHT_PATTERNS = (lightCovers as any).patterns.map((x: string) => new RegExp(x, 'i'));
+const LIGHT_TITLES = new Set<string>((lightCovers as any).titles.map((t: string) => norm(t)));
+const isLightCover = (b: any) =>
+	[b.title, b.display_title].some(
+		(t) => t && (LIGHT_PATTERNS.some((re: RegExp) => re.test(t)) || LIGHT_TITLES.has(norm(t))),
+	);
+for (const b of rawBooks as any[]) if (isLightCover(b)) b.lightCover = true;
 const BOOKS_JSON = JSON.stringify(rawBooks);
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
 // browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
@@ -647,8 +656,6 @@ const dateLabelOf = (b: any) =>
 				day: 'numeric',
 			})
 		: '';
-const isLightCover = (b: any) =>
-	/White Edition/i.test(b.title || '') || /White Edition/i.test(b.display_title || b.title || '');
 // ItemList JSON-LD (unit 2qm): built from rawBooks, the SAME array that draws the cards, so
 // numberOfItems == itemListElement length == books shown. Index page only (collection pages
 // show a subset).
@@ -736,8 +743,8 @@ const itemListLd =
     <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
   </div>
 </section>
-<!-- No YouVersion banner on the bookstore pages (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee); the pages
-     pass youversionBanner={false} to Layout. -->
+<!-- The YouVersion bar comes from the Layout, at the top under the global nav on every page, the bookstore included
+     (Kevin 2026-11-16, 5d7c3a8); this component places none of its own. -->
 
 
 {introRendered && (
@@ -938,7 +945,7 @@ const itemListLd =
       const displayTitle = b.display_title || b.title;
       // Light/white covers (e.g. FHB White Edition) blend into the white card —
       // add a hairline between the cover and the card body so the edge reads.
-      const lightCover = /White Edition/i.test(b.title || '') || /White Edition/i.test(displayTitle || '');
+      const lightCover = !!b.lightCover; // set at build from src/data/books/light-covers.json
       const coverBorder = lightCover ? ' border-b border-[#adacab]' : '';
       // No listing at all -> an inert <a> rather than href="null" (a link that 404s on
       // our own domain is worse than no link). GROQ already falls back to the per-binding
