@@ -460,9 +460,8 @@ for (const doc of rawBooks as any[]) {
 //   fhb-english   — every other FHB edition (Sanity fhb-* documents: General, Large Print, eBook, audience editions;
 //                   fhb-editions.json group "audience")
 //   smp           — everything else. Express Books = its Sanity members that are SMP only (a subset of SMP only).
-//   smp-worldwide — the SMP-only cards ORDERABLE here: a live SMP /books/ page (pages-live.json) with an order box (an
-//                   English ship-set book with a store-registry SKU that has an ISBN and a price, the same rule
-//                   books/[slug] uses for its BookOrder). A subset of SMP only; it grows as pages go live.
+//   smp-worldwide — the SMP-only cards ORDERABLE here: a built SMP /books/ page with an order form (a ship-set book with
+//                   a store-registry SKU that has an ISBN and a price, the rule books/[slug] sells by; any language). A subset of SMP only; it grows as pages go live.
 //                   RETIRES ITSELF: the build that finds it equal to SMP only drops its chip and page, and the
 //                   smp-worldwide-retire integration (astro.config.mjs) writes /bookstore/smp-worldwide/ -> /bookstore/smp/ 301.
 // Every card sits in exactly one of smp / fhb-english / fhb-languages / fhb-books (scripts/store-checkout.test.mjs).
@@ -491,7 +490,7 @@ const SHIP_TITLE = new Map<string, any>((shipset as any).titles.map((t: any) => 
 // the same switch books/[slug] uses, so a card is in SMP worldwide exactly when its built page shows the order box.
 const hasOrderBox = (slug: string) => {
 	const t = SHIP_TITLE.get(slug);
-	if (!t || !PAGE_BUILT(slug) || ['es', 'fr'].includes(t.book.language)) return false;
+	if (!t || !PAGE_BUILT(slug)) return false;
 	return (t.book.formats as string[]).some(
 		(sku) => (BOOK_SKUS as any)[sku]?.isbn && Number.isInteger(t.skus?.[sku]?.list_cents),
 	);

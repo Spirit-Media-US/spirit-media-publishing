@@ -533,7 +533,7 @@ test('bookstore collections: the 7 chips, counts = definitions, every card in ex
 	const orderBox = (href) => {
 		const m = /^\/books\/([^/]+)\/$/.exec(href);
 		const f = m && new URL(`../dist/books/${m[1]}/index.html`, import.meta.url);
-		return !!f && fs.existsSync(f) && /<nav class="bo-shop"/.test(fs.readFileSync(f, 'utf8'));
+		return !!f && fs.existsSync(f) && /<form id="order"/.test(fs.readFileSync(f, 'utf8'));
 	};
 	const ww = all.filter((c) => c.colls.includes('smp-worldwide'));
 	for (const c of ww) {
