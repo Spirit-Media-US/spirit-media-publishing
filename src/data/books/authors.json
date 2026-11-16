@@ -702,5 +702,37 @@
 			"h": 600,
 			"source": "Google Drive 1pt8UUQo0PfF-Oq9ZlwmJRwdXBPwJbrS9 (ARCHIVE - Former Clients/SM | Lola Brooks/BOOK: I Say, You Say by Lola Brooks/headshot.jpg, 720x725), PIL crop (0, 0, 720, 720) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
 		}
+	},
+	"Freddie Prado": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/freddie-prado-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1q29kxa7LcqjndlxOcZtMNprmRaekjphq (DOTK Interior photos/2O1A4191.jpg 3505x5258), PIL crop (343, 450, 3143, 3250) -> 600x600 WebP q82, 2026-11-16, Kevin approved 2026-11-16 (Daughters of the King = Freddie Prado)"
+		}
+	},
+	"Gene Tahyi": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/gene-tahyi-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1GgHBaMWpr2lftyPcbhJ7c93CrFK4-aze (Kami Tahyi HEADSHOTS/IMG_5219_Original.jpg 3024x4032), PIL crop (424, 100, 3024, 2700) -> 600x600 WebP q82, 2026-11-16, Kevin approved 2026-11-16 (Recovery and Restoration)"
+		}
+	},
+	"Chasty Daniels": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/chasty-daniels-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "static.wixstatic.com/media/43f951_e073427fcd4b49fbb712c20afa87620c~mv2.png (408x612 transparent cutout), PIL crop (68, 0, 408, 340) -> 600x600 WebP q82, 2026-11-16, Kevin approved 2026-11-16 (Dear Church People); transparent cutout flattened on white, small source so Lanczos upscale only (no AI upscaling)"
+		}
+	},
+	"Mario Tubiolo & Craig Tubiolo": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/mario-tubiolo-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1VTqS-2q4E_-_LMTPUsfB7uBewMeoK6Kb (1212x1515), PIL crop (0, 40, 1212, 1252) -> 600x600 WebP q82, 2026-11-16, Kevin approved 2026-11-16 (Mario and Jimmy); Kevin's photo used as-is, crop for framing only: shows Mario (child co-author) alone, nobody cut"
+		}
 	}
 }
