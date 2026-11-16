@@ -731,19 +731,10 @@ const itemListLd =
       <h1 class="font-serif text-3xl font-bold text-ink-soft"><Fragment set:html={heroTitleHtml} /></h1>
       <p class="mt-1 text-sm text-stone-500">{heroSubtitle}</p>
     </div>
-    {initialCollection !== '' && <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>}
+    {/* Publish Your Book in the hero's right corner on every bookstore page (Kevin 2026-11-16 16:4xZ "move this Publish Your
+        Book"); on a phone the hero stacks and it sits under the tagline, full width. */}
+    <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
   </div>
-  {initialCollection === '' && (
-    <>
-      {/* /bookstore/ (pmprint 2026-11-16, Kevin "under the tagline"): tagline -> offer line -> marquee -> Publish Your Book */}
-      <div class="mx-auto max-w-7xl" data-ship-band>
-        <ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
-      </div>
-      <div class="mx-auto max-w-7xl mt-5 flex flex-col sm:flex-row sm:justify-center" data-publish-cta>
-        <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
-      </div>
-    </>
-  )}
 </section>
 <!-- No YouVersion banner on the bookstore pages (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee); the pages
      pass youversionBanner={false} to Layout. -->
@@ -784,8 +775,14 @@ const itemListLd =
         <option value="title">Title A–Z</option>
         <option value="author">Author A–Z</option>
       </select>
-      <p id="book-count" class="text-xs text-stone-500 sm:text-right sm:whitespace-nowrap sm:shrink-0"></p>
     </div>
+    {initialCollection === '' && (
+      <!-- /bookstore/ (Kevin 2026-11-16 16:4xZ): the offer line + country marquee directly under the search / author / sort
+           controls. The shared FHB component and wording; count + names = the store engine's LIVE ship list. -->
+      <div class="mb-6" data-ship-band>
+        <ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
+      </div>
+    )}
     <div id="book-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
       {initialBooks.map((b: any) => (
         <div data-card={b.cardId} data-colls={b.colls.join(' ')} data-live={b.live ? '1' : undefined} class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
@@ -847,8 +844,7 @@ const itemListLd =
   (function() {
     // "Published Titles" counts EVERY FORMAT EDITION — a book released in
     // paperback, hardback and ebook is three titles on the shelf. Kevin
-    // 2026-08-28. The unique-book count is still shown under the grid as
-    // "Showing N of M titles".
+    // 2026-08-28. (The "Showing N of M titles" line was removed, Kevin 2026-11-16 16:4xZ.)
     // 3au: same values the served HTML already shows (computed at build from these BOOKS).
     const totalTitles = STAT_TITLES;
     const uniqueAuthors = STAT_AUTHORS;
@@ -936,7 +932,6 @@ const itemListLd =
 
   function render(filtered) {
     const grid = document.getElementById('book-grid');
-    const count = document.getElementById('book-count');
     const none = document.getElementById('no-results');
     grid.innerHTML = filtered.map(b => {
       const dateLabel = b.date ? new Date(b.date + 'T12:00:00').toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'}) : '';
@@ -964,7 +959,6 @@ const itemListLd =
         </div>
       </div>`;
     }).join('');
-    count.textContent = `Showing ${filtered.length} of ${BOOKS.length} titles`;
     none.classList.toggle('hidden', filtered.length > 0);
   }
 
@@ -1012,6 +1006,5 @@ const itemListLd =
   });
 
   // 2uv: the server already drew this exact grid (same sort, same card markup) — redrawing it on load
-  // replaced every card and shifted layout. Only the count is filled in; filtering redraws as before.
-  document.getElementById('book-count').textContent = `Showing ${document.querySelectorAll('#book-grid > div').length} of ${BOOKS.length} titles`;
+  // replaced every card and shifted layout. Nothing is redrawn on load; filtering redraws as before.
 </script>

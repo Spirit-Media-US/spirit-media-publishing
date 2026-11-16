@@ -630,7 +630,7 @@ test('bookstore collections: SMP worldwide retires itself to a 301 when it equal
 	}
 });
 
-test('bookstore: tagline "Over 550 titles..." with the offer line + country marquee directly under it (Kevin 2026-11-16)', async () => {
+test('bookstore: tagline + Publish Your Book in the hero, offer line + marquee under the search controls, no "Showing" line (Kevin 2026-11-16)', async () => {
 	const html = storePage('');
 	const { LIVE_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts').catch(() => ({}));
 	const tag = html.indexOf('Over 550 titles by Kingdom Messengers. New books added every week.');
@@ -638,10 +638,14 @@ test('bookstore: tagline "Over 550 titles..." with the offer line + country marq
 	assert.doesNotMatch(html, /Over 300 titles by Kingdom Messengers/);
 	const offer = html.search(/<p class="eo-offer[^"]*"[^>]*>15% off first order \+ free standard shipping to \d+ countries<\/p>/);
 	const band = html.search(/<div class="eo-marquee[^"]*" role="region"/);
-	assert.ok(offer > tag && band > offer && html.indexOf('id="book-grid"') > band, 'tagline -> offer line -> marquee -> grid');
 	const cta = html.indexOf('>Publish Your Book →</a>');
+	const heroEnd = html.indexOf('</section>', tag);
 	const chips = html.indexOf('class="collection-chip');
-	assert.ok(cta > band && chips > cta, 'marquee -> Publish Your Book -> chips');
+	const sort = html.indexOf('id="sort-order"');
+	const grid = html.indexOf('id="book-grid"');
+	assert.ok(cta > tag && cta < heroEnd, 'Publish Your Book in the hero, beside the title + tagline');
+	assert.ok(chips > heroEnd && sort > chips && offer > sort && band > offer && grid > band, 'hero -> chips -> search/author/sort -> offer line -> marquee -> grid');
+	assert.doesNotMatch(html, /Showing \d+ of \d+ titles|id="book-count"/, 'no "Showing N of N titles"');
 	assert.equal(html.split('>Publish Your Book →</a>').length - 1, 1, 'one Publish Your Book button');
 	assert.match(html, /<title>Christian Bookstore — 550\+ Spirit Media Published Titles<\/title>/);
 	if (LIVE_COUNTRIES) assert.match(html, new RegExp(`free standard shipping to ${LIVE_COUNTRIES.length} countries</p>`));
