@@ -548,8 +548,13 @@ const SHIP_TITLE = new Map<string, any>((shipset as any).titles.map((t: any) => 
 const hasOrderBox = (slug: string) => {
 	const t = SHIP_TITLE.get(slug);
 	if (!t || !PAGE_BUILT(slug)) return false;
-	return (t.book.formats as string[]).some(
-		(sku) => (BOOK_SKUS as any)[sku]?.isbn && Number.isInteger(t.skus?.[sku]?.list_cents),
+	return (
+		(t.book.formats as string[]).some(
+			(sku) => (BOOK_SKUS as any)[sku]?.isbn && Number.isInteger(t.skus?.[sku]?.list_cents),
+		) ||
+		// an eBook-only page (no print SKU, our store sells its eBook) also carries the order box (books/[slug] EBOOK-ONLY
+		// mode) and is orderable from anywhere: same rule as the page (RDtT Books 2-4, 2026-11-16)
+		Boolean(ebookForBook(slug))
 	);
 };
 for (const b of rawBooks as any[]) {
