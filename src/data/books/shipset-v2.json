@@ -36473,11 +36473,9 @@
 					"schema_format": "https://schema.org/Paperback",
 					"isbn": "9781961614741",
 					"isbn_display": "978-1-961614-74-1",
-					"list_cents": null,
-					"price_note": "unconfirmed: no offer on Amazon (2026-11-15); not on SMP Ingram 9224 / KDP 9223; sheet 15.99 not confirmed",
-					"price_flags": [
-						"no confirmed list price (null, never a guess)"
-					],
+					"list_cents": 1599,
+					"price_note": "15.99: Drive Hindi Metadata Doc 14f7gu0F (2026-11-09) top table \"Paperback list price $15.99\" (Kevin 2026-11-16 \"They are all on google drive\"); Amazon 196161474X shows no offer (2026-11-16)",
+					"price_flags": [],
 					"pages": 150,
 					"pages_note": "150 (sheet = Amazon)",
 					"trim": "5 x 7 in",
@@ -36504,7 +36502,6 @@
 					"royalty_hold": false,
 					"author_key": "Kevin White",
 					"sku_tbd": [
-						"list price",
 						"live availability (no Amazon offer)"
 					],
 					"sku_ready": false
