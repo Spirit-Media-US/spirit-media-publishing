@@ -1,0 +1,13 @@
+{
+	"_note": "EXPRESS BOOKS(TM) titles beyond the Sanity 'Express Books' collection, each with the record that makes it one (Kevin 2026-11-16 \"You are missing express books\"). BookstoreBody.astro puts a card in Express Books when its Sanity document is in that collection OR its title is listed here. Express Books is cross-cutting (a subset of All, not of SMP only). Sanity's members today: Hallelujah Even Here, Invisible Wounds, Father's Heart - Beloved Identity.",
+	"titles": [
+		{
+			"title": "The Forgotten Witness",
+			"source": "/home/deploy/projects/the-forgotten-witness/cover/cover-manifest.json: \"black Express Book spine\" (also -case and -jacket manifests)"
+		},
+		{
+			"title": "Hope That Anchors the Soul",
+			"source": "Express pipeline project /home/deploy/.projects/express/appalachian-kid (pipeline: express, stage 4 draft_generated; proposal 'Hold Fast: How Hope Becomes an Anchor When Willpower Won't Hold', chapter '7:30 screwdriver' = this book's about text)"
+		}
+	]
+}

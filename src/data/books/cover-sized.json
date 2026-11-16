@@ -762,6 +762,1343 @@
 				"width": 600,
 				"height": 838
 			}
+		},
+		"hold-it-daniel": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hold-it-daniel-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hold-it-daniel-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hold-it-daniel-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hold-it-daniel-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/hold-it-daniel-3d-300.webp",
+				"width": 600,
+				"height": 606
+			}
+		},
+		"noah-whats-that-smell": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/noah-whats-that-smell-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/noah-whats-that-smell-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/noah-whats-that-smell-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/noah-whats-that-smell-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/noah-whats-that-smell-3d-300.webp",
+				"width": 600,
+				"height": 606
+			}
+		},
+		"zacchaeus-has-to-pee": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/zacchaeus-has-to-pee-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/zacchaeus-has-to-pee-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/zacchaeus-has-to-pee-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/zacchaeus-has-to-pee-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/zacchaeus-has-to-pee-3d-300.webp",
+				"width": 600,
+				"height": 606
+			}
+		},
+		"forever-changed": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"give-me-a-minute-goliath": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/give-me-a-minute-goliath-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/give-me-a-minute-goliath-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/give-me-a-minute-goliath-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/give-me-a-minute-goliath-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/give-me-a-minute-goliath-3d-300.webp",
+				"width": 600,
+				"height": 606
+			}
+		},
+		"yiayia-voulas-big-dream": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/yiayia-voulas-big-dream-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/yiayia-voulas-big-dream-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/yiayia-voulas-big-dream-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/yiayia-voulas-big-dream-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/yiayia-voulas-big-dream-3d-300.webp",
+				"width": 600,
+				"height": 606
+			}
+		},
+		"the-sunday-scaries": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-sunday-scaries-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-sunday-scaries-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-sunday-scaries-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-sunday-scaries-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-sunday-scaries-3d-300.webp",
+				"width": 600,
+				"height": 614
+			}
+		},
+		"co-co-lazarus-dog": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/co-co-lazarus-dog-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/co-co-lazarus-dog-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/co-co-lazarus-dog-300.webp",
+			"width": 600,
+			"height": 750,
+			"measured": {
+				"-600.webp": [600, 750]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/co-co-lazarus-dog-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/co-co-lazarus-dog-3d-300.webp",
+				"width": 600,
+				"height": 745
+			}
+		},
+		"rightly-dividing-the-truth-endurance-hope-and-eternal-glory": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-4-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-4-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-endurance-hope-and-eternal-glory-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-endurance-hope-and-eternal-glory-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"rightly-dividing-the-truth-the-cross-the-church-and-the-spirits-power": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-3-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-3-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-the-cross-the-church-and-the-spirits-power-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-the-cross-the-church-and-the-spirits-power-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"rightly-dividing-the-truth-walking-in-christ": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-2-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-2-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-walking-in-christ-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-walking-in-christ-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"rightly-dividing-the-truth-foundations-of-faith-and-prayer": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-foundations-of-faith-and-prayer-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/rightly-dividing-the-truth-foundations-of-faith-and-prayer-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"become": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/become-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/become-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/become-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/become-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/become-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"the-seed-of-david-thoughts-from-spiritual-realm-encounters": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-thoughts-from-spiritual-realm-encounters-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-thoughts-from-spiritual-realm-encounters-300.webp",
+			"width": 600,
+			"height": 878,
+			"measured": {
+				"-600.webp": [600, 878]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-thoughts-from-spiritual-realm-encounters-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-thoughts-from-spiritual-realm-encounters-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"singer-s-amazing-journey": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/singer-s-amazing-journey-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/singer-s-amazing-journey-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/singer-s-amazing-journey-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/singer-s-amazing-journey-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"the-gratitude-effect": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-gratitude-effect-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-gratitude-effect-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-gratitude-effect-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-gratitude-effect-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"the-golden-atlas": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-golden-atlas-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-golden-atlas-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-golden-atlas-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-golden-atlas-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-golden-atlas-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"the-creation-of-the-world": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-creation-of-the-world-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-creation-of-the-world-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-creation-of-the-world-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-creation-of-the-world-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-creation-of-the-world-3d-300.webp",
+				"width": 600,
+				"height": 617
+			}
+		},
+		"daughters-of-the-king": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/daughters-of-the-king-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/daughters-of-the-king-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/daughters-of-the-king-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/daughters-of-the-king-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/daughters-of-the-king-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"jesus-had-a-little-lamb": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/jesus-had-a-little-lamb-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/jesus-had-a-little-lamb-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/jesus-had-a-little-lamb-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/jesus-had-a-little-lamb-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/jesus-had-a-little-lamb-3d-300.webp",
+				"width": 600,
+				"height": 609
+			}
+		},
+		"mario-and-jimmy": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mario-and-jimmy-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mario-and-jimmy-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mario-and-jimmy-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mario-and-jimmy-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/mario-and-jimmy-3d-300.webp",
+				"width": 600,
+				"height": 609
+			}
+		},
+		"light-the-way": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/light-the-way-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/light-the-way-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/light-the-way-300.webp",
+			"width": 600,
+			"height": 960,
+			"measured": {
+				"-600.webp": [600, 960]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/light-the-way-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/light-the-way-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"recovery-and-restoration": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/recovery-and-restoration-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/recovery-and-restoration-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/recovery-and-restoration-300.webp",
+			"width": 600,
+			"height": 776,
+			"measured": {
+				"-600.webp": [600, 776]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/recovery-and-restoration-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/recovery-and-restoration-3d-300.webp",
+				"width": 600,
+				"height": 768
+			}
+		},
+		"healing-with-hope": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/healing-with-hope-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/healing-with-hope-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/healing-with-hope-300.webp",
+			"width": 600,
+			"height": 960,
+			"measured": {
+				"-600.webp": [600, 960]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/healing-with-hope-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/healing-with-hope-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"flip-and-felipa": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/flip-and-felipa-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/flip-and-felipa-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/flip-and-felipa-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/flip-and-felipa-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/flip-and-felipa-3d-300.webp",
+				"width": 600,
+				"height": 606
+			}
+		},
+		"whatever-it-takes": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whatever-it-takes-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whatever-it-takes-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whatever-it-takes-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whatever-it-takes-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whatever-it-takes-3d-300.webp",
+				"width": 600,
+				"height": 765
+			}
+		},
+		"the-blessing-trail-2": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-2-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-2-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-2-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-2-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-2-3d-300.webp",
+				"width": 600,
+				"height": 604
+			}
+		},
+		"honky-tonk-nights-to-christian-lights": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/honky-tonk-nights-to-christian-lights-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/honky-tonk-nights-to-christian-lights-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/honky-tonk-nights-to-christian-lights-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/honky-tonk-nights-to-christian-lights-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/honky-tonk-nights-to-christian-lights-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"ogw-marathi": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-marathi-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-marathi-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-marathi-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-marathi-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-marathi-3d-300.webp",
+				"width": 600,
+				"height": 781
+			}
+		},
+		"love-the-greatest-power-ever-known": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-the-greatest-power-ever-known-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-the-greatest-power-ever-known-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-the-greatest-power-ever-known-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-the-greatest-power-ever-known-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-the-greatest-power-ever-known-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"the-positive-power-of-speaking-gods-word": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-positive-power-of-speaking-gods-word-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-positive-power-of-speaking-gods-word-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-positive-power-of-speaking-gods-word-300.webp",
+			"width": 600,
+			"height": 800,
+			"measured": {
+				"-600.webp": [600, 800]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-positive-power-of-speaking-gods-word-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-positive-power-of-speaking-gods-word-3d-300.webp",
+				"width": 600,
+				"height": 777
+			}
+		},
+		"in-the-wilderness": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-wilderness-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-wilderness-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-wilderness-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-wilderness-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/in-the-wilderness-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"dear-church-people": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dear-church-people-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dear-church-people-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dear-church-people-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dear-church-people-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dear-church-people-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"scripture-references-for-effective-counseling": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/scripture-references-for-effective-counseling-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/scripture-references-for-effective-counseling-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/scripture-references-for-effective-counseling-300.webp",
+			"width": 600,
+			"height": 857,
+			"measured": {
+				"-600.webp": [600, 857]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/scripture-references-for-effective-counseling-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/scripture-references-for-effective-counseling-3d-300.webp",
+				"width": 600,
+				"height": 801
+			}
+		},
+		"ogw-urdu": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-urdu-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-urdu-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-urdu-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-urdu-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-urdu-3d-300.webp",
+				"width": 600,
+				"height": 793
+			}
+		},
+		"my-first-deployment": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-first-deployment-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-first-deployment-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-first-deployment-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-first-deployment-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-first-deployment-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"ogw-russian": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-russian-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-russian-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-russian-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-russian-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-russian-3d-300.webp",
+				"width": 600,
+				"height": 791
+			}
+		},
+		"ogw-nepalese": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nepalese-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nepalese-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nepalese-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nepalese-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nepalese-3d-300.webp",
+				"width": 600,
+				"height": 792
+			}
+		},
+		"ogw-spanish": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-spanish-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-spanish-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-spanish-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-spanish-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-spanish-3d-300.webp",
+				"width": 600,
+				"height": 793
+			}
+		},
+		"sharing-your-faith-and-testimony": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sharing-your-faith-and-testimony-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sharing-your-faith-and-testimony-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sharing-your-faith-and-testimony-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sharing-your-faith-and-testimony-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sharing-your-faith-and-testimony-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"ogw-ukrainian": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-ukrainian-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-ukrainian-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-ukrainian-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-ukrainian-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-ukrainian-3d-300.webp",
+				"width": 600,
+				"height": 792
+			}
+		},
+		"the-blessing-trail": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-blessing-trail-3d-300.webp",
+				"width": 600,
+				"height": 604
+			}
+		},
+		"12-days-of-crazy": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/12-days-of-crazy-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/12-days-of-crazy-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/12-days-of-crazy-300.webp",
+			"width": 600,
+			"height": 777,
+			"measured": {
+				"-600.webp": [600, 777]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/12-days-of-crazy-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/12-days-of-crazy-3d-300.webp",
+				"width": 600,
+				"height": 725
+			}
+		},
+		"the-miracles-of-jesus-christ-and-his-apostles": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-miracles-of-jesus-christ-and-his-apostles-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-miracles-of-jesus-christ-and-his-apostles-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-miracles-of-jesus-christ-and-his-apostles-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-miracles-of-jesus-christ-and-his-apostles-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-miracles-of-jesus-christ-and-his-apostles-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"faithful-in-small-things": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faithful-in-small-things-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faithful-in-small-things-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faithful-in-small-things-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faithful-in-small-things-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faithful-in-small-things-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"dont-die-ugly": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dont-die-ugly-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dont-die-ugly-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dont-die-ugly-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dont-die-ugly-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/dont-die-ugly-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"strength-to-conceive": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/strength-to-conceive-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/strength-to-conceive-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/strength-to-conceive-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/strength-to-conceive-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/strength-to-conceive-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"sex-without-regrets": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sex-without-regrets-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sex-without-regrets-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sex-without-regrets-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sex-without-regrets-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/sex-without-regrets-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"i-say-you-say": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/i-say-you-say-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/i-say-you-say-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/i-say-you-say-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/i-say-you-say-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/i-say-you-say-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"who-am-i-tetiana-kurylo": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/who-am-i-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/who-am-i-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/who-am-i-300.webp",
+			"width": 600,
+			"height": 973,
+			"measured": {
+				"-600.webp": [600, 973]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/who-am-i-tetiana-kurylo-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/who-am-i-tetiana-kurylo-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"finding-yourself": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/finding-yourself-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/finding-yourself-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/finding-yourself-300.webp",
+			"width": 600,
+			"height": 973,
+			"measured": {
+				"-600.webp": [600, 973]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/finding-yourself-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/finding-yourself-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"ogw-telugu": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-telugu-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-telugu-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-telugu-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-telugu-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-telugu-3d-300.webp",
+				"width": 600,
+				"height": 791
+			}
+		},
+		"your-time-veterans": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-veterans-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-veterans-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-veterans-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-veterans-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-veterans-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-healthcare": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-healthcare-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-healthcare-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-healthcare-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-healthcare-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-healthcare-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-volunteers": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-volunteers-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-volunteers-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-volunteers-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-volunteers-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-volunteers-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"faith-in-action": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faith-in-action-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faith-in-action-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faith-in-action-300.webp",
+			"width": 600,
+			"height": 928,
+			"measured": {
+				"-600.webp": [600, 928]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faith-in-action-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/faith-in-action-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-law-enforcement": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-law-enforcers-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-law-enforcers-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-law-enforcers-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-law-enforcement-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-law-enforcement-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-christmas": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-christmas-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-christmas-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-christmas-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-christmas-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-christmas-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-church-leaders": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-church-leaders-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-church-leaders-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-church-leaders-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-church-leaders-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-church-leaders-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"ogw-nagese": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nagese-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nagese-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nagese-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nagese-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-nagese-3d-300.webp",
+				"width": 600,
+				"height": 787
+			}
+		},
+		"becoming-a-family": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/becoming-a-family-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/becoming-a-family-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/becoming-a-family-300.webp",
+			"width": 600,
+			"height": 975,
+			"measured": {
+				"-600.webp": [600, 975]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/becoming-a-family-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/becoming-a-family-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"my-way-to-adoption": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-way-to-adoption-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-way-to-adoption-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-way-to-adoption-300.webp",
+			"width": 600,
+			"height": 972,
+			"measured": {
+				"-600.webp": [600, 972]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-way-to-adoption-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/my-way-to-adoption-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-moms": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-moms-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-moms-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-moms-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-moms-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-moms-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-dads": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-dads-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-dads-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-dads-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-dads-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-dads-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"ogw-tamil": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-tamil-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-tamil-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-tamil-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-tamil-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-tamil-3d-300.webp",
+				"width": 600,
+				"height": 784
+			}
+		},
+		"heart-journey-accompanying-journal": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-accompanying-journal-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-accompanying-journal-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-accompanying-journal-300.webp",
+			"width": 600,
+			"height": 857,
+			"measured": {
+				"-600.webp": [600, 857]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-accompanying-journal-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-accompanying-journal-3d-300.webp",
+				"width": 600,
+				"height": 770
+			}
+		},
+		"heart-journey": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/heart-journey-3d-300.webp",
+				"width": 600,
+				"height": 807
+			}
+		},
+		"your-time-teachers": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-teachers-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-teachers-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-teachers-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-teachers-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-teachers-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"you-can-change-the-world": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-change-the-world-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-change-the-world-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-change-the-world-300.webp",
+			"width": 600,
+			"height": 600,
+			"measured": {
+				"-600.webp": [600, 600]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-change-the-world-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-change-the-world-3d-300.webp",
+				"width": 600,
+				"height": 610
+			}
+		},
+		"transplanted": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/transplanted-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/transplanted-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/transplanted-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/transplanted-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/transplanted-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-mens-birthday": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-bday-male-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-bday-male-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-bday-male-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-mens-birthday-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-mens-birthday-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-womens-birthday": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-bday-female-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-bday-female-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-bday-female-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-womens-birthday-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-womens-birthday-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-anniversary": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-anniversary-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-anniversary-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-anniversary-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-anniversary-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-anniversary-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"your-time-graduates": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-graduates-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-graduates-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-graduates-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-graduates-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-graduates-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"love-it-or-lose-it": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-it-or-lose-it-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-it-or-lose-it-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-it-or-lose-it-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-it-or-lose-it-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/love-it-or-lose-it-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"grief-without-chaos": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/grief-without-chaos-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/grief-without-chaos-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/grief-without-chaos-300.webp",
+			"width": 600,
+			"height": 776,
+			"measured": {
+				"-600.webp": [600, 776]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/grief-without-chaos-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/grief-without-chaos-3d-300.webp",
+				"width": 600,
+				"height": 751
+			}
+		},
+		"only-god-works": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only-god-works-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only-god-works-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only-god-works-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only-god-works-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/only-god-works-3d-300.webp",
+				"width": 600,
+				"height": 792
+			}
+		},
+		"raising-parents-is-tough": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raising-parents-is-tough-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raising-parents-is-tough-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raising-parents-is-tough-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raising-parents-is-tough-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raising-parents-is-tough-3d-300.webp",
+				"width": 600,
+				"height": 831
+			}
+		},
+		"power-to-remember": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/power-to-remember-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/power-to-remember-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/power-to-remember-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/power-to-remember-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/power-to-remember-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"ogw-hindi": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-hindi-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-hindi-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-hindi-300.webp",
+			"width": 600,
+			"height": 840,
+			"measured": {
+				"-600.webp": [600, 840]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-hindi-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/ogw-hindi-3d-300.webp",
+				"width": 600,
+				"height": 792
+			}
+		},
+		"walking-with-barbara": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/walking-with-barbara-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/walking-with-barbara-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/walking-with-barbara-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/walking-with-barbara-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/walking-with-barbara-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"whats-up-in-heaven": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-up-in-heaven-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-up-in-heaven-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-up-in-heaven-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-up-in-heaven-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/whats-up-in-heaven-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"you-can-too": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-too-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-too-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-too-300.webp",
+			"width": 600,
+			"height": 927,
+			"measured": {
+				"-600.webp": [600, 927]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-too-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/you-can-too-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
+		},
+		"pantry-stuffers-rehydration-calculations-made-easy": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pantry-stuffers-rehydration-calculations-made-easy-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pantry-stuffers-rehydration-calculations-made-easy-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pantry-stuffers-rehydration-calculations-made-easy-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900]
+			},
+			"hero3d": {
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pantry-stuffers-rehydration-calculations-made-easy-3d-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/pantry-stuffers-rehydration-calculations-made-easy-3d-300.webp",
+				"width": 600,
+				"height": 838
+			}
 		}
 	}
 }

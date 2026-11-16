@@ -2,6 +2,7 @@
 import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
 import LookInside from '../../../components/LookInside.astro';
+import YouVersionBanner from '../../../components/YouVersionBanner.astro';
 // /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
 // is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
 // new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
@@ -151,7 +152,10 @@ export async function getStaticPaths() {
 	// its price is set (3gh #3). Flip either constant to bring a page back.
 	// Kevin 2026-11-14: "prioritize adding Who and I and Beloved Identity on SMP and FHB - they will be the same content
 	// but on 2 different sites". Same page object on both (src/data/books/fhb-book-pages.json); canonical stays on FHB.
-	const SMP_HOSTS_FHB_BOOKS = true;
+	// OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): FHB is the ONE window for every Father's
+	// Heart product, so SMP builds no page for them again; the SMP URLs 301 to FHB (public/_redirects) and the bookstore
+	// cards link there. They still sell through the one SMP store engine from the FHB page.
+	const SMP_HOSTS_FHB_BOOKS = false;
 	const LAMB_LISTED = false;
 	for (const b of (SMP_HOSTS_FHB_BOOKS ? engineBooks.books : []) as any[]) {
 		const fp = (fhbBookPages as Record<string, any>)[b.slug] ?? null;
@@ -379,7 +383,8 @@ const sellFormats = p.formats
 const servedRows = LIVE_COUNTRIES.filter((c) => p.served.includes(c.code));
 const countries = servedRows.map((c) => ({ code: c.code, name: c.name }));
 // The FHB-standard order area (BookOrder) on English pages that sell; es/fr keep their reviewed-string form for now.
-const orderBox = p.orderable && (p.lang ?? 'en') === 'en' && countries.length > 0;
+// es/fr pages get the same box in their language (Kevin 2026-11-15 "2A")
+const orderBox = p.orderable && countries.length > 0;
 // The per-copy handling fee each country pays, sized at BUILD time by the same marginGuard the checkout charges
 // with (break-even, floor 0). Only the resulting fees reach the page, never a cost (pmseoaeo 3gh #5: total line).
 const feeCfg = JSON.stringify({
@@ -653,7 +658,7 @@ const crumbs = {
 };
 ---
 
-<Layout lang={p.lang ?? 'en'} title={docTitle} description={metaDesc} ogImage={ogImage} ogImageWidth={ogW} ogImageHeight={ogH} canonical={p.canonical ?? undefined}>
+<Layout youversionBanner={false} lang={p.lang ?? 'en'} title={docTitle} description={metaDesc} ogImage={ogImage} ogImageWidth={ogW} ogImageHeight={ogH} canonical={p.canonical ?? undefined}>
 	<Fragment slot="head">
 		<link rel="preload" as="image" href={p.cover.src} imagesrcset={p.cover.w300 ? `${p.cover.w300} 300w, ${p.cover.src} 600w` : undefined} imagesizes={p.cover.w300 ? "(min-width: 768px) 280px, 240px" : undefined} fetchpriority="high" />
 		{!p.canonical && <script type="application/ld+json" set:html={JSON.stringify(ld)}></script>}
@@ -758,10 +763,12 @@ const crumbs = {
 				</div>
 			)}
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 		{/* The order area in its own unpadded band, so the black country marquee runs edge to edge (FHB standard). */}
 		{orderBox && (
 			<section class="bg-stone-50 pb-10" aria-label={`${T.order} ${p.title}`}>
-				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number }))} countries={countries} feeCfg={feeCfg} firstOrder={firstOrder} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} />
+				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number }))} countries={countries} feeCfg={feeCfg} firstOrder={firstOrder} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} />
 			</section>
 		)}
 

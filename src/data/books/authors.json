@@ -430,5 +430,277 @@
 			"h": 600,
 			"source": "Google Drive 1vKGhwHo5zCRZI78Uv1RTna1S9j2efoaM (Headshot 1.jpeg 1280x938), PIL crop (560, 30, 900, 370) -> 600x600 WebP q82, 2026-11-15, Kevin approved 2026-11-15; group photo, cropped to the author (book text refers to the author as elle)"
 		}
+	},
+	"Nora Fozard": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/nora-fozard-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1AT1pfs5MlwMJNGFm8kqUGTXYEvMY6maA (ARCHIVE - Former Clients/SM | Nora Fozard/BOOK 1: Faith In Action by Nora Fozard/Headshot.jpeg, 1213x2048), PIL crop (11, 60, 911, 960) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Tetiana Kurylo": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/tetiana-kurylo-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1nhYyskc7gHZ9faMtcJszyD0Ww9b5xUPt (ARCHIVE - Former Clients/SM | Tetiana Kurylo/BOOK: 4 Journals/Headshot.jpeg, 1192x1192), PIL crop (146, 60, 1046, 960) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); holding My Way to Adoption"
+		}
+	},
+	"Dr. Barbara Lowe": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/barbara-lowe-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 17YALzCPw-bO7CotlRrBqD8p9TuU7ionI (ARCHIVE - Former Clients/SM | Dr Barbara Lowe/BOOK: Heart Journey Book & Journal/Book Cover- Heart Journey/Back - Heart Journey Journal.jpg, 2100x3000), PIL crop (235, 2090, 535, 2390) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); author photo printed on the book back cover beside her bio; 300px source so Lanczos 2x upscale only"
+		}
+	},
+	"Kaylee Stavlas": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/kaylee-stavlas-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1AaaryZM0r4tlBnx2VMBh_lrJ19lULTTo (ARCHIVE - Former Clients/SM | Mihali and Laura Stavlas/BOOK: You Can Change the World/Kaylee-Childrens-Book-NEW/Links/Kaylee Stavlas 020.jpg, 4471x6706), PIL crop (935, 200, 3535, 2800) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); in the book InDesign package Links"
+		}
+	},
+	"Laila Williams": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/laila-williams-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1_N8aVoRWHawtznqxmb_-QyzeCPqtFT2z (ARCHIVE - Former Clients/SM | Laila Williams/BOOK: Transplanted: A Tale of Three Kidneys/Headshot for Author bio.jpg, 2832x4256), PIL crop (544, 1450, 2344, 3250) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Barbara Hemphill": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/barbara-hemphill-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1RcLD2PVXlPSQRDfglnIY39c8fUcUxn8g (SM | Barbara Hemphill/BOOK | Walking with Barbara/Book Assets/Barbara Hemphill.jpg, 2037x3055), PIL crop (507, 560, 1407, 1460) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); same person as printed on Love It or Lose It back cover"
+		}
+	},
+	"Maggie Bedrosian": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/maggie-bedrosian-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1-7JGpvrikfnIQ3sT46Gx5CjAmLM0Mxhq (SM | Barbara Hemphill/BOOK | Love it or Lose it/Cover from BH's graphic artist/Back.jpg, 1800x2700), PIL crop (1252, 1606, 1602, 1956) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); co-author of Love It or Lose It (credits); photo printed on the back cover beside her bio; 350px source, Lanczos upscale only"
+		}
+	},
+	"Ann Cueva": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/ann-cueva-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1I8iivg4BWDEagF559wRLm59l3GYVtfBU (ARCHIVE - Former Clients/SM | Ann Cueva/BOOK: Grief Without Chaos/Headshot.jpg, 378x526), PIL crop (0, 30, 378, 408) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); 378px source, Lanczos upscale only"
+		}
+	},
+	"Jeremy Kluth": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/jeremy-kluth-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1E5U8DDkcaUvrl8xHYiipkK4KpSh20htO (SM | Jeremy Kluth/PHOTOS for Social Media/Jeremy Kluth Headshot [Square].png, 2304x2304), PIL crop (0, 0, 2304, 2304) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Dr. Neale Oliver": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/neale-oliver-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1RH8dg3Joi8dawF4BkiHL8VghQFiKlzc4 (ARCHIVE - Former Clients/SM | Dr Neale Oliver - cancelled/Book: What's Up In Heaven/Book Assets/Dr Neale B Oliver Photo.jpg, 453x640), PIL crop (26, 0, 426, 400) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); 453px source, Lanczos upscale only"
+		}
+	},
+	"Angela Cunningham Simms": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/angela-cunningham-simms-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1DrjK9a2s3xa7JzPePX1TngKQnUYI4VJG (ARCHIVE - Former Clients/SM | Angela Cunningham/BOOK: YOU CAN TOO by Angela Cunningham/Book Assets/Angela Cunningham Shoot/IMG_4793.JPG, 1920x1280), PIL crop (437, 70, 1137, 770) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Shelly White": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/shelly-white-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1_z6N0fI7Hh2xq7Kbp_8aE5vApwLVLK9u (SM | Shelly White/Zacchaeus has to pee!/Headshot/Professional headshot cutout with glasses.png, 1086x1448), PIL crop (0, 40, 1086, 1126) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); transparent cutout flattened on white"
+		}
+	},
+	"Mary Mowoe": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/mary-mowoe-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1yuPzsx78Qt_ovHWAA89s_L7l2iVpJr_N (SM | Mary Mowoe/Cover /Archive/Mary headshot.png, 1365x2048), PIL crop (67, 100, 1217, 1250) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"John Englehart": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/john-englehart-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1HfwvQGIVE4gm4UzSM6_tNAz4PvlhJObK (SM | John Englehart/Headshot/Headshot.jpg, 1254x1254), PIL crop (0, 0, 1254, 1254) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Molly Ann Pollock Birth": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/molly-ann-pollock-birth-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1N_Zw011nSHC5FBiT5Ar2xLKbw6gmj2Qh (SM | Molly Ann Birth/Headshots/Headshot.jpeg, 2316x3088), PIL crop (308, 150, 2008, 1850) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"R.S. Smith": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/rs-smith-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1Rtk94e0-CFDlJA6tFenvmEj2SanDgAax (SM | Scott / R.S. Smith/Headshots/Headshot.jpg, 3024x4032), PIL crop (452, 50, 2452, 2050) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); the unedited photo; NOT \"Headshot - Final.png\" (1024x1536, suit/lighting altered, looks AI-generated -> never used on a person)"
+		}
+	},
+	"Terri Williams": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/terri-williams-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1tE8ELT5nDPop7PTQiLGGSvHnxPT0WMfg (SM | Terri Williams/Headshots/IMG_3250.jpeg, 2316x3088), PIL crop (130, 300, 1630, 1800) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"David Barnes": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/david-barnes-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1twAP0Da8d-YxX_GOkZdrn4caJN3vgkKg (SM | David Barnes/BOOK: The Seed of David/Headshots/IMG_0581.jpeg, 919x1090), PIL crop (0, 0, 650, 650) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Russell Smith": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/russell-smith-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1jczryjAzw1iETKa9L3ObtClwrbcPkkWm (SM | Russell Kevin Smith/Headshot/723.JPG, 3456x4608), PIL crop (287, 300, 1787, 1800) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); only photo in his Headshot folder (candid, cap + sunglasses)"
+		}
+	},
+	"Lance Bane": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/lance-bane-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1gkf16twJ3zToBgn8ifBXyDqmOjXTNMOf (SM | Lance Bane/Headshots/IMG_0033.jpeg, 480x640), PIL crop (0, 40, 480, 520) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Matthew Rathbun": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/matthew-rathbun-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 13OdncdWJ0Uwyz4MNE0nJzHTmmC--So9A (SM | Matthew Rathbun/Headshots/IMG_3826.jpg, 694x997), PIL crop (0, 100, 694, 794) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Jeci Ware": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/jeci-ware-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1V3vDaL3B7fpDklLeznkI8-zd3FkLFz85 (SM | Jeci Ware/Creation of the World: Book Project /Headshot.jpeg, 1365x2048), PIL crop (65, 150, 1165, 1250) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); book cover links also carry Author.jpg 1E5X2yxAqrcZY2aEJ3zt8FEwBxPiTHQF3 (same person, lower res)"
+		}
+	},
+	"Adam Dixon": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/adam-dixon-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1YEa_ZxwEvTA4iVs_RrCrKSLT35jLWd2Z (ARCHIVE - Former Clients/SM | Adam Dixon/BOOK PROJECT/Photos/Adam Dixon.jpg, 400x300), PIL crop (90, 0, 390, 300) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); 300px source, Lanczos 2x upscale only"
+		}
+	},
+	"Triffina Brown": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/triffina-brown-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1OW1tweBVHWceiuA1Btoi6W7tAX6lK7nZ (ARCHIVE - Former Clients/SM | Triffina Brown/Photos/2H1A5852 (1).jpg, 3469x5203), PIL crop (335, 300, 3135, 3100) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); professional B&W shoot in her client folder"
+		}
+	},
+	"Suzanne Gose": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/suzanne-gose-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1qql0U4ztRREyIMT2hH9XfoxGOK6JZB3P (ARCHIVE - Former Clients/SM | Suzanne Gose/Headshot_Senora Gose 2022.jpg, 721x960), PIL crop (0, 60, 721, 781) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Melissa Curtin": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/melissa-curtin-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1uweZ54OCrmZkZQ84jiMyem7vJtStP4g9 (ARCHIVE - Former Clients/SM | Melissa Curtin/HEADSHOT.png, 7985x5323), PIL crop (1754, 400, 4154, 2800) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"John A. Wilson, Jr.": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/john-a-wilson-jr-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1JwLQCDFAtDX9dpPz-QW9rxzWlctx2qf8 (ARCHIVE - Former Clients/SM | John A. Wilson, Jr. /Assets/Headshot/IMG_6255.JPEG, 768x1024), PIL crop (0, 50, 768, 818) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Alfred Cherubim": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/alfred-cherubim-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1R_WSlA8R2fgEE1K9u8cHLDZaSu0weFDx (SM | Alfred Cherubim/BOOK: The Miracles of Jesus Christ and His Apostles in the Bible/Book Interior/Archive/Headshot 2.jpg, 564x445), PIL crop (53, 20, 433, 400) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder); 380px crop, Lanczos upscale only"
+		}
+	},
+	"Chase Gardner": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/chase-gardner-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 15Oloye8FhgmjKU2dn0cUmVwv-kYUBGFV (ARCHIVE - Former Clients/SM | Chase Gardner/BOOK: In The Wilderness by Chase Gardner/Headshot.png, 922x1382), PIL crop (161, 150, 761, 750) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Ronald Bethune": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/ronald-bethune-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1Kuf3VHZ-qRG67qDITQMs1L1vHF46YkXI (ARCHIVE - Former Clients/SM | Ronald Bethune/BOOK: My First Deployment/Photos from Ronald/BETHUNE, RONALD L  SFC DA PHOTO.jpeg, 840x1050), PIL crop (78, 100, 728, 750) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Tammy Haurilick": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/tammy-haurilick-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1s08OyBVt3XwesSTGCNUjs_NwsKEsqvs6 (ARCHIVE - Former Clients/SM | Tammy Haurilick/BOOK: 12 Days of Crazy/headshot.jpeg, 1538x1538), PIL crop (0, 0, 1538, 1538) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Joeth Strickland": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/joeth-strickland-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1dooK0i6LjYuPmilMiHmOV0Ak61BHYsCB (ARCHIVE - Former Clients/SM | Joeth Strickland - Author/Book 1 | Faithful In Small Things - Joeth Stickland/Headshot.png, 802x1080), PIL crop (105, 30, 665, 590) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Lynn Soles": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/lynn-soles-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1NcWnyDVgJY0JfsRb-9OHXHGSD3OTx_Iq (ARCHIVE - Former Clients/SM | Lynn Soles/BOOK PROJECT/BOOK: Don't Die Ugly/Headshot.jpg, 750x750), PIL crop (0, 0, 750, 750) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
+	},
+	"Lola Brooks": {
+		"headshot": {
+			"src": "https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/lola-brooks-600.webp",
+			"w": 600,
+			"h": 600,
+			"source": "Google Drive 1pt8UUQo0PfF-Oq9ZlwmJRwdXBPwJbrS9 (ARCHIVE - Former Clients/SM | Lola Brooks/BOOK: I Say, You Say by Lola Brooks/headshot.jpg, 720x725), PIL crop (0, 0, 720, 720) -> 600x600 WebP q82, 2026-11-15, CERTAIN (book's own files / author's client folder)"
+		}
 	}
 }

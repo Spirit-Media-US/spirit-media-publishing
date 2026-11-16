@@ -1,6 +1,7 @@
 ---
 import AnswerBlock from '../components/AnswerBlock.astro';
 import FaqSection from '../components/FaqSection.astro';
+import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from '../lib/sanity.ts';
 
@@ -175,7 +176,7 @@ const mediaFaqs = [
 ];
 ---
 
-<Layout
+<Layout youversionBanner={false}
 	title="Media Center — Spirit Media Publishing in the News"
 	description="Spirit Media Publishing press releases, YouTube videos, and media coverage. See how we're helping Christian authors publish, market, and reach the nations."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f67376ca3cbad336ac9ed54977f72d3f9917397b-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -255,6 +256,8 @@ const mediaFaqs = [
 				</div>
 			</div>
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 
 		<AnswerBlock
 			url="/media-center/"

@@ -1,30 +1,21 @@
 ---
 import BookstoreBody from '../../components/BookstoreBody.astro';
-import fhbEditions from '../../data/fhb-editions.json';
 import Layout from '../../layouts/Layout.astro';
-import { sanityClient } from '../../lib/sanity.ts';
 
-export async function getStaticPaths() {
-	const sanityCollections: string[] = await sanityClient.fetch(`
-		array::unique(*[_type == "book" && defined(collections)].collections[])
-	`);
-	// The FHB audience/language collections come from fhb-editions.json (BookstoreBody merges
-	// those editions in at build time), so they are not in Sanity's list.
-	const fhbCollections = [
-		...new Set((fhbEditions.editions as { collections: string[] }[]).flatMap((e) => e.collections)),
-	];
-	const collections = [...new Set([...(sanityCollections || []), ...fhbCollections])];
-	return collections.map((name) => ({
-		params: {
-			// "Father's Heart Bible™ — Audience Editions" → fathers-heart-bible-audience-editions
-			collection: name
-				.toLowerCase()
-				.replace(/\s+/g, '-')
-				.replace(/[^a-z0-9-]/g, '')
-				.replace(/-+/g, '-'),
-		},
-		props: { collectionName: name },
-	}));
+// Kevin 2026-11-16 (kevin-decisions.md): the bookstore collections are exactly All · SMP only · SMP worldwide · Express Books · FHB English
+// · FHB Languages · FHB Books. One page per non-All collection; its key is its slug and must match COLLECTIONS in
+// BookstoreBody.astro (scripts/store-checkout.test.mjs checks the chips against the built pages). The 3 retired FHB
+// collection URLs 301 to these in public/_redirects; Express Books keeps its URL and its Sanity members.
+export function getStaticPaths() {
+	return [
+		['smp', 'SMP only'],
+		// temporary: retires itself to a 301 -> /bookstore/smp/ once it equals SMP only (BookstoreBody + astro.config.mjs)
+		['smp-worldwide', 'SMP worldwide'],
+		['express-books', 'Express Books'],
+		['fhb-english', 'FHB English'],
+		['fhb-languages', 'FHB Languages'],
+		['fhb-books', 'FHB Books'],
+	].map(([collection, collectionName]) => ({ params: { collection }, props: { collectionName } }));
 }
 
 const { collectionName } = Astro.props;
@@ -43,13 +34,13 @@ const heroSubtitle = `${collectionName} from the Spirit Media Christian bookstor
 // the collection data via {n}, never typed.
 const COLLECTION_INTROS: Record<string, string> = {
 	'Express Books': `EXPRESS BOOKS&trade; are Spirit Media's signature publishing format: intentionally compact books designed to be read in a single sitting, at roughly 80 pages and affordably priced for easy sharing. Every EXPRESS BOOK&trade; is published in three formats (paperback, eBook and downloadable PDF) with global distribution through Amazon, IngramSpark and eBook stores worldwide. This collection lists {n} titles. See how the format works on our <a href="/express-books/" class="text-red underline">Express Books page</a>.`,
-	"Father's Heart Bible™ — Audience Editions": `The Father's Heart Bible&trade; is an interpretive English translation edited by Kevin White, founder of Spirit Media Publishing. Where other Bibles use &ldquo;God&rdquo; to say what He is, it uses &ldquo;our Father&rdquo; to show who He has been all along. This collection lists {n} audience editions, each made for a particular reader; the Graduate's Bible, for example, is for high school, college, graduate school, trade school and GED graduates. Each edition has its own page on fathersheartbible.com. Read more on our <a href="/fathers-heart-bible/" class="text-red underline">Father's Heart Bible page</a>.`,
-	"Father's Heart Bible™ — Language Editions": `The Father's Heart Bible&trade; is an interpretive English translation edited by Kevin White, founder of Spirit Media Publishing. This collection lists {n} language editions, each made for readers who speak that language; the French edition, Bible Fran&ccedil;aise, for example, is made for beloved sons and daughters worldwide who speak French. Each edition has its own page on fathersheartbible.com, and the site shows the full list of languages on its <a href="https://fathersheartbible.com/" class="text-red underline">home page</a>.`,
+	'FHB English': `The Father's Heart Bible&trade; is an interpretive English translation edited by Kevin White, founder of Spirit Media Publishing. Where other Bibles use &ldquo;God&rdquo; to say what He is, it uses &ldquo;our Father&rdquo; to show who He has been all along. This collection lists {n} English editions, among them the audience editions, each made for a particular reader; the Graduate's Bible, for example, is for high school, college, graduate school, trade school and GED graduates. Each edition has its own page on fathersheartbible.com. Read more on our <a href="/fathers-heart-bible/" class="text-red underline">Father's Heart Bible page</a>.`,
+	'FHB Languages': `The Father's Heart Bible&trade; is an interpretive English translation edited by Kevin White, founder of Spirit Media Publishing. This collection lists {n} language editions, each made for readers who speak that language; the French edition, Bible Fran&ccedil;aise, for example, is made for beloved sons and daughters worldwide who speak French. Each edition has its own page on fathersheartbible.com, and the site shows the full list of languages on its <a href="https://fathersheartbible.com/" class="text-red underline">home page</a>.`,
 };
 const introHtml = COLLECTION_INTROS[collectionName] ?? '';
 ---
 
-<Layout
+<Layout youversionBanner={false}
 	title={pageTitle}
 	description={pageDescription}
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/e1274263f40d901cf33297ab4c8110e8ad9d9ca7-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -78,7 +69,7 @@ const introHtml = COLLECTION_INTROS[collectionName] ?? '';
 	</Fragment>
 	<main id="main-content">
 		<BookstoreBody
-			initialCollection={collectionName}
+			initialCollection={collectionSlug}
 			heroEyebrow="Collection"
 			heroTitleHtml={heroTitleHtml}
 			heroSubtitle={heroSubtitle}

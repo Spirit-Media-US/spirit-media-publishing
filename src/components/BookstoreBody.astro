@@ -3,11 +3,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import coverSized from '../data/books/cover-sized.json';
+import expressExtra from '../data/books/express-books.json';
 import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
 import { sanityClient } from '../lib/sanity.ts';
 import engineBooks from '../store-engine/data/books.json';
+import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
+import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
+import ShipCountryMarquee from './ShipCountryMarquee.astro';
 
 interface Props {
 	initialCollection?: string;
@@ -23,7 +27,7 @@ const {
 	initialCollection = '',
 	heroEyebrow = 'Bookstore',
 	heroTitleHtml = `Spirit Media's <span class="text-red">Bookstore</span>`,
-	heroSubtitle = 'Over 300 titles by Kingdom Messengers. New books added every week.',
+	heroSubtitle = 'Over 550 titles by Kingdom Messengers. New books added every week.',
 	introHtml = '',
 } = Astro.props;
 
@@ -291,6 +295,7 @@ for (const e of fhb.editions as any[]) {
 		amazon: e.href,
 		date: e.date,
 		collections: e.collections,
+		fhbGroup: e.group, // audience | language: decides FHB English vs FHB Languages below
 		// FHB points buyers to itself (Kevin 2026-11-08; unit 2jd): every binding is ordered on the
 		// edition's own page on fathersheartbible.com, listed on Amazon or not.
 		formats: listed
@@ -333,11 +338,42 @@ for (const doc of rawBooks as any[]) {
 // too"): the card and its paperback go to the FHB order page, fulfilled through Ingram. FHB sells
 // only the paperback, so the eBook and audiobook keep their store links.
 const BELOVED_ID = 'ybgI64RkWpWJOFkftSQjLA';
-const BELOVED_PAGE = `${FHB_SITE}/books/beloved-identity/`;
+// OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): FHB is the ONE window for every Father's Heart
+// product. Every FH book the store engine sells (books.json: Beloved Identity, Who Am I?, any added later) has its card
+// and its print bindings on its FHB page; SMP builds no page for them (their SMP URLs 301 to FHB). eBook/audiobook keep
+// their store links (FHB sells print only).
+const fhBookPage = (slug: string) => `${FHB_SITE}/books/${slug}/`;
+const normT = (t: string) =>
+	String(t || '')
+		.toLowerCase()
+		.normalize('NFKD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.replace(/[^a-z0-9]+/g, ' ')
+		.trim();
+const FH_BOOK_BY_TITLE = new Map<string, string>(
+	(engineBooks as any).books.map((b: any) => [normT(b.title), b.slug]),
+);
+// the two Sanity documents by id (their Sanity titles carry subtitles); a later FH book matches by its engine title
+const FH_BOOK_IDS: Record<string, string> = {
+	[BELOVED_ID]: 'beloved-identity',
+	'42467468-1171-4ec9-8f48-81f813da9070': 'who-am-i',
+};
+const fhBookSlugOf = (doc: any) =>
+	FH_BOOK_IDS[doc._id] ??
+	FH_BOOK_BY_TITLE.get(normT(doc.title)) ??
+	FH_BOOK_BY_TITLE.get(normT(doc.display_title));
 for (const doc of rawBooks as any[]) {
-	if (doc._id !== BELOVED_ID) continue;
-	doc.amazon = BELOVED_PAGE;
-	doc.formats = { ...(doc.formats || {}), paperback: BELOVED_PAGE };
+	const slug = fhBookSlugOf(doc);
+	if (!slug) continue;
+	const href = fhBookPage(slug);
+	doc.amazon = href;
+	doc.fhBook = true;
+	doc.formats = Object.fromEntries(
+		Object.entries(doc.formats || {}).map(([k, v]) => [
+			k,
+			v && /^(paperback|hardback|hardcover)$/.test(k) ? href : v,
+		]),
+	);
 }
 
 // LAMB PILOT (Kevin L1971; plan 3fb B): the card for Jesus Had a Little Lamb opens our own book page (one card, no
@@ -367,11 +403,32 @@ const OWN_PAGE = new Map<string, string>(
 // and the bookstore's own spellings of the Home editions and the plain "Your Time" cards (Sanity points every Your
 // Time card at the Work Staff listing) are named here, so no other edition's card is pulled in (pmseoaeo 3gm #1).
 for (const t of LIVE_TITLES) OWN_PAGE.set(norm(t.slug.replace(/-/g, ' ')), `/books/${t.slug}/`);
-// The FHB books SMP hosts from the store engine (books.json: Who Am I?, Beloved Identity) have /books/ pages too but
-// no ship-set row, so their cards kept the Amazon link (deploy audit 2026-11-15). Beloved Identity's card stays on
-// its FHB page (Kevin 2026-11-10, BELOVED_ID below skips it).
-for (const b of (engineBooks as any).books)
-	if (PAGE_BUILT(b.slug)) OWN_PAGE.set(norm(b.title), `/books/${b.slug}/`);
+// The FH books (store-engine books.json) are carded to their FHB page above (Option C), never to an SMP page.
+// Kevin 2026-11-16 "Why does the cards only show paperback now?": an own-page card keeps its REAL formats.
+// Print formats (paperback/hardback) open our own page (we sell them); eBook/audio keep their store link.
+const kindOf = (k: string) =>
+	['paperback', 'hardback', 'ebook', 'audiobook', 'audio', 'pdf'].includes(k)
+		? k
+		: /-pb$/.test(k)
+			? 'paperback'
+			: /-hb$/.test(k)
+				? 'hardback'
+				: /-(eb|ebook)$/.test(k)
+					? 'ebook'
+					: /-(audio|ab)$/.test(k)
+						? 'audiobook'
+						: '';
+const ownFormats = (own: string, all: Record<string, unknown> | undefined) => {
+	const out: Record<string, string> = {};
+	for (const [k, v] of Object.entries(all || {})) {
+		const kind = kindOf(k);
+		if (!kind) continue;
+		if (kind === 'paperback' || kind === 'hardback') out[kind] = own;
+		else if (typeof v === 'string' && /^https?:/.test(v)) out[kind] = v;
+	}
+	if (!Object.keys(out).length) out.paperback = own;
+	return out;
+};
 const OWN_ALIAS: Record<string, string> = Object.fromEntries(
 	Object.entries({
 		'home colored': 'home',
@@ -383,15 +440,15 @@ const OWN_ALIAS: Record<string, string> = Object.fromEntries(
 		.map(([k, slug]) => [k, `/books/${slug}/`]),
 );
 for (const doc of rawBooks as any[]) {
-	if (doc._id?.startsWith('fhb-') || doc._id === BELOVED_ID) continue; // FHB cards keep their FHB pages
+	if (doc._id?.startsWith('fhb-') || doc.fhBook) continue; // FHB cards keep their FHB pages
 	const own =
 		OWN_PAGE.get(norm(doc.title)) ??
 		OWN_PAGE.get(norm(doc.display_title)) ??
 		OWN_ALIAS[norm(doc.title)];
 	if (!own) continue;
 	doc.amazon = own;
-	doc.formatsAll = doc.formats; // still counted in Published Titles (L2109), only the badges go
-	doc.formats = {};
+	doc.formatsAll = doc.formats; // still counted in Published Titles (L2109)
+	doc.formats = ownFormats(own, doc.formatsAll);
 	doc.ownPage = true;
 }
 // A book our store sells with no bookstore document yet (new titles: publishing a Sanity document rebuilds
@@ -411,13 +468,97 @@ for (const doc of rawBooks as any[]) {
 			amazon: href,
 			date: null,
 			collections: null,
-			formats: {},
+			formats: ownFormats(
+				href,
+				Object.fromEntries((t.book.formats || []).map((f: string) => [f, true])),
+			),
 			// the ship set's own format list (pb/hb/ebook/audio SKUs) counts in Published Titles (L2109)
 			formatsAll: Object.fromEntries((t.book.formats || []).map((f: string) => [f, true])),
 			ownPage: true,
 		});
 	}
 }
+
+// ── COLLECTIONS (Kevin 2026-11-16, kevin-decisions.md: "Make it: All, SMP only (all without FHB), FHB English (which
+// shows ALL english editions), FHB Languages (showing all the foreign lanuage editions), FHB Books" + "Sorry add Express
+// Books back after SMP only" + "after 2 add a new 3: SMP worldwide (showing those available for shipping until we get all
+// \"SMP only\" showing)"). Each card's collection is DERIVED from the data above, never typed per card:
+//   fhb-books     — doc.fhBook (an FH book the store engine sells, books.json; Option C d416648)
+//   fhb-languages — an FHB language edition (fhb-editions.json group "language")
+//   fhb-english   — every other FHB edition (Sanity fhb-* documents: General, Large Print, eBook, audience editions;
+//                   fhb-editions.json group "audience")
+//   smp           — everything else.
+//   express-books — CROSS-CUTTING: Sanity "Express Books" members + src/data/books/express-books.json, any partition.
+//   smp-worldwide — the SMP-only cards ORDERABLE here: a built SMP /books/ page with an order form (a ship-set book with
+//                   a store-registry SKU that has an ISBN and a price, the rule books/[slug] sells by; any language). A subset of SMP only; it grows as pages go live.
+//                   RETIRES ITSELF: the build that finds it equal to SMP only drops its chip and page, and the
+//                   smp-worldwide-retire integration (astro.config.mjs) writes /bookstore/smp-worldwide/ -> /bookstore/smp/ 301.
+// Every card sits in exactly one of smp / fhb-english / fhb-languages / fhb-books (scripts/store-checkout.test.mjs).
+// bookstore/[collection].astro builds one page per non-All key with the same slugs; the 3 retired FHB collection
+// URLs 301 in public/_redirects. In SMP only, cards with a live SMP book page (src/data/books/pages-live.json, the
+// books orderable here) sort first.
+const COLLECTIONS = [
+	{ key: '', name: 'All' },
+	{ key: 'smp', name: 'SMP only' },
+	{ key: 'smp-worldwide', name: 'SMP worldwide' },
+	{ key: 'express-books', name: 'Express Books' },
+	{ key: 'fhb-english', name: 'FHB English' },
+	{ key: 'fhb-languages', name: 'FHB Languages' },
+	{ key: 'fhb-books', name: 'FHB Books' },
+];
+const partitionOf = (b: any) =>
+	b.fhBook
+		? 'fhb-books'
+		: b.fhbGroup === 'language'
+			? 'fhb-languages'
+			: b.fhbGroup === 'audience' || String(b._id || '').startsWith('fhb-')
+				? 'fhb-english'
+				: 'smp';
+// Express Books = the Sanity "Express Books" collection + src/data/books/express-books.json (titles proven Express by
+// another record: cover manifest, Express pipeline project; each entry names its source). Cross-cutting (Kevin
+// 2026-11-16 "You are missing express books"): a subset of All, so an FH book can be in FHB Books AND Express Books.
+const EXPRESS_TITLES = new Set<string>(
+	(expressExtra as any).titles.map((t: any) => normT(t.title)),
+);
+const SHIP_TITLE = new Map<string, any>((shipset as any).titles.map((t: any) => [t.slug, t]));
+// "live" = the page BUILDS on this build (PAGE_BUILT: pages-live.json, or every page on a BOOKS_PREVIEW_ALL=1 preview),
+// the same switch books/[slug] uses, so a card is in SMP worldwide exactly when its built page shows the order box.
+const hasOrderBox = (slug: string) => {
+	const t = SHIP_TITLE.get(slug);
+	if (!t || !PAGE_BUILT(slug)) return false;
+	return (t.book.formats as string[]).some(
+		(sku) => (BOOK_SKUS as any)[sku]?.isbn && Number.isInteger(t.skus?.[sku]?.list_cents),
+	);
+};
+for (const b of rawBooks as any[]) {
+	const part = partitionOf(b);
+	const own = /^\/books\/([^/]+)\/$/.exec(b.amazon || '');
+	b.live = !!(own && PAGE_BUILT(own[1]));
+	b.colls = [part];
+	if (part === 'smp' && own && hasOrderBox(own[1])) b.colls.push('smp-worldwide');
+	const titleKeys = [b.display_title, b.title, String(b.title || '').split(':')[0]].map(normT);
+	if (
+		(b.collections || []).includes('Express Books') ||
+		titleKeys.some((k) => EXPRESS_TITLES.has(k))
+	)
+		b.colls.push('express-books');
+	b.cardId = b._id || `${b.display_title || b.title}|${b.amazon}`;
+}
+// the retirement check (see above): every SMP-only card orderable = SMP worldwide has done its job
+const WORLDWIDE_RETIRED = (rawBooks as any[]).every(
+	(b) => !b.colls.includes('smp') || b.colls.includes('smp-worldwide'),
+);
+(globalThis as any).__smpWorldwideRetired = WORLDWIDE_RETIRED;
+const CHIPS = COLLECTIONS.filter((c) => !(WORLDWIDE_RETIRED && c.key === 'smp-worldwide'));
+// newest first; in SMP only the live-page cards lead
+const byDate = (x: any, y: any) => (y.date || '').localeCompare(x.date || '');
+const liveFirst = (x: any, y: any) => Number(!!y.live) - Number(!!x.live);
+
+// /bookstore/ (Kevin 2026-11-16 ~15:3xZ "SMP bookstore needs this shipping and country marquee added under Over 300
+// titles by Kingdom Messengers..."): the offer line + country marquee under the tagline, the shared FHB component and
+// wording as on the SMP homepage. Count + names = the LIVE ship list from the store engine, never retyped; A-Z.
+const shipOfferLine = `15% off first order + free standard shipping to ${LIVE_COUNTRIES.length} countries`;
+const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
 
 const BOOKS_JSON = JSON.stringify(rawBooks);
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
@@ -443,26 +584,17 @@ const STAT_AUTHORS = new Set(
 const statYearsNow = new Date();
 const STAT_YEARS = statYearsNow.getFullYear() - 2022 - (statYearsNow.getMonth() < 5 ? 1 : 0);
 
-const allCollections = [
-	...new Set(rawBooks.flatMap((b: any) => b.collections || []).filter(Boolean)),
-].sort() as string[];
-
 // INDEXING (SMP indexing brief, Kevin 2026-10-19). The grid was drawn only by the script below,
 // so every collection page's HTML was the same empty shell (91-98% identical) and the chips were
 // <button>s, so nothing linked the collection pages. Now each chip is a real link to its page
-// (same slug rule as bookstore/[collection].astro) and the page's first view is in the HTML.
+// (the collection key is its slug, as bookstore/[collection].astro builds it) and the page's first view is in the HTML.
 // The script still filters in place and redraws the grid with its full cards on load.
-const collectionHref = (c: string) =>
-	c
-		? `/bookstore/${c
-				.toLowerCase()
-				.replace(/\s+/g, '-')
-				.replace(/[^a-z0-9-]/g, '')
-				.replace(/-+/g, '-')}/`
-		: '/bookstore/';
+const collectionHref = (c: string) => (c ? `/bookstore/${c}/` : '/bookstore/');
 const initialBooks = rawBooks
-	.filter((b: any) => !initialCollection || (b.collections || []).includes(initialCollection))
-	.sort((x: any, y: any) => (y.date || '').localeCompare(x.date || ''));
+	.filter((b: any) => !initialCollection || b.colls.includes(initialCollection))
+	.sort((x: any, y: any) =>
+		initialCollection === 'smp' ? liveFirst(x, y) || byDate(x, y) : byDate(x, y),
+	);
 const introRendered = introHtml.replaceAll('{n}', String(initialBooks.length));
 // 2uv (CLS): the client script redraws the grid with date labels + format badges; the SSR cards
 // lacked them, so every card grew on load (desktop CLS 0.73). These helpers MIRROR the script's
@@ -486,7 +618,6 @@ const FMT_STYLES: Record<string, string> = {
 const badgeStyle =
 	'display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;';
 const formatsHtml = (b: any): string => {
-	if (b.ownPage) return '';
 	const fmts = b.formats || {};
 	// 3aj: a format may be a URL or a bare flag (true) — a flag links to the book's own listing,
 	// never to href="true" (was a 404 on SOAR To Success). No URL to give = no badge.
@@ -503,7 +634,7 @@ const formatsHtml = (b: any): string => {
 	const badges = keys
 		.map(
 			(k) =>
-				`<a href="${fmtHref(k)}" target="_blank" rel="noopener noreferrer" style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}</a>`,
+				`<a href="${fmtHref(k)}"${fmtHref(k).startsWith('/') ? '' : ' target="_blank" rel="noopener noreferrer"'} style="${badgeStyle}${FMT_STYLES[k]}" onclick="event.stopPropagation()">${FMT_LABELS[k]}</a>`,
 		)
 		.join('');
 	return `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">${badges}</div>`;
@@ -600,9 +731,22 @@ const itemListLd =
       <h1 class="font-serif text-3xl font-bold text-ink-soft"><Fragment set:html={heroTitleHtml} /></h1>
       <p class="mt-1 text-sm text-stone-500">{heroSubtitle}</p>
     </div>
-    <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
+    {initialCollection !== '' && <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>}
   </div>
+  {initialCollection === '' && (
+    <>
+      {/* /bookstore/ (pmprint 2026-11-16, Kevin "under the tagline"): tagline -> offer line -> marquee -> Publish Your Book */}
+      <div class="mx-auto max-w-7xl" data-ship-band>
+        <ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
+      </div>
+      <div class="mx-auto max-w-7xl mt-5 flex flex-col sm:flex-row sm:justify-center" data-publish-cta>
+        <a href="/contact/" class="shrink-0 rounded-md bg-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-deep">Publish Your Book →</a>
+      </div>
+    </>
+  )}
 </section>
+<!-- No YouVersion banner on the bookstore pages (Kevin 2026-11-16 16:0xZ: it stacked on the country marquee); the pages
+     pass youversionBanner={false} to Layout. -->
 
 
 {introRendered && (
@@ -618,15 +762,12 @@ const itemListLd =
 <section class="bg-stone-100 py-5 lg:py-8 px-6 lg:px-8">
   <div class="mx-auto max-w-7xl">
 
-    {allCollections.length > 0 && (
-      <div class="flex items-center gap-2 flex-wrap mb-3">
-        <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider shrink-0">Collection:</span>
-        <a href={collectionHref('')} data-collection="" class={`collection-chip px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${initialCollection === '' ? 'active bg-red text-white border-red' : 'border-stone-300 text-stone-600 hover:border-red hover:text-red'}`}>All</a>
-        {allCollections.map((c) => (
-          <a href={collectionHref(c)} data-collection={c} class={`collection-chip px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${initialCollection === c ? 'active bg-red text-white border-red' : 'border-stone-300 text-stone-600 hover:border-red hover:text-red'}`}>{c}</a>
-        ))}
-      </div>
-    )}
+    <div class="flex items-center gap-2 flex-wrap mb-3">
+      <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider shrink-0">Collection:</span>
+      {CHIPS.map((c) => (
+        <a href={collectionHref(c.key)} data-collection={c.key} class={`collection-chip px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${initialCollection === c.key ? 'active bg-red text-white border-red' : 'border-stone-300 text-stone-600 hover:border-red hover:text-red'}`}>{c.name}</a>
+      ))}
+    </div>
 
     <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
       <input id="book-search" type="text" placeholder="Search by title or author…"
@@ -647,7 +788,7 @@ const itemListLd =
     </div>
     <div id="book-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
       {initialBooks.map((b: any) => (
-        <div class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+        <div data-card={b.cardId} data-colls={b.colls.join(' ')} data-live={b.live ? '1' : undefined} class="group flex flex-col bg-white overflow-hidden border border-stone-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
           <a href={b.amazon || undefined} target={b.amazon && !b.ownPage ? '_blank' : undefined} rel={b.amazon && !b.ownPage ? 'noopener noreferrer' : undefined} class="block">
             <div class={`aspect-[2/3] overflow-hidden bg-stone-100${isLightCover(b) ? ' border-b border-[#adacab]' : ''}`}>
               {b.img && <img src={b.img} alt={b.display_title || b.title} loading="lazy" width={b.w} height={b.h} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />}
@@ -784,7 +925,7 @@ const itemListLd =
       </div>`;
     }
     const badges = keys.map(k =>
-      `<a href="${fmtHref(k)}" target="_blank" rel="noopener noreferrer"
+      `<a href="${fmtHref(k)}"${fmtHref(k).startsWith('/') ? '' : ' target="_blank" rel="noopener noreferrer"'}
         style="display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;${FORMAT_STYLES[k]}"
         onclick="event.stopPropagation()">
         ${FORMAT_LABELS[k]}
@@ -835,10 +976,12 @@ const itemListLd =
       const displayTitle = (b.display_title || b.title).toLowerCase();
       const matchQ = !q || displayTitle.includes(q) || b.author.toLowerCase().includes(q);
       const matchA = !a || b.author.toLowerCase() === a;
-      const matchC = !activeCollection || (Array.isArray(b.collections) && b.collections.includes(activeCollection));
+      const matchC = !activeCollection || (Array.isArray(b.colls) && b.colls.includes(activeCollection));
       return matchQ && matchA && matchC;
     });
     filtered.sort((x, y) => {
+      // SMP only: the books with a live SMP page (orderable here) lead, in any sort
+      if (activeCollection === 'smp' && !!x.live !== !!y.live) return x.live ? -1 : 1;
       if (sort === 'newest') return (y.date || '').localeCompare(x.date || '');
       if (sort === 'oldest') return (x.date || '').localeCompare(y.date || '');
       if (sort === 'title')  return (x.display_title || x.title).localeCompare(y.display_title || y.title);

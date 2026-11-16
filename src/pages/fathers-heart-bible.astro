@@ -1,5 +1,6 @@
 ---
 import FaqSection from '../components/FaqSection.astro';
+import YouVersionBanner from '../components/YouVersionBanner.astro';
 import Layout from '../layouts/Layout.astro';
 
 // 2yw G3 (pmseoaeo 2026-11-12): FAQ built ONLY from sentences already on this page.
@@ -27,7 +28,7 @@ const fhbFaqs = [
 ];
 ---
 
-<Layout
+<Layout youversionBanner={false}
 	title="Father's Heart Bible™ — Christian Bible Translation"
 	description="The Father's Heart Bible™ is a Bible translation revealing our Heavenly Father's heart to a fatherless generation. Published by Spirit Media Publishing."
 	ogImage="https://cdn.sanity.io/images/pmowd8uo/production/f0cba808f17fcaeabd86cf4feb38536623b90483-1200x630.jpg?w=1200&h=630&fit=crop&fm=jpg&q=85"
@@ -78,13 +79,15 @@ const fhbFaqs = [
 				</div>
 			</div>
 		</section>
+		{/* FHB YouVersion banner directly under the hero, as on FHB (Kevin 2026-11-16 ~15:3xZ: "it goes UNDER the hero image just like on FHB. This is ALL SMP pages.") */}
+		<YouVersionBanner />
 
 		<!-- ABOUT -->
 		<section class="bg-stone-100 py-12 lg:py-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto">
 				<p class="eyebrow eyebrow-red mb-3" data-animate="fade-up">About</p>
 				<h2 class="font-serif text-3xl font-bold text-ink-soft mb-6" data-animate="fade-up" data-delay="1">The Father's Heart Bible™</h2>
-				<p class="type-body-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="2">The Father's Heart Bible™ is an interpretive English translation that faithfully renders the original Hebrew, Aramaic, and Greek texts while clearly revealing God's identity as our Father — and His heart toward His children — throughout Scripture. It fills a gap no other translation addresses. It is edited by <a href="/kevin/" class="text-red hover:underline">Kevin White</a>, founder of Spirit Media Publishing. Browse the <a href="/bookstore/fathers-heart-bible-fhb/" class="text-red hover:underline">Father's Heart Bible collection</a>, the <a href="/bookstore/fathers-heart-bible-audience-editions/" class="text-red hover:underline">audience editions</a> and the <a href="/bookstore/fathers-heart-bible-language-editions/" class="text-red hover:underline">language editions</a> in our bookstore.</p>
+				<p class="type-body-lg text-stone-700 leading-relaxed" data-animate="fade-up" data-delay="2">The Father's Heart Bible™ is an interpretive English translation that faithfully renders the original Hebrew, Aramaic, and Greek texts while clearly revealing God's identity as our Father — and His heart toward His children — throughout Scripture. It fills a gap no other translation addresses. It is edited by <a href="/kevin/" class="text-red hover:underline">Kevin White</a>, founder of Spirit Media Publishing. Browse the <a href="/bookstore/fhb-english/" class="text-red hover:underline">Father's Heart Bible collection</a>, the <a href="/bookstore/fhb-english/" class="text-red hover:underline">audience editions</a> and the <a href="/bookstore/fhb-languages/" class="text-red hover:underline">language editions</a> in our bookstore.</p>
 			</div>
 		</section>
 
