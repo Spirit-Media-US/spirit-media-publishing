@@ -23,6 +23,7 @@ Then run: `git checkout dev && git pull origin dev`
 - Blog with pagination (6/page), keyword search, tag filter chips (8 SEO categories), RelatedPosts.astro component
 - Bookstore with 117 books, client-side search/filter/sort
 - Sitemap with custom serialize() by page type
+- **Store engine MASTER lives HERE** (`src/store-engine/`, Kevin 2026-11-16 "1 store SMP"): catalogue, prices, discounts, far-band, margin floor, Stripe form. Change a price here, run `node scripts/sync-store-engine.mjs` (re-stamps `MANIFEST.json`), commit both: no FHB commit needed to ship. FHB carries a byte-identical copy (its prebuild fails on drift; re-sync there with the same script).
 
 **Migration protocol:** /home/deploy/bin/tools-api/pipelines/migration/CLAUDE.md
 **Sanity Studio:** Embedded at spiritmediapublishing.com/studio/ (static build)
