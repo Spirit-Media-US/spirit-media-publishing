@@ -84,6 +84,8 @@ test('every live page with an order form is in the feed', (t) => {
 		const html = fs.readFileSync(`dist/books/${s}/index.html`, 'utf8');
 		const url = `https://spiritmediapublishing.com/books/${s}/`;
 		if (!/id="order"/.test(html) || /Available soon/.test(html)) continue; // not sellable
+		// a digital-only page (retailer button box, data-status="digital") ships nothing: not a Shopping product
+		if (/id="order"[^>]*data-status="digital"/.test(html)) continue;
 		n++;
 		assert.ok(inFeed.has(url), `${s} sells (order form) but has no feed item`);
 	}
