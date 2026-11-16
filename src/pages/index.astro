@@ -2,8 +2,10 @@
 import CoverMarquee from '../components/CoverMarquee.astro';
 import HomeBooks from '../components/HomeBooks.astro';
 import MailtoLink from '../components/MailtoLink.astro';
+import ShipCountryMarquee from '../components/ShipCountryMarquee.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
+import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
 
 // All homepage brand/program/testimonial imagery is served from R2 (same origin
 // as fonts + logo + hero). No cdn.sanity.io TLS handshake anywhere in the
@@ -91,6 +93,11 @@ const testimonials = FALLBACK_TESTIMONIALS;
 const pageTitle = 'Christian Publishing Company | Spirit Media Publishing';
 const pageDescription =
 	"Father's Heart Bible™ is the first Bible in print where you can see who is speaking: our Father's words in blue, the Son's in red, the Spirit's in purple.";
+// Offer line + country marquee: FHB's own component and wording (Kevin 2026-11-16 ~15:0xZ "Add the 15% off first order +
+// free standard shipping to 223 countries and country marquee to SMP"). Count + names = the LIVE ship list from the
+// shared store engine, never retyped; A-Z as on FHB.
+const shipOfferLine = `15% off first order + free standard shipping to ${LIVE_COUNTRIES.length} countries`;
+const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompare(b, 'en'));
 ---
 <Layout
 	title={pageTitle}
@@ -444,6 +451,11 @@ const pageDescription =
 
 		<!-- ═══ BOOKS ═══ the bookstore + newest live book pages (pmprint 2026-11-16) -->
 		<HomeBooks />
+		<!-- Offer line + black country marquee under the books, as on FHB (shared component ShipCountryMarquee). Same
+		     band colour as the books section; SMP brand red for the offer line (as BookOrder), via the colour token. -->
+		<section class="bg-stone-50 px-4 pb-12 lg:pb-16" style="--color-primary: var(--color-red-deep, #9b2d20);" aria-label="Store offer">
+			<ShipCountryMarquee offerLine={shipOfferLine} names={shipNames} label={`Free standard shipping to ${LIVE_COUNTRIES.length} countries`} />
+		</section>
 
 		<!-- ═══ SERVICES OVERVIEW ═══ -->
 		<section class="bg-stone-50 px-6 py-12 lg:py-20 lg:px-8">
