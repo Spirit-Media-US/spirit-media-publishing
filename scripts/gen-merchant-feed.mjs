@@ -109,12 +109,21 @@ export function collect(dist = 'dist', fh = fhSkus()) {
 }
 
 const num = (q, k) => q?.[k] ?? '';
+/**
+ * Countries where Merchant Center will not show an offer priced in another currency (no currency conversion).
+ * A <g:shipping> block for one of these makes Google target the item there and flag it "Unsupported currency"
+ * (MC 5402182771, 2026-11-17: 191/191 items, "Prevents from showing in South Korea"; FHB 5891954461 had the same).
+ * The store still ships there; only the Google feed leaves the country out unless the price is already local.
+ */
+export const MC_LOCAL_CURRENCY_ONLY = { KR: 'KRW' };
+const mcShippable = (cc, currency) => !MC_LOCAL_CURRENCY_ONLY[cc] || MC_LOCAL_CURRENCY_ONLY[cc] === currency;
 export function render(items) {
 	const rows = [...items.values()].map((i) => {
 		// One <g:shipping> per OfferShippingDetails (one per live country the engine serves). None = fail loudly.
 		const details = [].concat(i.ship ?? []);
 		if (!details.length) throw new Error(`merchant-feed: ${i.id} has no shippingDetails in its page JSON-LD`);
 		const ship = details
+			.filter((d) => mcShippable([].concat(d.shippingDestination)[0]?.addressCountry, i.currency))
 			.map((d) => {
 				const dt = d.deliveryTime;
 				const cc = [].concat(d.shippingDestination)[0]?.addressCountry;
