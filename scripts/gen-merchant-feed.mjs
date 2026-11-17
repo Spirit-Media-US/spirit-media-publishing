@@ -19,6 +19,14 @@
  *
  * Runs AFTER `astro build` (writes dist/merchant-feed.xml, served at https://spiritmediapublishing.com/merchant-feed.xml).
  * Nothing is submitted anywhere by this script.
+ * OPENAI (pmprint brief pmprint-smp-merchant-channels-20261117 B3, mirroring FHB unit 2ra): the SAME item list also
+ * writes dist/merchant-feed-openai.jsonl (ChatGPT merchant product feed, https://developers.openai.com/commerce/specs/feed,
+ * read 2026-11-17): one JSON object per line with the 11 required fields (item_id, title, description, url, brand,
+ * seller_name, image_url, availability, price, target_countries, store_country) plus gtin, condition, product_category,
+ * shipping_price (US), return_policy / accepts_returns / return_deadline_in_days (from the Offer's MerchantReturnPolicy),
+ * and, only for a book sold in 2+ formats, group_id + listing_has_variations + variant_dict {format} (the 2026-11-17 spec:
+ * group_id without those does not form a variant group). Same ids/prices/availability/links/images/GTINs as the XML by
+ * construction; scripts/openai-feed.test.mjs enforces parity. No second price list.
  * Usage: node scripts/gen-merchant-feed.mjs [--dist dist] [--out dist/merchant-feed.xml]
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -54,6 +62,9 @@ export function collect(dist = 'dist', fh = fhSkus()) {
 			items.set(offer.sku, {
 				id: offer.sku,
 				slug: ctx.slug,
+				format: fmt,
+				condition: offer.itemCondition,
+				returns: [].concat(offer.hasMerchantReturnPolicy ?? [])[0],
 				title: `${base}${fmt ? ` (${fmt})` : ''}`,
 				description: String(n.description || ctx.desc || base)
 					.replace(/\s+/g, ' ')
@@ -144,12 +155,55 @@ ${rows.join('\n')}
 `;
 }
 
+const AVAIL = (a) => (String(a).endsWith('InStock') ? 'in_stock' : 'out_of_stock'); // = the XML's mapping
+const COND = { 'https://schema.org/UsedCondition': 'used', 'https://schema.org/RefurbishedCondition': 'refurbished' };
+/** The OpenAI (ChatGPT merchant) feed: JSONL, one record per item of the SAME Map render() uses. */
+export function renderOpenAI(items) {
+	const perGroup = new Map();
+	for (const i of items.values()) perGroup.set(i.slug, (perGroup.get(i.slug) ?? 0) + 1);
+	return (
+		[...items.values()]
+			.map((i) => {
+				const us = [].concat(i.ship ?? []).find((d) => [].concat(d.shippingDestination)[0]?.addressCountry === 'US');
+				const ret = i.returns;
+				const days = Number(ret?.merchantReturnDays);
+				const variant = perGroup.get(i.slug) > 1 && i.format && i.slug !== i.id;
+				return JSON.stringify({
+					item_id: String(i.id),
+					title: i.title,
+					description: i.description,
+					url: i.link,
+					brand: 'Spirit Media Publishing',
+					seller_name: 'Spirit Media Publishing',
+					image_url: i.image,
+					availability: AVAIL(i.availability),
+					price: `${i.price} ${i.currency}`,
+					target_countries: ['US'],
+					store_country: 'US',
+					gtin: String(i.gtin),
+					condition: COND[i.condition] ?? 'new',
+					product_category: 'Media > Books',
+					...(us?.shippingRate
+						? { shipping_price: `${Number(us.shippingRate.value ?? 0).toFixed(2)} ${us.shippingRate.currency ?? 'USD'}` }
+						: {}),
+					...(ret?.merchantReturnLink ? { return_policy: ret.merchantReturnLink } : {}),
+					...(days > 0 ? { accepts_returns: true, return_deadline_in_days: days } : {}),
+					...(variant ? { group_id: i.slug, listing_has_variations: true, variant_dict: { format: i.format } } : {}),
+				});
+			})
+			.join('\n') + '\n'
+	);
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
 	const dist = arg('--dist', 'dist');
 	const out = arg('--out', `${dist}/merchant-feed.xml`);
 	const items = collect(dist);
 	if (!items.size) throw new Error('merchant-feed: 0 items — no Offer JSON-LD found in dist/books');
 	writeFileSync(out, render(items));
+	const outJsonl = `${out.replace(/\.xml$/, '')}-openai.jsonl`;
+	writeFileSync(outJsonl, renderOpenAI(items));
+	console.log(`merchant-feed: ${items.size} records -> ${outJsonl}`);
 	console.log(
 		`merchant-feed: ${items.size} items from ${new Set([...items.values()].map((i) => i.slug)).size} book pages -> ${out}`,
 	);
