@@ -1,22 +1,23 @@
-// node --test scripts/store-engine-sync.test.mjs — src/store-engine/ is the FHB store engine, unedited.
+// node --test scripts/store-engine-sync.test.mjs — src/store-engine/ is the store engine's MASTER (Kevin 2026-11-16
+// "1 store SMP"); every file matches the manifest FHB's copy is checked against. Edit the engine, then
+// node scripts/sync-store-engine.mjs to re-stamp the manifest, commit both.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import path from 'node:path';
 import test from 'node:test';
-import { DEST, destOf, FILES, sha } from './sync-store-engine.mjs';
+import { destOf, FILES, MANIFEST, manifestOf, offManifest } from './sync-store-engine.mjs';
 
-const man = JSON.parse(fs.readFileSync(path.join(DEST, 'MANIFEST.json'), 'utf8'));
+const man = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
 
-test('every engine file matches the manifest sha256 (no hand edits)', () => {
+test('every engine file matches the manifest sha256 (stamped after each edit)', () => {
 	assert.deepEqual(Object.keys(man.files).sort(), [...FILES].sort());
-	for (const f of FILES) assert.equal(sha(fs.readFileSync(destOf(f))), man.files[f], `${destOf(f)} was edited by hand`);
+	assert.deepEqual(offManifest(man, destOf), [], 'run node scripts/sync-store-engine.mjs and commit the manifest');
 });
 
-test('the copy is current with its FHB source (when the source checkout is on this box)', (t) => {
-	if (!fs.existsSync(man.source)) return t.skip(`source ${man.source} not on this machine`);
-	for (const f of FILES) {
-		const p = path.join(man.source, f);
-		assert.ok(fs.existsSync(p), `${p} missing in the FHB source`);
-		assert.equal(sha(fs.readFileSync(p)), man.files[f], `${f} changed in FHB: run node scripts/sync-store-engine.mjs`);
-	}
+test('the manifest is exactly what the stamp writes (no hand-edited manifest)', () => {
+	assert.equal(fs.readFileSync(MANIFEST, 'utf8'), manifestOf(man.files));
+});
+
+test('the check refuses a drifted file (failure path)', () => {
+	const f = FILES[0];
+	assert.deepEqual(offManifest({ files: { ...man.files, [f]: '0'.repeat(64) } }, destOf), [destOf(f)]);
 });

@@ -1,4 +1,5 @@
 ---
+import AuthorLinks from '../../../components/AuthorLinks.astro';
 import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
 import BookRetailer from '../../../components/BookRetailer.astro';
@@ -33,11 +34,14 @@ import lookinside from '../../../data/books/lookinside.json';
 import ogCards from '../../../data/books/og-cards.json';
 import pagesLive from '../../../data/books/pages-live.json';
 import retailerLinks from '../../../data/books/retailer-links.json';
+import seoTitleData from '../../../data/books/seo-titles.json';
 import set from '../../../data/books/shipset-v2.json';
 import fhbEditions from '../../../data/fhb-editions.json';
 import Layout from '../../../layouts/Layout.astro';
+import { authorLd } from '../../../lib/author-sites.mjs';
 import { heroSizes, heroSrcset, heroStyle } from '../../../lib/cover-hero.mjs';
 import { dnpMatcher } from '../../../lib/do-not-publish.mjs';
+import { seoTitles } from '../../../lib/seo-title.mjs';
 import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
 import { handlingFeeCents, shippingDetailsFor } from '../../../store-engine/lib/marginGuard.ts';
@@ -375,13 +379,28 @@ export async function getStaticPaths() {
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
 	// DO NOT PUBLISH (Kevin 2026-11-16 "These should NOT show on SMP at all"): never a page, not even on a preview
 	const isDoNotPublish = dnpMatcher(doNotPublish);
-	return pages
+	const built = pages
 		.filter((p) => ALL || (pagesLive.slugs as string[]).includes(p.slug))
-		.filter((p) => !isDoNotPublish({ slug: p.slug, title: p.title }))
-		.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+		.filter((p) => !isDoNotPublish({ slug: p.slug, title: p.title }));
+	// <title> <= 60, book title first, unique across the built pages (src/lib/seo-title.mjs has the rule; a page that
+	// cannot fit or stays a duplicate fails the build). Hand-written per-book titles: src/data/books/seo-titles.json.
+	const titles = seoTitles(
+		built.map((p) => ({
+			slug: p.slug,
+			title: p.title,
+			subtitle: p.subtitle,
+			author: p.author,
+			page_title: p.page_title,
+			seo_title:
+				(seoTitleData as Record<string, string>)[p.slug] ??
+				(set.titles as any[]).find((t) => t.slug === p.slug)?.book?.seo_title ??
+				null,
+		})),
+	);
+	return built.map((p) => ({ params: { slug: p.slug }, props: { p, docTitle: titles[p.slug] } }));
 }
 
-const { p } = Astro.props as { p: Page };
+const { p, docTitle } = Astro.props as { p: Page; docTitle: string };
 const SITE = 'https://spiritmediapublishing.com';
 const url = `${SITE}/books/${p.slug}/`;
 const money = (c: number) => `$${(c / 100).toFixed(2)}`;
@@ -587,11 +606,8 @@ const card = (ogCards as Record<string, any>)[p.slug] as
 const ogImage = card?.src ?? p.cover.og ?? p.cover.src;
 const ogW = card ? card.w : 0;
 const ogH = card ? card.h : 0;
-// <title>: the sheet's own page title (written for the book's search terms); the brand is appended only when the
-// whole title still fits the ~60 characters a results page shows.
-const BRAND = ' | Spirit Media Publishing';
-const docTitle =
-	p.page_title.length + BRAND.length <= 60 ? `${p.page_title}${BRAND}` : p.page_title;
+// <title> (docTitle, from getStaticPaths): the sheet's own page title, the brand appended only when the whole fits
+// 60; longer ones shorten by src/lib/seo-title.mjs (brand, then " by <author>", then the subtitle at a phrase boundary).
 // Meta description 140-165 (the FHB edition-page rule): the sheet's meta, else its short line when that one fits.
 const fit = (s: string | null | undefined) => !!s && s.length >= 140 && s.length <= 165;
 const metaDesc = fit(p.meta) ? p.meta : fit(p.short) ? p.short : p.meta;
@@ -659,7 +675,13 @@ const ld = {
 	...(p.subtitle ? { alternativeHeadline: p.subtitle } : {}),
 	url,
 	description: p.short,
-	author: { '@type': 'Person', name: p.author, ...(headshot ? { image: headshot.src } : {}) },
+	// url + sameAs = the author's CERTAIN sites (src/data/books/author-sites.json), the same set the bio's link row shows.
+	author: {
+		'@type': 'Person',
+		name: p.author,
+		...(headshot ? { image: headshot.src } : {}),
+		...authorLd(p.author),
+	},
 	publisher: publisherLd,
 	...(lead ? { brand: { '@type': 'Brand', name: 'Spirit Media Publishing' } } : {}),
 	inLanguage: p.lang ?? 'en',
@@ -828,6 +850,7 @@ const crumbs = {
 							{headshot && <img src={headshot.src} width={headshot.w} height={headshot.h} alt={headshot.alt} loading="lazy" decoding="async" class="float-left mb-2 mr-4 h-28 w-28 rounded-2xl object-cover sm:h-40 sm:w-40" />}
 							<p class="leading-relaxed">{p.bio}</p>
 						</div>
+						<AuthorLinks author={p.author} />
 					</div>
 				)}
 				<div>

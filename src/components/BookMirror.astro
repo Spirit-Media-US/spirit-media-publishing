@@ -1,5 +1,6 @@
 ---
 import { destHtml, SISTER_HOST, sisterHost } from '../lib/xsite';
+import AuthorLinks from './AuthorLinks.astro';
 
 // The SMP book page body, MIRRORING fathersheartbible.com/bibles/grandparents-bible/ section for section (Kevin
 // 2026-11-14 ~00:13Z via pmseoaeo: SMP book pages are "far from" the FHB edition pages; L2006; Kevin 2026-11-14 again:
@@ -169,6 +170,7 @@ const asList = (a: string) => {
 					<div class="min-w-0">
 						{author && <h3 class="text-xl font-bold text-ink">{author}</h3>}
 						<p class="mt-2 text-stone-700">{g.author.bio}</p>
+						{(authorName || author) && <AuthorLinks author={authorName || author} />}
 					</div>
 				</div>
 			)}
