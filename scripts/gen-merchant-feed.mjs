@@ -165,6 +165,9 @@ ${rows.join('\n')}
 }
 
 const AVAIL = (a) => (String(a).endsWith('InStock') ? 'in_stock' : 'out_of_stock'); // = the XML's mapping
+// OpenAI's feed spec names JPEG/PNG for image_url; the Google feed keeps the WebP. Every published 3D v2 cover has a
+// JPEG twin <stem>-3d-v2-600.jpg beside its .webp (projects/smp-3d-covers/lane1/publish.py --v2-jpg, 146/146, 2026-11-17).
+export const OPENAI_IMAGE = (u) => String(u).replace(/-3d-v2-600\.webp$/, '-3d-v2-600.jpg');
 const COND = { 'https://schema.org/UsedCondition': 'used', 'https://schema.org/RefurbishedCondition': 'refurbished' };
 /** The OpenAI (ChatGPT merchant) feed: JSONL, one record per item of the SAME Map render() uses. */
 export function renderOpenAI(items) {
@@ -184,7 +187,7 @@ export function renderOpenAI(items) {
 					url: i.link,
 					brand: 'Spirit Media Publishing',
 					seller_name: 'Spirit Media Publishing',
-					image_url: i.image,
+					image_url: OPENAI_IMAGE(i.image),
 					availability: AVAIL(i.availability),
 					price: `${i.price} ${i.currency}`,
 					target_countries: ['US'],

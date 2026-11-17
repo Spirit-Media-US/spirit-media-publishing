@@ -73,7 +73,8 @@ export function validate(jsonl, google) {
 		if (g.price !== r.price) errs.push(`${r.item_id}: price ${r.price} != google ${g.price}`);
 		if (g.availability !== r.availability) errs.push(`${r.item_id}: availability ${r.availability} != google ${g.availability}`);
 		if (g.link !== r.url) errs.push(`${r.item_id}: url != google`);
-		if (g.image !== r.image_url) errs.push(`${r.item_id}: image != google`);
+		if (g.image.replace(/-3d-v2-600\.webp$/, '-3d-v2-600.jpg') !== r.image_url) errs.push(`${r.item_id}: image != google`);
+		if (!/\.(jpe?g|png)(\?.*)?$/i.test(r.image_url ?? '')) errs.push(`${r.item_id}: image_url not JPEG/PNG (OpenAI spec)`);
 		if (g.gtin !== r.gtin) errs.push(`${r.item_id}: gtin != google`);
 		if (g.title !== r.title) errs.push(`${r.item_id}: title != google`);
 	}
@@ -109,5 +110,6 @@ test('validator rejects injected defects (failure path)', (t) => {
 	assert.ok(mut((c) => (c[0].availability = 'out_of_stock')).some((e) => e.includes('availability')));
 	assert.ok(mut((c) => (c[0].url = 'https://x.example/')).some((e) => e.includes('url')));
 	assert.ok(mut((c) => (c[0].image_url = 'https://x.example/a.jpg')).some((e) => e.includes('image')));
+	assert.ok(mut((c) => (c[0].image_url = c[0].image_url.replace(/\.(jpe?g|png)$/i, '.webp'))).some((e) => e.includes('not JPEG/PNG')));
 	assert.ok(mut((c) => Object.assign(c[0], { group_id: 'g', listing_has_variations: undefined })).some((e) => e.includes('variant_dict')));
 });
