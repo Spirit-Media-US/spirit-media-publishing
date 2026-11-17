@@ -109,12 +109,33 @@ export function collect(dist = 'dist', fh = fhSkus()) {
 }
 
 const num = (q, k) => q?.[k] ?? '';
+/**
+ * Countries where Merchant Center will not show an offer priced in another currency (no currency conversion).
+ * A <g:shipping> block for one of these makes Google target the item there and flag it "Unsupported currency"
+ * (MC 5402182771, 2026-11-17: 191/191 items, "Prevents from showing in South Korea"; FHB 5891954461 had the same).
+ * The store still ships there; only the Google feed leaves the country out unless the price is already local.
+ */
+export const MC_LOCAL_CURRENCY_ONLY = { KR: 'KRW' };
+const mcShippable = (cc, currency) => !MC_LOCAL_CURRENCY_ONLY[cc] || MC_LOCAL_CURRENCY_ONLY[cc] === currency;
+/** Google caps [shipping] at 100 per product (help 6324484); src/data/merchant-feed-countries.json ranks which 100 (source in
+ * its _readme). Only ranked countries are emitted, in that order; more than 100 rows fails the build. */
+export const MC_MAX_SHIPPING = 100;
+const FEED_RANK = new Map(JSON.parse(readFileSync(new URL('../src/data/merchant-feed-countries.json', import.meta.url), 'utf8')).countries.map((c, n) => [c, n]));
+const ccOf = (d) => [].concat(d.shippingDestination)[0]?.addressCountry;
+export function mcShipping(details, currency, id, rank = FEED_RANK) {
+	const kept = details
+		.filter((d) => rank.has(ccOf(d)) && mcShippable(ccOf(d), currency))
+		.sort((a, b) => rank.get(ccOf(a)) - rank.get(ccOf(b)));
+	if (!kept.length) throw new Error(`merchant-feed: ${id} ships to none of merchant-feed-countries.json`);
+	if (kept.length > MC_MAX_SHIPPING) throw new Error(`merchant-feed: ${id} has ${kept.length} shipping rows; Google allows ${MC_MAX_SHIPPING}`);
+	return kept;
+}
 export function render(items) {
 	const rows = [...items.values()].map((i) => {
 		// One <g:shipping> per OfferShippingDetails (one per live country the engine serves). None = fail loudly.
 		const details = [].concat(i.ship ?? []);
 		if (!details.length) throw new Error(`merchant-feed: ${i.id} has no shippingDetails in its page JSON-LD`);
-		const ship = details
+		const ship = mcShipping(details, i.currency, i.id)
 			.map((d) => {
 				const dt = d.deliveryTime;
 				const cc = [].concat(d.shippingDestination)[0]?.addressCountry;
@@ -156,6 +177,9 @@ ${rows.join('\n')}
 }
 
 const AVAIL = (a) => (String(a).endsWith('InStock') ? 'in_stock' : 'out_of_stock'); // = the XML's mapping
+// OpenAI's feed spec names JPEG/PNG for image_url; the Google feed keeps the WebP. Every published 3D v2 cover has a
+// JPEG twin <stem>-3d-v2-600.jpg beside its .webp (projects/smp-3d-covers/lane1/publish.py --v2-jpg, 146/146, 2026-11-17).
+export const OPENAI_IMAGE = (u) => String(u).replace(/-3d-v2-600\.webp$/, '-3d-v2-600.jpg');
 const COND = { 'https://schema.org/UsedCondition': 'used', 'https://schema.org/RefurbishedCondition': 'refurbished' };
 /** The OpenAI (ChatGPT merchant) feed: JSONL, one record per item of the SAME Map render() uses. */
 export function renderOpenAI(items) {
@@ -175,7 +199,7 @@ export function renderOpenAI(items) {
 					url: i.link,
 					brand: 'Spirit Media Publishing',
 					seller_name: 'Spirit Media Publishing',
-					image_url: i.image,
+					image_url: OPENAI_IMAGE(i.image),
 					availability: AVAIL(i.availability),
 					price: `${i.price} ${i.currency}`,
 					target_countries: ['US'],
