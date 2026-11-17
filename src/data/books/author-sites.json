@@ -1,0 +1,775 @@
+{
+	"_note": "Author websites, businesses, ministries and official profiles for the book pages' About-the-author block + the JSON-LD author Person (url, sameAs). Keyed by the author name EXACTLY as the page writes it (book.author.name). CERTAIN entries ONLY (verified as the same person: the site names the book, or the bio/photo/location matches, or the book's own interior/spec sheet lists it). POSSIBLE ones never land here; they go to pmseoaeo's list for Kevin (aeo-state/smp-author-sites-possible-20261116.json). Shape: {\"<author>\": {\"sites\": [{label: Website|Business|Ministry|LinkedIn|Facebook|Instagram|YouTube, name, url, evidence, grade: CERTAIN}]}}. Kevin 2026-11-16: \"Can you search and link to other sites including author businesses\". Gate: scripts/author-sites.test.mjs; link check (not in the build): node scripts/author-sites-linkcheck.mjs.",
+	"Andrea Anderson with Barbara Hemphill": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Productive Environment Institute",
+				"url": "https://www.productiveenvironment.com/",
+				"evidence": "Our bio: 'Andrea Anderson is CEO of the Productive Environment Institute'; spec sheet author_email andrea@productiveenvironment.com; site names Andrea Anderson + Barbara Hemphill and SOAR [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "Productive Environment Institute on YouTube",
+				"url": "https://www.youtube.com/@productiveenvironment",
+				"evidence": "Linked from productiveenvironment.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Website",
+				"name": "Barbara Hemphill | Clutter-Free Leadership",
+				"url": "https://www.barbarahemphill.com/",
+				"evidence": "Co-author Barbara Hemphill's own site (spec sheet email barbara@barbarahemphill.com) [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Barbara Hemphill": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Barbara Hemphill | Clutter-Free Leadership",
+				"url": "https://www.barbarahemphill.com/",
+				"evidence": "Spec sheet (walking-with-barbara) author_email barbara@barbarahemphill.com; site cross-links Productive Environment Institute named in our bio [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Business",
+				"name": "Productive Environment Institute",
+				"url": "https://www.productiveenvironment.com/",
+				"evidence": "Our bio: 'founder of Productive Environment Institute'; site meta 'Meet Barbara Hemphill and Andrea Anderson', names SOAR [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Barbara Hemphill on LinkedIn",
+				"url": "https://www.linkedin.com/in/barbarahemphill/",
+				"evidence": "linked from barbarahemphill.com (her own site; spec sheet author_email barbara@barbarahemphill.com) [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Barbara Hemphill on Facebook",
+				"url": "https://www.facebook.com/barbara.hemphill.73",
+				"evidence": "linked from barbarahemphill.com (her own site; spec sheet author_email barbara@barbarahemphill.com) [curl 400: Facebook login wall to bots; link taken from the official site, liveness not provable without login]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Paper Tiger Lady on Instagram",
+				"url": "https://www.instagram.com/papertigerlady/",
+				"evidence": "linked from barbarahemphill.com (her own site; spec sheet author_email barbara@barbarahemphill.com) [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "The Paper Tiger Lady on YouTube",
+				"url": "https://www.youtube.com/@thepapertigerlady",
+				"evidence": "linked from barbarahemphill.com (her own site; spec sheet author_email barbara@barbarahemphill.com) and productiveenvironment.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Carlene Hill Byron": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Carlene Byron Communications",
+				"url": "https://www.carlenehillbyron.com/",
+				"evidence": "Portland, Maine (our bio: lives in Maine; professional writer/editor); carries a testimonial from SMP author Jeremy Kluth: 'As my editor, Carlene...' [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Carlene Byron on LinkedIn",
+				"url": "https://www.linkedin.com/in/carlenebyron/",
+				"evidence": "Linked from carlenehillbyron.com [curl 999: LinkedIn bot block; link taken from the official site]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Carlene Byron on Facebook",
+				"url": "https://www.facebook.com/carlene.byron96",
+				"evidence": "Linked from carlenehillbyron.com (personal profile she links from her business site) [curl 400: Facebook login wall to bots; link taken from the official site, liveness not provable without login]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Cindy Love": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Clowning from the Heart",
+				"url": "https://clowningfromtheheart.com/",
+				"evidence": "Book's own site (SMP-built, repo /srv/sites/clowning-from-the-heart); names Cindy 17x and her clown Sparkle (our bio) [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Daniel W. Evans": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "D.W. Evans Electric, Inc.",
+				"url": "https://www.dwevans.com/",
+				"evidence": "Spec sheet author_email daniel@dwevans.com (all 15 sheets); company is in Durham, NC = our bio (home church Living Waters, Durham NC). NOTE for PM: 'Your Time Custom Order' (Evans) is on the DO NOT PROCEED list; Evans is not one of the 5 DNP authors, but confirm before rendering. Also confirm Kevin wants an electrical-contractor link on a devotional's page. [curl 200 2026-11-16] | approved by Kevin 2026-11-16 (kevin-decisions.md L2213 21:06Z \"1 yes 2 yes 3 yes 4 yes\")",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Dr. Barbara Lowe": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Greenleaf Psychological & Support Services",
+				"url": "https://www.turntogreenleaf.com/",
+				"evidence": "drbarbaralowe.com redirects here; Founder page (https://www.turntogreenleaf.com/founder-and-mission/) 'Barbara Lowe, PhD, LP, BCC, CCTP-II, SEP' = our spec-sheet bio (licensed psychologist, Board Certified Life Coach, Somatic Experiencing Practitioner). Verified in browser (curl gets 202 bot page) [curl 202; page renders 200 in a real browser (Playwright) 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Ministry",
+				"name": "The Heart Journey Podcast with Dr. Barbara",
+				"url": "https://sites.libsyn.com/133859/website",
+				"evidence": "Podcast named after her book Heart Journey; podcast directories list it as Dr. Barbara Lowe's (Dr. Barbara Ministries) [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Greenleaf Psychological on Instagram",
+				"url": "https://www.instagram.com/greenleafpsychological/",
+				"evidence": "Linked from turntogreenleaf.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Greenleaf Psychological & Support Services on LinkedIn",
+				"url": "https://www.linkedin.com/company/greenleaf-psychological-support-services/",
+				"evidence": "Linked from turntogreenleaf.com [curl 403: LinkedIn bot block; link taken from the official site]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Elisha Chowtapalli": {
+		"sites": [
+			{
+				"label": "Ministry",
+				"name": "LIGHT Society",
+				"url": "https://lightkids.org/",
+				"evidence": "Our bio: 'founder and president of LIGHT Society ... building a hospital'; site has 'Meet Elisha', 'Meet our Founder', Maternity Hospital; partner charity Onaway's LIGHT Society page names Brother Elisha Chowtapalli and links lightkids.org [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Jeremy Kluth": {
+		"sites": [
+			{
+				"label": "Ministry",
+				"name": "Scripture Alive",
+				"url": "https://scripturealive.com/",
+				"evidence": "Our bio: 'Jeremy Kluth leads Scripture Alive'; spec sheet author_email jeremy@scripturealive.com; site names Kluth [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Scripture Alive on Facebook",
+				"url": "https://facebook.com/ScriptureAliveOfficial",
+				"evidence": "Linked from scripturealive.com [curl 400: Facebook login wall to bots; link taken from the official site, liveness not provable without login]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Scripture Alive on Instagram",
+				"url": "https://www.instagram.com/ScriptureAlive/",
+				"evidence": "Linked from scripturealive.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "Scripture Alive on YouTube",
+				"url": "https://www.youtube.com/channel/UC3GRn5EWEwxD9eu3kRvJ4lQ",
+				"evidence": "Linked from scripturealive.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Jim Matuga": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "InnerAction Media",
+				"url": "https://inneractionmedia.com/",
+				"evidence": "Spec sheet author_email jim@inneractionmedia.com; site bio: 'Jim is also the author of ... \"Humble Influence\" and the founder and host of Positively West Virginia' [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Business",
+				"name": "Positively West Virginia (podcast)",
+				"url": "https://positivelywv.com/",
+				"evidence": "Our bio names his weekly podcast Positively West Virginia; his own InnerAction Media site says he is its founder and host [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "InnerAction Media on Facebook",
+				"url": "https://www.facebook.com/InnerActionMedia/",
+				"evidence": "Linked from inneractionmedia.com [curl 400: Facebook login wall to bots; link taken from the official site, liveness not provable without login]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "InnerAction Media on Instagram",
+				"url": "https://www.instagram.com/inneractionmedia/",
+				"evidence": "Linked from inneractionmedia.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "InnerAction Media on YouTube",
+				"url": "https://www.youtube.com/@inneractionmedia",
+				"evidence": "Linked from inneractionmedia.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "Positively West Virginia on YouTube",
+				"url": "https://www.youtube.com/@positivelywestvirginia",
+				"evidence": "Linked from positivelywv.com [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Positively West Virginia on Facebook",
+				"url": "https://www.facebook.com/positivelywv/",
+				"evidence": "Linked from positivelywv.com [curl 400: Facebook login wall to bots; link taken from the official site, liveness not provable without login]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Joeth Strickland": {
+		"sites": [
+			{
+				"label": "Ministry",
+				"name": "Crossing ALL Borders Ministries",
+				"url": "https://crossingallborders.org/",
+				"evidence": "Our bio: 'founder of Crossing All Borders Ministries'; the site's Our Story page (https://crossingallborders.org/about-us/our-story/) names Joeth 5x and Japan [curl 200 2026-11-16]",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Crossing ALL Borders Ministries Facebook group",
+				"url": "https://www.facebook.com/groups/365284617624603/",
+				"evidence": "Linked from crossingallborders.org (a group, not a page) [curl 400: Facebook login wall to bots; link taken from the official site, liveness not provable without login]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"John A. Wilson, Jr.": {
+		"sites": [
+			{
+				"label": "Ministry",
+				"name": "Light the Way Ministry",
+				"url": "https://lightthewayministry.com/",
+				"evidence": "Our bio: founder/CEO of Light the Way Ministry (Christian festivals). Site's /about-john/ page: 'John Wilson is the founder and CEO of Light the Way Ministry' and names him 'author of Honky Tonk Nights to Christian Lights'.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Website",
+				"name": "About John Wilson (Light the Way Ministry)",
+				"url": "https://lightthewayministry.com/about-john/",
+				"evidence": "Page names our book Honky Tonk Nights to Christian Lights and his country-music promoter past.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Light the Way Ministry on Facebook",
+				"url": "https://www.facebook.com/LightTheWayMin",
+				"evidence": "Linked from lightthewayministry.com (ministry's own site).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Light the Way Ministry on Instagram",
+				"url": "https://www.instagram.com/lightthewayministry",
+				"evidence": "Linked from lightthewayministry.com.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "Light the Way Ministry on YouTube",
+				"url": "https://www.youtube.com/@LightTheWay",
+				"evidence": "Linked from lightthewayministry.com.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"John Boyle": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "John P. Boyle",
+				"url": "https://johnpboyle.com/",
+				"evidence": "Site names all three of his books: Appalachian Kid, Invisible Wounds, Hope That Anchors the Soul.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"John Englehart": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "John Englehart Jr.",
+				"url": "https://www.johnenglehartjr.com/",
+				"evidence": "Site: 'John is the author of The Sunday Scaries'; HR leader 15+ years, matches our bio.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "John Englehart Jr. on YouTube",
+				"url": "https://www.youtube.com/channel/UCuAAVagOpx9VUSLcgXaq8sQ",
+				"evidence": "Linked from johnenglehartjr.com (his own site).",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"John P. Boyle": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "John P. Boyle",
+				"url": "https://johnpboyle.com/",
+				"evidence": "Site names all three of his books: Appalachian Kid, Invisible Wounds, Hope That Anchors the Soul.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"John Vallely": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "The Pyramid Principle",
+				"url": "https://thepyramidprinciple.com/",
+				"evidence": "Official book site for our title; About menu: John Vallely, Paul Weissenstein, Coach John Wooden.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "The Pyramid Principle on Facebook",
+				"url": "https://www.facebook.com/people/The-Pyramid-Principle/61567865841471/",
+				"evidence": "Linked from thepyramidprinciple.com (book's own site).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "The Pyramid Principle on Instagram",
+				"url": "https://www.instagram.com/thepyramidprinciple/",
+				"evidence": "Linked from thepyramidprinciple.com.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "The Pyramid Principle on YouTube",
+				"url": "https://www.youtube.com/@ThePyramidPrinciple",
+				"evidence": "Linked from thepyramidprinciple.com.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "The Pyramid Principle on LinkedIn",
+				"url": "https://www.linkedin.com/company/the-pyramid-principle",
+				"evidence": "Linked from thepyramidprinciple.com. NOTE: curl gets LinkedIn's bot block (999/403), not a 404 - the profile is linked live from the owner's site; a 200 check from a server cannot prove it.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Justin Creasman": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Justin Creasman",
+				"url": "https://justincreasman.com/",
+				"evidence": "Site presents The Forgotten Witness (our book); our bio also names justincreasman.com; book project files list it.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Kaylee Stavlas": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "NEX GEN CEO",
+				"url": "https://nexgenceo.org/",
+				"evidence": "Our bio: founder of NEX GEN CEO; book text lists www.nexgenceo.org; site features Kaylee Stavlas.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Kaylee Stavlas on Facebook",
+				"url": "https://www.facebook.com/kayleestavlas",
+				"evidence": "Linked from nexgenceo.org (her organization's site).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Kaylee Stavlas on Instagram",
+				"url": "https://www.instagram.com/kayleestavlas/",
+				"evidence": "Linked from nexgenceo.org.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Kaylee Stavlas on LinkedIn",
+				"url": "https://www.linkedin.com/in/kaylee-stavlas-840939345/",
+				"evidence": "Linked from nexgenceo.org. NOTE: curl gets LinkedIn's bot block (999/403), not a 404 - the profile is linked live from the owner's site; a 200 check from a server cannot prove it.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "NEX GEN CEO Club on Facebook",
+				"url": "https://www.facebook.com/nexgenceoclub/",
+				"evidence": "Linked from nexgenceo.org.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "NEX GEN CEO Club on Instagram",
+				"url": "https://www.instagram.com/nexgenceoclub/",
+				"evidence": "Linked from nexgenceo.org.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Kevin White": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Kevin White",
+				"url": "https://kevinwhite.us/",
+				"evidence": "Site: 'Kevin White - Author, Speaker, Entrepreneur', founder of Spirit Media; Kevin owns SMP.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Business",
+				"name": "Spirit Media Publishing",
+				"url": "https://spiritmediapublishing.com/",
+				"evidence": "Our bios: CEO of Spirit Media.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Ministry",
+				"name": "Global Hope India",
+				"url": "https://www.globalhopeindia.org/",
+				"evidence": "Our bios: founder and executive director of Global Hope India; site's about page names 'Pastor Kevin' and the founder's first India trip in 1998 (matches bio).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Ministry",
+				"name": "With Love From Jesus Ministries",
+				"url": "https://www.withlovefromjesus.org/",
+				"evidence": "Our bio (only-god-works, audacious-generosity): he started With Love From Jesus Ministries in Raleigh; site is the Raleigh NC outreach (does not name him).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Ministry",
+				"name": "Father's Heart Bible",
+				"url": "https://fathersheartbible.com/",
+				"evidence": "Kevin's own FHB (SMP owner per company records).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Kevin White on LinkedIn",
+				"url": "https://www.linkedin.com/in/kevinwhiteus/",
+				"evidence": "Linked from spiritmediapublishing.com.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "Kevin White on YouTube",
+				"url": "https://www.youtube.com/@KevinWhiteus",
+				"evidence": "Linked from spiritmediapublishing.com.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Laila Williams": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Three Strands TW",
+				"url": "https://www.threestrandstw.com/",
+				"evidence": "A retail description of Transplanted (Walmart listing) says she runs the coaching practice Three Strands TW ('Team Williams'); our bio uses 'Team Williams' and the site footer credits Spirit Media as developer. But the site itself never names her or the book, and the book text does not list it. | approved by Kevin 2026-11-16 (kevin-decisions.md L2213 21:06Z \"1 yes 2 yes 3 yes 4 yes\")",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Lance Bane": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Lance Bane",
+				"url": "https://www.lancebane.com/",
+				"evidence": "Bio match: his /story page says married 30+ years, three kids, grandchildren, devout follower of Jesus, and quotes the same Mark Twain line ('two most important days...') our bio uses. Site does not name The Gratitude Effect.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Lance Bane on Facebook",
+				"url": "https://www.facebook.com/lancembane",
+				"evidence": "Linked from lancebane.com (his own site).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Lance Bane on LinkedIn",
+				"url": "https://www.linkedin.com/in/lance-bane-56b1507",
+				"evidence": "Linked from lancebane.com. NOTE: curl gets LinkedIn's bot block (999/403), not a 404 - the profile is linked live from the owner's site; a 200 check from a server cannot prove it.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Michael Gaetke": {
+		"sites": [
+			{
+				"label": "Ministry",
+				"name": "Yes God Adventure",
+				"url": "https://yesgodadventure.org/",
+				"evidence": "Book interior (projects/say-yes-to-god booktext) prints 'Michael J. Gaetke / YesGodAdventure.org'. Site itself is a thin GoDaddy page that does not name him.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Patricia A. Daniel": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Destination Jesus (The Faith Legacy Library)",
+				"url": "https://destination-jesus.com/",
+				"evidence": "Interior of The End-Times Warrior: 'For more inspiration from this author, visit Destination-Jesus.com'. Site home page: 'Meet Patricia A. Daniel' and lists The End-Times Warrior 40-day devotional. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Roger Loomis": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Roger Loomis blog",
+				"url": "https://rogerloom.blogspot.com/",
+				"evidence": "Blog by 'Roger': 'I pastored five Assembly of God churches before I came back to Jefferson in 2017 to co-pastor Hope Community Church with my wife, Lori.' Matches our bio (four decades pastoring, Evangel University/AG, 2017 church plant with his wife in a village in rural NE Ohio). AbeBooks author bio confirms Roger and Lori Loomis co-pastor Hope Community, Jefferson, Ohio. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Ron King": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Sidebar Stories",
+				"url": "https://sidebarstories.com/",
+				"evidence": "Our book's retailer description (Spirit Media metadata on Eden/buecher.de): 'Ron King is the founder and director of Sidebar Stories, Inc. He has served as a pastor to families and children and is in private practice as a marriage and family therapist.' Site: 'MEET THE TEAM Dr. Ron King ... family therapist, hospice chaplain ... So he made up Sidebar Stories.' 200 (redirects to sidebar-stories-project.webflow.io; sidebarstories.org also resolves there).",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Ron King on LinkedIn",
+				"url": "https://www.linkedin.com/in/ron-king-69526626/",
+				"evidence": "Linked from the Sidebar Stories site (his own business). Liveness: LinkedIn answers server checks with 999 (bot block), so 200 could not be confirmed from Bethel.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Sidebar Stories on Instagram",
+				"url": "https://www.instagram.com/sidebarstories",
+				"evidence": "Linked from the Sidebar Stories site. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Ron Tredway": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Dr. Ron Tredway, Campbell University faculty profile",
+				"url": "https://directory.campbell.edu/people/ron-tredway/",
+				"evidence": "Official faculty profile (not a personal site). Matches our interior About the Author: University of Tennessee leadership development until 2020, CBMC Trusted Advisor Forums for Triangle business owners, Campbell University faculty. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Ryan Schraffenberger": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Promotions Guy",
+				"url": "https://promotionsguy.com/",
+				"evidence": "Our bio: 'In 2014 he started Promotions Guy ... the business now supports ministries around the world.' Interior of Can I Pray for You? references promotionsguy.com. Site: 'Promotions Guy | Custom Promotional Products, Marathon FL' (Florida Keys, matches bio). 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Promotions Guy on Facebook",
+				"url": "https://www.facebook.com/Promotions.Guy/",
+				"evidence": "Linked from promotionsguy.com. Liveness: Facebook answers server checks with 400/login wall, so 200 could not be confirmed from Bethel.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Promotions Guy on Instagram",
+				"url": "https://www.instagram.com/impromotionsguy/",
+				"evidence": "Linked from promotionsguy.com. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Shelly White": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Spirit Media Publishing",
+				"url": "https://spiritmediapublishing.com/",
+				"evidence": "Shelly White is COO of Spirit Media (memory user_shelly_role); her four books are SMP titles. 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Website",
+				"name": "kevinandshelly.com",
+				"url": "https://kevinandshelly.com/",
+				"evidence": "Identity certain: interior of Hold It, Daniel! and Give Me a Minute, Goliath! ('More from Shelly ... kevinandshelly.com'). Graded POSSIBLE only because the page is currently a 'Launching Soon' placeholder - do not link until it is live. 200. | approved by Kevin 2026-11-16 (kevin-decisions.md L2213 21:06Z \"1 yes 2 yes 3 yes 4 yes\")",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Suzanne Gose": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Flip Flop Spanish",
+				"url": "https://www.flipflopspanish.com/",
+				"evidence": "Site sells 'Flip and Felipa Children's Book by Suzanne Gose'; About page is Senora Gose's. The book's interior points readers to www.FlipFlopSpanish.com. 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Flip Flop Spanish on Facebook",
+				"url": "https://www.facebook.com/flipflopspanish",
+				"evidence": "Linked from flipflopspanish.com. Liveness: Facebook answers server checks with 400/login wall, so 200 could not be confirmed from Bethel.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Flip Flop Spanish on Instagram",
+				"url": "https://www.instagram.com/flipflopspanish",
+				"evidence": "Linked from flipflopspanish.com. 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "Flip Flop Spanish on YouTube",
+				"url": "https://www.youtube.com/flipfloplearning",
+				"evidence": "Linked from flipflopspanish.com. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Triffina Brown": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Triffina Brown",
+				"url": "https://www.triffinabrown.com/",
+				"evidence": "Site: 'Healing with Hope, Living with Peace ... I'm Triffina ... After surviving a stroke' - matches the book title and the interior About the Author (RN of 20+ years, stroke recovery). 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Triffina Brown, author (Facebook)",
+				"url": "https://www.facebook.com/authortriffinabrown",
+				"evidence": "Linked from triffinabrown.com. Liveness: Facebook answers server checks with 400/login wall, so 200 could not be confirmed from Bethel.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Triffina Brown on Instagram",
+				"url": "https://www.instagram.com/triffinabrown/",
+				"evidence": "Linked from triffinabrown.com. 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "YouTube",
+				"name": "Healing With Hope and Encouragement (YouTube)",
+				"url": "https://www.youtube.com/@HealingWithHopeAndEncourage",
+				"evidence": "Linked from triffinabrown.com; channel named for the book. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Tyler Stavlas": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "YiaYia Voula's Foods",
+				"url": "https://yiayiavoulas.com/",
+				"evidence": "Site features 'YiaYia Voula's Big Dream By: Tyler Stavlas'; our bio says he is director of product at YiaYia Voula's Foods. 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Business",
+				"name": "Squeegee Clean NC",
+				"url": "https://squeegeecleannc.com/",
+				"evidence": "Site lists 'Tyler Stavlas Co-Founder'; our bio says he co-founded Squeegee Clean NC with a friend. 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "LinkedIn",
+				"name": "Tyler Stavlas on LinkedIn",
+				"url": "https://www.linkedin.com/in/tyler-stavlas/",
+				"evidence": "Linked from squeegeecleannc.com (his own business). Liveness: LinkedIn answers server checks with 999 (bot block), so 200 could not be confirmed from Bethel.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Ministry",
+				"name": "Hunger for Change",
+				"url": "https://hungerforchange.org/",
+				"evidence": "Our bio says he founded the nonprofit Hunger for Change; site's tagline 'Feeding Hope. Never Giving Up.' and 'ABOUT OUR FOUNDER Inspired by his family's story' fit, and it reports books donated. POSSIBLE because the site never names the founder and still carries template placeholder contact details (123 Main Street, +1 234 567 890); no link from his other sites. 200. | approved by Kevin 2026-11-16 (kevin-decisions.md L2213 21:06Z \"1 yes 2 yes 3 yes 4 yes\")",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Van Eure": {
+		"sites": [
+			{
+				"label": "Business",
+				"name": "Angus Barn",
+				"url": "https://angusbarn.com/",
+				"evidence": "Our bio: Van Eure has run the Angus Barn in Raleigh for 40+ years; interior of Raised in a Barn cites angusbarn.com. 200.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Facebook",
+				"name": "Angus Barn on Facebook",
+				"url": "https://www.facebook.com/AngusBarn",
+				"evidence": "Linked from angusbarn.com. Liveness: Facebook answers server checks with 400/login wall, so 200 could not be confirmed from Bethel.",
+				"grade": "CERTAIN"
+			},
+			{
+				"label": "Instagram",
+				"name": "Angus Barn on Instagram",
+				"url": "https://www.instagram.com/angusbarn",
+				"evidence": "Linked from angusbarn.com. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	},
+	"Wendy Reardon": {
+		"sites": [
+			{
+				"label": "Website",
+				"name": "Wendy Reardon",
+				"url": "https://wendyreardon.com/",
+				"evidence": "Copyright page and 'More from Wendy' page of The Blessing Trail 2 and 3 list wendyreardon.com; site lists all three Blessing Trail books. 200.",
+				"grade": "CERTAIN"
+			}
+		]
+	}
+}

@@ -5,12 +5,12 @@
 // APPROVED-BY: Kevin 2026-11-16 brief pmprint-full-page-inspection-20261116 FIXES ("every hero cover renders >= the
 //   common height at 1440")
 //
-// node scripts/cover-hero-measure.mjs <base-url> [slug ...] [--json out.json]
+// node scripts/cover-hero-measure.mjs <base-url> [slug ...] [--json out.json] [--require-1200]
 // Opens every /books/<slug>/ in dist/books (or the slugs given) on <base-url> at 1440x900 and 390x844 (headless
 // Chromium) and measures img[data-hero-cover]. PASS at 1440: height >= HERO_H.desktop - 1, or (a landscape cover)
 // width >= its column - 1. PASS at 390: no horizontal scroll and height >= min(HERO_H.mobile, column / aspect) - 1.
 // Exit 1 on any failure. `--inject-small <slug>` shrinks that page's cover in the browser (the old 340px-wide box) to
-// prove the check fails.
+// prove the check fails. `--require-1200` (covers v2, 2026-11-16) also fails a page whose hero srcset has no 1200w file.
 import fs from 'node:fs';
 import { chromium } from '/home/deploy/bin/node_modules/playwright/index.mjs';
 import { HERO_H } from '../src/lib/cover-hero.mjs';
@@ -25,6 +25,8 @@ const opt = (k) => {
 };
 const jsonOut = opt('--json');
 const inject = opt('--inject-small');
+const need1200 = args.includes('--require-1200');
+if (need1200) args.splice(args.indexOf('--require-1200'), 1);
 const base = (args.shift() ?? '').replace(/\/$/, '');
 if (!base) {
 	console.error('usage: cover-hero-measure.mjs <base-url> [slug ...] [--json out.json] [--inject-small <slug>]');
@@ -52,7 +54,7 @@ async function measure(ctx, slug, vw) {
 			const r = i.getBoundingClientRect();
 			const col = i.parentElement.getBoundingClientRect().width;
 			const ar = Number(i.getAttribute('width')) / Number(i.getAttribute('height'));
-			return { w: r.width, h: r.height, col, ar, src: i.currentSrc, scrollW: document.documentElement.scrollWidth };
+			return { w: r.width, h: r.height, col, ar, src: i.currentSrc, srcset: i.getAttribute('srcset') ?? '', scrollW: document.documentElement.scrollWidth };
 		});
 		return { status: res?.status(), ...(m ?? { missing: true }) };
 	} catch (e) {
@@ -76,6 +78,7 @@ async function worker() {
 			if (!(d.h >= HERO_H.desktop - 1 || d.w >= d.col - 1)) why.push(`1440 ${d.w.toFixed(0)}x${d.h.toFixed(0)} < ${HERO_H.desktop} tall (column ${d.col.toFixed(0)})`);
 			if (m.h < Math.min(HERO_H.mobile, m.col / m.ar) - 1) why.push(`390 ${m.w.toFixed(0)}x${m.h.toFixed(0)} short`);
 			if (m.scrollW > 390) why.push(`390 horizontal scroll ${m.scrollW}`);
+			if (need1200 && !/ 1200w/.test(d.srcset)) why.push('srcset has no 1200w file');
 		}
 		out.push({ slug: s, d1440: d, m390: m, pass: why.length === 0, why });
 		if (why.length) fails.push(`${s}: ${why.join('; ')}`);

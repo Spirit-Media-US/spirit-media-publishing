@@ -7,7 +7,7 @@
 //     -> 400 { error }    invalid_selection | empty | too_many_items | bulk_quote_required | country_not_served
 //
 // Prices, discounts, far-band, margin floor and the author-royalty sale metadata come from the ONE store engine
-// (src/store-engine/, a manifest-checked copy of FHB src/lib/storeEngine.ts). This file only does HTTP and Stripe.
+// (src/store-engine/, the engine's MASTER since 2026-11-16; FHB carries a byte-identical copy). This file only does HTTP and Stripe.
 // ONE STORE, TWO SHOP WINDOWS (Option C, Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): this is the
 // store for every window. Books sell from any site; BIBLES sell only in the FHB window (an FHB-origin order box, or
 // site fhb): Kevin 2026-11-16 "2yes", FHB Bibles stay sold on FHB only. The FHB Bible box (FHB src/scripts/order-form.ts)

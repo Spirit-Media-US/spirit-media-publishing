@@ -20,7 +20,8 @@
 // HERO_H.mobile = 336: the tallest cover at 390 today (240 wide 2:3) was 335, so no 2:3 cover shrinks and square
 // covers grow from 240 to ~333 (the 390 column is measured 354).
 // The 3D sources are 600px wide, so neither height upscales past the file at 1x; a 1200w file joins the srcset
-// when the title has one.
+// when the title has one. Covers v2 (2026-11-16): cover-sized.json hero3d.w1200 = covers/<slug>-3d-v2-1200.webp, the
+// same render as the v2 600/300 with its transparent padding trimmed, so the visible cover fills the drawn box.
 export const HERO_H = { desktop: 550, mobile: 336 };
 export const HERO_COL = { desktop: 554, mobile: 354 };
 export const HERO_BP = 768; // md: the two-column hero starts here
