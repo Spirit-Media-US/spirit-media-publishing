@@ -117,13 +117,25 @@ const num = (q, k) => q?.[k] ?? '';
  */
 export const MC_LOCAL_CURRENCY_ONLY = { KR: 'KRW' };
 const mcShippable = (cc, currency) => !MC_LOCAL_CURRENCY_ONLY[cc] || MC_LOCAL_CURRENCY_ONLY[cc] === currency;
+/** Google caps [shipping] at 100 per product (help 6324484); src/data/merchant-feed-countries.json ranks which 100 (source in
+ * its _readme). Only ranked countries are emitted, in that order; more than 100 rows fails the build. */
+export const MC_MAX_SHIPPING = 100;
+const FEED_RANK = new Map(JSON.parse(readFileSync(new URL('../src/data/merchant-feed-countries.json', import.meta.url), 'utf8')).countries.map((c, n) => [c, n]));
+const ccOf = (d) => [].concat(d.shippingDestination)[0]?.addressCountry;
+export function mcShipping(details, currency, id, rank = FEED_RANK) {
+	const kept = details
+		.filter((d) => rank.has(ccOf(d)) && mcShippable(ccOf(d), currency))
+		.sort((a, b) => rank.get(ccOf(a)) - rank.get(ccOf(b)));
+	if (!kept.length) throw new Error(`merchant-feed: ${id} ships to none of merchant-feed-countries.json`);
+	if (kept.length > MC_MAX_SHIPPING) throw new Error(`merchant-feed: ${id} has ${kept.length} shipping rows; Google allows ${MC_MAX_SHIPPING}`);
+	return kept;
+}
 export function render(items) {
 	const rows = [...items.values()].map((i) => {
 		// One <g:shipping> per OfferShippingDetails (one per live country the engine serves). None = fail loudly.
 		const details = [].concat(i.ship ?? []);
 		if (!details.length) throw new Error(`merchant-feed: ${i.id} has no shippingDetails in its page JSON-LD`);
-		const ship = details
-			.filter((d) => mcShippable([].concat(d.shippingDestination)[0]?.addressCountry, i.currency))
+		const ship = mcShipping(details, i.currency, i.id)
 			.map((d) => {
 				const dt = d.deliveryTime;
 				const cc = [].concat(d.shippingDestination)[0]?.addressCountry;
