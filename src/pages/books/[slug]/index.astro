@@ -4,6 +4,7 @@ import BookMirror from '../../../components/BookMirror.astro';
 import BookOrder from '../../../components/BookOrder.astro';
 import BookRetailer from '../../../components/BookRetailer.astro';
 import LookInside from '../../../components/LookInside.astro';
+import authorAccounts from '../../../data/books/author-accounts.json';
 // /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
 // is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
 // new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
@@ -344,6 +345,39 @@ export async function getStaticPaths() {
 			served: [],
 		});
 	}
+	// OWN-ACCOUNT AUTHORS (Kevin 2026-11-18: "we can't source their book if it is not in our pub account so we can't sell
+	// them ... No issue pointing to THEIR Amazon. Just no checkout form needed on the page."; src/data/books/author-accounts.json).
+	// The page keeps its SEO/AEO content; formats, ISBN and sameAs become the AUTHOR's edition, our retired ISBN/LCCN go,
+	// and nothing is orderable (their SKUs are also out of the store registry). The retailer box points to their listing.
+	const OWN = authorAccounts.books as Record<string, any>;
+	for (const p of pages) {
+		const own = OWN[p.slug];
+		if (!own) continue;
+		p.formats = (own.formats as any[]).map((f) => ({
+			sku: '',
+			format: f.format,
+			schema_format: f.schema_format,
+			isbn: f.isbn,
+			isbn_display: f.isbn_display,
+			list_cents: null,
+			pages: null,
+			trim: null,
+		}));
+		p.lccn = null;
+		p.sameAs = (own.same_as as string[]).filter((u) => /^https:\/\/\S+$/.test(u));
+		p.orderable = false;
+		// the page's own Product details table: our retired ISBNs + LCCN out, the author's edition's ISBN in
+		if (p.page?.details) {
+			const det: Record<string, string> = {};
+			for (const [k, v] of Object.entries(p.page.details as Record<string, string>)) {
+				if (/ISBN|Library of Congress|LCCN/i.test(k)) continue;
+				det[k] = v;
+			}
+			for (const f of own.formats as any[])
+				if (f.isbn_display) det[`${f.format} ISBN`] = f.isbn_display;
+			p.page = { ...p.page, details: det };
+		}
+	}
 	// SHIP-TO, ASKED OF THE ENGINE (src/store-engine is a synced copy, called as it is, never edited): a country is listed
 	// only when the engine's own checkoutForm builds a Stripe form for one copy of EVERY sellable format of the book
 	// there. Read-only (stub deps: no key, no network). When the engine learns a country or a book cost, the page follows
@@ -423,15 +457,20 @@ const orderBox = p.orderable && countries.length > 0;
 // EPUB, no active KDP Select term: engine ebookForBook). Beside print it is one more row in the order box; with no print
 // it is an EBOOK-ONLY box (email + 15% line, no shipping line, no marquee) in place of the retailer button. A title still
 // in KDP Select has no eBook here and keeps its retailer button until its term ends.
-const ebookSku = ebookForBook(p.slug);
+const ownAccount = (authorAccounts.books as Record<string, any>)[p.slug] as
+	| { href: string; store: string }
+	| undefined;
+const ebookSku = ownAccount ? null : ebookForBook(p.slug);
 const ebook = ebookSku ? { sku: ebookSku, list_cents: EBOOK_SKUS[ebookSku].listCents } : undefined;
 const ebookOnly = !orderBox && Boolean(ebook);
-const retail =
-	p.orderable || ebookOnly
-		? undefined
-		: ((retailerLinks.links as Record<string, any>)[p.slug] as
-				| { kind: 'ebook' | 'audiobook'; href: string; store: string }
-				| undefined);
+const retail: { kind: 'ebook' | 'audiobook' | 'print'; href: string; store: string } | undefined =
+	ownAccount
+		? { kind: 'print', href: ownAccount.href, store: ownAccount.store }
+		: p.orderable || ebookOnly
+			? undefined
+			: ((retailerLinks.links as Record<string, any>)[p.slug] as
+					| { kind: 'ebook' | 'audiobook'; href: string; store: string }
+					| undefined);
 // The per-copy handling fee each country pays, sized at BUILD time by the same marginGuard the checkout charges
 // with (break-even, floor 0). Only the resulting fees reach the page, never a cost (pmseoaeo 3gh #5: total line).
 const feeCfg = JSON.stringify({

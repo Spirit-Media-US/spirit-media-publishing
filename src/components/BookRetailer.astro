@@ -11,21 +11,27 @@ interface Props {
 	title: string;
 	/** the title's cover colour style (src/data/books/cover-colors.json), or undefined = ink */
 	titleStyle?: string;
-	kind: 'ebook' | 'audiobook';
+	kind: 'ebook' | 'audiobook' | 'print';
 	href: string;
 	store: string;
 }
 const { title, titleStyle, kind, href, store } = Astro.props;
-const label = kind === 'audiobook' ? 'Listen on Audible' : 'Buy the eBook';
-const what = kind === 'audiobook' ? 'Audiobook' : 'eBook';
+// print = an OWN-ACCOUNT author's book (src/data/books/author-accounts.json, Kevin 2026-11-18): their own Amazon listing
+const label =
+	kind === 'audiobook'
+		? 'Listen on Audible'
+		: kind === 'print'
+			? `Buy on ${store}`
+			: 'Buy the eBook';
+const what = kind === 'audiobook' ? 'Audiobook' : kind === 'print' ? 'Paperback & eBook' : 'eBook';
 ---
 <div id="order" class="br-wrap" data-status="digital" data-kind={kind}>
 	<div class="br-box">
 		<p class="br-eyebrow">{what}</p>
 		<h2 class="br-title" style={titleStyle}>{title}</h2>
-		<p class="br-line">{kind === 'audiobook' ? `${title} is available as an audiobook.` : `${title} is available as an eBook.`}</p>
+		<p class="br-line">{kind === 'audiobook' ? `${title} is available as an audiobook.` : kind === 'print' ? `The author publishes ${title} in paperback and eBook.` : `${title} is available as an eBook.`}</p>
 		<a class="br-btn" href={href} rel="noopener" target="_blank" data-retailer={kind}>{label}<Fragment set:html={newTabHtml} /></a>
-		<p class="br-note">Opens the {store} listing in a new tab.</p>
+		<p class="br-note">Opens the {kind === 'print' ? `author's ${store}` : store} listing in a new tab.</p>
 	</div>
 </div>
 <nav class="br-shop" aria-label="Keep shopping">

@@ -292,7 +292,11 @@ const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>
 // no offer line, no marquee, no email field, no pending note. digitalErrs() is the ONE check, used on the built pages and
 // proven to fail on a digital page with no retailer button.
 const RETAIL = JSON.parse(fs.readFileSync(new URL('../src/data/books/retailer-links.json', import.meta.url), 'utf8')).links;
-const RETAIL_LABEL = { ebook: 'Buy the eBook', audiobook: 'Listen on Audible' };
+// OWN-ACCOUNT authors (Kevin 2026-11-18, src/data/books/author-accounts.json): the book lives in the AUTHOR's own accounts,
+// so the page sells nothing and its ONE retailer button is "Buy on <store>" -> the author's own listing (same digitalErrs check).
+const OWN = JSON.parse(fs.readFileSync(new URL('../src/data/books/author-accounts.json', import.meta.url), 'utf8')).books;
+const retailOf = (slug) => (OWN[slug] ? { kind: 'print', href: OWN[slug].href, store: OWN[slug].store } : RETAIL[slug]);
+const RETAIL_LABEL = { ebook: 'Buy the eBook', audiobook: 'Listen on Audible', print: 'Buy on Amazon' };
 // the button's visible label; its new-tab notice (.xsite-sr "(opens in a new tab)", src/lib/xsite.ts) is read separately
 const RETAIL_BTN = /<a class="br-btn"[^>]*href="([^"]+)"[^>]*>([^<]*)(?:<span class="xsite-sr">[^<]*<\/span>)?<\/a>|<a[^>]*href="([^"]+)"[^>]*class="br-btn"[^>]*>([^<]*)(?:<span class="xsite-sr">[^<]*<\/span>)?<\/a>/g;
 const digitalErrs = (slug, main, row) => {
@@ -447,17 +451,25 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 			} else assert.doesNotMatch(main, new RegExp(`name="${t.slug}-ebook"|<input[^>]*data-ebook-in`), `${t.slug}: no eBook row while not on sale`);
 		} else if (ebookOnSale(t.slug)) {
 			assert.deepEqual(ebookOnlyErrs(t.slug, main, ebookOnSale(t.slug)), [], `${t.slug}: eBook-only order box`);
-		} else if (RETAIL[t.slug]) {
-			assert.deepEqual(digitalErrs(t.slug, main, RETAIL[t.slug]), [], `${t.slug}: digital-only retailer box`);
+		} else if (retailOf(t.slug)) {
+			assert.deepEqual(digitalErrs(t.slug, main, retailOf(t.slug)), [], `${t.slug}: digital-only retailer box`);
 		} else {
 			assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
 			assert.match(main, { es: /Pronto disponible en nuestra tienda\./, fr: /Bientôt disponible dans notre librairie\./ }[t.book?.language] ?? /Available soon from our store\./, `${t.slug}: pending note`);
 		}
 		// digital-only: the ONE retailer button is Kevin's 2026-11-16 17:15Z exception to "Amazon is never a buy option";
 		// everything else on the page still obeys it
-		const body = RETAIL[t.slug] && !ebookOnSale(t.slug) && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
+		const body = retailOf(t.slug) && !ebookOnSale(t.slug) && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
 		assert.doesNotMatch(body, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
 		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
+		if (OWN[t.slug]) {
+			for (const s of OWN[t.slug].retired_smp_skus) {
+				const isbn = s.match(/ISBN (\d{13})/)[1];
+				assert.ok(!html.includes(isbn) && !html.includes(isbn.replace(/^(\d{3})(\d)(\d{5})(\d{3})(\d)$/, '$1-$2-$3-$4-$5')), `${t.slug}: retired SMP ISBN ${isbn} on an own-account page`);
+			}
+			assert.ok(!/Library of Congress Control Number/.test(main), `${t.slug}: SMP LCCN on an own-account page`);
+			assert.ok(!/"@type":"Offer"/.test(html), `${t.slug}: Offer on an own-account page`);
+		}
 		const leak = textOf(main).match(LEAK);
 		assert.equal(leak, null, `${t.slug}: internal wording on the page: "${leak?.[0]}"`);
 		const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join(' ');
@@ -465,7 +477,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		// Amazon is never a buy option on our page (Kevin 11-13 L1973): no link to it, no 'buy/order/available on Amazon'.
 		// A book's own words may name it (SM's Guide contents: "Chapter 9: Respect King Amazon"), so the bare word is allowed.
 		assert.doesNotMatch(body, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
-		assert.doesNotMatch(textOf(main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
+		assert.doesNotMatch(textOf(OWN[t.slug] ? body : main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
 		// the order box's choices are <summary data-choice>, not questions
 		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary(?![^>]*data-choice)[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
 		// support is a Contact us BUTTON, never a printed address (Kevin 2026-11-15)
