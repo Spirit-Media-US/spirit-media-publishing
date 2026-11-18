@@ -6,6 +6,7 @@
 // (nothing to ship), no email field. Keep shopping is the same row the order box carries (BookOrder.astro).
 // Button: SMP's own ghost style (outline, never a filled bright red, never black: Kevin 2026-11-13 L1999, 2026-11-14).
 import { destHtml, newTabHtml, SISTER_HOST } from '../lib/xsite';
+import MailtoLink from './MailtoLink.astro';
 
 interface Props {
 	title: string;
@@ -30,8 +31,19 @@ const what = kind === 'audiobook' ? 'Audiobook' : kind === 'print' ? 'Paperback 
 		<p class="br-eyebrow">{what}</p>
 		<h2 class="br-title" style={titleStyle}>{title}</h2>
 		<p class="br-line">{kind === 'audiobook' ? `${title} is available as an audiobook.` : kind === 'print' ? `The author publishes ${title} in paperback and eBook.` : `${title} is available as an eBook.`}</p>
-		<a class="br-btn" href={href} rel="noopener" target="_blank" data-retailer={kind}>{label}<Fragment set:html={newTabHtml} /></a>
-		<p class="br-note">Opens the {kind === 'print' ? `author's ${store}` : store} listing in a new tab.</p>
+		{kind === 'print' ? (
+			<>
+				{/* own-account author: same look as the order box (BookOrder.astro) note -> filled Checkout button -> Contact us (Kevin 2026-11-18 "amazon button needs to follow style of other pages") */}
+				<p class="br-note br-note--above">Sold and shipped by {store} · opens in a new tab</p>
+				<a class="br-btn" href={href} rel="noopener" target="_blank" data-retailer={kind}>{label} →<Fragment set:html={newTabHtml} /></a>
+				<p class="br-help"><MailtoLink email="hello@spiritmediapublishing.com" class="br-help-btn">Contact us</MailtoLink></p>
+			</>
+		) : (
+			<>
+				<a class="br-btn" href={href} rel="noopener" target="_blank" data-retailer={kind}>{label}<Fragment set:html={newTabHtml} /></a>
+				<p class="br-note">Opens the {store} listing in a new tab.</p>
+			</>
+		)}
 	</div>
 </div>
 <nav class="br-shop" aria-label="Keep shopping">
@@ -51,6 +63,12 @@ const what = kind === 'audiobook' ? 'Audiobook' : kind === 'print' ? 'Paperback 
 	.br-btn:hover { border-color: var(--color-ink); color: var(--color-ink); }
 	.br-btn:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
 	.br-note { margin: 0.5rem 0 0; color: #57534e; font-size: 0.8rem; }
+	/* print (own-account author) = BookOrder.astro's .bo-note / .bo-checkout / .bo-help-btn, value for value */
+	.br-note--above { margin: 0.9rem 0 0; font-size: 0.78rem; }
+	.br-btn[data-retailer="print"] { margin-top: 0.75rem; background: var(--color-red, #c0392b); color: var(--color-surface, #fff); }
+	.br-btn[data-retailer="print"]:hover { background: var(--color-red-deep, #9b2d20); border-color: var(--color-red-deep, #9b2d20); color: var(--color-surface, #fff); }
+	.br-help { margin: 0.6rem 0 0; text-align: center; }
+	.br-help :global(.br-help-btn) { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.2rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: transparent; color: var(--color-red, #c0392b); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
 	.br-shop { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; max-width: 34rem; margin: 1rem auto 0; padding: 0 1rem; }
 	.br-shop__label { width: 100%; text-align: center; font-size: 0.85rem; font-weight: 600; color: #3f3f46; }
 	.br-shop a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid #f0c4d8; border-radius: 999px; background: #fbe7f0; color: #52525b; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
