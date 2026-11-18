@@ -10,7 +10,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
-import { collect } from './gen-merchant-feed.mjs';
+import { collect, render, MC_LOCAL_CURRENCY_ONLY, MC_MAX_SHIPPING, mcShipping } from './gen-merchant-feed.mjs';
 
 const FEED = 'dist/merchant-feed.xml';
 const FHB_LOCAL = process.env.FHB_FEED ?? '/srv/sites/FHB/dist/merchant-feed.xml'; // FHB_FEED: point at another build
@@ -144,4 +144,55 @@ test('the disjoint check FAILS on an injected duplicate GTIN (proof it can rejec
 	const fhb = [{ gtin: '9798893000000' }];
 	assert.deepEqual(overlap(smp, fhb), []);
 	assert.deepEqual(overlap(smp, [...fhb, { gtin: '9798893075595' }]), ['9798893075595']);
+});
+
+// Merchant Center 5402182771 (2026-11-17): every item "Unsupported currency - Prevents from showing in South Korea"
+// because the feed declared KR shipping on a USD price. A local-currency-only country never gets a <g:shipping>
+// unless the item is priced in that currency.
+const shipTo = (cc) => ({ name: 'Standard', shippingRate: { value: '0', currency: 'USD' }, shippingDestination: { addressCountry: cc } });
+const fakeItem = (currency) =>
+	new Map([['x-pb', { id: 'x-pb', slug: 'x', title: 'X', description: 'x', link: 'l', image: 'i', price: '9.99', currency, availability: 'https://schema.org/InStock', gtin: '9781961614826', ship: [shipTo('US'), shipTo('KR'), shipTo('GB')] }]]);
+const countries = (xml) => [...xml.matchAll(/<g:country>(\w+)<\/g:country>/g)].map((m) => m[1]);
+
+test('no shipping block for a local-currency-only country on a USD price (MC: Unsupported currency)', () => {
+	assert.equal(MC_LOCAL_CURRENCY_ONLY.KR, 'KRW');
+	assert.deepEqual(countries(render(fakeItem('USD'))), ['US', 'GB']);
+	// KR is not in the ranked feed list (merchant-feed-countries.json), so render() never emits it; the currency rule
+	// itself still lets a KRW price through when a ranked list includes KR:
+	const row = (cc) => ({ shippingDestination: { addressCountry: cc } });
+	const withKR = new Map(['US', 'KR', 'GB'].map((c, n) => [c, n]));
+	const cc = (rows) => rows.map((d) => d.shippingDestination.addressCountry);
+	assert.deepEqual(cc(mcShipping(['US', 'KR', 'GB'].map(row), 'KRW', 'x', withKR)), ['US', 'KR', 'GB'], 'a KRW price may still ship to KR');
+	assert.deepEqual(cc(mcShipping(['US', 'KR', 'GB'].map(row), 'USD', 'x', withKR)), ['US', 'GB']);
+});
+
+test('the built feed declares no shipping to a local-currency-only country it is not priced in', (t) => {
+	if (!built) return t.skip('no dist build');
+	const xml = fs.readFileSync(FEED, 'utf8');
+	for (const m of xml.matchAll(/<item>(.*?)<\/item>/gs)) {
+		const cur = tag(m[1], 'g:price').split(' ')[1];
+		for (const cc of countries(m[1])) assert.ok(!MC_LOCAL_CURRENCY_ONLY[cc] || MC_LOCAL_CURRENCY_ONLY[cc] === cur, `${tag(m[1], 'g:id')} ships to ${cc} priced in ${cur}`);
+	}
+});
+
+// Google caps [shipping] at 100 per product (help 6324484); 222-223 per item would leave every SMP item Not approved.
+const RANKED = JSON.parse(fs.readFileSync(new URL('../src/data/merchant-feed-countries.json', import.meta.url), 'utf8')).countries;
+test('every item has at most 100 shipping rows, US first, only ranked countries, no KR', (t) => {
+	if (!built) return t.skip('no dist build');
+	assert.ok(RANKED.length <= MC_MAX_SHIPPING && RANKED[0] === 'US' && !RANKED.includes('KR'));
+	const xml = fs.readFileSync(FEED, 'utf8');
+	for (const m of xml.matchAll(/<item>(.*?)<\/item>/gs)) {
+		const cs = [...m[1].matchAll(/<g:shipping><g:country>([A-Z]{2})<\/g:country>/g)].map((x) => x[1]);
+		assert.ok(cs.length >= 1 && cs.length <= MC_MAX_SHIPPING, `item has ${cs.length} shipping rows`);
+		assert.equal(cs[0], 'US');
+		assert.ok(cs.every((c) => RANKED.includes(c)), 'unranked country in feed');
+	}
+});
+test('the shipping cap FAILS above 100 rows and on no ranked country (proof it can reject)', () => {
+	const row = (cc) => ({ shippingDestination: { addressCountry: cc } });
+	const codes = Array.from({ length: 101 }, (_, n) => `X${String.fromCharCode(65 + Math.floor(n / 26))}${String.fromCharCode(65 + (n % 26))}`);
+	const wide = new Map(codes.map((c, n) => [c, n]));
+	assert.throws(() => mcShipping(codes.map(row), 'USD', 'x', wide), /Google allows 100/);
+	assert.throws(() => mcShipping([row('ZZ')], 'USD', 'x'), /ships to none/);
+	assert.equal(mcShipping(codes.slice(0, 100).map(row), 'USD', 'x', wide).length, 100);
 });
