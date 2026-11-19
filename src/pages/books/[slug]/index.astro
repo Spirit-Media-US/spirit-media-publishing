@@ -659,13 +659,23 @@ const ORG = {
 	name: 'Spirit Media Publishing',
 	url: `${SITE}/`,
 };
-const returnPolicy = {
+// Google caps applicableCountry at 50 PER MerchantReturnPolicy (FHB GSC 2026-11-14 "can be defined at most 50 times"):
+// the same terms are split into objects of <=50 countries each, served order kept, coverage = shippingDestination.
+// Port of FHB src/lib/merchantReturnPolicy.ts returnPolicyChunks (builder 2026-11-19, hand-off 2026-11-18).
+// returnFees FreeReturn: the /returns promise never has the buyer pay to send anything back (GSC "Missing returnFees").
+const MAX_RETURN_COUNTRIES = 50;
+const returnPolicyFor = (list: string[]) => ({
 	'@type': 'MerchantReturnPolicy',
-	applicableCountry: p.served.length === 1 ? p.served[0] : p.served,
+	applicableCountry: list.length === 1 ? list[0] : list,
 	returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
 	merchantReturnDays: RETURN_DAYS,
+	returnFees: 'https://schema.org/FreeReturn',
 	merchantReturnLink: `${SITE}/returns/`,
-};
+});
+const returnChunks: ReturnType<typeof returnPolicyFor>[] = [];
+for (let i = 0; i < p.served.length; i += MAX_RETURN_COUNTRIES)
+	returnChunks.push(returnPolicyFor(p.served.slice(i, i + MAX_RETURN_COUNTRIES)));
+const returnPolicy = returnChunks.length === 1 ? returnChunks[0] : returnChunks;
 const offerFor = (f: Fmt) => ({
 	'@type': 'Offer',
 	price: ((f.list_cents as number) / 100).toFixed(2),
