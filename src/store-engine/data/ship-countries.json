@@ -432,7 +432,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -494,7 +494,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -556,7 +556,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -830,7 +830,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -870,7 +870,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -976,7 +976,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1038,7 +1038,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1122,7 +1122,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1204,7 +1204,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1266,7 +1266,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1306,7 +1306,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1346,7 +1346,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1386,7 +1386,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1484,7 +1484,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1568,7 +1568,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1608,7 +1608,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1714,7 +1714,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1798,7 +1798,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -1948,7 +1948,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2054,7 +2054,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2116,7 +2116,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2156,7 +2156,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2218,7 +2218,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2432,7 +2432,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2472,7 +2472,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2794,7 +2794,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -2834,7 +2834,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3090,7 +3090,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3130,7 +3130,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3384,7 +3384,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3424,7 +3424,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3464,7 +3464,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3526,7 +3526,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3566,7 +3566,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3606,7 +3606,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3668,7 +3668,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3708,7 +3708,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3748,7 +3748,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3788,7 +3788,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3894,7 +3894,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3956,7 +3956,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -3996,7 +3996,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4036,7 +4036,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4076,7 +4076,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4116,7 +4116,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4200,7 +4200,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4240,7 +4240,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4280,7 +4280,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4422,7 +4422,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4506,7 +4506,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4546,7 +4546,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4608,7 +4608,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4670,7 +4670,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4838,7 +4838,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -4984,7 +4984,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5024,7 +5024,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5064,7 +5064,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5342,7 +5342,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5404,7 +5404,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5466,7 +5466,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5660,7 +5660,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5700,7 +5700,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5740,7 +5740,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5802,7 +5802,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -5842,7 +5842,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6012,7 +6012,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6052,7 +6052,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6174,7 +6174,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6214,7 +6214,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6342,7 +6342,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6446,7 +6446,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6486,7 +6486,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6526,7 +6526,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6566,7 +6566,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6606,7 +6606,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6646,7 +6646,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6752,7 +6752,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6814,7 +6814,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -6898,7 +6898,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -7082,7 +7082,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -7144,7 +7144,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -7228,7 +7228,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -7268,7 +7268,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -7308,7 +7308,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
@@ -7348,7 +7348,7 @@
 				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
 			},
-			"ingram_cost_status": "UNMEASURED",
+			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
 				"pb": 63.17,
