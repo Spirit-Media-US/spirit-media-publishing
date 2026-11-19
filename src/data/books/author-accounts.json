@@ -1,6 +1,33 @@
 {
 	"_note": "OWN-ACCOUNT AUTHORS (Kevin 2026-11-18, verbatim: \"we can't source their book if it is not in our pub account so we can't sell them. We are the publisher and should help add SEO/AEO value. No issue pointing to THEIR Amazon. Just no checkout form needed on the page.\"). A slug here is a book that lives in the AUTHOR's own KDP/IngramSpark/D2D accounts (no-royalty-split agreements, 14.1). Its /books/<slug>/ page keeps all SEO/AEO content but carries NO order box, NO store eBook, NO Offer and NO SMP-account ISBN or LCCN: the retailer box points to the author's own listing, and formats/ISBN shown are the author's edition. Its SKUs are also removed from src/store-engine/data/book-skus.json so no checkout, bookstore card price or merchant feed can sell it. Each href verified live with bin/amazon-book.mjs on the date in 'checked'.",
 	"books": {
+		"love-gods-way": {
+			"author": "Wanda Bailey Clark",
+			"href": "https://www.amazon.com/dp/B0HK3TKGPW",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0HK3TKGPW", "https://www.amazon.com/dp/B0HK12W1LF"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893073614",
+					"isbn_display": "979-8893073614",
+					"asin": "B0HK3TKGPW"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0HK12W1LF"
+				}
+			],
+			"retired_smp_skus": [
+				"love-gods-way SMP-account paperback, unpublished+archived (ISBN 9798893079012)",
+				"love-gods-way SMP eBook ISBN, never used in the author's accounts (ISBN 9798893072907)"
+			],
+			"checked": "2026-11-19"
+		},
 		"following-god-is-easy": {
 			"author": "Vern Kaska III",
 			"href": "https://www.amazon.com/dp/B0H68FHJWK",
