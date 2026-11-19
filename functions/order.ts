@@ -4,6 +4,9 @@
 interface Env {
 	STRIPE_STORE_SECRET_KEY?: string;
 }
+
+import { buildOptIn, optInSnippet } from '../src/lib/customerReviews.ts';
+
 const SUPPORT = 'hello@spiritmediapublishing.com';
 // CONTACT US (Kevin 2026-11-16, standing rule): a button that opens mail to hello@, labelled only "Contact us"; the
 // address itself is never printed on the page.
@@ -19,7 +22,7 @@ const money = (cents: number, cur = 'usd') =>
 		(cents || 0) / 100,
 	);
 
-export function page(title: string, body: string) {
+export function page(title: string, body: string, tail = '') {
 	return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>${esc(title)} | Spirit Media Publishing</title>
 <style>body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fafaf9;color:#1c1917}
@@ -27,7 +30,7 @@ main{max-width:640px;margin:0 auto;padding:40px 16px}h1{font-size:1.8rem;margin:
 table{width:100%;border-collapse:collapse;margin:20px 0}td{padding:8px 0;border-bottom:1px solid #e7e5e4}td.r{text-align:right}
 .contact{display:inline-block;background:#b91c1c;color:#fff;font-weight:600;padding:.5rem 1.2rem;border-radius:999px;text-decoration:none}
 .box{background:#fff;border:1px solid #d6d3d1;border-radius:8px;padding:16px;margin-top:16px}.muted{color:#57534e}</style></head>
-<body><main><p><a href="/">Spirit Media Publishing</a></p>${body}</main></body></html>`;
+<body><main><p><a href="/">Spirit Media Publishing</a></p>${body}</main>${tail}</body></html>`;
 }
 
 export function orderHtml(s: any): string {
@@ -49,6 +52,12 @@ export function orderHtml(s: any): string {
 <table>${items}<tr><td><strong>Total</strong></td><td class="r"><strong>${money(s.amount_total, s.currency)}</strong></td></tr></table>
 ${addr}<p class="muted">Order reference: ${esc(String(s.id).slice(-12))}. Questions? ${contactUs(`Order ${String(s.id).slice(-12)}`)}</p>
 <p><a href="/bookstore/">Browse all our books</a></p>`,
+		// Google Customer Reviews opt-in: this page only, values from the verified session. buildOptIn returns null
+		// (module omitted) for test-mode or unpaid sessions or any unverifiable value.
+		(() => {
+			const o = buildOptIn(s);
+			return o ? optInSnippet(o) : '';
+		})(),
 	);
 }
 
@@ -69,7 +78,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
 		);
 	}
 	const r = await fetch(
-		`https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sid)}?expand[]=line_items`,
+		`https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sid)}?expand[]=line_items&expand[]=shipping_cost.shipping_rate`,
 		{ headers: { authorization: `Bearer ${env.STRIPE_STORE_SECRET_KEY}` } },
 	);
 	if (!r.ok) {
