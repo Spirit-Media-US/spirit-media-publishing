@@ -410,10 +410,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -423,7 +441,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -454,10 +472,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -467,7 +503,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -498,10 +534,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -511,7 +565,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -754,10 +808,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -767,7 +839,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -776,10 +848,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -789,7 +879,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -864,10 +954,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -877,7 +985,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -908,10 +1016,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -921,7 +1047,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -974,10 +1100,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -987,7 +1131,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1038,10 +1182,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1051,7 +1213,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1082,10 +1244,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1095,7 +1275,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1104,10 +1284,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1117,7 +1315,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1126,10 +1324,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1139,7 +1355,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1148,10 +1364,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1161,7 +1395,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1228,10 +1462,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1241,7 +1493,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1294,10 +1546,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1307,7 +1577,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1316,10 +1586,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1329,7 +1617,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1404,10 +1692,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1417,7 +1723,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1470,10 +1776,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1483,7 +1807,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1602,10 +1926,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1615,7 +1957,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1690,10 +2032,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1703,7 +2063,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1734,10 +2094,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1747,7 +2125,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1756,10 +2134,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1769,7 +2165,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1800,10 +2196,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -1813,7 +2227,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -1996,10 +2410,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2009,7 +2441,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2018,10 +2450,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2031,7 +2481,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2062,25 +2512,29 @@
 			"zone": "Europe+UK",
 			"far_band": false,
 			"route": "DE",
-			"printSite": "UK",
+			"printSite": "US",
 			"printSiteBasis": "MEASURED",
 			"ingram_cost_hc": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 26.28,
-				"shipping_cheapest": 6.66,
-				"total_qty1": 34.59,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 26.54,
+				"total_qty1": 59.53,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 10 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £6.66 Premium - DAP - £9.74 Rush - DAP - £23.76 Premium - DDP - £27.48 Rush - DDP - £38.41"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_pb": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 22.57,
-				"shipping_cheapest": 6.5,
-				"total_qty1": 30.72,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 25.28,
+				"total_qty1": 50.2,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 5 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £6.50 Premium - DAP - £9.74 Rush - DAP - £23.61 Premium - DDP - £27.48 Rush - DDP - £38.19"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
@@ -2111,7 +2565,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 59.53, 'LS UK (EUR)': 44.09, 'LS UK (GBP)': 43.93} Earlier note: Candidate. Printed at UK site; EUR 3 customs duty from 2026-07-01 on small parcels."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 59.53, 'LS UK (EUR)': 44.09, 'LS UK (GBP)': 43.93} Earlier note: Candidate. Printed at UK site; EUR 3 customs duty from 2026-07-01 on small parcels."
 		},
 		{
 			"status": "PENDING",
@@ -2318,10 +2772,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2331,7 +2803,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2340,10 +2812,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2353,7 +2843,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2516,25 +3006,29 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
+			"printSite": "US",
 			"printSiteBasis": "MEASURED",
 			"ingram_cost_hc": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 26.28,
-				"shipping_cheapest": 24.62,
-				"total_qty1": 52.55,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 10 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £24.62 Premium - DAP - £34.16"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_pb": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 22.57,
-				"shipping_cheapest": 23.35,
-				"total_qty1": 47.57,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 5 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £23.35 Premium - DAP - £33.74"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
@@ -2565,7 +3059,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 67.17, 'LS UK (GBP)': 66.74} Earlier note: Candidate. No public shipping/duty data. Stripe Tax: digital only."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 67.17, 'LS UK (GBP)': 66.74} Earlier note: Candidate. No public shipping/duty data. Stripe Tax: digital only."
 		},
 		{
 			"status": "PENDING",
@@ -2574,10 +3068,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2587,7 +3099,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2596,10 +3108,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2609,7 +3139,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2832,10 +3362,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2845,7 +3393,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2854,10 +3402,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2867,7 +3433,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2876,10 +3442,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2889,7 +3473,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2920,10 +3504,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2933,7 +3535,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2942,10 +3544,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2955,7 +3575,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -2964,10 +3584,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -2977,7 +3615,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3008,10 +3646,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3021,7 +3677,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3030,10 +3686,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3043,7 +3717,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3052,10 +3726,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3065,7 +3757,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3074,10 +3766,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3087,7 +3797,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3162,10 +3872,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3175,7 +3903,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3206,10 +3934,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3219,7 +3965,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3228,10 +3974,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3241,7 +4005,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3250,10 +4014,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3263,7 +4045,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3272,10 +4054,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3285,7 +4085,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3294,10 +4094,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3307,7 +4125,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3360,10 +4178,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3373,7 +4209,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3382,10 +4218,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3395,7 +4249,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3404,10 +4258,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3417,7 +4289,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3528,10 +4400,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3541,7 +4431,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3594,10 +4484,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3607,7 +4515,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3616,10 +4524,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3629,7 +4555,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3660,10 +4586,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3673,7 +4617,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3704,10 +4648,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3717,7 +4679,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3854,10 +4816,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3867,7 +4847,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -3876,25 +4856,29 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
+			"printSite": "US",
 			"printSiteBasis": "MEASURED",
 			"ingram_cost_hc": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 26.28,
-				"shipping_cheapest": 29.07,
-				"total_qty1": 57.0,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 10 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £29.07 Premium - DAP - £34.16"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_pb": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 22.57,
-				"shipping_cheapest": 27.56,
-				"total_qty1": 51.78,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 5 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £27.56 Premium - DAP - £33.74"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
@@ -3905,7 +4889,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 72.88, 'LS UK (GBP)': 72.39} Near-tie US vs UK on cost; UK kept per region rule. Earlier note: Candidate. No book duty exemption found; VAT 7.5%."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 72.88, 'LS UK (GBP)': 72.39} Near-tie US vs UK on cost; UK kept per region rule. Earlier note: Candidate. No book duty exemption found; VAT 7.5%."
 		},
 		{
 			"status": "PENDING",
@@ -3978,10 +4962,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -3991,7 +4993,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4000,10 +5002,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4013,7 +5033,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4022,10 +5042,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4035,7 +5073,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4132,25 +5170,29 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
+			"printSite": "US",
 			"printSiteBasis": "MEASURED",
 			"ingram_cost_hc": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 26.28,
-				"shipping_cheapest": 29.42,
-				"total_qty1": 57.35,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 10 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £29.42 Premium - DAP - £29.52"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_pb": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 22.57,
-				"shipping_cheapest": 27.9,
-				"total_qty1": 52.12,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 5 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £27.90 Premium - DAP - £29.22"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
@@ -4181,7 +5223,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 73.15, 'LS UK (GBP)': 72.83} Near-tie US vs UK on cost; UK kept per region rule. Earlier note: Candidate. Books exempt from duty/VAT (DOF); commercial importers need exemption."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 73.15, 'LS UK (GBP)': 72.83} Near-tie US vs UK on cost; UK kept per region rule. Earlier note: Candidate. Books exempt from duty/VAT (DOF); commercial importers need exemption."
 		},
 		{
 			"status": "PENDING",
@@ -4278,10 +5320,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4291,7 +5351,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4322,10 +5382,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4335,7 +5413,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4366,10 +5444,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4379,7 +5475,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4542,10 +5638,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4555,7 +5669,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4564,10 +5678,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4577,7 +5709,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4586,10 +5718,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4599,7 +5749,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4630,10 +5780,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4643,7 +5811,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4652,10 +5820,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4665,7 +5851,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4804,10 +5990,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4817,7 +6021,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4826,10 +6030,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4859,7 +6081,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4868,25 +6090,29 @@
 			"zone": "Europe+UK",
 			"far_band": false,
 			"route": "ES",
-			"printSite": "UK",
+			"printSite": "US",
 			"printSiteBasis": "MEASURED",
 			"ingram_cost_hc": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 26.28,
-				"shipping_cheapest": 11.87,
-				"total_qty1": 39.8,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 23.39,
+				"total_qty1": 56.38,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 10 business days",
-				"ship_methods_raw": "Premium - DAP - £11.87 Standard - DAP (not trackable or insurable) - £20.63 Premium - DDP - £28.79 Rush - DAP - £30.91 Rush - DDP - £45.03"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_pb": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 22.57,
-				"shipping_cheapest": 11.87,
-				"total_qty1": 36.09,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 22.33,
+				"total_qty1": 47.25,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 5 business days",
-				"ship_methods_raw": "Premium - DAP - £11.87 Standard - DAP (not trackable or insurable) - £19.81 Premium - DDP - £28.79 Rush - DAP - £30.66 Rush - DDP - £44.74"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
@@ -4917,7 +6143,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 56.38, 'LS UK (EUR)': 50.52, 'LS UK (GBP)': 50.55}"
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 56.38, 'LS UK (EUR)': 50.52, 'LS UK (GBP)': 50.55}"
 		},
 		{
 			"status": "PENDING",
@@ -4926,10 +6152,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4939,7 +6183,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -4948,10 +6192,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -4961,7 +6223,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5058,10 +6320,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5071,7 +6351,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5144,10 +6424,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5157,7 +6455,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5166,10 +6464,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5179,7 +6495,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5188,10 +6504,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5201,7 +6535,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5210,10 +6544,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5223,7 +6575,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5232,10 +6584,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5245,7 +6615,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5254,10 +6624,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5267,7 +6655,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5342,10 +6730,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5355,7 +6761,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5386,10 +6792,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5399,7 +6823,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5452,10 +6876,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5465,7 +6907,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5496,25 +6938,29 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
+			"printSite": "US",
 			"printSiteBasis": "MEASURED",
 			"ingram_cost_hc": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 26.28,
-				"shipping_cheapest": 12.3,
-				"total_qty1": 40.23,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 10 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £12.30 Premium - DAP - £34.16"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_pb": {
-				"print_site": "UK",
-				"currency": "GBP",
-				"print_unit": 22.57,
-				"shipping_cheapest": 11.76,
-				"total_qty1": 35.98,
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
 				"dispatch_economy": "Usually dispatches in 5 business days",
-				"ship_methods_raw": "Standard - DAP (not trackable or insurable) - £11.76 Premium - DAP - £33.74"
+				"source": "aeo-state/fhb-ingram-shipto-20261108.json (IngramSpark calculator 2026-11-08)"
 			},
 			"ingram_cost_status": "MEASURED",
 			"landed_cost_usd": {
@@ -5525,7 +6971,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 51.31, 'LS UK (GBP)': 51.09} Earlier note: Candidate. UAE site named in one Ingram document only."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: Cheaper measured site UK (en_hc qty1 total in USD-equiv, FX assumed GBP1.27 EUR1.08 AUD0.65): {'LS US (USD)': 73.34, 'LS UK (EUR)': 51.31, 'LS UK (GBP)': 51.09} Earlier note: Candidate. UAE site named in one Ingram document only."
 		},
 		{
 			"status": "PENDING",
@@ -5614,10 +7060,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5627,7 +7091,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: East/Central Asia: UK by eastern-hemisphere inference. UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5658,10 +7122,28 @@
 			"zone": "Asia-Pacific",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5671,7 +7153,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5724,10 +7206,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5737,7 +7237,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5746,10 +7246,28 @@
 			"zone": "Middle East",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5759,7 +7277,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5768,10 +7286,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5781,7 +7317,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
@@ -5790,10 +7326,28 @@
 			"zone": "Africa",
 			"far_band": true,
 			"route": "FAR",
-			"printSite": "UK",
-			"printSiteBasis": "INFERRED",
-			"ingram_cost_hc": null,
-			"ingram_cost_pb": null,
+			"printSite": "US",
+			"printSiteBasis": "MEASURED",
+			"ingram_cost_hc": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 32.99,
+				"handling": 0.0,
+				"shipping_ddp": 40.35,
+				"total_qty1": 73.34,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
+			"ingram_cost_pb": {
+				"print_site": "US",
+				"currency": "USD",
+				"print_unit": 24.92,
+				"handling": 0.0,
+				"shipping_ddp": 38.25,
+				"total_qty1": 63.17,
+				"ship_method": "OSM/USPS Global Priority Parcel-DDP",
+				"source": "projects/pmpublish/checks/fhb-shipcountries-20261114/summary.json (IngramSpark calculator 2026-11-14/15)"
+			},
 			"ingram_cost_status": "UNMEASURED",
 			"landed_cost_usd": {
 				"hc": 73.34,
@@ -5803,7 +7357,7 @@
 			"shippingRate": null,
 			"handlingDays": null,
 			"transitDays": null,
-			"note": "UNMEASURED: no calculator cost; site inferred by region."
+			"note": "ONE COST BASIS (builder 2026-11-19, SMP store close-out item 3): landed_cost_usd was the US site's measured USPS Global Priority DDP total while printSite said UK (UK offers only DAP here, dearer at the file's fx). printSite now = US, the site whose duty-paid cost the margin guard and handling fee already use (Kevin 2026-11-17 #7 'use DDP'). Prior: UNMEASURED: no calculator cost; site inferred by region."
 		},
 		{
 			"status": "PENDING",
