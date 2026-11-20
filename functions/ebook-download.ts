@@ -1,41 +1,174 @@
-// /ebook-download on spiritmediapublishing.com — the SMP shop window's door to the store's ONE eBook download endpoint
-// (Kevin 2026-11-16 "We point to our own ebook sales"; Option C: one store, two shop windows).
-// BUILD-CHECK: searched ebook download proxy (tool-inventory.py) + ls functions/ in both repos
-// NEAREST: FHB functions/ebook-download.ts (the store's ONE download endpoint; this file only forwards to it)
-// NOT-REUSED-BECAUSE: that endpoint is reused, not copied: it needs the FHB_EBOOK R2 binding and the webhook secret,
-//   which exist only on the FHB Pages project. A Pages Function is the only way an SMP-window buyer's link can stay on
-//   spiritmediapublishing.com; this file holds no logic, secret or bucket of its own.
-// APPROVED-BY: deploy PM brief pmprint-smp-direct-ebooks-20261116 (Kevin 2026-11-16 P1 "We point to our own ebook sales": the SMP-window download email)
+// /ebook-download — session-verified delivery of every direct-sale eBook (the store's ONE download endpoint).
+// MOVED from FHB functions/ebook-download.ts to the SMP site (map smp-store-one-home-v1 §4 move 3; Kevin 2026-11-20
+// ~18:51Z "2 this needs to be moved. You are inheriting OLD instead of making it new"). Until then this file only
+// forwarded to FHB; now SMP has its own private-R2 binding (STORE_EBOOK -> bucket fhb-ebook) and its own signing
+// secret (EBOOK_LINK_SECRET), and FHB's /ebook-download forwards HERE.
 //
-// Verification and delivery live in ONE place, FHB functions/ebook-download.ts: it checks the signed link
-// (FHB src/lib/ebookLink.ts), re-reads the Stripe session (paid + ebook_direct + this SKU) and streams the EPUB from the
-// private R2 bucket. This only forwards the link's parameters there and hands the answer back unchanged (its redirect
-// is a relative /ebook-download?… so the buyer stays on SMP). A preview forwards to FHB's dev preview, production to FHB.
-const FHB_PROD = 'https://fathersheartbible.com';
-const FHB_PREVIEW = 'https://dev.fathersheartbible.pages.dev';
+// THE BIBLE EBOOK (sold since v1; its success page and emailed link carry only the session):
+//   GET /ebook-download?s=<checkout_session_id>            → thank-you page + download button
+//   GET /ebook-download?s=<checkout_session_id>&dl=epub    → streams the EPUB (attachment)
+// A BOOK'S EBOOK (SMP /store-checkout):
+//   GET /ebook-download?s=<sid>                            → Stripe says paid + ebook_direct + ebook_sku → 302 to the
+//                                                            v2 SIGNED link below (Stripe's success_url cannot carry it)
+//   GET /ebook-download?s=<sid>&e=<sku>&t=<sig>&v=2[&dl=epub]  → the v2 signature (src/lib/ebookLink.ts) must verify
+//                                                            FIRST (a tampered link never reaches Stripe), then the
+//                                                            session must be paid, ebook_direct, and sold exactly <sku>
+//   GET /ebook-download?s=<sid>&e=<sku>&t=<sig>[&dl=epub]  → a LEGACY v1 link (signed by FHB before the move, with a
+//                                                            key SMP does not hold): handled like the success redirect,
+//                                                            i.e. Stripe must say paid + ebook_direct + exactly <sku>,
+//                                                            then 302 to a fresh v2 link. Every link already emailed works.
+// Every file lives in the private R2 bucket; nothing is public. DRM-free. Contact = a "Contact us" button, the address is
+// never printed (Kevin 2026-11-16 CONTACT US rule; the FHB original printed it).
+// BUILD-CHECK: searched ebook link signer, store webhook, order page (tool-inventory.py) + ls functions/ src/lib in FHB and SMP
+// NEAREST: FHB functions/ebook-download.ts (this file, ported) + the former SMP proxy that forwarded to it
+// NOT-REUSED-BECAUSE: this IS that code, MOVED into SMP (a Pages project cannot import another's files or bindings).
+// APPROVED-BY: Kevin 2026-11-20 ~18:51Z "2 this needs to be moved. You are inheriting OLD instead of making it new" (brief jobs/smp-store-one-home-brief.md)
 
-/** Which FHB answers this request: a pages.dev preview of SMP talks to FHB's dev preview, never to production. */
-export const upstreamFor = (url: URL) =>
-	url.hostname.endsWith('.pages.dev') || url.hostname === 'localhost' ? FHB_PREVIEW : FHB_PROD;
+import ebookFiles from '../src/data/ebook-files.json' with { type: 'json' };
+import {
+	SID_RE,
+	sessionGrantsEbook,
+	signEbookLink,
+	verifyEbookLink,
+} from '../src/lib/ebookLink.ts';
+import { EBOOK_SKUS } from '../src/store-engine/lib/storeEngine.ts';
+import EBOOK from './ebook-current.json' with { type: 'json' };
 
-export const onRequestGet: PagesFunction = async ({ request }) => {
-	const url = new URL(request.url);
-	// only the link's own parameters travel (s, e, t, dl): nothing else is forwarded
-	const q = new URLSearchParams();
-	for (const k of ['s', 'e', 't', 'dl']) {
-		const v = url.searchParams.get(k);
-		if (v !== null) q.set(k, v);
-	}
-	const up = await fetch(`${upstreamFor(url)}/ebook-download?${q}`, {
-		redirect: 'manual',
-		headers: { 'x-store-window': 'smp' },
+interface Env {
+	STRIPE_STORE_SECRET_KEY?: string;
+	EBOOK_LINK_SECRET?: string;
+	STORE_EBOOK?: R2Bucket;
+}
+
+// Which Bible eBook object ships is decided by the eBook RECORD (projects/fhb-ebook/epub-manifest.json):
+// ebook-current.json is a derived view written by bin/fhb-ebook-config.py --write.
+const EPUB_KEY: string = EBOOK.key;
+const EPUB_NAME: string = EBOOK.filename;
+// A book eBook's object (generated by bin/fhb-ebook-config.py --smp-write from the item-3 file record).
+const FILES = (ebookFiles as { files: Record<string, { key: string; filename: string }> }).files;
+
+type Session = {
+	id?: string;
+	payment_status?: string;
+	metadata?: Record<string, string> | null;
+};
+async function getSession(env: Env, sid: string): Promise<Session | null> {
+	if (!SID_RE.test(sid)) return null;
+	const r = await fetch(`https://api.stripe.com/v1/checkout/sessions/${sid}`, {
+		headers: { Authorization: `Bearer ${env.STRIPE_STORE_SECRET_KEY}` },
 	});
-	const headers = new Headers();
-	for (const k of ['content-type', 'content-disposition', 'cache-control', 'location']) {
-		const v = up.headers.get(k);
-		if (v) headers.set(k, v);
+	return r.ok ? ((await r.json()) as Session) : null;
+}
+
+const page = (body: string, smp = false, status = 200) =>
+	new Response(
+		`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${smp ? 'Your eBook' : 'Your Father’s Heart Bible eBook'}</title><style>body{font-family:system-ui,-apple-system,sans-serif;background:${smp ? '#f7f5f2' : '#faf6f2'};color:#1a1c1c;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:1.5rem}.card{max-width:34rem;text-align:center;background:#fff;border:1px solid ${smp ? '#ddd7cf' : '#e4bdc4'};border-radius:1rem;padding:2.5rem}a.btn{display:inline-block;background:${smp ? '#c0392b' : '#b60057'};color:#fff;text-decoration:none;font-weight:700;padding:0.85rem 1.8rem;border-radius:999px;margin-top:1rem}h1{font-size:1.6rem;margin:0 0 0.5rem}p{color:${smp ? '#3f3f46' : '#5b3f46'};line-height:1.6}</style></head><body><div class="card">${body}</div></body></html>`,
+		{
+			status,
+			headers: {
+				'content-type': 'text/html; charset=utf-8',
+				'cache-control': 'no-store',
+				'x-robots-tag': 'noindex',
+			},
+		},
+	);
+const REFUSED = (smp = false) =>
+	page(
+		'<h1>We couldn’t verify that purchase</h1><p>This download link is invalid or expired. If you just bought the eBook and see this, contact us and we’ll sort it out.</p><a class="btn" href="mailto:hello@spiritmediapublishing.com?subject=eBook%20download">Contact us</a>',
+		smp,
+		403,
+	);
+const UNAVAILABLE = (smp = false) =>
+	page(
+		'<h1>File temporarily unavailable</h1><p>Please contact us and we’ll send it to you.</p><a class="btn" href="mailto:hello@spiritmediapublishing.com?subject=eBook%20download">Contact us</a>',
+		smp,
+		503,
+	);
+const esc = (s: string) =>
+	s.replace(
+		/[&<>"]/g,
+		(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string,
+	);
+const toSigned = async (env: Env, sid: string, sku: string) => {
+	const t = await signEbookLink(env.EBOOK_LINK_SECRET, sid, sku);
+	return t
+		? new Response(null, {
+				status: 302,
+				headers: {
+					location: `/ebook-download?s=${encodeURIComponent(sid)}&e=${encodeURIComponent(sku)}&t=${t}&v=2`,
+					'cache-control': 'no-store',
+				},
+			})
+		: REFUSED(true);
+};
+
+export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
+	const url = new URL(request.url);
+	const sid = url.searchParams.get('s') || '';
+	const sku = url.searchParams.get('e');
+	const sig = url.searchParams.get('t') || '';
+	const dl = url.searchParams.get('dl');
+
+	if (!env.STRIPE_STORE_SECRET_KEY || !env.STORE_EBOOK) {
+		return page(
+			'<h1>Almost there</h1><p>Direct downloads are being switched on. Please check back shortly — your purchase is safe.</p>',
+		);
 	}
-	if (!headers.has('cache-control')) headers.set('cache-control', 'no-store');
-	headers.set('x-robots-tag', 'noindex');
-	return new Response(up.body, { status: up.status, headers });
+
+	// A BOOK'S EBOOK.
+	if (sku !== null) {
+		if (url.searchParams.get('v') !== '2') {
+			// LEGACY v1 link (FHB-signed): proven by Stripe exactly as the success redirect is, then a fresh v2 link.
+			const s = await getSession(env, sid);
+			if (!sessionGrantsEbook(s, sid, sku)) return REFUSED(true);
+			return toSigned(env, sid, sku);
+		}
+		// v2: signature first (no Stripe call for a forged or tampered link), then Stripe.
+		if (!(await verifyEbookLink(env.EBOOK_LINK_SECRET, sid, sku, sig))) return REFUSED(true);
+		const s = await getSession(env, sid);
+		if (!sessionGrantsEbook(s, sid, sku)) return REFUSED(true);
+		const smp = s?.metadata?.window !== 'fhb';
+		const f = FILES[sku];
+		if (!f) return UNAVAILABLE(smp);
+		if (dl === 'epub') {
+			const obj = await env.STORE_EBOOK.get(f.key);
+			if (!obj) return UNAVAILABLE(smp);
+			return new Response(obj.body, {
+				headers: {
+					'content-type': 'application/epub+zip',
+					'content-disposition': `attachment; filename="${f.filename}"`,
+					'cache-control': 'no-store',
+				},
+			});
+		}
+		const title = EBOOK_SKUS[sku]?.title ?? 'Your eBook';
+		return page(
+			`<h1>Thank you — your eBook is ready</h1><p><strong>${esc(title)}</strong></p><p>It’s a DRM-free EPUB — open it in Apple Books, Google Play Books, or any reader. The same link is in your confirmation email.</p><a class="btn" href="/ebook-download?s=${encodeURIComponent(sid)}&amp;e=${encodeURIComponent(sku)}&amp;t=${sig}&amp;v=2&amp;dl=epub">Download EPUB →</a>`,
+			smp,
+		);
+	}
+
+	const s = await getSession(env, sid);
+	if (!(s?.payment_status === 'paid' && s.metadata?.kind === 'ebook_direct')) return REFUSED();
+
+	// Stripe's success redirect for a book's eBook carries only the session: sign it here and send the buyer on.
+	if (s.metadata?.ebook_sku) return toSigned(env, sid, s.metadata.ebook_sku);
+
+	// THE BIBLE EBOOK (unchanged).
+	if (dl === 'epub') {
+		const obj = await env.STORE_EBOOK.get(EPUB_KEY);
+		if (!obj) return UNAVAILABLE();
+		return new Response(obj.body, {
+			headers: {
+				'content-type': 'application/epub+zip',
+				'content-disposition': `attachment; filename="${EPUB_NAME}"`,
+				'cache-control': 'no-store',
+			},
+		});
+	}
+
+	// Thank-you page with the download button (re-verifies on click).
+	return page(
+		`<h1>Thank you — welcome home</h1><p>Your Father’s Heart Bible eBook is ready. It’s a DRM-free EPUB — open it in Apple Books, Google Play Books, or any reader.</p><a class="btn" href="/ebook-download?s=${encodeURIComponent(sid)}&dl=epub">Download EPUB →</a>`,
+	);
 };

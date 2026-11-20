@@ -386,23 +386,18 @@ test('store-checkout routes an eBook cart to the engine eBook form (no shipping)
 		delete EBOOK_SKUS['fixture-book-ebook'];
 	}
 });
-test('/ebook-download on SMP forwards only s/e/t/dl to FHB (dev preview from pages.dev) and passes the answer back', async () => {
-	const { onRequestGet, upstreamFor } = await import('../functions/ebook-download.ts');
-	assert.equal(upstreamFor(new URL('https://spiritmediapublishing.com/x')), 'https://fathersheartbible.com');
-	assert.equal(upstreamFor(new URL('https://riab-pilot.spirit-media-publishing.pages.dev/x')), 'https://dev.fathersheartbible.pages.dev');
-	let seen = '';
+// MOVED (map smp-store-one-home-v1 move 3, Kevin 2026-11-20 ~18:51Z): SMP /ebook-download no longer forwards to FHB; it
+// serves from its own R2 binding (scripts/ebook-download.test.mjs). This guards against the proxy coming back.
+test('/ebook-download on SMP serves itself: it never forwards to FHB', async () => {
+	const { onRequestGet } = await import('../functions/ebook-download.ts');
+	const seen = [];
 	globalThis.fetch = async (u) => {
-		seen = String(u);
-		return new Response('nope', { status: 403, headers: { 'content-type': 'text/html', 'set-cookie': 'x=1' } });
+		seen.push(String(u));
+		return new Response('{"error":{}}', { status: 404 });
 	};
-	const r = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=cs_test_1&e=a-ebook&t=SIG&dl=epub&evil=1') });
-	assert.equal(seen, 'https://fathersheartbible.com/ebook-download?s=cs_test_1&e=a-ebook&t=SIG&dl=epub');
-	assert.equal(r.status, 403, 'the refusal passes through');
-	assert.equal(r.headers.get('set-cookie'), null);
-	globalThis.fetch = async () => new Response(null, { status: 302, headers: { location: '/ebook-download?s=a&e=b&t=c' } });
-	const r2 = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=a') });
-	assert.equal(r2.status, 302);
-	assert.equal(r2.headers.get('location'), '/ebook-download?s=a&e=b&t=c', 'the buyer stays on SMP');
+	const r = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=cs_test_1234567890&e=a-ebook&t=SIG&v=2&dl=epub'), env: { STRIPE_STORE_SECRET_KEY: 'k', EBOOK_LINK_SECRET: 's', STORE_EBOOK: { get: async () => null } } });
+	assert.equal(r.status, 403, 'a bad signature is refused here');
+	assert.deepEqual(seen.filter((u) => /fathersheartbible/.test(u)), [], 'nothing goes to FHB');
 });
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
