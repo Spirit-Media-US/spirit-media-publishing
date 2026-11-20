@@ -261,11 +261,19 @@ test('DUPLICATE-SAFE: the same event delivered to BOTH endpoints at once sends e
 		globalThis.fetch = stripe.handle;
 		try {
 			// FHB's endpoint runs the identical claim under its own name (FHB functions/print-webhook.ts claimSession)
+			// deterministic interleaving: the second endpoint starts its claim while the first one's is IN FLIGHT
+			const inFlight = async () => {
+				while (!stripe.idem.has(claimKey(sid))) await new Promise((r) => setTimeout(r, 1));
+			};
 			const fhbClaim = async () => {
-				if (!fhbFirst) await new Promise((r) => setTimeout(r, 5));
+				if (!fhbFirst) await inFlight();
 				return claimSession('rk_fhb_stub', sid, FHB_BY);
 			};
-			const [smp, fhb] = await Promise.all([webhook({ request: signed(ev), env: ENV }), fhbClaim()]);
+			const smpRun = async () => {
+				if (fhbFirst) await inFlight();
+				return webhook({ request: signed(ev), env: ENV });
+			};
+			const [smp, fhb] = await Promise.all([smpRun(), fhbClaim()]);
 			const winners = [smp.status === 200 && stripe.mail.length === 2, fhb === 'ours'].filter(Boolean).length;
 			assert.equal(winners, 1, `exactly one endpoint owns the session (fhbFirst=${fhbFirst})`);
 			if (fhbFirst) {
