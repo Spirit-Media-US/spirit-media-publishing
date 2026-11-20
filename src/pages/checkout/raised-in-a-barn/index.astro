@@ -1,4 +1,5 @@
 ---
+import RiabOrderForm from '../../../components/RiabOrderForm.astro';
 // /checkout/raised-in-a-barn/ — the BRANDED SMP checkout for Raised in a Barn by Van Eure (pmseoaeo 2026-11-20; Kevin
 // 2026-11-19 23:45Z "do it 100% same as FHB which says through SMP and when you click the buy button it takes you to SMP
 // for checkout. Need to make sure branding is customized for RIAB by Van Eure"; 11-20 00:05Z signed copies same price +
@@ -7,30 +8,13 @@
 //   &signed=1                ... autographed (same price)
 //   ?qty=N                   preselect N copies (bulk)
 //   #bulk / #donate          jump to the bulk table / the gift box
-// Prices and tiers come from src/lib/riabOrder.ts, the same module /store-checkout charges with. noindex (a checkout).
+// The form itself is src/components/RiabOrderForm.astro (shared with the iframe variant ./embed/). NO first-order 15% on
+// RIAB (Kevin 2026-11-20 ~05:00Z): below 25 copies = list price. noindex (a checkout).
 // DONATION BOX: shown, DISABLED: the SM Charities Stripe link (Connect) does not exist yet (see riabOrder.ts (c)).
 import Layout from '../../../layouts/Layout.astro';
-import {
-	RIAB_HB,
-	RIAB_PB,
-	RIAB_RETURN_PATH,
-	RIAB_TIERS,
-	riabList,
-} from '../../../lib/riabOrder.ts';
 
 const cover =
 	'https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-1200.jpg';
-const money = (c: number) => `$${(c / 100).toFixed(2)}`;
-const unit = (c: number, p: number) => Math.round((c * (100 - p)) / 100);
-const list = { hb: riabList(RIAB_HB), pb: riabList(RIAB_PB) };
-const tiersAsc = [...RIAB_TIERS].sort((a, b) => a.min - b.min);
-const cfg = JSON.stringify({ list: { [RIAB_HB]: list.hb, [RIAB_PB]: list.pb }, tiers: RIAB_TIERS });
-const rows = [
-	{ sku: RIAB_HB, label: 'Hardback', signed: false },
-	{ sku: `${RIAB_HB}-signed`, label: 'Hardback, autographed by Van Eure', signed: true },
-	{ sku: RIAB_PB, label: 'Paperback', signed: false },
-	{ sku: `${RIAB_PB}-signed`, label: 'Paperback, autographed by Van Eure', signed: true },
-];
 ---
 
 <Layout
@@ -54,118 +38,9 @@ const rows = [
 				<p class="mt-1 text-lg text-[#5b4636]">A Memoir of Family, Hospitality, and the 12 Commandments of the Angus Barn</p>
 				<p class="mt-2 text-lg font-semibold">by Van Eure</p>
 
-				<form id="riab-order" class="mt-6 rounded-lg border border-[#d8cbb8] bg-white p-4 sm:p-5" data-cfg={cfg} data-return={RIAB_RETURN_PATH}>
-					<div class="space-y-3">
-						{rows.map((r) => (
-							<label class="flex items-center justify-between gap-4 rounded-lg border border-[#d8cbb8] p-3">
-								<span class="flex flex-col">
-									<span class="font-semibold">{r.label}</span>
-									<span class="text-lg font-bold">{money(r.sku.startsWith(RIAB_HB) ? list.hb : list.pb)}</span>
-									{r.signed && <span class="text-sm text-[#5b4636]">Same price as unsigned</span>}
-								</span>
-								<input type="number" inputmode="numeric" name={r.sku} min="0" max="5000" value="0" class="h-11 w-24 rounded border border-[#bfae96] px-2 text-center text-base" aria-label={`${r.label} quantity`} />
-							</label>
-						))}
-					</div>
-
-					<fieldset id="donate" class="mt-5 scroll-mt-28 rounded-lg border border-dashed border-[#bfae96] p-3" disabled>
-						<legend class="px-1 text-sm font-semibold">Add a gift to the Cheyenne Foundation fund (optional)</legend>
-						<label class="mt-1 flex items-center gap-2">
-							<span class="text-lg font-bold">$</span>
-							<input type="number" inputmode="numeric" name="donation" min="0" step="1" value="0" class="h-11 w-28 rounded border border-[#bfae96] px-2 text-base" aria-label="Gift amount in dollars" />
-						</label>
-						<p class="mt-2 text-sm text-[#5b4636]">Gifts are received by SM Charities, a 501(c)(3), for the Cheyenne Foundation fund, with a receipt from SM Charities. Tax-deductible to the extent allowed by law. <strong>Opening soon.</strong></p>
-					</fieldset>
-
-					<dl class="mt-4 space-y-1 border-t border-[#e6dccd] pt-3 text-sm">
-						<div class="flex justify-between"><dt>Copies</dt><dd data-copies>0</dd></div>
-						<div class="flex justify-between" data-tier-line hidden><dt>Bulk discount</dt><dd data-tier></dd></div>
-						<div class="flex justify-between"><dt>Shipping (US)</dt><dd>Free</dd></div>
-						<div class="flex justify-between text-base font-bold"><dt>Total before tax</dt><dd data-total>$0.00</dd></div>
-					</dl>
-					<button type="submit" class="mt-4 min-h-12 w-full rounded-full bg-[#8a1c1c] px-4 py-3 text-lg font-semibold text-white hover:bg-[#6f1515] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2b1d14]">Continue to secure checkout</button>
-					<p id="riab-msg" role="status" class="mt-2 text-sm"></p>
-					<p class="mt-2 text-sm text-[#5b4636]">Ships within the US. Outside the US? <a class="underline" href="/books/raised-in-a-barn/#order">Order on the book page</a>. <a class="underline" href="/returns/">Returns</a>.</p>
-				</form>
-
-				<section id="bulk" class="mt-8 scroll-mt-28">
-					<h2 class="text-xl font-bold">Bulk discounts</h2>
-					<p class="mt-1 text-sm text-[#5b4636]">Hardback and paperback count together. US orders.</p>
-					<table class="mt-3 w-full border-collapse text-left text-sm">
-						<thead><tr class="border-b border-[#d8cbb8]"><th class="py-2">Copies</th><th class="py-2">Discount</th><th class="py-2">Hardback</th><th class="py-2">Paperback</th></tr></thead>
-						<tbody>
-							{tiersAsc.map((t, i) => (
-								<tr class="border-b border-[#e6dccd]">
-									<td class="py-2">{tiersAsc[i + 1] ? `${t.min}–${tiersAsc[i + 1].min - 1}` : `${t.min}+`}</td>
-									<td class="py-2">{t.pct}%</td>
-									<td class="py-2">{money(unit(list.hb, t.pct))}</td>
-									<td class="py-2">{money(unit(list.pb, t.pct))}</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
-				</section>
+				<RiabOrderForm />
 			</div>
 		</div>
 	</main>
 </Layout>
 
-<script>
-	const form = document.getElementById('riab-order') as HTMLFormElement;
-	const cfg = JSON.parse(form.dataset.cfg as string) as { list: Record<string, number>; tiers: { min: number; pct: number }[] };
-	const inputs = [...form.querySelectorAll<HTMLInputElement>('input[type=number]:not([name=donation])')];
-	const cents = (c: number) => '$' + (c / 100).toFixed(2);
-	const qty = (i: HTMLInputElement) => Math.max(0, Math.floor(Number(i.value) || 0));
-	const listOf = (name: string) => cfg.list[name.replace(/-signed$/, '')];
-	// same arithmetic as src/lib/riabOrder.ts riabQuote (Math.round of list x (100 - pct) / 100)
-	const render = () => {
-		const copies = inputs.reduce((s, i) => s + qty(i), 0);
-		const pct = cfg.tiers.find((t) => copies >= t.min)?.pct ?? 0;
-		const total = inputs.reduce((s, i) => s + qty(i) * Math.round((listOf(i.name) * (100 - pct)) / 100), 0);
-		(form.querySelector('[data-copies]') as HTMLElement).textContent = String(copies);
-		(form.querySelector('[data-tier]') as HTMLElement).textContent = `${pct}% off`;
-		(form.querySelector('[data-tier-line]') as HTMLElement).hidden = pct === 0;
-		(form.querySelector('[data-total]') as HTMLElement).textContent = cents(total);
-	};
-	// preselect from the raisedinabarn.org button: ?f=hb|pb [&signed=1] [&qty=N]
-	const q = new URLSearchParams(location.search);
-	const f = q.get('f');
-	if (f === 'hb' || f === 'pb') {
-		const name = `raised-in-a-barn-${f}${q.get('signed') === '1' ? '-signed' : ''}`;
-		const el = inputs.find((i) => i.name === name);
-		if (el) el.value = String(Math.min(5000, Math.max(1, Math.floor(Number(q.get('qty')) || 1))));
-	}
-	if (q.get('order') === 'canceled') (document.getElementById('riab-msg') as HTMLElement).textContent = 'Checkout was canceled. Nothing was charged.';
-	form.addEventListener('input', render);
-	render();
-	form.addEventListener('submit', async (ev) => {
-		ev.preventDefault();
-		const msg = document.getElementById('riab-msg') as HTMLElement;
-		const counts: Record<string, number> = Object.fromEntries(inputs.map((i) => [i.name, qty(i)]));
-		if (!Object.values(counts).some((n) => n > 0)) {
-			msg.textContent = 'Choose at least one copy.';
-			return;
-		}
-		const utm = Object.fromEntries(['source', 'medium', 'campaign', 'content'].map((k) => [k, q.get(`utm_${k}`) ?? '']).filter(([, v]) => v));
-		const donation = Math.max(0, Math.floor(Number((form.querySelector('input[name=donation]') as HTMLInputElement).value) || 0));
-		const btn = form.querySelector('button') as HTMLButtonElement;
-		btn.disabled = true;
-		msg.textContent = '';
-		try {
-			const r = await fetch('/store-checkout', {
-				method: 'POST',
-				headers: { 'content-type': 'application/json' },
-				body: JSON.stringify({ brand: 'riab', counts, country: 'US', returnPath: form.dataset.return, utm, donation_cents: donation * 100 }),
-			});
-			const j = await r.json();
-			if (j.url) {
-				location.href = j.url;
-				return;
-			}
-			msg.textContent = j.message ?? 'Checkout could not start. Please try again.';
-		} catch {
-			msg.textContent = 'Checkout could not start. Please try again.';
-		}
-		btn.disabled = false;
-	});
-</script>
