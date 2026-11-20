@@ -175,7 +175,8 @@ export async function riabCheckout(
 		{
 			counts: engineCounts(counts),
 			country,
-			email: payload.email,
+			// NO first-order 15% on RIAB (Kevin 2026-11-20): no email reaches the engine, so it never looks one up
+			email: undefined,
 			returnPath: `/books/${RIAB_SLUG}/`,
 			site: RIAB_SITE,
 			utm: payload.utm,

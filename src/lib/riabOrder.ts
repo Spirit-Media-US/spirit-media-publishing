@@ -15,7 +15,9 @@
 //
 //  (d) BULK, Kevin 2026-11-12 table (HB $29.99 / PB $19.99): 15/20/25/30/40% at 25/50/100/250/500 copies, HB + PB
 //      counted TOGETHER (mix and match, like the FHB ladder), US only (bookmark: "US bulk order discounts"). Below 25
-//      the engine's own offer stands (list, or the store-wide first-order 15%); at 25+ the tier replaces it, never both.
+//      = LIST PRICE. NO FIRST-ORDER 15% ON RIAB, ever (Kevin 2026-11-20 ~05:00Z "needs our SMP order form without the
+//      discount"; other SMP books keep the store-wide 15%): /store-checkout never hands the engine a RIAB buyer's email
+//      (so no first-order lookup runs) and brandRiabForm strips any coupon and re-prices every line from riabQuote.
 //  (b) AUTOGRAPHED, Kevin 11-20 00:05Z "same price": a signed copy is the SAME SKU at the SAME price, carried as its
 //      own line + metadata[signed]. FULFILMENT ROUTE IS UNCONFIRMED (Van / Angus Barn signs; Kevin confirms before any
 //      live order). FHB print-webhook does not read metadata[signed] yet, so it would list signed copies on the
@@ -182,12 +184,6 @@ export function brandRiabForm(form: Form, counts: Record<string, number>, countr
 	const isBook = (it: Record<string, string | number>) =>
 		/^(Hardback|Paperback) · by /.test(String(it['[price_data][product_data][description]'] ?? ''));
 	const handling = items.filter((it) => it && !isBook(it));
-	// below a tier the engine's unit stands (list, or its per-unit first-order 15% abroad): never re-priced here
-	const engineUnit: Record<string, number> = {};
-	for (const it of items.filter((x) => x && isBook(x)))
-		engineUnit[String(it['[price_data][product_data][description]']).split(' ')[0]] = Number(
-			it['[price_data][unit_amount]'],
-		);
 	let li = 0;
 	const put = (it: Record<string, string | number>) => {
 		for (const [k, v] of Object.entries(it)) form[`line_items[${li}]${k}`] = v;
@@ -198,7 +194,8 @@ export function brandRiabForm(form: Form, counts: Record<string, number>, countr
 		put({
 			'[quantity]': l.qty,
 			'[price_data][currency]': 'usd',
-			'[price_data][unit_amount]': q.pct > 0 ? l.unit_cents : (engineUnit[fmt] ?? l.unit_cents),
+			// riabQuote's unit, always: list below 25, the tier at 25+; never the engine's first-order price
+			'[price_data][unit_amount]': l.unit_cents,
 			'[price_data][tax_behavior]': 'exclusive',
 			'[price_data][product_data][name]': `Raised in a Barn — ${fmt}${l.signed ? ' (autographed by Van Eure)' : ''}`,
 			'[price_data][product_data][description]': [
@@ -216,19 +213,14 @@ export function brandRiabForm(form: Form, counts: Record<string, number>, countr
 	}
 	for (const h of handling) put(h);
 
-	if (q.pct > 0) {
-		// the tier replaces any first-order coupon: best discount, never both (store rule)
-		delete form['discounts[0][promotion_code]'];
-		form['metadata[pct_off]'] = q.pct;
-		form['metadata[offer]'] = 'riab_bulk';
-		for (const [k, v] of Object.entries(form)) {
-			if (!/^metadata\[book_\d+\]$/.test(k)) continue;
-			const sku = /format=Hardback/.test(String(v)) ? RIAB_HB : RIAB_PB;
-			form[k] = String(v).replace(
-				/unit_cents=\d+/,
-				`unit_cents=${unitAfter(riabList(sku), q.pct)}`,
-			);
-		}
+	// NO first-order coupon on RIAB (Kevin 11-20): stripped whatever the engine did; the tier (25+) or list price stands
+	delete form['discounts[0][promotion_code]'];
+	form['metadata[pct_off]'] = q.pct;
+	form['metadata[offer]'] = q.pct > 0 ? 'riab_bulk' : 'none';
+	for (const [k, v] of Object.entries(form)) {
+		if (!/^metadata\[book_\d+\]$/.test(k)) continue;
+		const sku = /format=Hardback/.test(String(v)) ? RIAB_HB : RIAB_PB;
+		form[k] = String(v).replace(/unit_cents=\d+/, `unit_cents=${unitAfter(riabList(sku), q.pct)}`);
 	}
 	const signedHb = counts[`${RIAB_HB}-signed`] ?? 0;
 	const signedPb = counts[`${RIAB_PB}-signed`] ?? 0;
