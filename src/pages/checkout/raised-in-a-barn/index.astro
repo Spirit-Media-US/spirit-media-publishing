@@ -10,7 +10,8 @@ import RiabOrderForm from '../../../components/RiabOrderForm.astro';
 //   #bulk / #donate          jump to the bulk table / the gift box
 // The form itself is src/components/RiabOrderForm.astro (shared with the iframe variant ./embed/). NO first-order 15% on
 // RIAB (Kevin 2026-11-20 ~05:00Z): below 25 copies = list price. noindex (a checkout).
-// DONATION BOX: shown, DISABLED: the SM Charities Stripe link (Connect) does not exist yet (see riabOrder.ts (c)).
+// GIFT BOX (Kevin 2026-11-20): toggle + amount + designation + fee cover; HIDDEN until Spirit Media Charities is a Stripe
+// Connect account of the SMP store (riabOrder.ts (c), RIAB_GIFT_UI_OPEN). ?gift=preview shows it; the server still refuses.
 import Layout from '../../../layouts/Layout.astro';
 
 const cover =
