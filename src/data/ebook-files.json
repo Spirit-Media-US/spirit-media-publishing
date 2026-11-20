@@ -55,6 +55,12 @@
 			"filename": "El-Gran-Sue-o-de-la-YiaYia-Voula.epub",
 			"sha256": "9f6ec601be0d5c4161b4d1ea372d55b1881a1923cc8586fb1bc33a395705f67f"
 		},
+		"escaping-anxiety-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "escaping-anxiety-v4.epub",
+			"filename": "Escaping-Anxiety.epub",
+			"sha256": "dd952ec27884eef6c86e53e7e0dafd7056c5f4b49a1641cff92db30d8604daa9"
+		},
 		"faith-in-action-ebook": {
 			"bucket": "fhb-ebook",
 			"key": "faith-in-action-86f0a8ac4a1c.epub",
@@ -259,6 +265,12 @@
 			"filename": "Silas-and-Woolly-the-Mammoth.epub",
 			"sha256": "60c3c495287633312ea2927333b4d1a771a4a30d69d2ca8627d63e207d14d973"
 		},
+		"sms-ultimate-book-marketing-guide-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "sms-ultimate-book-marketing-guide-f3ba3bc0f20e.epub",
+			"filename": "SM-s-Ultimate-Book-Marketing-Guide.epub",
+			"sha256": "f3ba3bc0f20ebccd04807420de22ee6ff3d50f600e064ba95b7352d96a63f7da"
+		},
 		"soar-to-success-ebook": {
 			"bucket": "fhb-ebook",
 			"key": "soar-to-success-v6.epub",
@@ -306,6 +318,12 @@
 			"key": "the-god-connection-v5.epub",
 			"filename": "La-Connexion-Dieu.epub",
 			"sha256": "3e90260e555c84a03ed2ee61c01e095dc6b0539e9a6d6a0c9b098d574c27b05a"
+		},
+		"the-gratitude-effect-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "the-gratitude-effect-a1396dea1f34.epub",
+			"filename": "The-Gratitude-Effect.epub",
+			"sha256": "a1396dea1f345fbe3123dceedc1443935eb274d022c5382b35a53683d87a27ad"
 		},
 		"the-pitted-nail-ebook": {
 			"bucket": "fhb-ebook",
