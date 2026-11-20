@@ -23,7 +23,8 @@ import {
 	onRequestPost as webhook,
 } from '../functions/store-webhook.ts';
 import { verifyEbookLink, windowOrigin } from '../src/lib/ebookLink.ts';
-import { EBOOK_SKUS, ebookCheckoutForm, familyOf, storeTags } from '../src/store-engine/lib/storeEngine.ts';
+import bookSkus from '../src/store-engine/data/book-skus.json' with { type: 'json' };
+import { EBOOK_SKUS, ebookCheckoutForm, ebookForBook, ebookOnSale, familyOf, storeTagErrors, storeTags } from '../src/store-engine/lib/storeEngine.ts';
 
 const secret = 'whsec_test';
 const FHB_BY = 'fhb-print-webhook'; // what FHB /print-webhook writes when it claims (the same claimSession, ported back)
@@ -372,4 +373,94 @@ test('signature: a bad signature is refused (400) and an unconfigured endpoint o
 	} finally {
 		globalThis.fetch = real;
 	}
+});
+
+// ---- eBook ENGINE + REGISTRY tests, MOVED from FHB scripts/window-confirmations.test.mjs (store move 5): the engine's
+// master and the eBook registry live in SMP, so their tests do too.
+test('EBOOK ENGINE: no shipping, carries the tags, takes the first-order 15%', async () => {
+	const r = await ebookCheckoutForm({ counts: { [SKU]: 1 }, email: 'new@example.com', returnPath: '/books/fixture-book/' }, 'https://spiritmediapublishing.com/store-checkout', deps(true));
+	assert.ok('form' in r);
+	const f = { ...r.form, ...storeTags('smp', familyOf({ [SKU]: 1 })) };
+	assert.deepEqual(storeTagErrors(f), [], 'tagged');
+	assert.equal(f['metadata[family]'], 'smp_ebook');
+	assert.equal(f['metadata[kind]'], 'ebook_direct');
+	assert.equal(f['discounts[0][promotion_code]'], 'promo_WELCOME15', 'first order: WELCOME15 pre-applied');
+	assert.equal(f['metadata[offer]'], 'first_order');
+	assert.match(f['metadata[book_1]'], /unit_cents=509\|/, '15% off 5.99 recorded for author reporting');
+	assert.ok(!Object.keys(f).some((k) => /shipping|phone_number/.test(k)), 'no shipping, no phone: nothing ships');
+	assert.equal(f['line_items[0][price_data][product_data][tax_code]'], 'txcd_10202001', 'e-book tax code');
+	assert.equal(f.billing_address_collection, 'required');
+	const rep = await ebookCheckoutForm({ counts: { [SKU]: 1 }, email: 'old@example.com' }, 'https://x.pages.dev/store-checkout', deps(false));
+	assert.equal(rep.form['discounts[0][promotion_code]'], undefined, 'repeat buyer: list price');
+	assert.equal(rep.form.cancel_url, 'https://x.pages.dev/bookstore/?order=canceled', 'unknown return path: the bookstore, never an open redirect');
+	const prod = await ebookCheckoutForm({ counts: { [SKU]: 1 } }, 'https://spirit-media-publishing.pages.dev/store-checkout', deps());
+	assert.match(prod.form.success_url, /^https:\/\/spiritmediapublishing\.com\/ebook-download\?s=/, 'the production Pages host returns to the .com');
+});
+
+test('EBOOK ENGINE REFUSES: a mixed cart, two copies, an unknown SKU, an eBook in an active KDP Select term', async () => {
+	const url = 'https://spiritmediapublishing.com/store-checkout';
+	const pb = Object.keys(bookSkus.skus)[0];
+	assert.equal((await ebookCheckoutForm({ counts: { [SKU]: 1, [pb]: 1 } }, url, deps())).body.error, 'ebook_separate');
+	assert.equal((await ebookCheckoutForm({ counts: { [SKU]: 2 } }, url, deps())).body.error, 'invalid_selection');
+	assert.equal((await ebookCheckoutForm({ counts: { 'no-such-ebook': 1 } }, url, deps())).body.error, 'invalid_selection');
+	assert.equal((await ebookCheckoutForm({ counts: {} }, url, deps())).body.error, 'invalid_selection');
+	EBOOK_SKUS['select-book-ebook'] = { ...EBOOK_SKUS[SKU], bookSlug: 'select-book', selectUntil: '2026-12-20' };
+	try {
+		const before = new Date('2026-12-19T23:00:00Z');
+		assert.equal(ebookOnSale('select-book-ebook', before), false, 'in its Select term: not on sale');
+		assert.equal(ebookForBook('select-book', before), null, 'its page keeps the Amazon button');
+		assert.equal((await ebookCheckoutForm({ counts: { 'select-book-ebook': 1 } }, url, deps(), before)).body.error, 'not_on_sale');
+		const after = new Date('2026-12-20T00:00:01Z');
+		assert.equal(ebookOnSale('select-book-ebook', after), true, 'the day the term ends it joins our store');
+		assert.ok('form' in (await ebookCheckoutForm({ counts: { 'select-book-ebook': 1 } }, url, deps(), after)));
+	} finally {
+		delete EBOOK_SKUS['select-book-ebook'];
+	}
+	const off = await ebookCheckoutForm({ counts: { [SKU]: 1 } }, url, { ...deps(), enabled: false });
+	assert.equal(off.body.disabled, true, 'no Stripe key: disabled, never a session');
+});
+
+// Price provenance: a live Kindle ASIN, OR (a book with no Kindle edition / off SMP's KDP shelf, SMP batch 3 2026-11-20
+// "Find them. Add them for sale now.") asin null with the recorded basis of the live-listing read and its date.
+const priceProven = (r) => {
+	const p = r.price_source ?? {};
+	if (/^B0[A-Z0-9]{8}$/.test(p.asin ?? '')) return true;
+	return p.asin === null && typeof p.basis === 'string' && p.basis.trim().length >= 10 && /^\d{4}-\d{2}-\d{2}T/.test(p.checked ?? '');
+};
+test('EBOOK REGISTRY: price provenance refuses a row with no ASIN and no recorded basis (failure path)', () => {
+	assert.equal(priceProven({ price_source: { asin: 'B0BT9ZBSQF', checked: '2026-11-20T00:00:00Z' } }), true);
+	assert.equal(priceProven({ price_source: { asin: null, basis: 'off-shelf live listing read (amazon-book.mjs)', checked: '2026-11-20T16:12:03+00:00' } }), true);
+	assert.equal(priceProven({ price_source: { asin: null, checked: '2026-11-20T16:12:03+00:00' } }), false, 'no basis');
+	assert.equal(priceProven({ price_source: { asin: null, basis: 'off-shelf live listing read' } }), false, 'no check date');
+	assert.equal(priceProven({ price_source: { asin: 'not-an-asin', basis: 'x'.repeat(20), checked: '2026-11-20T00:00:00Z' } }), false, 'bad ASIN is never excused');
+	assert.equal(priceProven({}), false, 'no provenance');
+});
+
+test('EBOOK REGISTRY: every committed eBook row is complete, priced, has its private file, never sits in skus', () => {
+	const rows = bookSkus.ebooks ?? {};
+	const files = JSON.parse(fs.readFileSync(new URL('../src/data/ebook-files.json', import.meta.url), 'utf8')).files;
+	for (const [sku, r] of Object.entries(rows)) {
+		assert.equal(r.format, 'eBook', sku);
+		assert.ok(Number.isInteger(r.list_cents) && r.list_cents > 0, `${sku}: a price`);
+		assert.ok(priceProven(r), `${sku}: priced from a live Kindle listing (or a recorded no-Kindle basis + check date)`);
+		assert.ok(r.book && r.checkout_name, `${sku}: book + title`);
+		assert.ok(files[sku]?.key && /\.epub$/.test(files[sku].key), `${sku}: a private EPUB on R2`);
+		assert.ok(!bookSkus.skus[sku], `${sku}: never a print sku`);
+		if (r.select_until) assert.match(r.select_until, /^\d{4}-\d{2}-\d{2}$/, `${sku}: Select term end date`);
+	}
+	for (const sku of Object.keys(files)) assert.ok(rows[sku], `${sku}: a file with no registry row`);
+	for (const sku of Object.keys(bookSkus.skus)) assert.equal(EBOOK_SKUS[sku], undefined, `${sku}: a print sku is never an eBook`);
+});
+
+
+// ---- the paid order becomes an Ingram order: MOVED from FHB scripts/beloved-identity.test.mjs (store move 5) ----
+test('webhook (Beloved Identity): the fulfilment email carries ISBN, quantity, address, phone and the Ingram print site', async () => {
+	const r = await confirm({ site: 'fhb', window: 'fhb', family: 'book', total: '3', breakdown: 'beloved-identity-pb:3' }, { amount: 2997 });
+	assert.equal(r.status, 200);
+	for (const want of ['ISBN 9798893072396 × 3', 'Beloved Identity', '96pp, 5 x 8 in', 'Ann Reader', '1 Main St', 'Austin, TX 78701', '+15555550123', 'Ingram print site for US: US', 'Copies: 3'])
+		assert.ok(r.kevin.text.includes(want), want);
+	assert.ok(!r.kevin.text.includes('MISSING'));
+	assert.match(r.kevin.subject, /3 copies/);
+	const bible = await confirm({ breakdown: 'teen-pb:1', total: '1' });
+	assert.ok(!bible.kevin.text.includes('Ingram order lines'), 'a Bible-only order has no Ingram book lines');
 });

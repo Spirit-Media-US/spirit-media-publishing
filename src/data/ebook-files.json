@@ -97,6 +97,18 @@
 			"filename": "Get-Out-of-the-Fast-Food-Lane.epub",
 			"sha256": "d1d79b108f5beaf9885e086888b82e036167d31d39cc2eef6f041dae83afd382"
 		},
+		"get-to-the-point-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "get-to-the-point-v7.epub",
+			"filename": "Get-to-the-Point.epub",
+			"sha256": "7f30538b1e2a6dabd0809eb0794b78509c3b2f12c9f98dd72cdc6fc93a5103c7"
+		},
+		"gifts-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "gifts-v3.epub",
+			"filename": "GIFTS.epub",
+			"sha256": "b3168e04debb9e7c3c2fe0b036dfa22af8b7ea6f482ac4c6bef24e1e620d6407"
+		},
 		"give-me-a-minute-goliath-ebook": {
 			"bucket": "fhb-ebook",
 			"key": "give-me-a-minute-goliath-v5.epub",
@@ -228,6 +240,12 @@
 			"key": "only-god-works-v4.epub",
 			"filename": "Only-God-Works.epub",
 			"sha256": "f277460a343a05d7e1e7e5046b344b86c25bc23a613f58e2557a3f24af298cfc"
+		},
+		"potters-child-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "potters-child-v5.epub",
+			"filename": "Potter-s-Child.epub",
+			"sha256": "2fa6f759981afe0071de258173b86c76c05f78c8fe9fa186dcb02277d874c56d"
 		},
 		"power-to-remember-ebook": {
 			"bucket": "fhb-ebook",
@@ -396,6 +414,12 @@
 			"key": "walking-with-barbara-0982c80bca67.epub",
 			"filename": "Walking-with-Barbara.epub",
 			"sha256": "0982c80bca67ccc10621269c8094c79f8936c1a438e13c566f9b31d2e0718f7d"
+		},
+		"whats-your-word-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "whats-your-word-v8.epub",
+			"filename": "What-s-Your-Word.epub",
+			"sha256": "a59701b7a26068213db9206f64489a8534644a0c5394fcac8b8a9bf34af8187a"
 		},
 		"who-am-i-tetiana-kurylo-ebook": {
 			"bucket": "fhb-ebook",
