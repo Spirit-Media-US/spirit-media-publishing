@@ -987,20 +987,90 @@ test("RIAB: one signed copy is list price with no bulk text (the engine's own of
 	assert.equal(r.form.get('metadata[pct_off]'), '0');
 });
 
-test('RIAB FAILURE: a donation is refused before any Stripe call, with or without SMC configured, never added to SMP', async () => {
-	for (const env of [
-		{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY },
-		{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'acct_test_smc' },
-		{},
-	]) {
-		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2500 }, { env });
+test('RIAB GIFT FAILURE: refused before any Stripe call while SMC is not connected, and never added to SMP', async () => {
+	for (const env of [{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY }, { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'not-an-acct' }, {}]) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2500, designation: 'cf' }, { env });
 		assert.equal(r.status, 400);
 		assert.equal(r.json.error, 'donation_unavailable');
 		assert.equal(r.calls.length, 0, 'no Stripe call at all');
 	}
-	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2550 })).json.error, 'invalid_donation');
-	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: -100 })).json.error, 'invalid_donation');
 	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 0 })).status, 200, 'no gift = normal order');
+});
+
+const SMC_ENV = { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'acct_1TESTsmc' };
+test('RIAB GIFT: amount bounds are whole dollars $1-$10,000, refused before Stripe', async () => {
+	for (const c of [50, 2550, -100, 1_000_100, 'abc', 1.5]) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: c, designation: 'cf' }, { env: SMC_ENV });
+		assert.equal(r.json.error, 'invalid_donation', String(c));
+		assert.equal(r.calls.length, 0);
+	}
+	for (const c of [100, 1_000_000]) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: c, designation: 'foh' }, { env: SMC_ENV });
+		assert.equal(r.status, 200, `${c} ${JSON.stringify(r.json)}`);
+	}
+});
+
+test('RIAB GIFT: a designation is required once a gift is given (cf | foh | split only)', async () => {
+	for (const d of [undefined, '', 'both', 'CF']) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-pb': 1 }, donation_cents: 2500, designation: d }, { env: SMC_ENV });
+		assert.equal(r.json.error, 'designation_required', String(d));
+		assert.equal(r.calls.length, 0);
+	}
+});
+
+test('RIAB GIFT: fee-cover math: the charity nets the full gift when covered; the fee comes out of it when not', async () => {
+	const { riabFeeCover, riabCardFee, riabShares } = await riabLib();
+	for (const g of [100, 2500, 10000, 99900, 1_000_000]) {
+		const x = riabFeeCover(g);
+		assert.ok(g + x - (g + x) * 0.029 >= g - 0.5, `${g}: net after 2.9% >= gift`);
+		assert.ok(g + (x - 1) - (g + x - 1) * 0.029 < g, `${g}: cover is the smallest that works`);
+	}
+	assert.equal(riabFeeCover(10000), 299, '$100 gift -> +$2.99');
+	assert.equal(riabCardFee(10000), 290, 'uncovered $100 -> charity receives $97.10');
+	assert.deepEqual(riabShares('split', 10299), { cf: 5150, foh: 5149 });
+	assert.deepEqual(riabShares('cf', 500), { cf: 500, foh: 0 });
+});
+
+test('RIAB GIFT: own line + transfer to SMC + metadata; the purchase lines are byte-identical to a gift-free order', async () => {
+	const counts = { 'raised-in-a-barn-hb': 2, 'raised-in-a-barn-pb-signed': 1 };
+	const base = await riabPost({ counts }, { env: SMC_ENV });
+	const cov = await riabPost({ counts, donation_cents: 10000, designation: 'split', fee_cover: true }, { env: SMC_ENV });
+	assert.equal(cov.status, 200, JSON.stringify(cov.json));
+	const f = cov.form;
+	assert.equal(f.get('metadata[donation_cents]'), '10000');
+	assert.equal(f.get('metadata[designation]'), 'split');
+	assert.equal(f.get('metadata[fee_covered]'), 'true');
+	assert.equal(f.get('metadata[donation_fee_cover_cents]'), '299');
+	assert.equal(f.get('metadata[donation_total_cents]'), '10299');
+	assert.equal(f.get('payment_intent_data[transfer_data][destination]'), 'acct_1TESTsmc');
+	assert.equal(f.get('payment_intent_data[transfer_data][amount]'), '10000', 'covered: SMC receives the full gift');
+	const n = [...base.form.keys()].filter((k) => /^line_items\[\d+\]\[quantity\]$/.test(k)).length;
+	assert.match(f.get(`line_items[${n}][price_data][product_data][name]`), /^Gift to charity: Split 50\/50/);
+	assert.equal(f.get(`line_items[${n}][price_data][unit_amount]`), '10000');
+	assert.match(f.get(`line_items[${n}][price_data][product_data][description]`), /Receipted by Spirit Media Charities, a 501\(c\)\(3\)\. 100% of the amount Spirit Media Charities receives/);
+	assert.equal(f.get(`line_items[${n}][price_data][product_data][tax_code]`), 'txcd_00000000');
+	assert.equal(f.get(`line_items[${n + 1}][price_data][unit_amount]`), '299');
+	assert.doesNotMatch(f.toString(), /Father|FHB/i, 'gift text never says FHB');
+	// every key of the gift-free order is unchanged, except the submit message that adds one sentence
+	for (const [k, v] of base.form) {
+		if (k === 'custom_text[submit][message]') assert.ok(f.get(k).startsWith(v));
+		else assert.equal(f.get(k), v, k);
+	}
+	const unc = await riabPost({ counts, donation_cents: 10000, designation: 'cf' }, { env: SMC_ENV });
+	assert.equal(unc.form.get('metadata[fee_covered]'), 'false');
+	assert.equal(unc.form.get('payment_intent_data[transfer_data][amount]'), '9710', 'uncovered: the fee comes out of the gift');
+	assert.equal(unc.form.get(`line_items[${n + 1}][quantity]`), null, 'no fee line when not covered');
+	assert.equal(base.form.get('payment_intent_data[transfer_data][destination]'), null, 'no gift = no transfer');
+	assert.equal(base.form.get('metadata[donation_cents]'), null);
+	assert.ok([...f.keys()].filter((k) => k.startsWith('metadata[')).length <= 50, 'within Stripe 50 metadata keys');
+});
+
+test('RIAB GIFT: the signed route is unchanged by a gift', async () => {
+	const r = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 2 }, donation_cents: 2500, designation: 'foh' }, { env: SMC_ENV });
+	assert.equal(r.form.get('metadata[signed_route]'), 'smp_manual_van_signs');
+	const n = await noticeFor(r.form);
+	assert.deepEqual(n.ingram, []);
+	assert.deepEqual(n.editions, [['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure', 2]]);
 });
 
 test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; with it, signed sells on the SMP-manual route', async () => {
@@ -1235,6 +1305,21 @@ test('RIAB pages (built): no first-order offer text on the full page or the embe
 	assert.match(embed, /data-embed="1"/);
 	assert.match(embed, /<base target="_top"/);
 	assert.doesNotMatch(embed, /<nav|<footer/i, 'form only: no SMP nav or footer');
+});
+
+test('RIAB pages (built): the gift box is on BOTH the full page and the embed, with Kevin\'s wording, HIDDEN while closed', async () => {
+	const { RIAB_GIFT_UI_OPEN } = await riabLib();
+	for (const p of ['', 'embed/']) {
+		const html = fs.readFileSync(new URL(`../dist/checkout/raised-in-a-barn/${p}index.html`, import.meta.url), 'utf8');
+		const box = /<fieldset id="donate"[^>]*>/.exec(html)?.[0] ?? '';
+		assert.ok(box, `${p || 'full'}: gift box present`);
+		assert.equal(/\shidden(\s|>|=)/.test(box), !RIAB_GIFT_UI_OPEN, `${p || 'full'}: hidden exactly while RIAB_GIFT_UI_OPEN is false`);
+		assert.match(html, /Add a gift to charity \(optional\)/);
+		assert.match(html, /Receipted by Spirit Media Charities, a 501\(c\)\(3\)\. 100% of the amount Spirit Media Charities receives goes to the charity you choose/);
+		assert.match(html, /Cover the card processing fee/);
+		for (const v of ['cf', 'foh', 'split']) assert.match(html, new RegExp(`name="designation" value="${v}"`));
+		assert.doesNotMatch(html, /SM Charities|Cheyenne Foundation fund/, 'old wording gone');
+	}
 });
 
 // ── PER-BOOK BULK TIERS (Kevin 2026-11-20, Outrageously Loved: "build SMP page for this book with bulk pricing discount";

@@ -25,11 +25,18 @@
 //      metadata[breakdown] under "Editions" and prints an "Ingram order lines" ISBN row ONLY for a SKU in BOOK_SKUS.
 //      So brandRiabForm writes signed copies into the breakdown under their own readable key (RIAB_SIGNED_KEY,
 //      deliberately NOT a BOOK_SKUS key): the notice lists them, the Ingram lines carry only unsigned copies.
-//  (c) DONATION to SM Charities' Cheyenne Foundation fund: NOT BUILT. One card entry across two Stripe accounts needs
-//      SM Charities connected to the SMP store account (Stripe Connect: save the card on the platform, clone the
-//      PaymentMethod to SMC, direct charge there, docs.stripe.com/connect/direct-charges-multiple-accounts). No such
-//      connection and no test keys exist (2026-11-20). Until then a donation is REFUSED before any Stripe call, and it
-//      is never, in any path, added to the SMP charge.
+//  (c) GIFT TO CHARITY (Kevin 2026-11-20 ~16:10Z "we want to offer all order option to make OPTIONAL donation to
+//      charity asking them to designate to: CF, FOH, or 50/50 to both. This can be toggle option if they want to give";
+//      ~16:20Z "receipted from spirit media charities with 100% going to the charities"; ~16:30Z "100% of the amount
+//      received --- Example: $100 if fees paid or $97 if not"). ONE checkout: the books stay on SMP; the gift rides the
+//      same Stripe session as its own line and is TRANSFERRED to Spirit Media Charities' Stripe account as a Connect
+//      connected account (destination charge, payment_intent_data[transfer_data][amount] = the gift only). The card fee
+//      on the gift is NEVER absorbed by SMP: the buyer may tick "cover the card fee" (+riabFeeCover), else the fee comes
+//      out of the gift (riabGiftPlan.transfer_cents). Gift money NEVER stays in SMP's account.
+//      SWITCH: closed until SMC is a connected account of the SMP store platform. The server opens only when
+//      SMC_CONNECTED_ACCOUNT (acct_...) is bound; the form shows the gift box only when RIAB_GIFT_UI_OPEN is true (or on
+//      a preview host / ?gift=preview, which still posts to the closed server). 2026-11-20 16:45Z MEASURED: the SMP store
+//      account has 0 connected accounts, so both stay closed. Turn-on = bind SMC_CONNECTED_ACCOUNT + flip the constant.
 import bookSkus from '../store-engine/data/book-skus.json' with { type: 'json' };
 import { packBreakdown, unitAfter } from '../store-engine/lib/order-pricing.ts';
 
@@ -113,15 +120,64 @@ export function riabQuote(counts: Record<string, number>, country = 'US'): RiabQ
 
 const DONATION_MIN_CENTS = 100;
 const DONATION_MAX_CENTS = 1_000_000;
+/** The visitor-facing gift box. false = hidden on production (Connect does not exist yet, 2026-11-20). */
+export const RIAB_GIFT_UI_OPEN = false;
+export const SMC_NAME = 'Spirit Media Charities';
+/** Spirit Media Charities (DBA SM Gives), 501(c)(3) effective 2022-12-05. */
+export const SMC_EIN = '88-4352701';
+export const RIAB_DESIGNATIONS = {
+	cf: 'Cheyenne Foundation',
+	foh: 'Foundation of Hope',
+	split: 'Split 50/50: Cheyenne Foundation and Foundation of Hope',
+} as const;
+export type RiabDesignation = keyof typeof RIAB_DESIGNATIONS;
+/** Kevin's wording (addendums 1 + 3, 2026-11-20): on the form, the Stripe line and both emails. */
+export const RIAB_GIFT_COPY =
+	'Receipted by Spirit Media Charities, a 501(c)(3). 100% of the amount Spirit Media Charities receives goes to the charity you choose (Cheyenne Foundation, Foundation of Hope, or split 50/50).';
+/** Stripe's standard US card rate, percent part, in basis points. The fixed 30c is paid once per order by the books. */
+export const STRIPE_CARD_BP = 290;
+/** What the buyer adds so that, after Stripe's percentage fee on the gift + cover, the charity still receives the gift. */
+export const riabFeeCover = (giftCents: number): number =>
+	Math.ceil((giftCents * STRIPE_CARD_BP) / (10_000 - STRIPE_CARD_BP));
+/** Stripe's percentage fee on an amount (what comes out of an uncovered gift). */
+export const riabCardFee = (cents: number): number => Math.round((cents * STRIPE_CARD_BP) / 10_000);
+/** Each charity's share of `cents` for a designation (split: Cheyenne Foundation takes the odd cent). */
+export function riabShares(
+	designation: RiabDesignation,
+	cents: number,
+): { cf: number; foh: number } {
+	if (designation === 'cf') return { cf: cents, foh: 0 };
+	if (designation === 'foh') return { cf: 0, foh: cents };
+	const foh = Math.floor(cents / 2);
+	return { cf: cents - foh, foh };
+}
 export type RiabEnv = {
-	/** SM Charities' Stripe account as a CONNECTED account of the SMP store platform (acct_...). Unset today. */
+	/** Spirit Media Charities' Stripe account as a CONNECTED account of the SMP store platform (acct_...). Unset today. */
 	SMC_CONNECTED_ACCOUNT?: string;
 };
-/** Why a donation cannot be taken (null = no donation asked). There is no donation money path yet: see (c) above. */
-export function donationRefusal(
-	cents: unknown,
+export type RiabGiftPlan = {
+	gift_cents: number;
+	designation: RiabDesignation;
+	fee_covered: boolean;
+	fee_cover_cents: number;
+	/** what the donor gives (gift + cover): the receipt amount */
+	total_cents: number;
+	/** what Spirit Media Charities receives */
+	transfer_cents: number;
+	account: string;
+};
+type Refusal = { error: string; message: string };
+const smcAccount = (env: RiabEnv) =>
+	/^acct_[A-Za-z0-9]+$/.test(String(env.SMC_CONNECTED_ACCOUNT ?? ''))
+		? String(env.SMC_CONNECTED_ACCOUNT)
+		: '';
+
+/** The gift on this order: null = no gift, a Refusal, or the plan. Every refusal runs before any Stripe call. */
+export function riabGiftPlan(
+	p: { donation_cents?: unknown; designation?: unknown; fee_cover?: unknown },
 	env: RiabEnv,
-): { error: string; message: string } | null {
+): RiabGiftPlan | Refusal | null {
+	const cents = p.donation_cents;
 	if (cents === undefined || cents === null || cents === '' || Number(cents) === 0) return null;
 	const n = Number(cents);
 	if (!Number.isInteger(n) || n < DONATION_MIN_CENTS || n > DONATION_MAX_CENTS || n % 100 !== 0)
@@ -129,12 +185,75 @@ export function donationRefusal(
 			error: 'invalid_donation',
 			message: 'Please enter a whole-dollar gift between $1 and $10,000.',
 		};
+	const d = String(p.designation ?? '');
+	if (!Object.hasOwn(RIAB_DESIGNATIONS, d))
+		return {
+			error: 'designation_required',
+			message:
+				'Please choose where your gift goes: Cheyenne Foundation, Foundation of Hope, or split 50/50.',
+		};
+	const account = smcAccount(env);
+	if (!account)
+		return {
+			error: 'donation_unavailable',
+			message: 'Gifts to charity open soon. Nothing was charged.',
+		};
+	const fee_covered = p.fee_cover === true || p.fee_cover === 'true' || p.fee_cover === 1;
+	const fee_cover_cents = fee_covered ? riabFeeCover(n) : 0;
 	return {
-		error: 'donation_unavailable',
-		message: env.SMC_CONNECTED_ACCOUNT
-			? 'Gifts to the Cheyenne Foundation fund are not open yet. Nothing was charged.'
-			: 'Gifts to the Cheyenne Foundation fund are not connected yet. Nothing was charged.',
+		gift_cents: n,
+		designation: d as RiabDesignation,
+		fee_covered,
+		fee_cover_cents,
+		total_cents: n + fee_cover_cents,
+		transfer_cents: fee_covered ? n : n - riabCardFee(n),
+		account,
 	};
+}
+/** Back-compat: why a donation cannot be taken (null = none asked, or it can be taken). */
+export function donationRefusal(
+	cents: unknown,
+	env: RiabEnv,
+	extra: { designation?: unknown; fee_cover?: unknown } = {},
+) {
+	const r = riabGiftPlan({ donation_cents: cents, ...extra }, env);
+	return r && 'error' in r ? r : null;
+}
+
+/** Add the gift to a branded RIAB form: its own line(s), the transfer to SMC, the metadata. Book lines untouched. */
+export function addRiabGift(form: Form, g: RiabGiftPlan): Form {
+	let li = 0;
+	while (form[`line_items[${li}][quantity]`] !== undefined) li++;
+	const line = (name: string, cents: number, description: string) => {
+		Object.assign(form, {
+			[`line_items[${li}][quantity]`]: 1,
+			[`line_items[${li}][price_data][currency]`]: 'usd',
+			[`line_items[${li}][price_data][unit_amount]`]: cents,
+			[`line_items[${li}][price_data][tax_behavior]`]: 'exclusive',
+			[`line_items[${li}][price_data][product_data][name]`]: name,
+			[`line_items[${li}][price_data][product_data][description]`]: description,
+			[`line_items[${li}][price_data][product_data][tax_code]`]: 'txcd_00000000',
+		});
+		li++;
+	};
+	line(`Gift to charity: ${RIAB_DESIGNATIONS[g.designation]}`, g.gift_cents, RIAB_GIFT_COPY);
+	if (g.fee_covered)
+		line(
+			'Card processing fee on your gift (you chose to cover it)',
+			g.fee_cover_cents,
+			'So the charity receives your full gift. Part of your gift to Spirit Media Charities.',
+		);
+	form['payment_intent_data[transfer_data][destination]'] = g.account;
+	form['payment_intent_data[transfer_data][amount]'] = g.transfer_cents;
+	form['metadata[donation_cents]'] = g.gift_cents;
+	form['metadata[designation]'] = g.designation;
+	form['metadata[fee_covered]'] = String(g.fee_covered);
+	form['metadata[donation_fee_cover_cents]'] = g.fee_cover_cents;
+	form['metadata[donation_total_cents]'] = g.total_cents;
+	form['metadata[donation_transfer_cents]'] = g.transfer_cents;
+	form['custom_text[submit][message]'] =
+		`${form['custom_text[submit][message]'] ?? ''} Your gift is receipted separately by Spirit Media Charities, a 501(c)(3).`.trim();
+	return form;
 }
 
 const isTestKey = (key: string | undefined) => /^(sk|rk)_test_/.test(String(key ?? ''));

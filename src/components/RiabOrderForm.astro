@@ -6,7 +6,17 @@
 //   ?f=hb | ?f=pb [&signed=1] [&qty=N]  preselect;  ?order=canceled  shows "nothing was charged"
 // embed: links open in the TOP window, Stripe Checkout opens in the TOP window, and the frame height is posted to the
 // parent as {riabHeight: n} so raisedinabarn.org sizes the iframe with no inner scrollbar.
-import { RIAB_HB, RIAB_PB, RIAB_RETURN_PATH, RIAB_TIERS, riabList } from '../lib/riabOrder.ts';
+import {
+	RIAB_DESIGNATIONS,
+	RIAB_GIFT_COPY,
+	RIAB_GIFT_UI_OPEN,
+	RIAB_HB,
+	RIAB_PB,
+	RIAB_RETURN_PATH,
+	RIAB_TIERS,
+	riabList,
+	STRIPE_CARD_BP,
+} from '../lib/riabOrder.ts';
 
 interface Props {
 	embed?: boolean;
@@ -17,7 +27,12 @@ const money = (c: number) => `$${(c / 100).toFixed(2)}`;
 const unit = (c: number, p: number) => Math.round((c * (100 - p)) / 100);
 const list = { hb: riabList(RIAB_HB), pb: riabList(RIAB_PB) };
 const tiersAsc = [...RIAB_TIERS].sort((a, b) => a.min - b.min);
-const cfg = JSON.stringify({ list: { [RIAB_HB]: list.hb, [RIAB_PB]: list.pb }, tiers: RIAB_TIERS });
+const cfg = JSON.stringify({
+	list: { [RIAB_HB]: list.hb, [RIAB_PB]: list.pb },
+	tiers: RIAB_TIERS,
+	feeBp: STRIPE_CARD_BP,
+});
+const picks = [25, 50, 100, 250];
 const rows = [
 	{ sku: RIAB_HB, label: 'Hardback', signed: false },
 	{ sku: `${RIAB_HB}-signed`, label: 'Hardback, autographed by Van Eure', signed: true },
@@ -40,19 +55,46 @@ const rows = [
 		))}
 	</div>
 
-	<fieldset id="donate" class="mt-5 scroll-mt-28 rounded-lg border border-dashed border-[#bfae96] p-3" disabled>
-		<legend class="px-1 text-sm font-semibold">Add a gift to the Cheyenne Foundation fund (optional)</legend>
-		<label class="mt-1 flex items-center gap-2">
-			<span class="text-lg font-bold">$</span>
-			<input type="number" inputmode="numeric" name="donation" min="0" step="1" value="0" class="h-11 w-28 rounded border border-[#bfae96] px-2 text-base" aria-label="Gift amount in dollars" />
+	<!-- GIFT TO CHARITY (Kevin 2026-11-20, riabOrder.ts (c)): hidden until Spirit Media Charities is connected (RIAB_GIFT_UI_OPEN);
+	     a preview host or ?gift=preview shows it (the server still refuses until SMC_CONNECTED_ACCOUNT is bound). -->
+	<fieldset id="donate" class="mt-5 scroll-mt-28 rounded-lg border border-dashed border-[#bfae96] p-3" data-gift-open={RIAB_GIFT_UI_OPEN ? '1' : '0'} hidden={!RIAB_GIFT_UI_OPEN}>
+		<legend class="sr-only">Gift to charity</legend>
+		<label class="flex items-center gap-3 font-semibold">
+			<input type="checkbox" name="gift_on" class="h-5 w-5" />
+			Add a gift to charity (optional)
 		</label>
-		<p class="mt-2 text-sm text-[#5b4636]">Gifts are received by SM Charities, a 501(c)(3), for the Cheyenne Foundation fund, with a receipt from SM Charities. Tax-deductible to the extent allowed by law. <strong>Opening soon.</strong></p>
+		<div data-gift-body hidden class="mt-3 space-y-3">
+			<div>
+				<span class="text-sm font-semibold">Amount</span>
+				<div class="mt-1 flex flex-wrap items-center gap-2">
+					{picks.map((d) => (
+						<button type="button" data-pick={d} class="min-h-11 rounded-full border border-[#bfae96] px-4 text-base">${d}</button>
+					))}
+					<label class="flex items-center gap-1">
+						<span class="text-lg font-bold">$</span>
+						<input type="number" inputmode="numeric" name="donation" min="1" max="10000" step="1" value="" placeholder="Other" class="h-11 w-28 rounded border border-[#bfae96] px-2 text-base" aria-label="Gift amount in whole dollars" />
+					</label>
+				</div>
+			</div>
+			<div role="radiogroup" aria-label="Where your gift goes">
+				<span class="text-sm font-semibold">Where should your gift go?</span>
+				{Object.entries(RIAB_DESIGNATIONS).map(([k, label]) => (
+					<label class="mt-1 flex items-center gap-2"><input type="radio" name="designation" value={k} class="h-5 w-5" /> {k === 'split' ? 'Split 50/50 between both' : label}</label>
+				))}
+			</div>
+			<label class="flex items-start gap-2 text-sm">
+				<input type="checkbox" name="fee_cover" class="mt-0.5 h-5 w-5" />
+				<span>Cover the card processing fee (<span data-fee>+$0.00</span>) so the charity receives your full gift.</span>
+			</label>
+			<p class="text-sm text-[#5b4636]">{RIAB_GIFT_COPY} Tax-deductible to the extent allowed by law; your receipt comes in a separate email.</p>
+		</div>
 	</fieldset>
 
 	<dl class="mt-4 space-y-1 border-t border-[#e6dccd] pt-3 text-sm">
 		<div class="flex justify-between"><dt>Copies</dt><dd data-copies>0</dd></div>
 		<div class="flex justify-between" data-tier-line hidden><dt>Bulk discount</dt><dd data-tier></dd></div>
 		<div class="flex justify-between"><dt>Shipping (US)</dt><dd>Free</dd></div>
+		<div class="flex justify-between" data-gift-line hidden><dt>Gift to charity</dt><dd data-gift></dd></div>
 		<div class="flex justify-between text-base font-bold"><dt>Total before tax</dt><dd data-total>$0.00</dd></div>
 	</dl>
 	<button type="submit" class="mt-4 min-h-12 w-full rounded-full bg-[#8a1c1c] px-4 py-3 text-lg font-semibold text-white hover:bg-[#6f1515] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2b1d14]">Continue to secure checkout</button>
@@ -83,8 +125,28 @@ const rows = [
 
 	const form = document.getElementById('riab-order') as HTMLFormElement;
 	const embed = form.dataset.embed === '1';
-	const cfg = JSON.parse(form.dataset.cfg as string) as { list: Record<string, number>; tiers: { min: number; pct: number }[] };
+	const cfg = JSON.parse(form.dataset.cfg as string) as { list: Record<string, number>; tiers: { min: number; pct: number }[]; feeBp: number };
 	const inputs = [...form.querySelectorAll<HTMLInputElement>('input[type=number]:not([name=donation])')];
+	const giftBox = form.querySelector('#donate') as HTMLFieldSetElement;
+	const giftOn = form.querySelector('input[name=gift_on]') as HTMLInputElement;
+	const giftBody = form.querySelector('[data-gift-body]') as HTMLElement;
+	const giftAmt = form.querySelector('input[name=donation]') as HTMLInputElement;
+	const feeBox = form.querySelector('input[name=fee_cover]') as HTMLInputElement;
+	// same arithmetic as riabOrder.ts riabFeeCover
+	const feeCover = (c: number) => Math.ceil((c * cfg.feeBp) / (10000 - cfg.feeBp));
+	const giftDollars = () => (giftOn.checked ? Math.floor(Number(giftAmt.value) || 0) : 0);
+	const designation = () => (form.querySelector('input[name=designation]:checked') as HTMLInputElement | null)?.value ?? '';
+	// preview hosts and ?gift=preview show the closed gift box so it can be reviewed; the server still refuses it
+	if (/\.pages\.dev$|^localhost$|^127\./.test(location.hostname) || new URLSearchParams(location.search).get('gift') === 'preview') giftBox.hidden = false;
+	giftOn.addEventListener('change', () => {
+		giftBody.hidden = !giftOn.checked;
+	});
+	form.querySelectorAll<HTMLButtonElement>('[data-pick]').forEach((b) =>
+		b.addEventListener('click', () => {
+			giftAmt.value = b.dataset.pick as string;
+			render();
+		}),
+	);
 	const cents = (c: number) => '$' + (c / 100).toFixed(2);
 	const qty = (i: HTMLInputElement) => Math.max(0, Math.floor(Number(i.value) || 0));
 	const listOf = (name: string) => cfg.list[name.replace(/-signed$/, '')];
@@ -96,7 +158,12 @@ const rows = [
 		(form.querySelector('[data-copies]') as HTMLElement).textContent = String(copies);
 		(form.querySelector('[data-tier]') as HTMLElement).textContent = `${pct}% off`;
 		(form.querySelector('[data-tier-line]') as HTMLElement).hidden = pct === 0;
-		(form.querySelector('[data-total]') as HTMLElement).textContent = cents(total);
+		const g = giftDollars() * 100;
+		const cover = g > 0 && feeBox.checked ? feeCover(g) : 0;
+		(form.querySelector('[data-fee]') as HTMLElement).textContent = '+' + cents(g > 0 ? feeCover(g) : 0);
+		(form.querySelector('[data-gift-line]') as HTMLElement).hidden = g === 0;
+		(form.querySelector('[data-gift]') as HTMLElement).textContent = cents(g + cover);
+		(form.querySelector('[data-total]') as HTMLElement).textContent = cents(total + g + cover);
 	};
 	// preselect from the raisedinabarn.org button: ?f=hb|pb [&signed=1] [&qty=N]
 	const q = new URLSearchParams(location.search);
@@ -120,15 +187,32 @@ const rows = [
 		}
 		const utm = Object.fromEntries(['source', 'medium', 'campaign', 'content'].map((k) => [k, q.get(`utm_${k}`) ?? '']).filter(([, v]) => v));
 		if (embed && !utm.source) utm.source = 'raisedinabarn.org';
-		const donation = Math.max(0, Math.floor(Number((form.querySelector('input[name=donation]') as HTMLInputElement).value) || 0));
-		const btn = form.querySelector('button') as HTMLButtonElement;
+		const donation = giftDollars();
+		if (giftOn.checked) {
+			if (!(donation >= 1 && donation <= 10000)) {
+				msg.textContent = 'Please enter a whole-dollar gift between $1 and $10,000, or untick the gift.';
+				return;
+			}
+			if (!designation()) {
+				msg.textContent = 'Please choose where your gift goes: Cheyenne Foundation, Foundation of Hope, or split 50/50.';
+				return;
+			}
+		}
+		const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
 		btn.disabled = true;
 		msg.textContent = '';
 		try {
 			const r = await fetch('/store-checkout', {
 				method: 'POST',
 				headers: { 'content-type': 'application/json' },
-				body: JSON.stringify({ brand: 'riab', counts, country: 'US', returnPath: form.dataset.return, utm, donation_cents: donation * 100 }),
+				body: JSON.stringify({
+					brand: 'riab',
+					counts,
+					country: 'US',
+					returnPath: form.dataset.return,
+					utm,
+					...(donation > 0 ? { donation_cents: donation * 100, designation: designation(), fee_cover: feeBox.checked } : {}),
+				}),
 			});
 			const j = await r.json();
 			if (j.url) {

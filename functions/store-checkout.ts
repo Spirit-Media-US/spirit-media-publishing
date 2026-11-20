@@ -17,8 +17,8 @@
 // as for FHB orders (metadata[kind]=dvc_print). Every session carries site + window + family (storeTagErrors gates it).
 
 import {
+	addRiabGift,
 	brandRiabForm,
-	donationRefusal,
 	engineCounts,
 	RIAB_BRAND,
 	RIAB_MAX_COPIES,
@@ -26,6 +26,7 @@ import {
 	RIAB_SLUG,
 	type RiabGateEnv,
 	riabCounts,
+	riabGiftPlan,
 	riabKey,
 	riabQuote,
 } from '../src/lib/riabOrder.ts';
@@ -146,9 +147,15 @@ export async function smpCheckoutForm(
 }
 
 /** RAISED IN A BARN branded checkout (src/lib/riabOrder.ts): same engine form, RIAB's ladder + signed split + branding.
- *  Refusals run before any Stripe call, in this order: bad cart, too many, donation (not built), key/test-mode gate. */
+ *  Refusals run before any Stripe call, in this order: bad cart, too many, gift (amount, designation, Connect switch),
+ *  key/test-mode gate. A gift is its own line, transferred to Spirit Media Charities (riabOrder.ts (c)). */
 export async function riabCheckout(
-	payload: OrderPayload & { donation_cents?: unknown; utm?: Record<string, string> },
+	payload: OrderPayload & {
+		donation_cents?: unknown;
+		designation?: unknown;
+		fee_cover?: unknown;
+		utm?: Record<string, string>;
+	},
 	requestUrl: string,
 	env: RiabGateEnv,
 ) {
@@ -165,8 +172,8 @@ export async function riabCheckout(
 				message: `For more than ${RIAB_MAX_COPIES} copies, please contact us.`,
 			},
 		} as const;
-	const d = donationRefusal(payload.donation_cents, env);
-	if (d) return { status: 400, body: d } as const;
+	const gift = riabGiftPlan(payload, env);
+	if (gift && 'error' in gift) return { status: 400, body: gift } as const;
 	const k = riabKey(env);
 	if ('status' in k) return k;
 	const r = await smpCheckoutForm(
@@ -184,6 +191,7 @@ export async function riabCheckout(
 	);
 	if (!('form' in r)) return r;
 	brandRiabForm(r.form, counts, country);
+	if (gift) addRiabGift(r.form, gift);
 	return createSession(r.form, k.key);
 }
 
