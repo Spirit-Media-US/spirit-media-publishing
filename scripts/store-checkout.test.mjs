@@ -1445,3 +1445,54 @@ test('/order (one page for every window): lookup form, FHB Bible order, shipped 
 	assert.match(u, /Your order is not complete/);
 	assert.match(u, /Nothing has been charged/);
 });
+
+// THE FHB BIBLE EBOOK moved from FHB /ebook-checkout (map smp-store-one-home-v1 move 5, Kevin 2026-11-20 ~18:51Z).
+// GOLDEN: the form is exactly what FHB functions/ebook-checkout.ts sent Stripe (copied here from FHB 3b61c01a).
+test('Bible eBook: FHB window only; the Stripe form is FHB /ebook-checkout’s byte for byte; no R2 binding = no sale', async () => {
+	const { onRequestPost } = await import('../functions/store-checkout.ts');
+	const call = async (origin, env = { STRIPE_STORE_SECRET_KEY: 'sk_test', STORE_EBOOK: {} }, body = { bibleEbook: true }) => {
+		let sent = null;
+		globalThis.fetch = async (u, init) => {
+			sent = init?.body ?? null;
+			return new Response(JSON.stringify({ url: 'https://checkout.stripe.com/c/pay/cs_live_x' }));
+		};
+		const r = await onRequestPost({ request: new Request(A, { method: 'POST', body: JSON.stringify(body), headers: origin ? { origin } : {} }), env });
+		return { status: r.status, json: await r.json(), sent: sent && new URLSearchParams(sent), acao: r.headers.get('access-control-allow-origin') };
+	};
+	const ok = await call('https://fathersheartbible.com');
+	assert.equal(ok.status, 200);
+	assert.equal(ok.json.url, 'https://checkout.stripe.com/c/pay/cs_live_x');
+	assert.equal(ok.acao, 'https://fathersheartbible.com');
+	const FHB_GOLDEN = {
+		mode: 'payment',
+		success_url: 'https://fathersheartbible.com/ebook-download?s={CHECKOUT_SESSION_ID}',
+		cancel_url: 'https://fathersheartbible.com/print?ebook=canceled',
+		'automatic_tax[enabled]': 'true',
+		billing_address_collection: 'required',
+		customer_creation: 'always',
+		'metadata[kind]': 'ebook_direct',
+		'line_items[0][quantity]': '1',
+		'line_items[0][price_data][currency]': 'usd',
+		'line_items[0][price_data][unit_amount]': '749',
+		'line_items[0][price_data][tax_behavior]': 'exclusive',
+		'line_items[0][price_data][product_data][name]': "Father's Heart Bible — eBook",
+		'line_items[0][price_data][product_data][description]': 'Instant download · DRM-free EPUB · An Intimate Translation',
+		'line_items[0][price_data][product_data][tax_code]': 'txcd_10202001',
+		'metadata[site]': 'fhb',
+		'metadata[window]': 'fhb',
+		'metadata[family]': 'bible_ebook',
+	};
+	assert.deepEqual(Object.fromEntries(ok.sent), FHB_GOLDEN);
+	const pv = await call('https://dev.fathersheartbible.pages.dev');
+	assert.equal(pv.sent.get('success_url'), 'https://dev.fathersheartbible.pages.dev/ebook-download?s={CHECKOUT_SESSION_ID}', 'a preview returns to itself');
+	const same = await call(null);
+	assert.equal(same.status, 400);
+	assert.equal(same.json.error, 'bible_fhb_only');
+	assert.equal(same.sent, null, 'nothing sent to Stripe');
+	const vaneure = await call('https://raisedinabarn.org');
+	assert.notEqual(vaneure.status, 200);
+	assert.equal(vaneure.sent, null);
+	const off = await call('https://fathersheartbible.com', { STRIPE_STORE_SECRET_KEY: 'sk_test' });
+	assert.equal(off.json.disabled, true, 'no R2 binding: never sell what cannot be delivered');
+	assert.equal(off.sent, null);
+});
