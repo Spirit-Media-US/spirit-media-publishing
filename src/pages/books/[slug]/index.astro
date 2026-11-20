@@ -47,9 +47,11 @@ import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
 import { handlingFeeCents, shippingDetailsFor } from '../../../store-engine/lib/marginGuard.ts';
 import {
+	BOOK_BULK_TIERS,
 	BOOK_SKUS,
 	FIRST_ORDER_PCT,
 	isDiscountExempt,
+	unitAfter,
 } from '../../../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../../../store-engine/lib/shipCountries.ts';
 import { checkoutForm, EBOOK_SKUS, ebookForBook } from '../../../store-engine/lib/storeEngine.ts';
@@ -575,6 +577,28 @@ const T = (
 	} as const
 )[p.lang === 'es' || p.lang === 'fr' ? p.lang : 'en'];
 const fmt = (f: string) => T.formats[f] ?? f;
+// PER-BOOK BULK TIERS on a book that is not sold yet (book-skus.json `pending`, Kevin 2026-11-20 Outrageously Loved):
+// the pending box shows the format's own ladder as rows of copies -> unit price (the same unitAfter the engine charges)
+// and says it opens at release. No form, no button, no Offer: nothing here sells.
+const pendingTiers = p.orderable
+	? []
+	: p.formats
+			.filter((f) => f.list_cents != null && BOOK_BULK_TIERS[f.sku])
+			.map((f) => {
+				const up = [...BOOK_BULK_TIERS[f.sku]].sort((a, b) => a.min - b.min);
+				const list = f.list_cents as number;
+				return {
+					format: f.format,
+					rows: [
+						{ copies: `1–${up[0].min - 1}`, pct: 0, unit: list },
+						...up.map((t, i) => ({
+							copies: up[i + 1] ? `${t.min}–${up[i + 1].min - 1}` : `${t.min}+`,
+							pct: t.pct,
+							unit: unitAfter(list, t.pct),
+						})),
+					],
+				};
+			});
 
 // TITLE IN THE COVER'S COLOUR (the FHB edition-page method, Kevin 2026-11-14 '1A'): measured per cover in
 // src/data/books/cover-colors.json; a pale cover keeps its colour with a thin dark outline (W3C G18) on the big
@@ -814,7 +838,7 @@ const crumbs = {
 						{p.page?.hero?.offer_line && <p class="mt-4 text-sm font-semibold text-stone-700">{p.page.hero.offer_line}</p>}
 						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || (!orderBox && !retail && !ebookOnly)) && (
 							<div class="mt-5 flex flex-wrap gap-3">
-								{!orderBox && !retail && !ebookOnly && <a href="#order" class="btn btn-primary min-h-12 px-7">{T.order}</a>}
+								{!orderBox && !retail && !ebookOnly && <a href="#order" class="btn btn-primary min-h-12 px-7">{pendingTiers.length > 0 ? 'Bulk pricing' : T.order}</a>}
 								{/* Kevin 2026-11-14: the SAME Look inside as FHB: the button opens the page viewer (front through Chapter 1). */}
 								{hasViewer ? <LookInside slug={p.slug} title={p.title} size="lg" label={T.look} /> : (p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0) && <a href="#look-inside" class="book-look">{T.look}</a>}
 							</div>
@@ -864,7 +888,20 @@ const crumbs = {
 										</li>
 									))}
 								</ul>
-								<p class="mt-4 border-t border-stone-200 pt-3 text-stone-700">{T.soon}</p>
+								{pendingTiers.map((pt) => (
+									<div class="mt-4 border-t border-stone-200 pt-3" data-bulk-tiers>
+										<h2 class="text-base font-bold text-ink">Bulk pricing · {fmt(pt.format)} · US orders</h2>
+										<table class="mt-2 w-full text-left text-[0.95rem]">
+											<thead><tr class="text-stone-600"><th class="py-1 font-semibold">Copies</th><th class="py-1 font-semibold">Discount</th><th class="py-1 text-right font-semibold">Each</th></tr></thead>
+											<tbody>
+												{pt.rows.map((r) => (
+													<tr class="border-t border-stone-200"><td class="py-1.5">{r.copies}</td><td class="py-1.5">{r.pct > 0 ? `${r.pct}% off` : 'List price'}</td><td class="py-1.5 text-right font-bold text-ink">{money(r.unit)}</td></tr>
+												))}
+											</tbody>
+										</table>
+									</div>
+								))}
+								<p class="mt-4 border-t border-stone-200 pt-3 text-stone-700">{T.soon}{pendingTiers.length > 0 && ' Bulk pricing is available when the book is released.'}</p>
 							</div>
 						)}
 				</div>

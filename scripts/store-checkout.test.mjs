@@ -410,7 +410,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 144); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY)
+	assert.equal(set.titles.length, 145); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY) + 1 (Outrageously Loved, Kevin 2026-11-20: page + bulk tiers, not sold yet)
 	// BOOK PAGES SWITCH: production builds only Kevin-approved pages (src/data/books/pages-live.json);
 	// a BOOKS_PREVIEW_ALL=1 preview builds every one. An unapproved page that builds on production fails here.
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
@@ -1179,4 +1179,100 @@ test('RIAB pages (built): no first-order offer text on the full page or the embe
 	assert.match(embed, /data-embed="1"/);
 	assert.match(embed, /<base target="_top"/);
 	assert.doesNotMatch(embed, /<nav|<footer/i, 'form only: no SMP nav or footer');
+});
+
+// ── PER-BOOK BULK TIERS (Kevin 2026-11-20, Outrageously Loved: "build SMP page for this book with bulk pricing discount";
+// tiers approved the same day: 1-9 list, 10-24 20%, 25-99 30%, 100+ 40%). The book has NO Ingram title yet, so its row is
+// under book-skus.json `pending`: a page with the offer, nothing sellable.
+const OL = 'outrageously-loved-pb';
+const engineDeps = (first = false) => ({ enabled: true, isFirstOrder: async () => first, firstOrderPromo: async () => (first ? 'promo_1' : null) });
+const A_SMP = 'https://spiritmediapublishing.com/store-checkout';
+
+test('OL bulk tiers: 9 = list, 10 = 20%, 24 = 20%, 25 = 30%, 99 = 30%, 100 = 40%; US only; units $9.99/$7.99/$6.99/$5.99', async () => {
+	const { bookTierPct, BOOK_BULK_TIERS, PENDING_SKUS, unitAfter } = await import('../src/store-engine/lib/order-pricing.ts');
+	assert.ok(PENDING_SKUS.includes(OL), 'OL is a pending row');
+	assert.deepEqual(BOOK_BULK_TIERS[OL], [{ min: 100, pct: 40 }, { min: 25, pct: 30 }, { min: 10, pct: 20 }]);
+	for (const [n, pct] of [[1, 0], [9, 0], [10, 20], [24, 20], [25, 30], [99, 30], [100, 40], [5000, 40]]) assert.equal(bookTierPct(OL, n), pct, `${n} copies`);
+	for (const c of ['GB', 'CA', 'au']) assert.equal(bookTierPct(OL, 100, c), 0, `${c}: no US bulk tier abroad`);
+	assert.equal(bookTierPct('the-pyramid-principle-pb', 100), 0, 'a book without its own ladder has no tier');
+	assert.deepEqual([0, 20, 30, 40].map((p) => unitAfter(999, p)), [999, 799, 699, 599]);
+});
+
+test('OL FAILURE: a pending SKU cannot check out (store + engine), an unknown SKU is refused; nothing reaches Stripe', async () => {
+	for (const counts of [{ [OL]: 1 }, { [OL]: 10 }, { [OL]: 100 }, { 'no-such-book-pb': 1 }, { 'the-pyramid-principle-pb': 1, [OL]: 25 }]) {
+		const r = await post({ counts, country: 'US', returnPath: '/books/outrageously-loved/' });
+		assert.equal(r.status, 400, JSON.stringify(counts));
+		assert.equal(r.json.error, 'invalid_selection', JSON.stringify(counts));
+		assert.equal(r.calls.filter((u) => u.includes('checkout/sessions')).length, 0, `${JSON.stringify(counts)}: no session`);
+	}
+	// the engine itself never prices a pending row: it is not a catalogue edition, so a cart of only OL is empty
+	const { checkoutForm, bookTierFor } = await import('../src/store-engine/lib/storeEngine.ts');
+	const e = await checkoutForm({ counts: { [OL]: 100 }, country: 'US' }, A_SMP, engineDeps());
+	assert.ok(!('form' in e), 'no Stripe form for a pending SKU');
+	assert.equal(e.status, 400);
+	// and its tier is never charged while it is pending, even with a cost (fail closed)
+	assert.deepEqual(bookTierFor(OL, 100, 'US', { [OL]: 1 }), { pct: 0, reason: `${OL} is not sold` });
+});
+
+test('per-book tier in the ENGINE (ladder injected on a sold SKU): own quantity only, never with the first-order 15%, margin floor holds', async () => {
+	const { BOOK_BULK_TIERS } = await import('../src/store-engine/lib/order-pricing.ts');
+	const costs = (await import('../src/store-engine/data/book-us-costs.json', { with: { type: 'json' } })).default.usd;
+	const { checkoutForm, bookTierFor, usBookNet } = await import('../src/store-engine/lib/storeEngine.ts');
+	const S = 'the-pyramid-principle-pb'; // list $18.99, measured US cost
+	const savedCost = costs[S];
+	BOOK_BULK_TIERS[S] = [{ min: 100, pct: 40 }, { min: 25, pct: 30 }, { min: 10, pct: 20 }];
+	try {
+		const unit = async (n, first = false, email) => {
+			const r = await checkoutForm({ counts: { [S]: n }, country: 'US', email, returnPath: `/books/the-pyramid-principle/` }, A_SMP, engineDeps(first));
+			return r.form;
+		};
+		for (const [n, cents, offer] of [[9, 1899, 'none'], [10, 1519, 'book_bulk'], [25, 1329, 'book_bulk'], [100, 1139, 'book_bulk']]) {
+			const f = await unit(n);
+			assert.equal(f['line_items[0][price_data][unit_amount]'], cents, `${n} copies`);
+			assert.equal(f['metadata[offer]'], offer, `${n}: offer`);
+			assert.match(f['metadata[book_1]'], new RegExp(`qty=${n}\\|unit_cents=${cents}\\|`), `${n}: sale metadata at the charged unit`);
+			if (cents < 1899) assert.match(f['line_items[0][price_data][product_data][description]'], /\d+% bulk discount/);
+		}
+		// NEVER BOTH: a first order of 10+ takes the tier (20% beats 15%), no coupon and no first-order lookup
+		let looked = false;
+		const t = await checkoutForm({ counts: { [S]: 10 }, country: 'US', email: 'new@buyer.co' }, A_SMP, { enabled: true, isFirstOrder: async () => ((looked = true), true), firstOrderPromo: async () => 'promo_1' });
+		assert.equal(t.form['discounts[0][promotion_code]'], undefined, 'no first-order coupon on top of the tier');
+		assert.equal(t.form['line_items[0][price_data][unit_amount]'], 1519);
+		assert.equal(looked, false, 'the tier wins outright: no first-order lookup');
+		// below the ladder a first order still gets its 15% coupon and the book stays at list (the coupon discounts it)
+		const nine = await checkoutForm({ counts: { [S]: 9 }, country: 'US', email: 'new@buyer.co' }, A_SMP, engineDeps(true));
+		assert.equal(nine.form['discounts[0][promotion_code]'], 'promo_1');
+		assert.equal(nine.form['line_items[0][price_data][unit_amount]'], 1899);
+		assert.equal(nine.form['metadata[book_bulk]'], undefined);
+		// abroad: no US tier
+		const gb = await checkoutForm({ counts: { [S]: 100 }, country: 'GB' }, A_SMP, engineDeps());
+		assert.equal(gb.form['metadata[book_bulk]'], undefined, 'no tier abroad');
+		// MARGIN FLOOR: a cost the 40% unit cannot carry steps the order down to the deepest rung that nets >= floor (0)
+		costs[S] = usBookNet(1329, 0) - 0.01; // 30% still nets > 0, 40% does not
+		assert.equal(bookTierFor(S, 100).pct, 30, 'stepped down to 30%');
+		assert.equal((await unit(100))['line_items[0][price_data][unit_amount]'], 1329);
+		// FAILURE PATH: no rung holds -> list price; no measured cost -> list price (fail closed, never a guess)
+		costs[S] = 100;
+		assert.equal((await unit(100))['line_items[0][price_data][unit_amount]'], 1899);
+		delete costs[S];
+		assert.equal(bookTierFor(S, 100).reason, `${S} has no measured US cost`);
+		assert.equal((await unit(100))['line_items[0][price_data][unit_amount]'], 1899);
+	} finally {
+		costs[S] = savedCost;
+		delete BOOK_BULK_TIERS[S];
+	}
+});
+
+test('OL page (built): pending box with the bulk table, NO order form, NO buy/checkout button, NO Offer', () => {
+	const html = fs.readFileSync(new URL('../dist/books/outrageously-loved/index.html', import.meta.url), 'utf8');
+	const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+	assert.match(main, /<h1[^>]*>Outrageously Loved<\/h1>/);
+	assert.match(main, /id="order"[^>]*data-status="pending"/);
+	assert.match(main, /data-bulk-tiers/);
+	for (const s of ['$9.99', '$7.99', '$6.99', '$5.99', '20% off', '30% off', '40% off', '10–24', '25–99', '100+', 'Bulk pricing is available when the book is released.']) assert.ok(main.includes(s), `page shows ${s}`);
+	assert.doesNotMatch(main, /<form[^>]*id="order"|data-status="live"|Checkout →|<button[^>]*type="submit"/, 'nothing to buy');
+	assert.doesNotMatch(html, /"@type":"Offer"|"offers"/, 'no Offer');
+	assert.match(html, /979-8-89307-569-4|9798893075694/, 'ISBN on the page');
+	// FAILURE PATH of this check: a page that sells would be caught
+	assert.match('<form id="order" data-status="live"><button type="submit">Checkout →</button>', /<form[^>]*id="order"|data-status="live"|Checkout →|<button[^>]*type="submit"/);
 });

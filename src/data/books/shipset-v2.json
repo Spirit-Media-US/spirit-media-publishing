@@ -37326,6 +37326,199 @@
 				"page_source": "aeo-state/smp-lane-text-20261115/pantry-stuffers-rehydration-calculations-made-easy.json (pmprint lane 4); page_title/meta/short derived from it (lane 5)"
 			},
 			"skus": {}
+		},
+		{
+			"slug": "outrageously-loved",
+			"units_12m": 0,
+			"book": {
+				"slug": "outrageously-loved",
+				"status": "pending",
+				"title": "Outrageously Loved",
+				"subtitle": "Meet the Father Jesus Came to Show You",
+				"full_title": "Outrageously Loved: Meet the Father Jesus Came to Show You",
+				"author": {
+					"name": "George La Du"
+				},
+				"credits": null,
+				"page_title": "Outrageously Loved by George La Du: Prodigal Son Devotional",
+				"h1": "Outrageously Loved",
+				"meta": "Outrageously Loved by pastor George La Du: a pocket-size Christian devotional on the parable of the prodigal son and God's unconditional love.",
+				"short": "A pocket-size Christian devotional by pastor George La Du on the parable of the prodigal son and God's unconditional love, with a prayer of salvation. You have a Father in heaven who is outrageously in love with you.",
+				"about": "Outrageously Loved is a pocket-size Christian devotional on the parable of the prodigal son and God's unconditional love, by pastor George La Du, for anyone who knows about God but has not experienced His love as a Father. Not tolerant of you. Not disappointed in you. In love with you. Known to many as Papa George, he draws on more than fifty years as a pastor to share the deepest need he has seen in people. It is not more information about God. It is to know, deep in the heart, that you are His beloved child.",
+				"who_for": [
+					"New believers and people returning to faith",
+					"Christians who feel far from God, or who know about God but have not experienced His love as a Father",
+					"Churches, ministries and outreach teams looking for a gospel booklet to give away"
+				],
+				"faq": [
+					{
+						"q": "What is Outrageously Loved about?",
+						"a": "It is a pocket-size Christian devotional on the parable of the prodigal son and God's unconditional love, by pastor George La Du, for anyone who knows about God but has not experienced His love as a Father. After a personal letter, six brief chapters answer from Jesus' story of the father who ran to meet his son (Luke 15:20)."
+					},
+					{
+						"q": "What does the prodigal son story mean?",
+						"a": "Jesus told a story (Luke 15:11-32) to show us what His Father is really like. A young man wasted his inheritance and came home hoping, at best, for a job. Instead, while he was still far off, his father saw him, ran to him, threw his arms around him and kissed him. He welcomed him home not as a hired servant, but as a son."
+					},
+					{
+						"q": "Who is this booklet for?",
+						"a": "New believers and new Christians, those returning to faith, and weary Christians and servants who feel like orphans. Its pocket size (4 x 6 in) makes it an ideal gift, and a natural gospel booklet to give away in churches, ministries and evangelism outreach."
+					},
+					{
+						"q": "Is there bulk pricing for churches and ministries?",
+						"a": "Yes. For US orders, 1 to 9 copies are $9.99 each; 10 to 24 copies are 20% off ($7.99 each); 25 to 99 copies are 30% off ($6.99 each); 100 or more copies are 40% off ($5.99 each). Bulk pricing is available when the book is released."
+					}
+				],
+				"bio": "George La Du has been a pastor for more than fifty years and is known to many as \"Papa George.\" He served as associate pastor at Aloha Community Church for fourteen years and at Jubilee Christian Fellowship for thirty years. After forty-five years as a pastor, he had a life-changing encounter with the Father's love that moved him from serving God as a good servant to living as a beloved son who serves. He tells that story in his booklet The Beloved, and he created The Identity Project, a discipleship course and book on who you are in Christ. George and his wife, Randi, minister together, helping people experience the Father's love for themselves. They live in Tigard, Oregon.",
+				"jsonld": {
+					"book": {
+						"name": "Outrageously Loved",
+						"alternativeHeadline": "Meet the Father Jesus Came to Show You",
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893075694",
+						"bookFormat": "https://schema.org/Paperback",
+						"sameAs": []
+					}
+				},
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/outrageously-loved-1200.jpg",
+					"source": "approved 4x6 front v1 (projects/george-ladu-outrageously-loved/art/OL-4x6-front-v1.jpg, Drive review folder 1RQLMQGSLQl1pffGjigp-34Di3ohOs0nF)"
+				},
+				"formats": [
+					"outrageously-loved-pb"
+				],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": null,
+				"pub_date": null,
+				"url": "https://spiritmediapublishing.com/books/outrageously-loved/",
+				"_source": "Drive metadata Doc 1bTPMSND2vsGoZZFh8Ua85Ka3xcFZrsoUErOWU07hEOM (Outrageously Loved — Metadata, SEO/AEO review 2026-11-19); page + bulk tiers: Kevin 2026-11-20 \"build SMP page for this book with bulk pricing discount\" (tiers approved the same day); no Ingram title yet, so the SKU is PENDING (book-skus.json pending): page, no sale",
+				"page": {
+					"hero": {
+						"eyebrow": "By George La Du",
+						"audience_line": "For new believers, people returning to faith, and anyone who knows about God but has not experienced His love as a Father.",
+						"tagline": "You have a Father in heaven who is outrageously in love with you. Not tolerant of you. Not disappointed in you. In love with you.",
+						"offer_line": "Bulk pricing for churches and ministries, US orders: 20% off 10 or more copies, 30% off 25 or more, 40% off 100 or more. Available when the book is released."
+					},
+					"audience": {
+						"headline": "You have a Father who is outrageously in love with you",
+						"body": "Not tolerant of you. Not disappointed in you. In love with you. Known to many as Papa George, he draws on more than fifty years as a pastor to share the deepest need he has seen in people. It is not more information about God. It is to know, deep in the heart, that you are His beloved child."
+					},
+					"whats_inside": [
+						"1. You Have a Father: you do not earn this love; you receive it.",
+						"2. The Wall Around Our Hearts: how sin, hurt and failure leave us living like orphans, striving, hiding and afraid.",
+						"3. The Father Ran: the prodigal son and the father who would not let his boy come home as a servant.",
+						"4. Jesus Came to Show Us the Father: the cross as the full measure of how much you are loved.",
+						"5. Coming Home: a simple prayer of salvation for anyone ready to come home to the Father.",
+						"6. Your First Steps as a Beloved Child: four simple ways to grow: listen for His voice, remain, read and share."
+					],
+					"details": {
+						"Title": "Outrageously Loved",
+						"Subtitle": "Meet the Father Jesus Came to Show You",
+						"Author": "George La Du",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Trim size": "4 x 6 inches",
+						"Binding": "Paperback (perfect bound, matte laminate)",
+						"Paperback ISBN": "979-8-89307-569-4"
+					},
+					"sections": [
+						{
+							"h2": "What does the prodigal son story mean?",
+							"paras": [
+								"Jesus told a story (Luke 15:11-32) to show us what His Father is really like. A young man wasted his inheritance and came home hoping, at best, for a job. Instead, while he was still far off, his father saw him, ran to him, threw his arms around him and kissed him. He welcomed him home not as a hired servant, but as a son. This is the heart of your Father toward you: not arms crossed, but arms open and running."
+							]
+						},
+						{
+							"h2": "Inside this booklet",
+							"paras": [
+								"Papa George opens with a personal letter, then walks you through six brief chapters. Each chapter ends with a Pause and Reflect page, with a question and space to write your answer. A side-by-side chart, with Scripture, shows the difference between living as a servant or orphan and living as a beloved son or daughter."
+							]
+						},
+						{
+							"h2": "Who is this booklet for?",
+							"paras": [
+								"New believers and new Christians, those returning to faith, and weary Christians and servants who feel like orphans. Its pocket size (4 x 6 in) makes it an ideal gift, and a natural gospel booklet to give away in churches, ministries and evangelism outreach."
+							]
+						},
+						{
+							"h2": "Bulk pricing for churches and ministries",
+							"paras": [
+								"For US orders, 1 to 9 copies are $9.99 each; 10 to 24 copies are 20% off ($7.99 each); 25 to 99 copies are 30% off ($6.99 each); 100 or more copies are 40% off ($5.99 each). Bulk pricing is available when the book is released."
+							]
+						}
+					],
+					"why": {
+						"title": "A pastor's own story",
+						"paras": [
+							"For forty-five years, Papa George related to God as a good servant, not as a beloved son. Like the son in Jesus' story, he was ready to settle for being one of the hired hands. Then, while he was praying for people, the Father poured His love into him so he could pour it into them. Now, as he puts it, what he does is serving, but who he is is a beloved son. In these pages he invites you into that same love.",
+							"Jesus came to show you exactly what your Father is like, and He paid the full price so you could come home. Your Father has been watching the road, and He is running to meet you. All Scripture is quoted from the Father's Heart Bible (FHB), published by Spirit Media Publishing."
+						]
+					},
+					"author": {
+						"bio": "George La Du has been a pastor for more than fifty years and is known to many as \"Papa George.\" He served as associate pastor at Aloha Community Church for fourteen years and at Jubilee Christian Fellowship for thirty years. After forty-five years as a pastor, he had a life-changing encounter with the Father's love that moved him from serving God as a good servant to living as a beloved son who serves. He tells that story in his booklet The Beloved, and he created The Identity Project, a discipleship course and book on who you are in Christ. George and his wife, Randi, minister together, helping people experience the Father's love for themselves. They live in Tigard, Oregon."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service publishing in paperback, hardback, digital, and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production."
+					},
+					"faq": [
+						{
+							"q": "What is Outrageously Loved about?",
+							"a": "It is a pocket-size Christian devotional on the parable of the prodigal son and God's unconditional love, by pastor George La Du, for anyone who knows about God but has not experienced His love as a Father. After a personal letter, six brief chapters answer from Jesus' story of the father who ran to meet his son (Luke 15:20)."
+						},
+						{
+							"q": "What does the prodigal son story mean?",
+							"a": "Jesus told a story (Luke 15:11-32) to show us what His Father is really like. A young man wasted his inheritance and came home hoping, at best, for a job. Instead, while he was still far off, his father saw him, ran to him, threw his arms around him and kissed him. He welcomed him home not as a hired servant, but as a son."
+						},
+						{
+							"q": "Who is this booklet for?",
+							"a": "New believers and new Christians, those returning to faith, and weary Christians and servants who feel like orphans. Its pocket size (4 x 6 in) makes it an ideal gift, and a natural gospel booklet to give away in churches, ministries and evangelism outreach."
+						},
+						{
+							"q": "Is there bulk pricing for churches and ministries?",
+							"a": "Yes. For US orders, 1 to 9 copies are $9.99 each; 10 to 24 copies are 20% off ($7.99 each); 25 to 99 copies are 30% off ($6.99 each); 100 or more copies are 40% off ($5.99 each). Bulk pricing is available when the book is released."
+						}
+					]
+				}
+			},
+			"skus": {
+				"outrageously-loved-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893075694",
+					"isbn_display": "979-8-89307-569-4",
+					"list_cents": 999,
+					"pages": null,
+					"trim": "4.0 x 6.0 in",
+					"binding": "Perfect bound",
+					"checkout_title": "Outrageously Loved — Paperback",
+					"checkout_name": "Outrageously Loved: Meet the Father Jesus Came to Show You",
+					"checkout_desc": "Paperback · by George La Du · free shipping",
+					"checkout_img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/outrageously-loved-1200.jpg",
+					"book": "outrageously-loved",
+					"discount_class": "book",
+					"bulk_tiers": [
+						{
+							"min": 10,
+							"pct": 20
+						},
+						{
+							"min": 25,
+							"pct": 30
+						},
+						{
+							"min": 100,
+							"pct": 40
+						}
+					],
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/outrageously-loved/",
+					"sku_status": "pending",
+					"ship_scope": "us_only",
+					"author_key": "George La Du"
+				}
+			}
 		}
 	]
 }
