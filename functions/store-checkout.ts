@@ -167,9 +167,7 @@ export async function riabCheckout(
 		} as const;
 	const d = donationRefusal(payload.donation_cents, env);
 	if (d) return { status: 400, body: d } as const;
-	const signed =
-		(counts['raised-in-a-barn-hb-signed'] ?? 0) + (counts['raised-in-a-barn-pb-signed'] ?? 0);
-	const k = riabKey(env, signed > 0);
+	const k = riabKey(env);
 	if ('status' in k) return k;
 	const r = await smpCheckoutForm(
 		{

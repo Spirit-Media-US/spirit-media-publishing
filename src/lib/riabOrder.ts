@@ -19,16 +19,19 @@
 //      discount"; other SMP books keep the store-wide 15%): /store-checkout never hands the engine a RIAB buyer's email
 //      (so no first-order lookup runs) and brandRiabForm strips any coupon and re-prices every line from riabQuote.
 //  (b) AUTOGRAPHED, Kevin 11-20 00:05Z "same price": a signed copy is the SAME SKU at the SAME price, carried as its
-//      own line + metadata[signed]. FULFILMENT ROUTE IS UNCONFIRMED (Van / Angus Barn signs; Kevin confirms before any
-//      live order). FHB print-webhook does not read metadata[signed] yet, so it would list signed copies on the
-//      Ingram lines: signed copies are therefore refused on a live key until RIAB_SIGNED_ROUTE is set.
+//      own line + metadata[signed]. ROUTE (Kevin 2026-11-20 ~15:20Z "5. Van signs! SMP ships! Stop asking. You take
+//      the orders. I will get these fulfilled."): RIAB_SIGNED_ROUTE = SMP manual fulfilment, NEVER Ingram. The order
+//      notice to kevin@ is the store's existing one (FHB functions/print-webhook.ts, Mailgun, SMP Orders): it lists
+//      metadata[breakdown] under "Editions" and prints an "Ingram order lines" ISBN row ONLY for a SKU in BOOK_SKUS.
+//      So brandRiabForm writes signed copies into the breakdown under their own readable key (RIAB_SIGNED_KEY,
+//      deliberately NOT a BOOK_SKUS key): the notice lists them, the Ingram lines carry only unsigned copies.
 //  (c) DONATION to SM Charities' Cheyenne Foundation fund: NOT BUILT. One card entry across two Stripe accounts needs
 //      SM Charities connected to the SMP store account (Stripe Connect: save the card on the platform, clone the
 //      PaymentMethod to SMC, direct charge there, docs.stripe.com/connect/direct-charges-multiple-accounts). No such
 //      connection and no test keys exist (2026-11-20). Until then a donation is REFUSED before any Stripe call, and it
 //      is never, in any path, added to the SMP charge.
 import bookSkus from '../store-engine/data/book-skus.json' with { type: 'json' };
-import { unitAfter } from '../store-engine/lib/order-pricing.ts';
+import { packBreakdown, unitAfter } from '../store-engine/lib/order-pricing.ts';
 
 export const RIAB_SLUG = 'raised-in-a-barn';
 export const RIAB_BRAND = 'riab';
@@ -42,6 +45,14 @@ export const RIAB_PB = 'raised-in-a-barn-pb';
 export const RIAB_INPUTS = [RIAB_HB, `${RIAB_HB}-signed`, RIAB_PB, `${RIAB_PB}-signed`] as const;
 /** Over this many copies the buyer calls us. */
 export const RIAB_MAX_COPIES = 5000;
+/** Where signed copies go (Kevin 2026-11-20 "Van signs! SMP ships!"): SMP fulfils by hand; never an Ingram line. */
+export const RIAB_SIGNED_ROUTE = 'smp_manual_van_signs';
+/** The breakdown key of a signed copy: what the order notice (kevin@) and the buyer's confirmation print for it, as the
+ *  existing webhook prints an unknown key verbatim. Never a BOOK_SKUS key, so it can never become an Ingram line. */
+export const RIAB_SIGNED_KEY: Record<string, string> = {
+	'raised-in-a-barn-hb': 'Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure',
+	'raised-in-a-barn-pb': 'Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure',
+};
 
 /** Kevin 2026-11-12 table, highest first. */
 export const RIAB_TIERS: readonly { min: number; pct: number }[] = [
@@ -133,13 +144,10 @@ export type RiabGateEnv = RiabEnv & {
 	STRIPE_STORE_TEST_SECRET_KEY?: string;
 	/** 'kevin-approved' lets the RIAB checkout take LIVE payments. Unset = test mode only. */
 	RIAB_LIVE?: string;
-	/** set once Kevin confirms who fulfils signed copies; until then signed copies sell in test mode only */
-	RIAB_SIGNED_ROUTE?: string;
 };
 /** The key the RIAB checkout may use, or the refusal. NOTHING LIVE without Kevin: a live key needs RIAB_LIVE. */
 export function riabKey(
 	env: RiabGateEnv,
-	hasSigned: boolean,
 ): { key: string; test: boolean } | { status: number; body: Record<string, unknown> } {
 	const key = env.STRIPE_STORE_TEST_SECRET_KEY || env.STRIPE_STORE_SECRET_KEY;
 	if (!key)
@@ -154,14 +162,7 @@ export function riabKey(
 				message: 'This checkout is a preview. Orders open soon.',
 			},
 		};
-	if (hasSigned && !test && !env.RIAB_SIGNED_ROUTE)
-		return {
-			status: 400,
-			body: {
-				error: 'signed_not_available',
-				message: 'Autographed copies are not available yet.',
-			},
-		};
+	// signed copies need no gate of their own: their route is settled (RIAB_SIGNED_ROUTE, Kevin 2026-11-20)
 	return { key, test };
 }
 
@@ -227,9 +228,20 @@ export function brandRiabForm(form: Form, counts: Record<string, number>, countr
 	form['metadata[brand]'] = RIAB_BRAND;
 	if (signedHb + signedPb > 0) {
 		form['metadata[signed]'] = `${RIAB_HB}:${signedHb},${RIAB_PB}:${signedPb}`;
-		// fulfilment route is Kevin's to confirm (Van / Angus Barn); the order email must not send these to Ingram
-		form['metadata[signed_route]'] = 'UNCONFIRMED_do_not_order_signed_from_ingram';
+		form['metadata[signed_route]'] = RIAB_SIGNED_ROUTE;
 	}
+	// The breakdown the order notice reads: unsigned under the real SKU (-> Ingram line), signed under its own key
+	// (-> listed in the notice, NO Ingram line). Replaces the engine's merged tally; same copy total.
+	for (const k of Object.keys(form)) if (/^metadata\[breakdown(_\d+)?\]$/.test(k)) delete form[k];
+	Object.assign(
+		form,
+		packBreakdown({
+			[RIAB_HB]: counts[RIAB_HB] ?? 0,
+			[RIAB_SIGNED_KEY[RIAB_HB]]: signedHb,
+			[RIAB_PB]: counts[RIAB_PB] ?? 0,
+			[RIAB_SIGNED_KEY[RIAB_PB]]: signedPb,
+		}),
+	);
 	const origin = String(form.success_url ?? '').replace(/\/order\?.*$/, '');
 	form.cancel_url = `${origin}${RIAB_RETURN_PATH}?order=canceled`;
 	form['custom_text[submit][message]'] =

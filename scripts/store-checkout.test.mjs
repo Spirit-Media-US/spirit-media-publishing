@@ -963,7 +963,9 @@ test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB
 	assert.equal(f.get('metadata[pct_off]'), '20');
 	assert.equal(f.get('metadata[offer]'), 'riab_bulk');
 	assert.equal(f.get('metadata[signed]'), 'raised-in-a-barn-hb:2,raised-in-a-barn-pb:0');
-	assert.match(f.get('metadata[signed_route]'), /^UNCONFIRMED/);
+	assert.equal(f.get('metadata[signed_route]'), 'smp_manual_van_signs');
+	assert.equal(f.get('metadata[breakdown]'), 'raised-in-a-barn-hb:30,Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure:2,raised-in-a-barn-pb:20');
+	assert.equal(f.get('metadata[total]'), '52');
 	assert.equal(f.get('metadata[utm_source]'), 'raisedinabarn.org');
 	const books = [f.get('metadata[book_1]'), f.get('metadata[book_2]')].join('\n');
 	assert.match(books, /format=Hardback\|qty=32\|unit_cents=2399\|/);
@@ -1001,17 +1003,71 @@ test('RIAB FAILURE: a donation is refused before any Stripe call, with or withou
 	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 0 })).status, 200, 'no gift = normal order');
 });
 
-test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; signed needs RIAB_SIGNED_ROUTE on live', async () => {
+test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; with it, signed sells on the SMP-manual route', async () => {
 	const live = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x' } });
 	assert.equal(live.json.disabled, true);
 	assert.equal(live.json.error, 'riab_test_only');
 	assert.equal(live.calls.length, 0);
 	const pref = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY } });
 	assert.equal(pref.json.url, 'https://stripe.test/riab', 'the TEST key is preferred when both are bound');
+	const wrong = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'yes' } });
+	assert.equal(wrong.json.error, 'riab_test_only', 'only the exact value kevin-approved opens live');
+	assert.equal(wrong.calls.length, 0);
 	const signed = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
-	assert.equal(signed.json.error, 'signed_not_available');
-	assert.equal(signed.calls.length, 0);
+	assert.equal(signed.status, 200, JSON.stringify(signed.json));
+	assert.equal(signed.json.url, 'https://stripe.test/riab', 'Kevin 11-20 "Van signs! SMP ships!": signed sells live');
+	assert.equal(signed.form.get('metadata[signed_route]'), 'smp_manual_van_signs');
 });
+
+// ── RIAB SIGNED ROUTE (Kevin 2026-11-20 ~15:20Z "5. Van signs! SMP ships! ... You take the orders. I will get these
+// fulfilled."). The order notice is the store's existing one (FHB functions/print-webhook.ts -> kevin@, Mailgun): it
+// lists metadata[breakdown] under "Editions" and prints an "Ingram order lines" ISBN row only for a BOOK_SKUS key.
+// These mirror that webhook's two readers exactly (ingramLines / fmtOrder over readBreakdown) against the real
+// BOOK_SKUS, so a signed copy that leaked onto an Ingram line fails here.
+async function noticeFor(form) {
+	const { BOOK_SKUS, readBreakdown } = await import('../src/store-engine/lib/order-pricing.ts');
+	const m = {};
+	for (const [k, v] of form) {
+		const mm = /^metadata\[(.+)\]$/.exec(k);
+		if (mm) m[mm[1]] = v;
+	}
+	const parts = readBreakdown(m).split(/[,\s]+/).filter(Boolean).map((p) => [p.slice(0, p.lastIndexOf(':')), Number(p.slice(p.lastIndexOf(':') + 1))]);
+	return {
+		m,
+		editions: parts,
+		ingram: parts.filter(([sku]) => BOOK_SKUS[sku]).map(([sku, n]) => [BOOK_SKUS[sku].isbn, n]),
+	};
+}
+
+test('RIAB SIGNED ROUTE: a signed-only order puts NOTHING on the Ingram lines; the notice lists the signed copies', async () => {
+	const { BOOK_SKUS } = await import('../src/store-engine/lib/order-pricing.ts');
+	const r = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb-signed': 1 } });
+	assert.equal(r.status, 200, JSON.stringify(r.json));
+	const n = await noticeFor(r.form);
+	assert.deepEqual(n.ingram, [], 'no Ingram line for a signed copy');
+	assert.deepEqual(n.editions, [['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure', 2], ['Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure', 1]]);
+	assert.equal(BOOK_SKUS['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure'], undefined, 'the signed key must never become a BOOK_SKUS key');
+	assert.equal(BOOK_SKUS['Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure'], undefined);
+	assert.equal(n.m.signed_route, 'smp_manual_van_signs');
+	assert.equal(n.m.signed, 'raised-in-a-barn-hb:2,raised-in-a-barn-pb:1');
+	assert.equal(n.m.kind, 'dvc_print', 'still a print order, so the existing notice to kevin@ fires');
+	assert.equal(n.m.total, '3');
+});
+
+test('RIAB SIGNED ROUTE: unsigned copies keep the Ingram route; a mixed cart splits by line', async () => {
+	const { BOOK_SKUS } = await import('../src/store-engine/lib/order-pricing.ts');
+	const hb = BOOK_SKUS['raised-in-a-barn-hb'].isbn;
+	const pb = BOOK_SKUS['raised-in-a-barn-pb'].isbn;
+	const u = await noticeFor((await riabPost({ counts: { 'raised-in-a-barn-hb': 3, 'raised-in-a-barn-pb': 1 } })).form);
+	assert.deepEqual(u.ingram, [[hb, 3], [pb, 1]], 'unsigned: every copy on an Ingram line');
+	assert.equal(u.m.signed, undefined);
+	assert.equal(u.m.signed_route, undefined);
+	const x = await noticeFor((await riabPost({ counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb': 20, 'raised-in-a-barn-pb-signed': 5 } })).form);
+	assert.deepEqual(x.ingram, [[hb, 30], [pb, 20]], 'Ingram gets the unsigned 50 only, never the 7 signed');
+	assert.deepEqual(x.editions.filter(([s]) => /AUTOGRAPHED/.test(s)), [['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure', 2], ['Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure', 5]]);
+	assert.equal(x.editions.reduce((t, [, q]) => t + q, 0), Number(x.m.total), 'notice lists every copy sold');
+});
+
 
 test('RIAB FAILURE: bad carts never misprice: foreign SKU, fractions, empty, over the cap, cross-origin', async () => {
 	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1, 'who-am-i-pb': 1 } })).json.error, 'invalid_selection');
