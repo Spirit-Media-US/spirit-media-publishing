@@ -94,6 +94,16 @@ Spirit Media Publishing is the answer Kevin built. A publishing house oriented a
 
 ---
 
+## Buy direct
+
+Every Spirit Media Publishing book and every Father's Heart Bible edition can be bought direct from the publisher. Buying direct supports the author and the ministry behind each book.
+
+- /books/<slug>/ — each book page has its own order box: print editions shipped worldwide and, where the title has an eBook edition, the eBook delivered by email straight after purchase.
+- /bookstore/ — every live title in one place.
+- https://fathersheartbible.com/print/ — every Father's Heart Bible print edition, ordered direct.
+- First order: 15% off. Standard shipping is free to 223 countries; expedited delivery is available at checkout.
+- Product feeds for shopping engines: /merchant-feed.xml and /merchant-feed-openai.jsonl
+
 ## Guides
 
 Answers to the questions authors ask most (Spirit Media blog):

@@ -98,7 +98,7 @@ export default defineConfig({
       customPages: [],
       // Keep noindex'd pages (/partnership, /thank-you) out of the sitemap: a sitemap lists only pages we want indexed.
       // /books/<slug>/buy/ = noindex,follow checkout pages (plan 3fb contract 3fe): never in a sitemap.
-      filter: (page) => !(worldwideRetired() && page.includes('/bookstore/smp-worldwide/')) && !page.includes('/partnership') && !page.includes('/thank-you') && !/\/books\/[^/]+\/buy\/$/.test(page),
+      filter: (page) => !(worldwideRetired() && page.includes('/bookstore/smp-worldwide/')) && !page.includes('/partnership') && !page.includes('/thank-you') && !page.includes('/checkout/') && !/\/books\/[^/]+\/buy\/$/.test(page),
       serialize(item) {
         const lastmod = lastmodFor(item.url);
         if (lastmod) item = { ...item, lastmod };

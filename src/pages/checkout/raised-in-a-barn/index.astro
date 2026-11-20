@@ -1,0 +1,46 @@
+---
+import RiabOrderForm from '../../../components/RiabOrderForm.astro';
+// /checkout/raised-in-a-barn/ — the BRANDED SMP checkout for Raised in a Barn by Van Eure (pmseoaeo 2026-11-20; Kevin
+// 2026-11-19 23:45Z "do it 100% same as FHB which says through SMP and when you click the buy button it takes you to SMP
+// for checkout. Need to make sure branding is customized for RIAB by Van Eure"; 11-20 00:05Z signed copies same price +
+// donation box, ONE checkout). raisedinabarn.org Buy buttons LINK here:
+//   ?f=hb | ?f=pb            preselect one copy of that format
+//   &signed=1                ... autographed (same price)
+//   ?qty=N                   preselect N copies (bulk)
+//   #bulk / #donate          jump to the bulk table / the gift box
+// The form itself is src/components/RiabOrderForm.astro (shared with the iframe variant ./embed/). NO first-order 15% on
+// RIAB (Kevin 2026-11-20 ~05:00Z): below 25 copies = list price. noindex (a checkout).
+// DONATION BOX: shown, DISABLED: the SM Charities Stripe link (Connect) does not exist yet (see riabOrder.ts (c)).
+import Layout from '../../../layouts/Layout.astro';
+
+const cover =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-1200.jpg';
+---
+
+<Layout
+	title="Raised in a Barn by Van Eure: Order"
+	description="Order Raised in a Barn by Van Eure from Spirit Media Publishing: hardback and paperback, autographed copies at the same price, bulk discounts, free US shipping."
+	robots="noindex, nofollow"
+	ogImage={cover}
+	ogImageWidth={1200}
+	ogImageHeight={1855}
+	ogImageType="image/jpeg"
+>
+	<main class="riab bg-[#f7f2ea] px-4 pb-14 pt-8 text-[#2b1d14] sm:px-6">
+		<div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-[minmax(0,320px)_1fr] md:items-start">
+			<div class="text-center md:sticky md:top-24">
+				<img src={cover} width="1200" height="1855" alt="Raised in a Barn by Van Eure, book cover" fetchpriority="high" decoding="async" class="mx-auto h-auto w-[220px] rounded shadow-xl md:w-full" />
+				<p class="mt-4 text-sm text-[#5b4636]">Sold and shipped by <strong>Spirit Media Publishing</strong></p>
+			</div>
+			<div>
+				<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#8a1c1c]">Order the book</p>
+				<h1 class="mt-1 text-3xl font-bold leading-tight sm:text-4xl">Raised in a Barn</h1>
+				<p class="mt-1 text-lg text-[#5b4636]">A Memoir of Family, Hospitality, and the 12 Commandments of the Angus Barn</p>
+				<p class="mt-2 text-lg font-semibold">by Van Eure</p>
+
+				<RiabOrderForm />
+			</div>
+		</div>
+	</main>
+</Layout>
+

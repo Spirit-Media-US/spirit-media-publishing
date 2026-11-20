@@ -292,7 +292,11 @@ const textOf = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>
 // no offer line, no marquee, no email field, no pending note. digitalErrs() is the ONE check, used on the built pages and
 // proven to fail on a digital page with no retailer button.
 const RETAIL = JSON.parse(fs.readFileSync(new URL('../src/data/books/retailer-links.json', import.meta.url), 'utf8')).links;
-const RETAIL_LABEL = { ebook: 'Buy the eBook', audiobook: 'Listen on Audible' };
+// OWN-ACCOUNT authors (Kevin 2026-11-18, src/data/books/author-accounts.json): the book lives in the AUTHOR's own accounts,
+// so the page sells nothing and its ONE retailer button is "Buy on <store>" -> the author's own listing (same digitalErrs check).
+const OWN = JSON.parse(fs.readFileSync(new URL('../src/data/books/author-accounts.json', import.meta.url), 'utf8')).books;
+const retailOf = (slug) => (OWN[slug] ? { kind: 'print', href: OWN[slug].href, store: OWN[slug].store } : RETAIL[slug]);
+const RETAIL_LABEL = { ebook: 'Buy the eBook', audiobook: 'Listen on Audible', print: 'Buy on Amazon →' };
 // the button's visible label; its new-tab notice (.xsite-sr "(opens in a new tab)", src/lib/xsite.ts) is read separately
 const RETAIL_BTN = /<a class="br-btn"[^>]*href="([^"]+)"[^>]*>([^<]*)(?:<span class="xsite-sr">[^<]*<\/span>)?<\/a>|<a[^>]*href="([^"]+)"[^>]*class="br-btn"[^>]*>([^<]*)(?:<span class="xsite-sr">[^<]*<\/span>)?<\/a>/g;
 const digitalErrs = (slug, main, row) => {
@@ -447,17 +451,25 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 			} else assert.doesNotMatch(main, new RegExp(`name="${t.slug}-ebook"|<input[^>]*data-ebook-in`), `${t.slug}: no eBook row while not on sale`);
 		} else if (ebookOnSale(t.slug)) {
 			assert.deepEqual(ebookOnlyErrs(t.slug, main, ebookOnSale(t.slug)), [], `${t.slug}: eBook-only order box`);
-		} else if (RETAIL[t.slug]) {
-			assert.deepEqual(digitalErrs(t.slug, main, RETAIL[t.slug]), [], `${t.slug}: digital-only retailer box`);
+		} else if (retailOf(t.slug)) {
+			assert.deepEqual(digitalErrs(t.slug, main, retailOf(t.slug)), [], `${t.slug}: digital-only retailer box`);
 		} else {
 			assert.match(main, /id="order"[^>]*data-status="pending"/, `${t.slug}: #order anchor (pending)`);
 			assert.match(main, { es: /Pronto disponible en nuestra tienda\./, fr: /Bientôt disponible dans notre librairie\./ }[t.book?.language] ?? /Available soon from our store\./, `${t.slug}: pending note`);
 		}
 		// digital-only: the ONE retailer button is Kevin's 2026-11-16 17:15Z exception to "Amazon is never a buy option";
 		// everything else on the page still obeys it
-		const body = RETAIL[t.slug] && !ebookOnSale(t.slug) && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
+		const body = retailOf(t.slug) && !ebookOnSale(t.slug) && !(t.skus && Object.keys(t.skus).some((k) => REG[k])) ? main.replace(RETAIL_BTN, '') : main;
 		assert.doesNotMatch(body, />[^<]*Buy on Amazon/i, `${t.slug}: no Amazon button`);
 		assert.doesNotMatch(main, /class="[^"]*\b(bg|text)-red/, `${t.slug}: no red in the page body`);
+		if (OWN[t.slug]) {
+			for (const s of OWN[t.slug].retired_smp_skus) {
+				const isbn = s.match(/ISBN (\d{13})/)[1];
+				assert.ok(!html.includes(isbn) && !html.includes(isbn.replace(/^(\d{3})(\d)(\d{5})(\d{3})(\d)$/, '$1-$2-$3-$4-$5')), `${t.slug}: retired SMP ISBN ${isbn} on an own-account page`);
+			}
+			assert.ok(!/Library of Congress Control Number/.test(main), `${t.slug}: SMP LCCN on an own-account page`);
+			assert.ok(!/"@type":"Offer"/.test(html), `${t.slug}: Offer on an own-account page`);
+		}
 		const leak = textOf(main).match(LEAK);
 		assert.equal(leak, null, `${t.slug}: internal wording on the page: "${leak?.[0]}"`);
 		const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join(' ');
@@ -465,7 +477,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		// Amazon is never a buy option on our page (Kevin 11-13 L1973): no link to it, no 'buy/order/available on Amazon'.
 		// A book's own words may name it (SM's Guide contents: "Chapter 9: Respect King Amazon"), so the bare word is allowed.
 		assert.doesNotMatch(body, /href="[^"]*amazon\./i, `${t.slug}: no Amazon link in the page body`);
-		assert.doesNotMatch(textOf(main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
+		assert.doesNotMatch(textOf(OWN[t.slug] ? body : main), /\b(buy|order|purchase|available|find it|get it)\b[^.]{0,40}\bamazon\b/i, `${t.slug}: Amazon offered as a place to buy`);
 		// the order box's choices are <summary data-choice>, not questions
 		assert.equal([...html.matchAll(/"@type":"Question"/g)].length, [...main.matchAll(/<summary(?![^>]*data-choice)[^>]*>/g)].length, `${t.slug}: FAQPage == visible`);
 		// support is a Contact us BUTTON, never a printed address (Kevin 2026-11-15)
@@ -861,4 +873,310 @@ test('home: "New from Spirit Media Authors" renders the SAME bookstore cards, an
 		assert.match(c, /href="\/books\/[^"]+\/"/, `${id}: opens its SMP page`);
 	}
 	assert.match(home, /<a href="\/bookstore\/"[^>]*>\s*Books\s*<\/a>/, 'menu Books link');
+});
+
+// ── RAISED IN A BARN branded checkout (src/lib/riabOrder.ts; Kevin 2026-11-19/20). Kevin's 2026-11-12 table:
+// HB $29.99 / PB $19.99, 15/20/25/30/40% at 25/50/100/250/500 copies, HB + PB together. Stripe mocked; TEST key.
+const RIAB_TEST_KEY = 'sk_test_riab_mock';
+async function riabPost(payload, { env = { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY }, origin } = {}) {
+	const calls = [];
+	let body = '';
+	globalThis.fetch = async (url, init) => {
+		calls.push(String(url));
+		if (init?.method === 'POST') {
+			body = init.body;
+			return new Response(JSON.stringify({ url: 'https://stripe.test/riab' }));
+		}
+		return new Response(JSON.stringify({ data: [] }));
+	};
+	const { onRequestPost } = await import('../functions/store-checkout.ts');
+	const res = await onRequestPost({
+		request: new Request(A, {
+			method: 'POST',
+			body: JSON.stringify({ brand: 'riab', country: 'US', ...payload }),
+			headers: origin ? { origin } : {},
+		}),
+		env,
+	});
+	return { status: res.status, json: await res.json(), form: new URLSearchParams(body), calls };
+}
+const riabLib = () => import('../src/lib/riabOrder.ts');
+
+test('RIAB tier ladder: 15/20/25/30/40 at 25/50/100/250/500, US only, nothing below 25', async () => {
+	const { riabTierPct } = await riabLib();
+	const want = { 1: 0, 24: 0, 25: 15, 49: 15, 50: 20, 99: 20, 100: 25, 249: 25, 250: 30, 499: 30, 500: 40, 5000: 40 };
+	for (const [n, pct] of Object.entries(want)) assert.equal(riabTierPct(Number(n)), pct, `${n} copies`);
+	assert.equal(riabTierPct(500, 'CA'), 0, 'bulk tiers are US only');
+});
+
+test("RIAB unit prices match Kevin's 11-12 table to the cent (HB 25.49..17.99, PB 16.99..11.99)", async () => {
+	const { riabQuote } = await riabLib();
+	const at = (sku) => [25, 50, 100, 250, 500].map((n) => riabQuote({ [sku]: n }).lines[0].unit_cents);
+	assert.deepEqual(at('raised-in-a-barn-hb'), [2549, 2399, 2249, 2099, 1799]);
+	assert.deepEqual(at('raised-in-a-barn-pb'), [1699, 1599, 1499, 1399, 1199]);
+	assert.equal(riabQuote({ 'raised-in-a-barn-hb': 1 }).lines[0].unit_cents, 2999);
+	assert.equal(riabQuote({ 'raised-in-a-barn-pb': 24 }).lines[0].unit_cents, 1999, '24 copies: list, no tier');
+});
+
+test('RIAB: HB + PB + signed copies count together toward the tier; signed = same price', async () => {
+	const { riabQuote } = await riabLib();
+	const q = riabQuote({ 'raised-in-a-barn-hb': 10, 'raised-in-a-barn-hb-signed': 5, 'raised-in-a-barn-pb': 10 });
+	assert.equal(q.copies, 25);
+	assert.equal(q.pct, 15);
+	assert.deepEqual(
+		q.lines.map((l) => [l.sku, l.signed, l.qty, l.unit_cents]),
+		[
+			['raised-in-a-barn-hb', false, 10, 2549],
+			['raised-in-a-barn-hb', true, 5, 2549],
+			['raised-in-a-barn-pb', false, 10, 1699],
+		],
+	);
+	assert.equal(q.subtotal, 15 * 2549 + 10 * 1699);
+});
+
+test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB return, no coupon', async () => {
+	const r = await riabPost({
+		counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb': 20 },
+		utm: { source: 'raisedinabarn.org', medium: 'referral', campaign: 'buy-button' },
+	});
+	assert.equal(r.status, 200, JSON.stringify(r.json));
+	assert.equal(r.json.url, 'https://stripe.test/riab');
+	assert.equal(r.calls.filter((u) => u.endsWith('/v1/checkout/sessions')).length, 1);
+	const f = r.form;
+	const line = (i, k) => f.get(`line_items[${i}][${k}]`);
+	assert.equal(line(0, 'price_data][product_data][name'), 'Raised in a Barn — Hardback');
+	assert.equal(line(0, 'quantity'), '30');
+	assert.equal(line(0, 'price_data][unit_amount'), '2399', '52 copies = 20% tier');
+	assert.equal(line(1, 'price_data][product_data][name'), 'Raised in a Barn — Hardback (autographed by Van Eure)');
+	assert.equal(line(1, 'quantity'), '2');
+	assert.equal(line(1, 'price_data][unit_amount'), '2399', 'signed copy, same price');
+	assert.equal(line(2, 'price_data][product_data][name'), 'Raised in a Barn — Paperback');
+	assert.equal(line(2, 'price_data][unit_amount'), '1599');
+	assert.equal(f.get('line_items[3][quantity]'), null, 'no extra lines');
+	assert.match(line(0, 'price_data][product_data][description'), /by Van Eure · 20% bulk discount · sold by Spirit Media Publishing/);
+	assert.match(line(0, 'price_data][product_data][images][0'), /raised-in-a-barn-1200\.jpg$/);
+	assert.equal(f.get('cancel_url'), 'https://spiritmediapublishing.com/checkout/raised-in-a-barn/?order=canceled');
+	assert.equal(f.get('success_url'), 'https://spiritmediapublishing.com/order?s={CHECKOUT_SESSION_ID}');
+	assert.equal(f.get('metadata[brand]'), 'riab');
+	assert.equal(f.get('metadata[site]'), 'vaneure');
+	assert.equal(f.get('metadata[window]'), 'smp');
+	assert.equal(f.get('metadata[pct_off]'), '20');
+	assert.equal(f.get('metadata[offer]'), 'riab_bulk');
+	assert.equal(f.get('metadata[signed]'), 'raised-in-a-barn-hb:2,raised-in-a-barn-pb:0');
+	assert.match(f.get('metadata[signed_route]'), /^UNCONFIRMED/);
+	assert.equal(f.get('metadata[utm_source]'), 'raisedinabarn.org');
+	const books = [f.get('metadata[book_1]'), f.get('metadata[book_2]')].join('\n');
+	assert.match(books, /format=Hardback\|qty=32\|unit_cents=2399\|/);
+	assert.match(books, /format=Paperback\|qty=20\|unit_cents=1599\|/);
+	assert.equal(f.get('discounts[0][promotion_code]'), null);
+	assert.match(f.get('custom_text[submit][message]'), /Raised in a Barn by Van Eure\. Sold and shipped by Spirit Media Publishing\./);
+	assert.equal(f.get('metadata[kind]'), 'dvc_print');
+	let sum = 0;
+	for (let i = 0; f.get(`line_items[${i}][quantity]`); i++)
+		sum += Number(f.get(`line_items[${i}][quantity]`)) * Number(f.get(`line_items[${i}][price_data][unit_amount]`));
+	assert.equal(sum, 32 * 2399 + 20 * 1599);
+});
+
+test("RIAB: one signed copy is list price with no bulk text (the engine's own offer, unchanged)", async () => {
+	const r = await riabPost({ counts: { 'raised-in-a-barn-pb-signed': 1 } });
+	assert.equal(r.status, 200);
+	assert.equal(r.form.get('line_items[0][price_data][unit_amount]'), '1999');
+	assert.doesNotMatch(r.form.get('line_items[0][price_data][product_data][description]'), /bulk/);
+	assert.equal(r.form.get('metadata[pct_off]'), '0');
+});
+
+test('RIAB FAILURE: a donation is refused before any Stripe call, with or without SMC configured, never added to SMP', async () => {
+	for (const env of [
+		{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY },
+		{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'acct_test_smc' },
+		{},
+	]) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2500 }, { env });
+		assert.equal(r.status, 400);
+		assert.equal(r.json.error, 'donation_unavailable');
+		assert.equal(r.calls.length, 0, 'no Stripe call at all');
+	}
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2550 })).json.error, 'invalid_donation');
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: -100 })).json.error, 'invalid_donation');
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 0 })).status, 200, 'no gift = normal order');
+});
+
+test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; signed needs RIAB_SIGNED_ROUTE on live', async () => {
+	const live = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x' } });
+	assert.equal(live.json.disabled, true);
+	assert.equal(live.json.error, 'riab_test_only');
+	assert.equal(live.calls.length, 0);
+	const pref = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY } });
+	assert.equal(pref.json.url, 'https://stripe.test/riab', 'the TEST key is preferred when both are bound');
+	const signed = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
+	assert.equal(signed.json.error, 'signed_not_available');
+	assert.equal(signed.calls.length, 0);
+});
+
+test('RIAB FAILURE: bad carts never misprice: foreign SKU, fractions, empty, over the cap, cross-origin', async () => {
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1, 'who-am-i-pb': 1 } })).json.error, 'invalid_selection');
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1.5 } })).json.error, 'invalid_selection');
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 0 } })).json.error, 'empty');
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-pb': 5001 } })).json.error, 'bulk_call');
+	const x = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { origin: 'https://fathersheartbible.com' });
+	assert.equal(x.status, 403);
+	assert.equal(x.calls.length, 0);
+});
+
+test('RIAB outside the US: no bulk tier at 25+ (engine handling and refusals unchanged)', async () => {
+	const r = await riabPost({ counts: { 'raised-in-a-barn-pb': 30 }, country: 'CA' });
+	if (r.status === 200) {
+		assert.equal(r.form.get('line_items[0][price_data][unit_amount]'), '1999');
+		assert.notEqual(r.form.get('metadata[offer]'), 'riab_bulk');
+	} else {
+		assert.equal(r.json.error, 'country_not_served', 'an unsized country is refused, never sold at a tier price');
+	}
+});
+
+// ── RIAB: NO FIRST-ORDER 15% (Kevin 2026-11-20 ~05:00Z "needs our SMP order form without the discount"). Below 25 copies
+// = list price even for a brand-new email while WELCOME15 is live; the bulk ladder at 25+ is unchanged.
+async function riabPostPromo(payload) {
+	const calls = [];
+	let body = '';
+	globalThis.fetch = async (url, init) => {
+		calls.push(`${init?.method ?? 'GET'} ${url}`);
+		if (init?.method === 'POST') {
+			body = init.body;
+			return new Response(JSON.stringify({ url: 'https://checkout.stripe.com/c/pay/cs_test_riab' }));
+		}
+		// a live WELCOME15 at 15%, and no paid store session for any email: the engine WOULD apply it to a normal book
+		return new Response(JSON.stringify(String(url).includes('promotion_codes') ? { data: [{ id: 'promo_live15', coupon: { valid: true, percent_off: 15 } }] } : { data: [] }));
+	};
+	const { onRequestPost } = await import('../functions/store-checkout.ts');
+	const res = await onRequestPost({
+		request: new Request(A, { method: 'POST', body: JSON.stringify({ brand: 'riab', country: 'US', ...payload }) }),
+		env: { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY },
+	});
+	return { status: res.status, json: await res.json(), form: new URLSearchParams(body), calls };
+}
+
+test('RIAB no first-order 15%: 1-24 copies (HB, PB, signed) = list price, no coupon, no first-order lookup', async () => {
+	for (const sku of ['raised-in-a-barn-hb', 'raised-in-a-barn-pb', 'raised-in-a-barn-hb-signed', 'raised-in-a-barn-pb-signed']) {
+		const list = sku.startsWith('raised-in-a-barn-hb') ? 2999 : 1999;
+		for (let n = 1; n <= 24; n++) {
+			const r = await riabPostPromo({ counts: { [sku]: n }, email: 'brand-new@buyer.co' });
+			assert.equal(r.status, 200, `${sku} x${n}: ${JSON.stringify(r.json)}`);
+			assert.equal(r.form.get('line_items[0][price_data][unit_amount]'), String(list), `${sku} x${n}: list price`);
+			assert.equal(r.form.get('discounts[0][promotion_code]'), null, `${sku} x${n}: no first-order coupon`);
+			assert.equal(r.form.get('metadata[pct_off]'), '0');
+			assert.equal(r.form.get('metadata[offer]'), 'none');
+			assert.match(r.form.get('metadata[book_1]'), new RegExp(`qty=${n}\\|unit_cents=${list}\\|`));
+			assert.doesNotMatch(r.form.get('line_items[0][price_data][product_data][description]'), /first order|15%/i);
+			assert.deepEqual(r.calls, ['POST https://api.stripe.com/v1/checkout/sessions'], `${sku} x${n}: no first-order lookup`);
+		}
+	}
+	// the store-wide 15% is unchanged for OTHER books (same mock, a normal SMP book with an email takes the engine path)
+});
+
+test('RIAB bulk ladder at 25+ unchanged with the no-first-order rule (HB and PB, Kevin 11-12 table)', async () => {
+	const want = { 25: [2549, 1699], 49: [2549, 1699], 50: [2399, 1599], 100: [2249, 1499], 250: [2099, 1399], 500: [1799, 1199] };
+	for (const [n, [hb, pb]] of Object.entries(want)) {
+		const h = await riabPostPromo({ counts: { 'raised-in-a-barn-hb': Number(n) }, email: 'brand-new@buyer.co' });
+		assert.equal(h.form.get('line_items[0][price_data][unit_amount]'), String(hb), `HB x${n}`);
+		assert.equal(h.form.get('metadata[offer]'), 'riab_bulk');
+		assert.equal(h.form.get('discounts[0][promotion_code]'), null);
+		const p = await riabPostPromo({ counts: { 'raised-in-a-barn-pb': Number(n) } });
+		assert.equal(p.form.get('line_items[0][price_data][unit_amount]'), String(pb), `PB x${n}`);
+	}
+});
+
+test('RIAB FAILURE: a form that already carries the first-order code and a 15%-off unit is put back to list price', async () => {
+	const { brandRiabForm } = await riabLib();
+	// what the engine emits for 1 HB when it applies WELCOME15 (coupon pre-applied, or the per-unit 15% abroad)
+	const engine = {
+		'line_items[0][quantity]': 1,
+		'line_items[0][price_data][currency]': 'usd',
+		'line_items[0][price_data][unit_amount]': 2549,
+		'line_items[0][price_data][product_data][name]': 'Raised in a Barn',
+		'line_items[0][price_data][product_data][description]': 'Hardback · by Van Eure · 15% off your first order',
+		'discounts[0][promotion_code]': 'promo_live15',
+		'metadata[pct_off]': 15,
+		'metadata[offer]': 'first_order',
+		'metadata[book_1]': 'title=Raised in a Barn|isbn=x|format=Hardback|qty=1|unit_cents=2549|',
+		success_url: 'https://spiritmediapublishing.com/order?s={CHECKOUT_SESSION_ID}',
+	};
+	const f = brandRiabForm({ ...engine }, { 'raised-in-a-barn-hb': 1 });
+	assert.equal(f['discounts[0][promotion_code]'], undefined, 'first-order code stripped');
+	assert.equal(f['line_items[0][price_data][unit_amount]'], 2999, '1 HB = $29.99 list, not $25.49');
+	assert.equal(f['metadata[pct_off]'], 0);
+	assert.equal(f['metadata[offer]'], 'none');
+	assert.match(f['metadata[book_1]'], /unit_cents=2999\|/);
+	assert.doesNotMatch(f['line_items[0][price_data][product_data][description]'], /first order/);
+	// and through the endpoint: an email + a live WELCOME15 still gets $29.99
+	const r = await riabPostPromo({ counts: { 'raised-in-a-barn-hb': 1 }, email: 'brand-new@buyer.co' });
+	assert.equal(r.form.get('line_items[0][price_data][unit_amount]'), '2999');
+	assert.equal(r.form.get('discounts[0][promotion_code]'), null);
+});
+
+test('RIAB embed: Stripe opens in the TOP window; a refused top navigation shows a _top link; only Stripe URLs; height posted', async () => {
+	const { goTop, postHeight, isStripeCheckoutUrl } = await import('../src/lib/riabEmbed.ts');
+	const doc = { createElement: () => ({ textContent: '' }) };
+	const mkMsg = () => { const m = { textContent: '', ownerDocument: doc, kids: [], append: (...n) => m.kids.push(...n) }; return m; };
+	const url = 'https://checkout.stripe.com/c/pay/cs_test_riab';
+	const top = { location: { href: 'https://raisedinabarn.org/buy' } };
+	const self = { location: { href: 'https://spiritmediapublishing.com/checkout/raised-in-a-barn/embed/' } };
+	assert.equal(goTop({ top, parent: top }, url, mkMsg()), 'top');
+	assert.equal(top.location.href, url, 'the TOP window goes to Stripe');
+	assert.equal(self.location.href, 'https://spiritmediapublishing.com/checkout/raised-in-a-barn/embed/', 'the frame itself never navigates');
+	const blocked = { location: {} };
+	Object.defineProperty(blocked.location, 'href', { set() { throw new Error('SecurityError: not allowed to navigate top'); } });
+	const m = mkMsg();
+	assert.equal(goTop({ top: blocked, parent: blocked }, url, m), 'link');
+	assert.equal(m.kids[0].href, url);
+	assert.equal(m.kids[0].target, '_top', 'fallback link opens in the top window');
+	const m2 = mkMsg();
+	assert.equal(goTop({ top, parent: top }, 'https://evil.example/checkout.stripe.com', m2), 'refused');
+	assert.ok(!isStripeCheckoutUrl('http://checkout.stripe.com/x') && !isStripeCheckoutUrl('https://checkout.stripe.com.evil.example/x'));
+	const posted = [];
+	let ro;
+	const win = { parent: { postMessage: (msg, o) => posted.push([msg, o]) }, ResizeObserver: class { constructor(cb) { ro = cb; } observe() {} } };
+	const box = { offsetHeight: 812.4 };
+	assert.equal(postHeight(win, box), 813);
+	box.offsetHeight = 640;
+	ro();
+	ro();
+	assert.deepEqual(posted, [[{ riabHeight: 813 }, '*'], [{ riabHeight: 640 }, '*']], 'posted on load and on change, not repeated');
+	const alone = {};
+	alone.parent = alone;
+	assert.equal(postHeight(alone, box), null, 'not framed: nothing posted');
+});
+
+test('RIAB embed headers: ONLY /checkout/raised-in-a-barn/embed/ may be framed (raisedinabarn.org + www + R2 preview); /* keeps SAMEORIGIN', () => {
+	const h = fs.readFileSync(new URL('../public/_headers', import.meta.url), 'utf8');
+	const blocks = {};
+	let cur = null;
+	for (const line of h.split('\n')) {
+		if (/^\S/.test(line) && !line.startsWith('#')) blocks[(cur = line.trim())] = [];
+		else if (cur && /^\s+\S/.test(line)) blocks[cur].push(line.trim());
+	}
+	assert.ok(blocks['/*'].includes('X-Frame-Options: SAMEORIGIN'));
+	assert.ok(!blocks['/*'].some((l) => /frame-ancestors/.test(l)), '/* stays unframeable');
+	const framable = Object.entries(blocks).filter(([, ls]) => ls.some((l) => /^! X-Frame-Options/.test(l) || /frame-ancestors/.test(l))).map(([p]) => p).sort();
+	assert.deepEqual(framable, ['/checkout/raised-in-a-barn/embed', '/checkout/raised-in-a-barn/embed/'], 'no other path drops SAMEORIGIN');
+	for (const p of framable) {
+		const csp = blocks[p].find((l) => l.startsWith('Content-Security-Policy:'));
+		const fa = /frame-ancestors ([^;]+)/.exec(csp)[1].trim().split(/\s+/).sort();
+		assert.deepEqual(fa, ["'self'", 'https://pub-95ca7305dcbd45198e93dc04cd8a80d1.r2.dev', 'https://raisedinabarn.org', 'https://www.raisedinabarn.org']);
+		assert.ok(blocks[p].includes('! Content-Security-Policy') && blocks[p].includes('! X-Frame-Options'));
+	}
+});
+
+test('RIAB pages (built): no first-order offer text on the full page or the embed; embed has no SMP nav/footer', () => {
+	const read = (p) => fs.readFileSync(new URL(`../dist/checkout/raised-in-a-barn/${p}index.html`, import.meta.url), 'utf8');
+	for (const p of ['', 'embed/']) {
+		const html = read(p);
+		assert.doesNotMatch(html, /first order|first-order|WELCOME15/i, `${p || 'full'}: no first-order offer`);
+		assert.match(html, /id="riab-order"/);
+		assert.match(html, /by Van Eure/);
+		assert.match(html, /noindex, nofollow/);
+	}
+	const embed = read('embed/');
+	assert.match(embed, /data-embed="1"/);
+	assert.match(embed, /<base target="_top"/);
+	assert.doesNotMatch(embed, /<nav|<footer/i, 'form only: no SMP nav or footer');
 });
