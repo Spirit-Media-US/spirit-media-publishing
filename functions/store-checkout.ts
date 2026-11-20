@@ -16,6 +16,7 @@
 // already charges into (one account, sales split by metadata[site]); fulfilment runs through FHB's print-webhook exactly
 // as for FHB orders (metadata[kind]=dvc_print). Every session carries site + window + family (storeTagErrors gates it).
 
+import { bibleEbookForm } from '../src/lib/bibleEbook.ts';
 import {
 	addRiabGift,
 	brandRiabForm,
@@ -56,6 +57,7 @@ import {
 
 interface Env extends RiabGateEnv {
 	STRIPE_STORE_SECRET_KEY?: string;
+	STORE_EBOOK?: R2Bucket; // the private eBook bucket: no binding, no Bible eBook sale (nothing could deliver it)
 }
 
 /** Sites that may start an SMP checkout (contract 3fe sites registry). */
@@ -347,6 +349,17 @@ const handlePost: PagesFunction<Env> = async ({ request, env }) => {
 			console.error('store-checkout riab threw', e);
 			return json({ error: 'exception' }, 500);
 		}
+	}
+	// THE FHB BIBLE EBOOK (moved from FHB /ebook-checkout, move 5): the FHB window's button posts { bibleEbook: true }.
+	// FHB window only; the buyer returns to that FHB origin (its /ebook-download forwards to SMP's).
+	if ((payload as { bibleEbook?: unknown }).bibleEbook === true) {
+		if (crossSite !== 'fhb') return json({ error: 'bible_fhb_only' }, 400);
+		if (!env.STRIPE_STORE_SECRET_KEY || !env.STORE_EBOOK)
+			return json({ disabled: true, message: 'Direct download is not enabled yet.' });
+		const form = bibleEbookForm(origin as string);
+		if (storeTagErrors(form).length) return json({ error: 'untagged' }, 500);
+		const s = await createSession(form, env.STRIPE_STORE_SECRET_KEY);
+		return json(s.body, s.status);
 	}
 	// contract 3fe: the server derives the site from Origin. A cross-origin form returns its buyer (success + cancel)
 	// to ITS OWN origin; the engine accepts /books/<slug>/ there only for a slug in its catalogue (no open redirect).
