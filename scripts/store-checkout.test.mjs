@@ -1412,3 +1412,36 @@ test('OL page (built): pending box with the bulk table, NO order form, NO buy/ch
 	// FAILURE PATH of this check: a page that sells would be caught
 	assert.match('<form id="order" data-status="live"><button type="submit">Checkout →</button>', /<form[^>]*id="order"|data-status="live"|Checkout →|<button[^>]*type="submit"/);
 });
+
+// THE ONE /order PAGE (map smp-store-one-home-v1 move 4, Kevin 2026-11-20 ~18:51Z "2 this needs to be moved"): what FHB
+// /order showed now shows here (FHB /order redirects here with its query): lookup form, email, phone, full address,
+// shipped line, full reference; an FHB Bible order reads the same as any book; a gift order says a receipt follows.
+test('/order (one page for every window): lookup form, FHB Bible order, shipped line, gift line, address never printed', async () => {
+	const { onRequestGet } = await import('../functions/order.ts');
+	const printed = (x) => x.replace(/href="[^"]*"/g, '').includes('@spiritmediapublishing.com');
+	const look = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/order'), env: { STRIPE_STORE_SECRET_KEY: 'k' } });
+	const lh = await look.text();
+	assert.equal(look.status, 200);
+	assert.match(lh, /Look up your order/);
+	assert.match(lh, /<form method="GET" action="\/order">/);
+	assert.equal(printed(lh), false);
+	const bible = { id: 'cs_live_a1FhbBibleOrder0001', payment_status: 'paid', currency: 'usd', amount_total: 5998, livemode: true,
+		customer_details: { email: 'reader@example.com', phone: '+15555550123' },
+		metadata: { kind: 'dvc_print', site: 'fhb', window: 'fhb', family: 'bible', breakdown: 'moms-pb:2', tracking: '1Z999', carrier: 'UPS' },
+		line_items: { data: [{ description: 'Mom’s Bible — Divine Voice Color, Paperback', quantity: 2, amount_total: 5998 }] },
+		collected_information: { shipping_details: { name: 'Ann Reader', address: { line1: '1 Main St', city: 'Austin', state: 'TX', postal_code: '78701', country: 'US' } } } };
+	globalThis.fetch = async () => new Response(JSON.stringify(bible));
+	const h = await (await onRequestGet({ request: new Request(`https://spiritmediapublishing.com/order?s=${bible.id}`), env: { STRIPE_STORE_SECRET_KEY: 'k' } })).text();
+	for (const re of [/Thank you for your order/, /Mom’s Bible — Divine Voice Color, Paperback × 2/, /\$59\.98/, /on its way to reader@example\.com/, /1 Main St\nAustin, TX 78701\nUS/, /Phone for the delivery carrier: \+15555550123/, /UPS · tracking <code>1Z999<\/code>/, /cs_live_a1FhbBibleOrder0001/, /Spirit Media Publishing<\/title>/])
+		assert.match(h, re);
+	assert.doesNotMatch(h, /gift to charity/i);
+	assert.equal(printed(h), false);
+	globalThis.fetch = async () => new Response(JSON.stringify({ ...bible, metadata: { ...bible.metadata, tracking: undefined, donation_cents: '2500', donation_total_cents: '2500' } }));
+	const g = await (await onRequestGet({ request: new Request(`https://spiritmediapublishing.com/order?s=${bible.id}`), env: { STRIPE_STORE_SECRET_KEY: 'k' } })).text();
+	assert.match(g, /Spirit Media Charities emails you its receipt separately/);
+	assert.doesNotMatch(g, /tracking/);
+	globalThis.fetch = async () => new Response(JSON.stringify({ ...bible, payment_status: 'unpaid' }));
+	const u = await (await onRequestGet({ request: new Request(`https://spiritmediapublishing.com/order?s=${bible.id}`), env: { STRIPE_STORE_SECRET_KEY: 'k' } })).text();
+	assert.match(u, /Your order is not complete/);
+	assert.match(u, /Nothing has been charged/);
+});

@@ -1,11 +1,16 @@
-// /order — SMP store order confirmation (plan 3fb Phase 3). /store-checkout's success_url lands here.
+// /order — THE store's one order confirmation + lookup page (plan 3fb Phase 3; map smp-store-one-home-v1 §4 move 4,
+// Kevin 2026-11-20 ~18:51Z "2 this needs to be moved"). Every order, from any shop window, lands here: /store-checkout's
+// success_url, and fathersheartbible.com/order, which now redirects here with its query.
 //   GET /order?s=<checkout_session_id> -> the buyer's order, read LIVE from Stripe (nothing cached or mirrored)
-// Same pattern as fathersheartbible.com/order: a buyer who paid must always land on an acknowledgement.
+//   GET /order                         -> a form to paste an order reference into (moved from FHB /order)
+// What FHB's page showed is carried over: the confirmation email, phone for the carrier, the full address, the shipped
+// line (metadata tracking/carrier, set by fhb-order-ship.py), the full reference; plus a gift-to-charity line.
 interface Env {
 	STRIPE_STORE_SECRET_KEY?: string;
 }
 
 import { buildOptIn, optInSnippet } from '../src/lib/customerReviews.ts';
+import { fmtAddr } from '../src/lib/orderText.ts';
 
 const SUPPORT = 'hello@spiritmediapublishing.com';
 // CONTACT US (Kevin 2026-11-16, standing rule): a button that opens mail to hello@, labelled only "Contact us"; the
@@ -40,17 +45,28 @@ export function orderHtml(s: any): string {
 				`<tr><td>${esc(l.description)} × ${esc(l.quantity)}</td><td class="r">${money(l.amount_total, s.currency)}</td></tr>`,
 		)
 		.join('');
-	const ship = s.shipping_details ?? s.collected_information?.shipping_details;
+	const ship = s.collected_information?.shipping_details ?? s.shipping_details;
+	const m = (s.metadata ?? {}) as Record<string, string>;
+	const phone = s.customer_details?.phone;
 	const addr = ship?.address
-		? `<div class="box"><strong>Shipping to</strong><br>${esc(ship.name)}<br>${esc(ship.address.city)}, ${esc(ship.address.state ?? '')} ${esc(ship.address.country)}</div>`
+		? `<div class="box"><strong>Shipping to</strong><br><span style="white-space:pre-line">${esc(ship.name ?? '')}\n${esc(fmtAddr(ship.address))}</span>${phone ? `<br><span class="muted">Phone for the delivery carrier: ${esc(phone)}</span>` : ''}</div>`
 		: '';
 	const paid = s.payment_status === 'paid';
+	// Set by fhb-order-ship.py when the parcel goes out (was on FHB /order).
+	const shipped = m.tracking
+		? `<div class="box"><strong>Shipped</strong><br>${m.carrier ? `${esc(m.carrier)} · ` : ''}tracking <code>${esc(m.tracking)}</code></div>`
+		: '';
+	const gift =
+		Number(m.donation_total_cents || m.donation_cents) > 0
+			? `<p class="muted">Your gift to charity is included in this total. Spirit Media Charities emails you its receipt separately.</p>`
+			: '';
+	const email = s.customer_details?.email;
 	return page(
 		paid ? 'Thank you for your order' : 'Your order',
 		`<h1>${paid ? 'Thank you for your order' : 'Your order is not complete'}</h1>
-<p class="muted">${paid ? 'We have received your payment. A receipt is on its way to your email.' : 'This checkout was not paid. Nothing has been charged.'}</p>
+<p class="muted">${paid ? `We have received your payment. A confirmation is on its way to ${email ? esc(email) : 'your email'}.` : 'This checkout was not paid. Nothing has been charged.'}</p>
 <table>${items}<tr><td><strong>Total</strong></td><td class="r"><strong>${money(s.amount_total, s.currency)}</strong></td></tr></table>
-${addr}<p class="muted">Order reference: ${esc(String(s.id).slice(-12))}. Questions? ${contactUs(`Order ${String(s.id).slice(-12)}`)}</p>
+${gift}${addr}${shipped}<p class="muted">Order reference: <code style="word-break:break-all">${esc(String(s.id))}</code><br>Questions? ${contactUs(`Order ${String(s.id).slice(-12)}`)}</p>
 <p><a href="/bookstore/">Browse all our books</a></p>`,
 		// Google Customer Reviews opt-in: this page only, values from the verified session. buildOptIn returns null
 		// (module omitted) for test-mode or unpaid sessions or any unverifiable value.
@@ -67,7 +83,18 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
 			status,
 			headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' },
 		});
-	const sid = new URL(request.url).searchParams.get('s') ?? '';
+	const sid = (new URL(request.url).searchParams.get('s') ?? '').trim();
+	// No reference: the lookup form (moved from FHB /order). Paste the reference from the confirmation email.
+	if (!sid) {
+		return html(
+			page(
+				'Look up your order',
+				`<h1>Look up your order</h1><p class="muted">Paste the order reference from your confirmation email.</p>
+<form method="GET" action="/order"><label for="s">Order reference</label><br><input id="s" name="s" placeholder="cs_live_…" autocomplete="off" required style="width:100%;box-sizing:border-box;padding:.6rem;margin:.5rem 0 1rem;font-size:1rem"><button type="submit" class="contact" style="border:0;cursor:pointer;font-size:1rem">Find my order</button></form>
+<p class="muted">Can’t find it? ${contactUs()} and we’ll look it up for you.</p>`,
+			),
+		);
+	}
 	if (!/^cs_(live|test)_[A-Za-z0-9]{10,}$/.test(sid) || !env.STRIPE_STORE_SECRET_KEY) {
 		return html(
 			page(
