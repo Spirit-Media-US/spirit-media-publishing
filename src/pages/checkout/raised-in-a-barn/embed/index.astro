@@ -1,0 +1,39 @@
+---
+// /checkout/raised-in-a-barn/embed/ — the RIAB order form ONLY, for an <iframe> on raisedinabarn.org/buy (pmseoaeo
+// 2026-11-20; Kevin ~05:00Z "This is good page! but needs our SMP order form without the discount"). No SMP nav, banner
+// or footer; RIAB branding kept; same form, prices and server as /checkout/raised-in-a-barn/ (RiabOrderForm.astro).
+// A PATH, not ?embed=1: framing is allowed by a response header (public/_headers), and _headers matches paths, never
+// query strings. ONLY this path drops X-Frame-Options and sends frame-ancestors raisedinabarn.org (+ www, + the R2
+// preview); every other SMP page keeps SAMEORIGIN. ?f=hb|pb [&signed=1] [&qty=N] preselect as on the full page.
+// Stripe Checkout opens in the TOP window; the height is posted to the parent as {riabHeight: n}. noindex.
+import '../../../../styles/global.css';
+import RiabOrderForm from '../../../../components/RiabOrderForm.astro';
+
+const cover =
+	'https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-1200.jpg';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>Raised in a Barn by Van Eure: Order</title>
+		<base target="_top" />
+		<link rel="icon" type="image/svg+xml" href="/favicon-final.svg" />
+	</head>
+	<body class="bg-[#f7f2ea] text-[#2b1d14] antialiased">
+		<main data-riab-embed class="riab mx-auto max-w-2xl px-4 pb-6 pt-4">
+			<div class="flex items-center gap-4">
+				<img src={cover} width="1200" height="1855" alt="Raised in a Barn by Van Eure, book cover" decoding="async" class="h-auto w-16 rounded shadow" />
+				<div>
+					<h1 class="text-xl font-bold leading-tight sm:text-2xl">Raised in a Barn</h1>
+					<p class="font-semibold">by Van Eure</p>
+					<p class="text-sm text-[#5b4636]">Sold and shipped by <strong>Spirit Media Publishing</strong></p>
+				</div>
+			</div>
+			<RiabOrderForm embed />
+		</main>
+	</body>
+</html>

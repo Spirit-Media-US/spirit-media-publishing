@@ -15,6 +15,20 @@
 // (golden-parity test in scripts/store-checkout.test.mjs). Stripe account = the Spirit Media store account FHB /print
 // already charges into (one account, sales split by metadata[site]); fulfilment runs through FHB's print-webhook exactly
 // as for FHB orders (metadata[kind]=dvc_print). Every session carries site + window + family (storeTagErrors gates it).
+
+import {
+	brandRiabForm,
+	donationRefusal,
+	engineCounts,
+	RIAB_BRAND,
+	RIAB_MAX_COPIES,
+	RIAB_SITE,
+	RIAB_SLUG,
+	type RiabGateEnv,
+	riabCounts,
+	riabKey,
+	riabQuote,
+} from '../src/lib/riabOrder.ts';
 import {
 	allowCheck,
 	answerBody,
@@ -39,7 +53,7 @@ import {
 	storeTags,
 } from '../src/store-engine/lib/storeEngine.ts';
 
-interface Env {
+interface Env extends RiabGateEnv {
 	STRIPE_STORE_SECRET_KEY?: string;
 }
 
@@ -129,6 +143,48 @@ export async function smpCheckoutForm(
 	for (const [k, v] of Object.entries(extra).slice(0, Math.max(0, STRIPE_META_KEYS_MAX - used)))
 		r.form[k] = v;
 	return r;
+}
+
+/** RAISED IN A BARN branded checkout (src/lib/riabOrder.ts): same engine form, RIAB's ladder + signed split + branding.
+ *  Refusals run before any Stripe call, in this order: bad cart, too many, donation (not built), key/test-mode gate. */
+export async function riabCheckout(
+	payload: OrderPayload & { donation_cents?: unknown; utm?: Record<string, string> },
+	requestUrl: string,
+	env: RiabGateEnv,
+) {
+	const counts = riabCounts(payload.counts as Record<string, unknown>);
+	if (!counts) return { status: 400, body: { error: 'invalid_selection' } } as const;
+	const country = String(payload.country ?? 'US').toUpperCase();
+	const q = riabQuote(counts, country);
+	if (q.copies < 1) return { status: 400, body: { error: 'empty' } } as const;
+	if (q.copies > RIAB_MAX_COPIES)
+		return {
+			status: 400,
+			body: {
+				error: 'bulk_call',
+				message: `For more than ${RIAB_MAX_COPIES} copies, please contact us.`,
+			},
+		} as const;
+	const d = donationRefusal(payload.donation_cents, env);
+	if (d) return { status: 400, body: d } as const;
+	const k = riabKey(env);
+	if ('status' in k) return k;
+	const r = await smpCheckoutForm(
+		{
+			counts: engineCounts(counts),
+			country,
+			// NO first-order 15% on RIAB (Kevin 2026-11-20): no email reaches the engine, so it never looks one up
+			email: undefined,
+			returnPath: `/books/${RIAB_SLUG}/`,
+			site: RIAB_SITE,
+			utm: payload.utm,
+		},
+		requestUrl,
+		k.key,
+	);
+	if (!('form' in r)) return r;
+	brandRiabForm(r.form, counts, country);
+	return createSession(r.form, k.key);
 }
 
 /** The ONE way this store creates a Checkout Session: an untagged form is refused (500 untagged) and never sent. */
@@ -272,6 +328,17 @@ const handlePost: PagesFunction<Env> = async ({ request, env }) => {
 		if (crossSite)
 			for (const [k, v] of Object.entries(corsHeaders(origin as string))) a.headers.set(k, v);
 		return a;
+	}
+	// RAISED IN A BARN: the branded page is on SMP itself (raisedinabarn.org LINKS to it), so same-origin only.
+	if ((payload as { brand?: string }).brand === RIAB_BRAND) {
+		if (crossSite) return json({ error: 'origin_not_allowed' }, 403);
+		try {
+			const r = await riabCheckout(payload, request.url, env);
+			return json(r.body, r.status);
+		} catch (e) {
+			console.error('store-checkout riab threw', e);
+			return json({ error: 'exception' }, 500);
+		}
 	}
 	// contract 3fe: the server derives the site from Origin. A cross-origin form returns its buyer (success + cancel)
 	// to ITS OWN origin; the engine accepts /books/<slug>/ there only for a slug in its catalogue (no open redirect).
