@@ -1,6 +1,28 @@
 {
 	"_about": "Pre-sized covers on R2 (pmprint 2026-11-14 01:19Z, 200 + md5 measured by pmprint; dimensions measured here). A title listed here renders srcset 300/600 webp and uses the 1200 jpg for og:image.",
 	"covers": {
+		"the-seed-of-david-book-two": {
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-book-two-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-book-two-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-600.webp": [600, 900],
+				"-300.webp": [300, 450]
+			}
+		},
+		"your-time": {
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-greatest-gift-1200.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-greatest-gift-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-greatest-gift-300.webp",
+			"width": 600,
+			"height": 900,
+			"measured": {
+				"-1200.jpg": [1200, 1800],
+				"-600.webp": [600, 900],
+				"-300.webp": [300, 450]
+			}
+		},
 		"outrageously-loved": {
 			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/outrageously-loved-1200.jpg",
 			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/outrageously-loved-600.webp",
