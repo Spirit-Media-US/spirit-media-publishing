@@ -405,7 +405,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 145); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY) + 1 (Outrageously Loved, Kevin 2026-11-20: page + bulk tiers, not sold yet)
+	assert.equal(set.titles.length, 147); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY) + 1 (Outrageously Loved, Kevin 2026-11-20: page + bulk tiers, not sold yet) + 2 (Seed of David Book Two + Your Time, Kevin 2026-11-16 'we want book page for every book for SEO/AEO even if we can't sell it', worker L 2026-11-21)
 	// BOOK PAGES SWITCH: production builds only Kevin-approved pages (src/data/books/pages-live.json);
 	// a BOOKS_PREVIEW_ALL=1 preview builds every one. An unapproved page that builds on production fails here.
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';

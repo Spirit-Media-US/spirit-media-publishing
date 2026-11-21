@@ -37519,6 +37519,173 @@
 					"author_key": "George La Du"
 				}
 			}
+		},
+		{
+			"slug": "the-seed-of-david-book-two",
+			"units_12m": null,
+			"book": {
+				"slug": "the-seed-of-david-book-two",
+				"status": "pending",
+				"title": "The Seed of David: Book Two",
+				"subtitle": "Overcoming Fear, Hearing God's Voice, and Living With Kingdom Purpose",
+				"full_title": "The Seed of David: Book Two: Overcoming Fear, Hearing God's Voice, and Living With Kingdom Purpose",
+				"author": {
+					"name": "David Barnes"
+				},
+				"credits": null,
+				"page_title": "The Seed of David: Book Two",
+				"h1": "The Seed of David: Book Two",
+				"meta": "Ten short true stories of God's protection, from a project stairwell to a Dollar Store checkout line, each paired with a practical lesson on fear, faith and purpose.",
+				"short": "Ten short true stories of God's protection, from a project stairwell to a Dollar Store checkout line, each paired with a practical lesson on fear, faith and purpose.",
+				"about": "The Seed of David, Book Two, is a short collection of true stories from David Barnes's life, each paired with a practical lesson for walking with God. It opens with one of his earliest memories: a three-year-old alone at the top of a stairwell in a project apartment, leaning toward the edge, held back by a grace he could not see until his older brother called his name. From there the stories move through an encounter with a mysterious man that drove him to pray and read the Bible every day, a trip to the Dollar Store to replace his grandmother's worn Bible, and a moment in the checkout line when the atmosphere turned dark and an elderly couple spoke words he would never forget. Between the spiritual battles are warm family scenes. His father, who ran his own cleaning company, put his children to work cleaning buildings, then took them to a water park, spent ten dollars on a rigged basketball game, and had everyone say \"Jesus\" instead of \"cheese\" for a picture at a car dealership. Later chapters follow a ninth-grade move to his grandparents' home, where they ran a small orphanage, and the jealousy and rivalry that came with being the new face in the neighborhood. The final story finds him in a parking lot as a crowd closes in around his car, and ends with the words of Psalm 5. Each of the ten parts closes with a Thought: a short teaching that turns the story into something to practice. Readers will find a consequences game to play with children, reflections on spiritual discernment and the unseen world, principles of managing what God entrusts to us, a lesson on never asking for money, and a plan for handling the people who oppose you: pray, keep your footwork, jab, and love. Honest, funny and at times unsettling, this book is for readers who want to recognize God's hand in ordinary days, face fear with Scripture, and live with purpose.",
+				"who_for": null,
+				"faq": null,
+				"bio": "David Barnes writes from his own life. In The Seed of David he recalls standing as a toddler at the top of the stairs of a project apartment, working alongside his siblings for his father's cleaning company, and moving in ninth grade into his grandparents' home, where they ran a small orphanage. A strange encounter with a mysterious stranger drew him into a daily routine of prayer and Bible reading, and his books trace how God's hand was present long before he noticed it. Each story he tells is paired with a practical lesson for readers learning to overcome fear and hear God's voice.",
+				"series": "The Seed of David",
+				"jsonld": {
+					"book": {
+						"name": "The Seed of David: Book Two",
+						"alternativeHeadline": "Overcoming Fear, Hearing God's Voice, and Living With Kingdom Purpose",
+						"inLanguage": "en",
+						"isbn": "9798893072037 (eBook)",
+						"bookFormat": "https://schema.org/EBook",
+						"numberOfPages": 38,
+						"datePublished": "2025-12-27",
+						"sameAs": [
+							"https://www.amazon.com/dp/B0GCPQ7SJ7"
+						],
+						"@id": "https://spiritmediapublishing.com/books/the-seed-of-david-book-two/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "David Barnes",
+						"@id": "https://spiritmediapublishing.com/books/the-seed-of-david-book-two/#author"
+					},
+					"faqpage": null,
+					"breadcrumb": "Home > Bookstore > The Seed of David: Book Two"
+				},
+				"cover": {
+					"jpg": null,
+					"webp600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-book-two-600.webp",
+					"webp300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-book-two-300.webp",
+					"note": "no -1200.jpg: largest source 1024 px (the published Kindle/Atticus cover, same design as projects/the-seed-of-david/epub/assets/cover.jpg), not upscaled (Book One precedent)"
+				},
+				"formats": [
+					"the-seed-of-david-book-two-ebook"
+				],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": null,
+				"pub_date": "2025-12-27",
+				"url": "https://spiritmediapublishing.com/books/the-seed-of-david-book-two/",
+				"buy_url": "https://spiritmediapublishing.com/books/the-seed-of-david-book-two/buy/",
+				"home": "SMP",
+				"dnp": false,
+				"_source": "projects/the-seed-of-david/specsheet/sheet.json (Book Two spec sheet: copy.short_html/bowker/bio, ISBNs, pub date 2025-12-27, 38 pp) + amazon-book.mjs B0GCPQ7SJ7 2026-11-21 (Kindle live $3.99, publisher Spirit Media); page added by pmprint worker L 2026-11-21 (Kevin 2026-11-16 'we want book page for every book for SEO/AEO even if we can't sell it')"
+			},
+			"skus": {
+				"the-seed-of-david-book-two-ebook": {
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "9798893072037",
+					"isbn_display": "979-8-89307-203-7",
+					"list_cents": 399,
+					"price_note": "3.99 = Kindle B0GCPQ7SJ7 live (amazon-book.mjs 2026-11-21); the store eBook row is derived by fhb-ebook-config.py --smp-write",
+					"price_flags": [],
+					"pages": 38,
+					"pages_note": null,
+					"trim": null,
+					"binding": null,
+					"checkout_title": "The Seed of David: Book Two — eBook",
+					"checkout_name": "The Seed of David: Book Two",
+					"checkout_desc": "eBook · by David Barnes",
+					"checkout_img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/the-seed-of-david-book-two-600.webp",
+					"ingram_title": "TBD",
+					"floor_usd": "TBD",
+					"cost_key": "TBD",
+					"us_cost_usd": null,
+					"book": "the-seed-of-david-book-two",
+					"discount_class": "book",
+					"bulk_tiers": null,
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/the-seed-of-david-book-two/",
+					"sku_status": "pending",
+					"ship_scope": "digital",
+					"sameas": "https://www.amazon.com/dp/B0GCPQ7SJ7",
+					"royalty_hold": false,
+					"author_key": "David Barnes",
+					"sku_tbd": [],
+					"sku_ready": false,
+					"store_state": "KDP Kindle Live B0GCPQ7SJ7 $3.99, not in KDP Select (smp-kdp-select-20261116 + amazon-book.mjs 2026-11-21)",
+					"intake_note": null
+				}
+			}
+		},
+		{
+			"slug": "your-time",
+			"units_12m": null,
+			"book": {
+				"slug": "your-time",
+				"status": "pending",
+				"title": "Your Time",
+				"subtitle": "The Greatest Gift You Receive and Give",
+				"full_title": "Your Time: The Greatest Gift You Receive and Give",
+				"author": {
+					"name": "Daniel W. Evans"
+				},
+				"credits": null,
+				"page_title": "Your Time by Daniel W. Evans",
+				"h1": "Your Time",
+				"meta": "In Your Time, readers gain perspective on God’s blessing of time, where with each tick of the timer we move closer to eternity. A concise booklet by Daniel W. Evans on managing and investing time from a Scriptural perspective.",
+				"short": "In Your Time, readers gain perspective on God’s blessing of time, where with each tick of the timer we move closer to eternity. A concise booklet by Daniel W. Evans on managing and investing time from a Scriptural perspective.",
+				"about": "Face it, if you’re human you probably struggle with time management, either most of the time or at least some of it. And it’s not enough to say, “Tomorrow I’ll manage my day better.” Mastering the clock takes forethought and effort—and it starts with a clear understanding of the gift of time in the first place. In Your Time, readers gain perspective on God’s blessing of time, where with each tick of the timer we move closer to eternity.\n\nLending masterly perspective that reads as flowingly as a conversation with a friend, author, businessman, and pastor Daniel W. Evans breaks down what’s really involved in learning to manage and spend our time with intentionality. From issues of time-control, tools to monitor time, setting priorities, investing time, and learning to give the gift of ours, Evans’ message is simple and direct: our earthly time is limited, and only God knows how much of the irreplaceable asset we have left. So we must invest it well! Because if we don’t decide how we’ll spend it, other people will.\n\nIn this concise and compelling booklet—one that takes no more than a single sit-down to complete—the reader is invited to consider time from a Scriptural perspective. And they’re shown an easy formula to manage it, what Evans calls “the ABC’s of investing time.”",
+				"who_for": null,
+				"faq": null,
+				"bio": "Daniel W. Evans is a Christian author who says that he has traveled through the states as an evangelist and listened to many pastors talk about church growth. In Your Time he writes from that experience and from his home church in Durham, North Carolina, where he counted how many members give their time as volunteers and found the figure to be 36 percent. He uses Scripture and personal observation to urge readers to put God first and to steward every hour well. The back of the book describes two other offerings from him: a one-day process in five steps, and A Commitment to Unleash Your Leader Potential, a program for the leader in each of us.",
+				"jsonld": {
+					"book": {
+						"name": "Your Time",
+						"alternativeHeadline": "The Greatest Gift You Receive and Give",
+						"inLanguage": "en",
+						"datePublished": "2023-04-05",
+						"sameAs": [
+							"https://www.amazon.com/dp/B0C1QBJ2FJ"
+						],
+						"@id": "https://spiritmediapublishing.com/books/your-time/#book",
+						"publisher": "https://spiritmediapublishing.com/#organization"
+					},
+					"offer": null,
+					"person": {
+						"name": "Daniel W. Evans",
+						"@id": "https://spiritmediapublishing.com/books/your-time/#author"
+					},
+					"faqpage": null,
+					"breadcrumb": "Home > Bookstore > Your Time"
+				},
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-greatest-gift-1200.jpg",
+					"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-greatest-gift-600.webp",
+					"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/your-time-greatest-gift-300.webp",
+					"source": "the base edition's published cover (Amazon listing B0C1QBJ2FJ image 613tH9Sut+L, 1200x1800), sized by pmprint worker L 2026-11-21. NOT covers/your-time-1200.jpg: that existing R2 object is the First Responders edition's cover"
+				},
+				"formats": [],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": null,
+				"pub_date": "2023-04-05",
+				"url": "https://spiritmediapublishing.com/books/your-time/",
+				"home": "SMP",
+				"dnp": false,
+				"notes": [
+					"Page only, NO sale (no SKU, no retailer button): the base edition's eBook and the 15 special editions are Kevin's open question (worker L brief 2026-11-21)",
+					"spec sheet projects/your-time/specsheet/sheet.json has no description or ISBNs; the description is the book's own live retail description (Amazon B0C1QBJ2FJ, publisher Spirit Media, read by amazon-book.mjs 2026-11-21), quoted, not written",
+					"bio = the author bio already live on the 15 Your Time special-edition pages (book-pages.json, written from the book's own text; same words inside every edition)"
+				],
+				"_source": "projects/your-time/specsheet/sheet.json (title, subtitle, author) + amazon-book.mjs B0C1QBJ2FJ 2026-11-21 (description, pub date April 5 2023, publisher Spirit Media); page added by pmprint worker L 2026-11-21 (Kevin 2026-11-16 'we want book page for every book for SEO/AEO even if we can't sell it')"
+			},
+			"skus": {}
 		}
 	]
 }
