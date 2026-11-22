@@ -81,7 +81,7 @@ const smpWorldwideRetire = {
 
 // ── TBL SWITCH-OVER (C6; CONTRACT v2 decisions 59 + 61) ──────────────────────────
 // Every SMP /books/<slug>/ with a live TBL page 301s to it (src/data/tbl-switchover.json: the slug list and the ONE
-// TBL origin; src/lib/tbl-switch.mjs). Appended to dist/_redirects (the smp-worldwide-retire pattern above), so
+// TBL origin; src/lib/tbl-switch.mjs). Written at the TOP of dist/_redirects (see the hook), so
 // public/_redirects stays hand-written. The pages still build (their store order box is what /buy/ and the SMP
 // store tests read) but leave the sitemap: a sitemap lists only URLs that answer 200. A book with no TBL page keeps
 // its SMP page. enabled:false = nothing appended.
@@ -92,9 +92,12 @@ const tblRedirects = {
     "astro:build:done": ({ dir }) => {
       if (!TBL.on) return;
       const lines = TBL.redirectLines();
-      fs.appendFileSync(
-        path.join(new URL(dir).pathname, "_redirects"),
-        `\n# TBL switch-over (src/data/tbl-switchover.json): SMP book pages -> ${TBL.origin}/books/<key>\n${lines.join("\n")}\n`,
+      // PREPENDED, not appended: Cloudflare Pages counts every rule after the first dynamic one (/books/:slug/buy/)
+      // against the 100 dynamic-rule cap and silently drops the rest (2026-11-22 preview: 46 of 146 answered).
+      const file = path.join(new URL(dir).pathname, "_redirects");
+      fs.writeFileSync(
+        file,
+        `# TBL switch-over (src/data/tbl-switchover.json): SMP book pages -> ${TBL.origin}/books/<key>\n${lines.join("\n")}\n\n${fs.readFileSync(file, "utf8")}`,
       );
       console.log(`[tbl] ${lines.length / 2} SMP book pages 301 -> ${TBL.origin}`);
     },

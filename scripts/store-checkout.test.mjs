@@ -1538,6 +1538,11 @@ test('tbl switch-over build: 301s shipped, mapped pages out of the sitemap, unma
 		assert.doesNotMatch(pub, new RegExp(`^/books/${s}/? `, 'm'), `${s}: already redirected in public/_redirects`);
 	const red = fs.readFileSync(dist('_redirects'), 'utf8');
 	for (const l of t.redirectLines()) assert.ok(red.includes(`${l}\n`), `missing: ${l}`);
+	// Cloudflare Pages counts every rule after the first dynamic one against the 100-rule dynamic cap and drops the rest
+	const rules = red.split('\n').filter((l) => l.trim() && !l.startsWith('#'));
+	const firstDynamic = rules.findIndex((l) => /[:*]/.test(l.split(/\s+/)[0]));
+	for (const l of t.redirectLines()) assert.ok(firstDynamic < 0 || rules.indexOf(l) < firstDynamic, `${l}: after a dynamic rule`);
+	assert.ok(firstDynamic < 0 || rules.length - firstDynamic <= 100, `${rules.length - firstDynamic} rules from the first dynamic one (cap 100)`);
 	assert.ok(red.split('\n').filter((l) => l.trim() && !l.startsWith('#')).length <= 2000, 'CF Pages static redirect cap');
 	assert.doesNotMatch(red, /^\/ebook-download/m, '/ebook-download is never redirected');
 	const sm = fs.readFileSync(dist('sitemap-0.xml'), 'utf8');
