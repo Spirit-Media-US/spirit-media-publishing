@@ -10,8 +10,10 @@ import lightCovers from '../data/books/light-covers.json';
 import pagesLive from '../data/books/pages-live.json';
 import shipset from '../data/books/shipset-v2.json';
 import fhbSnapshot from '../data/fhb-editions.json';
+import tblData from '../data/tbl-switchover.json';
 import { dnpMatcher } from '../lib/do-not-publish.mjs';
 import { sanityClient } from '../lib/sanity.ts';
+import { tblSwitch } from '../lib/tbl-switch.mjs';
 import { destHtml, newTabHtml, SISTER_HOST, sisterHost } from '../lib/xsite';
 import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
@@ -577,6 +579,21 @@ const WORLDWIDE_RETIRED = (rawBooks as any[]).every(
 	(b) => !b.colls.includes('smp') || b.colls.includes('smp-worldwide'),
 );
 (globalThis as any).__smpWorldwideRetired = WORLDWIDE_RETIRED;
+// TBL SWITCH-OVER (C6; CONTRACT v2 decisions 59 + 61): a card whose link is an SMP book page with a live TBL page now
+// links to the TBL book page (src/data/tbl-switchover.json; that SMP URL 301s there, astro.config.mjs). Runs AFTER the
+// collections above, which read the SMP slug from the card link. Books with no TBL page keep their SMP page.
+const TBLX = tblSwitch(tblData);
+for (const b of rawBooks as any[]) {
+	if (!TBLX.on || typeof b.amazon !== 'string') continue;
+	const to = TBLX.href(b.amazon);
+	if (to === b.amazon) continue;
+	b.smpHref = b.amazon; // the homepage picks its cards by SMP page (HomeBooks.astro)
+	b.amazon = to;
+	b.tblSr = destHtml(TBLX.host, true); // BookCard: the destination, said to a screen reader (same as render())
+	b.formats = Object.fromEntries(
+		Object.entries(b.formats || {}).map(([k, v]) => [k, typeof v === 'string' ? TBLX.href(v) : v]),
+	);
+}
 const CHIPS = COLLECTIONS.filter((c) => !(WORLDWIDE_RETIRED && c.key === 'smp-worldwide'));
 // newest first; in SMP only the live-page cards lead
 const byDate = (x: any, y: any) => (y.date || '').localeCompare(x.date || '');
@@ -622,6 +639,8 @@ const XS = {
 	dest: destHtml(SISTER_HOST),
 	destSr: destHtml(SISTER_HOST, true),
 	newTab: newTabHtml,
+	tbl: TBLX.host, // '' when the switch-over is off
+	tblSr: TBLX.host ? destHtml(TBLX.host, true) : '',
 };
 // 3au (pmseoaeo 2026-11-13): the stats strip's numbers are computed HERE, at build, from the same rawBooks the
 // browser script reads, and written into the served HTML; no-JS crawlers and AI readers used to see "0 Published
@@ -681,10 +700,19 @@ const badgeStyle =
 	'display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-decoration:none;';
 // Cross-site rule (src/lib/xsite.ts): our own page or fathersheartbible.com = SAME tab (FHB with its destination, read by a
 // screen reader; the card title shows it visibly); a third-party listing = new tab, said to a screen reader.
+// TBL (the one store, decision 61) follows the sister rule: same tab, destination said to a screen reader.
 const linkAttrs = (href: string) =>
-	href.startsWith('/') || sisterHost(href) ? '' : ' target="_blank" rel="noopener noreferrer"';
+	href.startsWith('/') || sisterHost(href) || TBLX.isTbl(href)
+		? ''
+		: ' target="_blank" rel="noopener noreferrer"';
 const linkTail = (href: string) =>
-	href.startsWith('/') ? '' : sisterHost(href) ? destHtml(SISTER_HOST, true) : newTabHtml;
+	href.startsWith('/')
+		? ''
+		: sisterHost(href)
+			? destHtml(SISTER_HOST, true)
+			: TBLX.isTbl(href)
+				? destHtml(TBLX.host, true)
+				: newTabHtml;
 const formatsHtml = (b: any): string => {
 	const fmts = b.formats || {};
 	// 3aj: a format may be a URL or a bare flag (true) — a flag links to the book's own listing,
@@ -795,7 +823,9 @@ const cardProps = (b: any) => ({
 	formatsHtml: formatsHtml(b),
 });
 const cardsOnly = cardsOnlyHrefs
-	? cardsOnlyHrefs.map((href) => (rawBooks as any[]).find((b) => b.amazon === href)).filter(Boolean)
+	? cardsOnlyHrefs
+			.map((href) => (rawBooks as any[]).find((b) => (b.smpHref ?? b.amazon) === href))
+			.filter(Boolean)
 	: null;
 ---
 
@@ -972,8 +1002,9 @@ const cardsOnly = cardsOnlyHrefs
 
   // Same cross-site rule as the server render (src/lib/xsite.ts, passed in as XS): keep the two in sync.
   const isSister = href => new RegExp('^(?:https?:)?//(?:www\\.)?' + XS.host.replace(/\./g, '\\.') + '(?:[/:?#]|$)', 'i').test(href || '');
-  const linkAttrs = href => (href.startsWith('/') || isSister(href) ? '' : ' target="_blank" rel="noopener noreferrer"');
-  const linkTail = href => (href.startsWith('/') ? '' : isSister(href) ? XS.destSr : XS.newTab);
+  const isTbl = href => !!XS.tbl && new RegExp('^(?:https?:)?//(?:www\\.)?' + XS.tbl.replace(/\./g, '\\.') + '(?:[/:?#]|$)', 'i').test(href || '');
+  const linkAttrs = href => (href.startsWith('/') || isSister(href) || isTbl(href) ? '' : ' target="_blank" rel="noopener noreferrer"');
+  const linkTail = href => (href.startsWith('/') ? '' : isSister(href) ? XS.destSr : isTbl(href) ? XS.tblSr : XS.newTab);
 
   function renderFormats(b) {
     const fmts = b.formats || {};

@@ -3,9 +3,14 @@ import CoverMarquee from '../components/CoverMarquee.astro';
 import HomeBooks from '../components/HomeBooks.astro';
 import MailtoLink from '../components/MailtoLink.astro';
 import ShipCountryMarquee from '../components/ShipCountryMarquee.astro';
+import tblData from '../data/tbl-switchover.json';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
+import { tblSwitch } from '../lib/tbl-switch.mjs';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
+
+// TBL switch-over (C6): the Raised in a Barn links open its TBL book page (the SMP URL 301s there); off = as before.
+const RIAB_HREF = tblSwitch(tblData).href('/books/raised-in-a-barn/');
 
 // All homepage brand/program/testimonial imagery is served from R2 (same origin
 // as fonts + logo + hero). No cdn.sanity.io TLS handshake anywhere in the
@@ -385,7 +390,7 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 		     Pull quote is a figure, NOT a blockquote bar. -->
 		<section class="px-6 py-12 lg:py-16 lg:px-8" style="background-color:#eef3ea">
 			<div class="mx-auto max-w-7xl grid gap-8 lg:gap-12 lg:grid-cols-[1fr_1.5fr_1fr] items-center">
-				<a href="/books/raised-in-a-barn/" class="block mx-auto w-full max-w-[280px] lg:max-w-none order-3" aria-label="Raised in a Barn by Van Eure">
+				<a href={RIAB_HREF} class="block mx-auto w-full max-w-[280px] lg:max-w-none order-3" aria-label="Raised in a Barn by Van Eure">
 					<img
 						src="https://assets.spiritmediapublishing.com/spirit-media-publishing/authors/van-eure-600.webp"
 						alt="Van Eure, owner of the Angus Barn"
@@ -399,7 +404,7 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 				<div class="text-center order-2">
 					<h2 class="type-section-heading text-ink-soft">New Book from Van Eure owner of the Angus Barn</h2>
 					<div class="mt-6">
-						<a href="/books/raised-in-a-barn/" class="btn btn-primary">On sale now &rarr;</a>
+						<a href={RIAB_HREF} class="btn btn-primary">On sale now &rarr;</a>
 					</div>
 					<figure class="mt-8">
 						<div class="font-serif mb-2" style="font-size:4rem;line-height:1;color:#5b7a4b" aria-hidden="true">&ldquo;</div>
@@ -409,7 +414,7 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 						<figcaption class="mt-4 text-sm font-semibold tracking-widest text-stone-700">— Van Eure</figcaption>
 					</figure>
 				</div>
-				<a href="/books/raised-in-a-barn/" class="block mx-auto w-full max-w-[260px] lg:max-w-none order-1" aria-label="Raised in a Barn book cover">
+				<a href={RIAB_HREF} class="block mx-auto w-full max-w-[260px] lg:max-w-none order-1" aria-label="Raised in a Barn book cover">
 					<img
 						src="https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/raised-in-a-barn-3d-600.webp"
 						alt="Raised in a Barn by Van Eure, book cover"

@@ -2,6 +2,15 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
+import { tblSwitch } from '../src/lib/tbl-switch.mjs';
+
+// TBL switch-over (C6): a mapped SMP book page's card links its TBL page instead. The card tests below read those
+// links back as the SMP page they replace (smpHref), so they keep checking which book a card opens.
+const TBL = tblSwitch(JSON.parse(fs.readFileSync(new URL('../src/data/tbl-switchover.json', import.meta.url), 'utf8')));
+const smpHref = (h) => {
+	const m = TBL.on && TBL.isTbl(h) ? /\/books\/([a-z0-9-]+)$/.exec(h) : null;
+	return m && TBL.has(m[1]) ? `/books/${m[1]}/` : h;
+};
 
 const A = 'https://spiritmediapublishing.com/store-checkout';
 async function post(payload, { key = 'sk_test', origin } = {}) {
@@ -512,7 +521,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	for (const b of sold) assert.ok(!sitemap.includes(`spiritmediapublishing.com/books/${b.slug}/`), `${b.slug}: not in the SMP sitemap`);
 	// 3gh #1: the bookstore links every book we sell to its own page, and none of them to a store listing
 	const store = fs.readFileSync(new URL('../dist/bookstore/index.html', import.meta.url), 'utf8');
-	for (const t of titles) assert.ok(store.includes(`href="/books/${t.slug}/"`) || !store.includes(t.book.title), `bookstore card -> /books/${t.slug}/`);
+	for (const t of titles) assert.ok(store.includes(`href="${TBL.href(`/books/${t.slug}/`)}"`) || !store.includes(t.book.title), `bookstore card -> /books/${t.slug}/`);
 	// a card never links to a page that is not built
 	for (const t of set.titles.filter((x) => !titles.includes(x))) assert.ok(!store.includes(`href="/books/${t.slug}/"`), `bookstore: no link to unbuilt /books/${t.slug}/`);
 
@@ -626,7 +635,7 @@ const cardsOf = (html) => {
 		key: m[2] || '',
 		colls: m[3].split(' '),
 		live: m[0].includes('data-live="1"'),
-		href: m[4],
+		href: smpHref(m[4]),
 		title: m[5].replace(/&#39;/g, "'").replace(/&#38;/g, '&').replace(/&amp;/g, '&'),
 	}));
 };
@@ -865,7 +874,7 @@ test('home: "New from Spirit Media Authors" renders the SAME bookstore cards, an
 		assert.ok(s > 0, `${id}: is a bookstore card`);
 		const storeCard = store.slice(s, s + c.length);
 		assert.equal(c, storeCard, `${id}: identical markup to the /bookstore/ card`);
-		assert.match(c, /href="\/books\/[^"]+\/"/, `${id}: opens its SMP page`);
+		assert.ok(/href="\/books\/[^"]+\/"/.test(c) || (TBL.on && c.includes(`href="${TBL.origin}/books/`)), `${id}: opens its SMP page (or, switched over, its TBL page)`);
 	}
 	assert.match(home, /<a href="\/bookstore\/"[^>]*>\s*Books\s*<\/a>/, 'menu Books link');
 });
@@ -1495,4 +1504,51 @@ test('Bible eBook: FHB window only; the Stripe form is FHB /ebook-checkout’s b
 	const off = await call('https://fathersheartbible.com', { STRIPE_STORE_SECRET_KEY: 'sk_test' });
 	assert.equal(off.json.disabled, true, 'no R2 binding: never sell what cannot be delivered');
 	assert.equal(off.sent, null);
+});
+
+// ── TBL SWITCH-OVER (C6; CONTRACT v2 decisions 59 + 61): src/lib/tbl-switch.mjs + src/data/tbl-switchover.json ──
+// The SMP store keeps selling and fulfilling, and old emailed /ebook-download links keep working, through the switch.
+test('tbl switch-over: maps only listed slugs, keeps everything else, off = no-op', async () => {
+	const { tblSwitch } = await import('../src/lib/tbl-switch.mjs');
+	const t = tblSwitch({ enabled: true, origin: 'https://tbl.example/', slugs: ['a-book'] });
+	assert.equal(t.href('/books/a-book/'), 'https://tbl.example/books/a-book');
+	assert.equal(t.href('/books/a-book/#order'), 'https://tbl.example/books/a-book');
+	assert.equal(t.href('/books/other/'), '/books/other/', 'unmapped keeps its SMP page');
+	assert.equal(t.href('https://www.amazon.com/dp/X'), 'https://www.amazon.com/dp/X');
+	assert.equal(t.href('/books/a-book/buy/'), '/books/a-book/buy/', '/buy/ is left to its own 301');
+	assert.ok(t.isTbl('https://tbl.example/books/a-book') && !t.isTbl('https://fathersheartbible.com/'));
+	assert.deepEqual(t.redirectLines(), [
+		'/books/a-book/ https://tbl.example/books/a-book 301',
+		'/books/a-book https://tbl.example/books/a-book 301',
+	]);
+	const off = tblSwitch({ enabled: false, origin: 'https://tbl.example', slugs: ['a-book'] });
+	assert.equal(off.href('/books/a-book/'), '/books/a-book/');
+	assert.deepEqual(off.redirectLines(), []);
+});
+
+test('tbl switch-over build: 301s shipped, mapped pages out of the sitemap, unmapped kept, store + ebook-download intact', async () => {
+	const { tblSwitch } = await import('../src/lib/tbl-switch.mjs');
+	const data = JSON.parse(fs.readFileSync(new URL('../src/data/tbl-switchover.json', import.meta.url), 'utf8'));
+	const dist = (p) => new URL(`../dist/${p}`, import.meta.url);
+	const t = tblSwitch(data);
+	assert.match(data.origin, /^https:\/\/[a-z0-9.-]+$/, 'ONE origin');
+	for (const u of data.unmapped) assert.ok(!data.slugs.includes(u), `${u}: no TBL page, must not 301`);
+	const pub = fs.readFileSync(new URL('../public/_redirects', import.meta.url), 'utf8');
+	for (const s of data.slugs)
+		assert.doesNotMatch(pub, new RegExp(`^/books/${s}/? `, 'm'), `${s}: already redirected in public/_redirects`);
+	const red = fs.readFileSync(dist('_redirects'), 'utf8');
+	for (const l of t.redirectLines()) assert.ok(red.includes(`${l}\n`), `missing: ${l}`);
+	assert.ok(red.split('\n').filter((l) => l.trim() && !l.startsWith('#')).length <= 2000, 'CF Pages static redirect cap');
+	assert.doesNotMatch(red, /^\/ebook-download/m, '/ebook-download is never redirected');
+	const sm = fs.readFileSync(dist('sitemap-0.xml'), 'utf8');
+	for (const s of data.slugs) assert.ok(!sm.includes(`/books/${s}/<`), `${s}: 301s, so not in the sitemap`);
+	for (const u of data.unmapped)
+		if (fs.existsSync(dist(`books/${u}/index.html`))) assert.ok(sm.includes(`/books/${u}/<`), `${u}: keeps its page`);
+	if (t.on) {
+		const store = fs.readFileSync(dist('bookstore/index.html'), 'utf8');
+		assert.ok(store.includes(`href="${t.origin}/books/`), 'bookstore cards link TBL');
+		assert.doesNotMatch(store, new RegExp(`href="${t.origin.replace(/\./g, '\\.')}[^"]*"[^>]*target="_blank"`), 'TBL: same tab');
+	}
+	for (const f of ['ebook-download.ts', 'store-checkout.ts', 'store-webhook.ts'])
+		assert.ok(fs.existsSync(new URL(`../functions/${f}`, import.meta.url)), `functions/${f} kept`);
 });

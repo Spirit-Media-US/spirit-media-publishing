@@ -5,6 +5,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { loadEnv } from "vite";
+import { tblSwitch } from "./src/lib/tbl-switch.mjs";
 
 const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV ?? "development", process.cwd(), "");
 
@@ -78,6 +79,28 @@ const smpWorldwideRetire = {
   },
 };
 
+// ── TBL SWITCH-OVER (C6; CONTRACT v2 decisions 59 + 61) ──────────────────────────
+// Every SMP /books/<slug>/ with a live TBL page 301s to it (src/data/tbl-switchover.json: the slug list and the ONE
+// TBL origin; src/lib/tbl-switch.mjs). Appended to dist/_redirects (the smp-worldwide-retire pattern above), so
+// public/_redirects stays hand-written. The pages still build (their store order box is what /buy/ and the SMP
+// store tests read) but leave the sitemap: a sitemap lists only URLs that answer 200. A book with no TBL page keeps
+// its SMP page. enabled:false = nothing appended.
+const TBL = tblSwitch(JSON.parse(fs.readFileSync(path.resolve("src/data/tbl-switchover.json"), "utf8")));
+const tblRedirects = {
+  name: "tbl-switchover-redirects",
+  hooks: {
+    "astro:build:done": ({ dir }) => {
+      if (!TBL.on) return;
+      const lines = TBL.redirectLines();
+      fs.appendFileSync(
+        path.join(new URL(dir).pathname, "_redirects"),
+        `\n# TBL switch-over (src/data/tbl-switchover.json): SMP book pages -> ${TBL.origin}/books/<key>\n${lines.join("\n")}\n`,
+      );
+      console.log(`[tbl] ${lines.length / 2} SMP book pages 301 -> ${TBL.origin}`);
+    },
+  },
+};
+
 // https://astro.build/config
 export default defineConfig({
   site: PUBLIC_SITE_URL || "http://localhost:4321",
@@ -93,12 +116,13 @@ export default defineConfig({
   },
   integrations: [
     smpWorldwideRetire,
+    tblRedirects,
     sitemap({
       // Assign crawl priority by page type
       customPages: [],
       // Keep noindex'd pages (/partnership, /thank-you) out of the sitemap: a sitemap lists only pages we want indexed.
       // /books/<slug>/buy/ = noindex,follow checkout pages (plan 3fb contract 3fe): never in a sitemap.
-      filter: (page) => !(worldwideRetired() && page.includes('/bookstore/smp-worldwide/')) && !page.includes('/partnership') && !page.includes('/thank-you') && !page.includes('/checkout/') && !/\/books\/[^/]+\/buy\/$/.test(page),
+      filter: (page) => !(worldwideRetired() && page.includes('/bookstore/smp-worldwide/')) && !page.includes('/partnership') && !page.includes('/thank-you') && !page.includes('/checkout/') && !/\/books\/[^/]+\/buy\/$/.test(page) && !TBL.has((/\/books\/([^/]+)\/$/.exec(page) || [])[1]),
       serialize(item) {
         const lastmod = lastmodFor(item.url);
         if (lastmod) item = { ...item, lastmod };
