@@ -929,9 +929,9 @@ test('RIAB: HB + PB + signed copies count together toward the tier; signed = sam
 	assert.equal(q.subtotal, 15 * 2549 + 10 * 1699);
 });
 
-test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB return, no coupon', async () => {
+test('RIAB end to end (TEST key): branded session, tier price, RIAB return, no coupon', async () => {
 	const r = await riabPost({
-		counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb': 20 },
+		counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-pb': 20 },
 		utm: { source: 'raisedinabarn.org', medium: 'referral', campaign: 'buy-button' },
 	});
 	assert.equal(r.status, 200, JSON.stringify(r.json));
@@ -941,13 +941,10 @@ test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB
 	const line = (i, k) => f.get(`line_items[${i}][${k}]`);
 	assert.equal(line(0, 'price_data][product_data][name'), 'Raised in a Barn — Hardback');
 	assert.equal(line(0, 'quantity'), '30');
-	assert.equal(line(0, 'price_data][unit_amount'), '2399', '52 copies = 20% tier');
-	assert.equal(line(1, 'price_data][product_data][name'), 'Raised in a Barn — Hardback (autographed by Van Eure)');
-	assert.equal(line(1, 'quantity'), '2');
-	assert.equal(line(1, 'price_data][unit_amount'), '2399', 'signed copy, same price');
-	assert.equal(line(2, 'price_data][product_data][name'), 'Raised in a Barn — Paperback');
-	assert.equal(line(2, 'price_data][unit_amount'), '1599');
-	assert.equal(f.get('line_items[3][quantity]'), null, 'no extra lines');
+	assert.equal(line(0, 'price_data][unit_amount'), '2399', '50 copies = 20% tier');
+	assert.equal(line(1, 'price_data][product_data][name'), 'Raised in a Barn — Paperback');
+	assert.equal(line(1, 'price_data][unit_amount'), '1599');
+	assert.equal(f.get('line_items[2][quantity]'), null, 'no extra lines');
 	assert.match(line(0, 'price_data][product_data][description'), /by Van Eure · 20% bulk discount · sold by Spirit Media Publishing/);
 	assert.match(line(0, 'price_data][product_data][images][0'), /raised-in-a-barn-1200\.jpg$/);
 	assert.equal(f.get('cancel_url'), 'https://spiritmediapublishing.com/checkout/raised-in-a-barn/?order=canceled');
@@ -957,13 +954,12 @@ test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB
 	assert.equal(f.get('metadata[window]'), 'smp');
 	assert.equal(f.get('metadata[pct_off]'), '20');
 	assert.equal(f.get('metadata[offer]'), 'riab_bulk');
-	assert.equal(f.get('metadata[signed]'), 'raised-in-a-barn-hb:2,raised-in-a-barn-pb:0');
-	assert.equal(f.get('metadata[signed_route]'), 'smp_manual_van_signs');
-	assert.equal(f.get('metadata[breakdown]'), 'raised-in-a-barn-hb:30,Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure:2,raised-in-a-barn-pb:20');
-	assert.equal(f.get('metadata[total]'), '52');
+	assert.equal(f.get('metadata[signed]'), null, 'no signed copies online (Kevin 11-22)');
+	assert.equal(f.get('metadata[breakdown]'), 'raised-in-a-barn-hb:30,raised-in-a-barn-pb:20');
+	assert.equal(f.get('metadata[total]'), '50');
 	assert.equal(f.get('metadata[utm_source]'), 'raisedinabarn.org');
 	const books = [f.get('metadata[book_1]'), f.get('metadata[book_2]')].join('\n');
-	assert.match(books, /format=Hardback\|qty=32\|unit_cents=2399\|/);
+	assert.match(books, /format=Hardback\|qty=30\|unit_cents=2399\|/);
 	assert.match(books, /format=Paperback\|qty=20\|unit_cents=1599\|/);
 	assert.equal(f.get('discounts[0][promotion_code]'), null);
 	assert.match(f.get('custom_text[submit][message]'), /Raised in a Barn by Van Eure\. Sold and shipped by Spirit Media Publishing\./);
@@ -971,15 +967,22 @@ test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB
 	let sum = 0;
 	for (let i = 0; f.get(`line_items[${i}][quantity]`); i++)
 		sum += Number(f.get(`line_items[${i}][quantity]`)) * Number(f.get(`line_items[${i}][price_data][unit_amount]`));
-	assert.equal(sum, 32 * 2399 + 20 * 1599);
+	assert.equal(sum, 30 * 2399 + 20 * 1599);
 });
 
-test("RIAB: one signed copy is list price with no bulk text (the engine's own offer, unchanged)", async () => {
-	const r = await riabPost({ counts: { 'raised-in-a-barn-pb-signed': 1 } });
-	assert.equal(r.status, 200);
-	assert.equal(r.form.get('line_items[0][price_data][unit_amount]'), '1999');
-	assert.doesNotMatch(r.form.get('line_items[0][price_data][product_data][description]'), /bulk/);
-	assert.equal(r.form.get('metadata[pct_off]'), '0');
+test('RIAB FAILURE: autographed copies are NOT sold online (Kevin 2026-11-22: only at the Angus Barn), refused before Stripe', async () => {
+	for (const counts of [{ 'raised-in-a-barn-pb-signed': 1 }, { 'raised-in-a-barn-hb-signed': 2 }, { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-pb-signed': 1 }]) {
+		const r = await riabPost({ counts });
+		assert.equal(r.status, 400, JSON.stringify(counts));
+		assert.equal(r.json.error, 'autographed_not_online');
+		assert.match(r.json.message, /only at the Angus Barn/);
+		assert.equal(r.calls.length, 0, 'no Stripe call');
+	}
+	const live = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
+	assert.equal(live.json.error, 'autographed_not_online', 'refused even with live checkout open');
+	const gift = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 2 }, donation_cents: 2500, designation: 'foh' }, { env: { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'acct_1TESTsmc' } });
+	assert.equal(gift.json.error, 'autographed_not_online', 'refused with a gift too');
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-pb': 1 } })).status, 200, 'unsigned still sells');
 });
 
 test('RIAB GIFT FAILURE: refused before any Stripe call while SMC is not connected, and never added to SMP', async () => {
@@ -1027,7 +1030,7 @@ test('RIAB GIFT: fee-cover math: the charity nets the full gift when covered; th
 });
 
 test('RIAB GIFT: own line + transfer to SMC + metadata; the purchase lines are byte-identical to a gift-free order', async () => {
-	const counts = { 'raised-in-a-barn-hb': 2, 'raised-in-a-barn-pb-signed': 1 };
+	const counts = { 'raised-in-a-barn-hb': 2, 'raised-in-a-barn-pb': 1 };
 	const base = await riabPost({ counts }, { env: SMC_ENV });
 	const cov = await riabPost({ counts, donation_cents: 10000, designation: 'split', fee_cover: true }, { env: SMC_ENV });
 	assert.equal(cov.status, 200, JSON.stringify(cov.json));
@@ -1060,15 +1063,7 @@ test('RIAB GIFT: own line + transfer to SMC + metadata; the purchase lines are b
 	assert.ok([...f.keys()].filter((k) => k.startsWith('metadata[')).length <= 50, 'within Stripe 50 metadata keys');
 });
 
-test('RIAB GIFT: the signed route is unchanged by a gift', async () => {
-	const r = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 2 }, donation_cents: 2500, designation: 'foh' }, { env: SMC_ENV });
-	assert.equal(r.form.get('metadata[signed_route]'), 'smp_manual_van_signs');
-	const n = await noticeFor(r.form);
-	assert.deepEqual(n.ingram, []);
-	assert.deepEqual(n.editions, [['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure', 2]]);
-});
-
-test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; with it, signed sells on the SMP-manual route', async () => {
+test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; with it, an unsigned order sells', async () => {
 	const live = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x' } });
 	assert.equal(live.json.disabled, true);
 	assert.equal(live.json.error, 'riab_test_only');
@@ -1078,10 +1073,9 @@ test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; with 
 	const wrong = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'yes' } });
 	assert.equal(wrong.json.error, 'riab_test_only', 'only the exact value kevin-approved opens live');
 	assert.equal(wrong.calls.length, 0);
-	const signed = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
-	assert.equal(signed.status, 200, JSON.stringify(signed.json));
-	assert.equal(signed.json.url, 'https://stripe.test/riab', 'Kevin 11-20 "Van signs! SMP ships!": signed sells live');
-	assert.equal(signed.form.get('metadata[signed_route]'), 'smp_manual_van_signs');
+	const ok = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
+	assert.equal(ok.status, 200, JSON.stringify(ok.json));
+	assert.equal(ok.json.url, 'https://stripe.test/riab', 'live opens with the exact approval value');
 });
 
 // ── RIAB SIGNED ROUTE (Kevin 2026-11-20 ~15:20Z "5. Van signs! SMP ships! ... You take the orders. I will get these
@@ -1104,22 +1098,16 @@ async function noticeFor(form) {
 	};
 }
 
-test('RIAB SIGNED ROUTE: a signed-only order puts NOTHING on the Ingram lines; the notice lists the signed copies', async () => {
+test('RIAB SIGNED ROUTE (closed 11-22): a signed-only order is refused; the signed keys never become BOOK_SKUS keys', async () => {
 	const { BOOK_SKUS } = await import('../src/store-engine/lib/order-pricing.ts');
 	const r = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb-signed': 1 } });
-	assert.equal(r.status, 200, JSON.stringify(r.json));
-	const n = await noticeFor(r.form);
-	assert.deepEqual(n.ingram, [], 'no Ingram line for a signed copy');
-	assert.deepEqual(n.editions, [['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure', 2], ['Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure', 1]]);
+	assert.equal(r.json.error, 'autographed_not_online', 'Kevin 11-22: no signed copies online; nothing reaches Stripe or Ingram');
+	assert.equal(r.calls.length, 0);
 	assert.equal(BOOK_SKUS['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure'], undefined, 'the signed key must never become a BOOK_SKUS key');
 	assert.equal(BOOK_SKUS['Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure'], undefined);
-	assert.equal(n.m.signed_route, 'smp_manual_van_signs');
-	assert.equal(n.m.signed, 'raised-in-a-barn-hb:2,raised-in-a-barn-pb:1');
-	assert.equal(n.m.kind, 'dvc_print', 'still a print order, so the existing notice to kevin@ fires');
-	assert.equal(n.m.total, '3');
 });
 
-test('RIAB SIGNED ROUTE: unsigned copies keep the Ingram route; a mixed cart splits by line', async () => {
+test('RIAB: unsigned copies keep the Ingram route; a mixed cart with signed copies is refused', async () => {
 	const { BOOK_SKUS } = await import('../src/store-engine/lib/order-pricing.ts');
 	const hb = BOOK_SKUS['raised-in-a-barn-hb'].isbn;
 	const pb = BOOK_SKUS['raised-in-a-barn-pb'].isbn;
@@ -1127,10 +1115,9 @@ test('RIAB SIGNED ROUTE: unsigned copies keep the Ingram route; a mixed cart spl
 	assert.deepEqual(u.ingram, [[hb, 3], [pb, 1]], 'unsigned: every copy on an Ingram line');
 	assert.equal(u.m.signed, undefined);
 	assert.equal(u.m.signed_route, undefined);
-	const x = await noticeFor((await riabPost({ counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb': 20, 'raised-in-a-barn-pb-signed': 5 } })).form);
-	assert.deepEqual(x.ingram, [[hb, 30], [pb, 20]], 'Ingram gets the unsigned 50 only, never the 7 signed');
-	assert.deepEqual(x.editions.filter(([s]) => /AUTOGRAPHED/.test(s)), [['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure', 2], ['Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure', 5]]);
-	assert.equal(x.editions.reduce((t, [, q]) => t + q, 0), Number(x.m.total), 'notice lists every copy sold');
+	const x = await riabPost({ counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb': 20, 'raised-in-a-barn-pb-signed': 5 } });
+	assert.equal(x.json.error, 'autographed_not_online', 'a mixed cart with any signed copy is refused whole');
+	assert.equal(x.calls.length, 0);
 });
 
 
@@ -1176,8 +1163,8 @@ async function riabPostPromo(payload) {
 	return { status: res.status, json: await res.json(), form: new URLSearchParams(body), calls };
 }
 
-test('RIAB no first-order 15%: 1-24 copies (HB, PB, signed) = list price, no coupon, no first-order lookup', async () => {
-	for (const sku of ['raised-in-a-barn-hb', 'raised-in-a-barn-pb', 'raised-in-a-barn-hb-signed', 'raised-in-a-barn-pb-signed']) {
+test('RIAB no first-order 15%: 1-24 copies (HB, PB) = list price, no coupon, no first-order lookup', async () => {
+	for (const sku of ['raised-in-a-barn-hb', 'raised-in-a-barn-pb']) {
 		const list = sku.startsWith('raised-in-a-barn-hb') ? 2999 : 1999;
 		for (let n = 1; n <= 24; n++) {
 			const r = await riabPostPromo({ counts: { [sku]: n }, email: 'brand-new@buyer.co' });

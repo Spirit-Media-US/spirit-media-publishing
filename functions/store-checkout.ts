@@ -30,6 +30,7 @@ import {
 	riabGiftPlan,
 	riabKey,
 	riabQuote,
+	riabSignedRefusal,
 } from '../src/lib/riabOrder.ts';
 import {
 	allowCheck,
@@ -163,6 +164,8 @@ export async function riabCheckout(
 ) {
 	const counts = riabCounts(payload.counts as Record<string, unknown>);
 	if (!counts) return { status: 400, body: { error: 'invalid_selection' } } as const;
+	const noSigned = riabSignedRefusal(counts);
+	if (noSigned) return { status: 400, body: noSigned } as const;
 	const country = String(payload.country ?? 'US').toUpperCase();
 	const q = riabQuote(counts, country);
 	if (q.copies < 1) return { status: 400, body: { error: 'empty' } } as const;
