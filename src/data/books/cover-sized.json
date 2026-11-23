@@ -920,11 +920,11 @@
 				"-600.webp": [600, 927]
 			},
 			"hero3d": {
-				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-3d-v2-600.webp",
-				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-3d-v2-300.webp",
-				"w1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-3d-v2-1200.webp",
+				"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-v4-3d-v2-600.webp",
+				"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-v4-3d-v2-300.webp",
+				"w1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/forever-changed-v4-3d-v2-1200.webp",
 				"width": 600,
-				"height": 843
+				"height": 842
 			}
 		},
 		"give-me-a-minute-goliath": {
