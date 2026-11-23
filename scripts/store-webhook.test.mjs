@@ -498,3 +498,34 @@ test('TBL language eBook (tbl_ebook) + series bundle (ebook_bundle): one Kevin n
 	const { STORE_ORDER_KINDS } = await import('../src/store-engine/lib/storeEngine.ts');
 	for (const k of ['tbl_ebook', 'ebook_bundle']) assert.ok(STORE_ORDER_KINDS.includes(k), k);
 });
+
+// ---- TBL ORDERS (Kevin D99 2026-11-23 "Make sure order emails are worded as Spirit Media Publishing Order through The Believer's Library.") ----
+test('TBL order: a print order sold through The Believer\u2019s Library is worded "Spirit Media Publishing Order through The Believer\u2019s Library"', async () => {
+	const line = "Spirit Media Publishing Order through The Believer's Library";
+	for (const host of ['thebelieverslibrary.com', 'www.thebelieverslibrary.com', 'tbl.community-cm1.pages.dev']) {
+		const r = await confirm({ site: 'smp', window: 'smp', family: 'smp_book', utm_source: host });
+		assert.equal(r.status, 200);
+		assert.equal(r.buyer.subject, `${line} — $31.98`, host);
+		assert.ok(r.buyer.text.startsWith(`${line}\n\nThank you — we've received your order.`), host);
+		assert.ok(endsWithSeven(r.buyer.text), 'signature unchanged');
+		assert.equal(r.buyer.from, 'SMP Orders <orders@send.spiritmediapublishing.com>', 'From stays SMP Orders');
+	}
+	// not TBL: SMP's own utm, FHB, a look-alike host -> the one-store wording, no TBL line
+	for (const meta of [{ site: 'smp', window: 'smp', utm_source: 'google' }, { site: 'fhb', window: 'fhb' }, { site: 'smp', window: 'smp', utm_source: 'thebelieverslibrary.com.evil.example' }]) {
+		const r = await confirm(meta);
+		assert.equal(r.buyer.subject, 'Your Spirit Media Publishing order — $31.98', JSON.stringify(meta));
+		assert.doesNotMatch(r.buyer.text, /Believer/);
+	}
+});
+
+test('TBL order: an eBook sold through The Believer\u2019s Library gets the TBL subject + first line; SMP eBooks unchanged', async () => {
+	const line = "Spirit Media Publishing Order through The Believer's Library";
+	const tbl = { ...FIX, data: { object: { ...SESSION, metadata: { ...SESSION.metadata, utm_source: 'thebelieverslibrary.com' } } } };
+	const r = await run(tbl);
+	const buyer = r.sent.find((m) => m.to === 'buyer@example.com');
+	assert.equal(buyer.subject, `${line} — Fixture Book`);
+	assert.ok(buyer.text.startsWith(`${line}\n\nThank you — your eBook is ready.`));
+	assert.ok(endsWithSeven(buyer.text));
+	const plain = (await run(FIX)).sent.find((m) => m.to === 'buyer@example.com');
+	assert.equal(plain.subject, 'Your eBook — Fixture Book');
+});

@@ -71,11 +71,27 @@ export const BUYER_REPLY_TO = 'hello@spiritmediapublishing.com';
 // `window` is still computed (session Option C tag, else site) because it routes the SIGNED eBook link to its own site
 // (windowOrigin) and is logged on Kevin's notice; it no longer brands anything the buyer reads.
 // signoffBlock() stays the one place a window line could be written: it now always receives ''.
+// TBL ORDERS (Kevin D99 2026-11-23: "Make sure order emails are worded as Spirit Media Publishing Order through The
+// Believer's Library."). A session sold through The Believer's Library carries the TBL host as metadata utm_source
+// (community src/lib/library-billing-store.ts tblCheckoutForm/audiobookForm). Its BUYER email subject + first line say
+// TBL_ORDER_LINE; From stays "SMP Orders", the body + signature are unchanged, and every FHB/SMP order is untouched.
+export const TBL_ORDER_LINE = "Spirit Media Publishing Order through The Believer's Library";
+const TBL_HOST_RE =
+	/^(?:(?:www\.)?thebelieverslibrary\.com|tbl[a-z0-9-]*\.community-cm1\.pages\.dev)$/i;
+/** True when the session was sold through The Believer's Library (its utm_source is a TBL host). */
+export const viaTbl = (m: Record<string, string> | null | undefined) =>
+	TBL_HOST_RE.test(String(m?.utm_source ?? '').trim());
 export function buyerBrand(m: Record<string, string> | null | undefined, amount: string) {
 	const w = m?.window || (m?.site && m.site !== 'fhb' ? 'smp' : 'fhb');
+	const tbl = viaTbl(m);
 	return {
 		window: w === 'smp' ? 'smp' : 'fhb',
-		subject: `Your Spirit Media Publishing order — ${amount}`,
+		subject: tbl
+			? `${TBL_ORDER_LINE} — ${amount}`
+			: `Your Spirit Media Publishing order — ${amount}`,
+		/** The buyer email's first line ('' = none): TBL orders only. */
+		heading: tbl ? `${TBL_ORDER_LINE}\n\n` : '',
+		tbl,
 		signoff: '',
 	};
 }
@@ -439,8 +455,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 			email === '(no email)' ||
 			(await send(
 				email,
-				`Your eBook — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`,
-				`Thank you — your eBook is ready.\n\n` +
+				buyerBrand(m, amount).tbl
+					? `${TBL_ORDER_LINE} — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`
+					: `Your eBook — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`,
+				`${buyerBrand(m, amount).heading}Thank you — your eBook is ready.\n\n` +
 					(ebookSku ? `${bookTitle}\n\n` : '') +
 					`Download it here (the link stays valid, so keep this email):\n${link}\n\n` +
 					`It's a DRM-free EPUB — open it in Apple Books, Google Play Books,\n` +
@@ -482,7 +500,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	// no confirmation their ORDER (as opposed to their payment) existed.
 	const brand = buyerBrand(m, amount);
 	const custText =
-		`Thank you — we've received your order.\n\n` +
+		`${brand.heading}Thank you — we've received your order.\n\n` +
 		`What you ordered:\n${fmtOrder(readBreakdown(m))}\n\n` +
 		`Total paid: ${amount}\n` +
 		(gift
