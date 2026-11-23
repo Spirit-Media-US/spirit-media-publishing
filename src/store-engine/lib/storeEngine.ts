@@ -1530,7 +1530,13 @@ export function storeTagErrors(form: Record<string, string | number>): string[] 
 // (this engine, Bibles + books) and print_bulk (the retired /print bulk path). Other payments on the same Stripe
 // account (publishing invoices, pre-release sales, app charges) no longer make a buyer a "repeat".
 // ebook_direct (2026-11-16): an eBook bought from the store is a store purchase too, so it ends the first order.
-export const STORE_ORDER_KINDS: readonly string[] = ['dvc_print', 'print_bulk', 'ebook_direct'];
+// audiobook_direct (I22 2026-11-23): a TBL audiobook is a store order too (one store, TBL window), so it ends the first order.
+export const STORE_ORDER_KINDS: readonly string[] = [
+	'dvc_print',
+	'print_bulk',
+	'ebook_direct',
+	'audiobook_direct',
+];
 export async function isFirstOrder(email: string, key: string): Promise<boolean> {
 	const get = async (path: string) => {
 		const r = await fetch(`https://api.stripe.com/v1/${path}`, {

@@ -277,7 +277,15 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	// was the success page — close that tab and the link was gone, because no email
 	// ever carried it. Handled below, before the print-shaped fields are read.
 	const kind = s?.metadata?.kind;
-	if (kind !== 'print_bulk' && kind !== 'dvc_print' && kind !== 'ebook_direct') return ack();
+	// audiobook_direct (I22 2026-11-23): TBL's audiobook sale. TBL delivers it (My Library) and emails the buyer;
+	// here only Kevin's sale notice, once (handled below, before the print-shaped fields are read).
+	if (
+		kind !== 'print_bulk' &&
+		kind !== 'dvc_print' &&
+		kind !== 'ebook_direct' &&
+		kind !== 'audiobook_direct'
+	)
+		return ack();
 
 	const email = s.customer_details?.email ?? '(no email)';
 	// Stripe moved the collected address to collected_information.shipping_details;
@@ -368,6 +376,25 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 			return false;
 		}
 	};
+
+	if (kind === 'audiobook_direct') {
+		const title =
+			/(?:^|\|)title=([^|]*)/.exec(m.book_1 ?? '')?.[1] || m.audiobook_sku || 'Audiobook';
+		const ok = await send(
+			env.PRINT_ORDER_NOTIFY_TO || NOTIFY_TO_DEFAULT,
+			`🎧 Audiobook sale — ${amount}`,
+			`New audiobook sale — ${title}\n\n` +
+				`Total: ${amount}\nCustomer email: ${email}\nStripe session: ${s.id ?? '?'}\n` +
+				`Audiobook SKU: ${m.audiobook_sku ?? '?'}\n` +
+				`Delivered by The Believer's Library (My Library); no SMP email to the buyer.\n`,
+			email !== '(no email)' ? email : undefined,
+		);
+		if (ok) {
+			await markNotified();
+			return ack();
+		}
+		return retry();
+	}
 
 	// eBook: no address, no production run — the buyer needs their download link in
 	// writing, because the success page is otherwise the only place it ever appears.

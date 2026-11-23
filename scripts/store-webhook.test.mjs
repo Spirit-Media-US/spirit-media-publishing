@@ -464,3 +464,23 @@ test('webhook (Beloved Identity): the fulfilment email carries ISBN, quantity, a
 	const bible = await confirm({ breakdown: 'teen-pb:1', total: '1' });
 	assert.ok(!bible.kevin.text.includes('Ingram order lines'), 'a Bible-only order has no Ingram book lines');
 });
+
+// ---- TBL audiobooks (I22 item 7, 2026-11-23): a TBL audiobook_direct sale reaches this shared webhook ----------------
+// TBL's own /api/library/stripe-webhook DELIVERS it (My Library entitlement); this endpoint only tells Kevin, ONCE, and
+// sends the buyer nothing (TBL owns that email). It is also a store order, so it ends the buyer's first order.
+test('TBL audiobook_direct: Kevin gets one sale notice, the buyer gets no SMP email; it ends the first order', async () => {
+	const r = await confirm(
+		{ audiobook_sku: 'invisible-wounds-audiobook', library_slug: 'invisible-wounds-audiobook', book_1: 'title=Invisible Wounds|isbn=none|format=Audiobook|qty=1|unit_cents=1499' },
+		{ kind: 'audiobook_direct', amount: 1499, id: 'cs_test_tblAudio00001' },
+	);
+	assert.equal(r.status, 200);
+	assert.ok(r.kevin, 'Kevin is told');
+	assert.match(r.kevin.subject, /^🎧 Audiobook sale — \$14\.99$/);
+	assert.match(r.kevin.text, /Invisible Wounds/);
+	assert.match(r.kevin.text, /Audiobook SKU: invisible-wounds-audiobook/);
+	assert.match(r.kevin.text, /Delivered by The Believer's Library \(My Library\)/);
+	assert.equal(r.buyer, undefined, 'no buyer email from SMP');
+	assert.equal(r.sent.length, 1);
+	const { STORE_ORDER_KINDS } = await import('../src/store-engine/lib/storeEngine.ts');
+	assert.ok(STORE_ORDER_KINDS.includes('audiobook_direct'), 'a TBL audiobook ends the first order on every window');
+});
