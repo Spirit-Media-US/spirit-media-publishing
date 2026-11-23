@@ -484,3 +484,17 @@ test('TBL audiobook_direct: Kevin gets one sale notice, the buyer gets no SMP em
 	const { STORE_ORDER_KINDS } = await import('../src/store-engine/lib/storeEngine.ts');
 	assert.ok(STORE_ORDER_KINDS.includes('audiobook_direct'), 'a TBL audiobook ends the first order on every window');
 });
+
+test('TBL language eBook (tbl_ebook) + series bundle (ebook_bundle): one Kevin notice each, no buyer email, both end the first order', async () => {
+	const e = await confirm({ ebook_sku: 'lang-ar-ebook', book_1: 'title=Father’s Heart Bible — Arabic|isbn=none|format=eBook|qty=1|unit_cents=999' }, { kind: 'tbl_ebook', amount: 999, id: 'cs_test_tblLangEb0001' });
+	assert.equal(e.status, 200);
+	assert.match(e.kevin.subject, /^📖 eBook sale — \$9\.99$/);
+	assert.match(e.kevin.text, /eBook SKU: lang-ar-ebook/);
+	assert.equal(e.buyer, undefined);
+	assert.equal(e.sent.length, 1);
+	const b = await confirm({ bundle_sku: 'the-blessing-trail-ebook-bundle', book_1: 'title=The Blessing Trail: 3-Book eBook Bundle|isbn=none' }, { kind: 'ebook_bundle', amount: 2078, id: 'cs_test_tblBundle0001' });
+	assert.match(b.kevin.subject, /^📖 eBook bundle sale — \$20\.78$/);
+	assert.equal(b.sent.length, 1);
+	const { STORE_ORDER_KINDS } = await import('../src/store-engine/lib/storeEngine.ts');
+	for (const k of ['tbl_ebook', 'ebook_bundle']) assert.ok(STORE_ORDER_KINDS.includes(k), k);
+});

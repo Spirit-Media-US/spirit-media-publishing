@@ -41,6 +41,12 @@ interface Env {
 
 // Kevin 2026-11-16 (Option C item 10): "The order emails show FHB Orders. Should be SMP Orders." Every order email.
 export const NOTIFY_FROM = 'SMP Orders <orders@send.spiritmediapublishing.com>';
+// TBL's own sale kinds (I22 2026-11-23): TBL delivers them, this endpoint only notifies Kevin.
+export const TBL_DELIVERED_KINDS: readonly string[] = [
+	'audiobook_direct',
+	'tbl_ebook',
+	'ebook_bundle',
+];
 // ...and "add our address to the bottom signature of each email": every BUYER order email (print, both windows, and the
 // eBook email) ends with this, verbatim, below the item-8 window line. Mirrored in bin/fhb-order-reconcile.py.
 export const SIGNATURE = [
@@ -277,13 +283,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	// was the success page — close that tab and the link was gone, because no email
 	// ever carried it. Handled below, before the print-shaped fields are read.
 	const kind = s?.metadata?.kind;
-	// audiobook_direct (I22 2026-11-23): TBL's audiobook sale. TBL delivers it (My Library) and emails the buyer;
-	// here only Kevin's sale notice, once (handled below, before the print-shaped fields are read).
+	// TBL_DELIVERED_KINDS (I22 2026-11-23): TBL's own sales (audiobook, language eBook, series bundle). TBL delivers
+	// them (My Library) and emails the buyer; here only Kevin's sale notice, once (below, before the print fields).
 	if (
 		kind !== 'print_bulk' &&
 		kind !== 'dvc_print' &&
 		kind !== 'ebook_direct' &&
-		kind !== 'audiobook_direct'
+		!TBL_DELIVERED_KINDS.includes(kind)
 	)
 		return ack();
 
@@ -377,15 +383,21 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		}
 	};
 
-	if (kind === 'audiobook_direct') {
-		const title =
-			/(?:^|\|)title=([^|]*)/.exec(m.book_1 ?? '')?.[1] || m.audiobook_sku || 'Audiobook';
+	if (TBL_DELIVERED_KINDS.includes(kind)) {
+		const label =
+			kind === 'audiobook_direct'
+				? 'Audiobook'
+				: kind === 'ebook_bundle'
+					? 'eBook bundle'
+					: 'eBook';
+		const sku: string | undefined = m.audiobook_sku || m.bundle_sku || m.ebook_sku || undefined;
+		const title = /(?:^|\|)title=([^|]*)/.exec(m.book_1 ?? '')?.[1] || sku || label;
 		const ok = await send(
 			env.PRINT_ORDER_NOTIFY_TO || NOTIFY_TO_DEFAULT,
-			`🎧 Audiobook sale — ${amount}`,
-			`New audiobook sale — ${title}\n\n` +
+			`${kind === 'audiobook_direct' ? '🎧' : '📖'} ${label} sale — ${amount}`,
+			`New ${label.toLowerCase()} sale — ${title}\n\n` +
 				`Total: ${amount}\nCustomer email: ${email}\nStripe session: ${s.id ?? '?'}\n` +
-				`Audiobook SKU: ${m.audiobook_sku ?? '?'}\n` +
+				`${label} SKU: ${sku ?? '?'}\n` +
 				`Delivered by The Believer's Library (My Library); no SMP email to the buyer.\n`,
 			email !== '(no email)' ? email : undefined,
 		);
