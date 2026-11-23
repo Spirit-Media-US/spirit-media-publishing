@@ -35,10 +35,8 @@ const cfg = JSON.stringify({
 const picks = [25, 50, 100, 250];
 const rows = [
 	{ sku: RIAB_HB, label: 'Hardback', signed: false },
-	{ sku: `${RIAB_HB}-signed`, label: 'Hardback, autographed by Van Eure', signed: true },
 	{ sku: RIAB_PB, label: 'Paperback', signed: false },
-	{ sku: `${RIAB_PB}-signed`, label: 'Paperback, autographed by Van Eure', signed: true },
-];
+]; // no autographed rows online (Kevin 2026-11-22: only at the Angus Barn; server refuses them, riabSignedRefusal)
 ---
 
 <form id="riab-order" class="mt-6 rounded-lg border border-[#d8cbb8] bg-white p-4 sm:p-5" data-cfg={cfg} data-return={RIAB_RETURN_PATH} data-embed={embed ? '1' : '0'}>
@@ -169,7 +167,8 @@ const rows = [
 	const q = new URLSearchParams(location.search);
 	const f = q.get('f');
 	if (f === 'hb' || f === 'pb') {
-		const name = `raised-in-a-barn-${f}${q.get('signed') === '1' ? '-signed' : ''}`;
+		// &signed=1 from an old button falls back to the unsigned copy (no autographed rows online, Kevin 2026-11-22)
+		const name = `raised-in-a-barn-${f}`;
 		const el = inputs.find((i) => i.name === name);
 		if (el) el.value = String(Math.min(5000, Math.max(1, Math.floor(Number(q.get('qty')) || 1))));
 	}
