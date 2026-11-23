@@ -1460,7 +1460,7 @@ test('Bible eBook: FHB window only; the Stripe form is FHB /ebook-checkout’s b
 		'metadata[kind]': 'ebook_direct',
 		'line_items[0][quantity]': '1',
 		'line_items[0][price_data][currency]': 'usd',
-		'line_items[0][price_data][unit_amount]': '749',
+		'line_items[0][price_data][unit_amount]': '999', // Kevin 2026-11-23 D95: $9.99 (was $7.49)
 		'line_items[0][price_data][tax_behavior]': 'exclusive',
 		'line_items[0][price_data][product_data][name]': "Father's Heart Bible — eBook",
 		'line_items[0][price_data][product_data][description]': 'Instant download · DRM-free EPUB · An Intimate Translation',
