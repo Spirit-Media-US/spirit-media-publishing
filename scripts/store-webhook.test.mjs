@@ -464,3 +464,68 @@ test('webhook (Beloved Identity): the fulfilment email carries ISBN, quantity, a
 	const bible = await confirm({ breakdown: 'teen-pb:1', total: '1' });
 	assert.ok(!bible.kevin.text.includes('Ingram order lines'), 'a Bible-only order has no Ingram book lines');
 });
+
+// ---- TBL audiobooks (I22 item 7, 2026-11-23): a TBL audiobook_direct sale reaches this shared webhook ----------------
+// TBL's own /api/library/stripe-webhook DELIVERS it (My Library entitlement); this endpoint only tells Kevin, ONCE, and
+// sends the buyer nothing (TBL owns that email). It is also a store order, so it ends the buyer's first order.
+test('TBL audiobook_direct: Kevin gets one sale notice, the buyer gets no SMP email; it ends the first order', async () => {
+	const r = await confirm(
+		{ audiobook_sku: 'invisible-wounds-audiobook', library_slug: 'invisible-wounds-audiobook', book_1: 'title=Invisible Wounds|isbn=none|format=Audiobook|qty=1|unit_cents=1499' },
+		{ kind: 'audiobook_direct', amount: 1499, id: 'cs_test_tblAudio00001' },
+	);
+	assert.equal(r.status, 200);
+	assert.ok(r.kevin, 'Kevin is told');
+	assert.match(r.kevin.subject, /^🎧 Audiobook sale — \$14\.99$/);
+	assert.match(r.kevin.text, /Invisible Wounds/);
+	assert.match(r.kevin.text, /Audiobook SKU: invisible-wounds-audiobook/);
+	assert.match(r.kevin.text, /Delivered by The Believer's Library \(My Library\)/);
+	assert.equal(r.buyer, undefined, 'no buyer email from SMP');
+	assert.equal(r.sent.length, 1);
+	const { STORE_ORDER_KINDS } = await import('../src/store-engine/lib/storeEngine.ts');
+	assert.ok(STORE_ORDER_KINDS.includes('audiobook_direct'), 'a TBL audiobook ends the first order on every window');
+});
+
+test('TBL language eBook (tbl_ebook) + series bundle (ebook_bundle): one Kevin notice each, no buyer email, both end the first order', async () => {
+	const e = await confirm({ ebook_sku: 'lang-ar-ebook', book_1: 'title=Father’s Heart Bible — Arabic|isbn=none|format=eBook|qty=1|unit_cents=999' }, { kind: 'tbl_ebook', amount: 999, id: 'cs_test_tblLangEb0001' });
+	assert.equal(e.status, 200);
+	assert.match(e.kevin.subject, /^📖 eBook sale — \$9\.99$/);
+	assert.match(e.kevin.text, /eBook SKU: lang-ar-ebook/);
+	assert.equal(e.buyer, undefined);
+	assert.equal(e.sent.length, 1);
+	const b = await confirm({ bundle_sku: 'the-blessing-trail-ebook-bundle', book_1: 'title=The Blessing Trail: 3-Book eBook Bundle|isbn=none' }, { kind: 'ebook_bundle', amount: 2078, id: 'cs_test_tblBundle0001' });
+	assert.match(b.kevin.subject, /^📖 eBook bundle sale — \$20\.78$/);
+	assert.equal(b.sent.length, 1);
+	const { STORE_ORDER_KINDS } = await import('../src/store-engine/lib/storeEngine.ts');
+	for (const k of ['tbl_ebook', 'ebook_bundle']) assert.ok(STORE_ORDER_KINDS.includes(k), k);
+});
+
+// ---- TBL ORDERS (Kevin D99 2026-11-23 "Make sure order emails are worded as Spirit Media Publishing Order through The Believer's Library.") ----
+test('TBL order: a print order sold through The Believer\u2019s Library is worded "Spirit Media Publishing Order through The Believer\u2019s Library"', async () => {
+	const line = "Spirit Media Publishing Order through The Believer's Library";
+	for (const host of ['thebelieverslibrary.com', 'www.thebelieverslibrary.com', 'tbl.community-cm1.pages.dev']) {
+		const r = await confirm({ site: 'smp', window: 'smp', family: 'smp_book', utm_source: host });
+		assert.equal(r.status, 200);
+		assert.equal(r.buyer.subject, `${line} — $31.98`, host);
+		assert.ok(r.buyer.text.startsWith(`${line}\n\nThank you — we've received your order.`), host);
+		assert.ok(endsWithSeven(r.buyer.text), 'signature unchanged');
+		assert.equal(r.buyer.from, 'SMP Orders <orders@send.spiritmediapublishing.com>', 'From stays SMP Orders');
+	}
+	// not TBL: SMP's own utm, FHB, a look-alike host -> the one-store wording, no TBL line
+	for (const meta of [{ site: 'smp', window: 'smp', utm_source: 'google' }, { site: 'fhb', window: 'fhb' }, { site: 'smp', window: 'smp', utm_source: 'thebelieverslibrary.com.evil.example' }]) {
+		const r = await confirm(meta);
+		assert.equal(r.buyer.subject, 'Your Spirit Media Publishing order — $31.98', JSON.stringify(meta));
+		assert.doesNotMatch(r.buyer.text, /Believer/);
+	}
+});
+
+test('TBL order: an eBook sold through The Believer\u2019s Library gets the TBL subject + first line; SMP eBooks unchanged', async () => {
+	const line = "Spirit Media Publishing Order through The Believer's Library";
+	const tbl = { ...FIX, data: { object: { ...SESSION, metadata: { ...SESSION.metadata, utm_source: 'thebelieverslibrary.com' } } } };
+	const r = await run(tbl);
+	const buyer = r.sent.find((m) => m.to === 'buyer@example.com');
+	assert.equal(buyer.subject, `${line} — Fixture Book`);
+	assert.ok(buyer.text.startsWith(`${line}\n\nThank you — your eBook is ready.`));
+	assert.ok(endsWithSeven(buyer.text));
+	const plain = (await run(FIX)).sent.find((m) => m.to === 'buyer@example.com');
+	assert.equal(plain.subject, 'Your eBook — Fixture Book');
+});

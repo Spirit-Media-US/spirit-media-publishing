@@ -41,6 +41,12 @@ interface Env {
 
 // Kevin 2026-11-16 (Option C item 10): "The order emails show FHB Orders. Should be SMP Orders." Every order email.
 export const NOTIFY_FROM = 'SMP Orders <orders@send.spiritmediapublishing.com>';
+// TBL's own sale kinds (I22 2026-11-23): TBL delivers them, this endpoint only notifies Kevin.
+export const TBL_DELIVERED_KINDS: readonly string[] = [
+	'audiobook_direct',
+	'tbl_ebook',
+	'ebook_bundle',
+];
 // ...and "add our address to the bottom signature of each email": every BUYER order email (print, both windows, and the
 // eBook email) ends with this, verbatim, below the item-8 window line. Mirrored in bin/fhb-order-reconcile.py.
 export const SIGNATURE = [
@@ -65,11 +71,27 @@ export const BUYER_REPLY_TO = 'hello@spiritmediapublishing.com';
 // `window` is still computed (session Option C tag, else site) because it routes the SIGNED eBook link to its own site
 // (windowOrigin) and is logged on Kevin's notice; it no longer brands anything the buyer reads.
 // signoffBlock() stays the one place a window line could be written: it now always receives ''.
+// TBL ORDERS (Kevin D99 2026-11-23: "Make sure order emails are worded as Spirit Media Publishing Order through The
+// Believer's Library."). A session sold through The Believer's Library carries the TBL host as metadata utm_source
+// (community src/lib/library-billing-store.ts tblCheckoutForm/audiobookForm). Its BUYER email subject + first line say
+// TBL_ORDER_LINE; From stays "SMP Orders", the body + signature are unchanged, and every FHB/SMP order is untouched.
+export const TBL_ORDER_LINE = "Spirit Media Publishing Order through The Believer's Library";
+const TBL_HOST_RE =
+	/^(?:(?:www\.)?thebelieverslibrary\.com|tbl[a-z0-9-]*\.community-cm1\.pages\.dev)$/i;
+/** True when the session was sold through The Believer's Library (its utm_source is a TBL host). */
+export const viaTbl = (m: Record<string, string> | null | undefined) =>
+	TBL_HOST_RE.test(String(m?.utm_source ?? '').trim());
 export function buyerBrand(m: Record<string, string> | null | undefined, amount: string) {
 	const w = m?.window || (m?.site && m.site !== 'fhb' ? 'smp' : 'fhb');
+	const tbl = viaTbl(m);
 	return {
 		window: w === 'smp' ? 'smp' : 'fhb',
-		subject: `Your Spirit Media Publishing order — ${amount}`,
+		subject: tbl
+			? `${TBL_ORDER_LINE} — ${amount}`
+			: `Your Spirit Media Publishing order — ${amount}`,
+		/** The buyer email's first line ('' = none): TBL orders only. */
+		heading: tbl ? `${TBL_ORDER_LINE}\n\n` : '',
+		tbl,
 		signoff: '',
 	};
 }
@@ -277,7 +299,15 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	// was the success page — close that tab and the link was gone, because no email
 	// ever carried it. Handled below, before the print-shaped fields are read.
 	const kind = s?.metadata?.kind;
-	if (kind !== 'print_bulk' && kind !== 'dvc_print' && kind !== 'ebook_direct') return ack();
+	// TBL_DELIVERED_KINDS (I22 2026-11-23): TBL's own sales (audiobook, language eBook, series bundle). TBL delivers
+	// them (My Library) and emails the buyer; here only Kevin's sale notice, once (below, before the print fields).
+	if (
+		kind !== 'print_bulk' &&
+		kind !== 'dvc_print' &&
+		kind !== 'ebook_direct' &&
+		!TBL_DELIVERED_KINDS.includes(kind)
+	)
+		return ack();
 
 	const email = s.customer_details?.email ?? '(no email)';
 	// Stripe moved the collected address to collected_information.shipping_details;
@@ -369,6 +399,31 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		}
 	};
 
+	if (TBL_DELIVERED_KINDS.includes(kind)) {
+		const label =
+			kind === 'audiobook_direct'
+				? 'Audiobook'
+				: kind === 'ebook_bundle'
+					? 'eBook bundle'
+					: 'eBook';
+		const sku: string | undefined = m.audiobook_sku || m.bundle_sku || m.ebook_sku || undefined;
+		const title = /(?:^|\|)title=([^|]*)/.exec(m.book_1 ?? '')?.[1] || sku || label;
+		const ok = await send(
+			env.PRINT_ORDER_NOTIFY_TO || NOTIFY_TO_DEFAULT,
+			`${kind === 'audiobook_direct' ? '🎧' : '📖'} ${label} sale — ${amount}`,
+			`New ${label.toLowerCase()} sale — ${title}\n\n` +
+				`Total: ${amount}\nCustomer email: ${email}\nStripe session: ${s.id ?? '?'}\n` +
+				`${label} SKU: ${sku ?? '?'}\n` +
+				`Delivered by The Believer's Library (My Library); no SMP email to the buyer.\n`,
+			email !== '(no email)' ? email : undefined,
+		);
+		if (ok) {
+			await markNotified();
+			return ack();
+		}
+		return retry();
+	}
+
 	// eBook: no address, no production run — the buyer needs their download link in
 	// writing, because the success page is otherwise the only place it ever appears.
 	if (kind === 'ebook_direct') {
@@ -400,8 +455,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 			email === '(no email)' ||
 			(await send(
 				email,
-				`Your eBook — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`,
-				`Thank you — your eBook is ready.\n\n` +
+				buyerBrand(m, amount).tbl
+					? `${TBL_ORDER_LINE} — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`
+					: `Your eBook — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`,
+				`${buyerBrand(m, amount).heading}Thank you — your eBook is ready.\n\n` +
 					(ebookSku ? `${bookTitle}\n\n` : '') +
 					`Download it here (the link stays valid, so keep this email):\n${link}\n\n` +
 					`It's a DRM-free EPUB — open it in Apple Books, Google Play Books,\n` +
@@ -443,7 +500,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	// no confirmation their ORDER (as opposed to their payment) existed.
 	const brand = buyerBrand(m, amount);
 	const custText =
-		`Thank you — we've received your order.\n\n` +
+		`${brand.heading}Thank you — we've received your order.\n\n` +
 		`What you ordered:\n${fmtOrder(readBreakdown(m))}\n\n` +
 		`Total paid: ${amount}\n` +
 		(gift
