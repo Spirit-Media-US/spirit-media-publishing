@@ -36,3 +36,38 @@ export function tblSwitch(data) {
 		[...slugs].flatMap((s) => [`/books/${s}/ ${bookUrl(s)} 301`, `/books/${s} ${bookUrl(s)} 301`]);
 	return { on, origin, host, has, bookUrl, href, isTbl, redirectLines };
 }
+
+// ── PARITY GATE (brief tbl-book-page-parity 2026-11-23; Kevin 11-23 "listings on TBL cover less than listings on SMP") ──
+// The switch-over may only ENABLE when every mapped SMP book page is matched on TBL: every content section, image, FAQ,
+// related book, format + price, order-box promise and schema field (projects/tbl-launch/store-audit/tools/slug_parity.py
+// `parity`). Its parity.json is copied to src/data/tbl-parity.json. FAILS CLOSED: enabled + any doubt = the build throws.
+export const PARITY_MAX_AGE_DAYS = 7;
+const sha256 = async (s) => {
+	const { createHash } = await import('node:crypto');
+	return createHash('sha256').update(s).digest('hex');
+};
+/** Problems that forbid enabling (empty = may enable). data = tbl-switchover.json, report = tbl-parity.json or null. */
+export async function parityProblems(data, report, now = new Date()) {
+	if (!data?.enabled) return [];
+	const p = [];
+	if (!report) return ['no parity report (src/data/tbl-parity.json): run slug_parity.py parity against the TBL origin'];
+	const origin = String(data.origin ?? '').replace(/\/+$/, '');
+	if (report.tbl_origin !== origin) p.push(`report measured ${report.tbl_origin}, switch-over origin is ${origin}`);
+	if (report.partial) p.push('report is a partial (--only) run');
+	if (report.fetch_errors) p.push(`${report.fetch_errors} page(s) could not be fetched`);
+	const age = (now - new Date(report.generated_at)) / 86400000;
+	if (!(age >= 0 && age <= PARITY_MAX_AGE_DAYS)) p.push(`report generated ${report.generated_at} (older than ${PARITY_MAX_AGE_DAYS} days or invalid)`);
+	const slugs = [...(data.slugs ?? [])];
+	if (report.slugs_sha256 !== (await sha256([...slugs].sort().join('\n')))) p.push('report was run on a different slug list');
+	for (const s of slugs) {
+		const b = report.books?.[s];
+		if (!b) p.push(`${s}: not in the report`);
+		else if (b.pass !== true) p.push(`${s}: below parity (${Object.keys(b.missing ?? {}).join(', ') || 'unknown'})`);
+	}
+	return p;
+}
+/** Throws (the build stops) unless parity allows the switch-over to be enabled. */
+export async function assertParity(data, report, now = new Date()) {
+	const p = await parityProblems(data, report, now);
+	if (p.length) throw new Error(`TBL switch-over REFUSED (parity gate), ${p.length} problem(s):\n  ${p.slice(0, 20).join('\n  ')}`);
+}

@@ -5,7 +5,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { loadEnv } from "vite";
-import { tblSwitch } from "./src/lib/tbl-switch.mjs";
+import { assertParity, tblSwitch } from "./src/lib/tbl-switch.mjs";
 
 const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV ?? "development", process.cwd(), "");
 
@@ -85,7 +85,11 @@ const smpWorldwideRetire = {
 // public/_redirects stays hand-written. The pages still build (their store order box is what /buy/ and the SMP
 // store tests read) but leave the sitemap: a sitemap lists only URLs that answer 200. A book with no TBL page keeps
 // its SMP page. enabled:false = nothing appended.
-const TBL = tblSwitch(JSON.parse(fs.readFileSync(path.resolve("src/data/tbl-switchover.json"), "utf8")));
+const TBL_DATA = JSON.parse(fs.readFileSync(path.resolve("src/data/tbl-switchover.json"), "utf8"));
+// PARITY GATE: enabled only while every mapped book is at parity on TBL (src/lib/tbl-switch.mjs assertParity).
+const TBL_PARITY_FILE = path.resolve("src/data/tbl-parity.json");
+await assertParity(TBL_DATA, fs.existsSync(TBL_PARITY_FILE) ? JSON.parse(fs.readFileSync(TBL_PARITY_FILE, "utf8")) : null);
+const TBL = tblSwitch(TBL_DATA);
 const tblRedirects = {
   name: "tbl-switchover-redirects",
   hooks: {

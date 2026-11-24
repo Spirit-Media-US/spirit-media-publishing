@@ -1526,6 +1526,37 @@ test('tbl switch-over: maps only listed slugs, keeps everything else, off = no-o
 	assert.deepEqual(off.redirectLines(), []);
 });
 
+test('tbl switch-over PARITY GATE: refuses while any mapped book is below parity, allows only a full fresh pass', async () => {
+	const { parityProblems, assertParity } = await import('../src/lib/tbl-switch.mjs');
+	const { createHash } = await import('node:crypto');
+	const data = { enabled: true, origin: 'https://tbl.example', slugs: ['a-book', 'b-book'] };
+	const now = new Date('2026-11-24T00:00:00Z');
+	const good = () => ({
+		tbl_origin: 'https://tbl.example', generated_at: '2026-11-23T23:00:00Z', fetch_errors: 0,
+		slugs_sha256: createHash('sha256').update(['a-book', 'b-book'].join('\n')).digest('hex'),
+		books: { 'a-book': { pass: true, missing: {} }, 'b-book': { pass: true, missing: {} } },
+	});
+	assert.deepEqual(await parityProblems(data, good(), now), [], 'a full fresh pass enables');
+	await assert.doesNotReject(assertParity(data, good(), now));
+	// INJECTED GAP: one book missing its related-books block -> REFUSED by name
+	const gap = good(); gap.books['b-book'] = { pass: false, missing: { related: ['some book'] } };
+	await assert.rejects(assertParity(data, gap, now), /REFUSED[\s\S]*b-book: below parity \(related\)/);
+	await assert.rejects(assertParity(data, null, now), /no parity report/);
+	const off = good(); off.tbl_origin = 'https://tbl.community-cm1.pages.dev';
+	await assert.rejects(assertParity(data, off, now), /measured https:\/\/tbl.community-cm1/, 'a preview measurement never enables production');
+	const old = good(); old.generated_at = '2026-11-01T00:00:00Z';
+	await assert.rejects(assertParity(data, old, now), /older than/);
+	const part = good(); part.partial = true;
+	await assert.rejects(assertParity(data, part, now), /partial/);
+	const miss = good(); delete miss.books['a-book'];
+	await assert.rejects(assertParity(data, miss, now), /a-book: not in the report/);
+	const ferr = good(); ferr.fetch_errors = 1;
+	await assert.rejects(assertParity(data, ferr, now), /could not be fetched/);
+	const other = good(); other.slugs_sha256 = 'x';
+	await assert.rejects(assertParity(data, other, now), /different slug list/);
+	assert.deepEqual(await parityProblems({ ...data, enabled: false }, null, now), [], 'disabled: no gate');
+});
+
 test('tbl switch-over build: 301s shipped, mapped pages out of the sitemap, unmapped kept, store + ebook-download intact', async () => {
 	const { tblSwitch } = await import('../src/lib/tbl-switch.mjs');
 	const data = JSON.parse(fs.readFileSync(new URL('../src/data/tbl-switchover.json', import.meta.url), 'utf8'));
