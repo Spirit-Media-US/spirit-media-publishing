@@ -1483,3 +1483,130 @@ test('Bible eBook: FHB window only; the Stripe form is FHB /ebook-checkout’s b
 	assert.equal(off.json.disabled, true, 'no R2 binding: never sell what cannot be delivered');
 	assert.equal(off.sent, null);
 });
+
+// PER-BOOK COST MODEL (noah, brief store-intl-cost-per-book-20261124; Kevin 2026-11-24: "This needs to get fixed NOW! Our
+// site is saying ships to 223 countries but then is it charging $50 a book to do so?"). A book without its own measured
+// landed cost used to be sized at the country's 6x9 BIBLE cost; it is now sized from its own specs
+// (marginGuard.modelledLandedUsd, data ship-countries.json landedCost.model). Pinned: 1 calibration against EVERY measured
+// book cost, 2 the real Ingram quotes/orders of 11-23/24, 3 the guard (never above the Bible, Bibles untouched, floors hold).
+async function costModel() {
+	const mg = await import('../src/store-engine/lib/marginGuard.ts');
+	const { LIVE_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts');
+	const { BOOK_SKUS, feeKey } = await import('../src/store-engine/lib/order-pricing.ts');
+	const raw = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/ship-countries.json', import.meta.url), 'utf8'));
+	const ROW = Object.fromEntries(raw.pending.map((r) => [r.code, r]));
+	const live = (code) => LIVE_COUNTRIES.find((c) => c.code === code);
+	return { mg, LIVE_COUNTRIES, BOOK_SKUS, feeKey, raw, ROW, live, GRID: Object.keys(raw.landedCost.model.grid) };
+}
+
+test('cost model 1 calibration: blind model vs every measured book x grid country (target +-10%, misses listed)', async () => {
+	const { mg, BOOK_SKUS, ROW, GRID } = await costModel();
+	const rows = [];
+	for (const [sku, b] of Object.entries(BOOK_SKUS)) {
+		if (!b.costKey) continue;
+		for (const code of GRID) {
+			const meas = ROW[code]?.landed_cost_usd?.[b.costKey];
+			if (typeof meas !== 'number') continue;
+			const pred = mg.gridLandedUsd(sku, code); // the grid model never reads the book's own row
+			if (pred == null) continue;
+			rows.push({ sku, code, meas, pred, err: (pred - meas) / meas });
+		}
+	}
+	const within = rows.filter((r) => Math.abs(r.err) <= 0.1);
+	const misses = rows.filter((r) => Math.abs(r.err) > 0.1).sort((a, b) => a.err - b.err);
+	console.log(`cost model calibration: ${within.length}/${rows.length} within +-10%`);
+	for (const r of misses) console.log(`  miss ${r.sku} ${r.code}: model ${r.pred.toFixed(2)} vs measured ${r.meas} (${(r.err * 100).toFixed(1)}%)`);
+	assert.ok(rows.length >= 300, `calibration set is the measured grid (${rows.length})`);
+	assert.ok(within.length / rows.length >= 0.85, `>= 85% within +-10% (${within.length}/${rows.length})`);
+	// an under-estimate is the dangerous side (a sale below cost): none beyond 25%, and only the known colour-unknown titles
+	for (const r of misses.filter((x) => x.err < -0.1)) {
+		assert.ok(r.err > -0.25, `${r.sku} ${r.code} under by ${(r.err * 100).toFixed(1)}%`);
+		// known: Clowning's interior class is unknown (prints ~$1.85 above B&W); Beloved Identity's AU row came from a different
+		// read (pmseoaeo 11-10, bi_source) than the grid the AU knots were fitted on
+		assert.ok(/clowning-from-the-heart/.test(r.sku) || (r.sku === 'beloved-identity-pb' && r.code === 'AU'), `${r.sku} ${r.code}: an unexplained under-estimate`);
+	}
+});
+
+test('cost model 2 real Ingram quotes + orders (11-23/24): model at or above each real per-copy cost, far below the Bible fallback', async () => {
+	const { mg, raw, live } = await costModel();
+	const GBP = raw.landedCost.fx.USD_GBP;
+	// (a) the engine's own method, qty 1 cheapest tracked: pmpublish Ingram calculator 2026-11-24 (checks/fc-landed-costs-20261124)
+	//     FC PB to GB: UK site 4.10 + 1.65 handling + 2.31 Economy Tracked = GBP 8.06; to FR: US site $4.75 + $8.73 OSM DDP.
+	// (b) the real orders, qty 5 (pmshipping 02:26-02:29Z, quotes in checks/fc-en-authorcopies-quote-20261123/QUOTE.md):
+	//     Olive SPK-15053494-1 5 x FC PB to the UK GBP 28.25; Mary SPK-15053290-1 5 x FC PB to France, Premium DDP, GBP 50.76.
+	for (const c of [
+		{ sku: 'forever-changed-pb', code: 'GB', qty1: 8.06 / GBP, order: 28.25 / 5 / GBP, bibleWas: 37.01 },
+		{ sku: 'forever-changed-pb', code: 'FR', qty1: 4.75 + 8.73, order: 50.76 / 5 / GBP, bibleWas: 50.2 },
+	]) {
+		const m = mg.landedUnitCost(c.sku, live(c.code).landed_cost_usd, c.code);
+		assert.ok(Math.abs(m - c.qty1) / c.qty1 <= 0.1, `${c.sku} ${c.code}: model ${m} vs Ingram qty-1 ${c.qty1.toFixed(2)}`);
+		// a qty-5 order spreads one shipment over 5 copies (UK), or took a dearer service (France Premium DDP): within 50%
+		assert.ok(Math.abs(m - c.order) / c.order <= 0.5, `${c.sku} ${c.code}: model ${m} vs order ${c.order.toFixed(2)}/copy`);
+		assert.ok(m < c.bibleWas / 2, `${c.sku} ${c.code}: ${m} vs the Bible fallback ${c.bibleWas}`);
+	}
+	// Raised in a Barn PB, Cannon SPK-15049724-1 (US, 11-24): Ingram print $6.07/unit
+	const riab = mg.modelPrintUsd('raised-in-a-barn-pb', 'US');
+	assert.ok(Math.abs(riab - 6.07) / 6.07 <= 0.1, `RIAB PB print model ${riab.toFixed(2)} vs Ingram 6.07`);
+	// Forever Changed HB (jacketed, 214 pp): Ingram calculator 11-24 US print $10.91 (pmpublish fc-landed-costs-20261124)
+	const fchb = mg.modelPrintUsd('forever-changed-hb', 'US');
+	assert.ok(Math.abs(fchb - 10.91) / 10.91 <= 0.1, `FC HB print model ${fchb.toFixed(2)} vs Ingram 10.91`);
+	// Tigelaar SPK-15047806-1 is a BIBLE (Dutch jacketed HB to NL, $61.44): Bibles never use the model, their row is untouched
+	assert.equal(mg.landedUnitCost('nl-hb', live('NL').landed_cost_usd, 'NL'), live('NL').landed_cost_usd.hc);
+});
+
+test('cost model 3 guard: never above the Bible, Bibles untouched, unreadable books keep the Bible bound, the floor holds', async () => {
+	const { mg, LIVE_COUNTRIES, BOOK_SKUS, live } = await costModel();
+	let modelled = 0;
+	for (const c of LIVE_COUNTRIES) {
+		if (c.code === 'US' || !c.landed_cost_usd) continue;
+		const lc = c.landed_cost_usd;
+		for (const [sku, b] of Object.entries(BOOK_SKUS)) {
+			const v = mg.landedUnitCost(sku, lc, c.code);
+			if (b.costKey && typeof lc[b.costKey] === 'number') {
+				assert.equal(v, lc[b.costKey], `${sku} ${c.code}: its own measured cost wins`);
+				continue;
+			}
+			const bible = lc[mg.bookKind(sku) === 'pb' ? 'pb' : 'hc'];
+			assert.ok(v != null && v > 0 && v <= bible + 1e-9, `${sku} ${c.code}: ${v} in (0, Bible ${bible}]`);
+			if (v < bible) modelled++;
+		}
+		assert.equal(mg.landedUnitCost('moms-hb', lc, c.code), lc.hc, `${c.code} Bible hc untouched`);
+		assert.equal(mg.landedUnitCost('moms-pb', lc, c.code), lc.pb, `${c.code} Bible pb untouched`);
+	}
+	assert.ok(modelled > 1000, `the model prices books below the Bible bound (${modelled} book x country cells)`);
+	// no destination code (an old caller): a book with no own cost keeps the Bible bound, the conservative old rule
+	assert.equal(mg.landedUnitCost('forever-changed-pb', { pb: 5, hc: 9 }), 5);
+	// FAILURE PATH: a book the model cannot read falls back to the Bible, never to 0
+	const unreadable = Object.keys(BOOK_SKUS).filter((s) => mg.bookWeightKg(s) == null);
+	for (const s of unreadable) assert.equal(mg.modelledLandedUsd(s, 'GB'), null, `${s} unmodelled`);
+	console.log(`unreadable by the cost model (Bible bound kept): ${unreadable.join(', ') || 'none'}`);
+	// FAILURE PATH: a country with no landed cost row stays unsized (checkout refuses it)
+	assert.equal(mg.landedUnitCost('forever-changed-pb', undefined, 'GB'), null);
+	// the margin floor holds on the modelled cost
+	for (const code of ['GB', 'FR', 'PL', 'KE', 'BR', 'JP'])
+		for (const sku of ['forever-changed-pb', 'forever-changed-hb', 'raised-in-a-barn-hb', 'get-out-of-the-fast-pb'])
+			for (const price of [999, 1899, 2899]) {
+				const fee = mg.handlingFeeCents(sku, price, live(code));
+				const net = mg.netPerItemUsd(sku, price, live(code), fee);
+				assert.ok(net >= mg.floorForSku(sku, live(code)) - 1e-9, `${sku} ${code} @${price}: net ${net} >= floor`);
+			}
+});
+
+test('cost model 4 fee keys: an unmeasured book has its OWN fee key; FC PB to UK/FR no longer carries a Bible-sized fee', async () => {
+	const { mg, feeKey, live } = await costModel();
+	assert.equal(feeKey('forever-changed-pb', 1899), 'forever-changed-pb1:1899');
+	assert.equal(feeKey('beloved-identity-pb', 999), 'bi1:999'); // a measured book keeps its key
+	assert.equal(feeKey('moms-pb', 3999), 'pb1:3999'); // Bibles keep theirs
+	const f = mg.handlingTable({ 'forever-changed-pb': 1899, 'get-out-of-the-fast-pb': 1899 }, [15], [live('FR')]).FR.fees;
+	assert.equal(f['forever-changed-pb1:1899'], mg.handlingFeeCents('forever-changed-pb', 1899, live('FR')));
+	assert.equal(f['get-out-of-the-fast-pb1:1899'], mg.handlingFeeCents('get-out-of-the-fast-pb', 1899, live('FR')));
+	assert.notEqual(f['forever-changed-pb1:1899'], f['get-out-of-the-fast-pb1:1899'], 'a 214 pp and a 319 pp 8.25x11 book differ');
+	for (const [code, oldFee] of [['GB', 1999], ['FR', 3699]]) {
+		const fee = mg.handlingFeeCents('forever-changed-pb', 1899, live(code));
+		assert.ok(fee < oldFee && fee <= 99, `${code}: FC PB fee ${fee}c (was ${oldFee}c)`);
+	}
+	// checkout charges the same fee the page shows
+	const r = await post({ counts: { 'forever-changed-pb': 1 }, country: 'FR', returnPath: '/books/forever-changed/' });
+	assert.equal(r.status, 200);
+	assert.equal(Number(r.form.get('metadata[handling_cents]') ?? 0), mg.handlingFeeCents('forever-changed-pb', 1899, live('FR')));
+});

@@ -1681,10 +1681,11 @@ export async function checkoutForm(
 			400,
 		);
 	}
-	// ONE ENGINE (Kevin 2026-11-15): a book is sized on its own measured landed cost, else the country's Bible
-	// cost for the same binding (marginGuard.landedUnitCost). Refused only when the country has no cost at all.
+	// ONE ENGINE (Kevin 2026-11-15): a book is sized on its own measured landed cost, else the per-book cost model
+	// (Kevin 2026-11-24), capped at the country's Bible cost (marginGuard.landedUnitCost). Refused only when nothing prices it.
 	const unsized = Object.entries(counts).some(
-		([slug, n]) => n > 0 && BOOK_SKUS[slug] && landedUnitCost(slug, dest?.landed_cost_usd) == null,
+		([slug, n]) =>
+			n > 0 && BOOK_SKUS[slug] && landedUnitCost(slug, dest?.landed_cost_usd, dest?.code) == null,
 	);
 	if (intl && unsized) {
 		return reply(
