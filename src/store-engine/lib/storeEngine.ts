@@ -1875,6 +1875,11 @@ export async function checkoutForm(
 		// come from src/data/ship-countries.json via checkoutShippingForm (unit 2js). US ships free
 		// (baked into the unit price); a country with a rate adds it as the Stripe shipping option.
 		...shipForm,
+		// Kevin 2026-11-24 ~19:4xZ ("d b"): the seller line on every checkout. Expedited carts already carry it after their
+		// disclaimer (shipCountries.ts); RIAB's own checkout replaces it with its book line + the same words.
+		...('custom_text[submit][message]' in shipForm
+			? {}
+			: { 'custom_text[submit][message]': 'Sold and shipped by Spirit Media Publishing.' }),
 		'metadata[kind]': 'dvc_print',
 		// Physical copies, as the fulfilment email's subject and its "9+ copies" wording read it; the
 		// Bible ladder count (which a discount-exempt book does not touch) travels as ladder_total.
@@ -2087,6 +2092,7 @@ export async function ebookCheckoutForm(
 			: `${origin}/bookstore/?order=canceled`;
 	const form: Record<string, string | number> = {
 		mode: 'payment',
+		'custom_text[submit][message]': 'Sold by Spirit Media Publishing.', // Kevin 2026-11-24 seller line (eBook: nothing ships)
 		// lands on /ebook-download, which re-reads the session from Stripe and hands over the signed download link
 		success_url: `${origin}/ebook-download?s={CHECKOUT_SESSION_ID}`,
 		cancel_url: back,

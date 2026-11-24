@@ -143,6 +143,7 @@ const CARTS = [
 	{ id: 'empty', counts: {}, email: 'new@y.co', country: 'US' },
 	{ id: 'no-email', counts: { 'moms-pb': 5 }, email: '', country: 'US', returnPath: '/bibles/spanish-bible/' },
 ];
+const SELLER = /(&custom_text%5Bsubmit%5D%5Bmessage%5D=|%20|\+)Sold(%20|\+)and(%20|\+)shipped(%20|\+)by(%20|\+)Spirit(%20|\+)Media(%20|\+)Publishing\./;
 const TAGS_TAIL = /&metadata%5Bsite%5D=fhb&metadata%5Bwindow%5D=fhb&metadata%5Bfamily%5D=[a-z_%2B]+$/;
 test('item 2: FHB Bible box carts -> /store-checkout send the IDENTICAL Stripe request /dvc-checkout sent (+ tags only)', async () => {
 	const fs = await import('node:fs');
@@ -178,6 +179,9 @@ test('item 2: FHB Bible box carts -> /store-checkout send the IDENTICAL Stripe r
 		if (body) {
 			assert.match(got.body, TAGS_TAIL, `${c.id}: tags at the end`);
 			got.body = got.body.replace(TAGS_TAIL, '');
+			// Kevin 2026-11-24 ~19:4xZ ("d b"): the ONE intended addition since the golden = the seller line on the checkout page.
+			assert.match(got.body, SELLER, `${c.id}: seller line on the Stripe page`);
+			got.body = got.body.replace(SELLER, '');
 		}
 		assert.deepEqual(day(got), day(want[c.id]), `cart ${c.id}: Stripe request differs from /dvc-checkout`);
 	}
