@@ -855,6 +855,8 @@ const crumbs = {
 							</div>
 						)}
 						{p.page?.hero?.offer_line && <p class="mt-4 text-sm font-semibold text-stone-700">{p.page.hero.offer_line}</p>}
+						{/* Kevin 2026-11-24: an optional hero button under the offer line, to the page's own order box (MMFI "Reserve your copy today"). */}
+						{p.page?.hero?.offer_cta && <div class="mt-4"><a href="#order" class="btn btn-primary min-h-12 px-7">{p.page.hero.offer_cta}</a></div>}
 						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || (!orderBox && !retail && !ebookOnly)) && (
 							<div class="mt-5 flex flex-wrap gap-3">
 								{!orderBox && !retail && !ebookOnly && <a href="#order" class="btn btn-primary min-h-12 px-7">{pendingTiers.length > 0 ? 'Bulk pricing' : T.order}</a>}
