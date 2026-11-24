@@ -107,7 +107,7 @@ test('one store: FHB-window AND SMP-window orders both -> Spirit Media Publishin
 	const smp = await confirm({ site: 'smp', window: 'smp', family: 'smp_book' });
 	const riab = await confirm({});
 	for (const r of [fhb, smp, riab]) {
-		assert.equal(r.buyer.subject, "Spirit Media Publishing Order through The Believer's Library — $31.98");
+		assert.equal(r.buyer.subject, 'Your Spirit Media Publishing order — $31.98');
 		assert.ok(r.buyer.text.endsWith(`straight to us — please include your order reference above.\n\n${SIGNATURE}\n`), 'no window line');
 		assert.doesNotMatch(`${r.buyer.subject}\n${r.buyer.text.split('What you ordered:')[0]}`, /Father.s Heart Bible/, 'FHB never named as the seller');
 	}
@@ -132,7 +132,7 @@ test('item 9: buyer emails Reply-To hello@; Kevin’s notice (his inbox, Reply-T
 	assert.ok(smp.kevin.text.startsWith('New print order — Spirit Media Publishing\n\nShop window: spiritmediapublishing.com\n'));
 	const e = await confirm({ site: 'fhb', window: 'fhb', family: 'bible_ebook' }, { kind: 'ebook_direct', amount: 749, id: 'cs_test_bibleEbook0001' });
 	assert.equal(e.buyer['h:Reply-To'], 'hello@spiritmediapublishing.com');
-	assert.equal(e.buyer.subject, "Spirit Media Publishing Order through The Believer's Library — Father’s Heart Bible", 'one store line + the product');
+	assert.equal(e.buyer.subject, 'Your eBook — Father’s Heart Bible', 'product named, not the store');
 	assert.match(e.buyer.text, /https:\/\/fathersheartbible\.com\/ebook-download\?s=cs_test_bibleEbook0001\n/, 'the Bible eBook keeps its session link (FHB forwards to SMP)');
 	assert.equal(e.kevin['h:Reply-To'], 'buyer@test');
 });
@@ -180,7 +180,7 @@ test('RIAB gift: an order WITH a gift sends TWO buyer emails (SMP purchase + SMC
 	assert.equal(buyer.length, 2, 'two separate buyer emails');
 	const [purchase, receipt] = buyer;
 	assert.equal(purchase.from, NOTIFY_FROM);
-	assert.match(purchase.subject, /^Spirit Media Publishing Order through The Believer's Library/);
+	assert.match(purchase.subject, /^Your Spirit Media Publishing order/);
 	assert.match(purchase.text, /This includes your \$102\.99 gift to charity; Spirit Media Charities is emailing you its receipt separately\./);
 	assert.doesNotMatch(purchase.text, /501\(c\)\(3\)|EIN|tax-deductible|No goods or services/);
 	assert.equal(receipt.from, 'Spirit Media Charities <receipts@send.spiritmediapublishing.com>');
@@ -233,7 +233,7 @@ test('EBOOK WEBHOOK: with SMP’s signing secret the email carries a v2 SIGNED l
 	const r = await run(FIX, { env: { ...ENV, EBOOK_LINK_SECRET: 'smp_link_secret_test' } });
 	assert.equal(r.status, 200);
 	const buyer = r.sent.find((m) => m.to === 'buyer@example.com');
-	assert.equal(buyer.subject, "Spirit Media Publishing Order through The Believer's Library — Fixture Book");
+	assert.equal(buyer.subject, 'Your eBook — Fixture Book');
 	const link = buyer.text.match(/https:\/\/\S+/)[0];
 	assert.match(link, /^https:\/\/spiritmediapublishing\.com\/ebook-download\?s=cs_test_[^&]+&e=fixture-book-ebook&t=[A-Za-z0-9_-]{43}&v=2$/);
 	const u = new URL(link);
@@ -510,17 +510,15 @@ test('TBL order: a print order sold through The Believer\u2019s Library is worde
 		assert.ok(endsWithSeven(r.buyer.text), 'signature unchanged');
 		assert.equal(r.buyer.from, 'SMP Orders <orders@send.spiritmediapublishing.com>', 'From stays SMP Orders');
 	}
-	// ONE STORE, ONE MESSAGE (Kevin 2026-11-24 "We have 1 store! We need to get our messaging consistent."): every other
-	// door (SMP's own utm, FHB, a look-alike host) gets the SAME line; only the logged origin (tbl flag) differs.
+	// not TBL: SMP's own utm, FHB, a look-alike host -> the one-store wording, no TBL line
 	for (const meta of [{ site: 'smp', window: 'smp', utm_source: 'google' }, { site: 'fhb', window: 'fhb' }, { site: 'smp', window: 'smp', utm_source: 'thebelieverslibrary.com.evil.example' }]) {
 		const r = await confirm(meta);
-		assert.equal(r.buyer.subject, `${line} — $31.98`, JSON.stringify(meta));
-		assert.ok(r.buyer.text.startsWith(`${line}\n\nThank you — we've received your order.`), JSON.stringify(meta));
-		assert.equal(buyerBrand(meta, '$1').tbl, false, 'origin still logged as not-TBL');
+		assert.equal(r.buyer.subject, 'Your Spirit Media Publishing order — $31.98', JSON.stringify(meta));
+		assert.doesNotMatch(r.buyer.text, /Believer/);
 	}
 });
 
-test('TBL order: an eBook sold through The Believer\u2019s Library gets the one-store subject + first line, from every door', async () => {
+test('TBL order: an eBook sold through The Believer\u2019s Library gets the TBL subject + first line; SMP eBooks unchanged', async () => {
 	const line = "Spirit Media Publishing Order through The Believer's Library";
 	const tbl = { ...FIX, data: { object: { ...SESSION, metadata: { ...SESSION.metadata, utm_source: 'thebelieverslibrary.com' } } } };
 	const r = await run(tbl);
@@ -529,5 +527,5 @@ test('TBL order: an eBook sold through The Believer\u2019s Library gets the one-
 	assert.ok(buyer.text.startsWith(`${line}\n\nThank you — your eBook is ready.`));
 	assert.ok(endsWithSeven(buyer.text));
 	const plain = (await run(FIX)).sent.find((m) => m.to === 'buyer@example.com');
-	assert.equal(plain.subject, `${line} — Fixture Book`, 'one store: same line from every door');
+	assert.equal(plain.subject, 'Your eBook — Fixture Book');
 });
