@@ -8,10 +8,10 @@
 		"lib/marginGuard.ts": "97242d2a1a00ae13c1ab13ffc5e00a20f55593e3a3af7f051ba14085a65f60e0",
 		"lib/order-pricing.ts": "a49a12bca030f6b11fbc4ab741f2904560af1b15da0876d7e9d7c4936639a1cd",
 		"lib/shipCountries.ts": "cf4de36cbe83a198fdcab910362d51b1531d9606c271f2ddb393763937edf66e",
-		"data/book-skus.json": "3aca82d64fb58a7b67ba74587fce7a50da8cb5d56e674e0791245360076d5fa1",
+		"data/book-skus.json": "8e18e626b5b824641f27ca59bdab5ac8a6d16c2efd7066f401ede4643724afcb",
 		"data/book-us-costs.json": "b31e0d999bc919988d111a6176f9e3bcbd7da8037f31f9c419c13b769d3d675e",
 		"data/books.json": "9687599f8955b61b30200dfa7b90e4667a8bee087d4e9b6bff31402bb06330e6",
 		"data/isbn-list.json": "0f21e7817748c79c57a97c90843d4401746fb6fae25fa8bc96c2d02a21a1931b",
-		"data/ship-countries.json": "cc4232efb15536162bf143db88036be57dacb6e8070c367128f166fadbcf1b5b"
+		"data/ship-countries.json": "b4f859cdb096ce4d73abffa7a28c3e7a8c5a4a082a3f39f12730b437fc8fb0c0"
 	}
 }
