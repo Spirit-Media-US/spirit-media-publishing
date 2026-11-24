@@ -1638,9 +1638,9 @@ test('pre-order: a ship_after SKU is charged now, its session says preorder + sh
 		assert.equal(f.get('metadata[ship_after]'), date);
 		assert.equal(f.get('metadata[preorder_skus]'), 'make-me-feel-important-pb,make-me-feel-important-hb');
 		for (const i of [0, 1])
-			assert.match(f.get(`line_items[${i}][price_data][product_data][description]`), new RegExp(`Pre-order: ships at release, target ${releaseDateText(date)}$`));
+			assert.match(f.get(`line_items[${i}][price_data][product_data][description]`), new RegExp(`Pre-order: ships at release\\. Releasing ${releaseDateText(date)}$`));
 		// the shipping options name the release and carry no business-day estimate (it would count from today)
-		assert.match(f.get('shipping_options[0][shipping_rate_data][display_name]'), new RegExp(`\\(ships at release, ${releaseDateText(date)}\\)$`));
+		assert.match(f.get('shipping_options[0][shipping_rate_data][display_name]'), new RegExp(`\\(ships at release · Releasing ${releaseDateText(date)}\\)$`));
 		assert.equal([...f.keys()].filter((k) => k.includes('[delivery_estimate]')).length, 0);
 	} else assert.equal(f.get('metadata[preorder]'), null, 'released: an ordinary sale');
 	// an ordinary book carries none of it

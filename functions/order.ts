@@ -65,7 +65,7 @@ export function orderHtml(s: any): string {
 	// PRE-ORDER (engine metadata preorder + ship_after, Kevin 2026-11-24 MMFI): the same line as the buyer email
 	const preorder =
 		m.preorder === 'true' && /^\d{4}-\d{2}-\d{2}$/.test(String(m.ship_after ?? ''))
-			? `<p><strong>This is a pre-order. Your book ships at release, target ${esc(releaseDateText(m.ship_after))}.</strong></p>`
+			? `<p><strong>This is a pre-order. Your book ships at release. Releasing ${esc(releaseDateText(m.ship_after))}.</strong></p>`
 			: '';
 	return page(
 		paid ? 'Thank you for your order' : 'Your order',
