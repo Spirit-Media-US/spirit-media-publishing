@@ -405,7 +405,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 147); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY) + 1 (Outrageously Loved, Kevin 2026-11-20: page + bulk tiers, not sold yet) + 2 (Seed of David Book Two + Your Time, Kevin 2026-11-16 'we want book page for every book for SEO/AEO even if we can't sell it', worker L 2026-11-21)
+	assert.equal(set.titles.length, 148); // + 1 (Make Me Feel Important, Kevin 2026-11-24: pre-order page, PB + HB sold now, ships at release) + 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY) + 1 (Outrageously Loved, Kevin 2026-11-20: page + bulk tiers, not sold yet) + 2 (Seed of David Book Two + Your Time, Kevin 2026-11-16 'we want book page for every book for SEO/AEO even if we can't sell it', worker L 2026-11-21)
 	// BOOK PAGES SWITCH: production builds only Kevin-approved pages (src/data/books/pages-live.json);
 	// a BOOKS_PREVIEW_ALL=1 preview builds every one. An unapproved page that builds on production fails here.
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
@@ -1609,4 +1609,40 @@ test('cost model 4 fee keys: an unmeasured book has its OWN fee key; FC PB to UK
 	const r = await post({ counts: { 'forever-changed-pb': 1 }, country: 'FR', returnPath: '/books/forever-changed/' });
 	assert.equal(r.status, 200);
 	assert.equal(Number(r.form.get('metadata[handling_cents]') ?? 0), mg.handlingFeeCents('forever-changed-pb', 1899, live('FR')));
+});
+
+// PRE-ORDER (book-skus.json ship_after, Kevin 2026-11-24 MMFI "Payment captured now ... note of delivery in January")
+test('pre-order: a ship_after SKU is charged now, its session says preorder + ship_after, its line says when it ships', async () => {
+	const { preorderShipAfter, releaseDateText } = await import('../src/store-engine/lib/order-pricing.ts');
+	const reg = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
+	const date = reg['make-me-feel-important-pb'].ship_after;
+	assert.match(date, /^\d{4}-\d{2}-\d{2}$/);
+	// the date boundary: a pre-order the day before, an ordinary sale on the day (failure path of the switch)
+	const dayBefore = new Date(`${date}T00:00:00Z`);
+	dayBefore.setUTCDate(dayBefore.getUTCDate() - 1);
+	assert.equal(preorderShipAfter('make-me-feel-important-pb', dayBefore), date);
+	assert.equal(preorderShipAfter('make-me-feel-important-pb', new Date(`${date}T00:00:00Z`)), null);
+	assert.equal(preorderShipAfter('the-pyramid-principle-pb', dayBefore), null, 'a row without ship_after is never a pre-order');
+	assert.equal(releaseDateText('2027-01-07'), 'January 7, 2027');
+	const r = await post({ counts: { 'make-me-feel-important-pb': 1, 'make-me-feel-important-hb': 2 }, country: 'US', returnPath: '/books/make-me-feel-important/' });
+	assert.equal(r.status, 200);
+	const f = r.form;
+	assert.equal(f.get('mode'), 'payment', 'payment captured now');
+	assert.equal(f.get('cancel_url'), 'https://spiritmediapublishing.com/books/make-me-feel-important/?order=canceled#order');
+	if (preorderShipAfter('make-me-feel-important-pb')) {
+		assert.equal(f.get('metadata[preorder]'), 'true');
+		assert.equal(f.get('metadata[ship_after]'), date);
+		assert.equal(f.get('metadata[preorder_skus]'), 'make-me-feel-important-pb,make-me-feel-important-hb');
+		for (const i of [0, 1])
+			assert.match(f.get(`line_items[${i}][price_data][product_data][description]`), new RegExp(`Pre-order: ships at release, target ${releaseDateText(date)}$`));
+		// the shipping options name the release and carry no business-day estimate (it would count from today)
+		assert.match(f.get('shipping_options[0][shipping_rate_data][display_name]'), new RegExp(`\\(ships at release, ${releaseDateText(date)}\\)$`));
+		assert.equal([...f.keys()].filter((k) => k.includes('[delivery_estimate]')).length, 0);
+	} else assert.equal(f.get('metadata[preorder]'), null, 'released: an ordinary sale');
+	// an ordinary book carries none of it
+	const o = await post({ counts: { 'the-pyramid-principle-pb': 1 }, country: 'US', returnPath: '/books/the-pyramid-principle/' });
+	for (const k of ['metadata[preorder]', 'metadata[ship_after]', 'metadata[preorder_skus]']) assert.equal(o.form.get(k), null, k);
+	assert.doesNotMatch(o.form.get('line_items[0][price_data][product_data][description]'), /Pre-order/);
+	assert.ok([...o.form.keys()].some((k) => k.includes('[delivery_estimate]')), 'an ordinary order keeps its delivery estimate');
+	assert.doesNotMatch(o.form.get('shipping_options[0][shipping_rate_data][display_name]'), /release/);
 });

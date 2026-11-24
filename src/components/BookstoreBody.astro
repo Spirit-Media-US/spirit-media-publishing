@@ -13,6 +13,7 @@ import fhbSnapshot from '../data/fhb-editions.json';
 import { dnpMatcher } from '../lib/do-not-publish.mjs';
 import { sanityClient } from '../lib/sanity.ts';
 import { destHtml, newTabHtml, SISTER_HOST, sisterHost } from '../lib/xsite';
+import engineSkus from '../store-engine/data/book-skus.json';
 import engineBooks from '../store-engine/data/books.json';
 import { BOOK_SKUS } from '../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
@@ -551,7 +552,11 @@ const hasOrderBox = (slug: string) => {
 	if (!t || !PAGE_BUILT(slug)) return false;
 	return (
 		(t.book.formats as string[]).some(
-			(sku) => (BOOK_SKUS as any)[sku]?.isbn && Number.isInteger(t.skus?.[sku]?.list_cents),
+			// the price the page shows: the engine registry's (ONE value per SKU), else the ship set's copy (books/[slug])
+			(sku) =>
+				(BOOK_SKUS as any)[sku]?.isbn &&
+				(Number.isInteger((engineSkus.skus as any)[sku]?.list_cents) ||
+					Number.isInteger(t.skus?.[sku]?.list_cents)),
 		) ||
 		// an eBook-only page (no print SKU, our store sells its eBook) also carries the order box (books/[slug] EBOOK-ONLY
 		// mode) and is orderable from anywhere: same rule as the page (RDtT Books 2-4, 2026-11-16)
