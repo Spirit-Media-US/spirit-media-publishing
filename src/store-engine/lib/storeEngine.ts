@@ -1830,6 +1830,14 @@ export async function checkoutForm(
 		if (d) preorder[slug] = d;
 	}
 	const shipAfter = Object.values(preorder).sort().pop() ?? null;
+	// a business-day estimate counts from today, which is wrong for a book not yet released: the shipping options name
+	// the release instead and carry no estimate
+	if (shipAfter)
+		for (const k of Object.keys(shipForm)) {
+			if (k.includes('[delivery_estimate]')) delete shipForm[k];
+			else if (k.endsWith('[display_name]'))
+				shipForm[k] = `${shipForm[k]} (ships at release, ${releaseDateText(shipAfter)})`;
+		}
 
 	const reqUrl = new URL(requestUrl);
 	const origin =
