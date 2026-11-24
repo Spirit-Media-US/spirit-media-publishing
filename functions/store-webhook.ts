@@ -83,14 +83,15 @@ export const viaTbl = (m: Record<string, string> | null | undefined) =>
 	TBL_HOST_RE.test(String(m?.utm_source ?? '').trim());
 export function buyerBrand(m: Record<string, string> | null | undefined, amount: string) {
 	const w = m?.window || (m?.site && m.site !== 'fhb' ? 'smp' : 'fhb');
+	// ONE STORE, ONE MESSAGE (Kevin 2026-11-24 ~14:0xZ: "We have 1 store! We need to get our messaging consistent." —
+	// plan D59/D61: The Believer's Library is the one store behind every door). Every buyer email carries the D99 line,
+	// whichever door (FHB, SMP, author site, TBL) the buyer came through. `tbl` still reports the sale's origin for logs.
 	const tbl = viaTbl(m);
 	return {
 		window: w === 'smp' ? 'smp' : 'fhb',
-		subject: tbl
-			? `${TBL_ORDER_LINE} — ${amount}`
-			: `Your Spirit Media Publishing order — ${amount}`,
-		/** The buyer email's first line ('' = none): TBL orders only. */
-		heading: tbl ? `${TBL_ORDER_LINE}\n\n` : '',
+		subject: `${TBL_ORDER_LINE} — ${amount}`,
+		/** The buyer email's first line: the one-store line on every order. */
+		heading: `${TBL_ORDER_LINE}\n\n`,
 		tbl,
 		signoff: '',
 	};
@@ -455,9 +456,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 			email === '(no email)' ||
 			(await send(
 				email,
-				buyerBrand(m, amount).tbl
-					? `${TBL_ORDER_LINE} — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`
-					: `Your eBook — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`,
+				`${TBL_ORDER_LINE} — ${ebookSku ? bookTitle : 'Father’s Heart Bible'}`, // one store, one message (Kevin 11-24)
 				`${buyerBrand(m, amount).heading}Thank you — your eBook is ready.\n\n` +
 					(ebookSku ? `${bookTitle}\n\n` : '') +
 					`Download it here (the link stays valid, so keep this email):\n${link}\n\n` +
