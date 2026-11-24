@@ -34,6 +34,8 @@ import {
 	META_VALUE_MAX,
 	packBreakdown,
 	paidUnit,
+	preorderShipAfter,
+	releaseDateText,
 	type Tier,
 	unitAfter,
 } from './order-pricing.ts';
@@ -1819,6 +1821,16 @@ export async function checkoutForm(
 		);
 	}
 
+	// PRE-ORDER (book-skus.json `_about_preorder`): a line still before its ship_after date is charged now and ships at
+	// release. The whole order waits for the LATEST ship_after in it (one shipment), which the session carries for the
+	// shipping desk and the buyer email; the Stripe line says so too.
+	const preorder: Record<string, string> = {};
+	for (const [slug, n] of Object.entries(counts)) {
+		const d = n > 0 ? preorderShipAfter(slug) : null;
+		if (d) preorder[slug] = d;
+	}
+	const shipAfter = Object.values(preorder).sort().pop() ?? null;
+
 	const reqUrl = new URL(requestUrl);
 	const origin =
 		reqUrl.hostname === 'fathersheartbible.pages.dev'
@@ -1878,6 +1890,13 @@ export async function checkoutForm(
 						.slice(0, 500),
 				}
 			: {}),
+		...(shipAfter
+			? {
+					'metadata[preorder]': 'true',
+					'metadata[ship_after]': shipAfter,
+					'metadata[preorder_skus]': Object.keys(preorder).join(',').slice(0, 500),
+				}
+			: {}),
 		// Split under Stripe's 500-char value cap (an 82-SKU cart was one 1,138-char value: 502).
 		...packBreakdown(counts),
 		// FHB-BOOKS (Kevin 2026-11-13): every BOOK sale carries title / ISBN / format / country / date / net
@@ -1921,7 +1940,11 @@ export async function checkoutForm(
 		form[`line_items[${li}][price_data][product_data][name]`] =
 			e.name ?? `Father’s Heart Bible™ — ${e.title}`;
 		form[`line_items[${li}][price_data][product_data][description]`] =
-			(e.desc && bookPct[slug] ? `${e.desc} · ${bookPct[slug]}% bulk discount` : e.desc) ??
+			(e.desc && preorder[slug]
+				? `${e.desc} · Pre-order: ships at release, target ${releaseDateText(preorder[slug])}`
+				: e.desc && bookPct[slug]
+					? `${e.desc} · ${bookPct[slug]}% bulk discount`
+					: e.desc) ??
 			(perUnitPromo && promo
 				? `Divine Voice Color · Complete Bible · ${FIRST_ORDER_PCT}% off your first order · free shipping`
 				: pct > 0

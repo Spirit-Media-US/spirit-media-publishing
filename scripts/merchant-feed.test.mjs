@@ -30,6 +30,7 @@ export const parse = (xml) =>
 		image: tag(m[1], 'g:image_link'),
 		price: tag(m[1], 'g:price'),
 		availability: tag(m[1], 'g:availability'),
+		availabilityDate: tag(m[1], 'g:availability_date'),
 		gtin: tag(m[1], 'g:gtin'),
 		brand: tag(m[1], 'g:brand'),
 		cat: tag(m[1], 'g:google_product_category'),
@@ -68,7 +69,10 @@ test('every item carries the fields Merchant Center requires', (t) => {
 			assert.ok(i[f], `${i.id} missing ${f}`);
 		assert.ok(isbn13(i.gtin), `${i.id} GTIN ${i.gtin} not a valid ISBN-13`);
 		assert.match(i.price, /^\d+\.\d\d USD$/, `${i.id} price format`);
-		assert.equal(i.availability, 'in_stock', `${i.id} availability`);
+		// in stock, or a PRE-ORDER (book-skus.json ship_after) that carries the availability_date Google requires for it
+		if (i.availability === 'preorder')
+			assert.match(i.availabilityDate, /^\d{4}-\d{2}-\d{2}T00:00:00-05:00$/, `${i.id} pre-order availability_date`);
+		else assert.equal(i.availability, 'in_stock', `${i.id} availability`);
 		assert.match(i.link, /^https:\/\/spiritmediapublishing\.com\/books\/[a-z0-9-]+\/#order$/, `${i.id} link`);
 		assert.match(i.image, /^https:\/\//, `${i.id} image`);
 	}

@@ -51,6 +51,8 @@ import {
 	BOOK_SKUS,
 	FIRST_ORDER_PCT,
 	isDiscountExempt,
+	preorderShipAfter,
+	releaseDateText,
 	unitAfter,
 } from '../../../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../../../store-engine/lib/shipCountries.ts';
@@ -286,7 +288,13 @@ export async function getStaticPaths() {
 					schema_format: x.schema_format,
 					isbn: x.isbn,
 					isbn_display: x.isbn_display,
-					list_cents: Number.isInteger(x.list_cents) ? x.list_cents : null,
+					// ONE price per SKU: a format the store engine sells is priced from its registry row (what the checkout
+					// charges); the ship set's own copy is the fallback for a format the engine does not sell
+					list_cents: Number.isInteger(SKUS[x.sku]?.list_cents)
+						? SKUS[x.sku].list_cents
+						: Number.isInteger(x.list_cents)
+							? x.list_cents
+							: null,
 					pages: Number.isInteger(x.pages) ? x.pages : null,
 					trim: trimOf(x.trim),
 				})),
@@ -449,6 +457,13 @@ const sellFormats = p.formats
 	.filter((f) => f.list_cents != null && BOOK_SKUS[f.sku])
 	.sort((a, b) => rank(a) - rank(b));
 const servedRows = LIVE_COUNTRIES.filter((c) => p.served.includes(c.code));
+// the latest release date among the formats on sale as a pre-order (null = none): the order box says when it ships
+const preorderDate =
+	sellFormats
+		.map((f) => preorderShipAfter(f.sku))
+		.filter((d): d is string => Boolean(d))
+		.sort()
+		.pop() ?? null;
 const countries = servedRows.map((c) => ({ code: c.code, name: c.name }));
 // The FHB-standard order area (BookOrder) on English pages that sell; es/fr keep their reviewed-string form for now.
 // es/fr pages get the same box in their language (Kevin 2026-11-15 "2A")
@@ -700,11 +715,15 @@ const returnChunks: ReturnType<typeof returnPolicyFor>[] = [];
 for (let i = 0; i < p.served.length; i += MAX_RETURN_COUNTRIES)
 	returnChunks.push(returnPolicyFor(p.served.slice(i, i + MAX_RETURN_COUNTRIES)));
 const returnPolicy = returnChunks.length === 1 ? returnChunks[0] : returnChunks;
+// PRE-ORDER (book-skus.json ship_after, Kevin 2026-11-24 MMFI): sold now, ships at release -> PreOrder + availabilityStarts
 const offerFor = (f: Fmt) => ({
 	'@type': 'Offer',
 	price: ((f.list_cents as number) / 100).toFixed(2),
 	priceCurrency: 'USD',
-	availability: 'https://schema.org/InStock',
+	availability: preorderShipAfter(f.sku)
+		? 'https://schema.org/PreOrder'
+		: 'https://schema.org/InStock',
+	...(preorderShipAfter(f.sku) ? { availabilityStarts: preorderShipAfter(f.sku) } : {}),
 	itemCondition: 'https://schema.org/NewCondition',
 	url: `${url}#order`,
 	sku: f.sku,
@@ -910,7 +929,7 @@ const crumbs = {
 		{/* The order area in its own unpadded band, so the black country marquee runs edge to edge (FHB standard). */}
 		{(orderBox || ebookOnly) && (
 			<section class="bg-stone-50 pb-10" aria-label={`${T.order} ${p.title}`}>
-				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={orderBox ? sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number })) : []} countries={orderBox ? countries : []} feeCfg={feeCfg} firstOrder={firstOrder || ebookOnly} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} ebook={ebook} />
+				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={orderBox ? sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number })) : []} countries={orderBox ? countries : []} feeCfg={feeCfg} firstOrder={firstOrder || ebookOnly} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} ebook={ebook} preorder={preorderDate ? releaseDateText(preorderDate) : undefined} />
 			</section>
 		)}
 

@@ -535,3 +535,23 @@ test('TBL order: an eBook sold through The Believer\u2019s Library gets the TBL 
 	const plain = (await run(FIX)).sent.find((m) => m.to === 'buyer@example.com');
 	assert.equal(plain.subject, 'Your eBook — Fixture Book');
 });
+
+// PRE-ORDER (Kevin 2026-11-24 MMFI): the buyer email says when the book ships IN PLACE of the in-stock estimate; Kevin's
+// notice says not to place it with Ingram early. An ordinary order is unchanged (failure path: the line is not everywhere).
+test('pre-order: buyer email carries the release-date line (not 7-10 days); notice says do not place before ship_after', async () => {
+	const pre = await confirm({ site: 'smp', window: 'smp', family: 'smp_book', breakdown: 'make-me-feel-important-pb:1', total: '1', preorder: 'true', ship_after: '2027-01-07', preorder_skus: 'make-me-feel-important-pb' });
+	assert.equal(pre.status, 200);
+	assert.match(pre.buyer.text, /^Thank you for your order\.\n/);
+	assert.ok(pre.buyer.text.includes('This is a pre-order. Your book ships at release, target January 7, 2027. Shipping is free.\n\n'));
+	assert.doesNotMatch(pre.buyer.text, /7–10 days/);
+	assert.ok(pre.buyer.text.endsWith(`${SIGNATURE}\n`));
+	assert.match(pre.kevin.subject, /^📚 PRE-ORDER Print order/);
+	assert.ok(pre.kevin.text.includes('Do NOT place with Ingram before 2027-01-07 minus the print lead time.'));
+	const plain = await confirm({ site: 'smp', window: 'smp', family: 'smp_book' });
+	assert.doesNotMatch(plain.buyer.text, /pre-order/i);
+	assert.match(plain.buyer.text, /most orders arrive within 7–10 days/);
+	assert.doesNotMatch(plain.kevin.subject, /PRE-ORDER/);
+	// a malformed ship_after is never shown as a date
+	const bad = await confirm({ preorder: 'true', ship_after: 'soon' });
+	assert.doesNotMatch(bad.buyer.text, /pre-order/i);
+});

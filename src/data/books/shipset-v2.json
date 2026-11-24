@@ -37686,6 +37686,215 @@
 				"_source": "projects/your-time/specsheet/sheet.json (title, subtitle, author) + amazon-book.mjs B0C1QBJ2FJ 2026-11-21 (description, pub date April 5 2023, publisher Spirit Media); page added by pmprint worker L 2026-11-21 (Kevin 2026-11-16 'we want book page for every book for SEO/AEO even if we can't sell it')"
 			},
 			"skus": {}
+		},
+		{
+			"slug": "make-me-feel-important",
+			"units_12m": 0,
+			"book": {
+				"slug": "make-me-feel-important",
+				"status": "preorder",
+				"title": "Make Me Feel Important",
+				"subtitle": "Christian Marketing and Sales That Build Trust, Win Loyal Customers, and Grow Your Business",
+				"full_title": "Make Me Feel Important: Christian Marketing and Sales That Build Trust, Win Loyal Customers, and Grow Your Business",
+				"author": {
+					"name": "Jim Matuga"
+				},
+				"credits": null,
+				"page_title": "Make Me Feel Important: Christian Marketing and Sales",
+				"h1": "Make Me Feel Important",
+				"meta": "Pre-order Make Me Feel Important by Jim Matuga: Christian marketing and sales that build trust, win loyal customers, and grow your business. Ships January 2027.",
+				"short": "An advertising veteran of nearly forty years shows Christian business owners, entrepreneurs, and sales teams how to earn trust, sharpen their communication skills, and win loyal customers by making every person they serve feel important.",
+				"about": "In 1996, in a sales meeting in Muncie, Indiana, Jim Matuga heard four letters he has never forgotten: M.M.F.I., Make Me Feel Important. His vice president asked the room to imagine those words tattooed invisibly across every prospect's forehead. Matuga thought he was learning a sales technique. Over the next thirty years, he discovered he had been taught how to see people. Drawing on nearly four decades across every major advertising medium, Matuga argues that most organizations don't have a communication problem. They have a connection problem. The companies that earn trust are not always the loudest, the most creative, or the biggest spenders. They simply understand people better. Written from an openly Christian perspective, Make Me Feel Important shows that the principles that make marketing genuinely connect are the same principles Scripture has described for thousands of years. Faith runs through every chapter as a foundation, not decoration, yet the ideas stand on their own for any reader. Each of the twelve chapters is built on a real story, real research, and real Scripture, and closes with a Putting It Into Practice section. Readers will learn why nobody wants to be sold, how the need to matter shapes decisions, why stories are the language of connection, how trust becomes the bridge, why clarity wins, and why people tell people. Chapters on the Golden Rule, the invitation, and working unto the Lord show what faith looks like in everyday business. The book closes with a simple framework: M.M.F.I. at the center, surrounded by three rings of trust, influence, and action, each earned by the one inside it. Matuga co-founded Inner Action Media, known as West Virginia's Agency, and hosts the weekly podcast Positively West Virginia, where hundreds of business leaders have told him what truly made the difference. Their answers were never algorithms. For business owners, ministry and nonprofit leaders, sales teams, and anyone who serves people, this book is a practical reminder that people don't remember what you sold them. They remember whether you made them feel important.",
+				"who_for": [
+					"Small business owners, entrepreneurs, and Christian business owners and CEOs",
+					"Sales professionals, marketers, and customer service teams",
+					"Nonprofit leaders, pastors and church leaders, and anyone who serves customers"
+				],
+				"faq": [
+					{
+						"q": "What is Make Me Feel Important about?",
+						"a": "It is a book on Christian marketing and sales by Jim Matuga, an advertising veteran of nearly forty years. He argues that most organizations don't have a communication problem; they have a connection problem. Each of the twelve chapters is built on a real story, real research, and real Scripture, and ends with a Putting It Into Practice section."
+					},
+					{
+						"q": "What does M.M.F.I. mean?",
+						"a": "M.M.F.I. stands for Make Me Feel Important. In 1996, in a sales meeting in Muncie, Indiana, Jim Matuga's vice president asked the room to imagine those four letters tattooed invisibly across every prospect's forehead. Over the next thirty years Matuga discovered he had been taught not how to sell, but how to see people."
+					},
+					{
+						"q": "Who is this book for?",
+						"a": "Small business owners, entrepreneurs, Christian business owners and CEOs, sales professionals, marketers, customer service teams, nonprofit leaders, and pastors and church leaders: anyone who serves customers and wants to build trust and win loyal customers."
+					},
+					{
+						"q": "When does Make Me Feel Important ship?",
+						"a": "The target release date is January 7, 2027. Pre-order the paperback or hardback here now: your payment is taken when you order, and your copy ships when the book is released."
+					},
+					{
+						"q": "Is the book only for Christians?",
+						"a": "It is written from an openly Christian perspective, and faith runs through every chapter as a foundation, not decoration. The ideas are written to stand on their own for any reader willing to test them."
+					}
+				],
+				"bio": "Jim Matuga has worked in advertising and marketing since 1988, across newspaper, television, cable, radio, and digital media. In 2011 he co-founded Inner Action Media, known as West Virginia's Agency, and since 2017 he has hosted the weekly podcast Positively West Virginia. He is the author of Marketing Matters and Humble Influence: The Strength of True Followership, and co-author of Physical Therapy Rocket Fuel. A graduate of West Virginia University's Perley Isaac Reed School of Journalism, he serves as Chairman of the Board of Trustees at Chestnut Ridge Church and helped found the West Virginia Miracle League. He lives in Morgantown with his wife, Rebekah.",
+				"jsonld": {
+					"book": {
+						"name": "Make Me Feel Important",
+						"alternativeHeadline": "Christian Marketing and Sales That Build Trust, Win Loyal Customers, and Grow Your Business",
+						"inLanguage": "en",
+						"isbn": "Paperback 9798893075625",
+						"bookFormat": "https://schema.org/Paperback",
+						"sameAs": []
+					}
+				},
+				"cover": {
+					"jpg": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/make-me-feel-important-1024.jpg",
+					"source": "Jim-approved Option 4 'M.M.F.I.' front (Drive 1xwZS5Iyzq7xNZxB0cw9cgg_1aziYAfkv, approved 2026-11-13, sha256 4f4be584...), sized by pmbuilder 2026-11-24"
+				},
+				"formats": [
+					"make-me-feel-important-pb",
+					"make-me-feel-important-hb"
+				],
+				"language": "en",
+				"publisher": "Spirit Media Publishing",
+				"lccn": "2026970371",
+				"pub_date": "2027-01-07",
+				"url": "https://spiritmediapublishing.com/books/make-me-feel-important/",
+				"_source": "Metadata sheet projects/make-me-feel-important/specsheet/sheet.json (Google Doc 1c-lxOcx-es_vWT9YBanYGWxfRycd9JvS75Fxb1A3Rkw): title, subtitle, copy, bio, chapters, ISBNs, LCCN, trim, target pub 2027-01-07. Page + pre-order: Kevin 2026-11-24 ~18:5xZ \"I need a preorder page for MMFI\". Prices in book-skus.json only (preview: Kevin's proposed PB 19.99 / HB 29.99, not final).",
+				"page": {
+					"hero": {
+						"eyebrow": "By Jim Matuga",
+						"audience_line": "For business owners, sales teams, ministry and nonprofit leaders, and anyone who serves people.",
+						"tagline": "People don't remember what you sold them. They remember whether you made them feel important.",
+						"offer_line": "Pre-order now in paperback and hardback. Target release January 7, 2027."
+					},
+					"audience": {
+						"headline": "Most organizations don't have a communication problem. They have a connection problem.",
+						"body": "Most organizations don't have a communication problem. They have a connection problem. After nearly forty years in advertising, Jim Matuga has watched the tools change again and again, from newspaper and television to social media and artificial intelligence, while people stayed exactly the same. They still want to be understood, told the truth, and treated like they matter. Built on real stories, real research, and real Scripture, this book shows Christian business owners and leaders how to earn trust, then influence, then action. People don't remember what you sold them. They remember whether you made them feel important."
+					},
+					"whats_inside": [
+						"1. Marketing Has a Connection Problem",
+						"2. The Most Important Person in the Room",
+						"3. Why Nobody Wants to Be Sold",
+						"4. The Need to Matter",
+						"5. Stories Are the Language of Connection",
+						"6. Trust Is the Bridge",
+						"7. Clarity Wins",
+						"8. The Golden Rule",
+						"9. The Invitation",
+						"10. Work Unto the Lord",
+						"11. People Tell People",
+						"12. The Tools Change. The Need to Matter Doesn’t.",
+						"Conclusion: It Was Always About People"
+					],
+					"details": {
+						"Title": "Make Me Feel Important",
+						"Subtitle": "Christian Marketing and Sales That Build Trust, Win Loyal Customers, and Grow Your Business",
+						"Author": "Jim Matuga",
+						"Publisher": "Spirit Media Publishing",
+						"Language": "English",
+						"Target release": "January 7, 2027",
+						"Trim size": "6 x 9 inches",
+						"Paperback ISBN": "979-8-89307-562-5",
+						"Hardback ISBN": "979-8-89307-563-2",
+						"Library of Congress Control Number": "2026970371"
+					},
+					"sections": [
+						{
+							"h2": "Christian marketing and sales built on Scripture and experience",
+							"paras": [
+								"Written from an openly Christian perspective, Make Me Feel Important shows that the principles that make marketing genuinely connect are the same principles Scripture has described for thousands of years. Faith runs through the book not as decoration but as foundation, while the ideas are written to stand on their own for any reader willing to test them.",
+								"Each of the twelve chapters is built around a real story, real research, and real Scripture, and ends with a section called Putting It Into Practice so the lessons move from the page into your next email, your next meeting, and your next conversation with a stranger at your door."
+							]
+						},
+						{
+							"h2": "A framework you can draw on a napkin",
+							"paras": [
+								"By the conclusion, the whole argument fits into one picture: M.M.F.I. at the center, surrounded by three rings, each earned by the one inside it. Trust first. Then influence. Then action. The order is not optional."
+							]
+						},
+						{
+							"h2": "Pre-order the paperback or hardback",
+							"paras": [
+								"Make Me Feel Important is available to pre-order now in paperback and hardback, with free shipping in the US. Your payment is taken when you order, and your book ships at release, target January 7, 2027. You will receive an order confirmation by email straight away."
+							]
+						}
+					],
+					"why": {
+						"title": "From a practitioner, not a theorist",
+						"paras": [
+							"Matuga co-founded Inner Action Media, known as West Virginia's Agency, and since 2017 has hosted the weekly podcast Positively West Virginia, interviewing hundreds of business leaders, owners, entrepreneurs, and nonprofit CEOs. None of them ever credited an algorithm for their success. They named a person who remembered them, a promise that was kept, a moment when someone noticed them when they did not expect to be noticed.",
+							"People don't remember what you sold them. They remember whether you made them feel important."
+						]
+					},
+					"author": {
+						"bio": "Jim Matuga has worked in advertising and marketing since 1988, across newspaper, television, cable, radio, and digital media. In 2011 he co-founded Inner Action Media, known as West Virginia's Agency, and since 2017 he has hosted the weekly podcast Positively West Virginia. He is the author of Marketing Matters and Humble Influence: The Strength of True Followership, and co-author of Physical Therapy Rocket Fuel. A graduate of West Virginia University's Perley Isaac Reed School of Journalism, he serves as Chairman of the Board of Trustees at Chestnut Ridge Church and helped found the West Virginia Miracle League. He lives in Morgantown with his wife, Rebekah."
+					},
+					"publisher": {
+						"name": "Spirit Media Publishing",
+						"about": "Spirit Media Publishing is a Christian publishing and marketing company with a vision to reveal our Father's heart to all nations. It offers full-service publishing in paperback, hardback, digital, and audiobook formats, along with children's titles, compact Express Books, website design and SEO, and podcast and video production."
+					},
+					"faq": [
+						{
+							"q": "What is Make Me Feel Important about?",
+							"a": "It is a book on Christian marketing and sales by Jim Matuga, an advertising veteran of nearly forty years. He argues that most organizations don't have a communication problem; they have a connection problem. Each of the twelve chapters is built on a real story, real research, and real Scripture, and ends with a Putting It Into Practice section."
+						},
+						{
+							"q": "What does M.M.F.I. mean?",
+							"a": "M.M.F.I. stands for Make Me Feel Important. In 1996, in a sales meeting in Muncie, Indiana, Jim Matuga's vice president asked the room to imagine those four letters tattooed invisibly across every prospect's forehead. Over the next thirty years Matuga discovered he had been taught not how to sell, but how to see people."
+						},
+						{
+							"q": "Who is this book for?",
+							"a": "Small business owners, entrepreneurs, Christian business owners and CEOs, sales professionals, marketers, customer service teams, nonprofit leaders, and pastors and church leaders: anyone who serves customers and wants to build trust and win loyal customers."
+						},
+						{
+							"q": "When does Make Me Feel Important ship?",
+							"a": "The target release date is January 7, 2027. Pre-order the paperback or hardback here now: your payment is taken when you order, and your copy ships when the book is released."
+						},
+						{
+							"q": "Is the book only for Christians?",
+							"a": "It is written from an openly Christian perspective, and faith runs through every chapter as a foundation, not decoration. The ideas are written to stand on their own for any reader willing to test them."
+						}
+					],
+					"more": [
+						"humble-influence"
+					]
+				}
+			},
+			"skus": {
+				"make-me-feel-important-pb": {
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893075625",
+					"isbn_display": "979-8-89307-562-5",
+					"list_cents": null,
+					"pages": null,
+					"trim": "6 x 9 in",
+					"binding": "Perfect bound",
+					"book": "make-me-feel-important",
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/make-me-feel-important/",
+					"sku_status": "preorder",
+					"ship_scope": "us_only",
+					"author_key": "Jim Matuga",
+					"_price_note": "price = src/store-engine/data/book-skus.json list_cents (the ONE value the page and the checkout read)"
+				},
+				"make-me-feel-important-hb": {
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893075632",
+					"isbn_display": "979-8-89307-563-2",
+					"list_cents": null,
+					"pages": null,
+					"trim": "6 x 9 in",
+					"binding": "Hardcover",
+					"book": "make-me-feel-important",
+					"owner_site": "smp",
+					"canonical_site": "smp",
+					"canonical_path": "/books/make-me-feel-important/",
+					"sku_status": "preorder",
+					"ship_scope": "us_only",
+					"author_key": "Jim Matuga",
+					"_price_note": "price = src/store-engine/data/book-skus.json list_cents (the ONE value the page and the checkout read)"
+				}
+			}
 		}
 	]
 }

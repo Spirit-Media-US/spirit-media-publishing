@@ -24,7 +24,7 @@
 
 import { ebookLinkUrl, windowOrigin } from '../src/lib/ebookLink.ts';
 import { fmtAddr, fmtOrder, ingramLines } from '../src/lib/orderText.ts';
-import { readBreakdown } from '../src/store-engine/lib/order-pricing.ts';
+import { readBreakdown, releaseDateText } from '../src/store-engine/lib/order-pricing.ts';
 import { countryFor } from '../src/store-engine/lib/shipCountries.ts';
 import { EBOOK_SKUS } from '../src/store-engine/lib/storeEngine.ts';
 
@@ -103,6 +103,17 @@ export function buyerBrand(m: Record<string, string> | null | undefined, amount:
 	};
 }
 export const signoffBlock = (signoff: string) => (signoff ? `${signoff}\n\n` : '');
+
+// PRE-ORDER (Kevin 2026-11-24 MMFI: "payment confirmation sent with note of delivery in January"): a session the engine
+// marked metadata preorder=true + ship_after=YYYY-MM-DD. The buyer email says when it ships IN PLACE of the in-stock
+// delivery estimate (which would be wrong for a book not yet released); Kevin's notice says not to place it early.
+/** The release date text of a pre-order session ("January 7, 2027"), or null for an ordinary order. */
+export function preorderDate(m: Record<string, string> | null | undefined): string | null {
+	const d = String(m?.ship_after ?? '');
+	return m?.preorder === 'true' && /^\d{4}-\d{2}-\d{2}$/.test(d) ? releaseDateText(d) : null;
+}
+export const preorderBuyerLine = (date: string) =>
+	`This is a pre-order. Your book ships at release, target ${date}. Shipping is free.\n\n`;
 
 // GIFT TO CHARITY on a RIAB order (SMP src/lib/riabOrder.ts (c); Kevin 2026-11-20 ~16:10Z optional gift designated CF /
 // FOH / 50-50, ~16:20Z "receipted from spirit media charities with 100% going to the charities", ~16:25Z "Each order
@@ -494,6 +505,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		`Phone (pass to the Ingram order, carriers call international buyers): ${phone ?? '*** MISSING: email the buyer before placing the order ***'}\n` +
 		`Ingram print site for ${destCode ?? '?'}: ${site ? `${site.printSite} (${site.name}, config rate ${site.shippingRate.value} ${site.shippingRate.currency})` : '*** country not in the live ship list: check before ordering ***'}\n` +
 		`Stripe session: ${s.id ?? '?'}\n` +
+		(preorderDate(m)
+			? `\nPRE-ORDER: paid now, ships at release ${m.ship_after} (${preorderDate(m)}). SKUs: ${m.preorder_skus ?? '?'}\n` +
+				`Do NOT place with Ingram before ${m.ship_after} minus the print lead time.\n`
+			: '') +
 		(gift
 			? `\nGIFT TO CHARITY (Spirit Media Charities receipts it; NOT SMP revenue)\n` +
 				`Designation: ${gift.designation} = ${gift.label}\n${giftSplit(gift)}\n` +
@@ -516,16 +531,18 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		`Order reference: ${s.id ?? '?'}\n\n` +
 		`Shipping to:\n${name}\n${fmtAddr(ship.address)}\n` +
 		`Phone for the delivery carrier: ${phone ?? '(none on file, please reply with one)'}\n\n` +
-		(Number(m.total) > 9
-			? `Shipping is free. Larger bulk orders take about 3–4 weeks to reach you.\n\n`
-			: `Shipping is free, and most orders arrive within 7–10 days.\n\n`) +
+		(preorderDate(m)
+			? preorderBuyerLine(preorderDate(m) as string)
+			: Number(m.total) > 9
+				? `Shipping is free. Larger bulk orders take about 3–4 weeks to reach you.\n\n`
+				: `Shipping is free, and most orders arrive within 7–10 days.\n\n`) +
 		`Need to change or ask about this order? Just reply to this email and it comes\n` +
 		`straight to us — please include your order reference above.\n\n` +
 		`${signoffBlock(brand.signoff)}${SIGNATURE}\n`;
 
 	const okKevin = await send(
 		env.PRINT_ORDER_NOTIFY_TO || NOTIFY_TO_DEFAULT,
-		`📚 Print order — ${m.total ?? '?'} copies · ${amount}`,
+		`📚 ${preorderDate(m) ? 'PRE-ORDER ' : ''}Print order — ${m.total ?? '?'} copies · ${amount}`,
 		text,
 		email !== '(no email)' ? email : undefined,
 	);

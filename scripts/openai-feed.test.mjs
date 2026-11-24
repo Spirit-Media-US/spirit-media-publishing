@@ -71,7 +71,7 @@ export function validate(jsonl, google) {
 			continue;
 		}
 		if (g.price !== r.price) errs.push(`${r.item_id}: price ${r.price} != google ${g.price}`);
-		if (g.availability !== r.availability) errs.push(`${r.item_id}: availability ${r.availability} != google ${g.availability}`);
+		if ((g.availability === 'preorder' ? 'pre_order' : g.availability) !== r.availability) errs.push(`${r.item_id}: availability ${r.availability} != google ${g.availability}`);
 		if (g.link !== r.url) errs.push(`${r.item_id}: url != google`);
 		if (g.image.replace(/-3d-v2-600\.webp$/, '-3d-v2-600.jpg') !== r.image_url) errs.push(`${r.item_id}: image != google`);
 		if (!/\.(jpe?g|png)(\?.*)?$/i.test(r.image_url ?? '')) errs.push(`${r.item_id}: image_url not JPEG/PNG (OpenAI spec)`);
