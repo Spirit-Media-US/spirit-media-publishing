@@ -113,7 +113,7 @@ export function preorderDate(m: Record<string, string> | null | undefined): stri
 	return m?.preorder === 'true' && /^\d{4}-\d{2}-\d{2}$/.test(d) ? releaseDateText(d) : null;
 }
 export const preorderBuyerLine = (date: string) =>
-	`This is a pre-order. Your book ships at release, target ${date}. Shipping is free.\n\n`;
+	`This is a pre-order. Your book ships at release. Releasing ${date}. Shipping is free.\n\n`;
 
 // GIFT TO CHARITY on a RIAB order (SMP src/lib/riabOrder.ts (c); Kevin 2026-11-20 ~16:10Z optional gift designated CF /
 // FOH / 50-50, ~16:20Z "receipted from spirit media charities with 100% going to the charities", ~16:25Z "Each order
