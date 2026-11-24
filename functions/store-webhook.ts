@@ -49,14 +49,21 @@ export const TBL_DELIVERED_KINDS: readonly string[] = [
 ];
 // ...and "add our address to the bottom signature of each email": every BUYER order email (print, both windows, and the
 // eBook email) ends with this, verbatim, below the item-8 window line. Mirrored in bin/fhb-order-reconcile.py.
+// Kevin 2026-11-24 ~14:4xZ (pmshipping, kevin-decisions): EVERY email carries the identity statement + this footer
+// "at the bottom to avoid any confusion" (supersedes the 11-16 address-only signature). Mirrored in
+// bin/fhb-order-reconcile.py + bin/fhb-order-ship.py. Never edit one without the others.
 export const SIGNATURE = [
+	"Spirit Media Publishing publishes Christian books and the Father's Heart Bible™ in Divine Voice™ Color. We deliver them through The Believer's Library: one app for every believer worldwide providing free Bibles and access to all Christian books.",
+	'',
 	'Spirit Media Publishing',
-	'205 S Academy St Unit 3251',
-	'Cary, NC 27519',
-	'USA',
-	'Tel. 1-888-800-3744',
+	'Phone: 1-888-800-3744',
+	'Email: hello@spiritmediapublishing.com',
+	'',
 	'spiritmediapublishing.com',
 	'fathersheartbible.com',
+	'thebelieverslibrary.com',
+	'',
+	'205 S Academy St, Unit 3251, Cary, NC 27519, USA',
 ].join('\n');
 const NOTIFY_TO_DEFAULT = 'kevin@spiritmediapublishing.com';
 // Contact us = hello@ at every step (Kevin 2026-11-16): the BUYER's emails reply there. Kevin's internal notification
@@ -500,7 +507,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	// no confirmation their ORDER (as opposed to their payment) existed.
 	const brand = buyerBrand(m, amount);
 	const custText =
-		`${brand.heading}Thank you — we've received your order.\n\n` +
+		`${brand.heading}Thank you for your order.\n\n` + // Kevin 2026-11-24: "orders need to say Thank you for your order"
 		`What you ordered:\n${fmtOrder(readBreakdown(m))}\n\n` +
 		`Total paid: ${amount}\n` +
 		(gift

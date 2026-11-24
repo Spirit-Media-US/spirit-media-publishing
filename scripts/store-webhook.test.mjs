@@ -137,9 +137,15 @@ test('item 9: buyer emails Reply-To hello@; Kevin’s notice (his inbox, Reply-T
 	assert.equal(e.kevin['h:Reply-To'], 'buyer@test');
 });
 
-const SEVEN = ['Spirit Media Publishing', '205 S Academy St Unit 3251', 'Cary, NC 27519', 'USA', 'Tel. 1-888-800-3744', 'spiritmediapublishing.com', 'fathersheartbible.com'];
-const endsWithSeven = (text) => text.trimEnd().split('\n').slice(-7).join('\n') === SEVEN.join('\n');
-test('item 10: every order email is From "SMP Orders"; every buyer email ends with the 7 signature lines', async () => {
+// Kevin 2026-11-24 identity footer: statement + contact + 3 URLs + one-line address, on every buyer email.
+const SEVEN = [
+	"Spirit Media Publishing publishes Christian books and the Father's Heart Bible™ in Divine Voice™ Color. We deliver them through The Believer's Library: one app for every believer worldwide providing free Bibles and access to all Christian books.",
+	'', 'Spirit Media Publishing', 'Phone: 1-888-800-3744', 'Email: hello@spiritmediapublishing.com',
+	'', 'spiritmediapublishing.com', 'fathersheartbible.com', 'thebelieverslibrary.com',
+	'', '205 S Academy St, Unit 3251, Cary, NC 27519, USA',
+];
+const endsWithSeven = (text) => text.trimEnd().split('\n').slice(-SEVEN.length).join('\n') === SEVEN.join('\n');
+test('item 10: every order email is From "SMP Orders"; every buyer email ends with the identity footer (Kevin 2026-11-24)', async () => {
 	assert.equal(NOTIFY_FROM, 'SMP Orders <orders@send.spiritmediapublishing.com>');
 	const all = [
 		await confirm({ site: 'fhb', window: 'fhb', family: 'bible' }),
@@ -149,8 +155,8 @@ test('item 10: every order email is From "SMP Orders"; every buyer email ends wi
 	for (const r of all) {
 		for (const m of [r.buyer, r.kevin]) assert.match(m.from, /^SMP Orders </, `${m.subject}: From name`);
 		assert.ok(endsWithSeven(r.buyer.text), `${r.buyer.subject}: signature`);
-		assert.ok(r.buyer.html.includes('205 S Academy St Unit 3251'), `${r.buyer.subject}: html part too`);
-		assert.equal(r.buyer.text.split('Spirit Media Publishing\n205 S Academy').length, 2, 'the signature once');
+		assert.ok(r.buyer.html.includes('205 S Academy St, Unit 3251'), `${r.buyer.subject}: html part too`);
+		assert.equal(r.buyer.text.split('Phone: 1-888-800-3744').length, 2, 'the signature once');
 	}
 	assert.equal(endsWithSeven('Thanks\n\nSpirit Media Publishing\n'), false, 'the check rejects a partial signature');
 });
@@ -506,7 +512,7 @@ test('TBL order: a print order sold through The Believer\u2019s Library is worde
 		const r = await confirm({ site: 'smp', window: 'smp', family: 'smp_book', utm_source: host });
 		assert.equal(r.status, 200);
 		assert.equal(r.buyer.subject, `${line} — $31.98`, host);
-		assert.ok(r.buyer.text.startsWith(`${line}\n\nThank you — we've received your order.`), host);
+		assert.ok(r.buyer.text.startsWith(`${line}\n\nThank you for your order.`), host);
 		assert.ok(endsWithSeven(r.buyer.text), 'signature unchanged');
 		assert.equal(r.buyer.from, 'SMP Orders <orders@send.spiritmediapublishing.com>', 'From stays SMP Orders');
 	}
@@ -514,7 +520,7 @@ test('TBL order: a print order sold through The Believer\u2019s Library is worde
 	for (const meta of [{ site: 'smp', window: 'smp', utm_source: 'google' }, { site: 'fhb', window: 'fhb' }, { site: 'smp', window: 'smp', utm_source: 'thebelieverslibrary.com.evil.example' }]) {
 		const r = await confirm(meta);
 		assert.equal(r.buyer.subject, 'Your Spirit Media Publishing order — $31.98', JSON.stringify(meta));
-		assert.doesNotMatch(r.buyer.text, /Believer/);
+		assert.doesNotMatch(r.buyer.text.split('Phone:')[0].replace(SEVEN[0], ''), /Believer/, 'no TBL line outside the identity footer');
 	}
 });
 
