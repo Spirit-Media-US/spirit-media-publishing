@@ -37756,7 +37756,7 @@
 				"lccn": "2026970371",
 				"pub_date": "2027-01-07",
 				"url": "https://spiritmediapublishing.com/books/make-me-feel-important/",
-				"_source": "Metadata sheet projects/make-me-feel-important/specsheet/sheet.json (Google Doc 1c-lxOcx-es_vWT9YBanYGWxfRycd9JvS75Fxb1A3Rkw): title, subtitle, copy, bio, chapters, ISBNs, LCCN, trim, target pub 2027-01-07. Page + pre-order: Kevin 2026-11-24 ~18:5xZ \"I need a preorder page for MMFI\". Prices in book-skus.json only (preview: Kevin's proposed PB 19.99 / HB 29.99, not final).",
+				"_source": "Metadata sheet projects/make-me-feel-important/specsheet/sheet.json (Google Doc 1c-lxOcx-es_vWT9YBanYGWxfRycd9JvS75Fxb1A3Rkw): title, subtitle, copy, bio, chapters, ISBNs, LCCN, trim, target pub 2027-01-07. Page + pre-order: Kevin 2026-11-24 ~18:5xZ \"I need a preorder page for MMFI\". Prices in book-skus.json only: PB 19.99 / HB 29.99, approved Kevin 2026-11-24 (kevin-decisions L2897 \"Leave prices at $19.99 and $29.99 Leave pre-order on.\").",
 				"page": {
 					"hero": {
 						"eyebrow": "By Jim Matuga",
