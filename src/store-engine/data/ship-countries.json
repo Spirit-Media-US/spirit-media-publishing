@@ -336,7 +336,8 @@
 					"basis": "projects/gifts specsheet, same interior as the PB (138 pages)"
 				}
 			}
-		}
+		},
+		"fc_source": "landed_cost_usd.forever-changed-pb / -hb = Forever Changed (Mary Mowoe; PB 9798893073669 214pp 5.5x8.5, HB 9798893073683 jacketed) per-copy landed USD, qty 1, economy print + handling + cheapest TRACKED (duty-paid/domestic preferred). MEASURED 2026-11-24 by pmpublish, IngramSpark Print and Ship Calculator (read-only): projects/pmpublish/checks/fc-landed-costs-20261124/raw-calculator.jsonl, selected with smp-books-landed-20261113/build-landed.py measure() (Kevin 2026-11-24 'load Forever Changed real costs')."
 	},
 	"liveWave": [
 		"GB",
@@ -1005,7 +1006,9 @@
 				"spring-birds-pb": 8.91,
 				"can-i-pray-for-you-pb": 12.02,
 				"humble-influence-pb": 10.52,
-				"humble-influence-hb": 15.88
+				"humble-influence-hb": 15.88,
+				"forever-changed-pb": 12.31,
+				"forever-changed-hb": 18.12
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -1445,7 +1448,9 @@
 				"spring-birds-pb": 12.81,
 				"can-i-pray-for-you-pb": 14.75,
 				"humble-influence-pb": 14.18,
-				"humble-influence-hb": 17.92
+				"humble-influence-hb": 17.92,
+				"forever-changed-pb": 15.06,
+				"forever-changed-hb": 21.29
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -1725,7 +1730,9 @@
 				"spring-birds-pb": 13.22,
 				"can-i-pray-for-you-pb": 15.16,
 				"humble-influence-pb": 14.59,
-				"humble-influence-hb": 18.33
+				"humble-influence-hb": 18.33,
+				"forever-changed-pb": 15.47,
+				"forever-changed-hb": 21.69
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -2629,7 +2636,9 @@
 				"spring-birds-pb": 11.23,
 				"can-i-pray-for-you-pb": 13.17,
 				"humble-influence-pb": 12.6,
-				"humble-influence-hb": 16.34
+				"humble-influence-hb": 16.34,
+				"forever-changed-pb": 13.48,
+				"forever-changed-hb": 19.64
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -2837,7 +2846,9 @@
 				"spring-birds-pb": 10.98,
 				"can-i-pray-for-you-pb": 13.24,
 				"humble-influence-pb": 12.35,
-				"humble-influence-hb": 17.0
+				"humble-influence-hb": 17.0,
+				"forever-changed-pb": 13.23,
+				"forever-changed-hb": 21.08
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -3331,7 +3342,9 @@
 				"spring-birds-pb": 15.38,
 				"can-i-pray-for-you-pb": 17.32,
 				"humble-influence-pb": 16.75,
-				"humble-influence-hb": 20.49
+				"humble-influence-hb": 20.49,
+				"forever-changed-pb": 17.63,
+				"forever-changed-hb": 23.94
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -3453,7 +3466,9 @@
 				"spring-birds-pb": 13.31,
 				"can-i-pray-for-you-pb": 15.25,
 				"humble-influence-pb": 14.68,
-				"humble-influence-hb": 18.42
+				"humble-influence-hb": 18.42,
+				"forever-changed-pb": 15.56,
+				"forever-changed-hb": 21.81
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -3539,7 +3554,9 @@
 				"spring-birds-pb": 10.9,
 				"can-i-pray-for-you-pb": 12.84,
 				"humble-influence-pb": 12.27,
-				"humble-influence-hb": 16.01
+				"humble-influence-hb": 16.01,
+				"forever-changed-pb": 13.15,
+				"forever-changed-hb": 19.39
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -3603,7 +3620,9 @@
 				"spring-birds-pb": 13.4,
 				"can-i-pray-for-you-pb": 15.34,
 				"humble-influence-pb": 14.77,
-				"humble-influence-hb": 18.51
+				"humble-influence-hb": 18.51,
+				"forever-changed-pb": 15.65,
+				"forever-changed-hb": 21.9
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -4619,7 +4638,9 @@
 				"spring-birds-pb": 12.9,
 				"can-i-pray-for-you-pb": 14.84,
 				"humble-influence-pb": 14.27,
-				"humble-influence-hb": 18.01
+				"humble-influence-hb": 18.01,
+				"forever-changed-pb": 15.15,
+				"forever-changed-hb": 21.42
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -4993,7 +5014,9 @@
 				"spring-birds-pb": 12.06,
 				"can-i-pray-for-you-pb": 14.0,
 				"humble-influence-pb": 13.43,
-				"humble-influence-hb": 17.17
+				"humble-influence-hb": 17.17,
+				"forever-changed-pb": 14.31,
+				"forever-changed-hb": 20.55
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -5057,7 +5080,9 @@
 				"spring-birds-pb": 15.38,
 				"can-i-pray-for-you-pb": 17.32,
 				"humble-influence-pb": 16.75,
-				"humble-influence-hb": 20.49
+				"humble-influence-hb": 20.49,
+				"forever-changed-pb": 17.63,
+				"forever-changed-hb": 23.94
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -5225,7 +5250,9 @@
 				"spring-birds-pb": 12.06,
 				"can-i-pray-for-you-pb": 14.0,
 				"humble-influence-pb": 13.43,
-				"humble-influence-hb": 17.17
+				"humble-influence-hb": 17.17,
+				"forever-changed-pb": 14.31,
+				"forever-changed-hb": 20.55
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -5495,7 +5522,9 @@
 				"spring-birds-pb": 15.38,
 				"can-i-pray-for-you-pb": 17.32,
 				"humble-influence-pb": 16.75,
-				"humble-influence-hb": 20.49
+				"humble-influence-hb": 20.49,
+				"forever-changed-pb": 17.63,
+				"forever-changed-hb": 23.94
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -6165,7 +6194,9 @@
 				"spring-birds-pb": 11.23,
 				"can-i-pray-for-you-pb": 13.17,
 				"humble-influence-pb": 12.6,
-				"humble-influence-hb": 16.34
+				"humble-influence-hb": 16.34,
+				"forever-changed-pb": 13.48,
+				"forever-changed-hb": 19.72
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -6353,7 +6384,9 @@
 				"spring-birds-pb": 15.38,
 				"can-i-pray-for-you-pb": 17.32,
 				"humble-influence-pb": 16.75,
-				"humble-influence-hb": 20.49
+				"humble-influence-hb": 20.49,
+				"forever-changed-pb": 17.63,
+				"forever-changed-hb": 23.94
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -6415,7 +6448,9 @@
 				"spring-birds-pb": 11.98,
 				"can-i-pray-for-you-pb": 13.92,
 				"humble-influence-pb": 13.35,
-				"humble-influence-hb": 17.09
+				"humble-influence-hb": 17.09,
+				"forever-changed-pb": 14.23,
+				"forever-changed-hb": 20.46
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -6687,7 +6722,9 @@
 				"spring-birds-pb": 12.06,
 				"can-i-pray-for-you-pb": 14.0,
 				"humble-influence-pb": 13.43,
-				"humble-influence-hb": 17.17
+				"humble-influence-hb": 17.17,
+				"forever-changed-pb": 14.31,
+				"forever-changed-hb": 20.55
 			},
 			"shippingRate": null,
 			"handlingDays": null,
@@ -7301,7 +7338,9 @@
 				"spring-birds-pb": 8.38,
 				"can-i-pray-for-you-pb": 10.45,
 				"humble-influence-pb": 9.84,
-				"humble-influence-hb": 14.78
+				"humble-influence-hb": 14.78,
+				"forever-changed-pb": 10.79,
+				"forever-changed-hb": 18.56
 			},
 			"shippingRate": null,
 			"handlingDays": null,
