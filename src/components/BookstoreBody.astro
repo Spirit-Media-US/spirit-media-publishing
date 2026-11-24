@@ -652,6 +652,42 @@ const STAT_YEARS = statYearsNow.getFullYear() - 2022 - (statYearsNow.getMonth() 
 // (the collection key is its slug, as bookstore/[collection].astro builds it) and the page's first view is in the HTML.
 // The script still filters in place and redraws the grid with its full cards on load.
 const collectionHref = (c: string) => (c ? `/bookstore/${c}/` : '/bookstore/');
+// 3ex-2 (pmseoaeo 2026-11-24, post-11-24 set): Book LD `isbn` where it is KNOWABLE from data, never typed per card:
+// (1) a card on its own book page (SMP /books/<slug>/ or FHB fathersheartbible.com/books/<slug>/) takes the ISBN of that
+// book's store SKU (book-skus.json), paperback first, with its binding; (2) else a card still on Amazon takes the
+// ISBN-10 in its /dp/ URL. ASIN-only (B0..) and other links stay without one. No price or offer is added here.
+{
+	const skusByBook = new Map<string, any[]>();
+	for (const f of Object.values(BOOK_SKUS as Record<string, any>)) {
+		if (!f.isbn || !f.bookSlug) continue;
+		if (!skusByBook.has(f.bookSlug)) skusByBook.set(f.bookSlug, []);
+		skusByBook.get(f.bookSlug)?.push(f);
+	}
+	for (const b of rawBooks as any[]) {
+		if (b.isbn) continue;
+		const page = /^(?:https:\/\/fathersheartbible\.com)?\/books\/([^/]+)\/$/.exec(b.amazon || '');
+		let skus = page ? (skusByBook.get(page[1]) ?? []) : [];
+		// a variant card ("Home (Colored)", "Only God Works (Arabic)") takes only the SKU naming that variant; none = no isbn
+		const variant = /\(([^)]+)\)\s*$/.exec(b.display_title || b.title || '')?.[1].toLowerCase();
+		if (variant) {
+			const re = /^colou?r/.test(variant)
+				? /colou?red|\bcolou?r\b/i
+				: /^(b&w|black and white)$/.test(variant)
+					? /black and white|b&w/i
+					: new RegExp(`\\b${variant.replace(/[^a-z]/g, '') || '(?!)'}\\b`, 'i');
+			skus = skus.filter((x) => re.test(`${x.format} ${x.title}`));
+		}
+		const f =
+			skus.find((x) => /^Paperback/.test(x.format)) ?? skus.find((x) => /^Hardback/.test(x.format));
+		if (f) {
+			b.isbn = f.isbn;
+			b.binding = /^Hardback/.test(f.format) ? 'hb' : 'pb';
+			continue;
+		}
+		const dp = /amazon\.[a-z.]+\/(?:[^?#]*\/)?dp\/(\d{9}[\dX])(?:[/?#]|$)/.exec(b.amazon || '');
+		if (dp) b.isbn = dp[1];
+	}
+}
 const initialBooks = rawBooks
 	.filter((b: any) => !initialCollection || b.colls.includes(initialCollection))
 	.sort((x: any, y: any) =>
