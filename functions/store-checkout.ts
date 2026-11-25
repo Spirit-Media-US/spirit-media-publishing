@@ -49,6 +49,7 @@ import {
 	familyOf,
 	familyOfSku,
 	firstOrderPromo,
+	forwarderCoupon,
 	isEbookSku,
 	isFirstOrder,
 	type OrderPayload,
@@ -113,6 +114,7 @@ async function printForm(
 		enabled: Boolean(key),
 		isFirstOrder: (em) => isFirstOrder(em, key as string),
 		firstOrderPromo: () => firstOrderPromo(key as string),
+		forwarderCoupon: (f) => forwarderCoupon(key as string, f),
 	});
 }
 
