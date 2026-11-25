@@ -1650,3 +1650,24 @@ test('pre-order: a ship_after SKU is charged now, its session says preorder + sh
 	assert.ok([...o.form.keys()].some((k) => k.includes('[delivery_estimate]')), 'an ordinary order keeps its delivery estimate');
 	assert.doesNotMatch(o.form.get('shipping_options[0][shipping_rate_data][display_name]'), /release/);
 });
+
+// SHIPS ON PUBLICATION (pmshipping 2026-11-25 option 2; Kevin 10-29 L1126 direct sale stands): a direct-sale language not yet
+// on sale (isbn-list onSale:false) is still SOLD, and its Stripe line says it ships on publication; an on-sale one is unchanged.
+test('direct-sale language not yet on sale: sold (200, session) with "(ships on publication)" on its Stripe line; on-sale unchanged', async () => {
+	const fhb = { origin: 'https://fathersheartbible.com' };
+	const line = (f) => [...f.entries()].find(([k]) => /^line_items\[0\]\[price_data\]\[product_data\]\[name\]$/.test(k))?.[1] ?? '';
+	const hil = await post({ counts: { 'lang-hil-hb': 4 }, country: 'US', returnPath: '/print/order/' }, fhb);
+	assert.equal(hil.status, 200);
+	assert.equal(hil.json.url, 'https://stripe.test/s', 'still sells: Kevin 10-29 direct sale');
+	assert.match(line(hil.form), /Hiligaynon.*Hardback \(ships on publication\)$/);
+	const am = await post({ counts: { 'lang-am-hb': 1 }, country: 'US', returnPath: '/print/order/' }, fhb);
+	assert.equal(am.status, 200);
+	assert.doesNotMatch(line(am.form), /ships on publication/);
+	const isbn = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/isbn-list.json', import.meta.url), 'utf8'));
+	const { shipsOnPublication } = await import('../src/store-engine/lib/storeEngine.ts');
+	for (const l of isbn.languages)
+		for (const b of ['hb', 'pb'])
+			if (l.code === 'hil' || l.code === 'am')
+				assert.equal(shipsOnPublication(`lang-${l.code}-${b}`), l.onSale === false, `${l.code}-${b}`);
+	assert.equal(shipsOnPublication('lang-yaf-hb'), false, 'a pre-order keeps its own (pre-order) label, never both');
+});
