@@ -47,9 +47,13 @@ import bookSkus from '../../../store-engine/data/book-skus.json';
 import engineBooks from '../../../store-engine/data/books.json';
 import { handlingFeeCents, shippingDetailsFor } from '../../../store-engine/lib/marginGuard.ts';
 import {
+	BOOK_BULK_TIERS,
 	BOOK_SKUS,
 	FIRST_ORDER_PCT,
 	isDiscountExempt,
+	preorderShipAfter,
+	releaseDateText,
+	unitAfter,
 } from '../../../store-engine/lib/order-pricing.ts';
 import { LIVE_COUNTRIES } from '../../../store-engine/lib/shipCountries.ts';
 import { checkoutForm, EBOOK_SKUS, ebookForBook } from '../../../store-engine/lib/storeEngine.ts';
@@ -284,7 +288,13 @@ export async function getStaticPaths() {
 					schema_format: x.schema_format,
 					isbn: x.isbn,
 					isbn_display: x.isbn_display,
-					list_cents: Number.isInteger(x.list_cents) ? x.list_cents : null,
+					// ONE price per SKU: a format the store engine sells is priced from its registry row (what the checkout
+					// charges); the ship set's own copy is the fallback for a format the engine does not sell
+					list_cents: Number.isInteger(SKUS[x.sku]?.list_cents)
+						? SKUS[x.sku].list_cents
+						: Number.isInteger(x.list_cents)
+							? x.list_cents
+							: null,
 					pages: Number.isInteger(x.pages) ? x.pages : null,
 					trim: trimOf(x.trim),
 				})),
@@ -447,6 +457,13 @@ const sellFormats = p.formats
 	.filter((f) => f.list_cents != null && BOOK_SKUS[f.sku])
 	.sort((a, b) => rank(a) - rank(b));
 const servedRows = LIVE_COUNTRIES.filter((c) => p.served.includes(c.code));
+// the latest release date among the formats on sale as a pre-order (null = none): the order box says when it ships
+const preorderDate =
+	sellFormats
+		.map((f) => preorderShipAfter(f.sku))
+		.filter((d): d is string => Boolean(d))
+		.sort()
+		.pop() ?? null;
 const countries = servedRows.map((c) => ({ code: c.code, name: c.name }));
 // The FHB-standard order area (BookOrder) on English pages that sell; es/fr keep their reviewed-string form for now.
 // es/fr pages get the same box in their language (Kevin 2026-11-15 "2A")
@@ -575,6 +592,28 @@ const T = (
 	} as const
 )[p.lang === 'es' || p.lang === 'fr' ? p.lang : 'en'];
 const fmt = (f: string) => T.formats[f] ?? f;
+// PER-BOOK BULK TIERS on a book that is not sold yet (book-skus.json `pending`, Kevin 2026-11-20 Outrageously Loved):
+// the pending box shows the format's own ladder as rows of copies -> unit price (the same unitAfter the engine charges)
+// and says it opens at release. No form, no button, no Offer: nothing here sells.
+const pendingTiers = p.orderable
+	? []
+	: p.formats
+			.filter((f) => f.list_cents != null && BOOK_BULK_TIERS[f.sku])
+			.map((f) => {
+				const up = [...BOOK_BULK_TIERS[f.sku]].sort((a, b) => a.min - b.min);
+				const list = f.list_cents as number;
+				return {
+					format: f.format,
+					rows: [
+						{ copies: `1–${up[0].min - 1}`, pct: 0, unit: list },
+						...up.map((t, i) => ({
+							copies: up[i + 1] ? `${t.min}–${up[i + 1].min - 1}` : `${t.min}+`,
+							pct: t.pct,
+							unit: unitAfter(list, t.pct),
+						})),
+					],
+				};
+			});
 
 // TITLE IN THE COVER'S COLOUR (the FHB edition-page method, Kevin 2026-11-14 '1A'): measured per cover in
 // src/data/books/cover-colors.json; a pale cover keeps its colour with a thin dark outline (W3C G18) on the big
@@ -676,11 +715,15 @@ const returnChunks: ReturnType<typeof returnPolicyFor>[] = [];
 for (let i = 0; i < p.served.length; i += MAX_RETURN_COUNTRIES)
 	returnChunks.push(returnPolicyFor(p.served.slice(i, i + MAX_RETURN_COUNTRIES)));
 const returnPolicy = returnChunks.length === 1 ? returnChunks[0] : returnChunks;
+// PRE-ORDER (book-skus.json ship_after, Kevin 2026-11-24 MMFI): sold now, ships at release -> PreOrder + availabilityStarts
 const offerFor = (f: Fmt) => ({
 	'@type': 'Offer',
 	price: ((f.list_cents as number) / 100).toFixed(2),
 	priceCurrency: 'USD',
-	availability: 'https://schema.org/InStock',
+	availability: preorderShipAfter(f.sku)
+		? 'https://schema.org/PreOrder'
+		: 'https://schema.org/InStock',
+	...(preorderShipAfter(f.sku) ? { availabilityStarts: preorderShipAfter(f.sku) } : {}),
 	itemCondition: 'https://schema.org/NewCondition',
 	url: `${url}#order`,
 	sku: f.sku,
@@ -812,9 +855,11 @@ const crumbs = {
 							</div>
 						)}
 						{p.page?.hero?.offer_line && <p class="mt-4 text-sm font-semibold text-stone-700">{p.page.hero.offer_line}</p>}
+						{/* Kevin 2026-11-24: an optional hero button under the offer line, to the page's own order box (MMFI "Reserve your copy today"). */}
+						{p.page?.hero?.offer_cta && <div class="mt-4"><a href="#order" class="btn btn-primary min-h-12 px-7">{p.page.hero.offer_cta}</a></div>}
 						{(hasViewer || p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0 || (!orderBox && !retail && !ebookOnly)) && (
 							<div class="mt-5 flex flex-wrap gap-3">
-								{!orderBox && !retail && !ebookOnly && <a href="#order" class="btn btn-primary min-h-12 px-7">{T.order}</a>}
+								{!orderBox && !retail && !ebookOnly && <a href="#order" class="btn btn-primary min-h-12 px-7">{pendingTiers.length > 0 ? 'Bulk pricing' : T.order}</a>}
 								{/* Kevin 2026-11-14: the SAME Look inside as FHB: the button opens the page viewer (front through Chapter 1). */}
 								{hasViewer ? <LookInside slug={p.slug} title={p.title} size="lg" label={T.look} /> : (p.page?.look_inside?.length > 0 || p.page?.look_inside_text?.blocks?.length > 0) && <a href="#look-inside" class="book-look">{T.look}</a>}
 							</div>
@@ -864,7 +909,20 @@ const crumbs = {
 										</li>
 									))}
 								</ul>
-								<p class="mt-4 border-t border-stone-200 pt-3 text-stone-700">{T.soon}</p>
+								{pendingTiers.map((pt) => (
+									<div class="mt-4 border-t border-stone-200 pt-3" data-bulk-tiers>
+										<h2 class="text-base font-bold text-ink">Bulk pricing · {fmt(pt.format)} · US orders</h2>
+										<table class="mt-2 w-full text-left text-[0.95rem]">
+											<thead><tr class="text-stone-600"><th class="py-1 font-semibold">Copies</th><th class="py-1 font-semibold">Discount</th><th class="py-1 text-right font-semibold">Each</th></tr></thead>
+											<tbody>
+												{pt.rows.map((r) => (
+													<tr class="border-t border-stone-200"><td class="py-1.5">{r.copies}</td><td class="py-1.5">{r.pct > 0 ? `${r.pct}% off` : 'List price'}</td><td class="py-1.5 text-right font-bold text-ink">{money(r.unit)}</td></tr>
+												))}
+											</tbody>
+										</table>
+									</div>
+								))}
+								<p class="mt-4 border-t border-stone-200 pt-3 text-stone-700">{T.soon}{pendingTiers.length > 0 && ' Bulk pricing is available when the book is released.'}</p>
 							</div>
 						)}
 				</div>
@@ -873,7 +931,7 @@ const crumbs = {
 		{/* The order area in its own unpadded band, so the black country marquee runs edge to edge (FHB standard). */}
 		{(orderBox || ebookOnly) && (
 			<section class="bg-stone-50 pb-10" aria-label={`${T.order} ${p.title}`}>
-				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={orderBox ? sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number })) : []} countries={orderBox ? countries : []} feeCfg={feeCfg} firstOrder={firstOrder || ebookOnly} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} ebook={ebook} />
+				<BookOrder slug={p.slug} title={p.title} titleStyle={titleStyle} formats={orderBox ? sellFormats.map((f) => ({ sku: f.sku, format: f.format, list_cents: f.list_cents as number })) : []} countries={orderBox ? countries : []} feeCfg={feeCfg} firstOrder={firstOrder || ebookOnly} firstOrderPct={FIRST_ORDER_PCT} returnDays={RETURN_DAYS} lang={p.lang ?? 'en'} ebook={ebook} preorder={preorderDate ? releaseDateText(preorderDate) : undefined} />
 			</section>
 		)}
 

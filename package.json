@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "node scripts/sync-youversion-stats.mjs && node scripts/sync-100club-registry.mjs && rm -rf public/studio && sanity build public/studio --yes && node scripts/llms-books.mjs && astro build && node scripts/gen-merchant-feed.mjs && node scripts/async-css.mjs && node scripts/100club-verify.mjs && node scripts/sitemap-lastmod-verify.mjs && node --test scripts/store-engine-sync.test.mjs scripts/store-checkout.test.mjs scripts/llms-books.test.mjs scripts/merchant-feed.test.mjs scripts/openai-feed.test.mjs scripts/do-not-publish.test.mjs scripts/cover-hero.test.mjs scripts/xsite-links.test.mjs scripts/book-titles.test.mjs scripts/author-sites.test.mjs",
+		"build": "node scripts/sync-youversion-stats.mjs && node scripts/sync-100club-registry.mjs && rm -rf public/studio && sanity build public/studio --yes && node scripts/llms-books.mjs && astro build && node scripts/gen-merchant-feed.mjs && node scripts/async-css.mjs && node scripts/100club-verify.mjs && node scripts/sitemap-lastmod-verify.mjs && node --test scripts/store-engine-sync.test.mjs scripts/store-checkout.test.mjs scripts/store-webhook.test.mjs scripts/ebook-download.test.mjs scripts/llms-books.test.mjs scripts/merchant-feed.test.mjs scripts/openai-feed.test.mjs scripts/do-not-publish.test.mjs scripts/cover-hero.test.mjs scripts/xsite-links.test.mjs scripts/book-titles.test.mjs scripts/author-sites.test.mjs",
 		"preview": "astro preview",
 		"astro": "astro",
 		"check": "biome check --write",

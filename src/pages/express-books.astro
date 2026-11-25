@@ -1,5 +1,6 @@
 ---
 import FaqSection from '../components/FaqSection.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import Layout from '../layouts/Layout.astro';
 
 // 2yw G3 (pmseoaeo 2026-11-12): FAQ built ONLY from sentences already on this page.
@@ -166,5 +167,8 @@ const expressFaqs = [
 			</div>
 		</section>
 
+		{/* 3ed-2 / 3bz (pmseoaeo 2026-11-24 post-11-24 set): link the self-publishing posts; anchor = each post's own
+		    Sanity title, same pattern as /reels-for-authors/. No new prose. */}
+		<RelatedPosts currentSlug="" currentTags={[]} heading="Related guides" slugs={["who-can-help-me-self-publish-my-book", "christian-self-publishing-companies"]} />
 	</main>
 </Layout>

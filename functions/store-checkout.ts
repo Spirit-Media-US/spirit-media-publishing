@@ -16,9 +16,10 @@
 // already charges into (one account, sales split by metadata[site]); fulfilment runs through FHB's print-webhook exactly
 // as for FHB orders (metadata[kind]=dvc_print). Every session carries site + window + family (storeTagErrors gates it).
 
+import { bibleEbookForm } from '../src/lib/bibleEbook.ts';
 import {
+	addRiabGift,
 	brandRiabForm,
-	donationRefusal,
 	engineCounts,
 	RIAB_BRAND,
 	RIAB_MAX_COPIES,
@@ -26,8 +27,10 @@ import {
 	RIAB_SLUG,
 	type RiabGateEnv,
 	riabCounts,
+	riabGiftPlan,
 	riabKey,
 	riabQuote,
+	riabSignedRefusal,
 } from '../src/lib/riabOrder.ts';
 import {
 	allowCheck,
@@ -55,6 +58,7 @@ import {
 
 interface Env extends RiabGateEnv {
 	STRIPE_STORE_SECRET_KEY?: string;
+	STORE_EBOOK?: R2Bucket; // the private eBook bucket: no binding, no Bible eBook sale (nothing could deliver it)
 }
 
 /** Sites that may start an SMP checkout (contract 3fe sites registry). */
@@ -146,14 +150,22 @@ export async function smpCheckoutForm(
 }
 
 /** RAISED IN A BARN branded checkout (src/lib/riabOrder.ts): same engine form, RIAB's ladder + signed split + branding.
- *  Refusals run before any Stripe call, in this order: bad cart, too many, donation (not built), key/test-mode gate. */
+ *  Refusals run before any Stripe call, in this order: bad cart, too many, gift (amount, designation, Connect switch),
+ *  key/test-mode gate. A gift is its own line, transferred to Spirit Media Charities (riabOrder.ts (c)). */
 export async function riabCheckout(
-	payload: OrderPayload & { donation_cents?: unknown; utm?: Record<string, string> },
+	payload: OrderPayload & {
+		donation_cents?: unknown;
+		designation?: unknown;
+		fee_cover?: unknown;
+		utm?: Record<string, string>;
+	},
 	requestUrl: string,
 	env: RiabGateEnv,
 ) {
 	const counts = riabCounts(payload.counts as Record<string, unknown>);
 	if (!counts) return { status: 400, body: { error: 'invalid_selection' } } as const;
+	const noSigned = riabSignedRefusal(counts);
+	if (noSigned) return { status: 400, body: noSigned } as const;
 	const country = String(payload.country ?? 'US').toUpperCase();
 	const q = riabQuote(counts, country);
 	if (q.copies < 1) return { status: 400, body: { error: 'empty' } } as const;
@@ -165,11 +177,9 @@ export async function riabCheckout(
 				message: `For more than ${RIAB_MAX_COPIES} copies, please contact us.`,
 			},
 		} as const;
-	const d = donationRefusal(payload.donation_cents, env);
-	if (d) return { status: 400, body: d } as const;
-	const signed =
-		(counts['raised-in-a-barn-hb-signed'] ?? 0) + (counts['raised-in-a-barn-pb-signed'] ?? 0);
-	const k = riabKey(env, signed > 0);
+	const gift = riabGiftPlan(payload, env);
+	if (gift && 'error' in gift) return { status: 400, body: gift } as const;
+	const k = riabKey(env);
 	if ('status' in k) return k;
 	const r = await smpCheckoutForm(
 		{
@@ -186,6 +196,7 @@ export async function riabCheckout(
 	);
 	if (!('form' in r)) return r;
 	brandRiabForm(r.form, counts, country);
+	if (gift) addRiabGift(r.form, gift);
 	return createSession(r.form, k.key);
 }
 
@@ -341,6 +352,17 @@ const handlePost: PagesFunction<Env> = async ({ request, env }) => {
 			console.error('store-checkout riab threw', e);
 			return json({ error: 'exception' }, 500);
 		}
+	}
+	// THE FHB BIBLE EBOOK (moved from FHB /ebook-checkout, move 5): the FHB window's button posts { bibleEbook: true }.
+	// FHB window only; the buyer returns to that FHB origin (its /ebook-download forwards to SMP's).
+	if ((payload as { bibleEbook?: unknown }).bibleEbook === true) {
+		if (crossSite !== 'fhb') return json({ error: 'bible_fhb_only' }, 400);
+		if (!env.STRIPE_STORE_SECRET_KEY || !env.STORE_EBOOK)
+			return json({ disabled: true, message: 'Direct download is not enabled yet.' });
+		const form = bibleEbookForm(origin as string);
+		if (storeTagErrors(form).length) return json({ error: 'untagged' }, 500);
+		const s = await createSession(form, env.STRIPE_STORE_SECRET_KEY);
+		return json(s.body, s.status);
 	}
 	// contract 3fe: the server derives the site from Origin. A cross-origin form returns its buyer (success + cancel)
 	// to ITS OWN origin; the engine accepts /books/<slug>/ there only for a slug in its catalogue (no open redirect).

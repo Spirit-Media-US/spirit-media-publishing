@@ -143,6 +143,7 @@ const CARTS = [
 	{ id: 'empty', counts: {}, email: 'new@y.co', country: 'US' },
 	{ id: 'no-email', counts: { 'moms-pb': 5 }, email: '', country: 'US', returnPath: '/bibles/spanish-bible/' },
 ];
+const SELLER = /(&custom_text%5Bsubmit%5D%5Bmessage%5D=|%20|\+)Sold(%20|\+)and(%20|\+)shipped(%20|\+)by(%20|\+)Spirit(%20|\+)Media(%20|\+)Publishing\./;
 const TAGS_TAIL = /&metadata%5Bsite%5D=fhb&metadata%5Bwindow%5D=fhb&metadata%5Bfamily%5D=[a-z_%2B]+$/;
 test('item 2: FHB Bible box carts -> /store-checkout send the IDENTICAL Stripe request /dvc-checkout sent (+ tags only)', async () => {
 	const fs = await import('node:fs');
@@ -178,6 +179,9 @@ test('item 2: FHB Bible box carts -> /store-checkout send the IDENTICAL Stripe r
 		if (body) {
 			assert.match(got.body, TAGS_TAIL, `${c.id}: tags at the end`);
 			got.body = got.body.replace(TAGS_TAIL, '');
+			// Kevin 2026-11-24 ~19:4xZ ("d b"): the ONE intended addition since the golden = the seller line on the checkout page.
+			assert.match(got.body, SELLER, `${c.id}: seller line on the Stripe page`);
+			got.body = got.body.replace(SELLER, '');
 		}
 		assert.deepEqual(day(got), day(want[c.id]), `cart ${c.id}: Stripe request differs from /dvc-checkout`);
 	}
@@ -386,23 +390,18 @@ test('store-checkout routes an eBook cart to the engine eBook form (no shipping)
 		delete EBOOK_SKUS['fixture-book-ebook'];
 	}
 });
-test('/ebook-download on SMP forwards only s/e/t/dl to FHB (dev preview from pages.dev) and passes the answer back', async () => {
-	const { onRequestGet, upstreamFor } = await import('../functions/ebook-download.ts');
-	assert.equal(upstreamFor(new URL('https://spiritmediapublishing.com/x')), 'https://fathersheartbible.com');
-	assert.equal(upstreamFor(new URL('https://riab-pilot.spirit-media-publishing.pages.dev/x')), 'https://dev.fathersheartbible.pages.dev');
-	let seen = '';
+// MOVED (map smp-store-one-home-v1 move 3, Kevin 2026-11-20 ~18:51Z): SMP /ebook-download no longer forwards to FHB; it
+// serves from its own R2 binding (scripts/ebook-download.test.mjs). This guards against the proxy coming back.
+test('/ebook-download on SMP serves itself: it never forwards to FHB', async () => {
+	const { onRequestGet } = await import('../functions/ebook-download.ts');
+	const seen = [];
 	globalThis.fetch = async (u) => {
-		seen = String(u);
-		return new Response('nope', { status: 403, headers: { 'content-type': 'text/html', 'set-cookie': 'x=1' } });
+		seen.push(String(u));
+		return new Response('{"error":{}}', { status: 404 });
 	};
-	const r = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=cs_test_1&e=a-ebook&t=SIG&dl=epub&evil=1') });
-	assert.equal(seen, 'https://fathersheartbible.com/ebook-download?s=cs_test_1&e=a-ebook&t=SIG&dl=epub');
-	assert.equal(r.status, 403, 'the refusal passes through');
-	assert.equal(r.headers.get('set-cookie'), null);
-	globalThis.fetch = async () => new Response(null, { status: 302, headers: { location: '/ebook-download?s=a&e=b&t=c' } });
-	const r2 = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=a') });
-	assert.equal(r2.status, 302);
-	assert.equal(r2.headers.get('location'), '/ebook-download?s=a&e=b&t=c', 'the buyer stays on SMP');
+	const r = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/ebook-download?s=cs_test_1234567890&e=a-ebook&t=SIG&v=2&dl=epub'), env: { STRIPE_STORE_SECRET_KEY: 'k', EBOOK_LINK_SECRET: 's', STORE_EBOOK: { get: async () => null } } });
+	assert.equal(r.status, 403, 'a bad signature is refused here');
+	assert.deepEqual(seen.filter((u) => /fathersheartbible/.test(u)), [], 'nothing goes to FHB');
 });
 test('book pages: one full page per book; order form ON the sellable ones; no internal wording; no Offer while unsellable; calm', async () => {
 	const fs = await import('node:fs');
@@ -410,7 +409,7 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 	const sold = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/books.json', import.meta.url), 'utf8')).books;
 	const dist = new URL('../dist/books/', import.meta.url);
 	const REG = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
-	assert.equal(set.titles.length, 144); // 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY)
+	assert.equal(set.titles.length, 148); // + 1 (Make Me Feel Important, Kevin 2026-11-24: pre-order page, PB + HB sold now, ships at release) + 30 (3fu) + 8 (3gc) + 6 (3ge) + 5 (3gf) + 1 (3gi) + 3 (3gk) + 2 (3gl) + 5 (3gs) + 84 (pmprint lane 5, 2026-11-16: lane-0 intake PRINT + DIGITAL-ONLY) + 1 (Outrageously Loved, Kevin 2026-11-20: page + bulk tiers, not sold yet) + 2 (Seed of David Book Two + Your Time, Kevin 2026-11-16 'we want book page for every book for SEO/AEO even if we can't sell it', worker L 2026-11-21)
 	// BOOK PAGES SWITCH: production builds only Kevin-approved pages (src/data/books/pages-live.json);
 	// a BOOKS_PREVIEW_ALL=1 preview builds every one. An unapproved page that builds on production fails here.
 	const ALL = process.env.BOOKS_PREVIEW_ALL === '1';
@@ -934,9 +933,9 @@ test('RIAB: HB + PB + signed copies count together toward the tier; signed = sam
 	assert.equal(q.subtotal, 15 * 2549 + 10 * 1699);
 });
 
-test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB return, no coupon', async () => {
+test('RIAB end to end (TEST key): branded session, tier price, RIAB return, no coupon', async () => {
 	const r = await riabPost({
-		counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb': 20 },
+		counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-pb': 20 },
 		utm: { source: 'raisedinabarn.org', medium: 'referral', campaign: 'buy-button' },
 	});
 	assert.equal(r.status, 200, JSON.stringify(r.json));
@@ -946,13 +945,10 @@ test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB
 	const line = (i, k) => f.get(`line_items[${i}][${k}]`);
 	assert.equal(line(0, 'price_data][product_data][name'), 'Raised in a Barn — Hardback');
 	assert.equal(line(0, 'quantity'), '30');
-	assert.equal(line(0, 'price_data][unit_amount'), '2399', '52 copies = 20% tier');
-	assert.equal(line(1, 'price_data][product_data][name'), 'Raised in a Barn — Hardback (autographed by Van Eure)');
-	assert.equal(line(1, 'quantity'), '2');
-	assert.equal(line(1, 'price_data][unit_amount'), '2399', 'signed copy, same price');
-	assert.equal(line(2, 'price_data][product_data][name'), 'Raised in a Barn — Paperback');
-	assert.equal(line(2, 'price_data][unit_amount'), '1599');
-	assert.equal(f.get('line_items[3][quantity]'), null, 'no extra lines');
+	assert.equal(line(0, 'price_data][unit_amount'), '2399', '50 copies = 20% tier');
+	assert.equal(line(1, 'price_data][product_data][name'), 'Raised in a Barn — Paperback');
+	assert.equal(line(1, 'price_data][unit_amount'), '1599');
+	assert.equal(f.get('line_items[2][quantity]'), null, 'no extra lines');
 	assert.match(line(0, 'price_data][product_data][description'), /by Van Eure · 20% bulk discount · sold by Spirit Media Publishing/);
 	assert.match(line(0, 'price_data][product_data][images][0'), /raised-in-a-barn-1200\.jpg$/);
 	assert.equal(f.get('cancel_url'), 'https://spiritmediapublishing.com/checkout/raised-in-a-barn/?order=canceled');
@@ -962,11 +958,12 @@ test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB
 	assert.equal(f.get('metadata[window]'), 'smp');
 	assert.equal(f.get('metadata[pct_off]'), '20');
 	assert.equal(f.get('metadata[offer]'), 'riab_bulk');
-	assert.equal(f.get('metadata[signed]'), 'raised-in-a-barn-hb:2,raised-in-a-barn-pb:0');
-	assert.match(f.get('metadata[signed_route]'), /^UNCONFIRMED/);
+	assert.equal(f.get('metadata[signed]'), null, 'no signed copies online (Kevin 11-22)');
+	assert.equal(f.get('metadata[breakdown]'), 'raised-in-a-barn-hb:30,raised-in-a-barn-pb:20');
+	assert.equal(f.get('metadata[total]'), '50');
 	assert.equal(f.get('metadata[utm_source]'), 'raisedinabarn.org');
 	const books = [f.get('metadata[book_1]'), f.get('metadata[book_2]')].join('\n');
-	assert.match(books, /format=Hardback\|qty=32\|unit_cents=2399\|/);
+	assert.match(books, /format=Hardback\|qty=30\|unit_cents=2399\|/);
 	assert.match(books, /format=Paperback\|qty=20\|unit_cents=1599\|/);
 	assert.equal(f.get('discounts[0][promotion_code]'), null);
 	assert.match(f.get('custom_text[submit][message]'), /Raised in a Barn by Van Eure\. Sold and shipped by Spirit Media Publishing\./);
@@ -974,44 +971,159 @@ test('RIAB end to end (TEST key): branded session, tier price, signed line, RIAB
 	let sum = 0;
 	for (let i = 0; f.get(`line_items[${i}][quantity]`); i++)
 		sum += Number(f.get(`line_items[${i}][quantity]`)) * Number(f.get(`line_items[${i}][price_data][unit_amount]`));
-	assert.equal(sum, 32 * 2399 + 20 * 1599);
+	assert.equal(sum, 30 * 2399 + 20 * 1599);
 });
 
-test("RIAB: one signed copy is list price with no bulk text (the engine's own offer, unchanged)", async () => {
-	const r = await riabPost({ counts: { 'raised-in-a-barn-pb-signed': 1 } });
-	assert.equal(r.status, 200);
-	assert.equal(r.form.get('line_items[0][price_data][unit_amount]'), '1999');
-	assert.doesNotMatch(r.form.get('line_items[0][price_data][product_data][description]'), /bulk/);
-	assert.equal(r.form.get('metadata[pct_off]'), '0');
+test('RIAB FAILURE: autographed copies are NOT sold online (Kevin 2026-11-22: only at the Angus Barn), refused before Stripe', async () => {
+	for (const counts of [{ 'raised-in-a-barn-pb-signed': 1 }, { 'raised-in-a-barn-hb-signed': 2 }, { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-pb-signed': 1 }]) {
+		const r = await riabPost({ counts });
+		assert.equal(r.status, 400, JSON.stringify(counts));
+		assert.equal(r.json.error, 'autographed_not_online');
+		assert.match(r.json.message, /only at the Angus Barn/);
+		assert.equal(r.calls.length, 0, 'no Stripe call');
+	}
+	const live = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
+	assert.equal(live.json.error, 'autographed_not_online', 'refused even with live checkout open');
+	const gift = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 2 }, donation_cents: 2500, designation: 'foh' }, { env: { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'acct_1TESTsmc' } });
+	assert.equal(gift.json.error, 'autographed_not_online', 'refused with a gift too');
+	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-pb': 1 } })).status, 200, 'unsigned still sells');
 });
 
-test('RIAB FAILURE: a donation is refused before any Stripe call, with or without SMC configured, never added to SMP', async () => {
-	for (const env of [
-		{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY },
-		{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'acct_test_smc' },
-		{},
-	]) {
-		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2500 }, { env });
+test('RIAB GIFT FAILURE: refused before any Stripe call while SMC is not connected, and never added to SMP', async () => {
+	for (const env of [{ STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY }, { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'not-an-acct' }, {}]) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2500, designation: 'cf' }, { env });
 		assert.equal(r.status, 400);
 		assert.equal(r.json.error, 'donation_unavailable');
 		assert.equal(r.calls.length, 0, 'no Stripe call at all');
 	}
-	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 2550 })).json.error, 'invalid_donation');
-	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: -100 })).json.error, 'invalid_donation');
 	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: 0 })).status, 200, 'no gift = normal order');
 });
 
-test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; signed needs RIAB_SIGNED_ROUTE on live', async () => {
+const SMC_ENV = { STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY, SMC_CONNECTED_ACCOUNT: 'acct_1TESTsmc' };
+test('RIAB GIFT: amount bounds are whole dollars $1-$10,000, refused before Stripe', async () => {
+	for (const c of [50, 2550, -100, 1_000_100, 'abc', 1.5]) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: c, designation: 'cf' }, { env: SMC_ENV });
+		assert.equal(r.json.error, 'invalid_donation', String(c));
+		assert.equal(r.calls.length, 0);
+	}
+	for (const c of [100, 1_000_000]) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 }, donation_cents: c, designation: 'foh' }, { env: SMC_ENV });
+		assert.equal(r.status, 200, `${c} ${JSON.stringify(r.json)}`);
+	}
+});
+
+test('RIAB GIFT: a designation is required once a gift is given (cf | foh | split only)', async () => {
+	for (const d of [undefined, '', 'both', 'CF']) {
+		const r = await riabPost({ counts: { 'raised-in-a-barn-pb': 1 }, donation_cents: 2500, designation: d }, { env: SMC_ENV });
+		assert.equal(r.json.error, 'designation_required', String(d));
+		assert.equal(r.calls.length, 0);
+	}
+});
+
+test('RIAB GIFT: fee-cover math: the charity nets the full gift when covered; the fee comes out of it when not', async () => {
+	const { riabFeeCover, riabCardFee, riabShares } = await riabLib();
+	for (const g of [100, 2500, 10000, 99900, 1_000_000]) {
+		const x = riabFeeCover(g);
+		assert.ok(g + x - (g + x) * 0.029 >= g - 0.5, `${g}: net after 2.9% >= gift`);
+		assert.ok(g + (x - 1) - (g + x - 1) * 0.029 < g, `${g}: cover is the smallest that works`);
+	}
+	assert.equal(riabFeeCover(10000), 299, '$100 gift -> +$2.99');
+	assert.equal(riabCardFee(10000), 290, 'uncovered $100 -> charity receives $97.10');
+	assert.deepEqual(riabShares('split', 10299), { cf: 5150, foh: 5149 });
+	assert.deepEqual(riabShares('cf', 500), { cf: 500, foh: 0 });
+});
+
+test('RIAB GIFT: own line + transfer to SMC + metadata; the purchase lines are byte-identical to a gift-free order', async () => {
+	const counts = { 'raised-in-a-barn-hb': 2, 'raised-in-a-barn-pb': 1 };
+	const base = await riabPost({ counts }, { env: SMC_ENV });
+	const cov = await riabPost({ counts, donation_cents: 10000, designation: 'split', fee_cover: true }, { env: SMC_ENV });
+	assert.equal(cov.status, 200, JSON.stringify(cov.json));
+	const f = cov.form;
+	assert.equal(f.get('metadata[donation_cents]'), '10000');
+	assert.equal(f.get('metadata[designation]'), 'split');
+	assert.equal(f.get('metadata[fee_covered]'), 'true');
+	assert.equal(f.get('metadata[donation_fee_cover_cents]'), '299');
+	assert.equal(f.get('metadata[donation_total_cents]'), '10299');
+	assert.equal(f.get('payment_intent_data[transfer_data][destination]'), 'acct_1TESTsmc');
+	assert.equal(f.get('payment_intent_data[transfer_data][amount]'), '10000', 'covered: SMC receives the full gift');
+	const n = [...base.form.keys()].filter((k) => /^line_items\[\d+\]\[quantity\]$/.test(k)).length;
+	assert.match(f.get(`line_items[${n}][price_data][product_data][name]`), /^Gift to charity: Split 50\/50/);
+	assert.equal(f.get(`line_items[${n}][price_data][unit_amount]`), '10000');
+	assert.match(f.get(`line_items[${n}][price_data][product_data][description]`), /Receipted by Spirit Media Charities, a 501\(c\)\(3\)\. 100% of the amount Spirit Media Charities receives/);
+	assert.equal(f.get(`line_items[${n}][price_data][product_data][tax_code]`), 'txcd_00000000');
+	assert.equal(f.get(`line_items[${n + 1}][price_data][unit_amount]`), '299');
+	assert.doesNotMatch(f.toString(), /Father|FHB/i, 'gift text never says FHB');
+	// every key of the gift-free order is unchanged, except the submit message that adds one sentence
+	for (const [k, v] of base.form) {
+		if (k === 'custom_text[submit][message]') assert.ok(f.get(k).startsWith(v));
+		else assert.equal(f.get(k), v, k);
+	}
+	const unc = await riabPost({ counts, donation_cents: 10000, designation: 'cf' }, { env: SMC_ENV });
+	assert.equal(unc.form.get('metadata[fee_covered]'), 'false');
+	assert.equal(unc.form.get('payment_intent_data[transfer_data][amount]'), '9710', 'uncovered: the fee comes out of the gift');
+	assert.equal(unc.form.get(`line_items[${n + 1}][quantity]`), null, 'no fee line when not covered');
+	assert.equal(base.form.get('payment_intent_data[transfer_data][destination]'), null, 'no gift = no transfer');
+	assert.equal(base.form.get('metadata[donation_cents]'), null);
+	assert.ok([...f.keys()].filter((k) => k.startsWith('metadata[')).length <= 50, 'within Stripe 50 metadata keys');
+});
+
+test('RIAB FAILURE: NOTHING LIVE: a live key without RIAB_LIVE is refused; with it, an unsigned order sells', async () => {
 	const live = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x' } });
 	assert.equal(live.json.disabled, true);
 	assert.equal(live.json.error, 'riab_test_only');
 	assert.equal(live.calls.length, 0);
 	const pref = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', STRIPE_STORE_TEST_SECRET_KEY: RIAB_TEST_KEY } });
 	assert.equal(pref.json.url, 'https://stripe.test/riab', 'the TEST key is preferred when both are bound');
-	const signed = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
-	assert.equal(signed.json.error, 'signed_not_available');
-	assert.equal(signed.calls.length, 0);
+	const wrong = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'yes' } });
+	assert.equal(wrong.json.error, 'riab_test_only', 'only the exact value kevin-approved opens live');
+	assert.equal(wrong.calls.length, 0);
+	const ok = await riabPost({ counts: { 'raised-in-a-barn-hb': 1 } }, { env: { STRIPE_STORE_SECRET_KEY: 'rk_live_x', RIAB_LIVE: 'kevin-approved' } });
+	assert.equal(ok.status, 200, JSON.stringify(ok.json));
+	assert.equal(ok.json.url, 'https://stripe.test/riab', 'live opens with the exact approval value');
 });
+
+// ── RIAB SIGNED ROUTE (Kevin 2026-11-20 ~15:20Z "5. Van signs! SMP ships! ... You take the orders. I will get these
+// fulfilled."). The order notice is the store's existing one (FHB functions/print-webhook.ts -> kevin@, Mailgun): it
+// lists metadata[breakdown] under "Editions" and prints an "Ingram order lines" ISBN row only for a BOOK_SKUS key.
+// These mirror that webhook's two readers exactly (ingramLines / fmtOrder over readBreakdown) against the real
+// BOOK_SKUS, so a signed copy that leaked onto an Ingram line fails here.
+async function noticeFor(form) {
+	const { BOOK_SKUS, readBreakdown } = await import('../src/store-engine/lib/order-pricing.ts');
+	const m = {};
+	for (const [k, v] of form) {
+		const mm = /^metadata\[(.+)\]$/.exec(k);
+		if (mm) m[mm[1]] = v;
+	}
+	const parts = readBreakdown(m).split(/[,\s]+/).filter(Boolean).map((p) => [p.slice(0, p.lastIndexOf(':')), Number(p.slice(p.lastIndexOf(':') + 1))]);
+	return {
+		m,
+		editions: parts,
+		ingram: parts.filter(([sku]) => BOOK_SKUS[sku]).map(([sku, n]) => [BOOK_SKUS[sku].isbn, n]),
+	};
+}
+
+test('RIAB SIGNED ROUTE (closed 11-22): a signed-only order is refused; the signed keys never become BOOK_SKUS keys', async () => {
+	const { BOOK_SKUS } = await import('../src/store-engine/lib/order-pricing.ts');
+	const r = await riabPost({ counts: { 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb-signed': 1 } });
+	assert.equal(r.json.error, 'autographed_not_online', 'Kevin 11-22: no signed copies online; nothing reaches Stripe or Ingram');
+	assert.equal(r.calls.length, 0);
+	assert.equal(BOOK_SKUS['Raised-in-a-Barn-Hardback-AUTOGRAPHED-by-Van-Eure'], undefined, 'the signed key must never become a BOOK_SKUS key');
+	assert.equal(BOOK_SKUS['Raised-in-a-Barn-Paperback-AUTOGRAPHED-by-Van-Eure'], undefined);
+});
+
+test('RIAB: unsigned copies keep the Ingram route; a mixed cart with signed copies is refused', async () => {
+	const { BOOK_SKUS } = await import('../src/store-engine/lib/order-pricing.ts');
+	const hb = BOOK_SKUS['raised-in-a-barn-hb'].isbn;
+	const pb = BOOK_SKUS['raised-in-a-barn-pb'].isbn;
+	const u = await noticeFor((await riabPost({ counts: { 'raised-in-a-barn-hb': 3, 'raised-in-a-barn-pb': 1 } })).form);
+	assert.deepEqual(u.ingram, [[hb, 3], [pb, 1]], 'unsigned: every copy on an Ingram line');
+	assert.equal(u.m.signed, undefined);
+	assert.equal(u.m.signed_route, undefined);
+	const x = await riabPost({ counts: { 'raised-in-a-barn-hb': 30, 'raised-in-a-barn-hb-signed': 2, 'raised-in-a-barn-pb': 20, 'raised-in-a-barn-pb-signed': 5 } });
+	assert.equal(x.json.error, 'autographed_not_online', 'a mixed cart with any signed copy is refused whole');
+	assert.equal(x.calls.length, 0);
+});
+
 
 test('RIAB FAILURE: bad carts never misprice: foreign SKU, fractions, empty, over the cap, cross-origin', async () => {
 	assert.equal((await riabPost({ counts: { 'raised-in-a-barn-hb': 1, 'who-am-i-pb': 1 } })).json.error, 'invalid_selection');
@@ -1055,8 +1167,8 @@ async function riabPostPromo(payload) {
 	return { status: res.status, json: await res.json(), form: new URLSearchParams(body), calls };
 }
 
-test('RIAB no first-order 15%: 1-24 copies (HB, PB, signed) = list price, no coupon, no first-order lookup', async () => {
-	for (const sku of ['raised-in-a-barn-hb', 'raised-in-a-barn-pb', 'raised-in-a-barn-hb-signed', 'raised-in-a-barn-pb-signed']) {
+test('RIAB no first-order 15%: 1-24 copies (HB, PB) = list price, no coupon, no first-order lookup', async () => {
+	for (const sku of ['raised-in-a-barn-hb', 'raised-in-a-barn-pb']) {
 		const list = sku.startsWith('raised-in-a-barn-hb') ? 2999 : 1999;
 		for (let n = 1; n <= 24; n++) {
 			const r = await riabPostPromo({ counts: { [sku]: n }, email: 'brand-new@buyer.co' });
@@ -1179,4 +1291,362 @@ test('RIAB pages (built): no first-order offer text on the full page or the embe
 	assert.match(embed, /data-embed="1"/);
 	assert.match(embed, /<base target="_top"/);
 	assert.doesNotMatch(embed, /<nav|<footer/i, 'form only: no SMP nav or footer');
+});
+
+test('RIAB pages (built): the gift box is on BOTH the full page and the embed, with Kevin\'s wording, HIDDEN while closed', async () => {
+	const { RIAB_GIFT_UI_OPEN } = await riabLib();
+	for (const p of ['', 'embed/']) {
+		const html = fs.readFileSync(new URL(`../dist/checkout/raised-in-a-barn/${p}index.html`, import.meta.url), 'utf8');
+		const box = /<fieldset id="donate"[^>]*>/.exec(html)?.[0] ?? '';
+		assert.ok(box, `${p || 'full'}: gift box present`);
+		assert.equal(/\shidden(\s|>|=)/.test(box), !RIAB_GIFT_UI_OPEN, `${p || 'full'}: hidden exactly while RIAB_GIFT_UI_OPEN is false`);
+		assert.match(html, /Add a gift to charity \(optional\)/);
+		assert.match(html, /Receipted by Spirit Media Charities, a 501\(c\)\(3\)\. 100% of the amount Spirit Media Charities receives goes to the charity you choose/);
+		assert.match(html, /Cover the card processing fee/);
+		for (const v of ['cf', 'foh', 'split']) assert.match(html, new RegExp(`name="designation" value="${v}"`));
+		assert.doesNotMatch(html, /SM Charities|Cheyenne Foundation fund/, 'old wording gone');
+	}
+});
+
+// ── PER-BOOK BULK TIERS (Kevin 2026-11-20, Outrageously Loved: "build SMP page for this book with bulk pricing discount";
+// tiers approved the same day: 1-9 list, 10-24 20%, 25-99 30%, 100+ 40%). The book has NO Ingram title yet, so its row is
+// under book-skus.json `pending`: a page with the offer, nothing sellable.
+const OL = 'outrageously-loved-pb';
+const engineDeps = (first = false) => ({ enabled: true, isFirstOrder: async () => first, firstOrderPromo: async () => (first ? 'promo_1' : null) });
+const A_SMP = 'https://spiritmediapublishing.com/store-checkout';
+
+test('OL bulk tiers: 9 = list, 10 = 20%, 24 = 20%, 25 = 30%, 99 = 30%, 100 = 40%; US only; units $9.99/$7.99/$6.99/$5.99', async () => {
+	const { bookTierPct, BOOK_BULK_TIERS, PENDING_SKUS, unitAfter } = await import('../src/store-engine/lib/order-pricing.ts');
+	assert.ok(PENDING_SKUS.includes(OL), 'OL is a pending row');
+	assert.deepEqual(BOOK_BULK_TIERS[OL], [{ min: 100, pct: 40 }, { min: 25, pct: 30 }, { min: 10, pct: 20 }]);
+	for (const [n, pct] of [[1, 0], [9, 0], [10, 20], [24, 20], [25, 30], [99, 30], [100, 40], [5000, 40]]) assert.equal(bookTierPct(OL, n), pct, `${n} copies`);
+	for (const c of ['GB', 'CA', 'au']) assert.equal(bookTierPct(OL, 100, c), 0, `${c}: no US bulk tier abroad`);
+	assert.equal(bookTierPct('the-pyramid-principle-pb', 100), 0, 'a book without its own ladder has no tier');
+	assert.deepEqual([0, 20, 30, 40].map((p) => unitAfter(999, p)), [999, 799, 699, 599]);
+});
+
+test('OL FAILURE: a pending SKU cannot check out (store + engine), an unknown SKU is refused; nothing reaches Stripe', async () => {
+	for (const counts of [{ [OL]: 1 }, { [OL]: 10 }, { [OL]: 100 }, { 'no-such-book-pb': 1 }, { 'the-pyramid-principle-pb': 1, [OL]: 25 }]) {
+		const r = await post({ counts, country: 'US', returnPath: '/books/outrageously-loved/' });
+		assert.equal(r.status, 400, JSON.stringify(counts));
+		assert.equal(r.json.error, 'invalid_selection', JSON.stringify(counts));
+		assert.equal(r.calls.filter((u) => u.includes('checkout/sessions')).length, 0, `${JSON.stringify(counts)}: no session`);
+	}
+	// the engine itself never prices a pending row: it is not a catalogue edition, so a cart of only OL is empty
+	const { checkoutForm, bookTierFor } = await import('../src/store-engine/lib/storeEngine.ts');
+	const e = await checkoutForm({ counts: { [OL]: 100 }, country: 'US' }, A_SMP, engineDeps());
+	assert.ok(!('form' in e), 'no Stripe form for a pending SKU');
+	assert.equal(e.status, 400);
+	// and its tier is never charged while it is pending, even with a cost (fail closed)
+	assert.deepEqual(bookTierFor(OL, 100, 'US', { [OL]: 1 }), { pct: 0, reason: `${OL} is not sold` });
+});
+
+test('per-book tier in the ENGINE (ladder injected on a sold SKU): own quantity only, never with the first-order 15%, margin floor holds', async () => {
+	const { BOOK_BULK_TIERS } = await import('../src/store-engine/lib/order-pricing.ts');
+	const costs = (await import('../src/store-engine/data/book-us-costs.json', { with: { type: 'json' } })).default.usd;
+	const { checkoutForm, bookTierFor, usBookNet } = await import('../src/store-engine/lib/storeEngine.ts');
+	const S = 'the-pyramid-principle-pb'; // list $18.99, measured US cost
+	const savedCost = costs[S];
+	BOOK_BULK_TIERS[S] = [{ min: 100, pct: 40 }, { min: 25, pct: 30 }, { min: 10, pct: 20 }];
+	try {
+		const unit = async (n, first = false, email) => {
+			const r = await checkoutForm({ counts: { [S]: n }, country: 'US', email, returnPath: `/books/the-pyramid-principle/` }, A_SMP, engineDeps(first));
+			return r.form;
+		};
+		for (const [n, cents, offer] of [[9, 1899, 'none'], [10, 1519, 'book_bulk'], [25, 1329, 'book_bulk'], [100, 1139, 'book_bulk']]) {
+			const f = await unit(n);
+			assert.equal(f['line_items[0][price_data][unit_amount]'], cents, `${n} copies`);
+			assert.equal(f['metadata[offer]'], offer, `${n}: offer`);
+			assert.match(f['metadata[book_1]'], new RegExp(`qty=${n}\\|unit_cents=${cents}\\|`), `${n}: sale metadata at the charged unit`);
+			if (cents < 1899) assert.match(f['line_items[0][price_data][product_data][description]'], /\d+% bulk discount/);
+		}
+		// NEVER BOTH: a first order of 10+ takes the tier (20% beats 15%), no coupon and no first-order lookup
+		let looked = false;
+		const t = await checkoutForm({ counts: { [S]: 10 }, country: 'US', email: 'new@buyer.co' }, A_SMP, { enabled: true, isFirstOrder: async () => ((looked = true), true), firstOrderPromo: async () => 'promo_1' });
+		assert.equal(t.form['discounts[0][promotion_code]'], undefined, 'no first-order coupon on top of the tier');
+		assert.equal(t.form['line_items[0][price_data][unit_amount]'], 1519);
+		assert.equal(looked, false, 'the tier wins outright: no first-order lookup');
+		// below the ladder a first order still gets its 15% coupon and the book stays at list (the coupon discounts it)
+		const nine = await checkoutForm({ counts: { [S]: 9 }, country: 'US', email: 'new@buyer.co' }, A_SMP, engineDeps(true));
+		assert.equal(nine.form['discounts[0][promotion_code]'], 'promo_1');
+		assert.equal(nine.form['line_items[0][price_data][unit_amount]'], 1899);
+		assert.equal(nine.form['metadata[book_bulk]'], undefined);
+		// abroad: no US tier
+		const gb = await checkoutForm({ counts: { [S]: 100 }, country: 'GB' }, A_SMP, engineDeps());
+		assert.equal(gb.form['metadata[book_bulk]'], undefined, 'no tier abroad');
+		// MARGIN FLOOR: a cost the 40% unit cannot carry steps the order down to the deepest rung that nets >= floor (0)
+		costs[S] = usBookNet(1329, 0) - 0.01; // 30% still nets > 0, 40% does not
+		assert.equal(bookTierFor(S, 100).pct, 30, 'stepped down to 30%');
+		assert.equal((await unit(100))['line_items[0][price_data][unit_amount]'], 1329);
+		// FAILURE PATH: no rung holds -> list price; no measured cost -> list price (fail closed, never a guess)
+		costs[S] = 100;
+		assert.equal((await unit(100))['line_items[0][price_data][unit_amount]'], 1899);
+		delete costs[S];
+		assert.equal(bookTierFor(S, 100).reason, `${S} has no measured US cost`);
+		assert.equal((await unit(100))['line_items[0][price_data][unit_amount]'], 1899);
+	} finally {
+		costs[S] = savedCost;
+		delete BOOK_BULK_TIERS[S];
+	}
+});
+
+test('OL page (built): pending box with the bulk table, NO order form, NO buy/checkout button, NO Offer', () => {
+	const html = fs.readFileSync(new URL('../dist/books/outrageously-loved/index.html', import.meta.url), 'utf8');
+	const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+	assert.match(main, /<h1[^>]*>Outrageously Loved<\/h1>/);
+	assert.match(main, /id="order"[^>]*data-status="pending"/);
+	assert.match(main, /data-bulk-tiers/);
+	for (const s of ['$9.99', '$7.99', '$6.99', '$5.99', '20% off', '30% off', '40% off', '10–24', '25–99', '100+', 'Bulk pricing is available when the book is released.']) assert.ok(main.includes(s), `page shows ${s}`);
+	assert.doesNotMatch(main, /<form[^>]*id="order"|data-status="live"|Checkout →|<button[^>]*type="submit"/, 'nothing to buy');
+	assert.doesNotMatch(html, /"@type":"Offer"|"offers"/, 'no Offer');
+	assert.match(html, /979-8-89307-569-4|9798893075694/, 'ISBN on the page');
+	// FAILURE PATH of this check: a page that sells would be caught
+	assert.match('<form id="order" data-status="live"><button type="submit">Checkout →</button>', /<form[^>]*id="order"|data-status="live"|Checkout →|<button[^>]*type="submit"/);
+});
+
+// THE ONE /order PAGE (map smp-store-one-home-v1 move 4, Kevin 2026-11-20 ~18:51Z "2 this needs to be moved"): what FHB
+// /order showed now shows here (FHB /order redirects here with its query): lookup form, email, phone, full address,
+// shipped line, full reference; an FHB Bible order reads the same as any book; a gift order says a receipt follows.
+test('/order (one page for every window): lookup form, FHB Bible order, shipped line, gift line, address never printed', async () => {
+	const { onRequestGet } = await import('../functions/order.ts');
+	const printed = (x) => x.replace(/href="[^"]*"/g, '').includes('@spiritmediapublishing.com');
+	const look = await onRequestGet({ request: new Request('https://spiritmediapublishing.com/order'), env: { STRIPE_STORE_SECRET_KEY: 'k' } });
+	const lh = await look.text();
+	assert.equal(look.status, 200);
+	assert.match(lh, /Look up your order/);
+	assert.match(lh, /<form method="GET" action="\/order">/);
+	assert.equal(printed(lh), false);
+	const bible = { id: 'cs_live_a1FhbBibleOrder0001', payment_status: 'paid', currency: 'usd', amount_total: 5998, livemode: true,
+		customer_details: { email: 'reader@example.com', phone: '+15555550123' },
+		metadata: { kind: 'dvc_print', site: 'fhb', window: 'fhb', family: 'bible', breakdown: 'moms-pb:2', tracking: '1Z999', carrier: 'UPS' },
+		line_items: { data: [{ description: 'Mom’s Bible — Divine Voice Color, Paperback', quantity: 2, amount_total: 5998 }] },
+		collected_information: { shipping_details: { name: 'Ann Reader', address: { line1: '1 Main St', city: 'Austin', state: 'TX', postal_code: '78701', country: 'US' } } } };
+	globalThis.fetch = async () => new Response(JSON.stringify(bible));
+	const h = await (await onRequestGet({ request: new Request(`https://spiritmediapublishing.com/order?s=${bible.id}`), env: { STRIPE_STORE_SECRET_KEY: 'k' } })).text();
+	for (const re of [/Thank you for your order/, /Mom’s Bible — Divine Voice Color, Paperback × 2/, /\$59\.98/, /on its way to reader@example\.com/, /1 Main St\nAustin, TX 78701\nUS/, /Phone for the delivery carrier: \+15555550123/, /UPS · tracking <code>1Z999<\/code>/, /cs_live_a1FhbBibleOrder0001/, /Spirit Media Publishing<\/title>/])
+		assert.match(h, re);
+	assert.doesNotMatch(h, /gift to charity/i);
+	assert.equal(printed(h), false);
+	globalThis.fetch = async () => new Response(JSON.stringify({ ...bible, metadata: { ...bible.metadata, tracking: undefined, donation_cents: '2500', donation_total_cents: '2500' } }));
+	const g = await (await onRequestGet({ request: new Request(`https://spiritmediapublishing.com/order?s=${bible.id}`), env: { STRIPE_STORE_SECRET_KEY: 'k' } })).text();
+	assert.match(g, /Spirit Media Charities emails you its receipt separately/);
+	assert.doesNotMatch(g, /tracking/);
+	globalThis.fetch = async () => new Response(JSON.stringify({ ...bible, payment_status: 'unpaid' }));
+	const u = await (await onRequestGet({ request: new Request(`https://spiritmediapublishing.com/order?s=${bible.id}`), env: { STRIPE_STORE_SECRET_KEY: 'k' } })).text();
+	assert.match(u, /Your order is not complete/);
+	assert.match(u, /Nothing has been charged/);
+});
+
+// THE FHB BIBLE EBOOK moved from FHB /ebook-checkout (map smp-store-one-home-v1 move 5, Kevin 2026-11-20 ~18:51Z).
+// GOLDEN: the form is exactly what FHB functions/ebook-checkout.ts sent Stripe (copied here from FHB 3b61c01a).
+test('Bible eBook: FHB window only; the Stripe form is FHB /ebook-checkout’s byte for byte; no R2 binding = no sale', async () => {
+	const { onRequestPost } = await import('../functions/store-checkout.ts');
+	const call = async (origin, env = { STRIPE_STORE_SECRET_KEY: 'sk_test', STORE_EBOOK: {} }, body = { bibleEbook: true }) => {
+		let sent = null;
+		globalThis.fetch = async (u, init) => {
+			sent = init?.body ?? null;
+			return new Response(JSON.stringify({ url: 'https://checkout.stripe.com/c/pay/cs_live_x' }));
+		};
+		const r = await onRequestPost({ request: new Request(A, { method: 'POST', body: JSON.stringify(body), headers: origin ? { origin } : {} }), env });
+		return { status: r.status, json: await r.json(), sent: sent && new URLSearchParams(sent), acao: r.headers.get('access-control-allow-origin') };
+	};
+	const ok = await call('https://fathersheartbible.com');
+	assert.equal(ok.status, 200);
+	assert.equal(ok.json.url, 'https://checkout.stripe.com/c/pay/cs_live_x');
+	assert.equal(ok.acao, 'https://fathersheartbible.com');
+	const FHB_GOLDEN = {
+		mode: 'payment',
+		success_url: 'https://fathersheartbible.com/ebook-download?s={CHECKOUT_SESSION_ID}',
+		cancel_url: 'https://fathersheartbible.com/print?ebook=canceled',
+		'automatic_tax[enabled]': 'true',
+		billing_address_collection: 'required',
+		customer_creation: 'always',
+		'metadata[kind]': 'ebook_direct',
+		'line_items[0][quantity]': '1',
+		'line_items[0][price_data][currency]': 'usd',
+		'line_items[0][price_data][unit_amount]': '999', // Kevin 2026-11-23 D95: $9.99 (was $7.49)
+		'line_items[0][price_data][tax_behavior]': 'exclusive',
+		'line_items[0][price_data][product_data][name]': "Father's Heart Bible — eBook",
+		'line_items[0][price_data][product_data][description]': 'Instant download · DRM-free EPUB · An Intimate Translation',
+		'line_items[0][price_data][product_data][tax_code]': 'txcd_10202001',
+		'metadata[site]': 'fhb',
+		'metadata[window]': 'fhb',
+		'metadata[family]': 'bible_ebook',
+	};
+	assert.deepEqual(Object.fromEntries(ok.sent), FHB_GOLDEN);
+	const pv = await call('https://dev.fathersheartbible.pages.dev');
+	assert.equal(pv.sent.get('success_url'), 'https://dev.fathersheartbible.pages.dev/ebook-download?s={CHECKOUT_SESSION_ID}', 'a preview returns to itself');
+	const same = await call(null);
+	assert.equal(same.status, 400);
+	assert.equal(same.json.error, 'bible_fhb_only');
+	assert.equal(same.sent, null, 'nothing sent to Stripe');
+	const vaneure = await call('https://raisedinabarn.org');
+	assert.notEqual(vaneure.status, 200);
+	assert.equal(vaneure.sent, null);
+	const off = await call('https://fathersheartbible.com', { STRIPE_STORE_SECRET_KEY: 'sk_test' });
+	assert.equal(off.json.disabled, true, 'no R2 binding: never sell what cannot be delivered');
+	assert.equal(off.sent, null);
+});
+
+// PER-BOOK COST MODEL (noah, brief store-intl-cost-per-book-20261124; Kevin 2026-11-24: "This needs to get fixed NOW! Our
+// site is saying ships to 223 countries but then is it charging $50 a book to do so?"). A book without its own measured
+// landed cost used to be sized at the country's 6x9 BIBLE cost; it is now sized from its own specs
+// (marginGuard.modelledLandedUsd, data ship-countries.json landedCost.model). Pinned: 1 calibration against EVERY measured
+// book cost, 2 the real Ingram quotes/orders of 11-23/24, 3 the guard (never above the Bible, Bibles untouched, floors hold).
+async function costModel() {
+	const mg = await import('../src/store-engine/lib/marginGuard.ts');
+	const { LIVE_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts');
+	const { BOOK_SKUS, feeKey } = await import('../src/store-engine/lib/order-pricing.ts');
+	const raw = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/ship-countries.json', import.meta.url), 'utf8'));
+	const ROW = Object.fromEntries(raw.pending.map((r) => [r.code, r]));
+	const live = (code) => LIVE_COUNTRIES.find((c) => c.code === code);
+	return { mg, LIVE_COUNTRIES, BOOK_SKUS, feeKey, raw, ROW, live, GRID: Object.keys(raw.landedCost.model.grid) };
+}
+
+test('cost model 1 calibration: blind model vs every measured book x grid country (target +-10%, misses listed)', async () => {
+	const { mg, BOOK_SKUS, ROW, GRID } = await costModel();
+	const rows = [];
+	for (const [sku, b] of Object.entries(BOOK_SKUS)) {
+		if (!b.costKey) continue;
+		for (const code of GRID) {
+			const meas = ROW[code]?.landed_cost_usd?.[b.costKey];
+			if (typeof meas !== 'number') continue;
+			const pred = mg.gridLandedUsd(sku, code); // the grid model never reads the book's own row
+			if (pred == null) continue;
+			rows.push({ sku, code, meas, pred, err: (pred - meas) / meas });
+		}
+	}
+	const within = rows.filter((r) => Math.abs(r.err) <= 0.1);
+	const misses = rows.filter((r) => Math.abs(r.err) > 0.1).sort((a, b) => a.err - b.err);
+	console.log(`cost model calibration: ${within.length}/${rows.length} within +-10%`);
+	for (const r of misses) console.log(`  miss ${r.sku} ${r.code}: model ${r.pred.toFixed(2)} vs measured ${r.meas} (${(r.err * 100).toFixed(1)}%)`);
+	assert.ok(rows.length >= 300, `calibration set is the measured grid (${rows.length})`);
+	assert.ok(within.length / rows.length >= 0.85, `>= 85% within +-10% (${within.length}/${rows.length})`);
+	// an under-estimate is the dangerous side (a sale below cost): none beyond 25%, and only the known colour-unknown titles
+	for (const r of misses.filter((x) => x.err < -0.1)) {
+		assert.ok(r.err > -0.25, `${r.sku} ${r.code} under by ${(r.err * 100).toFixed(1)}%`);
+		// known: Clowning's interior class is unknown (prints ~$1.85 above B&W); Beloved Identity's AU row came from a different
+		// read (pmseoaeo 11-10, bi_source) than the grid the AU knots were fitted on
+		assert.ok(/clowning-from-the-heart/.test(r.sku) || (r.sku === 'beloved-identity-pb' && r.code === 'AU'), `${r.sku} ${r.code}: an unexplained under-estimate`);
+	}
+});
+
+test('cost model 2 real Ingram quotes + orders (11-23/24): model at or above each real per-copy cost, far below the Bible fallback', async () => {
+	const { mg, raw, live } = await costModel();
+	const GBP = raw.landedCost.fx.USD_GBP;
+	// (a) the engine's own method, qty 1 cheapest tracked: pmpublish Ingram calculator 2026-11-24 (checks/fc-landed-costs-20261124)
+	//     FC PB to GB: UK site 4.10 + 1.65 handling + 2.31 Economy Tracked = GBP 8.06; to FR: US site $4.75 + $8.73 OSM DDP.
+	// (b) the real orders, qty 5 (pmshipping 02:26-02:29Z, quotes in checks/fc-en-authorcopies-quote-20261123/QUOTE.md):
+	//     Olive SPK-15053494-1 5 x FC PB to the UK GBP 28.25; Mary SPK-15053290-1 5 x FC PB to France, Premium DDP, GBP 50.76.
+	for (const c of [
+		{ sku: 'forever-changed-pb', code: 'GB', qty1: 8.06 / GBP, order: 28.25 / 5 / GBP, bibleWas: 37.01 },
+		{ sku: 'forever-changed-pb', code: 'FR', qty1: 4.75 + 8.73, order: 50.76 / 5 / GBP, bibleWas: 50.2 },
+	]) {
+		const m = mg.landedUnitCost(c.sku, live(c.code).landed_cost_usd, c.code);
+		assert.ok(Math.abs(m - c.qty1) / c.qty1 <= 0.1, `${c.sku} ${c.code}: model ${m} vs Ingram qty-1 ${c.qty1.toFixed(2)}`);
+		// a qty-5 order spreads one shipment over 5 copies (UK), or took a dearer service (France Premium DDP): within 50%
+		assert.ok(Math.abs(m - c.order) / c.order <= 0.5, `${c.sku} ${c.code}: model ${m} vs order ${c.order.toFixed(2)}/copy`);
+		assert.ok(m < c.bibleWas / 2, `${c.sku} ${c.code}: ${m} vs the Bible fallback ${c.bibleWas}`);
+	}
+	// Raised in a Barn PB, Cannon SPK-15049724-1 (US, 11-24): Ingram print $6.07/unit
+	const riab = mg.modelPrintUsd('raised-in-a-barn-pb', 'US');
+	assert.ok(Math.abs(riab - 6.07) / 6.07 <= 0.1, `RIAB PB print model ${riab.toFixed(2)} vs Ingram 6.07`);
+	// Forever Changed HB (jacketed, 214 pp): Ingram calculator 11-24 US print $10.91 (pmpublish fc-landed-costs-20261124)
+	const fchb = mg.modelPrintUsd('forever-changed-hb', 'US');
+	assert.ok(Math.abs(fchb - 10.91) / 10.91 <= 0.1, `FC HB print model ${fchb.toFixed(2)} vs Ingram 10.91`);
+	// Tigelaar SPK-15047806-1 is a BIBLE (Dutch jacketed HB to NL, $61.44): Bibles never use the model, their row is untouched
+	assert.equal(mg.landedUnitCost('nl-hb', live('NL').landed_cost_usd, 'NL'), live('NL').landed_cost_usd.hc);
+});
+
+test('cost model 3 guard: never above the Bible, Bibles untouched, unreadable books keep the Bible bound, the floor holds', async () => {
+	const { mg, LIVE_COUNTRIES, BOOK_SKUS, live } = await costModel();
+	let modelled = 0;
+	for (const c of LIVE_COUNTRIES) {
+		if (c.code === 'US' || !c.landed_cost_usd) continue;
+		const lc = c.landed_cost_usd;
+		for (const [sku, b] of Object.entries(BOOK_SKUS)) {
+			const v = mg.landedUnitCost(sku, lc, c.code);
+			if (b.costKey && typeof lc[b.costKey] === 'number') {
+				assert.equal(v, lc[b.costKey], `${sku} ${c.code}: its own measured cost wins`);
+				continue;
+			}
+			const bible = lc[mg.bookKind(sku) === 'pb' ? 'pb' : 'hc'];
+			assert.ok(v != null && v > 0 && v <= bible + 1e-9, `${sku} ${c.code}: ${v} in (0, Bible ${bible}]`);
+			if (v < bible) modelled++;
+		}
+		assert.equal(mg.landedUnitCost('moms-hb', lc, c.code), lc.hc, `${c.code} Bible hc untouched`);
+		assert.equal(mg.landedUnitCost('moms-pb', lc, c.code), lc.pb, `${c.code} Bible pb untouched`);
+	}
+	assert.ok(modelled > 1000, `the model prices books below the Bible bound (${modelled} book x country cells)`);
+	// no destination code (an old caller): a book with no own cost keeps the Bible bound, the conservative old rule
+	assert.equal(mg.landedUnitCost('forever-changed-pb', { pb: 5, hc: 9 }), 5);
+	// FAILURE PATH: a book the model cannot read falls back to the Bible, never to 0
+	const unreadable = Object.keys(BOOK_SKUS).filter((s) => mg.bookWeightKg(s) == null);
+	for (const s of unreadable) assert.equal(mg.modelledLandedUsd(s, 'GB'), null, `${s} unmodelled`);
+	console.log(`unreadable by the cost model (Bible bound kept): ${unreadable.join(', ') || 'none'}`);
+	// FAILURE PATH: a country with no landed cost row stays unsized (checkout refuses it)
+	assert.equal(mg.landedUnitCost('forever-changed-pb', undefined, 'GB'), null);
+	// the margin floor holds on the modelled cost
+	for (const code of ['GB', 'FR', 'PL', 'KE', 'BR', 'JP'])
+		for (const sku of ['forever-changed-pb', 'forever-changed-hb', 'raised-in-a-barn-hb', 'get-out-of-the-fast-pb'])
+			for (const price of [999, 1899, 2899]) {
+				const fee = mg.handlingFeeCents(sku, price, live(code));
+				const net = mg.netPerItemUsd(sku, price, live(code), fee);
+				assert.ok(net >= mg.floorForSku(sku, live(code)) - 1e-9, `${sku} ${code} @${price}: net ${net} >= floor`);
+			}
+});
+
+test('cost model 4 fee keys: an unmeasured book has its OWN fee key; FC PB to UK/FR no longer carries a Bible-sized fee', async () => {
+	const { mg, feeKey, live } = await costModel();
+	assert.equal(feeKey('forever-changed-pb', 1899), 'forever-changed-pb1:1899');
+	assert.equal(feeKey('beloved-identity-pb', 999), 'bi1:999'); // a measured book keeps its key
+	assert.equal(feeKey('moms-pb', 3999), 'pb1:3999'); // Bibles keep theirs
+	const f = mg.handlingTable({ 'forever-changed-pb': 1899, 'get-out-of-the-fast-pb': 1899 }, [15], [live('FR')]).FR.fees;
+	assert.equal(f['forever-changed-pb1:1899'], mg.handlingFeeCents('forever-changed-pb', 1899, live('FR')));
+	assert.equal(f['get-out-of-the-fast-pb1:1899'], mg.handlingFeeCents('get-out-of-the-fast-pb', 1899, live('FR')));
+	assert.notEqual(f['forever-changed-pb1:1899'], f['get-out-of-the-fast-pb1:1899'], 'a 214 pp and a 319 pp 8.25x11 book differ');
+	for (const [code, oldFee] of [['GB', 1999], ['FR', 3699]]) {
+		const fee = mg.handlingFeeCents('forever-changed-pb', 1899, live(code));
+		assert.ok(fee < oldFee && fee <= 99, `${code}: FC PB fee ${fee}c (was ${oldFee}c)`);
+	}
+	// checkout charges the same fee the page shows
+	const r = await post({ counts: { 'forever-changed-pb': 1 }, country: 'FR', returnPath: '/books/forever-changed/' });
+	assert.equal(r.status, 200);
+	assert.equal(Number(r.form.get('metadata[handling_cents]') ?? 0), mg.handlingFeeCents('forever-changed-pb', 1899, live('FR')));
+});
+
+// PRE-ORDER (book-skus.json ship_after, Kevin 2026-11-24 MMFI "Payment captured now ... note of delivery in January")
+test('pre-order: a ship_after SKU is charged now, its session says preorder + ship_after, its line says when it ships', async () => {
+	const { preorderShipAfter, releaseDateText } = await import('../src/store-engine/lib/order-pricing.ts');
+	const reg = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/book-skus.json', import.meta.url), 'utf8')).skus;
+	const date = reg['make-me-feel-important-pb'].ship_after;
+	assert.match(date, /^\d{4}-\d{2}-\d{2}$/);
+	// the date boundary: a pre-order the day before, an ordinary sale on the day (failure path of the switch)
+	const dayBefore = new Date(`${date}T00:00:00Z`);
+	dayBefore.setUTCDate(dayBefore.getUTCDate() - 1);
+	assert.equal(preorderShipAfter('make-me-feel-important-pb', dayBefore), date);
+	assert.equal(preorderShipAfter('make-me-feel-important-pb', new Date(`${date}T00:00:00Z`)), null);
+	assert.equal(preorderShipAfter('the-pyramid-principle-pb', dayBefore), null, 'a row without ship_after is never a pre-order');
+	assert.equal(releaseDateText('2027-01-07'), 'January 7, 2027');
+	const r = await post({ counts: { 'make-me-feel-important-pb': 1, 'make-me-feel-important-hb': 2 }, country: 'US', returnPath: '/books/make-me-feel-important/' });
+	assert.equal(r.status, 200);
+	const f = r.form;
+	assert.equal(f.get('mode'), 'payment', 'payment captured now');
+	assert.equal(f.get('cancel_url'), 'https://spiritmediapublishing.com/books/make-me-feel-important/?order=canceled#order');
+	if (preorderShipAfter('make-me-feel-important-pb')) {
+		assert.equal(f.get('metadata[preorder]'), 'true');
+		assert.equal(f.get('metadata[ship_after]'), date);
+		assert.equal(f.get('metadata[preorder_skus]'), 'make-me-feel-important-pb,make-me-feel-important-hb');
+		for (const i of [0, 1])
+			assert.match(f.get(`line_items[${i}][price_data][product_data][description]`), new RegExp(`Pre-order: ships at release\\. Releasing ${releaseDateText(date)}$`));
+		// the shipping options name the release and carry no business-day estimate (it would count from today)
+		assert.match(f.get('shipping_options[0][shipping_rate_data][display_name]'), new RegExp(`\\(ships at release · Releasing ${releaseDateText(date)}\\)$`));
+		assert.equal([...f.keys()].filter((k) => k.includes('[delivery_estimate]')).length, 0);
+	} else assert.equal(f.get('metadata[preorder]'), null, 'released: an ordinary sale');
+	// an ordinary book carries none of it
+	const o = await post({ counts: { 'the-pyramid-principle-pb': 1 }, country: 'US', returnPath: '/books/the-pyramid-principle/' });
+	for (const k of ['metadata[preorder]', 'metadata[ship_after]', 'metadata[preorder_skus]']) assert.equal(o.form.get(k), null, k);
+	assert.doesNotMatch(o.form.get('line_items[0][price_data][product_data][description]'), /Pre-order/);
+	assert.ok([...o.form.keys()].some((k) => k.includes('[delivery_estimate]')), 'an ordinary order keeps its delivery estimate');
+	assert.doesNotMatch(o.form.get('shipping_options[0][shipping_rate_data][display_name]'), /release/);
 });
