@@ -2278,9 +2278,9 @@
 			}
 		},
 		"make-me-feel-important": {
-			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/make-me-feel-important-1024.jpg",
-			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/make-me-feel-important-600.webp",
-			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/make-me-feel-important-300.webp",
+			"jpg1200": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/make-me-feel-important-v2-1024.jpg",
+			"w600": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/make-me-feel-important-v2-600.webp",
+			"w300": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/make-me-feel-important-v2-300.webp",
 			"width": 600,
 			"height": 900,
 			"measured": { "-1024.jpg": [1024, 1536], "-600.webp": [600, 900], "-300.webp": [300, 450] }
