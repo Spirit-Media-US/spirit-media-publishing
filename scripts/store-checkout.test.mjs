@@ -1650,3 +1650,99 @@ test('pre-order: a ship_after SKU is charged now, its session says preorder + sh
 	assert.ok([...o.form.keys()].some((k) => k.includes('[delivery_estimate]')), 'an ordinary order keeps its delivery estimate');
 	assert.doesNotMatch(o.form.get('shipping_options[0][shipping_rate_data][display_name]'), /release/);
 });
+
+// ── UKRAINE / NOVA POSHTA FORWARDER ROUTE (Kevin 2026-11-25, brief jobs/pmshipping-ukraine-np-route-20261125.md) ──────
+// Bibles to UA ship Standard Ground to the buyer's Nova Poshta US address: NO first-order 15%, ONE $30.00 "Nova Poshta
+// delivery credit" per order (Stripe amount_off coupon), net per SKU = the measured CSV, and a SKU below $0 is REFUSED.
+const NP_CSV = '/home/deploy/projects/shipper-desk/research/ukraine-np-20261125/ukraine-np-pricing.csv';
+const npDeps = (first = true, coupon = 'NOVA_POSHTA_30') => ({ ...engineDeps(first), forwarderCoupon: async () => coupon });
+
+test('UA forwarder: a Bible cart gets the -$30 Nova Poshta credit once, NO WELCOME15, list price, no expedited, desk metadata', async () => {
+	const { checkoutForm } = await import('../src/store-engine/lib/storeEngine.ts');
+	let looked = 0;
+	const deps = { ...npDeps(true), isFirstOrder: async () => (looked++, true) };
+	const r = await checkoutForm({ counts: { 'lang-uk-pb': 1, 'lang-uk-hb': 2 }, country: 'UA', email: 'new@y.co' }, A_SMP, deps);
+	const f = r.form;
+	assert.ok(f, JSON.stringify(r));
+	assert.equal(looked, 0, 'no first-order lookup on the forwarder route');
+	assert.equal(f['discounts[0][coupon]'], 'NOVA_POSHTA_30');
+	assert.equal(f['discounts[0][promotion_code]'], undefined, 'no WELCOME15');
+	assert.equal(Object.keys(f).filter((k) => k.startsWith('discounts[')).length, 1, 'ONE credit per order, not per book');
+	assert.equal(f['metadata[pct_off]'], 0);
+	assert.deepEqual([f['line_items[0][price_data][unit_amount]'], f['line_items[1][price_data][unit_amount]']], [9999, 7999], 'list prices (hb x2, pb x1)');
+	assert.equal(f['line_items[2][quantity]'], undefined, 'no handling line');
+	assert.ok(!Object.keys(f).some((k) => k.startsWith('shipping_options[1]')), 'no expedited option on this route');
+	assert.equal(f['shipping_address_collection[allowed_countries][0]'], 'UA', 'Stripe collects the Ukraine address');
+	assert.match(f['custom_text[submit][message]'], /^Nova Poshta delivery credit: -\$30\.00 \(covers your Nova Poshta fee from the US to Ukraine\)/);
+	assert.match(f['custom_text[shipping_address][message]'], /npshopping\.com/);
+	assert.deepEqual([f['metadata[ship_via]'], f['metadata[credit_cents]']], ['NP_US', 3000]);
+});
+
+test('UA forwarder: every one of the 150 CSV SKUs nets exactly the measured CSV figure (>= $0) and carries no handling fee', async () => {
+	const { netPerItemUsd, handlingFeeCents } = await import('../src/store-engine/lib/marginGuard.ts');
+	const { countryFor } = await import('../src/store-engine/lib/shipCountries.ts');
+	const ua = countryFor('UA');
+	const rows = fs.readFileSync(NP_CSV, 'utf8').trim().split('\n').slice(1).map((l) => l.split(',')).filter((r) => r[1] === 'full');
+	assert.equal(rows.length, 150);
+	for (const [sku, , price, , , , , , , net] of rows) {
+		const c = Math.round(Number(price) * 100);
+		const got = netPerItemUsd(sku, c, ua);
+		assert.ok(Math.abs(got - Number(net)) < 0.011, `${sku}: engine ${got} vs CSV ${net}`);
+		assert.ok(got >= 0, `${sku} nets below $0`);
+		assert.equal(handlingFeeCents(sku, c, ua), 0, `${sku}: no fee`);
+	}
+});
+
+test('UA forwarder FAILURE PATHS: a SKU netting < $0 or unmeasured is REFUSED (never a fee); no coupon = no session', async () => {
+	const { marginCheck, handlingFeeCents } = await import('../src/store-engine/lib/marginGuard.ts');
+	const { countryFor, buildLive, PENDING_COUNTRIES } = await import('../src/store-engine/lib/shipCountries.ts');
+	const { checkoutForm } = await import('../src/store-engine/lib/storeEngine.ts');
+	const ua = countryFor('UA');
+	assert.ok(marginCheck([{ slug: 'moms-hb', retail: 9999 }], 0, 'UA', [ua]).ok, 'real cost passes');
+	// injected: moms-hb costs $80 to land -> 99.99 - 4.70 - 80 - 30 < 0
+	const bad = { ...ua, forwarder: { ...ua.forwarder, landed_usd: { ...ua.forwarder.landed_usd, 'moms-hb': 80 } } };
+	const m = marginCheck([{ slug: 'moms-hb', retail: 9999 }], 0, 'UA', [bad]);
+	assert.equal(m.ok, false, 'a SKU below $0 net must be refused');
+	assert.equal(handlingFeeCents('moms-hb', 9999, bad), 0, 'refused, never priced up with a fee');
+	const unmeasured = { ...ua, forwarder: { ...ua.forwarder, landed_usd: {} } };
+	assert.match(marginCheck([{ slug: 'moms-hb', retail: 9999 }], 0, 'UA', [unmeasured]).reason, /no landed cost/);
+	// the coupon is missing / wrong in Stripe: refused before a session exists
+	// a caller that wires no coupon lookup at all (FHB /dvc-checkout until it re-syncs) is refused the same way
+	for (const deps of [npDeps(true, null), engineDeps(true)]) {
+		const r = await checkoutForm({ counts: { 'moms-hb': 1 }, country: 'UA', email: 'new@y.co' }, A_SMP, deps);
+		assert.deepEqual([r.status, r.body?.error], [503, 'credit_unavailable']);
+	}
+	// a malformed route in the data fails the build
+	const pend = PENDING_COUNTRIES.map((p) => (p.code === 'UA' ? { ...p, forwarder: { ...p.forwarder, credit_cents: 0 } } : p));
+	assert.throws(() => buildLive([], pend, ['UA']), /malformed forwarder/);
+});
+
+test('UA forwarder: the store endpoint checks the coupon in Stripe (amount + currency) and refuses a drifted one', async () => {
+	const { forwarderCoupon } = await import('../src/store-engine/lib/storeEngine.ts');
+	const { countryFor } = await import('../src/store-engine/lib/shipCountries.ts');
+	const f = countryFor('UA').forwarder;
+	const stub = (o, ok = true) => (globalThis.fetch = async () => new Response(JSON.stringify(o), { status: ok ? 200 : 404 }));
+	stub({ id: 'NOVA_POSHTA_30', valid: true, amount_off: 3000, currency: 'usd' });
+	assert.equal(await forwarderCoupon('sk_test', f), 'NOVA_POSHTA_30');
+	for (const o of [{ id: 'X', valid: true, amount_off: 2500, currency: 'usd' }, { id: 'X', valid: false, amount_off: 3000, currency: 'usd' }, { id: 'X', valid: true, amount_off: 3000, currency: 'eur' }]) {
+		stub(o);
+		assert.equal(await forwarderCoupon('sk_test', f), null, JSON.stringify(o));
+	}
+	stub({ error: {} }, false);
+	assert.equal(await forwarderCoupon('sk_test', f), null);
+});
+
+test('UA forwarder leaves everything else alone: US/GB/DE Bibles keep WELCOME15 + options; a UA BOOK-only cart is unchanged', async () => {
+	const { checkoutForm } = await import('../src/store-engine/lib/storeEngine.ts');
+	for (const c of ['US', 'GB', 'DE']) {
+		const f = (await checkoutForm({ counts: { 'moms-hb': 1 }, country: c, email: 'new@y.co' }, A_SMP, npDeps(true))).form;
+		assert.equal(f['discounts[0][coupon]'], undefined, `${c}: no credit`);
+		assert.equal(f['metadata[ship_via]'], undefined, `${c}: no forwarder`);
+		assert.equal(f['metadata[pct_off]'], 15, `${c}: first-order 15% still applies`);
+		assert.ok(Object.keys(f).some((k) => k.startsWith('shipping_options[1]')), `${c}: expedited still offered`);
+	}
+	const b = (await checkoutForm({ counts: { 'beloved-identity-pb': 1 }, country: 'UA', email: 'new@y.co' }, A_SMP, npDeps(true))).form;
+	assert.equal(b['discounts[0][coupon]'], undefined, 'book-only UA cart: no credit (scope = Bibles)');
+	assert.equal(b['metadata[ship_via]'], undefined);
+	assert.equal(b['metadata[pct_off]'], 15, 'book-only UA cart keeps its first-order 15% as before');
+});
