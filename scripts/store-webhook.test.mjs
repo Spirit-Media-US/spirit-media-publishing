@@ -140,7 +140,7 @@ test('item 9: buyer emails Reply-To hello@; Kevin’s notice (his inbox, Reply-T
 // Kevin 2026-11-24 identity footer: statement + contact + 3 URLs + one-line address, on every buyer email.
 const SEVEN = [
 	"Spirit Media Publishing publishes Christian books and the Father's Heart Bible™ in Divine Voice™ Color. We deliver them through The Believer's Library: one app for every believer worldwide providing free Bibles and access to all Christian books.",
-	'', 'Spirit Media Publishing', 'Phone: 1-888-800-3744', 'Email: hello@spiritmediapublishing.com',
+	'', 'Kevin White, CEO', 'Spirit Media Publishing', 'Phone: 1-888-800-3744', 'Email: hello@spiritmediapublishing.com',
 	'', 'spiritmediapublishing.com', 'fathersheartbible.com', 'thebelieverslibrary.com',
 	'', '205 S Academy St, Unit 3251, Cary, NC 27519, USA',
 ];

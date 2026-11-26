@@ -52,9 +52,11 @@ export const TBL_DELIVERED_KINDS: readonly string[] = [
 // Kevin 2026-11-24 ~14:4xZ (pmshipping, kevin-decisions): EVERY email carries the identity statement + this footer
 // "at the bottom to avoid any confusion" (supersedes the 11-16 address-only signature). Mirrored in
 // bin/fhb-order-reconcile.py + bin/fhb-order-ship.py. Never edit one without the others.
+// Kevin 2026-11-26 ~20:5xZ: "Always show my name Kevin White, CEO above SMP" (ALL correspondence).
 export const SIGNATURE = [
 	"Spirit Media Publishing publishes Christian books and the Father's Heart Bible™ in Divine Voice™ Color. We deliver them through The Believer's Library: one app for every believer worldwide providing free Bibles and access to all Christian books.",
 	'',
+	'Kevin White, CEO',
 	'Spirit Media Publishing',
 	'Phone: 1-888-800-3744',
 	'Email: hello@spiritmediapublishing.com',
