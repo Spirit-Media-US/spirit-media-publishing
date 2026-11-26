@@ -674,7 +674,8 @@
 			"name": "Twi",
 			"hb": "979-8-89307-513-7",
 			"pb": "979-8-89307-514-4",
-			"code": "ak",
+			"code": "tw",
+			"aliases": ["ak"],
 			"onSale": false
 		},
 		{
