@@ -4792,7 +4792,7 @@
 			"schema_format": "https://schema.org/EBook",
 			"isbn": "9781958304419",
 			"isbn_display": "978-1-958304-41-9",
-			"list_cents": 1399,
+			"list_cents": 1200,
 			"checkout_name": "Power to Remember",
 			"checkout_desc": "eBook · DRM-free EPUB · by Jeremy Kluth",
 			"checkout_img": "https://assets.spiritmediapublishing.com/spirit-media-publishing/covers/power-to-remember-1200.jpg",
@@ -4801,7 +4801,7 @@
 			"select_until": null,
 			"price_source": {
 				"asin": "B0C1LYRT49",
-				"checked": "2026-11-20T19:05:22Z"
+				"checked": "2026-11-26T20:40:00Z"
 			}
 		},
 		"raised-in-a-barn-ebook": {
