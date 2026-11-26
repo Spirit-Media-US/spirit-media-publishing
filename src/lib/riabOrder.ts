@@ -337,7 +337,7 @@ export function brandRiabForm(form: Form, counts: Record<string, number>, countr
 				`${fmt} · by ${RIAB_AUTHOR}`,
 				l.signed ? 'signed copy' : '',
 				q.pct > 0 ? `${q.pct}% bulk discount` : '',
-				'sold by Spirit Media Publishing',
+				"Spirit Media Publishing, delivered through The Believer's Library",
 				'free shipping',
 			]
 				.filter(Boolean)
@@ -379,6 +379,6 @@ export function brandRiabForm(form: Form, counts: Record<string, number>, countr
 	const origin = String(form.success_url ?? '').replace(/\/order\?.*$/, '');
 	form.cancel_url = `${origin}${RIAB_RETURN_PATH}?order=canceled`;
 	form['custom_text[submit][message]'] =
-		'Raised in a Barn by Van Eure. Sold and shipped by Spirit Media Publishing.';
+		"Raised in a Barn by Van Eure. Spirit Media Publishing, delivered through The Believer's Library.";
 	return form;
 }

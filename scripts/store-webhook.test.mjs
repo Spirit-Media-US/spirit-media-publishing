@@ -505,6 +505,9 @@ test('TBL language eBook (tbl_ebook) + series bundle (ebook_bundle): one Kevin n
 	for (const k of ['tbl_ebook', 'ebook_bundle']) assert.ok(STORE_ORDER_KINDS.includes(k), k);
 });
 
+// Kevin L3150 2026-11-26 "52B": every order email (SMP, FHB, TBL) opens with this line; TBL subjects unchanged.
+const SELLER_LINE = "Spirit Media Publishing, delivered through The Believer's Library";
+
 // ---- TBL ORDERS (Kevin D99 2026-11-23 "Make sure order emails are worded as Spirit Media Publishing Order through The Believer's Library.") ----
 test('TBL order: a print order sold through The Believer\u2019s Library is worded "Spirit Media Publishing Order through The Believer\u2019s Library"', async () => {
 	const line = "Spirit Media Publishing Order through The Believer's Library";
@@ -512,7 +515,7 @@ test('TBL order: a print order sold through The Believer\u2019s Library is worde
 		const r = await confirm({ site: 'smp', window: 'smp', family: 'smp_book', utm_source: host });
 		assert.equal(r.status, 200);
 		assert.equal(r.buyer.subject, `${line} — $31.98`, host);
-		assert.ok(r.buyer.text.startsWith(`${line}\n\nThank you for your order.`), host);
+		assert.ok(r.buyer.text.startsWith(`${SELLER_LINE}\n\nThank you for your order.`), host);
 		assert.ok(endsWithSeven(r.buyer.text), 'signature unchanged');
 		assert.equal(r.buyer.from, 'SMP Orders <orders@send.spiritmediapublishing.com>', 'From stays SMP Orders');
 	}
@@ -520,7 +523,8 @@ test('TBL order: a print order sold through The Believer\u2019s Library is worde
 	for (const meta of [{ site: 'smp', window: 'smp', utm_source: 'google' }, { site: 'fhb', window: 'fhb' }, { site: 'smp', window: 'smp', utm_source: 'thebelieverslibrary.com.evil.example' }]) {
 		const r = await confirm(meta);
 		assert.equal(r.buyer.subject, 'Your Spirit Media Publishing order — $31.98', JSON.stringify(meta));
-		assert.doesNotMatch(r.buyer.text.split('Phone:')[0].replace(SEVEN[0], ''), /Believer/, 'no TBL line outside the identity footer');
+		assert.ok(r.buyer.text.startsWith(`${SELLER_LINE}\n\nThank you for your order.`), 'every order opens with the 52B line');
+		assert.doesNotMatch(r.buyer.text, /Order through The Believer/, 'no TBL subject wording outside TBL');
 	}
 });
 
@@ -530,7 +534,7 @@ test('TBL order: an eBook sold through The Believer\u2019s Library gets the TBL 
 	const r = await run(tbl);
 	const buyer = r.sent.find((m) => m.to === 'buyer@example.com');
 	assert.equal(buyer.subject, `${line} — Fixture Book`);
-	assert.ok(buyer.text.startsWith(`${line}\n\nThank you — your eBook is ready.`));
+	assert.ok(buyer.text.startsWith(`${SELLER_LINE}\n\nThank you — your eBook is ready.`));
 	assert.ok(endsWithSeven(buyer.text));
 	const plain = (await run(FIX)).sent.find((m) => m.to === 'buyer@example.com');
 	assert.equal(plain.subject, 'Your eBook — Fixture Book');
@@ -541,7 +545,7 @@ test('TBL order: an eBook sold through The Believer\u2019s Library gets the TBL 
 test('pre-order: buyer email carries the release-date line (not 7-10 days); notice says do not place before ship_after', async () => {
 	const pre = await confirm({ site: 'smp', window: 'smp', family: 'smp_book', breakdown: 'make-me-feel-important-pb:1', total: '1', preorder: 'true', ship_after: '2027-01-07', preorder_skus: 'make-me-feel-important-pb' });
 	assert.equal(pre.status, 200);
-	assert.match(pre.buyer.text, /^Thank you for your order\.\n/);
+	assert.ok(pre.buyer.text.startsWith(`${SELLER_LINE}\n\nThank you for your order.\n`));
 	assert.ok(pre.buyer.text.includes('This is a pre-order. Your book ships at release. Releasing January 7, 2027. Shipping is free.\n\n'));
 	assert.doesNotMatch(pre.buyer.text, /7–10 days/);
 	assert.ok(pre.buyer.text.endsWith(`${SIGNATURE}\n`));

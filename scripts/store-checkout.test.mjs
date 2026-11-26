@@ -143,7 +143,8 @@ const CARTS = [
 	{ id: 'empty', counts: {}, email: 'new@y.co', country: 'US' },
 	{ id: 'no-email', counts: { 'moms-pb': 5 }, email: '', country: 'US', returnPath: '/bibles/spanish-bible/' },
 ];
-const SELLER = /(&custom_text%5Bsubmit%5D%5Bmessage%5D=|%20|\+)Sold(%20|\+)and(%20|\+)shipped(%20|\+)by(%20|\+)Spirit(%20|\+)Media(%20|\+)Publishing\./;
+// Kevin L3150 2026-11-26 "52B": the seller line on every checkout
+const SELLER = /(&custom_text%5Bsubmit%5D%5Bmessage%5D=|%20|\+)Spirit(%20|\+)Media(%20|\+)Publishing(%2C|,)(%20|\+)delivered(%20|\+)through(%20|\+)The(%20|\+)Believer(%27|')s(%20|\+)Library\./;
 const TAGS_TAIL = /&metadata%5Bsite%5D=fhb&metadata%5Bwindow%5D=fhb&metadata%5Bfamily%5D=[a-z_%2B]+$/;
 test('item 2: FHB Bible box carts -> /store-checkout send the IDENTICAL Stripe request /dvc-checkout sent (+ tags only)', async () => {
 	const fs = await import('node:fs');
@@ -951,7 +952,7 @@ test('RIAB end to end (TEST key): branded session, tier price, RIAB return, no c
 	assert.equal(line(1, 'price_data][product_data][name'), 'Raised in a Barn — Paperback');
 	assert.equal(line(1, 'price_data][unit_amount'), '1599');
 	assert.equal(f.get('line_items[2][quantity]'), null, 'no extra lines');
-	assert.match(line(0, 'price_data][product_data][description'), /by Van Eure · 20% bulk discount · sold by Spirit Media Publishing/);
+	assert.match(line(0, 'price_data][product_data][description'), /by Van Eure · 20% bulk discount · Spirit Media Publishing, delivered through The Believer's Library/);
 	assert.match(line(0, 'price_data][product_data][images][0'), /raised-in-a-barn-1200\.jpg$/);
 	assert.equal(f.get('cancel_url'), 'https://spiritmediapublishing.com/checkout/raised-in-a-barn/?order=canceled');
 	assert.equal(f.get('success_url'), 'https://spiritmediapublishing.com/order?s={CHECKOUT_SESSION_ID}');
@@ -968,7 +969,7 @@ test('RIAB end to end (TEST key): branded session, tier price, RIAB return, no c
 	assert.match(books, /format=Hardback\|qty=30\|unit_cents=2399\|/);
 	assert.match(books, /format=Paperback\|qty=20\|unit_cents=1599\|/);
 	assert.equal(f.get('discounts[0][promotion_code]'), null);
-	assert.match(f.get('custom_text[submit][message]'), /Raised in a Barn by Van Eure\. Sold and shipped by Spirit Media Publishing\./);
+	assert.match(f.get('custom_text[submit][message]'), /Raised in a Barn by Van Eure\. Spirit Media Publishing, delivered through The Believer's Library\./);
 	assert.equal(f.get('metadata[kind]'), 'dvc_print');
 	let sum = 0;
 	for (let i = 0; f.get(`line_items[${i}][quantity]`); i++)

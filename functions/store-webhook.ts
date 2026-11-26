@@ -82,7 +82,10 @@ export const BUYER_REPLY_TO = 'hello@spiritmediapublishing.com';
 // Believer's Library."). A session sold through The Believer's Library carries the TBL host as metadata utm_source
 // (community src/lib/library-billing-store.ts tblCheckoutForm/audiobookForm). Its BUYER email subject + first line say
 // TBL_ORDER_LINE; From stays "SMP Orders", the body + signature are unchanged, and every FHB/SMP order is untouched.
-export const TBL_ORDER_LINE = "Spirit Media Publishing Order through The Believer's Library";
+export const TBL_ORDER_LINE = "Spirit Media Publishing Order through The Believer's Library"; // TBL SUBJECTS only (unchanged)
+// Kevin L3150 2026-11-26 "52B": every order email (SMP, FHB, TBL) opens with this line; it replaces the TBL first line.
+export const ORDER_SELLER_LINE =
+	"Spirit Media Publishing, delivered through The Believer's Library";
 const TBL_HOST_RE =
 	/^(?:(?:www\.)?thebelieverslibrary\.com|tbl[a-z0-9-]*\.community-cm1\.pages\.dev)$/i;
 /** True when the session was sold through The Believer's Library (its utm_source is a TBL host). */
@@ -96,8 +99,8 @@ export function buyerBrand(m: Record<string, string> | null | undefined, amount:
 		subject: tbl
 			? `${TBL_ORDER_LINE} — ${amount}`
 			: `Your Spirit Media Publishing order — ${amount}`,
-		/** The buyer email's first line ('' = none): TBL orders only. */
-		heading: tbl ? `${TBL_ORDER_LINE}\n\n` : '',
+		/** The buyer email's first line: ORDER_SELLER_LINE on every order (Kevin L3150 "52B"). */
+		heading: `${ORDER_SELLER_LINE}\n\n`,
 		tbl,
 		signoff: '',
 	};
