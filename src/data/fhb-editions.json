@@ -592,8 +592,8 @@
 				"Father's Heart Bible™ — Language Editions"
 			],
 			"formats": {
-				"hardback": true,
-				"paperback": true
+				"hardback": "https://www.amazon.com/dp/B0HSXHYN4Z",
+				"paperback": "https://www.amazon.com/dp/B0HSX57NVL"
 			},
 			"isbn": "979-8-89307-468-0",
 			"binding": "hb",
@@ -702,8 +702,8 @@
 				"Father's Heart Bible™ — Language Editions"
 			],
 			"formats": {
-				"hardback": true,
-				"paperback": true
+				"hardback": "https://www.amazon.com/dp/B0HSXFJ34L",
+				"paperback": "https://www.amazon.com/dp/B0HSXCR3K3"
 			},
 			"isbn": "979-8-89307-412-3",
 			"binding": "hb",
@@ -1076,8 +1076,8 @@
 				"Father's Heart Bible™ — Language Editions"
 			],
 			"formats": {
-				"hardback": true,
-				"paperback": true
+				"hardback": "https://www.amazon.com/dp/B0HSX9FPK1",
+				"paperback": "https://www.amazon.com/dp/B0HSX9MRHH"
 			},
 			"isbn": "979-8-89307-494-9",
 			"binding": "hb",
