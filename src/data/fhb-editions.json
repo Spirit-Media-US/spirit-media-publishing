@@ -6,7 +6,7 @@
 		"language": "Father's Heart Bible™ — Language Editions"
 	},
 	"audience": 23,
-	"language": 72,
+	"language": 76,
 	"editions": [
 		{
 			"group": "audience",
@@ -1646,6 +1646,22 @@
 		},
 		{
 			"group": "language",
+			"title": "Father’s Heart Bible — Biblia ya Kituba (Kituba) — Kituba Edition",
+			"display_title": "Biblia ya Kituba — Kituba Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-mkw-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/kituba-bible/",
+			"date": null,
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
 			"title": "Father’s Heart Bible — Baiboly Malagasy (Malagasy) — Malagasy Edition",
 			"display_title": "Baiboly Malagasy — Malagasy Edition",
 			"author": "Kevin White and Spirit Media Publishing",
@@ -1719,6 +1735,38 @@
 			"isbn": "979-8-89307-456-7",
 			"binding": "hb",
 			"price": 99.99
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Inpui Bathiangnu Chongdip (Inpui Naga) — Inpui Naga Edition",
+			"display_title": "Inpui Bathiangnu Chongdip — Inpui Naga Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nkf-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/inpui-naga-bible/",
+			"date": null,
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Chokri Ketholesi (Chokri Naga) — Chokri Naga Edition",
+			"display_title": "Chokri Ketholesi — Chokri Naga Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-nri-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/chokri-naga-bible/",
+			"date": null,
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		},
 		{
 			"group": "language",
@@ -1944,6 +1992,22 @@
 			"isbn": "979-8-89307-523-6",
 			"binding": "hb",
 			"price": 99.99
+		},
+		{
+			"group": "language",
+			"title": "Father’s Heart Bible — Masonuku Matoma ma Kiyaka (Yaka) — Yaka Edition",
+			"display_title": "Masonuku Matoma ma Kiyaka — Yaka Edition",
+			"author": "Kevin White and Spirit Media Publishing",
+			"img": "https://assets.spiritmediapublishing.com/FHB/print/lang/v2/lang-yaf-360.webp",
+			"w": 360,
+			"h": 458,
+			"href": "https://fathersheartbible.com/bibles/yaka-bible/",
+			"date": null,
+			"collections": [
+				"Father's Heart Bible™ (FHB)",
+				"Father's Heart Bible™ — Language Editions"
+			],
+			"formats": {}
 		}
 	]
 }
