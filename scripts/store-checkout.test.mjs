@@ -1650,3 +1650,67 @@ test('pre-order: a ship_after SKU is charged now, its session says preorder + sh
 	assert.ok([...o.form.keys()].some((k) => k.includes('[delivery_estimate]')), 'an ordinary order keeps its delivery estimate');
 	assert.doesNotMatch(o.form.get('shipping_options[0][shipping_rate_data][display_name]'), /release/);
 });
+
+// SHIPS ON PUBLICATION (pmshipping 2026-11-25 option 2; Kevin 10-29 L1126 direct sale stands): a direct-sale language not yet
+// on sale (isbn-list onSale:false) is still SOLD, and its Stripe line says it ships on publication; an on-sale one is unchanged.
+test('direct-sale language not yet on sale: sold (200, session) with "(ships on publication)" on its Stripe line; on-sale unchanged', async () => {
+	const fhb = { origin: 'https://fathersheartbible.com' };
+	const line = (f) => [...f.entries()].find(([k]) => /^line_items\[0\]\[price_data\]\[product_data\]\[name\]$/.test(k))?.[1] ?? '';
+	const hil = await post({ counts: { 'lang-hil-hb': 4 }, country: 'US', returnPath: '/print/order/' }, fhb);
+	assert.equal(hil.status, 200);
+	assert.equal(hil.json.url, 'https://stripe.test/s', 'still sells: Kevin 10-29 direct sale');
+	assert.match(line(hil.form), /Hiligaynon.*Hardback \(ships on publication\)$/);
+	const am = await post({ counts: { 'lang-am-hb': 1 }, country: 'US', returnPath: '/print/order/' }, fhb);
+	assert.equal(am.status, 200);
+	assert.doesNotMatch(line(am.form), /ships on publication/);
+	const isbn = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/isbn-list.json', import.meta.url), 'utf8'));
+	const { shipsOnPublication } = await import('../src/store-engine/lib/storeEngine.ts');
+	for (const l of isbn.languages)
+		for (const b of ['hb', 'pb'])
+			if (l.code === 'hil' || l.code === 'am')
+				assert.equal(shipsOnPublication(`lang-${l.code}-${b}`), l.onSale === false, `${l.code}-${b}`);
+	assert.equal(shipsOnPublication('lang-yaf-hb'), false, 'a pre-order keeps its own (pre-order) label, never both');
+});
+
+// ONE TWI CODE (pmbuilder 2026-11-26): Twi sells as lang-tw-hb/pb; the old code's SKUs lang-ak-hb/pb (first sold
+// under ak — existing links, carts, Stripe metadata) are ACCEPTED as the SAME product: same EDITIONS entry, same
+// ISBN, same price, one line. Engine function only (checkoutForm renders the form; no Stripe call, no session).
+test('old-code alias lang-ak-* = lang-tw-*: same ISBN, same price, one product, never a second SKU', async () => {
+	const E = await import('../src/store-engine/lib/storeEngine.ts');
+	const isbn = JSON.parse(fs.readFileSync(new URL('../src/store-engine/data/isbn-list.json', import.meta.url), 'utf8'));
+	const tw = isbn.languages.find((l) => l.code === 'tw');
+	assert.ok(tw, 'isbn-list carries Twi under tw');
+	assert.deepEqual(tw.aliases, ['ak'], 'Twi keeps ak as its alias (ISBNS.json code_aliases)');
+	assert.ok(!isbn.languages.some((l) => l.code === 'ak'), 'no isbn-list row is coded ak (one code)');
+	for (const b of ['hb', 'pb']) {
+		assert.equal(E.SKU_ALIASES[`lang-ak-${b}`], `lang-tw-${b}`, `lang-ak-${b} aliases lang-tw-${b}`);
+		assert.equal(E.canonicalSku(`lang-ak-${b}`), `lang-tw-${b}`);
+		assert.equal(E.familyOfSku(`lang-tw-${b}`), 'bible', `lang-tw-${b} is sold`);
+		assert.deepEqual(E.bibleSkuIsbn(`lang-ak-${b}`), E.bibleSkuIsbn(`lang-tw-${b}`));
+		assert.equal(E.bibleSkuIsbn(`lang-tw-${b}`).isbn, tw[b]);
+		assert.equal(E.familyOfSku(`lang-ak-${b}`), 'bible');
+		assert.equal(E.shipsOnPublication(`lang-ak-${b}`), E.shipsOnPublication(`lang-tw-${b}`));
+	}
+	const deps = { enabled: true, isFirstOrder: async () => false, firstOrderPromo: async () => null };
+	const render = async (counts) => {
+		const r = await E.checkoutForm({ counts, country: 'US', returnPath: '/print/order/' }, 'https://fathersheartbible.com/api/dvc-checkout', deps);
+		assert.ok(r.form, `form rendered for ${JSON.stringify(counts)}: ${JSON.stringify(r.body ?? '')}`);
+		return r.form;
+	};
+	for (const b of ['hb', 'pb']) {
+		const viaTw = await render({ [`lang-tw-${b}`]: 1 });
+		const viaAk = await render({ [`lang-ak-${b}`]: 1 });
+		assert.deepEqual(viaAk, viaTw, `lang-ak-${b} renders the identical checkout form as lang-tw-${b}`);
+		const meta = Object.entries(viaAk).filter(([k]) => /^metadata\[bible_\d+\]$/.test(k)).map(([, v]) => v).join(';');
+		assert.match(meta, new RegExp(`isbn=${tw[b]}`), 'the Stripe sale record carries the Twi ISBN');
+		assert.equal(Number(viaAk['line_items[0][price_data][unit_amount]']), b === 'hb' ? 9999 : 7999, 'the language price');
+		assert.match(viaAk['line_items[0][price_data][product_data][name]'], /\(Twi\)/);
+	}
+	// both spellings in one cart = ONE line of 2, never two products
+	const both = await render({ 'lang-ak-hb': 1, 'lang-tw-hb': 1 });
+	assert.equal(both['line_items[0][quantity]'], 2);
+	assert.equal(both['line_items[1][price_data][unit_amount]'], undefined);
+	// a bad alias count is refused like any other
+	const bad = await E.checkoutForm({ counts: { 'lang-ak-hb': -1 }, country: 'US' }, 'https://fathersheartbible.com/x', deps);
+	assert.equal(bad.status, 400);
+});

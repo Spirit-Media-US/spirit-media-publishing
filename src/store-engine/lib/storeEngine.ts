@@ -1142,15 +1142,15 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 		retail: 7999,
 		img: `${ASSETS}/lang/v2/lang-ti-600.webp`,
 	},
-	'lang-ak-hb': {
+	'lang-tw-hb': {
 		title: 'Twi Twerɛ Kronkron (Twi) — Hardback',
 		retail: 9999,
-		img: `${ASSETS}/lang/v2/lang-ak-600.webp`,
+		img: `${ASSETS}/lang/v2/lang-tw-600.webp`,
 	},
-	'lang-ak-pb': {
+	'lang-tw-pb': {
 		title: 'Twi Twerɛ Kronkron (Twi) — Paperback',
 		retail: 7999,
-		img: `${ASSETS}/lang/v2/lang-ak-600.webp`,
+		img: `${ASSETS}/lang/v2/lang-tw-600.webp`,
 	},
 	'lang-xh-hb': {
 		title: 'IBhayibhile yesiXhosa (Xhosa) — Hardback',
@@ -1176,6 +1176,38 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 for (const [sku, e] of Object.entries(CATALOG_LANG_EDITIONS))
 	if (!(sku in EDITIONS)) EDITIONS[sku] = e;
 // END CATALOG LANGUAGE EDITIONS
+// SHIPS ON PUBLICATION (pmshipping 2026-11-25 ruling, option 2; Kevin 10-29 L1126 / 10-30 L1197 "Buy now on all 80"):
+// a DIRECT-SALE language edition Ingram cannot print yet (isbn-list.json onSale:false = not yet Title Available; the
+// ISBN master flips on_sale at Title Available) is still sold, but its Stripe line and order record SAY it ships on
+// publication, so neither the buyer nor the shipper desk mistakes it for an order that can print today. Applied HERE,
+// outside fhb-chain.py edition-roster's two generated regions, from data the engine already ships: a roster re-run
+// cannot drop it, and it disappears by itself the day the language goes on sale. Never doubled, never on a pre-order.
+export const SHIPS_ON_PUBLICATION = ' (ships on publication)';
+for (const l of (isbnList as unknown as { languages: { code?: string; onSale?: boolean }[] })
+	.languages)
+	for (const b of ['hb', 'pb'] as const) {
+		const e = l.code && l.onSale === false ? EDITIONS[`lang-${l.code}-${b}`] : undefined;
+		if (e && !/\((pre-order|ships on publication)\)$/.test(e.title))
+			EDITIONS[`lang-${l.code}-${b}`] = { ...e, title: e.title + SHIPS_ON_PUBLICATION };
+	}
+/** True when this SKU is a direct-sale language edition not yet on sale (its line says "ships on publication"). */
+export const shipsOnPublication = (sku: string): boolean =>
+	Boolean(EDITIONS[canonicalSku(sku)]?.title.endsWith(SHIPS_ON_PUBLICATION));
+
+// OLD LANGUAGE CODES STAY ACCEPTED (pmbuilder 2026-11-26, Twi: ONE code tw; it was first sold as lang-ak-hb/pb).
+// isbn-list.json `aliases` (GENERATED from ISBNS.json code_aliases) names an edition's old codes. lang-<alias>-hb|pb
+// is the SAME product as lang-<code>-hb|pb — same EDITIONS entry, same ISBN — never a second one: checkout counts it
+// as the canonical SKU (existing links, saved carts), bibleSkuIsbn and the shipper desk resolve it (existing orders,
+// Stripe metadata). Outside fhb-chain.py edition-roster's generated regions, from data the engine already ships.
+export const SKU_ALIASES: Record<string, string> = {};
+for (const l of (isbnList as unknown as { languages: { code?: string; aliases?: string[] }[] })
+	.languages)
+	for (const a of l.code ? (l.aliases ?? []) : [])
+		for (const b of ['hb', 'pb'] as const)
+			if (EDITIONS[`lang-${l.code}-${b}`] && !EDITIONS[`lang-${a}-${b}`])
+				SKU_ALIASES[`lang-${a}-${b}`] = `lang-${l.code}-${b}`;
+/** The SKU checkout sells for `sku`: itself, or the canonical SKU an old-code alias names. */
+export const canonicalSku = (sku: string): string => SKU_ALIASES[sku] ?? sku;
 
 // BOOKS THAT ARE NOT BIBLES, sold through this same checkout (Kevin 2026-11-10: "point Beloved Identity to
 // FHB too. Build a checkout page to be fulfilled through ingram"). Kept in its own block, outside EDITIONS,
@@ -1286,7 +1318,7 @@ const ISBN_LIST = isbnList as unknown as {
 	audience: (IsbnPair & { slug: string })[];
 	journaling: IsbnPair;
 	largePrint: (IsbnPair & { vol: number })[];
-	languages: (IsbnPair & { code?: string })[];
+	languages: (IsbnPair & { code?: string; aliases?: string[] })[];
 };
 const ISBN_BY_STEM: Record<string, IsbnPair> = {
 	...Object.fromEntries(
@@ -1297,6 +1329,12 @@ const ISBN_BY_STEM: Record<string, IsbnPair> = {
 	...Object.fromEntries(ISBN_LIST.largePrint.map((v) => [`lp-vol${v.vol}`, v])),
 	...Object.fromEntries(
 		ISBN_LIST.languages.filter((l) => l.code).map((l) => [`lang-${l.code}`, l]),
+	),
+	// an old code (isbn-list aliases) resolves to the SAME pair, never one of its own
+	...Object.fromEntries(
+		ISBN_LIST.languages.flatMap((l) =>
+			l.code ? (l.aliases ?? []).map((a) => [`lang-${a}`, l] as const) : [],
+		),
 	),
 };
 
@@ -1493,7 +1531,7 @@ export function familyOfSku(sku: string): ProductFamily | null {
 	if (BOOK_SKUS[sku]) return FH_BOOK_SLUGS.has(BOOK_SKUS[sku].bookSlug) ? 'fh_book' : 'smp_book';
 	if (EBOOK_SKUS[sku])
 		return FH_BOOK_SLUGS.has(EBOOK_SKUS[sku].bookSlug) ? 'fh_ebook' : 'smp_ebook';
-	return EDITIONS[sku] ? 'bible' : null;
+	return EDITIONS[canonicalSku(sku)] ? 'bible' : null;
 }
 /** The family tag of a cart: every family with a quantity, in PRODUCT_FAMILIES order, '+'-joined ('' when empty). */
 export function familyOf(counts: Record<string, number>): string {
@@ -1622,6 +1660,12 @@ export async function checkoutForm(
 		const n = Math.floor(Number(payload.counts?.[slug] ?? 0));
 		if (!Number.isFinite(n) || n < 0) return reply({ error: 'invalid_selection' }, 400);
 		counts[slug] = n;
+	}
+	// an old-code SKU (SKU_ALIASES: lang-ak-hb = lang-tw-hb) is counted as its canonical SKU: one product, one line
+	for (const [alias, slug] of Object.entries(SKU_ALIASES)) {
+		const n = Math.floor(Number(payload.counts?.[alias] ?? 0));
+		if (!Number.isFinite(n) || n < 0) return reply({ error: 'invalid_selection' }, 400);
+		counts[slug] += n;
 	}
 	// THRESHOLDS COUNT PRODUCTS, one per SKU in the cart (Kevin 2026-09-17). A set is one
 	// product however many volumes are in the box, so four sets are four products — the
