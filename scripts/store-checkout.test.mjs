@@ -1669,7 +1669,18 @@ test('direct-sale language not yet on sale: sold (200, session) with "(ships on 
 		for (const b of ['hb', 'pb'])
 			if (l.code === 'hil' || l.code === 'am')
 				assert.equal(shipsOnPublication(`lang-${l.code}-${b}`), l.onSale === false, `${l.code}-${b}`);
-	assert.equal(shipsOnPublication('lang-yaf-hb'), false, 'a pre-order keeps its own (pre-order) label, never both');
+	// "Never both": every edition still titled "(pre-order)" (no ISBN yet) keeps only that label. Checked as a RULE over
+	// the live catalogue, not one hard-coded language: yaf was the example until its ISBNs landed on 11-26 and it became
+	// an ordinary direct-sale line (which then correctly reads "(ships on publication)").
+	// EDITIONS is not exported, so read the "(pre-order)" SKUs from the engine source itself (no hard-coded language).
+	const src = fs.readFileSync(new URL('../src/store-engine/lib/storeEngine.ts', import.meta.url), 'utf8');
+	const preorders = [...src.matchAll(/'(lang-[a-z]+-(?:hb|pb))':\s*\{\s*title:\s*'[^']*\(pre-order\)'/g)].map((m) => m[1]);
+	for (const sku of preorders)
+		assert.equal(shipsOnPublication(sku), false, `${sku}: a pre-order keeps its own (pre-order) label, never both`);
+	// and every not-yet-on-sale direct-sale edition (an ISBN, onSale:false) does carry it — the rule yaf now follows
+	for (const l of isbn.languages)
+		if (l.onSale === false && !preorders.includes(`lang-${l.code}-hb`) && src.includes(`'lang-${l.code}-hb'`))
+			assert.equal(shipsOnPublication(`lang-${l.code}-hb`), true, `${l.code}-hb: direct-sale not on sale must say ships on publication`);
 });
 
 // ONE TWI CODE (pmbuilder 2026-11-26): Twi sells as lang-tw-hb/pb; the old code's SKUs lang-ak-hb/pb (first sold
