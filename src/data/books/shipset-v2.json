@@ -19544,7 +19544,7 @@
 							"servant leadership",
 							"North Carolina"
 						],
-						"sameAs": null,
+						"sameAs": ["https://raisedinabarn.org/"],
 						"@id": "https://spiritmediapublishing.com/books/raised-in-a-barn/#book",
 						"publisher": "https://spiritmediapublishing.com/#organization"
 					},
