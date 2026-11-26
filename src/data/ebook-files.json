@@ -259,6 +259,12 @@
 			"filename": "LOVE-The-Greatest-Power-Ever-Known.epub",
 			"sha256": "5f2a0d8190352841e307f31aa0d42cc11e9cb9f6c1254a77f4009d05dcb98e1d"
 		},
+		"mario-and-jimmy-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "mario-and-jimmy-v3.epub",
+			"filename": "Mario-and-the-Squirrel-Named-Jimmy.epub",
+			"sha256": "853969d699a0c7d3d6445c0a502d66fbdda926ce68ec41a75719b518b56a0760"
+		},
 		"mended-ebook": {
 			"bucket": "fhb-ebook",
 			"key": "mended-v6.epub",
@@ -493,6 +499,12 @@
 			"filename": "The-Seed-of-David.epub",
 			"sha256": "56b47437332a462cce293dfde8cba8590fea2c12039cda02afed67a627a0d8a1"
 		},
+		"the-seed-of-david-thoughts-from-spiritual-realm-encounters-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "the-seed-of-david-thoughts-from-spiritual-realm-encounters-v1.epub",
+			"filename": "The-Seed-of-David.epub",
+			"sha256": "9de3542b668a1e19866b2159a47b87fd20fe8fc51f91a3eaa9fdfdc81ed679db"
+		},
 		"the-seers-journey-ebook": {
 			"bucket": "fhb-ebook",
 			"key": "the-seers-journey-v3.epub",
@@ -546,6 +558,30 @@
 			"key": "yiayia-voulas-big-dream-v27.epub",
 			"filename": "YiaYia-Voula-s-Big-Dream.epub",
 			"sha256": "53fe35d0fb0cf0b291347af7a4a92d03744a9bcf8beba987f5fc0a12671dca6d"
+		},
+		"your-time-anniversary-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "your-time-anniversary-v1.epub",
+			"filename": "Your-Time-Special-Edition-for-Anniversary.epub",
+			"sha256": "b21a214703167825b3449bba3c531b2f1a137dcab383d7cb63cf256eae0afcb8"
+		},
+		"your-time-graduates-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "your-time-graduates-v1.epub",
+			"filename": "Your-Time-Special-Edition-for-Graduates.epub",
+			"sha256": "4a0d26372f4e38500aae6ad8d72769c2718915440d272663e6cf71a7ffa309e7"
+		},
+		"your-time-mens-birthday-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "your-time-mens-birthday-v1.epub",
+			"filename": "Your-Time-Men-s-Birthday-Edition.epub",
+			"sha256": "878c7fceaaa6da4c8d504827529301c9762a1bb919f9e98fdf9ef0f544b354b9"
+		},
+		"your-time-womens-birthday-ebook": {
+			"bucket": "fhb-ebook",
+			"key": "your-time-womens-birthday-v1.epub",
+			"filename": "Your-Time-Women-s-Birthday-Edition.epub",
+			"sha256": "a8f2eb421e209b1b5a1f7d781dcd59485f96c8e334d98e4343a7f8e6e0df8712"
 		},
 		"zacchaeus-has-to-pee-ebook": {
 			"bucket": "fhb-ebook",
