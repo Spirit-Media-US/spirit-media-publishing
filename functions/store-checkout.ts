@@ -30,6 +30,7 @@ import {
 	riabGiftPlan,
 	riabKey,
 	riabQuote,
+	riabSignedRefusal,
 } from '../src/lib/riabOrder.ts';
 import {
 	allowCheck,
@@ -48,9 +49,11 @@ import {
 	familyOf,
 	familyOfSku,
 	firstOrderPromo,
+	forwarderCoupon,
 	isEbookSku,
 	isFirstOrder,
 	type OrderPayload,
+	shipToCredit,
 	storeTagErrors,
 	storeTags,
 } from '../src/store-engine/lib/storeEngine.ts';
@@ -112,6 +115,7 @@ async function printForm(
 		enabled: Boolean(key),
 		isFirstOrder: (em) => isFirstOrder(em, key as string),
 		firstOrderPromo: () => firstOrderPromo(key as string),
+		forwarderCoupon: (f) => forwarderCoupon(key as string, f),
 	});
 }
 
@@ -163,6 +167,8 @@ export async function riabCheckout(
 ) {
 	const counts = riabCounts(payload.counts as Record<string, unknown>);
 	if (!counts) return { status: 400, body: { error: 'invalid_selection' } } as const;
+	const noSigned = riabSignedRefusal(counts);
+	if (noSigned) return { status: 400, body: noSigned } as const;
 	const country = String(payload.country ?? 'US').toUpperCase();
 	const q = riabQuote(counts, country);
 	if (q.copies < 1) return { status: 400, body: { error: 'empty' } } as const;
@@ -286,7 +292,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 	const origin = context.request.headers.get('origin');
 	if (typeof context.waitUntil === 'function' && siteForOrigin(origin) === 'fhb') {
 		const body = (await copy.json().catch(() => null)) as Record<string, unknown> | null;
-		if (!body?.firstOrderCheck) {
+		if (!body?.firstOrderCheck && !body?.shipToCredit) {
 			const j =
 				res.status >= 400
 					? ((await res
@@ -331,6 +337,15 @@ const handlePost: PagesFunction<Env> = async ({ request, env }) => {
 		payload = await request.json();
 	} catch {
 		return json({ error: 'bad_request' }, 400);
+	}
+	// SHIP-TO CREDIT (Kevin 2026-11-26 L3025): the order form asks when the buyer picks a ship-to country; the answer is
+	// the engine's, from the country alone (never the client's claim), and null everywhere but a forwarder country, so no
+	// other buyer's page ever carries the credit or the route's name. Read-only: no Stripe call, no session.
+	if ((payload as { shipToCredit?: unknown }).shipToCredit === true) {
+		const skus = (payload as { skus?: unknown }).skus;
+		return json({
+			credit: shipToCredit(payload.country, Array.isArray(skus) ? skus.slice(0, 400) : []),
+		});
 	}
 	// The first-order 15% is for Bibles only (Kevin 11-10): the FHB Bible box asks; an SMP book page gets 'unknown'.
 	if (payload.firstOrderCheck) {

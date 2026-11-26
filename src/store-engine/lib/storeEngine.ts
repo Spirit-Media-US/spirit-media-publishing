@@ -16,6 +16,8 @@ import isbnList from '../data/isbn-list.json' with { type: 'json' };
 
 import { BULK_QUOTE_COPY, bulkQuoteRequired, tierPctFor } from './farBand.ts';
 import {
+	forwarderFor,
+	forwarderLandedUsd,
 	handlingFeeCents,
 	handlingLabel,
 	landedUnitCost,
@@ -34,10 +36,12 @@ import {
 	META_VALUE_MAX,
 	packBreakdown,
 	paidUnit,
+	preorderShipAfter,
+	releaseDateText,
 	type Tier,
 	unitAfter,
 } from './order-pricing.ts';
-import { checkoutShippingForm, countryFor } from './shipCountries.ts';
+import { checkoutShippingForm, countryFor, type Forwarder } from './shipCountries.ts';
 
 const ASSETS = 'https://assets.spiritmediapublishing.com/FHB/print';
 // Re-rendered 3-D cards live under NEW keys rather than over the live ones, so the edge
@@ -871,12 +875,12 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 		img: `${ASSETS}/lang/v2/lang-af-600.webp`,
 	},
 	'lang-nri-hb': {
-		title: 'Chokri Ketholesi (Chokri Naga) — Hardback (pre-order)',
+		title: 'Chokri Ketholesi (Chokri Naga) — Hardback',
 		retail: 9999,
 		img: `${ASSETS}/lang/v2/lang-nri-600.webp`,
 	},
 	'lang-nri-pb': {
-		title: 'Chokri Ketholesi (Chokri Naga) — Paperback (pre-order)',
+		title: 'Chokri Ketholesi (Chokri Naga) — Paperback',
 		retail: 7999,
 		img: `${ASSETS}/lang/v2/lang-nri-600.webp`,
 	},
@@ -931,12 +935,12 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 		img: `${ASSETS}/lang/v2/lang-ilo-600.webp`,
 	},
 	'lang-nkf-hb': {
-		title: 'Inpui Bathiangnu Chongdip (Inpui Naga) — Hardback (pre-order)',
+		title: 'Inpui Bathiangnu Chongdip (Inpui Naga) — Hardback',
 		retail: 9999,
 		img: `${ASSETS}/lang/v2/lang-nkf-600.webp`,
 	},
 	'lang-nkf-pb': {
-		title: 'Inpui Bathiangnu Chongdip (Inpui Naga) — Paperback (pre-order)',
+		title: 'Inpui Bathiangnu Chongdip (Inpui Naga) — Paperback',
 		retail: 7999,
 		img: `${ASSETS}/lang/v2/lang-nkf-600.webp`,
 	},
@@ -981,12 +985,12 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 		img: `${ASSETS}/lang/v2/lang-rw-600.webp`,
 	},
 	'lang-sgc-hb': {
-		title: 'Bukuit ne Tilil ab Kipsigis (Kipsigis) — Hardback (pre-order)',
+		title: 'Bukuit ne Tilil ab Kipsigis (Kipsigis) — Hardback',
 		retail: 9999,
 		img: `${ASSETS}/lang/v2/lang-sgc-600.webp`,
 	},
 	'lang-sgc-pb': {
-		title: 'Bukuit ne Tilil ab Kipsigis (Kipsigis) — Paperback (pre-order)',
+		title: 'Bukuit ne Tilil ab Kipsigis (Kipsigis) — Paperback',
 		retail: 7999,
 		img: `${ASSETS}/lang/v2/lang-sgc-600.webp`,
 	},
@@ -1000,15 +1004,15 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 		retail: 7999,
 		img: `${ASSETS}/lang/v2/lang-rn-600.webp`,
 	},
-	'lang-ktu-hb': {
-		title: 'Biblia ya Kituba (Kituba) — Hardback (pre-order)',
+	'lang-mkw-hb': {
+		title: 'Biblia ya Kituba (Kituba) — Hardback',
 		retail: 9999,
-		img: `${ASSETS}/lang/v2/lang-ktu-600.webp`,
+		img: `${ASSETS}/lang/v2/lang-mkw-600.webp`,
 	},
-	'lang-ktu-pb': {
-		title: 'Biblia ya Kituba (Kituba) — Paperback (pre-order)',
+	'lang-mkw-pb': {
+		title: 'Biblia ya Kituba (Kituba) — Paperback',
 		retail: 7999,
-		img: `${ASSETS}/lang/v2/lang-ktu-600.webp`,
+		img: `${ASSETS}/lang/v2/lang-mkw-600.webp`,
 	},
 	'lang-kmr-hb': {
 		title: 'Kitêba Pîroz a Kurmancî (Kurmanji Kurdish) — Hardback',
@@ -1140,15 +1144,15 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 		retail: 7999,
 		img: `${ASSETS}/lang/v2/lang-ti-600.webp`,
 	},
-	'lang-ak-hb': {
+	'lang-tw-hb': {
 		title: 'Twi Twerɛ Kronkron (Twi) — Hardback',
 		retail: 9999,
-		img: `${ASSETS}/lang/v2/lang-ak-600.webp`,
+		img: `${ASSETS}/lang/v2/lang-tw-600.webp`,
 	},
-	'lang-ak-pb': {
+	'lang-tw-pb': {
 		title: 'Twi Twerɛ Kronkron (Twi) — Paperback',
 		retail: 7999,
-		img: `${ASSETS}/lang/v2/lang-ak-600.webp`,
+		img: `${ASSETS}/lang/v2/lang-tw-600.webp`,
 	},
 	'lang-xh-hb': {
 		title: 'IBhayibhile yesiXhosa (Xhosa) — Hardback',
@@ -1161,12 +1165,12 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 		img: `${ASSETS}/lang/v2/lang-xh-600.webp`,
 	},
 	'lang-yaf-hb': {
-		title: 'Masonuku Matoma ma Kiyaka (Yaka) — Hardback (pre-order)',
+		title: 'Masonuku Matoma ma Kiyaka (Yaka) — Hardback',
 		retail: 9999,
 		img: `${ASSETS}/lang/v2/lang-yaf-600.webp`,
 	},
 	'lang-yaf-pb': {
-		title: 'Masonuku Matoma ma Kiyaka (Yaka) — Paperback (pre-order)',
+		title: 'Masonuku Matoma ma Kiyaka (Yaka) — Paperback',
 		retail: 7999,
 		img: `${ASSETS}/lang/v2/lang-yaf-600.webp`,
 	},
@@ -1174,6 +1178,38 @@ const CATALOG_LANG_EDITIONS: Record<string, { title: string; retail: number; img
 for (const [sku, e] of Object.entries(CATALOG_LANG_EDITIONS))
 	if (!(sku in EDITIONS)) EDITIONS[sku] = e;
 // END CATALOG LANGUAGE EDITIONS
+// SHIPS ON PUBLICATION (pmshipping 2026-11-25 ruling, option 2; Kevin 10-29 L1126 / 10-30 L1197 "Buy now on all 80"):
+// a DIRECT-SALE language edition Ingram cannot print yet (isbn-list.json onSale:false = not yet Title Available; the
+// ISBN master flips on_sale at Title Available) is still sold, but its Stripe line and order record SAY it ships on
+// publication, so neither the buyer nor the shipper desk mistakes it for an order that can print today. Applied HERE,
+// outside fhb-chain.py edition-roster's two generated regions, from data the engine already ships: a roster re-run
+// cannot drop it, and it disappears by itself the day the language goes on sale. Never doubled, never on a pre-order.
+export const SHIPS_ON_PUBLICATION = ' (ships on publication)';
+for (const l of (isbnList as unknown as { languages: { code?: string; onSale?: boolean }[] })
+	.languages)
+	for (const b of ['hb', 'pb'] as const) {
+		const e = l.code && l.onSale === false ? EDITIONS[`lang-${l.code}-${b}`] : undefined;
+		if (e && !/\((pre-order|ships on publication)\)$/.test(e.title))
+			EDITIONS[`lang-${l.code}-${b}`] = { ...e, title: e.title + SHIPS_ON_PUBLICATION };
+	}
+/** True when this SKU is a direct-sale language edition not yet on sale (its line says "ships on publication"). */
+export const shipsOnPublication = (sku: string): boolean =>
+	Boolean(EDITIONS[canonicalSku(sku)]?.title.endsWith(SHIPS_ON_PUBLICATION));
+
+// OLD LANGUAGE CODES STAY ACCEPTED (pmbuilder 2026-11-26, Twi: ONE code tw; it was first sold as lang-ak-hb/pb).
+// isbn-list.json `aliases` (GENERATED from ISBNS.json code_aliases) names an edition's old codes. lang-<alias>-hb|pb
+// is the SAME product as lang-<code>-hb|pb — same EDITIONS entry, same ISBN — never a second one: checkout counts it
+// as the canonical SKU (existing links, saved carts), bibleSkuIsbn and the shipper desk resolve it (existing orders,
+// Stripe metadata). Outside fhb-chain.py edition-roster's generated regions, from data the engine already ships.
+export const SKU_ALIASES: Record<string, string> = {};
+for (const l of (isbnList as unknown as { languages: { code?: string; aliases?: string[] }[] })
+	.languages)
+	for (const a of l.code ? (l.aliases ?? []) : [])
+		for (const b of ['hb', 'pb'] as const)
+			if (EDITIONS[`lang-${l.code}-${b}`] && !EDITIONS[`lang-${a}-${b}`])
+				SKU_ALIASES[`lang-${a}-${b}`] = `lang-${l.code}-${b}`;
+/** The SKU checkout sells for `sku`: itself, or the canonical SKU an old-code alias names. */
+export const canonicalSku = (sku: string): string => SKU_ALIASES[sku] ?? sku;
 
 // BOOKS THAT ARE NOT BIBLES, sold through this same checkout (Kevin 2026-11-10: "point Beloved Identity to
 // FHB too. Build a checkout page to be fulfilled through ingram"). Kept in its own block, outside EDITIONS,
@@ -1284,7 +1320,7 @@ const ISBN_LIST = isbnList as unknown as {
 	audience: (IsbnPair & { slug: string })[];
 	journaling: IsbnPair;
 	largePrint: (IsbnPair & { vol: number })[];
-	languages: (IsbnPair & { code?: string })[];
+	languages: (IsbnPair & { code?: string; aliases?: string[] })[];
 };
 const ISBN_BY_STEM: Record<string, IsbnPair> = {
 	...Object.fromEntries(
@@ -1295,6 +1331,12 @@ const ISBN_BY_STEM: Record<string, IsbnPair> = {
 	...Object.fromEntries(ISBN_LIST.largePrint.map((v) => [`lp-vol${v.vol}`, v])),
 	...Object.fromEntries(
 		ISBN_LIST.languages.filter((l) => l.code).map((l) => [`lang-${l.code}`, l]),
+	),
+	// an old code (isbn-list aliases) resolves to the SAME pair, never one of its own
+	...Object.fromEntries(
+		ISBN_LIST.languages.flatMap((l) =>
+			l.code ? (l.aliases ?? []).map((a) => [`lang-${a}`, l] as const) : [],
+		),
 	),
 };
 
@@ -1491,7 +1533,7 @@ export function familyOfSku(sku: string): ProductFamily | null {
 	if (BOOK_SKUS[sku]) return FH_BOOK_SLUGS.has(BOOK_SKUS[sku].bookSlug) ? 'fh_book' : 'smp_book';
 	if (EBOOK_SKUS[sku])
 		return FH_BOOK_SLUGS.has(EBOOK_SKUS[sku].bookSlug) ? 'fh_ebook' : 'smp_ebook';
-	return EDITIONS[sku] ? 'bible' : null;
+	return EDITIONS[canonicalSku(sku)] ? 'bible' : null;
 }
 /** The family tag of a cart: every family with a quantity, in PRODUCT_FAMILIES order, '+'-joined ('' when empty). */
 export function familyOf(counts: Record<string, number>): string {
@@ -1530,7 +1572,16 @@ export function storeTagErrors(form: Record<string, string | number>): string[] 
 // (this engine, Bibles + books) and print_bulk (the retired /print bulk path). Other payments on the same Stripe
 // account (publishing invoices, pre-release sales, app charges) no longer make a buyer a "repeat".
 // ebook_direct (2026-11-16): an eBook bought from the store is a store purchase too, so it ends the first order.
-export const STORE_ORDER_KINDS: readonly string[] = ['dvc_print', 'print_bulk', 'ebook_direct'];
+// audiobook_direct, tbl_ebook, ebook_bundle (I22 2026-11-23): TBL's audiobook, FHB language eBook and series bundle
+// sales are store orders too (one store, TBL window), so they end the first order.
+export const STORE_ORDER_KINDS: readonly string[] = [
+	'dvc_print',
+	'print_bulk',
+	'ebook_direct',
+	'audiobook_direct',
+	'tbl_ebook',
+	'ebook_bundle',
+];
 export async function isFirstOrder(email: string, key: string): Promise<boolean> {
 	const get = async (path: string) => {
 		const r = await fetch(`https://api.stripe.com/v1/${path}`, {
@@ -1594,6 +1645,9 @@ export type EngineDeps = {
 	enabled: boolean;
 	isFirstOrder: (email: string) => Promise<boolean>;
 	firstOrderPromo: () => Promise<string | null>;
+	/** The live Stripe coupon id for a forwarder route's per-order credit, only if it still says the route's amount
+	 *  (absent or null = the credit cannot be given, so a forwarder order is refused: never sold without its credit). */
+	forwarderCoupon?: (f: Forwarder) => Promise<string | null>;
 };
 export type EngineResult =
 	| { status: number; body: unknown }
@@ -1611,6 +1665,12 @@ export async function checkoutForm(
 		const n = Math.floor(Number(payload.counts?.[slug] ?? 0));
 		if (!Number.isFinite(n) || n < 0) return reply({ error: 'invalid_selection' }, 400);
 		counts[slug] = n;
+	}
+	// an old-code SKU (SKU_ALIASES: lang-ak-hb = lang-tw-hb) is counted as its canonical SKU: one product, one line
+	for (const [alias, slug] of Object.entries(SKU_ALIASES)) {
+		const n = Math.floor(Number(payload.counts?.[alias] ?? 0));
+		if (!Number.isFinite(n) || n < 0) return reply({ error: 'invalid_selection' }, 400);
+		counts[slug] += n;
 	}
 	// THRESHOLDS COUNT PRODUCTS, one per SKU in the cart (Kevin 2026-09-17). A set is one
 	// product however many volumes are in the box, so four sets are four products — the
@@ -1672,11 +1732,15 @@ export async function checkoutForm(
 			400,
 		);
 	}
-	// ONE ENGINE (Kevin 2026-11-15): a book is sized on its own measured landed cost, else the country's Bible
-	// cost for the same binding (marginGuard.landedUnitCost). Refused only when the country has no cost at all.
-	const unsized = Object.entries(counts).some(
-		([slug, n]) => n > 0 && BOOK_SKUS[slug] && landedUnitCost(slug, dest?.landed_cost_usd) == null,
-	);
+	// ONE ENGINE (Kevin 2026-11-15): a book is sized on its own measured landed cost, else the per-book cost model
+	// (Kevin 2026-11-24), capped at the country's Bible cost (marginGuard.landedUnitCost). Refused only when nothing prices it.
+	const unsized = Object.entries(counts).some(([slug, n]) => {
+		if (n <= 0 || !BOOK_SKUS[slug]) return false;
+		const via = forwarderFor(slug, dest);
+		return via
+			? forwarderLandedUsd(slug, via) == null
+			: landedUnitCost(slug, dest?.landed_cost_usd, dest?.code) == null;
+	});
 	if (intl && unsized) {
 		return reply(
 			{ error: 'country_not_served', message: 'We do not ship that book to that country yet.' },
@@ -1692,6 +1756,17 @@ export async function checkoutForm(
 	// A cart holding an exempt book takes the first-order 15% per Bible unit instead of Stripe's
 	// order-wide coupon, exactly like international carts, because the coupon would discount the book.
 	const perUnitPromo = intl;
+	// FORWARDER ROUTE (Ukraine / Nova Poshta, Kevin 2026-11-25, ship-countries.json UA `forwarder`): a cart holding a
+	// SKU in the route's scope, SHIPPED TO the forwarder country (whoever the buyer is: the ship-to decides, Kevin 2026-11-26
+	// L3025), ships to the buyer's forwarder address in the US. Decision 1: NO first-order 15% (the per-order credit
+	// replaces it); decision 2: the credit is a Stripe amount_off coupon named on the Stripe page, with the explanation in
+	// custom_text; scope = the route's ONE setting ('all' physical products, L3025 | 'bibles').
+	const fw = intl
+		? (Object.entries(counts)
+				.filter(([, n]) => n > 0)
+				.map(([slug]) => forwarderFor(slug, dest))
+				.find(Boolean) ?? null)
+		: null;
 	let promo: string | null = null;
 	// 1A (Kevin 2026-11-08): WELCOME15 is offered to EVERYONE, every country. The margin check is
 	// now only the backstop (handling is sized to the floor, so it drops a discount only when the
@@ -1727,7 +1802,7 @@ export async function checkoutForm(
 					FIRST_ORDER_PCT) /
 					100,
 			);
-	if (discountable && validEmail && FIRST_ORDER_PCT > tierPctNow && !bookTiersWin) {
+	if (discountable && validEmail && FIRST_ORDER_PCT > tierPctNow && !bookTiersWin && !fw) {
 		const m = marginCheck(lines, FIRST_ORDER_PCT, destCode, undefined, undefined, true);
 		if (!m.ok) {
 			console.log(`margin-guard: dropped ${FIRST_ORDER_CODE}: ${m.reason}`);
@@ -1773,6 +1848,19 @@ export async function checkoutForm(
 	}
 	const unitPctFinal = perUnitPromo && promo ? FIRST_ORDER_PCT : pct;
 	const useCode = Boolean(promo) && !perUnitPromo;
+	// The forwarder credit must exist in Stripe with the route's amount, or the order is refused (fail closed): the buyer
+	// was promised the credit on the order form, so a session without it is never created.
+	const credit = fw ? ((await deps.forwarderCoupon?.(fw)) ?? null) : null;
+	if (fw && !credit) {
+		console.log(`forwarder: ${fw.id} coupon ${fw.coupon} unavailable: order refused`);
+		return reply(
+			{
+				error: 'credit_unavailable',
+				message: `Orders to ${dest?.name ?? destCode} are paused for a moment. Please try again later.`,
+			},
+			503,
+		);
+	}
 	// `copies` = physical volumes (a Large Print set is three), which scales the expedited price.
 	const shipForm = checkoutShippingForm(payload.country ?? 'US', copies);
 	if (!shipForm) {
@@ -1808,6 +1896,35 @@ export async function checkoutForm(
 			400,
 		);
 	}
+
+	// PRE-ORDER (book-skus.json `_about_preorder`): a line still before its ship_after date is charged now and ships at
+	// release. The whole order waits for the LATEST ship_after in it (one shipment), which the session carries for the
+	// shipping desk and the buyer email; the Stripe line says so too.
+	const preorder: Record<string, string> = {};
+	for (const [slug, n] of Object.entries(counts)) {
+		const d = n > 0 ? preorderShipAfter(slug) : null;
+		if (d) preorder[slug] = d;
+	}
+	const shipAfter = Object.values(preorder).sort().pop() ?? null;
+	// a business-day estimate counts from today, which is wrong for a book not yet released: the shipping options name
+	// the release instead and carry no estimate
+	// FORWARDER ROUTE: Ingram ships Standard Ground inside the US, so there is no expedited option (its price is a DDP
+	// method this route never uses), and the Stripe page says what the credit is and how the buyer's parcel reaches them.
+	if (fw) {
+		for (const k of Object.keys(shipForm))
+			if (k.startsWith('shipping_options[1]')) delete shipForm[k];
+		const credit$ = `$${(fw.credit_cents / 100).toFixed(2)}`;
+		shipForm['custom_text[shipping_address][message]'] =
+			`Enter your address in ${dest?.name ?? destCode}. We ship through ${fw.name}: after payment, register free at ${fw.register_url} and reply to your order confirmation email with your ${fw.name} US address (with your ${fw.name} account code). We send your order there and ${fw.name} delivers it to your branch.`;
+		shipForm['custom_text[submit][message]'] =
+			`${fw.credit_name}: -${credit$} (${fw.credit_note}). You pay ${fw.name}'s fee when you collect your parcel. Sold and shipped by Spirit Media Publishing.`;
+	}
+	if (shipAfter)
+		for (const k of Object.keys(shipForm)) {
+			if (k.includes('[delivery_estimate]')) delete shipForm[k];
+			else if (k.endsWith('[display_name]'))
+				shipForm[k] = `${shipForm[k]} (ships at release · Releasing ${releaseDateText(shipAfter)})`;
+		}
 
 	const reqUrl = new URL(requestUrl);
 	const origin =
@@ -1845,6 +1962,11 @@ export async function checkoutForm(
 		// come from src/data/ship-countries.json via checkoutShippingForm (unit 2js). US ships free
 		// (baked into the unit price); a country with a rate adds it as the Stripe shipping option.
 		...shipForm,
+		// Kevin 2026-11-24 ~19:4xZ ("d b"): the seller line on every checkout. Expedited carts already carry it after their
+		// disclaimer (shipCountries.ts); RIAB's own checkout replaces it with its book line + the same words.
+		...('custom_text[submit][message]' in shipForm
+			? {}
+			: { 'custom_text[submit][message]': 'Sold and shipped by Spirit Media Publishing.' }),
 		'metadata[kind]': 'dvc_print',
 		// Physical copies, as the fulfilment email's subject and its "9+ copies" wording read it; the
 		// Bible ladder count (which a discount-exempt book does not touch) travels as ladder_total.
@@ -1852,6 +1974,8 @@ export async function checkoutForm(
 		'metadata[ladder_total]': total,
 		'metadata[pct_off]': promo ? FIRST_ORDER_PCT : pct,
 		'metadata[handling_cents]': handling.reduce((t, h) => t + h.fee * h.qty, 0),
+		// the shipper desk parks a forwarder order until the buyer's forwarder address arrives (desk.py NEED_NP_ADDRESS)
+		...(fw ? { 'metadata[ship_via]': fw.id, 'metadata[credit_cents]': fw.credit_cents } : {}),
 		'metadata[offer]': promo
 			? 'first_order'
 			: pct > 0
@@ -1866,6 +1990,13 @@ export async function checkoutForm(
 						.map(([s, p]) => `${s}:${p}`)
 						.join(',')
 						.slice(0, 500),
+				}
+			: {}),
+		...(shipAfter
+			? {
+					'metadata[preorder]': 'true',
+					'metadata[ship_after]': shipAfter,
+					'metadata[preorder_skus]': Object.keys(preorder).join(',').slice(0, 500),
 				}
 			: {}),
 		// Split under Stripe's 500-char value cap (an 82-SKU cart was one 1,138-char value: 502).
@@ -1911,7 +2042,11 @@ export async function checkoutForm(
 		form[`line_items[${li}][price_data][product_data][name]`] =
 			e.name ?? `Father’s Heart Bible™ — ${e.title}`;
 		form[`line_items[${li}][price_data][product_data][description]`] =
-			(e.desc && bookPct[slug] ? `${e.desc} · ${bookPct[slug]}% bulk discount` : e.desc) ??
+			(e.desc && preorder[slug]
+				? `${e.desc} · Pre-order: ships at release. Releasing ${releaseDateText(preorder[slug])}`
+				: e.desc && bookPct[slug]
+					? `${e.desc} · ${bookPct[slug]}% bulk discount`
+					: e.desc) ??
 			(perUnitPromo && promo
 				? `Divine Voice Color · Complete Bible · ${FIRST_ORDER_PCT}% off your first order · free shipping`
 				: pct > 0
@@ -1942,8 +2077,59 @@ export async function checkoutForm(
 	// Pre-applied, so the buyer never types it; Stripe shows WELCOME15 on the summary and counts
 	// its redemptions. Units above are at list price when it applies — the two never stack.
 	if (promo && useCode) form['discounts[0][promotion_code]'] = promo;
+	// the forwarder credit: ONE per order (never per book); promo is always null here (no first-order on this route)
+	if (credit) form['discounts[0][coupon]'] = credit;
 
 	return { form };
+}
+
+/**
+ * The ship-to credit an order form may show, answered by the SERVER only (Kevin 2026-11-26 L3025: "ONLY Ukhraine checkout
+ * forms should show this credit. NO other buyer should even know"): null for every country without a forwarder route, so
+ * no static page or bundle carries the route's name or credit. `skus` = the form's SKUs; `eligible` = those in the route's
+ * scope (the form shows the credit only while its cart holds one: exactly when checkoutForm applies it).
+ */
+export function shipToCredit(
+	country: unknown,
+	skus: readonly unknown[] = [],
+	/** test seam: the country row to answer from (default: the live list) */
+	row?: Parameters<typeof forwarderFor>[1] & { code?: string },
+): { country: string; cents: number; label: string; eligible: string[] } | null {
+	const code = String(country ?? '').toUpperCase();
+	if (!code || code === 'US') return null;
+	const c = row ?? countryFor(code);
+	const fw = c?.forwarder;
+	if (!fw) return null;
+	const eligible = skus
+		.map((k) => String(k))
+		.filter((k) => !isEbookSku(k) && EDITIONS[canonicalSku(k)] && forwarderFor(canonicalSku(k), c));
+	return {
+		country: code,
+		cents: fw.credit_cents,
+		label: `${fw.credit_name}: -$${(fw.credit_cents / 100).toFixed(2)} (${fw.credit_note})`,
+		eligible,
+	};
+}
+
+/** The live Stripe coupon for a forwarder route's credit, only if it is valid and still says the route's amount in USD. */
+export async function forwarderCoupon(key: string, f: Forwarder): Promise<string | null> {
+	try {
+		const r = await fetch(`https://api.stripe.com/v1/coupons/${encodeURIComponent(f.coupon)}`, {
+			headers: { authorization: `Bearer ${key}` },
+		});
+		if (!r.ok) return null;
+		const c = (await r.json()) as {
+			id?: string;
+			valid?: boolean;
+			amount_off?: number;
+			currency?: string;
+		};
+		return c.valid && c.amount_off === f.credit_cents && c.currency === 'usd'
+			? (c.id ?? null)
+			: null;
+	} catch {
+		return null;
+	}
 }
 
 // ── EBOOKS (Kevin 2026-11-16 "We point to our own ebook sales") ────────────────────────────────────────────────────
@@ -2046,6 +2232,7 @@ export async function ebookCheckoutForm(
 			: `${origin}/bookstore/?order=canceled`;
 	const form: Record<string, string | number> = {
 		mode: 'payment',
+		'custom_text[submit][message]': 'Sold by Spirit Media Publishing.', // Kevin 2026-11-24 seller line (eBook: nothing ships)
 		// lands on /ebook-download, which re-reads the session from Stripe and hands over the signed download link
 		success_url: `${origin}/ebook-download?s={CHECKOUT_SESSION_ID}`,
 		cancel_url: back,

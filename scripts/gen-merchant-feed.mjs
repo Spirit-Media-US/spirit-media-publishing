@@ -75,6 +75,7 @@ export function collect(dist = 'dist', fh = fhSkus()) {
 				price: offer.price,
 				currency: offer.priceCurrency,
 				availability: offer.availability,
+				availabilityStarts: offer.availabilityStarts,
 				gtin: offer.gtin13,
 				author: ctx.author,
 				ship: offer.shippingDetails,
@@ -153,8 +154,8 @@ export function render(items) {
 <link>${esc(i.link)}</link>
 <g:image_link>${esc(i.image)}</g:image_link>
 <g:price>${esc(i.price)} ${esc(i.currency)}</g:price>
-<g:availability>${String(i.availability).endsWith('InStock') ? 'in_stock' : 'out_of_stock'}</g:availability>
-<g:condition>new</g:condition>
+<g:availability>${AVAIL(i.availability)}</g:availability>
+${PREORDER_DATE(i) ? `<g:availability_date>${esc(PREORDER_DATE(i))}</g:availability_date>\n` : ''}<g:condition>new</g:condition>
 <g:gtin>${esc(i.gtin)}</g:gtin>
 <g:brand>Spirit Media Publishing</g:brand>
 <g:identifier_exists>yes</g:identifier_exists>
@@ -176,7 +177,16 @@ ${rows.join('\n')}
 `;
 }
 
-const AVAIL = (a) => (String(a).endsWith('InStock') ? 'in_stock' : 'out_of_stock'); // = the XML's mapping
+// = the XML's mapping. PreOrder (book-skus.json ship_after, Kevin 2026-11-24 MMFI) -> 'preorder' + its availability_date
+function AVAIL(a) {
+	return String(a).endsWith('InStock') ? 'in_stock' : String(a).endsWith('PreOrder') ? 'preorder' : 'out_of_stock';
+}
+/** A pre-order item's release date as ISO 8601 (Google + OpenAI availability_date), else ''. */
+function PREORDER_DATE(i) {
+	return AVAIL(i.availability) === 'preorder' && /^\d{4}-\d{2}-\d{2}$/.test(String(i.availabilityStarts ?? ''))
+		? `${i.availabilityStarts}T00:00:00-05:00`
+		: '';
+}
 // OpenAI's feed spec names JPEG/PNG for image_url; the Google feed keeps the WebP. Every published 3D v2 cover has a
 // JPEG twin <stem>-3d-v2-600.jpg beside its .webp (projects/smp-3d-covers/lane1/publish.py --v2-jpg, 146/146, 2026-11-17).
 export const OPENAI_IMAGE = (u) => String(u).replace(/-3d-v2-600\.webp$/, '-3d-v2-600.jpg');
@@ -200,7 +210,9 @@ export function renderOpenAI(items) {
 					brand: 'Spirit Media Publishing',
 					seller_name: 'Spirit Media Publishing',
 					image_url: OPENAI_IMAGE(i.image),
-					availability: AVAIL(i.availability),
+					// OpenAI spells it pre_order (its spec's enum); Google's feed says preorder
+					availability: AVAIL(i.availability) === 'preorder' ? 'pre_order' : AVAIL(i.availability),
+					...(PREORDER_DATE(i) ? { availability_date: PREORDER_DATE(i) } : {}),
 					price: `${i.price} ${i.currency}`,
 					target_countries: ['US'],
 					store_country: 'US',

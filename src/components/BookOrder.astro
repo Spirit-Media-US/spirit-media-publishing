@@ -33,6 +33,9 @@ interface Props {
 	 *  is EBOOK-ONLY: email field + the 15% offer line, no shipping line, no marquee, no Ship to (Kevin 2026-11-16 "We point
 	 *  to our own ebook sales"). Beside print it is one more row, chosen INSTEAD of print (an eBook checks out alone). */
 	ebook?: { sku: string; list_cents: number };
+	/** PRE-ORDER (book-skus.json ship_after, Kevin 2026-11-24 MMFI): the release date as text ("January 7, 2027") when a
+	 *  format here sells as a pre-order; the box then says when it ships and the button reads "Preorder Now". English only. */
+	preorder?: string;
 }
 const {
 	slug,
@@ -46,6 +49,7 @@ const {
 	returnDays,
 	lang = 'en',
 	ebook,
+	preorder,
 } = Astro.props;
 const ebookOnly = formats.length === 0 && Boolean(ebook);
 // THE BOX'S WORDS per language (Kevin 2026-11-15 "2A": "from the wording those pages already use"). es/fr come from the
@@ -77,6 +81,9 @@ const L = {
 		hint: 'For your receipt, and to check your first-order saving.',
 		note: 'Free standard shipping · tax calculated at checkout',
 		checkout: 'Checkout →',
+		// Kevin 2026-11-24 ~19:4xZ ("d b"): every checkout form shows the seller (eBook-only boxes: no shipping)
+		seller: 'Sold and shipped by Spirit Media Publishing',
+		sellerEbook: 'Sold by Spirit Media Publishing',
 		contact: 'Contact us',
 		keep: 'Keep shopping',
 		save: 'First order? -{a} ({pct}%) comes off at checkout',
@@ -112,6 +119,8 @@ const L = {
 		hint: 'Para tu recibo y para comprobar tu descuento de primer pedido.',
 		note: 'Envío estándar gratis · impuestos calculados al pagar',
 		checkout: 'Pagar →',
+		seller: 'Vendido y enviado por Spirit Media Publishing',
+		sellerEbook: 'Vendido por Spirit Media Publishing',
 		contact: 'Contáctanos',
 		keep: 'Seguir comprando',
 		save: '¿Primer pedido? -{a} ({pct} %) se descuenta al pagar',
@@ -147,6 +156,8 @@ const L = {
 		hint: 'Pour votre reçu et pour vérifier votre réduction de première commande.',
 		note: 'Livraison standard gratuite · taxes calculées au paiement',
 		checkout: 'Passer au paiement →',
+		seller: 'Vendu et expédié par Spirit Media Publishing',
+		sellerEbook: 'Vendu par Spirit Media Publishing',
 		contact: 'Nous contacter',
 		keep: 'Continuer vos achats',
 		save: 'Première commande ? -{a} ({pct} %) déduits au paiement',
@@ -278,6 +289,8 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			<ul class="bo-items" data-items></ul>
 			<dl class="bo-lines">
 				<div data-fee-line hidden><dt>{L.handling}</dt><dd data-fee>$0.00</dd></div>
+				{/* a ship-to credit (Ukraine, Kevin 2026-11-26 L3025): EMPTY in the page; its text comes only from the server */}
+				<div class="bo-credit" data-credit-line hidden><dt data-credit></dt></div>
 				<div class="bo-total"><dt>{L.total}</dt><dd data-total aria-live="polite">{money(formats[0]?.list_cents ?? ebook?.list_cents ?? 0)}</dd></div>
 			</dl>
 			{(firstOrder || ebook) && <p class="bo-first" data-first-save hidden></p>}
@@ -295,7 +308,9 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			<input id={`bo-${slug}-email`} class="bo-select" type="email" name="email" autocomplete="email" inputmode="email" required aria-describedby={firstOrder || ebook ? `bo-${slug}-email-hint` : undefined} data-email />
 		</div>
 		<p class="bo-note" data-note data-print-note={ebookOnly ? undefined : L.note} data-ebook-note={L.ebookNote}>{ebookOnly ? L.ebookNote : L.note}</p>
-		<button type="submit" class="bo-checkout">{L.checkout}</button>
+		{preorder && <p class="bo-preorder" data-preorder>Pre-order: your payment is taken today and your book ships at release. Releasing {preorder}.</p>}
+		<button type="submit" class="bo-checkout">{preorder ? 'Preorder Now →' : L.checkout}</button>
+		<p class="bo-seller">{ebookOnly ? L.sellerEbook : L.seller}</p>
 		<p id="buy-msg" class="bo-msg" role="status"></p>
 		<p class="bo-help"><MailtoLink email="hello@spiritmediapublishing.com" class="bo-help-btn">{L.contact}</MailtoLink></p>
 	</div>
@@ -359,10 +374,12 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 	.bo-total dd { font-size: 1.5rem; line-height: 1.3; }
 	.bo-first { margin: 0.1rem 0 0; color: #9d174d; font-size: 0.88rem; font-weight: 700; text-align: right; }
 	.bo-first[hidden] { display: none; }
+	.bo-preorder { margin: 0.6rem 0 0; color: var(--color-ink, #1c1917); font-size: 0.95rem; font-weight: 600; text-align: center; }
 	.bo-hint { margin: 0 0 0.3rem; font-size: 0.8rem; color: #57534e; }
 	.bo-label { display: block; margin: 0.6rem 0 0.3rem; font-size: 0.85rem; font-weight: 600; }
 	.bo-select { box-sizing: border-box; width: 100%; min-height: 44px; padding: 0.55rem 0.8rem; border: 1.5px solid #d9d0c4; border-radius: 0.6rem; background: #fff; font: inherit; font-size: 1rem; }
 	.bo-note { margin: 0.4rem 0 0; color: #57534e; font-size: 0.78rem; }
+	.bo-seller { margin: 0.5rem 0 0; color: #57534e; font-size: 0.78rem; text-align: center; }
 	/* SMP's own primary button (global .btn-primary: --color-red, hover --color-red-deep). Kevin 2026-11-14: "We don't
 	   use black buttons. KNOW your site! Know and follow SMP style." */
 	.bo-checkout { width: 100%; margin-top: 0.75rem; min-height: 48px; padding: 0.7rem 1.8rem; border: 2px solid var(--color-red, #c0392b); border-radius: 999px; background: var(--color-red, #c0392b); color: var(--color-surface, #fff); font: inherit; font-weight: 600; font-size: 1rem; cursor: pointer; }
@@ -376,6 +393,9 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 	.bo-shop__label { width: 100%; text-align: center; font-size: 0.85rem; font-weight: 600; color: #3f3f46; }
 	.bo-shop a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid #f0c4d8; border-radius: 999px; background: #fbe7f0; color: #52525b; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
 	.bo-shop a:hover { border-color: var(--color-ink); }
+	.bo-lines > .bo-credit { display: block; color: #166534; font-weight: 600; line-height: 1.45; }
+	.bo-lines > .bo-credit[hidden] { display: none; }
+	.bo-credit dt { margin: 0; }
 	@media (min-width: 641px) { .bo-box { padding: 1.25rem 1.25rem 1.1rem; } }
 </style>
 
@@ -402,6 +422,29 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 		};
 		const label = (i: HTMLInputElement) =>
 			(i.closest('.bo-row')?.querySelector('.bo-row__binding')?.textContent ?? i.name).trim();
+		// SHIP-TO CREDIT (Kevin 2026-11-26 L3025): asked of the server when the ship-to changes; null for every country but
+		// a forwarder country, so this page never carries the credit's text. The server applies it again at checkout.
+		let credit: { country: string; cents: number; label: string; eligible: string[] } | null = null;
+		let creditAsk = 0;
+		const askCredit = async () => {
+			const id = ++creditAsk;
+			const code = sel?.value ?? 'US';
+			credit = null;
+			render();
+			if (code === 'US') return;
+			try {
+				const r = await fetch(`${form.dataset.store ?? ''}/store-checkout`, {
+					method: 'POST',
+					headers: { 'content-type': 'application/json' },
+					body: JSON.stringify({ shipToCredit: true, country: code, skus: inputs.map((i) => i.name) }),
+				});
+				const d = (await r.json()) as { credit?: typeof credit };
+				if (id === creditAsk && d.credit && d.credit.country === code) credit = d.credit;
+			} catch {
+				// no answer = no credit shown; checkout still applies it (the total can only read higher, never lower)
+			}
+			if (id === creditAsk) render();
+		};
 		const render = () => {
 			let sub = 0;
 			let fees = 0;
@@ -423,7 +466,17 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			}
 			(form.querySelector('[data-fee]') as HTMLElement).textContent = cents(fees);
 			(form.querySelector('[data-fee-line]') as HTMLElement).hidden = fees <= 0;
-			(form.querySelector('[data-total]') as HTMLElement).textContent = cents(sub + fees);
+			const cr =
+				credit && credit.country === (sel?.value ?? 'US') &&
+				inputs.some((i) => qty(i) > 0 && i !== ebookIn && credit?.eligible.includes(i.name))
+					? credit
+					: null;
+			const creditOff = cr ? Math.min(cr.cents, sub + fees) : 0;
+			const crLine = form.querySelector<HTMLElement>('[data-credit-line]');
+			if (crLine) crLine.hidden = creditOff <= 0;
+			const crText = form.querySelector<HTMLElement>('[data-credit]');
+			if (crText) crText.textContent = cr ? cr.label : '';
+			(form.querySelector('[data-total]') as HTMLElement).textContent = cents(sub + fees - creditOff);
 			const eb = Boolean(ebookIn && qty(ebookIn) > 0);
 			const ship = form.querySelector<HTMLElement>('[data-ship]');
 			if (ship) ship.hidden = eb;
@@ -432,7 +485,7 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			const save = form.querySelector<HTMLElement>('[data-first-save]');
 			if (save) {
 				const off = sub - Math.round((sub * (100 - pct)) / 100);
-				save.hidden = !(pct > 0 && off > 0);
+				save.hidden = !(pct > 0 && off > 0) || Boolean(cr);
 				save.textContent = msgs.save.replace('{a}', cents(off)).replace('{pct}', String(pct));
 			}
 		};
@@ -449,8 +502,9 @@ const firstUnit = (c: number) => Math.round((c * (100 - firstOrderPct)) / 100);
 			if (ev.target instanceof HTMLInputElement && inputs.includes(ev.target)) exclusive(ev.target);
 			render();
 		});
-		sel?.addEventListener('change', render);
+		sel?.addEventListener('change', askCredit);
 		render();
+		if (sel && sel.value !== 'US') askCredit();
 		form.addEventListener('submit', async (ev) => {
 			ev.preventDefault();
 			const msg = form.querySelector('#buy-msg') as HTMLElement;

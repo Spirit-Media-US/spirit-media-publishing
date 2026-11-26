@@ -11,6 +11,7 @@ interface Env {
 
 import { buildOptIn, optInSnippet } from '../src/lib/customerReviews.ts';
 import { fmtAddr } from '../src/lib/orderText.ts';
+import { releaseDateText } from '../src/store-engine/lib/order-pricing.ts';
 
 const SUPPORT = 'hello@spiritmediapublishing.com';
 // CONTACT US (Kevin 2026-11-16, standing rule): a button that opens mail to hello@, labelled only "Contact us"; the
@@ -61,12 +62,17 @@ export function orderHtml(s: any): string {
 			? `<p class="muted">Your gift to charity is included in this total. Spirit Media Charities emails you its receipt separately.</p>`
 			: '';
 	const email = s.customer_details?.email;
+	// PRE-ORDER (engine metadata preorder + ship_after, Kevin 2026-11-24 MMFI): the same line as the buyer email
+	const preorder =
+		m.preorder === 'true' && /^\d{4}-\d{2}-\d{2}$/.test(String(m.ship_after ?? ''))
+			? `<p><strong>This is a pre-order. Your book ships at release. Releasing ${esc(releaseDateText(m.ship_after))}.</strong></p>`
+			: '';
 	return page(
 		paid ? 'Thank you for your order' : 'Your order',
 		`<h1>${paid ? 'Thank you for your order' : 'Your order is not complete'}</h1>
 <p class="muted">${paid ? `We have received your payment. A confirmation is on its way to ${email ? esc(email) : 'your email'}.` : 'This checkout was not paid. Nothing has been charged.'}</p>
 <table>${items}<tr><td><strong>Total</strong></td><td class="r"><strong>${money(s.amount_total, s.currency)}</strong></td></tr></table>
-${gift}${addr}${shipped}<p class="muted">Order reference: <code style="word-break:break-all">${esc(String(s.id))}</code><br>Questions? ${contactUs(`Order ${String(s.id).slice(-12)}`)}</p>
+${preorder}${gift}${addr}${shipped}<p class="muted">Order reference: <code style="word-break:break-all">${esc(String(s.id))}</code><br>Questions? ${contactUs(`Order ${String(s.id).slice(-12)}`)}</p>
 <p><a href="/bookstore/">Browse all our books</a></p>`,
 		// Google Customer Reviews opt-in: this page only, values from the verified session. buildOptIn returns null
 		// (module omitted) for test-mode or unpaid sessions or any unverifiable value.

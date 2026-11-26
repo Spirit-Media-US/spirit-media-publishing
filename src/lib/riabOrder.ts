@@ -122,6 +122,21 @@ const DONATION_MIN_CENTS = 100;
 const DONATION_MAX_CENTS = 1_000_000;
 /** The visitor-facing gift box. false = hidden on production (Connect does not exist yet, 2026-11-20). */
 export const RIAB_GIFT_UI_OPEN = false;
+
+/** Autographed copies are NOT sold online (Kevin 2026-11-22 ~05:00Z "The site will also NOT offer autograph copies.
+ *  Right now the only way to get an autograph copy is at the Angus Barn." — supersedes the 11-20 signed route). The form
+ *  no longer shows the signed rows; this refuses a stale page or a hand-made request that still posts one. */
+export const RIAB_SIGNED_OPEN = false;
+export function riabSignedRefusal(counts: Record<string, number>): Record<string, string> | null {
+	if (RIAB_SIGNED_OPEN) return null;
+	const signed = (counts[`${RIAB_HB}-signed`] ?? 0) + (counts[`${RIAB_PB}-signed`] ?? 0);
+	return signed > 0
+		? {
+				error: 'autographed_not_online',
+				message: 'Autographed copies are available only at the Angus Barn.',
+			}
+		: null;
+}
 export const SMC_NAME = 'Spirit Media Charities';
 /** Spirit Media Charities (DBA SM Gives), 501(c)(3) effective 2022-12-05. */
 export const SMC_EIN = '88-4352701';
