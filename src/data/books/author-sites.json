@@ -739,6 +739,13 @@
 	"Van Eure": {
 		"sites": [
 			{
+				"label": "Website",
+				"name": "Raised in a Barn (official book site)",
+				"url": "https://raisedinabarn.org/",
+				"evidence": "Van Eure's official book site, built by SMP (pmprint); JSON-LD Book @id https://raisedinabarn.org/#book, sameAs this SMP book page. 200 2026-11-26.",
+				"grade": "CERTAIN"
+			},
+			{
 				"label": "Business",
 				"name": "Angus Barn",
 				"url": "https://angusbarn.com/",
