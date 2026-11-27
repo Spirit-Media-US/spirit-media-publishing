@@ -54,6 +54,1723 @@
 				"following-god-is-easy-ebook (ISBN 9798893072358)"
 			],
 			"checked": "2026-11-18"
+		},
+		"12-days-of-crazy": {
+			"author": "Tammy Haurilick",
+			"href": "https://www.amazon.com/dp/1961614820",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/1961614820", "https://www.amazon.com/dp/B0CQDRM5DT"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614826",
+					"isbn_display": "978-1-961614-82-6",
+					"asin": "1961614820"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CQDRM5DT"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["12-days-of-crazy-pb", "12-days-of-crazy-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"becoming-a-family": {
+			"author": "Tetiana Kurylo",
+			"href": "https://www.amazon.com/dp/B0CHLC1XTS",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CHLC1XTS", "https://www.amazon.com/dp/B0CHS9CNCF"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614130",
+					"isbn_display": "978-1-961614-13-0",
+					"asin": "B0CHLC1XTS"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CHS9CNCF"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["becoming-a-family-pb", "becoming-a-family-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"daughters-of-the-king": {
+			"author": "Freddie Prado",
+			"href": "https://www.amazon.com/dp/B0FBLFC6N5",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0FBLFC6N5"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071467",
+					"isbn_display": "979-8-89307-146-7",
+					"asin": "B0FBLFC6N5"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["daughters-of-the-king-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"dear-church-people": {
+			"author": "Chasty Daniels",
+			"href": "https://www.amazon.com/dp/B0CZ1XKX4M",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0CZ1XKX4M",
+				"https://www.amazon.com/dp/B0CZMF6MFS",
+				"https://www.amazon.com/dp/B0CZMQJXXY"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070262",
+					"isbn_display": "979-8-89307-026-2",
+					"asin": "B0CZ1XKX4M"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893070279",
+					"isbn_display": "979-8-89307-027-9",
+					"asin": "B0CZMF6MFS"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CZMQJXXY"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["dear-church-people-pb", "dear-church-people-hb", "dear-church-people-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"dont-die-ugly": {
+			"author": "Lynn Soles",
+			"href": "https://www.amazon.com/dp/1961614642",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614642",
+				"https://www.amazon.com/dp/1961614669",
+				"https://www.amazon.com/dp/B0CNHCV6D2"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614642",
+					"isbn_display": "978-1-961614-64-2",
+					"asin": "1961614642"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614666",
+					"isbn_display": "978-1-961614-66-6",
+					"asin": "1961614669"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CNHCV6D2"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["dont-die-ugly-pb", "dont-die-ugly-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"el-gran-sueno-de-la-yiayia-voula": {
+			"author": "Tyler Stavlas",
+			"href": "https://www.amazon.com/dp/B0HQTHW7H5",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0HQTHW7H5"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893075564",
+					"isbn_display": "979-8-89307-556-4",
+					"asin": "B0HQTHW7H5"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893075571",
+					"isbn_display": "979-8-89307-557-1",
+					"asin": ""
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"el-gran-sueno-de-la-yiayia-voula-pb",
+				"el-gran-sueno-de-la-yiayia-voula-hb",
+				"el-gran-sueno-de-la-yiayia-voula-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"faith-in-action": {
+			"author": "Nora Fozard",
+			"href": "https://www.amazon.com/dp/B0CJ43Z8QD",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0CJ43Z8QD",
+				"https://www.amazon.com/dp/B0CJ41XG6J",
+				"https://www.amazon.com/dp/B0CQJ32VSP"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304563",
+					"isbn_display": "978-1-958304-56-3",
+					"asin": "B0CJ43Z8QD"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304570",
+					"isbn_display": "978-1-958304-57-0",
+					"asin": "B0CJ41XG6J"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CQJ32VSP"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["faith-in-action-pb", "faith-in-action-hb", "faith-in-action-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"faithful-in-small-things": {
+			"author": "Joeth Strickland",
+			"href": "https://www.amazon.com/dp/1961614480",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614480",
+				"https://www.amazon.com/dp/1961614499",
+				"https://www.amazon.com/dp/B0CNNYSZVR"
+			],
+			"formats": [
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614499",
+					"isbn_display": "978-1-961614-49-9",
+					"asin": "1961614499"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CNNYSZVR"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["faithful-in-small-things-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"finding-yourself": {
+			"author": "Tetiana Kurylo",
+			"href": "https://www.amazon.com/dp/B0CKB85GVJ",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CKB85GVJ", "https://www.amazon.com/dp/B0CKXTJHC7"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614222",
+					"isbn_display": "978-1-961614-22-2",
+					"asin": "B0CKB85GVJ"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CKXTJHC7"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["finding-yourself-pb", "finding-yourself-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"flip-and-felipa": {
+			"author": "Suzanne Gose",
+			"href": "https://www.amazon.com/dp/B0DKYYN748",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DKYYN748", "https://www.amazon.com/dp/B0DMWRK5SQ"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070781",
+					"isbn_display": "979-8-89307-078-1",
+					"asin": "B0DKYYN748"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0DMWRK5SQ"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["flip-and-felipa-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"grief-without-chaos": {
+			"author": "Ann Cueva",
+			"href": "https://www.amazon.com/dp/1958304476",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/1958304476", "https://www.amazon.com/dp/B0BWK5TC93"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304471",
+					"isbn_display": "978-1-958304-47-1",
+					"asin": "1958304476"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0BWK5TC93"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["grief-without-chaos-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"healing-with-hope": {
+			"author": "Triffina Brown",
+			"href": "https://www.amazon.com/dp/B0DMM35JM9",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DMM35JM9", "https://www.amazon.com/dp/B0DPKXDCLT"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071290",
+					"isbn_display": "979-8-89307-129-0",
+					"asin": "B0DMM35JM9"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0DPKXDCLT"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["healing-with-hope-pb", "healing-with-hope-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"heart-journey": {
+			"author": "Dr Barbara Lowe",
+			"href": "https://www.amazon.com/dp/1961614154",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614154",
+				"https://www.amazon.com/dp/1961614162",
+				"https://www.amazon.com/dp/B0C9XBCNY3"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614154",
+					"isbn_display": "978-1-961614-15-4",
+					"asin": "1961614154"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614161",
+					"isbn_display": "978-1-961614-16-1",
+					"asin": "1961614162"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0C9XBCNY3"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["heart-journey-pb", "heart-journey-hb", "heart-journey-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"heart-journey-accompanying-journal": {
+			"author": "Dr Barbara Lowe",
+			"href": "https://www.amazon.com/dp/1961614189",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614189",
+				"https://www.amazon.com/dp/1961614200",
+				"https://www.amazon.com/dp/B0CB729PD6"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614185",
+					"isbn_display": "978-1-961614-18-5",
+					"asin": "1961614189"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614208",
+					"isbn_display": "978-1-961614-20-8",
+					"asin": "1961614200"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CB729PD6"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"heart-journey-accompanying-journal-pb",
+				"heart-journey-accompanying-journal-hb",
+				"heart-journey-accompanying-journal-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"home": {
+			"author": "Aleksa Aishpur",
+			"href": "https://www.amazon.com/dp/B0CQNHPY7M",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CQNHPY7M", "https://www.amazon.com/dp/1961614855"],
+			"formats": [
+				{
+					"format": "Paperback, Colored",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070088",
+					"isbn_display": "979-8-89307-008-8",
+					"asin": ""
+				},
+				{
+					"format": "Hardback, Colored",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614857",
+					"isbn_display": "978-1-961614-85-7",
+					"asin": ""
+				},
+				{
+					"format": "Paperback, Black and White",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614925",
+					"isbn_display": "978-1-961614-92-5",
+					"asin": ""
+				},
+				{
+					"format": "Hardback, Black and White",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614918",
+					"isbn_display": "978-1-961614-91-8",
+					"asin": ""
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["home-pb-color", "home-hb-color", "home-pb-bw", "home-hb-bw", "home-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"honky-tonk-nights-to-christian-lights": {
+			"author": "John A. Wilson Jr",
+			"href": "https://www.amazon.com/dp/B0D7SX4RSF",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0D7SX4RSF",
+				"https://www.amazon.com/dp/B0D8TVV24Q",
+				"https://www.amazon.com/dp/B0D83ZP21J"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798990964402",
+					"isbn_display": "979-8-9909644-0-2",
+					"asin": "B0D7SX4RSF"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798990964426",
+					"isbn_display": "979-8-9909644-2-6",
+					"asin": "B0D8TVV24Q"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0D83ZP21J"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"honky-tonk-nights-to-christian-lights-pb",
+				"honky-tonk-nights-to-christian-lights-hb"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"i-say-you-say": {
+			"author": "Lola Brooks",
+			"href": "https://www.amazon.com/dp/B0CJH7T4DB",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0CJH7T4DB",
+				"https://www.amazon.com/dp/1961614278",
+				"https://www.amazon.com/dp/B0CJ9V1XC7"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614260",
+					"isbn_display": "978-1-961614-26-0",
+					"asin": "B0CJH7T4DB"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614277",
+					"isbn_display": "978-1-961614-27-7",
+					"asin": "1961614278"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CJ9V1XC7"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["i-say-you-say-pb", "i-say-you-say-hb", "i-say-you-say-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"in-the-wilderness": {
+			"author": "Chase Gardner",
+			"href": "https://www.amazon.com/dp/B0D167N4CM",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0D167N4CM",
+				"https://www.amazon.com/dp/B0D26GDTX5",
+				"https://www.amazon.com/dp/B0D2DXL1ZC"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070217",
+					"isbn_display": "979-8-89307-021-7",
+					"asin": "B0D167N4CM"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893070231",
+					"isbn_display": "979-8-89307-023-1",
+					"asin": "B0D26GDTX5"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0D2DXL1ZC"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["in-the-wilderness-pb", "in-the-wilderness-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"jesus-had-a-little-lamb": {
+			"author": "Dana House",
+			"href": "https://www.amazon.com/dp/B0DV4V34R1",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DV4V34R1"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071351",
+					"isbn_display": "979-8-89307-135-1",
+					"asin": "B0DV4V34R1"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["jesus-had-a-little-lamb-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"light-the-way": {
+			"author": "Adam Dixon",
+			"href": "https://www.amazon.com/dp/B0DP5MY5J4",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DP5MY5J4"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071191",
+					"isbn_display": "979-8-89307-119-1",
+					"asin": "B0DP5MY5J4"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["light-the-way-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"love-it-or-lose-it": {
+			"author": "Barbara Hemphill",
+			"href": "https://www.amazon.com/dp/1958304255",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1958304255",
+				"https://www.amazon.com/dp/1958304263",
+				"https://www.amazon.com/dp/B0BVXKX27K"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304259",
+					"isbn_display": "978-1-958304-25-9",
+					"asin": "1958304255"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304266",
+					"isbn_display": "978-1-958304-26-6",
+					"asin": "1958304263"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0BVXKX27K"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["love-it-or-lose-it-pb", "love-it-or-lose-it-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"love-the-greatest-power-ever-known": {
+			"author": "Alfred Cherubim",
+			"href": "https://www.amazon.com/dp/B0D5JQ683G",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0D5JQ683G",
+				"https://www.amazon.com/dp/B0FPTD2SN3",
+				"https://www.amazon.com/dp/B0D94ZVDXN"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070460",
+					"isbn_display": "979-8-89307-046-0",
+					"asin": "B0D5JQ683G"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0D94ZVDXN"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"love-the-greatest-power-ever-known-pb",
+				"love-the-greatest-power-ever-known-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"mario-and-jimmy": {
+			"author": "Mario Tubiolo",
+			"href": "https://www.amazon.com/dp/B0DPVCHT5V",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DPVCHT5V"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798986702995",
+					"isbn_display": "979-8-9867029-9-5",
+					"asin": "B0DPVCHT5V"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["mario-and-jimmy-pb", "mario-and-jimmy-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"mended": {
+			"author": "Kami Tahyi, MS, LPCC",
+			"href": "https://www.amazon.com/dp/B0DNF58WJK",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DNF58WJK"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071061",
+					"isbn_display": "979-8-89307-106-1",
+					"asin": "B0DNF58WJK"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["mended-pb", "mended-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"my-first-deployment": {
+			"author": "Ronald Bethune",
+			"href": "https://www.amazon.com/dp/B0CTRSCKG3",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0CTRSCKG3",
+				"https://www.amazon.com/dp/B0CV5RNN86",
+				"https://www.amazon.com/dp/B0CV4NDZV3"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070187",
+					"isbn_display": "979-8-89307-018-7",
+					"asin": "B0CTRSCKG3"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893070194",
+					"isbn_display": "979-8-89307-019-4",
+					"asin": "B0CV5RNN86"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CV4NDZV3"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["my-first-deployment-pb", "my-first-deployment-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"my-way-to-adoption": {
+			"author": "Tetiana Kurylo",
+			"href": "https://www.amazon.com/dp/B0CHL16CBJ",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CHL16CBJ", "https://www.amazon.com/dp/B0CHGNQY5J"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614123",
+					"isbn_display": "978-1-961614-12-3",
+					"asin": "B0CHL16CBJ"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CHGNQY5J"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["my-way-to-adoption-pb", "my-way-to-adoption-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-hindi": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/196161474X",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/196161474X"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614741",
+					"isbn_display": "978-1-961614-74-1",
+					"asin": "196161474X"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-hindi-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-nagese": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/1961614561",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/1961614561"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614567",
+					"isbn_display": "978-1-961614-56-7",
+					"asin": "1961614561"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-nagese-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-nepalese": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/B0CSQVJWNF",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CSQVJWNF"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070064",
+					"isbn_display": "979-8-89307-006-4",
+					"asin": "B0CSQVJWNF"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-nepalese-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-russian": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/B0CSDZ25W6",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CSDZ25W6"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070026",
+					"isbn_display": "979-8-89307-002-6",
+					"asin": "B0CSDZ25W6"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-russian-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-spanish": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/B0CSF1PXB9",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CSF1PXB9"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070002",
+					"isbn_display": "979-8-89307-000-2",
+					"asin": "B0CSF1PXB9"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-spanish-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-tamil": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/1961614383",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/1961614383", "https://www.amazon.com/dp/B0CJ9BQPC2"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614383",
+					"isbn_display": "978-1-961614-38-3",
+					"asin": "1961614383"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CJ9BQPC2"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-tamil-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-telugu": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/1961614707",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/1961614707"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614703",
+					"isbn_display": "978-1-961614-70-3",
+					"asin": "1961614707"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-telugu-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-ukrainian": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/1961614723",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/1961614723"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614727",
+					"isbn_display": "978-1-961614-72-7",
+					"asin": "1961614723"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-ukrainian-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"ogw-urdu": {
+			"author": "Kevin White",
+			"href": "https://www.amazon.com/dp/B0CVM3N859",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CVM3N859"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070040",
+					"isbn_display": "979-8-89307-004-0",
+					"asin": "B0CVM3N859"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["ogw-urdu-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"power-to-remember": {
+			"author": "Jeremy Kluth",
+			"href": "https://www.amazon.com/dp/1958304409",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1958304409",
+				"https://www.amazon.com/dp/1958304395",
+				"https://www.amazon.com/dp/B0C1LYRT49"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304402",
+					"isbn_display": "978-1-958304-40-2",
+					"asin": "1958304409"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304396",
+					"isbn_display": "978-1-958304-39-6",
+					"asin": "1958304395"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0C1LYRT49"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["power-to-remember-pb", "power-to-remember-hb", "power-to-remember-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"pure-and-simple": {
+			"author": "Ron King",
+			"href": "https://www.amazon.com/dp/B0DKG93D53",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DKG93D53"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071108",
+					"isbn_display": "979-8-89307-110-8",
+					"asin": "B0DKG93D53"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["pure-and-simple-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"raising-parents-is-tough": {
+			"author": "Roger Loomis",
+			"href": "https://www.amazon.com/dp/1958304603",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1958304603",
+				"https://www.amazon.com/dp/1958304611",
+				"https://www.amazon.com/dp/B0C3KF7NNN"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304600",
+					"isbn_display": "978-1-958304-60-0",
+					"asin": "1958304603"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304617",
+					"isbn_display": "978-1-958304-61-7",
+					"asin": "1958304611"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0C3KF7NNN"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["raising-parents-is-tough-pb", "raising-parents-is-tough-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"recovery-and-restoration": {
+			"author": "Gene Tahyi, PRS, CDCA",
+			"href": "https://www.amazon.com/dp/B0DNF5WM79",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DNF5WM79"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071023",
+					"isbn_display": "979-8-89307-102-3",
+					"asin": "B0DNF5WM79"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["recovery-and-restoration-pb", "recovery-and-restoration-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"say-yes-to-god": {
+			"author": "Michael Gaetke",
+			"href": "https://www.amazon.com/dp/B0DJFWKZKB",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0DJFWKZKB",
+				"https://www.amazon.com/dp/B0DN268GK4",
+				"https://www.amazon.com/dp/B0DJJK9TXB"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798991314510",
+					"isbn_display": "979-8-9913145-1-0",
+					"asin": "B0DJFWKZKB"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0DJJK9TXB"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["say-yes-to-god-pb", "say-yes-to-god-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"scripture-references-for-effective-counseling": {
+			"author": "Nora Fozard",
+			"href": "https://www.amazon.com/dp/B0CVLGZKF5",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0CVLGZKF5",
+				"https://www.amazon.com/dp/B0CVRZZD2N",
+				"https://www.amazon.com/dp/B0CTHRT2TB"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070101",
+					"isbn_display": "979-8-89307-010-1",
+					"asin": "B0CVLGZKF5"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893070118",
+					"isbn_display": "979-8-89307-011-8",
+					"asin": "B0CVRZZD2N"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CTHRT2TB"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"scripture-references-for-effective-counseling-pb",
+				"scripture-references-for-effective-counseling-hb",
+				"scripture-references-for-effective-counseling-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"sex-without-regrets": {
+			"author": "Nora Fozard",
+			"href": "https://www.amazon.com/dp/1958304964",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1958304964",
+				"https://www.amazon.com/dp/1958304972",
+				"https://www.amazon.com/dp/B0CYVKNWSD"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304969",
+					"isbn_display": "978-1-958304-96-9",
+					"asin": "1958304964"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304976",
+					"isbn_display": "978-1-958304-97-6",
+					"asin": "1958304972"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CYVKNWSD"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"sex-without-regrets-pb",
+				"sex-without-regrets-hb",
+				"sex-without-regrets-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"sharing-your-faith-and-testimony": {
+			"author": "Alfred Cherubim",
+			"href": "https://www.amazon.com/dp/1961614782",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614782",
+				"https://www.amazon.com/dp/1961614790",
+				"https://www.amazon.com/dp/B0CW31VZYH"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614789",
+					"isbn_display": "978-1-961614-78-9",
+					"asin": "1961614782"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614796",
+					"isbn_display": "978-1-961614-79-6",
+					"asin": "1961614790"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CW31VZYH"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"sharing-your-faith-and-testimony-pb",
+				"sharing-your-faith-and-testimony-hb",
+				"sharing-your-faith-and-testimony-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"silas-and-woolly-the-mammoth": {
+			"author": "Kenneth W. Pullin",
+			"href": "https://www.amazon.com/dp/B0HQF9QC6V",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0HQF9QC6V"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893075403",
+					"isbn_display": "979-8-89307-540-3",
+					"asin": "B0HQF9QC6V"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893075410",
+					"isbn_display": "979-8-89307-541-0",
+					"asin": ""
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"silas-and-woolly-the-mammoth-pb",
+				"silas-and-woolly-the-mammoth-hb",
+				"silas-and-woolly-the-mammoth-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"strength-to-conceive": {
+			"author": "Nora Fozard",
+			"href": "https://www.amazon.com/dp/1958304646",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1958304646",
+				"https://www.amazon.com/dp/1958304654",
+				"https://www.amazon.com/dp/B0CL9W2T19"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304648",
+					"isbn_display": "978-1-958304-64-8",
+					"asin": "1958304646"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304655",
+					"isbn_display": "978-1-958304-65-5",
+					"asin": "1958304654"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CL9W2T19"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"strength-to-conceive-pb",
+				"strength-to-conceive-hb",
+				"strength-to-conceive-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"the-blessing-trail": {
+			"author": "Wendy Reardon",
+			"href": "https://www.amazon.com/dp/1961614960",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614960",
+				"https://www.amazon.com/dp/1961614979",
+				"https://www.amazon.com/dp/B0CQDL2LLW"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614963",
+					"isbn_display": "978-1-961614-96-3",
+					"asin": "1961614960"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614970",
+					"isbn_display": "978-1-961614-97-0",
+					"asin": "1961614979"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CQDL2LLW"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["the-blessing-trail-pb", "the-blessing-trail-hb", "the-blessing-trail-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"the-blessing-trail-2": {
+			"author": "Wendy Reardon",
+			"href": "https://www.amazon.com/dp/B0DCJB8TP5",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0DCJB8TP5", "https://www.amazon.com/dp/B0DPLJZRPL"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070644",
+					"isbn_display": "979-8-89307-064-4",
+					"asin": "B0DCJB8TP5"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0DPLJZRPL"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["the-blessing-trail-2-pb", "the-blessing-trail-2-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"the-golden-atlas": {
+			"author": "Matthew Rathbun",
+			"href": "https://www.amazon.com/dp/B0FCD5SCJ7",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0FCD5SCJ7",
+				"https://www.amazon.com/dp/B0FCY9M4LQ",
+				"https://www.amazon.com/dp/B0BPNQFF4C"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893071450",
+					"isbn_display": "979-8-89307-145-0",
+					"asin": "B0FCD5SCJ7"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893071528",
+					"isbn_display": "979-8-89307-152-8",
+					"asin": "B0FCY9M4LQ"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0BPNQFF4C"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["the-golden-atlas-pb", "the-golden-atlas-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"the-miracles-of-jesus-christ-and-his-apostles": {
+			"author": "Alfred Cherubim",
+			"href": "https://www.amazon.com/dp/1961614952",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614952",
+				"https://www.amazon.com/dp/B0FPSMJJWF",
+				"https://www.amazon.com/dp/B0CTS7KCQ2"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614956",
+					"isbn_display": "978-1-961614-95-6",
+					"asin": "1961614952"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614901",
+					"isbn_display": "978-1-961614-90-1",
+					"asin": "B0FPSMJJWF"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CTS7KCQ2"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"the-miracles-of-jesus-christ-and-his-apostles-pb",
+				"the-miracles-of-jesus-christ-and-his-apostles-hb",
+				"the-miracles-of-jesus-christ-and-his-apostles-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"the-positive-power-of-speaking-gods-word": {
+			"author": "Nora Fozard",
+			"href": "https://www.amazon.com/dp/B0D2N4TMK2",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0D2N4TMK2"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070361",
+					"isbn_display": "979-8-89307-036-1",
+					"asin": "B0D2N4TMK2"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["the-positive-power-of-speaking-gods-word-pb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"transplanted": {
+			"author": "Laila Williams",
+			"href": "https://www.amazon.com/dp/1958304727",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1958304727",
+				"https://www.amazon.com/dp/1958304735",
+				"https://www.amazon.com/dp/B0C7WJ7V5T"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304723",
+					"isbn_display": "978-1-958304-72-3",
+					"asin": "1958304727"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304730",
+					"isbn_display": "978-1-958304-73-0",
+					"asin": "1958304735"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0C7WJ7V5T"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["transplanted-pb", "transplanted-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"walking-with-barbara": {
+			"author": "Barbara Hemphill",
+			"href": "https://www.amazon.com/dp/1737775840",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1737775840",
+				"https://www.amazon.com/dp/1737775859",
+				"https://www.amazon.com/dp/B0B57MYQR3"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781737775843",
+					"isbn_display": "978-1-7377758-4-3",
+					"asin": "1737775840"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781737775850",
+					"isbn_display": "978-1-7377758-5-0",
+					"asin": "1737775859"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0B57MYQR3"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"walking-with-barbara-pb",
+				"walking-with-barbara-hb",
+				"walking-with-barbara-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"whatever-it-takes": {
+			"author": "Melissa Curtin",
+			"href": "https://www.amazon.com/dp/B0DGY48TJP",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0DGY48TJP",
+				"https://www.amazon.com/dp/B0DJCY8JGC",
+				"https://www.amazon.com/dp/B0DJRYD6J7"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893070606",
+					"isbn_display": "979-8-89307-060-6",
+					"asin": "B0DGY48TJP"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893070613",
+					"isbn_display": "979-8-89307-061-3",
+					"asin": "B0DJCY8JGC"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0DJRYD6J7"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["whatever-it-takes-pb", "whatever-it-takes-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"whats-up-in-heaven": {
+			"author": "Dr. Neale Oliver",
+			"href": "https://www.amazon.com/dp/195830400X",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/195830400X",
+				"https://www.amazon.com/dp/1958304018",
+				"https://www.amazon.com/dp/B0B4X87Q63"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781958304006",
+					"isbn_display": "978-1-958304-00-6",
+					"asin": "195830400X"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781958304013",
+					"isbn_display": "978-1-958304-01-3",
+					"asin": "1958304018"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0B4X87Q63"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["whats-up-in-heaven-pb", "whats-up-in-heaven-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"who-am-i-tetiana-kurylo": {
+			"author": "Tetiana Kurylo",
+			"href": "https://www.amazon.com/dp/B0CK3M5F6K",
+			"store": "Amazon",
+			"same_as": ["https://www.amazon.com/dp/B0CK3M5F6K", "https://www.amazon.com/dp/B0CKWRCYFH"],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614239",
+					"isbn_display": "978-1-961614-23-9",
+					"asin": "B0CK3M5F6K"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0CKWRCYFH"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["who-am-i-tetiana-kurylo-pb", "who-am-i-tetiana-kurylo-ebook"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"yiayia-voulas-big-dream": {
+			"author": "Tyler / Mihali Stavlas",
+			"href": "https://www.amazon.com/dp/B0HL5LPJQ2",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/B0HL5LPJQ2",
+				"https://www.amazon.com/dp/B0HLVWZ5XL",
+				"https://www.amazon.com/dp/B0HL5RN8WN"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9798893079982",
+					"isbn_display": "979-8-89307-998-2",
+					"asin": "B0HL5LPJQ2"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9798893079975",
+					"isbn_display": "979-8-89307-997-5",
+					"asin": "B0HLVWZ5XL"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0HL5RN8WN"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": [
+				"yiayia-voulas-big-dream-pb",
+				"yiayia-voulas-big-dream-hb",
+				"yiayia-voulas-big-dream-ebook"
+			],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
+		},
+		"you-can-change-the-world": {
+			"author": "Kaylee Stavlas",
+			"href": "https://www.amazon.com/dp/1961614081",
+			"store": "Amazon",
+			"same_as": [
+				"https://www.amazon.com/dp/1961614081",
+				"https://www.amazon.com/dp/1961614111",
+				"https://www.amazon.com/dp/B0C836N112"
+			],
+			"formats": [
+				{
+					"format": "Paperback",
+					"schema_format": "https://schema.org/Paperback",
+					"isbn": "9781961614086",
+					"isbn_display": "978-1-961614-08-6",
+					"asin": "1961614081"
+				},
+				{
+					"format": "Hardback",
+					"schema_format": "https://schema.org/Hardcover",
+					"isbn": "9781961614116",
+					"isbn_display": "978-1-961614-11-6",
+					"asin": "1961614111"
+				},
+				{
+					"format": "eBook",
+					"schema_format": "https://schema.org/EBook",
+					"isbn": "",
+					"isbn_display": "",
+					"asin": "B0C836N112"
+				}
+			],
+			"retired_smp_skus": [],
+			"sku_removed": ["you-can-change-the-world-pb", "you-can-change-the-world-hb"],
+			"evidence": "pmpublish tracker audit 2026-11-23 (sheet 1PufZwZR..., Publishing account = \"Author's\"); print ISBN not in SMP IngramSpark title list (tracker-audit-20261123/ig-smp-alltitles.json)",
+			"checked": "2026-11-27"
 		}
 	}
 }
