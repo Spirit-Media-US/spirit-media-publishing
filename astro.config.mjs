@@ -8,6 +8,16 @@ import { loadEnv } from "vite";
 
 const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV ?? "development", process.cwd(), "");
 
+// REFUSE A BUILD WITHOUT PUBLIC_SITE_URL (pmbuilder 2026-11-27): a worktree has no copy of the gitignored .env, and
+// the localhost fallback below silently built every canonical, og:url and sitemap URL as http://localhost:4321.
+// `astro dev` keeps the fallback; `astro build` stops here.
+if (process.argv.includes("build") && !PUBLIC_SITE_URL) {
+  throw new Error(
+    "PUBLIC_SITE_URL is unset: this build would emit http://localhost:4321 canonicals. " +
+      "Copy .env from /srv/sites/spirit-media-publishing (a worktree has none) or export PUBLIC_SITE_URL.",
+  );
+}
+
 // ── Sitemap <lastmod> (2tp, 2026-11-11) ────────────────────────────────────────
 // lastmod USED to be `new Date()` for every URL: each deploy told Google all 43 pages changed
 // now, which teaches it to ignore the signal. Same honest-date approach as FHB: each URL gets
