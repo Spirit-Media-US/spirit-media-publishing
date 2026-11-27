@@ -1,0 +1,196 @@
+---
+import authorPages from '../../data/books/author-pages.json';
+import authors from '../../data/books/authors.json';
+import shipset from '../../data/books/shipset-v2.json';
+// AUTHOR PAGE: Pastor S. Alfred Cherubim (pmseoaeo 2026-11-27, Kevin directive via the kevin seat; brief
+// claude-config/jobs/seat-status/pmseoaeo-alfred.md, eval doc 1mnBTET-s850yq4k4suKOY9MBe5RG5kh8QEOU12iSoII fix #7).
+// EVERY fact below is sourced; nothing is invented. Sources, one per fact:
+//   [S] Sharing Your Faith and Testimony book page author.bio + audience.body (src/data/books/book-pages.json), from the
+//       book's own text
+//   [L] LOVE book page author.bio ("Senior Pastor of Redeemer Christ Assembly in Brampton, Canada, as he signs the
+//       book's conclusion")
+//   [M] Miracles book page author.bio (same, signed on the closing miracle prayer)
+//   [C] redeemerchristassembly.com/en History (curl 200 2026-11-27): "started in April 2003 as the first Tamil Church in
+//       Brampton ... by Pastor S. Alfred Cherubim"
+//   [A] Amazon author page B0CT41283Y (eval doc, MEASURED 2026-11-27); [T] TBL author page (curl 200 2026-11-27)
+// Facts NOT on file stay off the page (list in aeo-state/alfred-cherubim-smp-20261127.json). No email address, ever.
+// The book list + Person node are built from the same data the book pages read, so the two cannot disagree.
+import Layout from '../../layouts/Layout.astro';
+import { newTabHtml } from '../../lib/xsite';
+
+const SITE = 'https://spiritmediapublishing.com';
+const NAME = 'Alfred Cherubim';
+const PAGE = (authorPages as unknown as Record<string, { path: string }>)[NAME];
+const url = `${SITE}${PAGE.path}`;
+const personId = `${url}#person`;
+const headshot = (authors as Record<string, any>)[NAME]?.headshot as
+	| { src: string; w: number; h: number }
+	| undefined;
+
+// his SMP titles, newest first, from the store data the book pages use
+const books = (shipset as any).titles
+	.map((t: any) => t.book)
+	.filter((b: any) => b?.author?.name === NAME)
+	.sort((a: any, b: any) => String(b.pub_date).localeCompare(String(a.pub_date)));
+
+const CHURCH = { name: 'Redeemer Christ Assembly', url: 'https://redeemerchristassembly.com/' };
+const AMAZON = 'https://www.amazon.com/Alfred-Cherubim/e/B0CT41283Y';
+const TBL = 'https://thebelieverslibrary.com/authors/alfred-cherubim';
+
+const title = 'Pastor Alfred Cherubim, Author | Spirit Media Publishing';
+const description =
+	'Pastor S. Alfred Cherubim, born in Jaffna, Sri Lanka, leads Redeemer Christ Assembly in Brampton, Canada. His books: The Miracles of Jesus Christ and His Apostles, Sharing Your Faith and Testimony, LOVE.';
+
+const personLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfilePage',
+	'@id': `${url}#profile`,
+	url,
+	name: `${NAME}, author`,
+	inLanguage: 'en',
+	isPartOf: { '@id': `${SITE}/#website` },
+	mainEntity: {
+		'@type': 'Person',
+		'@id': personId,
+		name: NAME,
+		alternateName: ['S. Alfred Cherubim', 'Pastor Alfred Cherubim'],
+		url,
+		...(headshot ? { image: headshot.src } : {}),
+		jobTitle: 'Senior Pastor',
+		birthPlace: { '@type': 'Place', name: 'Jaffna, Sri Lanka' },
+		description:
+			"Sri Lankan-born pastor who founded a children's home in Trincomalee for boys orphaned in the riots and now leads Redeemer Christ Assembly in Brampton, Canada. Author of three books published by Spirit Media Publishing.",
+		worksFor: {
+			'@type': 'Organization',
+			name: CHURCH.name,
+			url: CHURCH.url,
+			address: {
+				'@type': 'PostalAddress',
+				addressLocality: 'Brampton',
+				addressRegion: 'ON',
+				addressCountry: 'CA',
+			},
+			founder: { '@id': personId },
+			foundingDate: '2003-04',
+		},
+		knowsAbout: [
+			'Miracles of Jesus',
+			'Christian testimony',
+			'Sharing the gospel',
+			'Agape love',
+			'Evangelism',
+		],
+		sameAs: [AMAZON, TBL],
+	},
+};
+const booksLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: `Books by ${NAME}`,
+	itemListElement: books.map((b: any, i: number) => ({
+		'@type': 'ListItem',
+		position: i + 1,
+		item: {
+			'@type': 'Book',
+			'@id': `${SITE}/books/${b.slug}/#book`,
+			name: b.title,
+			...(b.subtitle ? { alternativeHeadline: b.subtitle } : {}),
+			url: `${SITE}/books/${b.slug}/`,
+			image: b.cover.jpg1200 ?? b.cover.jpg,
+			datePublished: b.pub_date,
+			author: { '@id': personId },
+		},
+	})),
+};
+const crumbs = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+		{ '@type': 'ListItem', position: 2, name: 'Bookstore', item: `${SITE}/bookstore/` },
+		{ '@type': 'ListItem', position: 3, name: NAME, item: url },
+	],
+};
+const newTab = { target: '_blank', rel: 'noopener' };
+const year = (d: string) => String(d).slice(0, 4);
+---
+
+<Layout title={title} description={description} ogImage={headshot?.src}>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+		<script type="application/ld+json" set:html={JSON.stringify(booksLd)} />
+		<script type="application/ld+json" set:html={JSON.stringify(crumbs)} />
+	</Fragment>
+
+	<main id="main-content">
+		<nav aria-label="Breadcrumb" class="bg-white px-4 pt-6 sm:px-6 lg:px-8">
+			<ol class="mx-auto flex max-w-5xl flex-wrap gap-x-2 text-sm text-stone-600">
+				<li><a href="/" class="underline decoration-stone-300 underline-offset-4 hover:text-ink">Home</a> <span aria-hidden="true">/</span></li>
+				<li><a href="/bookstore/" class="underline decoration-stone-300 underline-offset-4 hover:text-ink">Bookstore</a> <span aria-hidden="true">/</span></li>
+				<li aria-current="page" class="text-stone-800">{NAME}</li>
+			</ol>
+		</nav>
+
+		<section class="bg-white px-4 py-10 sm:px-6 lg:px-8">
+			<div class="mx-auto flex max-w-5xl flex-col gap-8 sm:flex-row sm:items-start">
+				{headshot && (
+					<img src={headshot.src} width={headshot.w} height={headshot.h} alt={`Pastor ${NAME}`} fetchpriority="high" decoding="async" class="h-40 w-40 shrink-0 rounded-2xl object-cover sm:h-56 sm:w-56" />
+				)}
+				<div>
+					<p class="text-sm font-semibold uppercase tracking-wide text-stone-600">Author · Spirit Media Publishing</p>
+					<h1 class="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Pastor Alfred Cherubim</h1>
+					<p class="mt-4 text-lg text-stone-700">
+						Pastor S. Alfred Cherubim is the Senior Pastor of Redeemer Christ Assembly in Brampton, Canada. Born in Jaffna, Sri Lanka, he came to faith in Jesus after four healings in his own family, and he has written three books with Spirit Media Publishing on the miracles of Jesus, on sharing your testimony, and on God's love.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-stone-50 px-4 py-12 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl space-y-5 text-stone-700">
+				<h2 class="text-2xl font-bold text-ink">About Alfred Cherubim</h2>
+				<p>
+					Alfred Cherubim was born in Jaffna, Sri Lanka. He worked for the Department of Agriculture and then held national posts in the YMCA in Sri Lanka and India.
+				</p>
+				<p>
+					He was a churchgoer by tradition and a YMCA leader when his wife, in a coma for nearly six months, woke within minutes of an evangelist's prayer. Three more healings followed in his family, and he and his wife accepted Jesus at midnight on Christmas Eve 1980. In the 1983 ethnic riots in Sri Lanka a mob attacked the family and their home was burned. He tells that story in <a href="/books/sharing-your-faith-and-testimony/" class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink">Sharing Your Faith and Testimony</a>.
+				</p>
+				<p>
+					He entered full-time ministry in 1990. In Trincomalee he founded a children's home for boys who had lost their parents in the riots, and between 1996 and 2001 he preached in churches in Europe, North America, India and Australia.
+				</p>
+				<p>
+					In April 2003 he started Redeemer Christ Assembly in Brampton, Ontario, the city's first Tamil church, serving Tamil families who settled there from Sri Lanka, India, Singapore and beyond. He is its Senior Pastor today, and the church also runs a TV ministry, a newspaper ministry and booklet publishing.
+				</p>
+			</div>
+		</section>
+
+		<section class="bg-white px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="books-by">
+			<div class="mx-auto max-w-5xl">
+				<h2 id="books-by" class="text-2xl font-bold text-ink">Books by Alfred Cherubim</h2>
+				<ul class="mt-8 grid gap-8 sm:grid-cols-3">
+					{books.map((b: any) => (
+						<li class="flex flex-col">
+							<a href={`/books/${b.slug}/`} class="group block">
+								<img src={b.cover.w300} width="300" height={Math.round((300 * b.cover.height) / b.cover.width)} alt={`Cover of ${b.title} by ${NAME}`} loading="lazy" decoding="async" class="w-full max-w-[220px] rounded shadow-md" />
+								<h3 class="mt-4 text-lg font-bold text-ink group-hover:underline">{b.title}</h3>
+							</a>
+							{b.subtitle && <p class="text-sm text-stone-600">{b.subtitle} · {year(b.pub_date)}</p>}
+							<p class="mt-2 text-stone-700">{b.short}</p>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+
+		<section class="bg-stone-50 px-4 py-12 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl">
+				<h2 class="text-2xl font-bold text-ink">Find Alfred Cherubim online</h2>
+				<ul class="mt-4 space-y-2 text-stone-700">
+					<li><a href={CHURCH.url} {...newTab} class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink">{CHURCH.name}, Brampton<Fragment set:html={newTabHtml} /></a></li>
+					<li><a href={AMAZON} {...newTab} class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink">Alfred Cherubim on Amazon<Fragment set:html={newTabHtml} /></a></li>
+					<li><a href={TBL} {...newTab} class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink">Alfred Cherubim at The Believer's Library<Fragment set:html={newTabHtml} /></a></li>
+				</ul>
+			</div>
+		</section>
+	</main>
+</Layout>

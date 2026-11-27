@@ -1,5 +1,16 @@
 {
 	"_note": "Author websites, businesses, ministries and official profiles for the book pages' About-the-author block + the JSON-LD author Person (url, sameAs). Keyed by the author name EXACTLY as the page writes it (book.author.name). CERTAIN entries ONLY (verified as the same person: the site names the book, or the bio/photo/location matches, or the book's own interior/spec sheet lists it). POSSIBLE ones never land here; they go to pmseoaeo's list for Kevin (aeo-state/smp-author-sites-possible-20261116.json). Shape: {\"<author>\": {\"sites\": [{label: Website|Business|Ministry|LinkedIn|Facebook|Instagram|YouTube, name, url, evidence, grade: CERTAIN}]}}. Kevin 2026-11-16: \"Can you search and link to other sites including author businesses\". Gate: scripts/author-sites.test.mjs; link check (not in the build): node scripts/author-sites-linkcheck.mjs.",
+	"Alfred Cherubim": {
+		"sites": [
+			{
+				"label": "Ministry",
+				"name": "Redeemer Christ Assembly",
+				"url": "https://redeemerchristassembly.com/",
+				"evidence": "Our book bios (LOVE, Miracles, Sharing): Senior Pastor of Redeemer Christ Assembly in Brampton, Canada; church site /en History: 'started in April 2003 as the first Tamil Church in Brampton ... by Pastor S. Alfred Cherubim' [curl 200 2026-11-27, pmseoaeo]",
+				"grade": "CERTAIN"
+			}
+		]
+	},
 	"Andrea Anderson with Barbara Hemphill": {
 		"sites": [
 			{
