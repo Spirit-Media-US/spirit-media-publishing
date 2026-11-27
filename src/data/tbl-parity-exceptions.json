@@ -6,7 +6,7 @@
 			"check": "schema",
 			"items": ["Book.sameAs", "Product.sameAs"],
 			"reason": "SMP's JSON-LD carries an Amazon sameAs; TBL deliberately carries no Amazon link (we point to our own sales), so TBL omits the field.",
-			"ruling": "kevin-decisions 2026-11-16 L2190 \"1 We point to our own ebook sales.\"; agreed exception relayed by coordinator 2026-11-27"
+			"ruling": "no-Amazon-links rule, memory/project_fhb_amazon_not_a_channel.md (Kevin 2026-11-10: Amazon is not a sales channel, never re-add Amazon links) + kevin-decisions 2026-11-16 L2190 \"1 We point to our own ebook sales.\" (our sale pages point to our own sales); relayed by coordinator 2026-11-27"
 		},
 		{
 			"slug": "the-sunday-scaries",
@@ -16,14 +16,14 @@
 				"opens the audible listing in a new tab."
 			],
 			"reason": "SMP's Audible box. Outside audiobook links are on a Kevin HOLD; TBL sells the audiobook itself.",
-			"ruling": "kevin-decisions 2026-11-26 L3150 \"55 Buy from SMP\"; outside-audiobook-link HOLD relayed by coordinator 2026-11-27"
+			"ruling": "kevin seat ship-list directive 2026-11-26 23:18Z (seat-channel to pmbuilder): \"HOLD for Kevin: ... outside audiobook links\"; relayed by coordinator 2026-11-27"
 		},
 		{
 			"slug": "the-sunday-scaries",
 			"check": "sections",
 			"items": ["the sunday scaries"],
 			"reason": "The heading of the same Audible box (above).",
-			"ruling": "kevin-decisions 2026-11-26 L3150 \"55 Buy from SMP\"; outside-audiobook-link HOLD relayed by coordinator 2026-11-27"
+			"ruling": "kevin seat ship-list directive 2026-11-26 23:18Z (seat-channel to pmbuilder): \"HOLD for Kevin: ... outside audiobook links\"; relayed by coordinator 2026-11-27"
 		}
 	]
 }
