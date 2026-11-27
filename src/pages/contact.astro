@@ -1,17 +1,17 @@
 ---
 import AuthorSurvey from '../components/AuthorSurvey.astro';
+import MailtoLink from '../components/MailtoLink.astro';
 import Layout from '../layouts/Layout.astro';
+import { SMP_PHONE, SMP_PHONE_SCHEMA, SMP_PHONE_TEL } from '../lib/contact';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 
-let sitePhone = '1-888-800-3744';
 let contactHeroImage: string | undefined;
 let contactHeroImageAlt = 'Books published by Spirit Media';
 
 try {
 	const s = await sanityClient.fetch(
-		'*[_type == "siteSettings"][0]{ phone, contactPageHeroImage, contactPageHeroImageAlt }',
+		'*[_type == "siteSettings"][0]{ contactPageHeroImage, contactPageHeroImageAlt }',
 	);
-	if (s?.phone) sitePhone = s.phone;
 	if (s?.contactPageHeroImage) {
 		contactHeroImage = urlFor(s.contactPageHeroImage).width(1058).fit('max').auto('format').url();
 	}
@@ -38,7 +38,7 @@ contactHeroImage =
 			"name": "Schedule a Free Consultation — Spirit Media Publishing",
 			"url": "https://spiritmediapublishing.com/contact/",
 			"description": "Request a free publishing and marketing consultation with Spirit Media Publishing.",
-			"provider": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com", "telephone": "+1-888-800-3744" }
+			"provider": { "@type": "Organization", "@id": "https://spiritmediapublishing.com/#organization", "name": "Spirit Media Publishing", "url": "https://spiritmediapublishing.com", "telephone": SMP_PHONE_SCHEMA }
 		})}></script>
 	</Fragment>
 	<main id="main-content">
@@ -59,6 +59,7 @@ contactHeroImage =
 				<div class="mt-8 lg:mt-10 mx-auto max-w-3xl text-center" data-animate="fade-up">
 					<p class="eyebrow eyebrow-red mb-3">Welcome to Spirit Media Publishing</p>
 					<p class="text-xl text-stone-600 leading-relaxed">We've learned that the messages that go on to reach the nations come from people who are deeply aligned with us on <em>why</em> — not just <em>what</em>. This 1–3 minute survey is how we make sure a partnership would truly serve you. Taking a message to the nations — through publishing, marketing, or both — takes real investment on both sides, and the last thing we want is to lead you down a road that isn't right for you. Please tell us more. There are no wrong answers, only clear ones.</p>
+					<p class="mt-6 text-lg text-stone-600">Prefer to talk first? <MailtoLink email="hello@spiritmediapublishing.com" class="font-semibold text-red hover:underline">Email us</MailtoLink> or call <a href={SMP_PHONE_TEL} class="font-semibold text-red hover:underline whitespace-nowrap">{SMP_PHONE}</a>.</p>
 				</div>
 			</div>
 		</section>
@@ -66,7 +67,7 @@ contactHeroImage =
 		<!-- FORM -->
 		<section class="bg-stone-100 pt-8 lg:pt-10 pb-12 lg:pb-20 px-6 lg:px-8">
 			<div class="max-w-3xl mx-auto" data-animate="fade-up">
-				<AuthorSurvey phone={sitePhone} />
+				<AuthorSurvey phone={SMP_PHONE} />
 			</div>
 		</section>
 

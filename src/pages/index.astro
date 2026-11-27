@@ -5,6 +5,7 @@ import MailtoLink from '../components/MailtoLink.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import ShipCountryMarquee from '../components/ShipCountryMarquee.astro';
 import Layout from '../layouts/Layout.astro';
+import { SMP_PHONE_SCHEMA } from '../lib/contact';
 import { sanityClient, urlFor } from '../lib/sanity.ts';
 import { LIVE_COUNTRIES } from '../store-engine/lib/shipCountries.ts';
 
@@ -163,7 +164,14 @@ const shipNames = LIVE_COUNTRIES.map((c) => c.name).sort((a, b) => a.localeCompa
 				"https://www.instagram.com/spiritmediapublishing/"
 			],
 			// Kevin 2026-10-21: this address and this phone ONLY, everywhere.
-			"telephone": "+1-888-800-3744",
+			"telephone": SMP_PHONE_SCHEMA,
+			// Kevin L3174 2026-11-27: a ContactPoint with the phone only, never an email (11-20 rule).
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"telephone": SMP_PHONE_SCHEMA,
+				"contactType": "customer service",
+				"availableLanguage": "English"
+			},
 			"address": {
 				"@type": "PostalAddress",
 				"streetAddress": "205 S Academy Street, Unit 3251",
