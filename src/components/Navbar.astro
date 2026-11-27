@@ -18,6 +18,9 @@ const resourcesLinks = [
 	{ href: '/blog/', label: 'Blog' },
 	{ href: '/media-center/', label: 'Media Center' },
 	{ href: '/portfolio/', label: 'Portfolio' },
+	// Kevin 2026-11-26 "54 A" (kevin-decisions L3150): TBL link in the SMP nav + footer; same tab (sister store), the
+	// label names the destination. In Resources (desktop dropdown + mobile menu) so the top bar still fits at 1024px.
+	{ href: 'https://thebelieverslibrary.com', label: "Read free on The Believer's Library" },
 ] as const;
 
 function isActive(href: string): boolean {

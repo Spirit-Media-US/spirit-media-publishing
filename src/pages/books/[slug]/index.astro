@@ -406,7 +406,15 @@ export async function getStaticPaths() {
 					const r = await checkoutForm(
 						{ counts: { [sku]: 1 }, country: c.code, returnPath: '/bookstore/' },
 						'https://spiritmediapublishing.com/store-checkout',
-						{ enabled: true, isFirstOrder: async () => false, firstOrderPromo: async () => null },
+						// the forwarder credit (Ukraine / Nova Poshta, L3025) is looked up in Stripe at checkout
+						// (functions/store-checkout.ts); stubbed as present here, so a country the engine really
+						// ships to through the forwarder is listed (without it every UA-route book read as not served)
+						{
+							enabled: true,
+							isFirstOrder: async () => false,
+							firstOrderPromo: async () => null,
+							forwarderCoupon: async (f) => f.coupon,
+						},
 					);
 					if (!('form' in r)) {
 						all = false;
