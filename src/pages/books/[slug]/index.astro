@@ -5,6 +5,7 @@ import BookOrder from '../../../components/BookOrder.astro';
 import BookRetailer from '../../../components/BookRetailer.astro';
 import LookInside from '../../../components/LookInside.astro';
 import authorAccounts from '../../../data/books/author-accounts.json';
+import authorPages from '../../../data/books/author-pages.json';
 // /books/<slug>/ — ONE page per SMP book, with its order form ON it (Kevin 2026-11-13 ~23:1xZ via pmseoaeo: "All I see
 // is check out form? Where is the page?" -> the full book page with the ORDER FORM ON IT, like FHB grandparents and the
 // new FHB Who Am I?; /books/<slug>/buy/ 301s to /books/<slug>/#order). Books M4 (Kevin approved SMP book pages 11-13).
@@ -669,6 +670,9 @@ const more = ((p.page?.more ?? []) as string[])
 			})
 			.filter(Boolean) as any[],
 	);
+// SMP AUTHOR PAGE by author name (src/data/books/author-pages.json); none = no link, no @id.
+const authorPagePath = ((authorPages as unknown as Record<string, { path?: string }>)[p.author]
+	?.path ?? null) as string | null;
 // AUTHOR HEADSHOT by author name (src/data/books/authors.json); none = no photo.
 const headshotRow = (authors as Record<string, any>)[p.author]?.headshot as
 	| { src: string; w: number; h: number }
@@ -776,8 +780,12 @@ const ld = {
 	url,
 	description: p.short,
 	// url + sameAs = the author's CERTAIN sites (src/data/books/author-sites.json), the same set the bio's link row shows.
+	// an SMP author page (src/data/books/author-pages.json) gives the Person its @id + url; a main Website (authorLd) keeps url.
 	author: {
 		'@type': 'Person',
+		...(authorPagePath
+			? { '@id': `${SITE}${authorPagePath}#person`, url: `${SITE}${authorPagePath}` }
+			: {}),
 		name: p.author,
 		...(headshot ? { image: headshot.src } : {}),
 		...authorLd(p.author),
@@ -943,7 +951,7 @@ const crumbs = {
 			</section>
 		)}
 
-		{p.page ? <BookMirror hideLookInside={hasViewer} page={p.page} title={p.title} faq={p.faq} lang={p.lang ?? 'en'} headshot={headshot} titleColor={smallTitleColor} authorName={p.author} more={more} /> : (
+		{p.page ? <BookMirror hideLookInside={hasViewer} page={p.page} title={p.title} faq={p.faq} lang={p.lang ?? 'en'} headshot={headshot} titleColor={smallTitleColor} authorName={p.author} more={more} authorPage={authorPagePath} /> : (
 		<section class="px-4 py-10 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-3xl space-y-10 text-stone-800">
 				{p.who_for.length > 0 && (
@@ -966,6 +974,7 @@ const crumbs = {
 							<p class="leading-relaxed">{p.bio}</p>
 						</div>
 						<AuthorLinks author={p.author} />
+						{authorPagePath && <p class="mt-3 text-[0.95rem]"><a href={authorPagePath} class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink" data-author-page>More about {p.author}<span aria-hidden="true"> &rarr;</span></a></p>}
 					</div>
 				)}
 				<div>

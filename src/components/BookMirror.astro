@@ -28,6 +28,8 @@ interface Props {
 	authorName?: string;
 	/** other SMP books to link (page.more slugs resolved by the page), FHB "More editions" */
 	more?: { slug: string; title: string }[];
+	/** the author's SMP author page path (src/data/books/author-pages.json), or null = none */
+	authorPage?: string | null;
 }
 const {
 	page: g,
@@ -39,6 +41,7 @@ const {
 	titleColor,
 	authorName,
 	more = [],
+	authorPage = null,
 } = Astro.props;
 // Section labels: the page's own heading when its copy names one (a Spanish page, 3ge), else the house label in its
 // language. Nothing is invented: es strings are the plain labels the Spanish copy itself uses.
@@ -173,6 +176,7 @@ const asList = (a: string) => {
 						{author && <h3 class="text-xl font-bold text-ink">{author}</h3>}
 						<p class="mt-2 text-stone-700">{g.author.bio}</p>
 						{(authorName || author) && <AuthorLinks author={authorName || author} />}
+						{authorPage && <p class="mt-3 text-[0.95rem]"><a href={authorPage} class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink" data-author-page>More about {authorName || author}<span aria-hidden="true"> &rarr;</span></a></p>}
 					</div>
 				</div>
 			)}
