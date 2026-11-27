@@ -1,0 +1,4 @@
+{
+	"_note": "SMP AUTHOR PAGES (pmseoaeo 2026-11-27, Kevin directive via the kevin seat: 'BUILD an SMP author page for Pastor Alfred Cherubim'). Keyed by the author name EXACTLY as book pages write it. When an author is here, their book pages link 'More about <author>' to path, and the book JSON-LD author Person carries @id <SITE><path>#person + url (unless author-sites.json gives a main Website, which keeps url). The page itself lives at src/pages<path>index or src/pages/authors/<slug>.astro.",
+	"Alfred Cherubim": { "path": "/authors/alfred-cherubim/" }
+}
