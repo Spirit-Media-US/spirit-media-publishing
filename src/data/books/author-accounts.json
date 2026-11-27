@@ -712,11 +712,7 @@
 			"author": "Alfred Cherubim",
 			"href": "https://www.amazon.com/dp/B0D5JQ683G",
 			"store": "Amazon",
-			"same_as": [
-				"https://www.amazon.com/dp/B0D5JQ683G",
-				"https://www.amazon.com/dp/B0FPTD2SN3",
-				"https://www.amazon.com/dp/B0D94ZVDXN"
-			],
+			"same_as": ["https://www.amazon.com/dp/B0D5JQ683G", "https://www.amazon.com/dp/B0D94ZVDXN"],
 			"formats": [
 				{
 					"format": "Paperback",
@@ -734,6 +730,7 @@
 				}
 			],
 			"retired_smp_skus": [],
+			"not_ours": "Ewings Publishing LLC Sep 2025 edition (PB 979-8-89419-884-2, HB 979-8-89419-885-9 B0FPTD2SN3) is NOT OURS and never goes in same_as/formats (pmseoaeo 2026-11-27, eval doc 1mnBTET-s850yq4k4suKOY9MBe5RG5kh8QEOU12iSoII). SMP HB 979-8-89307-047-7 assigned, not live.",
 			"sku_removed": [
 				"love-the-greatest-power-ever-known-pb",
 				"love-the-greatest-power-ever-known-ebook"
@@ -1460,11 +1457,7 @@
 			"author": "Alfred Cherubim",
 			"href": "https://www.amazon.com/dp/1961614952",
 			"store": "Amazon",
-			"same_as": [
-				"https://www.amazon.com/dp/1961614952",
-				"https://www.amazon.com/dp/B0FPSMJJWF",
-				"https://www.amazon.com/dp/B0CTS7KCQ2"
-			],
+			"same_as": ["https://www.amazon.com/dp/1961614952", "https://www.amazon.com/dp/B0CTS7KCQ2"],
 			"formats": [
 				{
 					"format": "Paperback",
@@ -1472,13 +1465,6 @@
 					"isbn": "9781961614956",
 					"isbn_display": "978-1-961614-95-6",
 					"asin": "1961614952"
-				},
-				{
-					"format": "Hardback",
-					"schema_format": "https://schema.org/Hardcover",
-					"isbn": "9781961614901",
-					"isbn_display": "978-1-961614-90-1",
-					"asin": "B0FPSMJJWF"
 				},
 				{
 					"format": "eBook",
@@ -1489,6 +1475,7 @@
 				}
 			],
 			"retired_smp_skus": [],
+			"not_ours": "Ewings Publishing LLC Sep 2025 edition (PB 979-8-89419-881-1 B0FPSRTMD4, HB 979-8-89419-882-8 B0FPSMJJWF) is NOT OURS and never goes in same_as/formats; B0FPSMJJWF had been mapped to our HB ISBN 978-1-961614-90-1, which has no live listing, so the HB row is out until one exists (pmseoaeo 2026-11-27, eval doc 1mnBTET-s850yq4k4suKOY9MBe5RG5kh8QEOU12iSoII).",
 			"sku_removed": [
 				"the-miracles-of-jesus-christ-and-his-apostles-pb",
 				"the-miracles-of-jesus-christ-and-his-apostles-hb",
