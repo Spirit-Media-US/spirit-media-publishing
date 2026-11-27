@@ -46,8 +46,33 @@ const sha256 = async (s) => {
 	const { createHash } = await import('node:crypto');
 	return createHash('sha256').update(s).digest('hex');
 };
-/** Problems that forbid enabling (empty = may enable). data = tbl-switchover.json, report = tbl-parity.json or null. */
-export async function parityProblems(data, report, now = new Date()) {
+// EXCEPTIONS (src/data/tbl-parity-exceptions.json): a gap the switch-over may ship with, named EXACTLY — slug + check +
+// the missing items word for word + reason + ruling. A below-parity book passes only when EVERY one of its missing items
+// is listed; any other gap on that book (or an exception with no reason/ruling) still refuses.
+/** Problems with the exceptions file itself (empty = well-formed). */
+export function exceptionProblems(exceptions) {
+	const p = [];
+	for (const [i, x] of (exceptions?.exceptions ?? []).entries()) {
+		for (const k of ['slug', 'check', 'reason', 'ruling'])
+			if (!String(x?.[k] ?? '').trim()) p.push(`exception #${i + 1} (${x?.slug ?? '?'}): no ${k}`);
+		if (!Array.isArray(x?.items) || !x.items.length) p.push(`exception #${i + 1} (${x?.slug ?? '?'}): no items (name each missing item)`);
+	}
+	return p;
+}
+/** The missing items of one book that no exception covers, as "check: item". */
+export function unexcused(slug, missing, exceptions) {
+	const ok = new Set();
+	for (const x of exceptions?.exceptions ?? [])
+		if (x?.slug === slug && x.reason && x.ruling) for (const it of x.items ?? []) ok.add(`${x.check}\u0000${it}`);
+	const left = [];
+	for (const [check, items] of Object.entries(missing ?? {}))
+		for (const it of Array.isArray(items) ? items : [items]) if (!ok.has(`${check}\u0000${it}`)) left.push(`${check}: ${it}`);
+	return left;
+}
+
+/** Problems that forbid enabling (empty = may enable). data = tbl-switchover.json, report = tbl-parity.json or null,
+ *  exceptions = tbl-parity-exceptions.json or null. */
+export async function parityProblems(data, report, now = new Date(), exceptions = null) {
 	if (!data?.enabled) return [];
 	const p = [];
 	if (!report) return ['no parity report (src/data/tbl-parity.json): run slug_parity.py parity against the TBL origin'];
@@ -62,12 +87,19 @@ export async function parityProblems(data, report, now = new Date()) {
 	for (const s of slugs) {
 		const b = report.books?.[s];
 		if (!b) p.push(`${s}: not in the report`);
-		else if (b.pass !== true) p.push(`${s}: below parity (${Object.keys(b.missing ?? {}).join(', ') || 'unknown'})`);
+		else if (b.pass !== true) {
+			const left = unexcused(s, b.missing, exceptions);
+			// no missing items at all on a failing book = unknown, never excused
+			if (left.length || !Object.keys(b.missing ?? {}).length) {
+				const checks = [...new Set(left.map((x) => x.split(':')[0]))].join(', ') || 'unknown';
+				p.push(`${s}: below parity (${checks})${left.length ? ` — ${left.slice(0, 4).join('; ')}` : ''}`);
+			}
+		}
 	}
-	return p;
+	return [...exceptionProblems(exceptions), ...p];
 }
 /** Throws (the build stops) unless parity allows the switch-over to be enabled. */
-export async function assertParity(data, report, now = new Date()) {
-	const p = await parityProblems(data, report, now);
+export async function assertParity(data, report, now = new Date(), exceptions = null) {
+	const p = await parityProblems(data, report, now, exceptions);
 	if (p.length) throw new Error(`TBL switch-over REFUSED (parity gate), ${p.length} problem(s):\n  ${p.slice(0, 20).join('\n  ')}`);
 }

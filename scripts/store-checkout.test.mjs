@@ -1548,6 +1548,29 @@ test('tbl switch-over PARITY GATE: refuses while any mapped book is below parity
 	const other = good(); other.slugs_sha256 = 'x';
 	await assert.rejects(assertParity(data, other, now), /different slug list/);
 	assert.deepEqual(await parityProblems({ ...data, enabled: false }, null, now), [], 'disabled: no gate');
+	// NAMED EXCEPTIONS (src/data/tbl-parity-exceptions.json): listed gaps pass by name, anything else still refuses
+	const exc = { exceptions: [{ slug: 'b-book', check: 'schema', items: ['Book.sameAs'], reason: 'r', ruling: 'L1' }] };
+	const ex1 = good(); ex1.books['b-book'] = { pass: false, missing: { schema: ['Book.sameAs'] } };
+	await assert.doesNotReject(assertParity(data, ex1, now, exc), 'the listed gap passes by name');
+	await assert.rejects(assertParity(data, ex1, now, null), /b-book: below parity \(schema\)/, 'no exceptions file: refused');
+	// INJECTED UNLISTED GAP on the excepted book -> REFUSED, naming only the unlisted item
+	const ex2 = good(); ex2.books['b-book'] = { pass: false, missing: { schema: ['Book.sameAs', 'Offer.sku'] } };
+	await assert.rejects(assertParity(data, ex2, now, exc), /b-book: below parity \(schema\) — schema: Offer\.sku$/m);
+	// the same item on ANOTHER book is not excused
+	const ex3 = good(); ex3.books['a-book'] = { pass: false, missing: { schema: ['Book.sameAs'] } };
+	await assert.rejects(assertParity(data, ex3, now, exc), /a-book: below parity/);
+	// an exception without its reason or ruling excuses nothing and is itself a problem
+	const bare = { exceptions: [{ slug: 'b-book', check: 'schema', items: ['Book.sameAs'], reason: '', ruling: '' }] };
+	await assert.rejects(assertParity(data, ex1, now, bare), /no reason[\s\S]*b-book: below parity/);
+	// a failing book with no missing items is unknown, never excused
+	const ex4 = good(); ex4.books['b-book'] = { pass: false, missing: {} };
+	await assert.rejects(assertParity(data, ex4, now, exc), /b-book: below parity \(unknown\)/);
+	// the shipped exceptions file is well-formed and names only mapped books
+	const { exceptionProblems } = await import('../src/lib/tbl-switch.mjs');
+	const shipped = JSON.parse(fs.readFileSync(new URL('../src/data/tbl-parity-exceptions.json', import.meta.url), 'utf8'));
+	assert.deepEqual(exceptionProblems(shipped), []);
+	const mapped = JSON.parse(fs.readFileSync(new URL('../src/data/tbl-switchover.json', import.meta.url), 'utf8')).slugs;
+	for (const x of shipped.exceptions) assert.ok(mapped.includes(x.slug), `${x.slug}: exception for an unmapped book`);
 });
 
 test('tbl switch-over build: 301s shipped, mapped pages out of the sitemap, unmapped kept, store + ebook-download intact', async () => {

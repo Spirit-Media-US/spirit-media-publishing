@@ -1,0 +1,29 @@
+{
+	"_note": "TBL switch-over parity gate EXCEPTIONS (src/lib/tbl-switch.mjs unexcused). Each names ONE book, ONE check and its missing items WORD FOR WORD as slug_parity.py reports them, with the reason and the ruling. A book passes only when every missing item is listed here; any other gap still refuses. Added 2026-11-27 by pmbuilder on the coordinator's word (both AGREED exceptions, relayed 2026-11-27).",
+	"exceptions": [
+		{
+			"slug": "the-pyramid-principle",
+			"check": "schema",
+			"items": ["Book.sameAs", "Product.sameAs"],
+			"reason": "SMP's JSON-LD carries an Amazon sameAs; TBL deliberately carries no Amazon link (we point to our own sales), so TBL omits the field.",
+			"ruling": "kevin-decisions 2026-11-16 L2190 \"1 We point to our own ebook sales.\"; agreed exception relayed by coordinator 2026-11-27"
+		},
+		{
+			"slug": "the-sunday-scaries",
+			"check": "text",
+			"items": [
+				"the sunday scaries is available as an audiobook.",
+				"opens the audible listing in a new tab."
+			],
+			"reason": "SMP's Audible box. Outside audiobook links are on a Kevin HOLD; TBL sells the audiobook itself.",
+			"ruling": "kevin-decisions 2026-11-26 L3150 \"55 Buy from SMP\"; outside-audiobook-link HOLD relayed by coordinator 2026-11-27"
+		},
+		{
+			"slug": "the-sunday-scaries",
+			"check": "sections",
+			"items": ["the sunday scaries"],
+			"reason": "The heading of the same Audible box (above).",
+			"ruling": "kevin-decisions 2026-11-26 L3150 \"55 Buy from SMP\"; outside-audiobook-link HOLD relayed by coordinator 2026-11-27"
+		}
+	]
+}

@@ -88,7 +88,10 @@ const smpWorldwideRetire = {
 const TBL_DATA = JSON.parse(fs.readFileSync(path.resolve("src/data/tbl-switchover.json"), "utf8"));
 // PARITY GATE: enabled only while every mapped book is at parity on TBL (src/lib/tbl-switch.mjs assertParity).
 const TBL_PARITY_FILE = path.resolve("src/data/tbl-parity.json");
-await assertParity(TBL_DATA, fs.existsSync(TBL_PARITY_FILE) ? JSON.parse(fs.readFileSync(TBL_PARITY_FILE, "utf8")) : null);
+// Named exceptions (slug + check + exact items + reason + ruling) — src/lib/tbl-switch.mjs unexcused().
+const TBL_PARITY_EXC = path.resolve("src/data/tbl-parity-exceptions.json");
+const readIf = (f) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : null);
+await assertParity(TBL_DATA, readIf(TBL_PARITY_FILE), new Date(), readIf(TBL_PARITY_EXC));
 const TBL = tblSwitch(TBL_DATA);
 const tblRedirects = {
   name: "tbl-switchover-redirects",
