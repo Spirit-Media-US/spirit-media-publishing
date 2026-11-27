@@ -13,6 +13,11 @@ import shipset from '../../data/books/shipset-v2.json';
 //   [C] redeemerchristassembly.com/en History (curl 200 2026-11-27): "started in April 2003 as the first Tamil Church in
 //       Brampton ... by Pastor S. Alfred Cherubim"
 //   [A] Amazon author page B0CT41283Y (eval doc, MEASURED 2026-11-27); [T] TBL author page (curl 200 2026-11-27)
+//   [SS] SMP spec sheets (author-supplied bio 2A/2B + ISBN/specs), Drive 2024: Marriage Most Honorable
+//       1XMlRIzxCIWy-SEsEl7g5zRuugoTzRb1huMm9U8mLFVc, Power of Prayer (TAMIL) 18SEVjefpDW6ZT5XLLJ8Kybl08g4AUcLfH1KGcdXR6nc,
+//       Worship Not the Creations 1or2Ev9OI8LiChGrEMoTWQO-iCkBfw0q4XgQc5OP4V3I. ISBNs cross-checked against
+//       projects/fhb-print-bible/editions/ISBNS.json (Bowker) + LCCNs against projects/loc-lccn. These three have no SMP
+//       book page and no live listing (amazon-search.mjs "Alfred Cherubim" 2026-11-27), so they carry no link.
 // Facts NOT on file stay off the page (list in aeo-state/alfred-cherubim-smp-20261127.json). No email address, ever.
 // The book list + Person node are built from the same data the book pages read, so the two cannot disagree.
 import Layout from '../../layouts/Layout.astro';
@@ -37,9 +42,43 @@ const CHURCH = { name: 'Redeemer Christ Assembly', url: 'https://redeemerchrista
 const AMAZON = 'https://www.amazon.com/Alfred-Cherubim/e/B0CT41283Y';
 const TBL = 'https://thebelieverslibrary.com/authors/alfred-cherubim';
 
+// his three further SMP titles [SS]: no book page, no live listing yet, so no link and no "buy" wording
+const upcoming = [
+	{
+		title: 'Marriage Most Honorable',
+		subtitle: 'Instituted By God Himself',
+		language: 'English',
+		lang: 'en',
+		isbn: '9798893070880',
+		isbnDisplay: '979-8-89307-088-0',
+		about:
+			'A Scripture-rich book on marriage as God intended, instituted and blesses it: the union of a man and a woman, a husband and a wife.',
+	},
+	{
+		title: 'Power of Prayer',
+		subtitle: '',
+		language: 'Tamil',
+		lang: 'ta',
+		isbn: '9798893070798',
+		isbnDisplay: '979-8-89307-079-8',
+		about:
+			'A Tamil-language book on the impact of genuine, faithful prayer, with guidance from Scripture on praying with humility, perseverance and faith.',
+	},
+	{
+		title: 'Worship Not the Creations',
+		subtitle: '',
+		language: 'Tamil',
+		lang: 'ta',
+		isbn: '9798893070804',
+		isbnDisplay: '979-8-89307-080-4',
+		about:
+			'A Tamil-language book on idolatry and true worship, from the golden calf in Exodus to modern forms of idol worship, calling readers back to worship the Creator.',
+	},
+];
+
 const title = 'Pastor Alfred Cherubim, Author | Spirit Media Publishing';
 const description =
-	'Pastor S. Alfred Cherubim, born in Jaffna, Sri Lanka, leads Redeemer Christ Assembly in Brampton, Canada. His books: The Miracles of Jesus Christ and His Apostles, Sharing Your Faith and Testimony, LOVE.';
+	'Pastor S. Alfred Cherubim, born in Jaffna, Sri Lanka, leads Redeemer Christ Assembly in Brampton, Canada. Six books with Spirit Media Publishing, in English and Tamil.';
 
 const personLd = {
 	'@context': 'https://schema.org',
@@ -58,8 +97,14 @@ const personLd = {
 		...(headshot ? { image: headshot.src } : {}),
 		jobTitle: 'Senior Pastor',
 		birthPlace: { '@type': 'Place', name: 'Jaffna, Sri Lanka' },
+		spouse: { '@type': 'Person', name: 'Mary' },
+		knowsLanguage: ['en', 'ta'],
+		alumniOf: {
+			'@type': 'CollegeOrUniversity',
+			name: 'Government College of Agriculture, Sri Lanka',
+		},
 		description:
-			"Sri Lankan-born pastor who founded a children's home in Trincomalee for boys orphaned in the riots and now leads Redeemer Christ Assembly in Brampton, Canada. Author of three books published by Spirit Media Publishing.",
+			"Sri Lankan-born pastor who founded a children's home in Trincomalee for boys orphaned in the riots and now leads Redeemer Christ Assembly in Brampton, Canada. Author of six books with Spirit Media Publishing, in English and Tamil.",
 		worksFor: {
 			'@type': 'Organization',
 			name: CHURCH.name,
@@ -87,10 +132,8 @@ const booksLd = {
 	'@context': 'https://schema.org',
 	'@type': 'ItemList',
 	name: `Books by ${NAME}`,
-	itemListElement: books.map((b: any, i: number) => ({
-		'@type': 'ListItem',
-		position: i + 1,
-		item: {
+	itemListElement: [
+		...books.map((b: any) => ({
 			'@type': 'Book',
 			'@id': `${SITE}/books/${b.slug}/#book`,
 			name: b.title,
@@ -99,8 +142,19 @@ const booksLd = {
 			image: b.cover.jpg1200 ?? b.cover.jpg,
 			datePublished: b.pub_date,
 			author: { '@id': personId },
-		},
-	})),
+		})),
+		// no page, no listing yet: name, language, ISBN only (no url, no date, no offer)
+		...upcoming.map((u) => ({
+			'@type': 'Book',
+			name: u.title,
+			...(u.subtitle ? { alternativeHeadline: u.subtitle } : {}),
+			inLanguage: u.lang,
+			isbn: u.isbn,
+			bookFormat: 'https://schema.org/Paperback',
+			publisher: { '@id': `${SITE}/#organization` },
+			author: { '@id': personId },
+		})),
+	].map((item, i) => ({ '@type': 'ListItem', position: i + 1, item })),
 };
 const crumbs = {
 	'@context': 'https://schema.org',
@@ -140,7 +194,7 @@ const year = (d: string) => String(d).slice(0, 4);
 					<p class="text-sm font-semibold uppercase tracking-wide text-stone-600">Author · Spirit Media Publishing</p>
 					<h1 class="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Pastor Alfred Cherubim</h1>
 					<p class="mt-4 text-lg text-stone-700">
-						Pastor S. Alfred Cherubim is the Senior Pastor of Redeemer Christ Assembly in Brampton, Canada. Born in Jaffna, Sri Lanka, he came to faith in Jesus after four healings in his own family, and he has written three books with Spirit Media Publishing on the miracles of Jesus, on sharing your testimony, and on God's love.
+						Pastor S. Alfred Cherubim is the Senior Pastor of Redeemer Christ Assembly in Brampton, Canada. Born in Jaffna, Sri Lanka, he came to faith in Jesus after four healings in his own family, and he has written six books with Spirit Media Publishing, in English and Tamil, on the miracles of Jesus, sharing your testimony, God's love, marriage, prayer and worship.
 					</p>
 				</div>
 			</div>
@@ -150,16 +204,16 @@ const year = (d: string) => String(d).slice(0, 4);
 			<div class="mx-auto max-w-3xl space-y-5 text-stone-700">
 				<h2 class="text-2xl font-bold text-ink">About Alfred Cherubim</h2>
 				<p>
-					Alfred Cherubim was born in Jaffna, Sri Lanka. He worked for the Department of Agriculture and then held national posts in the YMCA in Sri Lanka and India.
+					Alfred Cherubim is of Tamil ancestry and was born in Jaffna, Sri Lanka. After his studies at the Government College of Agriculture he served as an Agricultural Officer in the Sri Lankan government. He went on to be Pioneer Director of the YMCA Youth Training Centre and then Associate General Secretary of the National Council of YMCAs in Sri Lanka.
 				</p>
 				<p>
-					He was a churchgoer by tradition and a YMCA leader when his wife, in a coma for nearly six months, woke within minutes of an evangelist's prayer. Three more healings followed in his family, and he and his wife accepted Jesus at midnight on Christmas Eve 1980. In the 1983 ethnic riots in Sri Lanka a mob attacked the family and their home was burned. He tells that story in <a href="/books/sharing-your-faith-and-testimony/" class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink">Sharing Your Faith and Testimony</a>.
+					He was a churchgoer by tradition and a YMCA leader when his wife, in a coma for nearly six months, woke within minutes of an evangelist's prayer. Three more healings followed in his family, and he and his wife accepted Jesus at midnight on Christmas Eve 1980. In the 1983 ethnic riots in Sri Lanka a mob attacked the family and their home was burned, and the family moved to India, where he served the YMCA in Hyderabad and the National Council of YMCAs of India in New Delhi. He tells that story in <a href="/books/sharing-your-faith-and-testimony/" class="font-semibold text-ink underline decoration-stone-400 underline-offset-4 hover:decoration-ink">Sharing Your Faith and Testimony</a>.
 				</p>
 				<p>
-					He entered full-time ministry in 1990. In Trincomalee he founded a children's home for boys who had lost their parents in the riots, and between 1996 and 2001 he preached in churches in Europe, North America, India and Australia.
+					He returned to Sri Lanka and entered full-time ministry in 1990. In Trincomalee he founded a children's home for boys who had lost their parents in the riots: COME HOME (Children Out of Motherly Embrace, Hope Offered with Maternal Enfold). With his wife, Mary, he cared for and taught 53 boys there, and three of them became full-time pastors. Between 1996 and 2001 he preached in churches in Europe, North America, India and Australia, and in 2001 the family settled in Canada.
 				</p>
 				<p>
-					In April 2003 he started Redeemer Christ Assembly in Brampton, Ontario, the city's first Tamil church, serving Tamil families who settled there from Sri Lanka, India, Singapore and beyond. He is its Senior Pastor today, and the church also runs a TV ministry, a newspaper ministry and booklet publishing.
+					In April 2003 he started Redeemer Christ Assembly in Brampton, Ontario, the city's first Tamil church, serving Tamil families who settled there from Sri Lanka, India, Singapore and beyond. He is its Senior Pastor today, and the church also runs a TV ministry, a newspaper ministry and booklet publishing. He writes in both Tamil and English.
 				</p>
 			</div>
 		</section>
@@ -176,6 +230,22 @@ const year = (d: string) => String(d).slice(0, 4);
 							</a>
 							{b.subtitle && <p class="text-sm text-stone-600">{b.subtitle} · {year(b.pub_date)}</p>}
 							<p class="mt-2 text-stone-700">{b.short}</p>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+
+		<section class="bg-white px-4 pb-12 sm:px-6 lg:px-8" aria-labelledby="more-by">
+			<div class="mx-auto max-w-5xl">
+				<h2 id="more-by" class="text-2xl font-bold text-ink">More books by Alfred Cherubim with Spirit Media Publishing</h2>
+				<p class="mt-2 text-stone-600">Not yet available in stores.</p>
+				<ul class="mt-6 grid gap-6 sm:grid-cols-3">
+					{upcoming.map((u) => (
+						<li>
+							<h3 class="text-lg font-bold text-ink">{u.title}</h3>
+							<p class="text-sm text-stone-600">{u.subtitle ? `${u.subtitle} · ` : ''}{u.language} · Paperback ISBN {u.isbnDisplay}</p>
+							<p class="mt-2 text-stone-700">{u.about}</p>
 						</li>
 					))}
 				</ul>
