@@ -506,8 +506,10 @@ test('book pages: one full page per book; order form ON the sellable ones; no in
 		const fhb = `https://fathersheartbible.com/books/${b.slug}/`;
 		assert.ok(!LIVE.includes(b.slug), `${b.slug}: an FH book is not in pages-live.json`);
 		assert.ok(!fs.existsSync(new URL(`${b.slug}/index.html`, dist)), `${b.slug}: no SMP page (FHB is its window)`);
+		// 2026-11-26 (kevin seat 23:19Z, L3147): the old SMP URL 301s in ONE hop to the TBL book page (TBL = the one store)
+		const tbl = `https://thebelieverslibrary.com/books/${b.slug}`;
 		for (const from of [`/books/${b.slug}/`, `/books/${b.slug}`])
-			assert.ok(redirects.split('\n').includes(`${from} ${fhb} 301`), `${from} 301 -> ${fhb}`);
+			assert.ok(redirects.split('\n').includes(`${from} ${tbl} 301`), `${from} 301 -> ${tbl}`);
 		assert.ok(storeHtml.includes(`href="${fhb}"`), `bookstore card -> ${fhb}`);
 		assert.ok(!storeHtml.includes(`href="/books/${b.slug}/"`), `bookstore: no link to the SMP /books/${b.slug}/`);
 	}

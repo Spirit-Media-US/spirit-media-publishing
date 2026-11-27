@@ -1,8 +1,9 @@
 # OPTION C (Kevin 2026-11-16 "1 store SMP. 2 shop windows FHB and SMP"): every Father's Heart product has ONE window, FHB
-/books/who-am-i/ https://fathersheartbible.com/books/who-am-i/ 301
-/books/who-am-i https://fathersheartbible.com/books/who-am-i/ 301
-/books/beloved-identity/ https://fathersheartbible.com/books/beloved-identity/ 301
-/books/beloved-identity https://fathersheartbible.com/books/beloved-identity/ 301
+# 2026-11-26 (kevin seat 23:19Z, L3147): these two now 301 in ONE hop to their TBL book page (TBL = the one store).
+/books/who-am-i/ https://thebelieverslibrary.com/books/who-am-i 301
+/books/who-am-i https://thebelieverslibrary.com/books/who-am-i 301
+/books/beloved-identity/ https://thebelieverslibrary.com/books/beloved-identity 301
+/books/beloved-identity https://thebelieverslibrary.com/books/beloved-identity 301
 # Bookstore collections (Kevin 2026-11-16 "Make it: All, SMP only ... FHB English ... FHB Languages ... FHB Books"):
 # the 3 retired FHB collection pages keep their link value. Express Books keeps its own URL.
 /bookstore/fathers-heart-bible-fhb/ /bookstore/fhb-english/ 301
